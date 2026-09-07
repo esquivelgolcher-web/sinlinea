@@ -316,7 +316,7 @@ de `posts/` y `public/`, y no se toca `seen.json`.
   reescribirlo por completo.
 - Costo estimado (Opus 5, ~8 corridas/día, ~5 000 tokens de entrada y ~600 de
   salida por corrida): entre 3 y 4 USD al mes con `claude-sonnet-5`; con `claude-opus-5`, entre 7
-  y 4 USD.
+  y 10 USD.
 - Si la API falla tras los reintentos del SDK, la corrida termina con error y
   **no se hace commit de nada**; `seen.json` no cambia, así los candidatos se
   reevalúan en la siguiente corrida.
