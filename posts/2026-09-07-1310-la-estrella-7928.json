@@ -1,0 +1,35 @@
+{
+  "id": "2026-09-07-1310-la-estrella-7928",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/balacera-en-la-via-transistmica-dos-aprehendidos-y-tres-armas-decomisadas-tras-mas-de-40-disparos-CK25493313",
+    "titulo": "Balacera en la vía Transístmica: dos aprehendidos y tres armas decomisadas tras más de 40 disparos",
+    "publicado": "2026-09-07T15:24:00.000Z"
+  },
+  "categoria": "SEGURIDAD",
+  "titular": "Más de 40 disparos en balacera en la vía Transístmica",
+  "bajada": "Sujetos armados atacaron un vehículo en una gasolinera de Pueblo Nuevo; dos personas fueron aprehendidas y se decomisaron tres armas.",
+  "caption": "El ataque ocurrió en una de las vías más transitadas de la capital y no dejó heridos de milagro, ya que el conductor había bajado del auto minutos antes. Las autoridades ya investigan a los aprehendidos y revisan cámaras de seguridad de la zona. ¿Qué tan seguro te sientes transitando por esta zona de la ciudad?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Seguridad",
+    "#Transístmica",
+    "#PuebloNuevo",
+    "#PolicíaNacional"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-09-07-1310-la-estrella-7928.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-07-1310-la-estrella-7928.jpg",
+    "hash": "e84db409cdea1773",
+    "version": 2,
+    "renderizada": "2026-09-07T18:10:35.948Z"
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-07T18:10:04.522Z",
+  "actualizado": "2026-09-07T18:10:04.522Z"
+}

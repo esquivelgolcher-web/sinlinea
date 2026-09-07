@@ -1,0 +1,35 @@
+{
+  "id": "2026-09-07-1310-la-prensa-807e",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/politica/contralor-anel-flores-frena-compra-de-vehiculos-para-el-estado/",
+    "titulo": "Contralor Anel Flores frena compra de vehículos para el Estado",
+    "publicado": "2026-09-07T16:05:07.000Z"
+  },
+  "categoria": "POLÍTICA",
+  "titular": "Contralor frena compra de vehículos nuevos para el Estado",
+  "bajada": "Anel Flores anunció una nota al MEF para suspender adquisiciones, salvo casos de urgencia notoria, mientras se revisa la flota estatal de 32 mil vehículos.",
+  "caption": "El contralor reveló que hasta 5 mil vehículos del Estado podrían estar convertidos en chatarra por fallas menores sin reparar. La medida busca frenar el gasto mientras se ordena el mantenimiento de la flota pública. ¿Cree que esta decisión ayudará a cuidar mejor los recursos del Estado?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Contraloría",
+    "#GastoPúblico",
+    "#Estado",
+    "#AnelFlores"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-09-07-1310-la-prensa-807e.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-07-1310-la-prensa-807e.jpg",
+    "hash": "ea475bab5fefa671",
+    "version": 2,
+    "renderizada": "2026-09-07T18:10:35.719Z"
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-07T18:10:04.522Z",
+  "actualizado": "2026-09-07T18:10:04.522Z"
+}
