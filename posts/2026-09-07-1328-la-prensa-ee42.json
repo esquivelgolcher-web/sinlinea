@@ -1,0 +1,35 @@
+{
+  "id": "2026-09-07-1328-la-prensa-ee42",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/politica/presupuesto-general-del-estado-2027-comision-de-presupuesto-anticipa-ajustes/",
+    "titulo": "Presupuesto general del Estado 2027: Comisión anticipa ajustes",
+    "publicado": "2026-09-06T23:05:20.000Z"
+  },
+  "categoria": "ECONOMÍA",
+  "titular": "Comisión de la Asamblea prepara ajustes al presupuesto 2027",
+  "bajada": "El proyecto de $35,111.7 millones sigue en revisión; faltan entidades clave como MEF y Minsa por sustentar sus partidas.",
+  "caption": "El presupuesto del próximo año todavía está bajo la lupa de los diputados. Tras 46 vistas presupuestarias, la Comisión de Presupuesto alista recomendaciones antes de que el proyecto pase al pleno. Falta revisar rubros sensibles como salud, con más de $3,000 millones en juego. ¿Qué recortes o ajustes esperas que se hagan?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Presupuesto2027",
+    "#AsambleaNacional",
+    "#Economía",
+    "#Salud"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-09-07-1328-la-prensa-ee42.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-07-1328-la-prensa-ee42.jpg",
+    "hash": "3af618434c2be26d",
+    "version": 3,
+    "renderizada": "2026-09-07T18:28:42.851Z"
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-07T18:28:21.391Z",
+  "actualizado": "2026-09-07T18:28:21.391Z"
+}
