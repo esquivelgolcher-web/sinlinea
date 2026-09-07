@@ -73,8 +73,8 @@ Un solo repositorio público `sinlinea` en GitHub, con tres procesos y un panel:
 - **Panel** es HTML/JS estático; lee y escribe en el repo usando la API REST de
   GitHub con un token fino guardado en el navegador del celular.
 
-Los tres flujos de trabajo comparten un mismo grupo de concurrencia para no
-pisarse al hacer push.
+Todos los flujos de trabajo de Actions (§12, incluido el de renovación del
+token) comparten un mismo grupo de concurrencia para no pisarse al hacer push.
 
 ## 4. Estructura del repositorio
 
@@ -171,10 +171,17 @@ versiona.
 ```
 borrador ──aprobar(hora)──▶ programado ──publicar ok──▶ publicado
 borrador ──descartar─────▶ descartado
-programado ──publicar falla─▶ error ──reintentar──▶ programado
+programado ──publicar falla─▶ error(instagram) ──reintentar──▶ programado
 programado ──quitar de la cola──▶ borrador
+(cualquiera) ──render falla──▶ error(render) ──re-render ok──▶ borrador | programado
 error ──descartar────────▶ descartado
 ```
+
+- `reintentar` (botón del panel) aplica a `error.paso = instagram` y devuelve
+  el post a `programado` conservando su hora.
+- Tras un `error.paso = render`, REGENERAR vuelve a intentar el render en su
+  siguiente corrida; si tiene éxito, el post queda en `programado` cuando el
+  campo `programado` tiene valor y en `borrador` en caso contrario.
 
 Ninguna transición borra archivos. Cambiar `titular`, `bajada`, `categoria` o
 `variante` está permitido en `borrador`, `programado` y `error`; el `caption` y
@@ -219,17 +226,19 @@ manual (§14).
    Que Hay Panamá.
 3. Filtrar: URL no vista, publicada en las últimas 48 h. Ordenar por fecha,
    quedarse con `candidatosMax`.
-4. Comprobar el cupo: `maxBorradoresPorDia` menos borradores creados hoy. Si el
-   cupo es 0, terminar sin llamar a Claude.
+4. Comprobar el cupo: `maxBorradoresPorDia` menos posts creados hoy (hora de
+   Panamá, en cualquier estado, incluidos descartados). Si el cupo es 0,
+   terminar sin llamar a Claude.
 5. Para cada candidato descargar el artículo (`articulo.mjs`): título, meta
    description, primeros 4 párrafos, máximo ~1 500 caracteres. Timeout 15 s;
    si falla se usa solo el titular y descripción del feed.
 6. Llamar a Claude (`redactor.mjs`, §7) con los candidatos y los titulares de
    los posts de los últimos `diasSinRepetir` días (cualquier estado excepto
    descartado). Claude devuelve hasta `min(maxPorCorrida, cupo)` posts.
-7. Para cada post devuelto: asignar `id`, `variante` (rotación negro →
-   amarillo → rojo según el último post creado), validar límites (§10.3),
-   renderizar imagen (§8), escribir `posts/<id>.json`.
+7. Para cada post devuelto: asignar `id`, `variante` (ciclo negro → amarillo
+   → rojo → negro, partiendo de la variante del post con `creado` más
+   reciente), validar límites (§10.3), renderizar imagen (§8), escribir
+   `posts/<id>.json`.
 8. Marcar como vistas **todas** las URLs candidatas (elegidas o no) para no
    volver a evaluarlas.
 9. Archivar: mover a `posts/archivo/AAAA-MM/` los posts `publicado` o
@@ -322,7 +331,11 @@ de `posts/` y `public/`, y no se toca `seen.json`.
   framework ni build, móvil primero, funciona también en escritorio.
 - **Primer uso**: pantalla para pegar un token fino de GitHub (solo repositorio
   `sinlinea`, permiso Contents: lectura y escritura). Se guarda en
-  `localStorage`. Sin token el panel es de solo lectura.
+  `localStorage`. Sin token el panel es de solo lectura y usa la API sin
+  autenticar (60 peticiones por hora por dirección IP), suficiente para una
+  consulta ocasional pero no para uso diario.
+- Cabecera fija con el estado del token de Instagram ("vence el 5 nov") leído
+  de `data/token-info.json` (§10.2), en rojo si faltan menos de 7 días.
 - **Lectura**: lista `posts/` con la API de contenidos de GitHub y descarga cada
   JSON en paralelo (cabecera `application/vnd.github.raw+json`). Las imágenes se
   cargan desde Pages con `?v=<hash>` para evitar caché vieja.
@@ -384,8 +397,12 @@ reintentan y pasan el post a `error`.
   y actualiza el secreto con `gh secret set` usando el secreto `GH_PAT` (token
   fino con permiso Secrets: lectura y escritura sobre el repositorio). El
   refresco solo es válido si el token tiene más de 24 h y no ha expirado.
-- PUBLICAR registra en el log los días restantes del token y, si quedan menos
-  de 7 días, escribe una advertencia visible en el resumen de la corrida.
+- La respuesta del refresco incluye `expires_in`; `renovar-token.yml` guarda
+  la fecha de vencimiento (solo la fecha, nunca el token) en
+  `data/token-info.json` y hace commit. PUBLICAR lee ese archivo y, si faltan
+  menos de 7 días, escribe una advertencia en el resumen de la corrida; el
+  panel lo muestra en la cabecera (§9). La primera vez, la fecha se escribe a
+  mano en la configuración manual (§14) como "hoy + 60 días".
 
 ### 10.3 Composición y límites del caption
 
@@ -472,7 +489,8 @@ por párrafos completos y se registra.
 5. Crear dos tokens finos de GitHub limitados al repositorio `sinlinea`: uno
    para el celular (Contents: lectura y escritura) y otro como secreto `GH_PAT`
    (Secrets: lectura y escritura).
-6. Completar `config.json`: `pages.baseUrl` y `marca.usuario`.
+6. Completar `config.json`: `pages.baseUrl` y `marca.usuario`. Escribir en
+   `data/token-info.json` la fecha de vencimiento del token (hoy + 60 días).
 7. Ejecutar `generar.yml` a mano, abrir el panel, aprobar un post con hora
    cercana y verificar la primera publicación real.
 
@@ -480,7 +498,8 @@ por párrafos completos y se registra.
 
 - **Carrusel**: varias imágenes por post (`imagenes[]` en el JSON), contenedores
   hijos con `is_carousel_item=true` y un contenedor `media_type=CAROUSEL`.
-  La plantilla ya separa portada, cuerpo y cierre por bloques.
+  La plantilla v1 se escribe por bloques (cabecera, cuerpo, pie) para poder
+  reutilizarlos en las láminas del carrusel.
 - **Historias**: `media_type=STORIES` con una plantilla 1080×1920.
 - **Foto del artículo**: variante `foto` con la imagen de la fuente y crédito,
   previa revisión de derechos de uso.
