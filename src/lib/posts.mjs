@@ -17,11 +17,34 @@ export function validarPost(post) {
   exigir(RE_ID.test(post.id || ""), `id "${post.id}" no tiene el formato esperado`);
   exigir(ESTADOS.includes(post.estado), `estado "${post.estado}" desconocido`);
   exigir(post.fuente && typeof post.fuente.medio === "string" && /^https?:\/\//.test(post.fuente.url || ""), "fuente.medio y fuente.url son obligatorios");
+  exigir(typeof post.fuente.titulo === "string", "fuente.titulo debe ser texto");
+  exigir(!Number.isNaN(Date.parse(post.fuente.publicado)), "fuente.publicado debe ser una fecha ISO");
   exigir(CATEGORIAS.includes(post.categoria), `categoria "${post.categoria}" no permitida`);
   exigir(VARIANTES.includes(post.variante), `variante "${post.variante}" no permitida`);
   for (const k of ["titular", "bajada", "caption"]) exigir(typeof post[k] === "string" && post[k].trim(), `${k} es obligatorio`);
   exigir(Array.isArray(post.hashtags), "hashtags debe ser una lista");
-  exigir(post.imagen === null || (post.imagen && typeof post.imagen.hash === "string"), "imagen debe ser null o tener hash");
+  if (post.imagen !== null) {
+    const i = post.imagen;
+    exigir(
+      i && typeof i === "object" && typeof i.ruta === "string" && typeof i.url === "string" && typeof i.hash === "string"
+        && Number.isInteger(i.version) && !Number.isNaN(Date.parse(i.renderizada)),
+      "imagen debe ser null o tener ruta, url, hash, version y renderizada"
+    );
+  }
+  if (post.publicacion !== null) {
+    const u = post.publicacion;
+    exigir(
+      u && typeof u === "object" && typeof u.idMedia === "string" && typeof u.permalink === "string" && !Number.isNaN(Date.parse(u.fecha)),
+      "publicacion debe ser null o tener idMedia, permalink y fecha"
+    );
+  }
+  if (post.error !== null) {
+    const e = post.error;
+    exigir(
+      e && typeof e === "object" && ["render", "instagram"].includes(e.paso) && typeof e.mensaje === "string" && !Number.isNaN(Date.parse(e.fecha)),
+      "error debe ser null o tener paso (render|instagram), mensaje y fecha"
+    );
+  }
   exigir(post.programado === null || !Number.isNaN(Date.parse(post.programado)), "programado debe ser null o una fecha ISO");
   for (const k of ["creado", "actualizado"]) exigir(!Number.isNaN(Date.parse(post[k])), `${k} debe ser una fecha ISO`);
   return post;

@@ -40,7 +40,19 @@ test("validarPost rechaza estado, categoría y variante inválidos", () => {
   assert.throws(() => validarPost({ ...p, estado: "listo" }), /Post inválido.*estado/);
   assert.throws(() => validarPost({ ...p, categoria: "X" }), /categoria/);
   assert.throws(() => validarPost({ ...p, variante: "azul" }), /variante/);
-  assert.throws(() => validarPost({ ...p, id: "malo" }), /id/);
+  assert.throws(() => validarPost({ ...p, id: "malo" }), /id "malo"/);
+});
+
+test("validarPost exige la forma de fuente, imagen, publicacion y error", () => {
+  const p = crearPost({ candidato, redaccion, variante: "negro", ahora });
+  const iso = ahora.toISOString();
+  assert.throws(() => validarPost({ ...p, fuente: { ...p.fuente, publicado: "ayer" } }), /fuente\.publicado/);
+  assert.throws(() => validarPost({ ...p, imagen: { hash: "h" } }), /imagen/);
+  assert.throws(() => validarPost({ ...p, publicacion: "x" }), /publicacion/);
+  assert.throws(() => validarPost({ ...p, error: { paso: "otro", mensaje: "m", fecha: iso } }), /error/);
+  validarPost({ ...p, imagen: { ruta: "public/img/x.jpg", url: "https://x/img/x.jpg", hash: "h", version: 1, renderizada: iso } });
+  validarPost({ ...p, publicacion: { idMedia: "1", permalink: "https://www.instagram.com/p/x/", fecha: iso } });
+  validarPost({ ...p, error: { paso: "render", mensaje: "m", fecha: iso } });
 });
 
 test("escribirPost y leerPosts ida y vuelta, ordenados por creado desc, ignorando archivo/", () => {
