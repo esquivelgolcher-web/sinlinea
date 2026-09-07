@@ -314,7 +314,7 @@ de `posts/` y `public/`, y no se toca `seen.json`.
   que responda qué, quién y dónde; caption que explique por qué importa y
   termine con una frase que invite a comentar. La persona usuaria puede
   reescribirlo por completo.
-- Costo estimado (Opus 5, ~8 corridas/día, ~5 000 tokens de entrada y ~600 de
+- Costo estimado (~8 corridas/día, ~5 000 tokens de entrada y ~600 de
   salida por corrida): entre 3 y 4 USD al mes con `claude-sonnet-5`; con `claude-opus-5`, entre 7
   y 10 USD.
 - Si la API falla tras los reintentos del SDK, la corrida termina con error y
