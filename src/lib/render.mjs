@@ -34,8 +34,8 @@ export function datosDeRender(post, config, { logoUrl }) {
 export function construirHtml(post, config, { plantilla, baseHref, logoUrl }) {
   const json = JSON.stringify(datosDeRender(post, config, { logoUrl })).replace(/<\//g, "<\\/");
   return plantilla
-    .replace("__BASE__", baseHref)
-    .replace(/<script id="datos" type="application\/json">[\s\S]*?<\/script>/, `<script id="datos" type="application/json">${json}</script>`);
+    .replace("__BASE__", () => baseHref)
+    .replace(/<script id="datos" type="application\/json">[\s\S]*?<\/script>/, () => `<script id="datos" type="application/json">${json}</script>`);
 }
 
 export async function abrirNavegador() {

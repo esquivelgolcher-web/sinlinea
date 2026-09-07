@@ -32,3 +32,13 @@ test("construirHtml inyecta base y datos JSON escapando </", () => {
   assert.ok(m[1].includes("<\\/script>"), "debe escapar </ dentro del JSON");
   assert.equal(JSON.parse(m[1]).logoUrl, "assets/logo.png");
 });
+
+test("construirHtml no interpreta patrones $ del texto (p. ej. $& o $$)", () => {
+  const html = construirHtml({ ...post, titular: "Precio sube a $& y $$ el doble", bajada: "Cuesta $' hoy" }, cfg, { plantilla, baseHref: "file:///C:/x/", logoUrl: null });
+  const m = html.match(/<script id="datos" type="application\/json">([\s\S]*?)<\/script>/);
+  assert.ok(m);
+  const datos = JSON.parse(m[1]);
+  assert.equal(datos.titular, "Precio sube a $& y $$ el doble");
+  assert.equal(datos.bajada, "Cuesta $' hoy");
+  assert.equal((html.match(/<script id="datos"/g) || []).length, 1);
+});
