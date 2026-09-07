@@ -48,7 +48,7 @@ test("redactar llama a messages.parse con modelo, esfuerzo, formato y caché, y 
   let params;
   const client = { messages: { parse: async (p) => { params = p; return { parsed_output: salida, stop_reason: "end_turn", usage: { input_tokens: 10, output_tokens: 5 } }; } } };
   const r = await redactar({ client, config: cfg, editorialMd: "Editorial.", candidatos, recientes: [], max: 2 });
-  assert.equal(params.model, "claude-opus-5");
+  assert.equal(params.model, cfg.claude.modelo);
   assert.equal(params.output_config.effort, "medium");
   assert.ok(params.output_config.format, "debe enviar output_config.format");
   assert.deepEqual(params.thinking, { type: "adaptive" });

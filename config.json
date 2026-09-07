@@ -28,7 +28,7 @@
     "diasSinRepetir": 3,
     "maxHorasAntiguedad": 48
   },
-  "claude": { "modelo": "claude-opus-5", "esfuerzo": "medium" },
+  "claude": { "modelo": "claude-sonnet-5", "esfuerzo": "medium" },
   "franjas": ["07:00", "09:30", "12:00", "14:30", "17:00", "19:30"],
   "instagram": { "apiVersion": "v23.0" },
   "archivarDespuesDeDias": 7

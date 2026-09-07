@@ -35,7 +35,7 @@ En cada tarjeta puedes:
 
 ## Ajustes sin tocar código
 - `config.json`: franjas, máximos por corrida y por día, modelo de Claude
-  (`claude-opus-5` o `claude-sonnet-5` para gastar menos), fuentes.
+  (`claude-sonnet-5` por defecto; `claude-opus-5` para máxima calidad a más del doble de costo), fuentes.
 - `prompts/editorial.md`: tono, qué elegir, cómo escribir.
 - `templates/post.html`: diseño. Al cambiarla, sube `data-version` en `<html>` para
   que se regeneren las imágenes de los posts activos.

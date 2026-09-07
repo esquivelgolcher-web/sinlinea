@@ -24,7 +24,7 @@ Comprueba con `npm run preview` → `http://localhost:4173/vista/negro`.
 1. Entra en https://console.anthropic.com → **API Keys → Create Key**.
 2. En el repo → **Settings → Secrets and variables → Actions → New repository secret**:
    nombre `ANTHROPIC_API_KEY`, valor la clave.
-3. Costo esperado: 7 a 10 USD al mes con `claude-opus-5`; 3 a 4 con `claude-sonnet-5`.
+3. Costo esperado: 3 a 4 USD al mes con `claude-sonnet-5` (el configurado); 7 a 10 con `claude-opus-5`.
 
 ## 4. App de Meta e Instagram
 Requisito: la cuenta de Instagram debe ser **profesional** (Empresa o Creador).

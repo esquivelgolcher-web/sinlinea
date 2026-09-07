@@ -43,7 +43,7 @@ El diseño deja el camino abierto para todo esto (ver §15).
 | Formato v1 | Post sencillo de 1 imagen |
 | Volumen | 5 a 10 al día |
 | Aprobación | Desde el celular, panel web |
-| Redacción | API de Claude, modelo `claude-opus-5` por defecto |
+| Redacción | API de Claude, modelo `claude-sonnet-5` por defecto (decisión del 2026-09-07 por costo; `claude-opus-5` opcional) |
 | Infraestructura | Opción A: todo en GitHub (Actions + Pages), costo cero |
 
 ## 3. Arquitectura
@@ -224,7 +224,7 @@ Se purgan entradas con más de 30 días.
       "excluirSecciones": ["opinion", "tag", "autor"] }
   ],
   "generar": { "maxPorCorrida": 2, "maxBorradoresPorDia": 12, "candidatosMax": 40, "diasSinRepetir": 3 },
-  "claude": { "modelo": "claude-opus-5", "esfuerzo": "medium" },
+  "claude": { "modelo": "claude-sonnet-5", "esfuerzo": "medium" },
   "franjas": ["07:00", "09:30", "12:00", "14:30", "17:00", "19:30"],
   "instagram": { "apiVersion": "v23.0" },
   "archivarDespuesDeDias": 7
@@ -275,7 +275,7 @@ de `posts/` y `public/`, y no se toca `seen.json`.
 ## 7. Redacción con Claude
 
 - SDK oficial `@anthropic-ai/sdk`. Modelo desde `config.claude.modelo`
-  (`claude-opus-5` por defecto), pensamiento adaptativo, `output_config.effort`
+  (`claude-sonnet-5` por defecto), pensamiento adaptativo, `output_config.effort`
   desde `config.claude.esfuerzo`.
 - **Salida estructurada** (`output_config.format` con JSON Schema) para no
   parsear texto libre. Esquema de salida:
@@ -315,7 +315,7 @@ de `posts/` y `public/`, y no se toca `seen.json`.
   termine con una frase que invite a comentar. La persona usuaria puede
   reescribirlo por completo.
 - Costo estimado (Opus 5, ~8 corridas/día, ~5 000 tokens de entrada y ~600 de
-  salida por corrida): entre 7 y 10 USD al mes. Con `claude-sonnet-5`, entre 3
+  salida por corrida): entre 3 y 4 USD al mes con `claude-sonnet-5`; con `claude-opus-5`, entre 7
   y 4 USD.
 - Si la API falla tras los reintentos del SDK, la corrida termina con error y
   **no se hace commit de nada**; `seen.json` no cambia, así los candidatos se
