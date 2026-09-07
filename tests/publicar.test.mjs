@@ -96,7 +96,7 @@ test("sin cuota no publica; dry-run no publica; baseUrl sin configurar lanza; to
   const r2 = await ejecutarPublicar({ config: cfg, raiz, ahora, ig, log, dryRun: true });
   assert.deepEqual(r2.publicados, []);
   assert.ok(!ig.llamadas.some((l) => l[0] === "publicar"));
-  await assert.rejects(() => ejecutarPublicar({ config: cargarConfig("config.json"), raiz, ahora, ig, log }), /CAMBIAR/);
+  await assert.rejects(() => ejecutarPublicar({ config: { ...cfg, pages: { baseUrl: "https://CAMBIAR.github.io/sinlinea" } }, raiz, ahora, ig, log }), /CAMBIAR/);
   raiz = raizCon([a], { vence: "2026-09-10" });
   const avisos = [];
   await ejecutarPublicar({ config: cfg, raiz, ahora, ig: igFalso(), log: { info: () => {}, warn: (m) => avisos.push(m) } });
