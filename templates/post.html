@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="es" data-version="1">
+<html lang="es" data-version="2">
 <head>
 <meta charset="utf-8">
 <base href="__BASE__">
@@ -22,7 +22,7 @@
                    text-align: center; border: 6px solid var(--negro); }
   .chip { font-weight: 700; font-size: 28px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--chip-fondo); color: var(--chip-texto); padding: 14px 22px; margin-top: 8px; }
   .cuerpo { flex: 1; min-height: 0; display: flex; flex-direction: column; justify-content: center; gap: 36px; padding: 40px 0; }
-  .titular { margin: 0; font-family: "Anton", Impact, sans-serif; font-weight: 400; text-transform: uppercase; line-height: 0.95; color: var(--titular);
+  .titular { margin: 0; font-family: "Anton", Impact, sans-serif; font-weight: 400; text-transform: uppercase; line-height: 1.0; color: var(--titular);
              font-size: 104px; max-height: 620px; overflow: hidden; overflow-wrap: break-word; }
   .bajada { margin: 0; font-size: 36px; line-height: 1.3; opacity: 0.85; max-height: 150px; overflow: hidden; }
   .pie { height: 130px; display: flex; justify-content: space-between; align-items: center; font-size: 26px; font-weight: 600;
@@ -73,7 +73,7 @@
   await document.fonts.ready;
   const t = $("titular");
   let size = 104;
-  const cabe = () => t.scrollHeight <= 620 && t.scrollWidth <= t.clientWidth + 1;
+  const cabe = () => t.scrollHeight <= 620 && t.scrollWidth <= t.clientWidth + 1 && Math.round(t.scrollHeight / size) <= 6;
   t.style.fontSize = size + "px";
   while (!cabe() && size > 64) { size -= 4; t.style.fontSize = size + "px"; }
   document.body.dataset.listo = "1";

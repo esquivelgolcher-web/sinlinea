@@ -10,7 +10,7 @@ const plantilla = fs.readFileSync("templates/post.html", "utf8");
 
 test("versionPlantilla lee data-version", () => {
   assert.equal(versionPlantilla('<html lang="es" data-version="7">'), 7);
-  assert.equal(versionPlantilla(plantilla), 1);
+  assert.equal(versionPlantilla(plantilla), 2);
 });
 
 test("datosDeRender arma los textos de la imagen", () => {

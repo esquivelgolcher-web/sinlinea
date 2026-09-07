@@ -340,8 +340,10 @@ de `posts/` y `public/`, y no se toca `seen.json`.
     6 líneas (mínimo 64 px).
   - Bajada en `Inter` 36 px, máximo 3 líneas, color con 85 % de opacidad.
   - Franja inferior de 130 px: a la izquierda "Fuente: La Prensa · 7 sep 2026",
-    a la derecha el usuario de Instagram; debajo una barra roja con el lema
-    "Nuestra línea es el Pueblo" en blanco, como en el logo.
+    a la derecha el usuario de Instagram; debajo una barra con el lema
+    "Nuestra línea es el Pueblo" (roja con texto blanco en las variantes negro
+    y amarillo; negra con texto amarillo en la variante rojo, para que
+    contraste).
 - La plantilla lleva un número de `version` que forma parte de `imagen.hash`;
   cambiar la plantilla y subir la versión hace que REGENERAR vuelva a renderizar
   los posts activos.
