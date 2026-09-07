@@ -18,6 +18,7 @@ const PESTANAS = [
 const estado = { almacen: null, items: [], pestana: "borrador", borradores: new Map() };
 const $ = (id) => document.getElementById(id);
 const ahoraIso = () => new Date().toISOString();
+const urlSegura = (u) => (/^https?:\/\//i.test(String(u)) ? u : "#");
 
 function el(tag, props = {}, hijos = []) {
   const n = document.createElement(tag);
@@ -98,7 +99,7 @@ function pintar() {
 function urlImagen(post) {
   if (!post.imagen?.url) return null;
   const local = ["localhost", "127.0.0.1"].includes(location.hostname);
-  const base = local ? `/img/${post.id}.jpg` : post.imagen.url;
+  const base = local ? `/img/${post.id}.jpg` : urlSegura(post.imagen.url);
   return `${base}?v=${post.imagen.hash}`;
 }
 
@@ -129,7 +130,7 @@ function tarjeta({ post, sha }) {
     el("div", { class: "meta" }, [
       el("span", { class: "chip", text: post.categoria }),
       el("span", { class: `badge ${post.estado}`, text: post.estado }),
-      el("a", { href: post.fuente.url, target: "_blank", rel: "noopener", text: post.fuente.medio }),
+      el("a", { href: urlSegura(post.fuente.url), target: "_blank", rel: "noopener", text: post.fuente.medio }),
       post.programado ? el("span", { text: `Programado: ${claveDia(post.programado)} ${horaMinutoDeIso(post.programado)}` }) : "",
       imagenDesactualizada(post) && !["publicado", "descartado"].includes(post.estado) ? el("span", { class: "regenerando", text: "Regenerando imagen…" }) : "",
     ]),
@@ -149,6 +150,7 @@ function tarjeta({ post, sha }) {
     const c = cambios();
     return ["titular", "bajada", "caption", "categoria", "variante"].some((k) => c[k] !== post[k]) || c.hashtags.join(" ") !== post.hashtags.join(" ");
   };
+  const captionValido = () => validarCaption(componerCaption({ caption: campos.caption.value, medio: post.fuente.medio, hashtags: campos.hashtags.value.split(/\s+/) }));
 
   const local = estado.borradores.get(post.id);
   if (local) for (const k of Object.keys(local)) if (campos[k]) campos[k].value = local[k];
@@ -169,11 +171,18 @@ function tarjeta({ post, sha }) {
 
   const acciones = el("div", { class: "acciones" });
   const conCambios = (p) => (hayCambios() ? editarTexto(p, cambios(), ahoraIso()) : p);
-  const guardarSiCambio = (p) => { if (!hayCambios()) { avisar("No hay cambios que guardar."); return null; } return conCambios(p); };
+  const guardarSiCambio = (p) => {
+    const v = captionValido(); if (!v.ok) { avisar(v.errores.join(" ")); return null; }
+    if (!hayCambios()) { avisar("No hay cambios que guardar."); return null; }
+    return conCambios(p);
+  };
   const boton = (texto, clase, fn) => el("button", { type: "button", class: `boton ${clase}`, text: texto, onclick: () => ejecutar(post.id, sha, fn) });
 
   if (!bloqueado) {
-    const aprobarConHora = async (p) => { const h = await pedirHora(p); return h ? aprobar(conCambios(p), h, ahoraIso()) : null; };
+    const aprobarConHora = async (p) => {
+      const v = captionValido(); if (!v.ok) { avisar(v.errores.join(" ")); return null; }
+      const h = await pedirHora(p); return h ? aprobar(conCambios(p), h, ahoraIso()) : null;
+    };
     if (post.estado === "borrador") {
       acciones.append(boton("Aprobar", "primario", aprobarConHora));
       acciones.append(boton("Guardar cambios", "", guardarSiCambio));
@@ -188,7 +197,7 @@ function tarjeta({ post, sha }) {
       acciones.append(boton("Descartar", "peligro", (p) => descartar(p, ahoraIso())));
     }
   }
-  if (post.publicacion?.permalink) acciones.append(el("a", { class: "boton", href: post.publicacion.permalink, target: "_blank", rel: "noopener", text: "Ver en Instagram" }));
+  if (post.publicacion?.permalink) acciones.append(el("a", { class: "boton", href: urlSegura(post.publicacion.permalink), target: "_blank", rel: "noopener", text: "Ver en Instagram" }));
   cuerpo.append(acciones);
 
   return el("article", { class: "tarjeta", "data-id": post.id }, [
