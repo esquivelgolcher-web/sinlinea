@@ -75,6 +75,11 @@ test("siguienteVariante rota a partir del post más reciente", () => {
   assert.equal(siguienteVariante([a, b]), "rojo");
   assert.equal(siguienteVariante([b, a]), "rojo");
   assert.equal(siguienteVariante([{ ...b, variante: "rojo" }]), "negro");
+  const mismoInstante = [
+    { ...a, variante: "negro", creado: ahora.toISOString() },
+    { ...b, variante: "amarillo", creado: ahora.toISOString() },
+  ];
+  assert.equal(siguienteVariante(mismoInstante), "rojo");
 });
 
 test("creadosHoy cuenta por día de Panamá", () => {

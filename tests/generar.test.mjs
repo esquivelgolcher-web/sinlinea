@@ -90,3 +90,11 @@ test("dry-run escribe en temp/ y no toca posts ni seen", async () => {
   assert.equal(leerPosts(path.join(raiz, "temp/dry-run/posts")).length, 1);
   assert.deepEqual(cargarVistas(path.join(raiz, "data/seen.json")), { urls: {} });
 });
+
+test("tres posts en la misma corrida usan las tres variantes", async () => {
+  const raiz = raizTemporal();
+  const config = cargarConfig(path.join(raiz, "config.json"));
+  config.generar.maxPorCorrida = 3;
+  const r = await ejecutarGenerar({ config, raiz, ahora, fetchText, client: clientFalso([0, 1, 2]), render: renderOkFalso, log });
+  assert.deepEqual(r.creados.map((p) => p.variante), ["negro", "amarillo", "rojo"]);
+});

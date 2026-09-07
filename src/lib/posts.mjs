@@ -100,7 +100,8 @@ export function escribirPost(dir, post) {
 
 export function siguienteVariante(posts) {
   if (!posts.length) return VARIANTES[0];
-  const ultimo = [...posts].sort((a, b) => b.creado.localeCompare(a.creado))[0];
+  // Ante empate en `creado` (posts creados en la misma corrida) gana el último de la lista.
+  const ultimo = posts.reduce((a, b) => (b.creado >= a.creado ? b : a));
   const i = VARIANTES.indexOf(ultimo.variante);
   return VARIANTES[(i + 1) % VARIANTES.length];
 }
