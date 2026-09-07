@@ -1,0 +1,100 @@
+name: Regenerar imágenes
+
+# Corre cuando el panel guarda cambios en posts/ (o cambia la plantilla).
+on:
+  push:
+    branches: [main]
+    paths:
+      - "posts/**"
+      - "templates/**"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: sinlinea
+  cancel-in-progress: false
+
+jobs:
+  regenerar:
+    runs-on: ubuntu-latest
+    outputs:
+      hubo: ${{ steps.guardar.outputs.hubo }}
+    steps:
+      - name: Descargar el repositorio
+        uses: actions/checkout@v4
+
+      - name: Preparar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Caché de Chromium
+        id: cache-chromium
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+
+      - name: Instalar Chromium
+        if: steps.cache-chromium.outputs.cache-hit != 'true'
+        run: npx playwright install chromium
+
+      - name: Instalar dependencias del sistema para Chromium
+        run: npx playwright install-deps chromium
+
+      - name: Regenerar imágenes desactualizadas
+        run: node src/regenerar.mjs
+
+      - name: Guardar cambios en el repositorio
+        id: guardar
+        run: |
+          git config user.name "sinlinea-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add posts public/img
+          if git diff --cached --quiet; then
+            echo "Sin cambios."
+            echo "hubo=false" >> "$GITHUB_OUTPUT"
+          else
+            git commit -m "regenerar: $(date -u '+%Y-%m-%d %H:%M UTC')"
+            for i in 1 2 3; do git pull --rebase && git push && break || sleep 5; done
+            echo "hubo=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Construir el sitio
+        if: steps.guardar.outputs.hubo == 'true' || github.event_name == 'workflow_dispatch'
+        run: node src/build.mjs
+
+      - name: Configurar GitHub Pages
+        if: steps.guardar.outputs.hubo == 'true' || github.event_name == 'workflow_dispatch'
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - name: Empaquetar para GitHub Pages
+        if: steps.guardar.outputs.hubo == 'true' || github.event_name == 'workflow_dispatch'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  desplegar:
+    needs: regenerar
+    if: needs.regenerar.outputs.hubo == 'true' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      pages: write
+      id-token: write
+    steps:
+      - name: Publicar en GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
