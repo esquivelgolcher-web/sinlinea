@@ -60,6 +60,9 @@ export function crearServidor({ raiz = process.cwd() } = {}) {
       }
       if (req.method === "GET" && p.startsWith("/assets/")) return servirArchivo(res, path.join(raiz, "assets"), p.slice("/assets/".length));
       if (req.method === "GET" && p.startsWith("/img/")) return servirArchivo(res, path.join(raiz, "public", "img"), p.slice("/img/".length));
+      if (req.method === "GET" && p === "/panel/config.json") {
+        return responder(res, 200, JSON.stringify({ franjas: config.franjas, zonaHoraria: config.zonaHoraria, marca: config.marca }), TIPOS[".json"]);
+      }
       if (req.method === "GET" && p.startsWith("/panel/lib/")) return servirArchivo(res, path.join(raiz, "src", "lib"), p.slice("/panel/lib/".length));
       if (req.method === "GET" && (p === "/panel" || p === "/panel/")) return servirArchivo(res, path.join(raiz, "panel"), "index.html");
       if (req.method === "GET" && p.startsWith("/panel/")) return servirArchivo(res, path.join(raiz, "panel"), p.slice("/panel/".length));

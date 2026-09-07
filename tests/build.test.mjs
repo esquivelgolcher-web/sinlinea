@@ -14,6 +14,7 @@ test("construirDist copia imágenes, panel, módulos isomorfos e índice", () =>
   fs.writeFileSync(path.join(raiz, "panel/index.html"), "<p>panel</p>");
   fs.mkdirSync(path.join(raiz, "src/lib"), { recursive: true });
   for (const f of ["estados.mjs", "caption.mjs", "franjas.mjs", "fechas.mjs"]) fs.copyFileSync(`src/lib/${f}`, path.join(raiz, "src/lib", f));
+  fs.copyFileSync("config.json", path.join(raiz, "config.json"));
   const dist = construirDist({ raiz });
   assert.ok(fs.existsSync(path.join(dist, "img/a.jpg")));
   assert.ok(!fs.existsSync(path.join(dist, "img/.gitkeep")));
@@ -21,4 +22,5 @@ test("construirDist copia imágenes, panel, módulos isomorfos e índice", () =>
   assert.ok(fs.existsSync(path.join(dist, "panel/lib/estados.mjs")));
   assert.ok(fs.existsSync(path.join(dist, ".nojekyll")));
   assert.match(fs.readFileSync(path.join(dist, "index.html"), "utf8"), /url=panel\//);
+  assert.equal(JSON.parse(fs.readFileSync(path.join(dist, "panel/config.json"))).franjas.length, 6);
 });

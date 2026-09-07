@@ -5,7 +5,13 @@ import { siguienteFranjaLibre, franjasOcupadas, choca } from "./lib/franjas.mjs"
 import { claveDia, isoDesdeClave, horaMinutoDeIso, ZONA_PANAMA } from "./lib/fechas.mjs";
 import { crearAlmacenLocal, crearAlmacenGitHub, deducirRepo, ErrorConflicto } from "./almacen.mjs";
 
-const FRANJAS = ["07:00", "09:30", "12:00", "14:30", "17:00", "19:30"];
+const configPanel = { franjas: ["07:00", "09:30", "12:00", "14:30", "17:00", "19:30"], zonaHoraria: ZONA_PANAMA };
+async function cargarConfigPanel() {
+  try {
+    const r = await fetch("./config.json", { cache: "no-store" });
+    if (r.ok) Object.assign(configPanel, await r.json());
+  } catch { /* se usan los valores por defecto */ }
+}
 const PESTANAS = [
   ["borrador", "Borradores"], ["programado", "Programados"], ["error", "Errores"], ["publicado", "Publicados"], ["descartado", "Descartados"],
 ];
@@ -221,7 +227,7 @@ async function ejecutar(id, sha, fn) {
 function pedirHora(post) {
   const ocupadas = franjasOcupadas(estado.items.map((x) => x.post).filter((p) => p.id !== post.id));
   let propuesta;
-  try { propuesta = siguienteFranjaLibre({ franjas: FRANJAS, ocupadas, ahora: new Date(), zonaHoraria: ZONA_PANAMA }); }
+  try { propuesta = siguienteFranjaLibre({ franjas: configPanel.franjas, ocupadas, ahora: new Date(), zonaHoraria: configPanel.zonaHoraria }); }
   catch { propuesta = isoDesdeClave(claveDia(new Date()), "19:30"); }
   const dialogo = $("dialogo-hora");
   $("hora-fecha").value = claveDia(propuesta); $("hora-hora").value = horaMinutoDeIso(propuesta); $("hora-nota").textContent = "";
@@ -243,7 +249,7 @@ function pedirHora(post) {
 
 // --- Arranque ---------------------------------------------------------------
 configurarAlmacen();
-cargar();
+cargarConfigPanel().then(cargar);
 setInterval(() => {
   const hayRegenerando = estado.items.some((x) => ["borrador", "programado", "error"].includes(x.post.estado) && imagenDesactualizada(x.post));
   if (hayRegenerando && !document.querySelector("dialog[open]") && estado.borradores.size === 0) cargar();

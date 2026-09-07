@@ -42,6 +42,7 @@ test("api de posts: lista, actualiza y rechaza inválidos; token-info", async ()
 
 test("sirve el panel, sus módulos desde src/lib y bloquea rutas fuera de la raíz", async () => {
   assert.match(await (await fetch(`${base}/panel/`)).text(), /panel/);
+  assert.equal((await (await fetch(`${base}/panel/config.json`)).json()).zonaHoraria, "America/Panama");
   const js = await fetch(`${base}/panel/lib/estados.mjs`);
   assert.equal(js.status, 200);
   assert.match(js.headers.get("content-type"), /javascript/);
