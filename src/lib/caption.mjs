@@ -45,10 +45,11 @@ export function recortarCaption({ caption, medio, hashtags }) {
   let recortado = false;
   if (tags.length > LIMITES.hashtags) { tags = tags.slice(0, LIMITES.hashtags); recortado = true; }
   let texto = String(caption || "").replace(/\n{3,}/g, "\n\n").trim();
-  // Menciones de más: se les quita la @ y quedan como texto plano.
+  // Menciones de más: se les quitan las @ (todas las que las preceden) y quedan como texto plano.
   let menciones = 0;
-  const conMencionesLimitadas = texto.replace(/@([\p{L}\p{N}_.]+)/gu, (m, nombre) => (++menciones > LIMITES.menciones ? nombre : m));
+  const conMencionesLimitadas = texto.replace(/@+([\p{L}\p{N}_.]+)/gu, (m, nombre) => (++menciones > LIMITES.menciones ? nombre : m));
   if (conMencionesLimitadas !== texto) { texto = conMencionesLimitadas; recortado = true; }
+  if (contarMenciones(texto) > LIMITES.menciones) { texto = texto.replace(/@+/g, ""); recortado = true; } // red de seguridad
   let parrafos = texto.split(/\n\n/);
   const largo = () => componerCaption({ caption: texto, medio, hashtags: tags }).length;
   while (largo() > LIMITES.caracteres) {

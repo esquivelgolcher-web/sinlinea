@@ -51,4 +51,8 @@ test("recortarCaption termina con un hashtag absurdo y quita la @ a las mencione
   assert.equal(contarMenciones(m.caption), LIMITES.menciones);
   assert.ok(m.caption.includes(" u21"));
   assert.equal(validarCaption(componerCaption({ ...m, medio: "X" })).ok, true);
+  const dobles = "@u0" + Array.from({ length: 24 }, (_, i) => `@@u${i + 1}`).join("");
+  const d = recortarCaption({ caption: dobles, medio: "X", hashtags: [] });
+  assert.equal(contarMenciones(d.caption), LIMITES.menciones);
+  assert.equal(validarCaption(componerCaption({ ...d, medio: "X" })).ok, true);
 });
