@@ -1,0 +1,28 @@
+{
+  "name": "sinlinea",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Sistema de publicación automática en Instagram para Sin Línea (noticias de Panamá).",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "test": "node --test",
+    "test:render": "node --test tests/render.integration.mjs",
+    "test:e2e": "node --test tests/panel.e2e.mjs",
+    "generar": "node src/generar.mjs",
+    "regenerar": "node src/regenerar.mjs",
+    "publicar": "node src/publicar.mjs",
+    "renovar-token": "node src/renovar-token.mjs",
+    "build": "node src/build.mjs",
+    "preview": "node src/serve.mjs"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.124.0",
+    "playwright": "^1.63.0",
+    "sharp": "^0.35.4",
+    "zod": "^4.5.4"
+  },
+  "devDependencies": {
+    "yaml": "^2.9.0"
+  }
+}

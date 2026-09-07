@@ -1,0 +1,35 @@
+{
+  "marca": {
+    "nombre": "Sin Línea",
+    "usuario": "@sinlinea",
+    "lema": "Nuestra línea es el Pueblo"
+  },
+  "zonaHoraria": "America/Panama",
+  "pages": { "baseUrl": "https://CAMBIAR.github.io/sinlinea" },
+  "fuentes": [
+    {
+      "nombre": "La Prensa",
+      "tipo": "rss",
+      "url": "https://www.prensa.com/arc/outboundfeeds/rss/?outputType=xml",
+      "excluirSecciones": ["opinion", "status-k"]
+    },
+    {
+      "nombre": "La Estrella de Panamá",
+      "tipo": "portada",
+      "url": "https://www.laestrella.com.pa/",
+      "patronArticulo": "^/[a-z-]+(?:/[a-z-]+)*/[a-z0-9-]+-[A-Z]{2}\\d{6,}$",
+      "excluirSecciones": ["opinion", "tag", "autor"]
+    }
+  ],
+  "generar": {
+    "maxPorCorrida": 2,
+    "maxBorradoresPorDia": 12,
+    "candidatosMax": 40,
+    "diasSinRepetir": 3,
+    "maxHorasAntiguedad": 48
+  },
+  "claude": { "modelo": "claude-opus-5", "esfuerzo": "medium" },
+  "franjas": ["07:00", "09:30", "12:00", "14:30", "17:00", "19:30"],
+  "instagram": { "apiVersion": "v23.0" },
+  "archivarDespuesDeDias": 7
+}
