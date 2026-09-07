@@ -9,7 +9,7 @@ const FRANJAS = ["07:00", "09:30", "12:00", "14:30", "17:00", "19:30"];
 const PESTANAS = [
   ["borrador", "Borradores"], ["programado", "Programados"], ["error", "Errores"], ["publicado", "Publicados"], ["descartado", "Descartados"],
 ];
-const estado = { almacen: null, items: [], pestana: "borrador" };
+const estado = { almacen: null, items: [], pestana: "borrador", borradores: new Map() };
 const $ = (id) => document.getElementById(id);
 const ahoraIso = () => new Date().toISOString();
 
@@ -125,7 +125,7 @@ function tarjeta({ post, sha }) {
       el("span", { class: `badge ${post.estado}`, text: post.estado }),
       el("a", { href: post.fuente.url, target: "_blank", rel: "noopener", text: post.fuente.medio }),
       post.programado ? el("span", { text: `Programado: ${claveDia(post.programado)} ${horaMinutoDeIso(post.programado)}` }) : "",
-      imagenDesactualizada(post) && !bloqueado ? el("span", { class: "regenerando", text: "Regenerando imagen…" }) : "",
+      imagenDesactualizada(post) && !["publicado", "descartado"].includes(post.estado) ? el("span", { class: "regenerando", text: "Regenerando imagen…" }) : "",
     ]),
     post.error ? el("p", { class: "error-texto", text: `Error (${post.error.paso}): ${post.error.mensaje}` }) : "",
     campo("Titular", "titular"),
@@ -135,11 +135,6 @@ function tarjeta({ post, sha }) {
     campo("Hashtags (separados por espacio)", "hashtags", "input"),
     contador,
   ]);
-  campos.caption.addEventListener("input", actualizarContador);
-  campos.hashtags.addEventListener("input", actualizarContador);
-  actualizarContador();
-
-  const acciones = el("div", { class: "acciones" });
   const cambios = () => ({
     titular: campos.titular.value.trim(), bajada: campos.bajada.value.trim(), caption: campos.caption.value.trim(),
     hashtags: normalizarHashtags(campos.hashtags.value.split(/\s+/)), categoria: campos.categoria.value, variante: campos.variante.value,
@@ -148,22 +143,42 @@ function tarjeta({ post, sha }) {
     const c = cambios();
     return ["titular", "bajada", "caption", "categoria", "variante"].some((k) => c[k] !== post[k]) || c.hashtags.join(" ") !== post.hashtags.join(" ");
   };
+
+  const local = estado.borradores.get(post.id);
+  if (local) for (const k of Object.keys(local)) if (campos[k]) campos[k].value = local[k];
+  const recordarBorrador = () => {
+    if (hayCambios()) estado.borradores.set(post.id, {
+      titular: campos.titular.value, bajada: campos.bajada.value, caption: campos.caption.value,
+      hashtags: campos.hashtags.value, categoria: campos.categoria.value, variante: campos.variante.value,
+    });
+    else estado.borradores.delete(post.id);
+  };
+  for (const n of Object.values(campos)) n.addEventListener("input", recordarBorrador);
+  campos.categoria.addEventListener("change", recordarBorrador);
+  campos.variante.addEventListener("change", recordarBorrador);
+
+  campos.caption.addEventListener("input", actualizarContador);
+  campos.hashtags.addEventListener("input", actualizarContador);
+  actualizarContador();
+
+  const acciones = el("div", { class: "acciones" });
   const conCambios = (p) => (hayCambios() ? editarTexto(p, cambios(), ahoraIso()) : p);
+  const guardarSiCambio = (p) => { if (!hayCambios()) { avisar("No hay cambios que guardar."); return null; } return conCambios(p); };
   const boton = (texto, clase, fn) => el("button", { type: "button", class: `boton ${clase}`, text: texto, onclick: () => ejecutar(post.id, sha, fn) });
 
   if (!bloqueado) {
     const aprobarConHora = async (p) => { const h = await pedirHora(p); return h ? aprobar(conCambios(p), h, ahoraIso()) : null; };
     if (post.estado === "borrador") {
       acciones.append(boton("Aprobar", "primario", aprobarConHora));
-      acciones.append(boton("Guardar cambios", "", (p) => conCambios(p)));
+      acciones.append(boton("Guardar cambios", "", guardarSiCambio));
       acciones.append(boton("Descartar", "peligro", (p) => descartar(p, ahoraIso())));
     } else if (post.estado === "programado") {
       acciones.append(boton("Cambiar hora", "primario", aprobarConHora));
-      acciones.append(boton("Guardar cambios", "", (p) => conCambios(p)));
+      acciones.append(boton("Guardar cambios", "", guardarSiCambio));
       acciones.append(boton("Quitar de la cola", "peligro", (p) => quitarDeCola(p, ahoraIso())));
     } else if (post.estado === "error") {
       if (post.error?.paso === "instagram") acciones.append(boton("Reintentar", "primario", (p) => reintentar(conCambios(p), ahoraIso())));
-      acciones.append(boton("Guardar cambios", "", (p) => conCambios(p)));
+      acciones.append(boton("Guardar cambios", "", guardarSiCambio));
       acciones.append(boton("Descartar", "peligro", (p) => descartar(p, ahoraIso())));
     }
   }
@@ -195,6 +210,7 @@ async function ejecutar(id, sha, fn) {
       avisar("El post había cambiado; se aplicó tu acción sobre la versión nueva.");
     }
     item.post = nuevo;
+    estado.borradores.delete(id);
     pintar();
   } catch (err) {
     avisar(`No se pudo guardar: ${err.message}`, 8000);
@@ -230,5 +246,5 @@ configurarAlmacen();
 cargar();
 setInterval(() => {
   const hayRegenerando = estado.items.some((x) => ["borrador", "programado", "error"].includes(x.post.estado) && imagenDesactualizada(x.post));
-  if (hayRegenerando && !document.querySelector("dialog[open]")) cargar();
+  if (hayRegenerando && !document.querySelector("dialog[open]") && estado.borradores.size === 0) cargar();
 }, 30000);

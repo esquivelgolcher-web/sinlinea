@@ -47,3 +47,19 @@ test("el panel muestra el borrador, permite editar el titular y aprobar con la h
   assert.equal(JSON.parse(fs.readFileSync(path.join(raiz, "posts/2026-09-07-1420-la-prensa-a1b2.json"), "utf8")).estado, "borrador");
   await page.close();
 });
+
+test("un texto editado sin guardar sobrevive al cambio de pestaña y Guardar sin cambios no escribe", async () => {
+  const page = await navegador.newPage({ viewport: { width: 400, height: 800 } });
+  await page.goto(`${base}/panel/`);
+  await page.waitForSelector(".tarjeta");
+  await page.fill(".tarjeta textarea >> nth=0", "Edición sin guardar");
+  await page.click("text=Programados (0)");
+  await page.click("text=Borradores (1)");
+  await page.waitForSelector(".tarjeta");
+  assert.equal(await page.inputValue(".tarjeta textarea >> nth=0"), "Edición sin guardar");
+  await page.reload();
+  await page.waitForSelector(".tarjeta");
+  await page.click("text=Guardar cambios");
+  await page.waitForSelector("text=No hay cambios que guardar.");
+  await page.close();
+});
