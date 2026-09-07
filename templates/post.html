@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="es" data-version="2">
+<html lang="es" data-version="3">
 <head>
 <meta charset="utf-8">
 <base href="__BASE__">
@@ -17,6 +17,7 @@
   .post[data-variante="rojo"]     { --fondo: var(--rojo);     --texto: var(--blanco); --titular: var(--blanco);   --chip-fondo: var(--negro); --chip-texto: var(--amarillo); --barra: var(--negro); --barra-texto: var(--amarillo); }
   .cabecera { display: flex; justify-content: space-between; align-items: flex-start; height: 160px; }
   .logo { width: 160px; height: 160px; border-radius: 50%; object-fit: cover; display: block; }
+  .post[data-variante="amarillo"] .logo { box-shadow: 0 0 0 6px var(--negro); }
   .logo-fallback { width: 160px; height: 160px; border-radius: 50%; box-sizing: border-box; background: var(--amarillo); color: var(--negro);
                    display: flex; align-items: center; justify-content: center; font-family: "Anton", Impact, sans-serif; font-size: 34px; line-height: 1;
                    text-align: center; border: 6px solid var(--negro); }
