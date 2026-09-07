@@ -17,7 +17,7 @@ test("datosDeRender arma los textos de la imagen", () => {
   const d = datosDeRender(post, cfg, { logoUrl: null });
   assert.equal(d.titular, post.titular);
   assert.equal(d.fecha, "7 sep 2026");
-  assert.equal(d.usuario, "@sinlinea");
+  assert.equal(d.usuario, cfg.marca.usuario);
   assert.equal(d.lema, "Nuestra línea es el Pueblo");
   assert.equal(d.variante, "negro");
   assert.equal(d.logoUrl, null);
