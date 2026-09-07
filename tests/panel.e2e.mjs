@@ -61,5 +61,7 @@ test("un texto editado sin guardar sobrevive al cambio de pestaña y Guardar sin
   await page.waitForSelector(".tarjeta");
   await page.click("text=Guardar cambios");
   await page.waitForSelector("text=No hay cambios que guardar.");
+  assert.equal(await page.isEnabled("text=Guardar cambios"), true);
+  assert.equal(await page.isEnabled("text=Aprobar"), true);
   await page.close();
 });

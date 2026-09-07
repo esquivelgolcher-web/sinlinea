@@ -199,13 +199,13 @@ async function ejecutar(id, sha, fn) {
   botones.forEach((b) => { b.disabled = true; });
   try {
     let nuevo = await fn(item.post);
-    if (nuevo === null) return;
+    if (nuevo === null) { botones.forEach((b) => { b.disabled = false; }); return; }
     try {
       item.sha = await estado.almacen.guardar(nuevo, item.sha);
     } catch (err) {
       if (!(err instanceof ErrorConflicto) || !err.actual) throw err;
       nuevo = await fn(err.actual.post);
-      if (nuevo === null) return;
+      if (nuevo === null) { botones.forEach((b) => { b.disabled = false; }); return; }
       item.sha = await estado.almacen.guardar(nuevo, err.actual.sha);
       avisar("El post había cambiado; se aplicó tu acción sobre la versión nueva.");
     }
