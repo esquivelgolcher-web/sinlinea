@@ -56,24 +56,25 @@ export async function ejecutarPublicar({ config, raiz = process.cwd(), ahora = n
       log.warn(`${p.id}: imagen aún no pública (intento ${esperas}/${MAX_ESPERAS_IMAGEN}).`);
       continue;
     }
-    const caption = componerCaption({ caption: p.caption, medio: p.fuente.medio, hashtags: p.hashtags });
+    const listo = p.esperasImagen ? { ...p, esperasImagen: 0 } : p;
+    const caption = componerCaption({ caption: listo.caption, medio: listo.fuente.medio, hashtags: listo.hashtags });
     const v = validarCaption(caption);
     if (!v.ok) {
-      escribirPost(dir, marcarError(p, { paso: "instagram", mensaje: v.errores.join(" ") }, iso));
-      resumen.errores.push(p.id);
+      escribirPost(dir, marcarError(listo, { paso: "instagram", mensaje: v.errores.join(" ") }, iso));
+      resumen.errores.push(listo.id);
       continue;
     }
-    if (dryRun) { log.info(`[dry-run] Publicaría ${p.id}: ${p.titular}`); continue; }
+    if (dryRun) { log.info(`[dry-run] Publicaría ${listo.id}: ${listo.titular}`); continue; }
     try {
-      const r = await ig.publicarImagen({ imageUrl: p.imagen.url, caption });
-      escribirPost(dir, marcarPublicado(p, r, iso));
-      resumen.publicados.push(p.id);
+      const r = await ig.publicarImagen({ imageUrl: listo.imagen.url, caption });
+      escribirPost(dir, marcarPublicado(listo, r, iso));
+      resumen.publicados.push(listo.id);
       disponibles -= 1;
-      log.info(`Publicado ${p.id}: ${r.permalink}`);
+      log.info(`Publicado ${listo.id}: ${r.permalink}`);
     } catch (err) {
-      escribirPost(dir, marcarError(p, { paso: "instagram", mensaje: err.message }, iso));
-      resumen.errores.push(p.id);
-      log.warn(`Instagram rechazó ${p.id}: ${err.message}`);
+      escribirPost(dir, marcarError(listo, { paso: "instagram", mensaje: err.message }, iso));
+      resumen.errores.push(listo.id);
+      log.warn(`Instagram rechazó ${listo.id}: ${err.message}`);
     }
   }
   return resumen;

@@ -67,6 +67,14 @@ test("imagen no pública: pospone hasta 3 veces y luego error de render", async 
   assert.equal(leerPosts(path.join(raiz, "posts"))[0].error.paso, "render");
 });
 
+test("al publicar con éxito se limpia esperasImagen si venía de posponer", async () => {
+  const a = { ...conImagen(aprobar({ ...base }, "2026-09-07T17:00:00-05:00", "2026-09-07T20:00:00.000Z")), esperasImagen: 2 };
+  const raiz = raizCon([a]);
+  const r = await ejecutarPublicar({ config: cfg, raiz, ahora, ig: igFalso(), log });
+  assert.deepEqual(r.publicados, [a.id]);
+  assert.equal(leerPosts(path.join(raiz, "posts"))[0].esperasImagen, 0);
+});
+
 test("error de la API deja el post en error de instagram con el mensaje", async () => {
   const a = conImagen(aprobar({ ...base }, "2026-09-07T17:00:00-05:00", "2026-09-07T20:00:00.000Z"));
   const raiz = raizCon([a]);
