@@ -83,11 +83,16 @@ export function crearPost({ candidato, redaccion, variante, ahora, zona = ZONA_P
   });
 }
 
-export function leerPosts(dir = "posts") {
+export function leerPosts(dir = "posts", { log = console } = {}) {
   if (!fs.existsSync(dir)) return [];
-  const posts = fs.readdirSync(dir)
-    .filter((f) => f.endsWith(".json"))
-    .map((f) => validarPost(JSON.parse(fs.readFileSync(path.join(dir, f), "utf8"))));
+  const posts = [];
+  for (const f of fs.readdirSync(dir).filter((a) => a.endsWith(".json"))) {
+    try {
+      posts.push(validarPost(JSON.parse(fs.readFileSync(path.join(dir, f), "utf8"))));
+    } catch (err) {
+      log.warn(`Post omitido ${f}: ${err.message}`);
+    }
+  }
   posts.sort((a, b) => b.creado.localeCompare(a.creado));
   return posts;
 }

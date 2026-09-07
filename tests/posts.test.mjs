@@ -68,6 +68,17 @@ test("escribirPost y leerPosts ida y vuelta, ordenados por creado desc, ignorand
   assert.ok(fs.readFileSync(path.join(dir, `${a.id}.json`), "utf8").endsWith("}\n"));
 });
 
+test("leerPosts omite un archivo inválido y avisa, en vez de fallar", () => {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), "posts-"));
+  escribirPost(dir, crearPost({ candidato, redaccion, variante: "negro", ahora }));
+  fs.writeFileSync(path.join(dir, "2026-09-07-1420-la-prensa-ffff.json"), "{ esto no es un post");
+  const avisos = [];
+  const posts = leerPosts(dir, { log: { warn: (m) => avisos.push(m) } });
+  assert.equal(posts.length, 1);
+  assert.equal(avisos.length, 1);
+  assert.match(avisos[0], /omitido/);
+});
+
 test("siguienteVariante rota a partir del post más reciente", () => {
   assert.equal(siguienteVariante([]), "negro");
   const a = crearPost({ candidato, redaccion, variante: "negro", ahora: new Date("2026-09-07T10:00:00Z") });
