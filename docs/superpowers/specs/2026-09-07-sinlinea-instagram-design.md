@@ -13,8 +13,12 @@ servidores propios y con costo de alojamiento cero.
 
 ### Alcance de la v1
 
-- Fuentes: feeds RSS de La Prensa y La Estrella de Panamá (vía Google Noticias),
-  la misma configuración que ya usa Que Hay Panamá.
+- Fuentes: el feed RSS de La Prensa (incluye el texto completo de cada
+  artículo en `content:encoded`) y la **portada** de La Estrella de Panamá
+  (no tiene RSS propio; los enlaces de Google Noticias no se pueden resolver de
+  forma confiable, así que se extraen los enlaces reales de la portada y se
+  descarga cada artículo, que expone `og:title`, `og:description`,
+  `article:published_time` y párrafos `<p class="p_N">`).
 - Formato: **post sencillo de una imagen** (1080×1350, 4:5).
 - Flujo **semiautomático**: el sistema propone, la persona aprueba.
 - Volumen: hasta 12 borradores al día, objetivo de 5 a 10 publicaciones diarias.
@@ -98,8 +102,10 @@ sinlinea/
     serve.mjs            previsualización local de plantilla y panel
     lib/
       config.mjs         carga y valida config.json
-      feeds.mjs          descarga y parseo de RSS (portado de Que Hay Panamá)
-      articulo.mjs       descarga el texto de un artículo (meta + primeros párrafos)
+      rss.mjs            descarga y parseo de RSS (portado de Que Hay Panamá)
+      portada.mjs        extrae enlaces de artículos de una portada HTML
+      articulo.mjs       extrae título, descripción, fecha y párrafos de un artículo
+      fuentes.mjs        convierte cada fuente (rss | portada) en candidatos uniformes
       seen.mjs           registro de URLs ya procesadas
       redactor.mjs       llamada a Claude con salida estructurada
       render.mjs         Playwright → PNG → sharp → JPEG
@@ -203,9 +209,13 @@ Se purgan entradas con más de 30 días.
   "zonaHoraria": "America/Panama",
   "pages": { "baseUrl": "https://<usuario>.github.io/sinlinea" },
   "fuentes": [
-    { "nombre": "La Prensa", "tipo": "rss", "url": "https://www.prensa.com/arc/outboundfeeds/rss/?outputType=xml" },
-    { "nombre": "La Estrella de Panamá", "tipo": "rss", "via": "Google Noticias",
-      "url": "https://news.google.com/rss/search?q=when:2d%20site:laestrella.com.pa&hl=es-419&gl=PA&ceid=PA:es-419" }
+    { "nombre": "La Prensa", "tipo": "rss",
+      "url": "https://www.prensa.com/arc/outboundfeeds/rss/?outputType=xml",
+      "excluirSecciones": ["opinion", "status-k"] },
+    { "nombre": "La Estrella de Panamá", "tipo": "portada",
+      "url": "https://www.laestrella.com.pa/",
+      "patronArticulo": "^/[a-z-]+(?:/[a-z-]+)*/[a-z0-9-]+-[A-Z]{2}\\d{6,}$",
+      "excluirSecciones": ["opinion", "tag", "autor"] }
   ],
   "generar": { "maxPorCorrida": 2, "maxBorradoresPorDia": 12, "candidatosMax": 40, "diasSinRepetir": 3 },
   "claude": { "modelo": "claude-opus-5", "esfuerzo": "medium" },
@@ -221,17 +231,24 @@ manual (§14).
 ## 6. GENERAR (cada 3 horas)
 
 1. Cargar `config.json`, `data/seen.json` y todos los `posts/*.json` activos.
-2. Descargar cada feed (timeout 20 s; si uno falla se registra y se sigue con
-   los demás). Resolver enlaces de Google Noticias al artículo real, como hace
-   Que Hay Panamá.
-3. Filtrar: URL no vista, publicada en las últimas 48 h. Ordenar por fecha,
-   quedarse con `candidatosMax`.
+2. Descargar cada fuente (timeout 20 s; si una falla se registra y se sigue
+   con las demás). Fuente `rss`: cada ítem aporta URL, título, descripción,
+   fecha y texto (`content:encoded` convertido a párrafos). Fuente `portada`:
+   se extraen los enlaces que cumplen `patronArticulo`; el título, la fecha y
+   el texto se obtienen en el paso 5. Se descartan las URLs cuyo primer
+   segmento de ruta esté en `excluirSecciones`.
+3. Filtrar: URL no vista, publicada en las últimas 48 h (para `portada` este
+   filtro se aplica tras el paso 5). Ordenar por fecha, quedarse con
+   `candidatosMax`.
 4. Comprobar el cupo: `maxBorradoresPorDia` menos posts creados hoy (hora de
    Panamá, en cualquier estado, incluidos descartados). Si el cupo es 0,
    terminar sin llamar a Claude.
-5. Para cada candidato descargar el artículo (`articulo.mjs`): título, meta
-   description, primeros 4 párrafos, máximo ~1 500 caracteres. Timeout 15 s;
-   si falla se usa solo el titular y descripción del feed.
+5. Para cada candidato sin texto (los de `portada`) descargar el artículo
+   (`articulo.mjs`): `og:title`, `og:description`, `article:published_time`,
+   párrafos. El texto que se envía a Claude se recorta a los primeros
+   párrafos hasta ~1 500 caracteres. Timeout 15 s, 4 descargas en paralelo;
+   si falla, el candidato se descarta en esta corrida y no se marca como
+   visto.
 6. Llamar a Claude (`redactor.mjs`, §7) con los candidatos y los titulares de
    los posts de los últimos `diasSinRepetir` días (cualquier estado excepto
    descartado). Claude devuelve hasta `min(maxPorCorrida, cupo)` posts.
