@@ -44,16 +44,25 @@ export function recortarCaption({ caption, medio, hashtags }) {
   let tags = normalizarHashtags(hashtags);
   let recortado = false;
   if (tags.length > LIMITES.hashtags) { tags = tags.slice(0, LIMITES.hashtags); recortado = true; }
-  let parrafos = String(caption || "").replace(/\n{3,}/g, "\n\n").trim().split(/\n\n/);
-  let texto = parrafos.join("\n\n");
-  while (componerCaption({ caption: texto, medio, hashtags: tags }).length > LIMITES.caracteres) {
+  let texto = String(caption || "").replace(/\n{3,}/g, "\n\n").trim();
+  // Menciones de más: se les quita la @ y quedan como texto plano.
+  let menciones = 0;
+  const conMencionesLimitadas = texto.replace(/@([\p{L}\p{N}_.]+)/gu, (m, nombre) => (++menciones > LIMITES.menciones ? nombre : m));
+  if (conMencionesLimitadas !== texto) { texto = conMencionesLimitadas; recortado = true; }
+  let parrafos = texto.split(/\n\n/);
+  const largo = () => componerCaption({ caption: texto, medio, hashtags: tags }).length;
+  while (largo() > LIMITES.caracteres) {
     recortado = true;
     if (parrafos.length > 1) {
       parrafos = parrafos.slice(0, -1);
       texto = parrafos.join("\n\n");
-    } else {
-      const sobrante = componerCaption({ caption: texto, medio, hashtags: tags }).length - LIMITES.caracteres;
+    } else if (texto.length > 1) {
+      const sobrante = largo() - LIMITES.caracteres;
       texto = texto.slice(0, Math.max(0, texto.length - sobrante - 1)).trimEnd() + "…";
+    } else if (tags.length) {
+      tags = tags.slice(0, -1);
+    } else {
+      break; // solo queda "Fuente: <medio>"; no hay nada más que recortar
     }
   }
   return { caption: texto, hashtags: tags, recortado };

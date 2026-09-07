@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { componerCaption, validarCaption, recortarCaption, normalizarHashtags, contarHashtags, LIMITES } from "../src/lib/caption.mjs";
+import { componerCaption, validarCaption, recortarCaption, normalizarHashtags, contarHashtags, contarMenciones, LIMITES } from "../src/lib/caption.mjs";
 
 test("componerCaption sigue el formato caption / fuente / hashtags", () => {
   const t = componerCaption({ caption: "Hola.  ", medio: "La Prensa", hashtags: ["#Panamá", "#SinLínea"] });
@@ -39,4 +39,16 @@ test("recortarCaption elimina párrafos finales y limita hashtags", () => {
 
 test("contarHashtags cuenta tildes y guiones bajos", () => {
   assert.equal(contarHashtags("#Panamá #Sin_Línea texto #x"), 3);
+});
+
+test("recortarCaption termina con un hashtag absurdo y quita la @ a las menciones sobrantes", () => {
+  const r = recortarCaption({ caption: "", medio: "X", hashtags: ["#" + "a".repeat(3000)] });
+  assert.equal(r.hashtags.length, 0);
+  assert.equal(validarCaption(componerCaption({ ...r, medio: "X" })).ok, true);
+  const menciones = Array.from({ length: 22 }, (_, i) => `@u${i}`).join(" ");
+  const m = recortarCaption({ caption: menciones, medio: "X", hashtags: [] });
+  assert.equal(m.recortado, true);
+  assert.equal(contarMenciones(m.caption), LIMITES.menciones);
+  assert.ok(m.caption.includes(" u21"));
+  assert.equal(validarCaption(componerCaption({ ...m, medio: "X" })).ok, true);
 });
