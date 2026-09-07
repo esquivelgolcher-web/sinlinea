@@ -40,3 +40,11 @@ test("generar y regenerar despliegan Pages; publicar y renovar solo escriben en 
     assert.equal(wf(n).permissions.contents, "write", n);
   }
 });
+
+test("el reintento de push falla el paso cuando los tres intentos fallan", () => {
+  for (const n of ["generar", "regenerar", "publicar", "renovar-token"]) {
+    const texto = leer(n);
+    assert.match(texto, /if \[ "\$i" = 3 \]; then echo "No se pudo hacer push tras 3 intentos"; exit 1; fi/, n);
+    assert.ok(!texto.includes("&& break || sleep 5"), `${n} aún tiene el bucle antiguo`);
+  }
+});

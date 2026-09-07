@@ -64,7 +64,11 @@ jobs:
             echo "hubo=false" >> "$GITHUB_OUTPUT"
           else
             git commit -m "regenerar: $(date -u '+%Y-%m-%d %H:%M UTC')"
-            for i in 1 2 3; do git pull --rebase && git push && break || sleep 5; done
+            for i in 1 2 3; do
+              if git pull --rebase && git push; then break; fi
+              if [ "$i" = 3 ]; then echo "No se pudo hacer push tras 3 intentos"; exit 1; fi
+              sleep 5
+            done
             echo "hubo=true" >> "$GITHUB_OUTPUT"
           fi
 
