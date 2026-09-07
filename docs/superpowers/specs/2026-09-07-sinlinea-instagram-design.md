@@ -1,7 +1,8 @@
 # Sin Línea · Sistema de publicación automática en Instagram — Diseño v1
 
 Fecha: 2026-09-07
-Estado: aprobado en conversación, pendiente de revisión del documento escrito
+Estado: aprobado. Plan de implementación en
+`docs/superpowers/plans/2026-09-07-sinlinea-instagram.md`.
 
 ## 1. Objetivo
 
@@ -152,7 +153,8 @@ versiona.
   "imagen": {
     "ruta": "public/img/2026-09-07-1420-prensa-a1b2.jpg",
     "url": "https://<usuario>.github.io/sinlinea/img/2026-09-07-1420-prensa-a1b2.jpg",
-    "hash": "sha1(titular|bajada|categoria|variante|version-plantilla)",
+    "hash": "hash(titular|bajada|categoria|variante|version)",
+    "version": 1,
     "renderizada": "2026-09-07T19:21:04Z"
   },
   "programado": null,
@@ -169,7 +171,11 @@ versiona.
 - `error`: `{ "paso": "render | instagram", "mensaje": "...", "fecha": "..." }`.
 - `imagen.hash` permite a REGENERAR detectar imágenes desactualizadas sin que
   el panel tenga que marcar nada: si el hash calculado con los campos actuales
-  no coincide, se vuelve a renderizar.
+  no coincide, se vuelve a renderizar. `imagen.version` guarda la versión de
+  la plantilla con la que se renderizó, así el panel puede recalcular el hash
+  sin conocer la versión vigente; REGENERAR además compara con la versión
+  actual de la plantilla. El hash es FNV-1a en JavaScript puro (mismo código
+  en Node y en el navegador); no es criptográfico, solo detecta cambios.
 - `variante` ∈ `negro | amarillo | rojo`.
 
 ### 5.2 Transiciones de estado
@@ -389,8 +395,10 @@ de `posts/` y `public/`, y no se toca `seen.json`.
    cupo, dejar los posts como están y terminar.
 3. Para cada post, en orden de hora programada:
    a. `HEAD imagen.url` debe responder 200 (Pages desplegado). Si no, se
-      registra y se intenta en la siguiente corrida; tras 3 intentos fallidos
-      pasa a `error` con paso `render`.
+      registra en el campo `esperasImagen` del post y se intenta en la
+      siguiente corrida; al tercer intento fallido pasa a `error` con paso
+      `render`. Si la imagen falta o está desactualizada (hash distinto), el
+      post se pospone sin contar intento, a la espera de REGENERAR.
    b. `POST /{IG_USER_ID}/media` con `image_url`, `caption` compuesto
       (§10.3) → `creation_id`.
    c. Sondear `GET /{creation_id}?fields=status_code` cada 5 s hasta
@@ -410,7 +418,7 @@ reintentan y pasan el post a `error`.
 
 - Se guarda en el secreto `IG_ACCESS_TOKEN` (token de larga duración, 60 días)
   junto con `IG_USER_ID`.
-- `renovar-token.yml` corre cada lunes: `GET /refresh_access_token?grant_type=ig_refresh_token`
+- `renovar-token.yml` corre cada lunes a las 9:00 de Panamá (14:00 UTC): `GET /refresh_access_token?grant_type=ig_refresh_token`
   y actualiza el secreto con `gh secret set` usando el secreto `GH_PAT` (token
   fino con permiso Secrets: lectura y escritura sobre el repositorio). El
   refresco solo es válido si el token tiene más de 24 h y no ha expirado.
@@ -455,7 +463,7 @@ por párrafos completos y se registra.
 | `generar.yml` | cron `20 */3 * * *`, manual, push a `main` (ignora `posts/**`, `data/**`, `public/img/**`) | GENERAR + build `dist/` + deploy Pages | `ANTHROPIC_API_KEY` |
 | `regenerar.yml` | push con cambios en `posts/**`, manual | REGENERAR + deploy Pages si cambió algo | — |
 | `publicar.yml` | cron `*/30 * * * *`, manual | PUBLICAR | `IG_ACCESS_TOKEN`, `IG_USER_ID` |
-| `renovar-token.yml` | cron `0 9 * * 1`, manual | refresca token y actualiza secreto | `IG_ACCESS_TOKEN`, `GH_PAT` |
+| `renovar-token.yml` | cron `0 14 * * 1` (lunes 9:00 Panamá), manual | refresca token y actualiza secreto | `IG_ACCESS_TOKEN`, `GH_PAT` |
 
 - Los cuatro comparten `concurrency: { group: sinlinea, cancel-in-progress: false }`.
 - Los commits de los workflows usan `GITHUB_TOKEN` (no disparan otros
