@@ -51,7 +51,7 @@ El diseño deja el camino abierto para todo esto (ver §15).
 Un solo repositorio público `sinlinea` en GitHub, con tres procesos y un panel:
 
 ```
-         cada 3 h                      push a posts/**                cada 30 min
+         cada 3 h                cada hora / push a posts/**           cada 30 min
  ┌──────────────────┐   commit    ┌──────────────────┐   commit   ┌──────────────────┐
  │ GENERAR          │───────────▶ │ REGENERAR        │ ─────────▶ │ PUBLICAR         │
  │ feeds → Claude   │             │ re-render de     │            │ programados con  │
@@ -461,7 +461,7 @@ por párrafos completos y se registra.
 | Workflow | Disparador | Hace | Secretos |
 |---|---|---|---|
 | `generar.yml` | cron `20 */3 * * *`, manual, push a `main` (ignora `posts/**`, `data/**`, `public/img/**`) | GENERAR + build `dist/` + deploy Pages | `ANTHROPIC_API_KEY` |
-| `regenerar.yml` | push con cambios en `posts/**`, manual | REGENERAR + deploy Pages si cambió algo | — |
+| `regenerar.yml` | cron `40 * * * *`, push con cambios en `posts/**`, manual | REGENERAR + deploy Pages si cambió algo | — |
 | `publicar.yml` | cron `*/30 * * * *`, manual | PUBLICAR | `IG_ACCESS_TOKEN`, `IG_USER_ID` |
 | `renovar-token.yml` | cron `0 14 * * 1` (lunes 9:00 Panamá), manual | refresca token y actualiza secreto | `IG_ACCESS_TOKEN`, `GH_PAT` |
 

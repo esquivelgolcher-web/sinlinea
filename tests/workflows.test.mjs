@@ -20,6 +20,7 @@ test("disparadores y secretos de cada workflow", () => {
   assert.match(leer("generar"), /secrets\.ANTHROPIC_API_KEY/);
   const r = wf("regenerar");
   assert.ok(r.on.push.paths.includes("posts/**"));
+  assert.equal(r.on.schedule[0].cron, "40 * * * *");
   const p = wf("publicar");
   assert.equal(p.on.schedule[0].cron, "*/30 * * * *");
   assert.match(leer("publicar"), /secrets\.IG_ACCESS_TOKEN/);

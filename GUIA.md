@@ -6,6 +6,7 @@
   la imagen. Aparecen como **Borradores** en el panel.
 - **Cada 30 minutos** revisa los **Programados** y publica en Instagram los que ya
   tienen la hora cumplida. El panel muestra el enlace al post en **Publicados**.
+- **Cada hora** revisa si alguna imagen falló o quedó desactualizada y la vuelve a generar.
 - **Cada lunes** renueva el token de Instagram. La fecha de vencimiento se ve en la
   cabecera del panel; si está en rojo, revisa `docs/CONFIGURACION.md` (sección 8).
 

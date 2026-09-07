@@ -1,7 +1,9 @@
 name: Regenerar imágenes
 
-# Corre cuando el panel guarda cambios en posts/ (o cambia la plantilla).
+# Corre cada hora, cuando el panel guarda cambios en posts/ (o cambia la plantilla), y a mano.
 on:
+  schedule:
+    - cron: "40 * * * *"
   push:
     branches: [main]
     paths:
