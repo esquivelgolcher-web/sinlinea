@@ -85,5 +85,5 @@ export function crearServidor({ raiz = process.cwd() } = {}) {
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const puerto = Number(process.env.PORT) || 4173;
-  crearServidor().listen(puerto, () => console.log(`Previsualización en http://localhost:${puerto}/`));
+  crearServidor().listen(puerto, "127.0.0.1", () => console.log(`Previsualización en http://localhost:${puerto}/`));
 }

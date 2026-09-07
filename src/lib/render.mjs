@@ -64,6 +64,7 @@ export async function renderizarPost(post, { config, navegador, raiz = process.c
     await sharp(png).jpeg({ quality: 88, progressive: true, mozjpeg: true }).toFile(rutaSalida);
   } finally {
     await page.close();
+    fs.rmSync(rutaHtml, { force: true });
   }
   return {
     ruta: destino,
