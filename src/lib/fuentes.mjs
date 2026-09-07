@@ -75,9 +75,13 @@ export async function recolectar(config, { fetchText, ahora = new Date(), log = 
     if (fuente.tipo === "rss") {
       candidatos.push(...candidatosDesdeRss(parseFeed(cuerpo), fuente, { ahora, maxHoras }).filter((c) => filtrar(c.url)));
     } else {
-      const urls = extraerEnlacesPortada(cuerpo, {
+      const enlaces = extraerEnlacesPortada(cuerpo, {
         baseUrl: fuente.url, patronArticulo: fuente.patronArticulo, excluirSecciones: fuente.excluirSecciones || [],
-      }).filter(filtrar);
+      });
+      if (enlaces.length === 0 && cuerpo.trim().length > 0) {
+        log.warn(`La portada "${fuente.nombre}" no produjo enlaces de artículos; revisa patronArticulo.`);
+      }
+      const urls = enlaces.filter(filtrar).slice(0, config.generar.candidatosMax);
       const pendientes = candidatosDesdePortada(urls, fuente);
       const completos = await enParalelo(pendientes, concurrencia, async (cand) => {
         try {

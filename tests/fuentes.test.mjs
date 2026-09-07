@@ -56,3 +56,20 @@ test("recolectar sigue si una fuente falla, respeta filtrar y completa las porta
   assert.ok(!llamadas.some((u) => u.includes("parlacen")), "no debe descargar lo filtrado");
   assert.ok(avisos.some((m) => /La Prensa/.test(m)));
 });
+
+test("recolectar limita las descargas de portada a candidatosMax y avisa si la portada no da enlaces", async () => {
+  const descargas = [];
+  const fetchText = async (url) => {
+    if (url.includes("prensa.com")) throw new Error("no");
+    if (url === "https://www.laestrella.com.pa/") return portadaHtml;
+    descargas.push(url);
+    return articuloHtml;
+  };
+  const cfg1 = { ...cfg, generar: { ...cfg.generar, candidatosMax: 1 } };
+  const c = await recolectar(cfg1, { fetchText, ahora, log: { warn: () => {}, info: () => {} } });
+  assert.equal(descargas.length, 1);
+  assert.equal(c.length, 1);
+  const avisos = [];
+  await recolectar(cfg, { fetchText: async (u) => (u === "https://www.laestrella.com.pa/" ? "<html><body><p>sin enlaces</p></body></html>" : ""), ahora, log: { warn: (m) => avisos.push(m), info: () => {} } });
+  assert.ok(avisos.some((m) => /patronArticulo/.test(m)));
+});
