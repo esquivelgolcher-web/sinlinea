@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Sin Línea · Panel</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="cabecera">
+  <div class="marca"><span class="marca-sin">SIN</span><span class="marca-linea">LÍNEA</span> <span class="marca-sub">panel</span></div>
+  <div class="estado-token" id="estado-token" hidden></div>
+  <button class="boton-texto" id="boton-config" type="button">Configurar</button>
+</header>
+
+<section class="config" id="config" hidden>
+  <h2>Conexión con GitHub</h2>
+  <p>Pega un token fino de GitHub limitado al repositorio del panel, con permiso <strong>Contents: lectura y escritura</strong>. Se guarda solo en este navegador.</p>
+  <label>Usuario u organización <input id="campo-owner" autocomplete="off"></label>
+  <label>Repositorio <input id="campo-repo" autocomplete="off"></label>
+  <label>Token <input id="campo-token" type="password" autocomplete="off"></label>
+  <div class="acciones">
+    <button class="boton primario" id="boton-guardar-config" type="button">Guardar y conectar</button>
+    <button class="boton" id="boton-borrar-config" type="button">Borrar token</button>
+  </div>
+</section>
+
+<nav class="pestanas" id="pestanas"></nav>
+<p class="aviso" id="aviso" hidden></p>
+<main class="lista" id="lista"><p class="vacio">Cargando…</p></main>
+
+<dialog id="dialogo-hora">
+  <form method="dialog">
+    <h3>Programar publicación</h3>
+    <label>Fecha <input type="date" id="hora-fecha" required></label>
+    <label>Hora <input type="time" id="hora-hora" required step="300"></label>
+    <p class="nota" id="hora-nota"></p>
+    <div class="acciones">
+      <button class="boton" value="cancelar" type="submit">Cancelar</button>
+      <button class="boton primario" value="ok" type="submit" id="hora-confirmar">Confirmar</button>
+    </div>
+  </form>
+</dialog>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+:root { --amarillo: #FFD400; --rojo: #E30613; --negro: #111111; --gris: #f3f3f1; --gris-2: #d9d9d4; --texto: #1b1b1b; --ok: #1a7f37; --alerta: #b54708; }
+* { box-sizing: border-box; }
+html { color-scheme: light; }
+body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background: var(--gris); color: var(--texto); }
+.cabecera { position: sticky; top: 0; z-index: 2; display: flex; align-items: center; gap: 12px; padding: 10px 14px; background: var(--amarillo); border-bottom: 4px solid var(--rojo); }
+.marca { font-weight: 900; letter-spacing: -0.02em; font-size: 22px; flex: 1; }
+.marca-sin { color: var(--rojo); } .marca-linea { color: var(--negro); } .marca-sub { font-weight: 500; font-size: 14px; opacity: 0.7; }
+.estado-token { font-size: 12px; padding: 4px 8px; border-radius: 999px; background: #fff; }
+.estado-token.alerta { background: var(--rojo); color: #fff; }
+.boton-texto { background: none; border: 0; font: inherit; text-decoration: underline; cursor: pointer; }
+.config { margin: 12px; padding: 14px; background: #fff; border-radius: 12px; }
+.config label { display: block; margin: 10px 0; font-size: 14px; }
+.config input { display: block; width: 100%; margin-top: 4px; padding: 10px; font-size: 16px; border: 1px solid var(--gris-2); border-radius: 8px; }
+.pestanas { display: flex; gap: 6px; padding: 10px 12px; overflow-x: auto; }
+.pestanas button { flex: 0 0 auto; padding: 8px 12px; border-radius: 999px; border: 1px solid var(--gris-2); background: #fff; font: inherit; font-size: 14px; }
+.pestanas button.activa { background: var(--negro); color: var(--amarillo); border-color: var(--negro); }
+.aviso { margin: 0 12px 8px; padding: 10px; border-radius: 8px; background: #fff3cd; color: var(--alerta); font-size: 14px; }
+.lista { display: grid; gap: 14px; padding: 0 12px 40px; max-width: 720px; margin: 0 auto; }
+.vacio { text-align: center; opacity: 0.6; padding: 40px 0; }
+.tarjeta { background: #fff; border-radius: 14px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+.tarjeta img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; background: #ddd; }
+.sin-imagen { aspect-ratio: 4 / 5; display: grid; place-items: center; background: #e9e9e6; color: #666; font-size: 14px; }
+.tarjeta .cuerpo { padding: 12px 14px 14px; display: grid; gap: 10px; }
+.meta { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font-size: 13px; }
+.chip { background: var(--rojo); color: #fff; padding: 3px 8px; font-weight: 700; letter-spacing: 0.06em; font-size: 12px; }
+.badge { padding: 3px 8px; border-radius: 999px; background: var(--gris); font-size: 12px; }
+.badge.programado { background: #dbeafe; } .badge.publicado { background: #dcfce7; } .badge.error { background: #fee2e2; } .badge.descartado { background: #eee; }
+.regenerando { color: var(--alerta); font-size: 12px; }
+.tarjeta label { display: block; font-size: 12px; color: #555; }
+.tarjeta textarea, .tarjeta input, .tarjeta select { display: block; width: 100%; margin-top: 3px; padding: 8px; font: inherit; font-size: 15px; border: 1px solid var(--gris-2); border-radius: 8px; }
+.tarjeta textarea { resize: vertical; min-height: 44px; }
+.fila { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.contador { font-size: 12px; color: #666; text-align: right; }
+.contador.excede { color: var(--rojo); font-weight: 700; }
+.error-texto { background: #fee2e2; color: #991b1b; padding: 8px; border-radius: 8px; font-size: 13px; }
+.acciones { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+.boton { padding: 10px 14px; border-radius: 10px; border: 1px solid var(--gris-2); background: #fff; font: inherit; font-size: 15px; cursor: pointer; }
+.boton.primario { background: var(--negro); color: var(--amarillo); border-color: var(--negro); }
+.boton.peligro { color: var(--rojo); border-color: var(--rojo); }
+.boton:disabled { opacity: 0.5; cursor: default; }
+dialog { border: 0; border-radius: 14px; padding: 18px; width: min(92vw, 380px); }
+dialog label { display: block; margin: 10px 0; font-size: 14px; }
+dialog input { display: block; width: 100%; margin-top: 4px; padding: 10px; font-size: 16px; border: 1px solid var(--gris-2); border-radius: 8px; }
+.nota { font-size: 13px; color: var(--alerta); min-height: 1.2em; }
+a { color: inherit; }
