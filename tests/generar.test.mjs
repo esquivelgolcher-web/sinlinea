@@ -1,0 +1,92 @@
+import { test } from "node:test";
+import assert from "node:assert/strict";
+import fs from "node:fs";
+import os from "node:os";
+import path from "node:path";
+import { ejecutarGenerar } from "../src/generar.mjs";
+import { cargarConfig } from "../src/lib/config.mjs";
+import { leerPosts } from "../src/lib/posts.mjs";
+import { cargarVistas } from "../src/lib/seen.mjs";
+
+const xml = fs.readFileSync("tests/fixtures/laprensa.xml", "utf8");
+const portada = fs.readFileSync("tests/fixtures/laestrella-portada.html", "utf8");
+const articulo = fs.readFileSync("tests/fixtures/laestrella-articulo.html", "utf8");
+const ahora = new Date("2026-09-07T19:20:31Z");
+
+function raizTemporal() {
+  const raiz = fs.mkdtempSync(path.join(os.tmpdir(), "sinlinea-"));
+  fs.mkdirSync(path.join(raiz, "posts"), { recursive: true });
+  fs.mkdirSync(path.join(raiz, "data"), { recursive: true });
+  fs.mkdirSync(path.join(raiz, "prompts"), { recursive: true });
+  fs.copyFileSync("config.json", path.join(raiz, "config.json"));
+  fs.copyFileSync("prompts/editorial.md", path.join(raiz, "prompts/editorial.md"));
+  fs.writeFileSync(path.join(raiz, "data/seen.json"), '{ "urls": {} }\n');
+  return raiz;
+}
+
+const fetchText = async (url) => {
+  if (url.includes("prensa.com/arc")) return xml;
+  if (url === "https://www.laestrella.com.pa/") return portada;
+  return articulo;
+};
+
+function clientFalso(indices) {
+  return { messages: { parse: async (p) => ({
+    stop_reason: "end_turn", usage: { input_tokens: 1, output_tokens: 1 },
+    parsed_output: { descartados: [], seleccion: indices.map((i, k) => ({
+      indiceCandidato: i, categoria: "SOCIEDAD", titular: `Titular ${k}`, bajada: "Bajada", caption: "Caption", hashtags: ["#Panamá"], relevancia: 1 - k / 10, motivo: "m",
+    })) },
+  }) } };
+}
+
+const renderOkFalso = async (post) => ({ ruta: `public/img/${post.id}.jpg`, url: `https://x/img/${post.id}.jpg`, hash: "0".repeat(16), version: 1, renderizada: ahora.toISOString() });
+const log = { info: () => {}, warn: () => {} };
+
+test("crea borradores, marca todas las URLs candidatas como vistas y rota variantes", async () => {
+  const raiz = raizTemporal();
+  const config = cargarConfig(path.join(raiz, "config.json"));
+  const r = await ejecutarGenerar({ config, raiz, ahora, fetchText, client: clientFalso([0, 1]), render: renderOkFalso, log });
+  assert.equal(r.motivo, "ok");
+  assert.equal(r.creados.length, 2);
+  const posts = leerPosts(path.join(raiz, "posts"));
+  assert.equal(posts.length, 2);
+  assert.deepEqual(posts.map((p) => p.variante).sort(), ["amarillo", "negro"]);
+  assert.ok(posts.every((p) => p.estado === "borrador" && p.imagen?.hash));
+  const vistas = cargarVistas(path.join(raiz, "data/seen.json"));
+  assert.ok(Object.keys(vistas.urls).length >= 3, "marca elegidos y no elegidos");
+  const otra = await ejecutarGenerar({ config, raiz, ahora, fetchText, client: clientFalso([0]), render: renderOkFalso, log });
+  assert.equal(otra.motivo, "sin-candidatos");
+});
+
+test("respeta el cupo diario y no llama a Claude si está agotado", async () => {
+  const raiz = raizTemporal();
+  const config = cargarConfig(path.join(raiz, "config.json"));
+  config.generar.maxBorradoresPorDia = 1;
+  let llamadas = 0;
+  const client = { messages: { parse: async (p) => { llamadas++; return clientFalso([0, 1]).messages.parse(p); } } };
+  const r = await ejecutarGenerar({ config, raiz, ahora, fetchText, client, render: renderOkFalso, log });
+  assert.equal(r.creados.length, 1);
+  const r2 = await ejecutarGenerar({ config, raiz, ahora, fetchText, client, render: renderOkFalso, log });
+  assert.equal(r2.motivo, "cupo");
+  assert.equal(llamadas, 1);
+});
+
+test("si el render falla el post queda en error de render", async () => {
+  const raiz = raizTemporal();
+  const config = cargarConfig(path.join(raiz, "config.json"));
+  const render = async () => { throw new Error("chromium caído"); };
+  const r = await ejecutarGenerar({ config, raiz, ahora, fetchText, client: clientFalso([0]), render, log });
+  assert.equal(r.creados[0].estado, "error");
+  assert.equal(r.creados[0].error.paso, "render");
+  assert.match(r.creados[0].error.mensaje, /chromium/);
+});
+
+test("dry-run escribe en temp/ y no toca posts ni seen", async () => {
+  const raiz = raizTemporal();
+  const config = cargarConfig(path.join(raiz, "config.json"));
+  const r = await ejecutarGenerar({ config, raiz, ahora, fetchText, client: clientFalso([0]), render: renderOkFalso, log, dryRun: true });
+  assert.equal(r.creados.length, 1);
+  assert.equal(leerPosts(path.join(raiz, "posts")).length, 0);
+  assert.equal(leerPosts(path.join(raiz, "temp/dry-run/posts")).length, 1);
+  assert.deepEqual(cargarVistas(path.join(raiz, "data/seen.json")), { urls: {} });
+});
