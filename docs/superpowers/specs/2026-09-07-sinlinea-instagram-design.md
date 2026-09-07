@@ -87,7 +87,7 @@ token) comparten un mismo grupo de concurrencia para no pisarse al hacer push.
 sinlinea/
   .github/workflows/
     generar.yml          cron 20 */3 * * *  + manual + push de código
-    regenerar.yml        on push paths posts/**  + manual
+    regenerar.yml        cron 40 * * * * + push paths posts/** + manual
     publicar.yml         cron */30 * * * *  + manual
     renovar-token.yml    cron semanal: refresca el token de Instagram
   config.json            fuentes, franjas, límites, modelo, marca, URL de Pages
@@ -337,7 +337,7 @@ de `posts/` y `public/`, y no se toca `seen.json`.
   - Logo circular 160 px arriba a la izquierda.
   - Chip de categoría arriba a la derecha: mayúsculas, 28 px, espaciado de
     letras, esquinas rectas.
-  - Titular en `Anton` (condensada pesada, OFL), mayúsculas, interlineado 0.95,
+  - Titular en `Anton` (condensada pesada, OFL), mayúsculas, interlineado 1.0,
     tamaño inicial 104 px que se reduce automáticamente hasta caber en máximo
     6 líneas (mínimo 64 px).
   - Bajada en `Inter` 36 px, máximo 3 líneas, color con 85 % de opacidad.
