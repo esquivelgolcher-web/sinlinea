@@ -299,8 +299,10 @@ de `posts/` y `public/`, y no se toca `seen.json`.
 ```
 
 - El **prompt de sistema** = contenido de `prompts/editorial.md` + reglas
-  fijas. Se marca con `cache_control` para aprovechar el caché de prompt entre
-  corridas. Reglas fijas que el código impone además de lo que diga el archivo:
+  fijas. Se marca con `cache_control`; con el tamaño actual del prompt el
+  caché no aplica (está por debajo del mínimo), pero el marcador queda listo
+  para cuando la línea editorial crezca. Reglas fijas que el código impone
+  además de lo que diga el archivo:
   no inventar datos que no estén en el texto del artículo; español de Panamá;
   no repetir temas ya cubiertos en los últimos días; preferir noticias de
   interés general y de impacto para la ciudadanía; una noticia por post;

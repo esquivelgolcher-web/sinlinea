@@ -15,6 +15,7 @@ Comprueba con `npm run preview` → `http://localhost:4173/vista/negro`.
    git remote add origin https://github.com/<tu-usuario>/sinlinea.git
    git push -u origin main
    ```
+   Es normal que las primeras corridas de "Generar borradores" salgan en rojo hasta completar los pasos 3 y 4.
 3. En el repo → **Settings → Pages → Source: GitHub Actions**.
 4. Edita `config.json`: `pages.baseUrl` = `https://<tu-usuario>.github.io/sinlinea`
    y `marca.usuario` = tu usuario de Instagram (con @). Haz commit y push.
