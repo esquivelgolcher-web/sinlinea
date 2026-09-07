@@ -1,0 +1,35 @@
+{
+  "id": "2026-09-07-1336-la-prensa-6ddd",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/politica/mulino-sale-en-defensa-de-sus-viajas-al-exterior-no-vengo-de-shopping/",
+    "titulo": "Mulino sale en defensa de sus viajes al exterior: ‘No vengo de shopping’",
+    "publicado": "2026-09-06T16:57:45.000Z"
+  },
+  "categoria": "POLÍTICA",
+  "titular": "Mulino defiende sus 29 viajes al exterior como estrategia de gobierno",
+  "bajada": "El presidente José Raúl Mulino rechazó críticas por sus giras internacionales y aseguró que buscan atraer inversión y fortalecer alianzas para Panamá.",
+  "caption": "En más de dos años de gobierno, Mulino ha viajado 29 veces fuera del país, una cifra que ha generado cuestionamientos. El mandatario defiende que estos viajes son parte de su gestión y no tienen fines turísticos. Mientras tanto, no realiza sus conferencias de prensa semanales en Panamá desde junio. ¿Qué opinas de esta forma de gobernar desde el exterior?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Política",
+    "#Mulino",
+    "#Gobierno",
+    "#ViajesPresidenciales"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-09-07-1336-la-prensa-6ddd.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-07-1336-la-prensa-6ddd.jpg",
+    "hash": "e0e084948acfcc02",
+    "version": 3,
+    "renderizada": "2026-09-07T18:36:57.005Z"
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-07T18:36:32.436Z",
+  "actualizado": "2026-09-07T18:36:32.436Z"
+}

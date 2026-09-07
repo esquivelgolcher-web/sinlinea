@@ -1,0 +1,35 @@
+{
+  "id": "2026-09-07-1336-la-prensa-4fe9",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/judiciales/gota-a-gota-prestamos-violencia-y-la-sombra-del-crimen-organizado/",
+    "titulo": "Gota a gota: préstamos, violencia y la sombra del crimen organizado",
+    "publicado": "2026-09-06T05:04:00.000Z"
+  },
+  "categoria": "SEGURIDAD",
+  "titular": "Policía vincula el gota a gota con crimen organizado y pandillas",
+  "bajada": "El director de la Policía, Jaime Fernández, confirmó que investigan estructuras de préstamos gota a gota que lavan dinero para bandas criminales, tras un triple homicidio en San Miguelito.",
+  "caption": "Un ataque armado en Villa Lucre dejó tres muertos y encendió las alarmas sobre el gota a gota en Panamá. La Policía asegura que ya golpea estas redes que financian al crimen organizado, igual que hace con el microtráfico. La violencia por deudas informales afecta a comunidades enteras que no tienen acceso a créditos formales. ¿Has visto operar el gota a gota en tu barrio?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Seguridad",
+    "#GotaAGota",
+    "#CrimenOrganizado",
+    "#SanMiguelito"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-09-07-1336-la-prensa-4fe9.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-07-1336-la-prensa-4fe9.jpg",
+    "hash": "7285e4ebb1d1c555",
+    "version": 3,
+    "renderizada": "2026-09-07T18:36:56.636Z"
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-07T18:36:32.436Z",
+  "actualizado": "2026-09-07T18:36:32.436Z"
+}
