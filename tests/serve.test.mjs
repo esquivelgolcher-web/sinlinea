@@ -46,4 +46,6 @@ test("sirve el panel, sus mÃ³dulos desde src/lib y bloquea rutas fuera de la raÃ
   assert.equal(js.status, 200);
   assert.match(js.headers.get("content-type"), /javascript/);
   assert.equal((await fetch(`${base}/assets/../config.json`)).status, 404);
+  assert.equal((await fetch(`${base}/assets/..%5c..%5cconfig.json`)).status, 404);
+  assert.equal((await fetch(`${base}/%zz`)).status, 400);
 });

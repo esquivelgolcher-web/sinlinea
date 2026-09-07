@@ -39,7 +39,12 @@ export function crearServidor({ raiz = process.cwd() } = {}) {
   const config = cargarConfig(path.join(raiz, "config.json"));
   return http.createServer(async (req, res) => {
     const url = new URL(req.url, "http://localhost");
-    const p = decodeURIComponent(url.pathname);
+    let p;
+    try {
+      p = decodeURIComponent(url.pathname);
+    } catch {
+      return responder(res, 400, "Ruta mal formada");
+    }
     try {
       if (req.method === "GET" && p === "/") {
         const enlaces = VARIANTES.map((v) => `<li><a href="/vista/${v}">Plantilla · ${v}</a></li>`).join("");
