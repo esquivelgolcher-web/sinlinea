@@ -22,6 +22,7 @@ test("hashImagen es estable, de 16 hex y cambia con cualquier campo o la versió
   assert.notEqual(h, hashImagen({ ...p, titular: "Otro" }, 1));
   assert.notEqual(h, hashImagen({ ...p, variante: "rojo" }, 1));
   assert.notEqual(h, hashImagen(p, 2));
+  assert.notEqual(hashImagen({ ...p, titular: "Fire", bajada: "works" }, 1), hashImagen({ ...p, titular: "Firework", bajada: "s" }, 1));
 });
 
 test("imagenDesactualizada detecta ausencia y desfase", () => {

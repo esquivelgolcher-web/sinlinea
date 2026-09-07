@@ -19,7 +19,7 @@ function fnv1a(texto, base) {
 }
 
 export function hashImagen(post, version) {
-  const texto = [...CAMPOS_IMAGEN.map((c) => String(post[c] ?? "")), String(version)].join("");
+  const texto = [...CAMPOS_IMAGEN.map((c) => String(post[c] ?? "")), String(version)].join("\u0000");
   return fnv1a(texto, 0x811c9dc5) + fnv1a(texto, 0x050c5d1f);
 }
 
