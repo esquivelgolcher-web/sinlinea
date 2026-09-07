@@ -1,0 +1,24 @@
+import { test } from "node:test";
+import assert from "node:assert/strict";
+import fs from "node:fs";
+import os from "node:os";
+import path from "node:path";
+import { construirDist } from "../src/build.mjs";
+
+test("construirDist copia imágenes, panel, módulos isomorfos e índice", () => {
+  const raiz = fs.mkdtempSync(path.join(os.tmpdir(), "dist-"));
+  fs.mkdirSync(path.join(raiz, "public/img"), { recursive: true });
+  fs.writeFileSync(path.join(raiz, "public/img/a.jpg"), "jpg");
+  fs.writeFileSync(path.join(raiz, "public/img/.gitkeep"), "");
+  fs.mkdirSync(path.join(raiz, "panel"), { recursive: true });
+  fs.writeFileSync(path.join(raiz, "panel/index.html"), "<p>panel</p>");
+  fs.mkdirSync(path.join(raiz, "src/lib"), { recursive: true });
+  for (const f of ["estados.mjs", "caption.mjs", "franjas.mjs", "fechas.mjs"]) fs.copyFileSync(`src/lib/${f}`, path.join(raiz, "src/lib", f));
+  const dist = construirDist({ raiz });
+  assert.ok(fs.existsSync(path.join(dist, "img/a.jpg")));
+  assert.ok(!fs.existsSync(path.join(dist, "img/.gitkeep")));
+  assert.ok(fs.existsSync(path.join(dist, "panel/index.html")));
+  assert.ok(fs.existsSync(path.join(dist, "panel/lib/estados.mjs")));
+  assert.ok(fs.existsSync(path.join(dist, ".nojekyll")));
+  assert.match(fs.readFileSync(path.join(dist, "index.html"), "utf8"), /url=panel\//);
+});
