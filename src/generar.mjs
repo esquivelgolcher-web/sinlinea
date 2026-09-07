@@ -15,6 +15,7 @@ import { abrirNavegador, renderizarPost } from "./lib/render.mjs";
 import { claveDia } from "./lib/fechas.mjs";
 
 export async function ejecutarGenerar({ config, raiz = process.cwd(), ahora = new Date(), fetchText, client, render, log = console, dryRun = false }) {
+  if (/CAMBIAR/.test(config.pages.baseUrl)) throw new Error("config.json: pages.baseUrl todavía tiene el valor CAMBIAR");
   const zona = config.zonaHoraria;
   const hoy = claveDia(ahora, zona);
   const iso = ahora.toISOString();

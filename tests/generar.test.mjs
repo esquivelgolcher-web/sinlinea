@@ -19,6 +19,8 @@ function raizTemporal() {
   fs.mkdirSync(path.join(raiz, "data"), { recursive: true });
   fs.mkdirSync(path.join(raiz, "prompts"), { recursive: true });
   fs.copyFileSync("config.json", path.join(raiz, "config.json"));
+  const cfgTexto = fs.readFileSync(path.join(raiz, "config.json"), "utf8").replace("https://CAMBIAR.github.io/sinlinea", "https://prueba.github.io/sinlinea");
+  fs.writeFileSync(path.join(raiz, "config.json"), cfgTexto);
   fs.copyFileSync("prompts/editorial.md", path.join(raiz, "prompts/editorial.md"));
   fs.writeFileSync(path.join(raiz, "data/seen.json"), '{ "urls": {} }\n');
   return raiz;
@@ -97,4 +99,11 @@ test("tres posts en la misma corrida usan las tres variantes", async () => {
   config.generar.maxPorCorrida = 3;
   const r = await ejecutarGenerar({ config, raiz, ahora, fetchText, client: clientFalso([0, 1, 2]), render: renderOkFalso, log });
   assert.deepEqual(r.creados.map((p) => p.variante), ["negro", "amarillo", "rojo"]);
+});
+
+test("se niega a generar mientras pages.baseUrl tenga el valor CAMBIAR", async () => {
+  const raiz = raizTemporal();
+  const config = cargarConfig(path.join(raiz, "config.json"));
+  config.pages.baseUrl = "https://CAMBIAR.github.io/sinlinea";
+  await assert.rejects(() => ejecutarGenerar({ config, raiz, ahora, fetchText, client: clientFalso([0]), render: renderOkFalso, log }), /CAMBIAR/);
 });

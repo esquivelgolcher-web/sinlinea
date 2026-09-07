@@ -5,13 +5,13 @@ import os from "node:os";
 import path from "node:path";
 import { ejecutarRegenerar } from "../src/regenerar.mjs";
 import { cargarConfig } from "../src/lib/config.mjs";
-import { leerPosts, escribirPost } from "../src/lib/posts.mjs";
+import { leerPosts, escribirPost, urlImagen } from "../src/lib/posts.mjs";
 import { hashImagen, marcarError, aprobar } from "../src/lib/estados.mjs";
 
 const cfg = cargarConfig("config.json");
 const base = JSON.parse(fs.readFileSync("tests/fixtures/post-ejemplo.json", "utf8"));
 const ahora = new Date("2026-09-07T21:00:00Z");
-const imagenDe = (p, version = 1) => ({ ruta: `public/img/${p.id}.jpg`, url: `https://x/img/${p.id}.jpg`, hash: hashImagen(p, version), version, renderizada: ahora.toISOString() });
+const imagenDe = (p, version = 1) => ({ ruta: `public/img/${p.id}.jpg`, url: urlImagen(cfg.pages.baseUrl, p.id), hash: hashImagen(p, version), version, renderizada: ahora.toISOString() });
 const log = { info: () => {}, warn: () => {} };
 
 function dirCon(posts) {
@@ -53,4 +53,12 @@ test("si el render falla, el post programado queda en error y conserva su hora",
   const p = leerPosts(path.join(raiz, "posts"))[0];
   assert.equal(p.estado, "error");
   assert.equal(p.programado, "2026-09-07T17:00:00-05:00");
+});
+
+test("una imagen con URL de otro baseUrl se vuelve a renderizar", async () => {
+  const p = { ...base, imagen: { ...imagenDe(base), url: "https://CAMBIAR.github.io/sinlinea/img/x.jpg" } };
+  const raiz = dirCon([p]);
+  const cfgReal = { ...cfg, pages: { baseUrl: "https://prueba.github.io/sinlinea" } };
+  const r = await ejecutarRegenerar({ config: cfgReal, raiz, ahora, render: async (x) => ({ ...imagenDe(x), url: `https://prueba.github.io/sinlinea/img/${x.id}.jpg` }), log, version: 1 });
+  assert.deepEqual(r.renderizados, [p.id]);
 });

@@ -3,7 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { cargarConfig } from "./lib/config.mjs";
-import { leerPosts, escribirPost } from "./lib/posts.mjs";
+import { leerPosts, escribirPost, urlImagen } from "./lib/posts.mjs";
 import { imagenDesactualizada, renderOk, marcarError } from "./lib/estados.mjs";
 import { versionPlantilla, RUTA_PLANTILLA, abrirNavegador, renderizarPost } from "./lib/render.mjs";
 
@@ -12,7 +12,10 @@ export async function ejecutarRegenerar({ config, raiz = process.cwd(), ahora = 
   const iso = ahora.toISOString();
   const actual = version ?? versionPlantilla(fs.readFileSync(path.join(raiz, RUTA_PLANTILLA), "utf8"));
   const activos = leerPosts(dir).filter((p) => ["borrador", "programado", "error"].includes(p.estado));
-  const pendientes = activos.filter((p) => imagenDesactualizada(p, actual) || (p.estado === "error" && p.error?.paso === "render"));
+  const pendientes = activos.filter((p) =>
+    imagenDesactualizada(p, actual)
+    || (p.estado === "error" && p.error?.paso === "render")
+    || (p.imagen && p.imagen.url !== urlImagen(config.pages.baseUrl, p.id)));
   const resultado = { renderizados: [], fallidos: [] };
   if (!pendientes.length) { log.info("Ninguna imagen que regenerar."); return resultado; }
   for (const p of pendientes) {
