@@ -65,7 +65,7 @@ export function ejecutarVerificacion({ raiz = process.cwd(), env = process.env, 
     if (fs.existsSync(path.join(raiz, config.rutas.editorial))) bien(`${config.rutas.editorial} (línea editorial)`);
     else error(`falta ${config.rutas.editorial} (línea editorial)`);
     if (fs.existsSync(path.join(raiz, config.rutas.logo))) bien(`${config.rutas.logo} (logo de la marca)`);
-    else aviso(`falta ${config.rutas.logo}: la imagen usará un círculo con las iniciales de la marca`);
+    else aviso(`falta ${config.rutas.logo}: la imagen usará las iniciales de la marca (círculo o cuadrado según marca.logoForma)`);
     const propios = secretosRequeridos(config).filter((s) => !compartidos.some((c) => c.nombre === s.nombre));
     informar(propios);
     const info = leerTokenInfo(raiz, config.rutas.datos);

@@ -11,7 +11,7 @@ const plantilla = fs.readFileSync("templates/post.html", "utf8");
 
 test("versionPlantilla lee data-version", () => {
   assert.equal(versionPlantilla('<html lang="es" data-version="7">'), 7);
-  assert.equal(versionPlantilla(plantilla), 8);
+  assert.equal(versionPlantilla(plantilla), 9);
 });
 
 test("datosDeRender arma los textos de la imagen", () => {
@@ -80,4 +80,13 @@ test("(M2) estiloVisual cambia con los colores o con la presencia del logo y es 
 test("(rótulo) estiloVisual cambia si cambia el rótulo, para que REGENERAR vuelva a dibujar", () => {
   const conRotulo = { ...cfg, ilustraciones: { ...cfg.ilustraciones, rotulo: "Ilustración generada con IA" } };
   assert.notEqual(estiloVisual(cfg, null), estiloVisual(conRotulo, null));
+});
+
+test("(logo) datosDeRender lleva la forma del logo y estiloVisual cambia con ella", () => {
+  const d = datosDeRender(post, cfg, { logoUrl: "cuentas/sinlinea/logo.png" });
+  assert.equal(d.logoForma, "circulo");
+  const personal = cargarConfiguracion(".").cuentas.find((c) => c.cuenta === "luiseskivelgolcher");
+  assert.equal(datosDeRender(post, personal, { logoUrl: "cuentas/luiseskivelgolcher/logo.png" }).logoForma, "cuadrado");
+  const cuadrado = { ...cfg, marca: { ...cfg.marca, logoForma: "cuadrado" } };
+  assert.notEqual(estiloVisual(cfg, "x"), estiloVisual(cuadrado, "x"), "cambiar la forma del logo obliga a REGENERAR a re-dibujar");
 });

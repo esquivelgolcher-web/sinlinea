@@ -7,7 +7,7 @@
   "engines": { "node": ">=20" },
   "scripts": {
     "test": "node --test",
-    "test:render": "node --test tests/render.integration.mjs",
+    "test:render": "node --test tests/render.integration.mjs tests/logo.integration.mjs",
     "test:e2e": "node --test tests/panel.e2e.mjs",
     "generar": "node src/generar.mjs",
     "regenerar": "node src/regenerar.mjs",
@@ -16,6 +16,7 @@
     "build": "node src/build.mjs",
     "verificar": "node src/verificar.mjs",
     "borrador": "node src/borrador.mjs",
+    "logo": "node src/logo.mjs",
     "preview": "node src/serve.mjs"
   },
   "dependencies": {

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="es" data-version="8">
+<html lang="es" data-version="9">
 <head>
 <meta charset="utf-8">
 <base href="__BASE__">
@@ -30,6 +30,8 @@
   .logo { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; display: block; }
   .post[data-variante="amarillo"] .logo { box-shadow: 0 0 0 5px var(--negro); }
   .post.con-ilustracion[data-variante] .logo { box-shadow: none; }
+  /* marca.logoForma "cuadrado": el logo (o las iniciales de reserva) no se recorta en círculo. */
+  .post[data-logo-forma="cuadrado"] .logo, .post[data-logo-forma="cuadrado"] .logo-fallback { border-radius: 0; }
   .logo-fallback { width: 120px; height: 120px; border-radius: 50%; box-sizing: border-box; background: var(--amarillo); color: var(--negro);
                    display: flex; align-items: center; justify-content: center; font-family: "Anton", Impact, sans-serif; font-size: 44px; line-height: 1; letter-spacing: 0.04em;
                    text-align: center; border: 5px solid var(--negro); }
@@ -81,6 +83,7 @@
     if (valor) document.documentElement.style.setProperty(variable, valor);
   }
   $("post").dataset.variante = d.variante || "negro";
+  $("post").dataset.logoForma = d.logoForma || "circulo";
   $("categoria").textContent = d.categoria || "";
   $("titular").textContent = d.titular || "";
   $("bajada").textContent = d.bajada || "";

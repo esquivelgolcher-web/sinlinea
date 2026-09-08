@@ -23,7 +23,7 @@ for (const variante of ["negro", "amarillo", "rojo"]) {
     assert.equal(meta.width, 1080);
     assert.equal(meta.height, 1350);
     assert.ok(fs.statSync(img.ruta).size < 1024 * 1024);
-    assert.equal(img.version, 8);
+    assert.equal(img.version, 9);
     assert.match(img.hash, /^[0-9a-f]{16}$/);
   });
 }
@@ -52,6 +52,7 @@ async function medir(post, { ilustracionUrl = null, config = cfg, logoUrl = "cue
         chipColor: getComputedStyle(document.getElementById("categoria")).backgroundColor,
         pieAbajo: 1350 - r("fuente").bottom,
         fondoColor: getComputedStyle(document.getElementById("post")).backgroundColor,
+        logoRadio: getComputedStyle(document.querySelector("#post .logo") || document.querySelector("#post .logo-fallback")).borderRadius,
         fallbackTexto: document.querySelector("#post .logo-fallback")?.textContent || null,
         fallbackColor: document.querySelector("#post .logo-fallback") ? getComputedStyle(document.querySelector("#post .logo-fallback")).backgroundColor : null,
         cuerpoIzq: r("titular").left, cuerpoDer: 1080 - r("titular").right,
@@ -154,16 +155,16 @@ test("(M1) si la ilustración no decodifica, el post queda tipográfico (sin cla
   assert.equal(rotuloVisible, "none");
 });
 
-test("(M2) la plantilla usa los colores de la cuenta y, sin logo, un círculo con las iniciales en el color principal", async () => {
+test("(M2) la plantilla usa los colores de la cuenta y, sin logo, las iniciales en el color principal", async () => {
   const personal = cargarConfiguracion(".").cuentas.find((c) => c.cuenta === "luiseskivelgolcher");
   const m = await medir({ ...base, variante: "negro" }, { config: personal, logoUrl: null });
   assert.equal(m.error, null);
   assert.equal(m.chipColor, "rgb(31, 95, 191)", "la categoría usa el acento de la cuenta (#1F5FBF)");
   assert.equal(m.barraAlto, 0, "sin lema no se dibuja la franja inferior");
   assert.ok(m.pieAbajo < 40, `el pie baja al borde cuando no hay franja (queda a ${m.pieAbajo}px)`);
-  assert.equal(m.fondoColor, "rgb(22, 22, 22)", "el fondo negro usa el oscuro de la cuenta (#161616)");
+  assert.equal(m.fondoColor, "rgb(59, 43, 31)", "el fondo oscuro usa el oscuro de la cuenta (#3B2B1F, el marrón del logo LEG)");
   assert.equal(m.fallbackTexto, "LEG");
-  assert.equal(m.fallbackColor, "rgb(233, 228, 218)", "el círculo usa el principal (#E9E4DA)");
+  assert.equal(m.fallbackColor, "rgb(233, 228, 218)", "las iniciales de reserva usan el principal (#E9E4DA)");
   const sl = await medir({ ...base, variante: "negro" });
   assert.equal(sl.barraColor, "rgb(227, 6, 19)", "Sin Línea conserva su rojo");
 });
@@ -194,4 +195,13 @@ test("(rótulo) con rotulo vacío no se dibuja ningún rótulo aunque haya ilust
     await page.close();
     fs.rmSync(rutaHtml, { force: true });
   }
+});
+
+test("(logo) con marca.logoForma cuadrado el logo y las iniciales de reserva se dibujan sin recorte circular; por defecto siguen redondos", async () => {
+  const personal = cargarConfiguracion(".").cuentas.find((c) => c.cuenta === "luiseskivelgolcher");
+  assert.equal(personal.marca.logoForma, "cuadrado");
+  assert.equal((await medir(base)).logoRadio, "50%", "Sin Línea conserva el logo redondo");
+  assert.equal((await medir(base, { config: personal, logoUrl: "cuentas/luiseskivelgolcher/logo.png" })).logoRadio, "0px");
+  assert.equal((await medir(base, { config: personal, logoUrl: null })).logoRadio, "0px", "también las iniciales de reserva");
+  assert.equal((await medir(base, { config: { ...personal, marca: { ...personal.marca, logoForma: "circulo" } }, logoUrl: null })).logoRadio, "50%");
 });

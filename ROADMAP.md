@@ -31,7 +31,7 @@ configurable por cuenta (`idioma`, `es-PA` por defecto).
   real del token o "desconocida"). Línea editorial acordada en
   `cuentas/luiseskivelgolcher/editorial.md`. El panel muestra ambas cuentas.
   Pendiente del operador: conectar la cuenta (docs/CONFIGURACION.md §6c) y
-  definir fuentes, logo y colores definitivos.
+  definir fuentes. Logo definido el 2026-09-08 (ver abajo).
 - **Incidente 2026-09-08**: el token de Instagram de Sin Línea quedó
   invalidado por Meta (cambio de contraseña o sesión revocada). Publicación
   automática de `sinlinea` **pausada** (`automatico.publicar = false`) con la
@@ -62,8 +62,20 @@ configurable por cuenta (`idioma`, `es-PA` por defecto).
   septiembre; sus escenas se rehicieron con la composición de la guía
   (protagonista en el tercio superior derecho, zona del titular despejada).
   Ilustraciones activas con estilo neutro provisional; generación y publicación
-  siguen apagadas. Pendiente: revisar ambos en el panel, definir fuentes, logo y
-  colores definitivos, y la conexión de Instagram.
+  siguen apagadas. Pendiente: revisar ambos en el panel, definir fuentes y la
+  conexión de Instagram.
+- **Logo LEG de la cuenta personal (2026-09-08)**: a partir de la referencia del
+  operador (cuadrado con las iniciales "LEG" en tipografía condensada, versión
+  oscura marrón/crema y versión clara blanco/negro). Nuevo comando
+  `npm run logo -- --cuenta <id>` (`src/logo.mjs`, dibuja las iniciales con la
+  Anton de la plantilla y las centra por su tinta real) que generó
+  `cuentas/luiseskivelgolcher/logo.png` (marrón `#3B2B1F`, letras `#E9E4DA`) y
+  `logo-claro.png` (blanco, letras `#111111`; no lo usa la plantilla). Nuevo
+  campo opcional `marca.logoForma` (`circulo` por defecto, `cuadrado` para esta
+  cuenta) para que la plantilla no recorte el logo en círculo; plantilla v9 y el
+  campo entra en el sello visual, así que REGENERAR redibuja los posts activos.
+  El `oscuro` de la paleta pasó de `#161616` al marrón del logo para que el
+  fondo tipográfico y el logo compartan color; el resto de la paleta sigue igual.
 
 Estimaciones en días de trabajo de una persona con el flujo actual (pruebas,
 revisión y despliegue incluidos).

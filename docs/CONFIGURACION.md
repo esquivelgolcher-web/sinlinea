@@ -146,7 +146,18 @@ Cada cuenta tiene además:
 - `marca.colores`: `{ "principal", "acento", "oscuro", "claro" }` en `#RRGGBB`
   (la paleta de Sin Línea por defecto). Si cambian, REGENERAR vuelve a dibujar
   los posts activos de esa cuenta.
-- Sin `logo.png`, la imagen muestra un círculo con las iniciales de `marca.nombre`.
+- `marca.logoForma`: `"circulo"` (por defecto) o `"cuadrado"`. Con `"cuadrado"` el
+  logo no se recorta en círculo (así va el logo LEG de `luiseskivelgolcher`).
+  Si cambia, REGENERAR vuelve a dibujar los posts activos de esa cuenta.
+- Sin `logo.png`, la imagen muestra las iniciales de `marca.nombre` (en círculo o
+  cuadrado según `marca.logoForma`).
+- `npm run logo -- --cuenta <id>` genera `cuentas/<id>/logo.png`: un cuadrado con
+  las iniciales en la tipografía del titular (Anton), fondo `colores.oscuro` y
+  letras `colores.principal`. Admite `--texto`, `--fondo`, `--letra`, `--tamano`
+  (1024 por defecto) y `--salida`; por ejemplo, la versión clara para fondos
+  blancos: `--fondo "#FFFFFF" --letra "#111111" --salida cuentas/<id>/logo-claro.png`
+  (ese archivo no lo usa la plantilla; sirve para la foto de perfil o material
+  impreso).
 
 **Identidad antes de publicar.** PUBLICAR consulta `/me` con el token de cada
 cuenta y solo publica si el usuario devuelto coincide con `marca.usuario` y el
@@ -157,10 +168,10 @@ comprobación sin publicar (entrada `cuenta`, vacío = todas).
 ### Alta de una cuenta nueva (ejemplo: `luiseskivelgolcher`)
 
 1. Carpeta `cuentas/luiseskivelgolcher/` con `config.json` (ya creada, con
-   `automatico.generar` y `automatico.publicar` en `false`, colores provisionales,
+   `automatico.generar` y `automatico.publicar` en `false`, colores propios,
    sin fuentes y con `instagram.tokenSecreto` = `IG_ACCESS_TOKEN_LUISESKIVELGOLCHER`
    y `usuarioIdSecreto` = `IG_USER_ID_LUISESKIVELGOLCHER`), `editorial.md`
-   (pendiente de definir) y, cuando exista, `logo.png`. `data/luiseskivelgolcher/`
+   y `logo.png` (LEG en cuadrado, generado con `npm run logo`). `data/luiseskivelgolcher/`
    con `seen.json` y `token-info.json`. El id está en `cuentas` del `config.json`
    global y el panel ya la muestra en el selector.
 2. **Cuenta profesional.** En la app de Instagram: Configuración → Tipo de cuenta

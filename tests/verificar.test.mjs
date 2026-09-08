@@ -92,6 +92,7 @@ test("(M1 fix) avisa de posts cuya cuenta no está declarada (huérfanos que nin
 
 test("(M2 fix) una cuenta apagada sin secretos ni logo produce avisos, no errores: la verificación pasa", () => {
   const raiz = raizTemporal({ cuentas: ["sinlinea", "luiseskivelgolcher"] });
+  fs.rmSync(path.join(raiz, "cuentas", "luiseskivelgolcher", "logo.png"), { force: true }); // la cuenta ya tiene logo en el repo; aquí se prueba el caso sin logo
   const r = ejecutarVerificacion({ raiz, env: envCompleto, ahora });
   const texto = r.lineas.join("\n");
   assert.equal(r.ok, true, texto);

@@ -9,10 +9,11 @@
     "nombre": "Luis Esquivel Golcher",
     "usuario": "@luiseskivelgolcher",
     "lema": "",
+    "logoForma": "cuadrado",
     "colores": {
       "principal": "#E9E4DA",
       "acento": "#1F5FBF",
-      "oscuro": "#161616",
+      "oscuro": "#3B2B1F",
       "claro": "#FFFFFF"
     }
   },

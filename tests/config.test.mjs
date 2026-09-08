@@ -225,3 +225,14 @@ test("(rótulo) ilustraciones.rotulo puede ser una cadena vacía (sin rótulo) p
   assert.throws(() => validarCuenta({ ...c, ilustraciones: { ...c.ilustraciones, rotulo: 5 } }, "sinlinea"), /rotulo/);
   assert.throws(() => validarCuenta({ ...c, ilustraciones: { ...c.ilustraciones, estilo: "" } }, "sinlinea"), /estilo/);
 });
+
+test("(logo) marca.logoForma es opcional (circulo por defecto), admite cuadrado y rechaza otros valores", () => {
+  const g = cargarGlobal("config.json");
+  const c = cargarCuenta(".", "sinlinea");
+  assert.equal(configDeCuenta(g, c, "sinlinea").marca.logoForma, "circulo");
+  assert.equal(configDeCuenta(g, { ...c, marca: { ...c.marca, logoForma: "cuadrado" } }, "sinlinea").marca.logoForma, "cuadrado");
+  assert.throws(() => validarCuenta({ ...c, marca: { ...c.marca, logoForma: "triangulo" } }, "sinlinea"), /logoForma/);
+  assert.throws(() => validarCuenta({ ...c, marca: { ...c.marca, logoForma: 1 } }, "sinlinea"), /logoForma/);
+  const personal = cargarConfiguracion(".").cuentas.find((x) => x.cuenta === "luiseskivelgolcher");
+  assert.equal(personal.marca.logoForma, "cuadrado", "el logo LEG de la cuenta personal es cuadrado");
+});
