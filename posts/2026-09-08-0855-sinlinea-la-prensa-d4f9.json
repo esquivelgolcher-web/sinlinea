@@ -1,0 +1,46 @@
+{
+  "id": "2026-09-08-0855-sinlinea-la-prensa-d4f9",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/economia/jubilados-advierten-que-descuentos-no-son-negociables-y-cuales-podrian-evaluar-en-la-reunion-con-mulino-y-empresarios/",
+    "titulo": "Jubilados: advierten qué descuentos no son negociables y cuáles podrían evaluar en la reunión con Mulino y empresarios",
+    "publicado": "2026-09-08T13:12:22.000Z"
+  },
+  "categoria": "ECONOMÍA",
+  "titular": "Jubilados fijan límites de cara a reunión con Mulino",
+  "bajada": "Dirigentes de la tercera edad dicen que hay puntos no negociables sobre descuentos",
+  "caption": "Los jubilados panameños se preparan para sentarse con el presidente Mulino y el sector empresarial para discutir el Proyecto de Ley 226, que amplía sus descuentos. Aseguran que hay beneficios que no están dispuestos a ceder, aunque admiten que podrían ajustar algunos puntos considerados de \"lujo\". ¿Debería el Estado garantizar estos descuentos sin importar la presión empresarial?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Jubilados",
+    "#TerceraEdad",
+    "#Mulino",
+    "#ProyectoDeLey226"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-09-08-0855-sinlinea-la-prensa-d4f9.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-08-0855-sinlinea-la-prensa-d4f9.jpg",
+    "hash": "91eefebf757b87cd",
+    "version": 7,
+    "renderizada": "2026-09-08T13:55:40.997Z"
+  },
+  "ilustracion": {
+    "descripcion": "Manos de una persona mayor sosteniendo unos documentos sobre una mesa, con una silla vacía al fondo simbolizando una reunión; el papeleo queda en el tercio superior derecho, izquierda y centro despejados.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-08-0855-sinlinea-la-prensa-d4f9.jpg",
+    "hashDescripcion": "47cd33d897cc1632",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-08T13:55:16.978Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-08T13:55:16.978Z",
+  "actualizado": "2026-09-08T13:55:16.978Z"
+}

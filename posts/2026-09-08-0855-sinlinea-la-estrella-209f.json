@@ -1,0 +1,46 @@
+{
+  "id": "2026-09-08-0855-sinlinea-la-estrella-209f",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/operativo-en-tocumen-culmina-con-el-decomiso-de-400-paquetes-de-presunta-droga-PD25514308",
+    "titulo": "Operativo en Tocumen culmina con el decomiso de 400 paquetes de presunta droga",
+    "publicado": "2026-09-08T11:32:00.000Z"
+  },
+  "categoria": "SEGURIDAD",
+  "titular": "Decomisan 400 paquetes de droga en operativo en Tocumen",
+  "bajada": "Un hombre fue detenido tras hallarse la presunta droga escondida en su vehículo, según la PGN.",
+  "caption": "Un nuevo golpe al narcotráfico se dio en Tocumen, donde la Policía y el Ministerio Público hallaron 400 paquetes de presunta droga dentro de un vehículo. El conductor quedó detenido y el caso pasa a manos de la justicia. Estos operativos buscan frenar el tráfico de drogas que afecta la seguridad de las comunidades. ¿Qué opinas de estos resultados en la lucha contra el narcotráfico?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Tocumen",
+    "#Seguridad",
+    "#Droga",
+    "#PGN"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-09-08-0855-sinlinea-la-estrella-209f.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-08-0855-sinlinea-la-estrella-209f.jpg",
+    "hash": "d70dc2d71a4908f1",
+    "version": 7,
+    "renderizada": "2026-09-08T13:55:45.562Z"
+  },
+  "ilustracion": {
+    "descripcion": "Un vehículo estacionado de noche con la puerta trasera abierta y cajas selladas en su interior, bajo luces de una patrulla desenfocadas al fondo; el vehículo queda en el tercio superior derecho, resto despejado.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-08-0855-sinlinea-la-estrella-209f.jpg",
+    "hashDescripcion": "028dcdf160efba7b",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-08T13:55:16.978Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-08T13:55:16.978Z",
+  "actualizado": "2026-09-08T13:55:16.978Z"
+}
