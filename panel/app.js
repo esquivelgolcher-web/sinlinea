@@ -213,23 +213,31 @@ function tarjeta({ post, sha }) {
   actualizarContador();
 
   const acciones = el("div", { class: "acciones" });
+  // Aviso dentro de la tarjeta (el de arriba queda fuera de la vista en el celular).
+  const avisoTarjeta = el("p", { class: "aviso aviso-tarjeta", hidden: "" });
+  const avisarAqui = (mensaje) => { avisoTarjeta.textContent = mensaje; avisoTarjeta.hidden = false; avisar(mensaje); };
+  for (const n of Object.values(campos)) n.addEventListener("input", () => { avisoTarjeta.hidden = true; });
   const conCambios = (p) => (hayCambios() ? editarTexto(p, cambios(), ahoraIso()) : p);
   const guardarSiCambio = (p) => {
-    const v = captionValido(); if (!v.ok) { avisar(v.errores.join(" ")); return null; }
-    if (!hayCambios()) { avisar("No hay cambios que guardar."); return null; }
+    const v = captionValido(); if (!v.ok) { avisarAqui(v.errores.join(" ")); return null; }
+    if (!hayCambios()) { avisarAqui("No hay cambios que guardar."); return null; }
     return conCambios(p);
   };
   const boton = (texto, clase, fn) => el("button", { type: "button", class: `boton ${clase}`, text: texto, onclick: () => ejecutar(post.id, sha, fn) });
 
   if (!bloqueado) {
     const aprobarConHora = async (p) => {
-      const v = captionValido(); if (!v.ok) { avisar(v.errores.join(" ")); return null; }
+      const v = captionValido(); if (!v.ok) { avisarAqui(v.errores.join(" ")); return null; }
       const h = await pedirHora(p); return h ? aprobar(conCambios(p), h, ahoraIso()) : null;
     };
     const regenerarIlustracion = (p) => {
       const descripcion = campos.escena.value.trim();
-      if (!descripcion) { avisar("Escribe una escena antes de regenerar."); return null; }
-      const v = captionValido(); if (!v.ok) { avisar(v.errores.join(" ")); return null; }
+      if (!descripcion) {
+        avisarAqui("Este post no tiene escena. Escribe en el campo \"Escena de la ilustración\" qué imagen quieres (sin personas reales) y vuelve a pulsar Regenerar ilustración.");
+        campos.escena.focus();
+        return null;
+      }
+      const v = captionValido(); if (!v.ok) { avisarAqui(v.errores.join(" ")); return null; }
       const base = p.ilustracion || { ruta: null, proveedor: null, modelo: null, generada: null };
       return editarTexto(conCambios(p), { ilustracion: { ...base, descripcion, usar: true, hashDescripcion: null, error: null } }, ahoraIso());
     };
@@ -251,7 +259,7 @@ function tarjeta({ post, sha }) {
     }
   }
   if (post.publicacion?.permalink) acciones.append(el("a", { class: "boton", href: urlSegura(post.publicacion.permalink), target: "_blank", rel: "noopener", text: "Ver en Instagram" }));
-  cuerpo.append(acciones);
+  cuerpo.append(acciones, avisoTarjeta);
 
   return el("article", { class: "tarjeta", "data-id": post.id }, [
     src ? el("img", { src, alt: "", loading: "lazy" }) : el("div", { class: "sin-imagen", text: post.error?.paso === "render" ? "La imagen falló; se reintenta sola" : "Imagen en proceso…" }),

@@ -99,3 +99,18 @@ test("el panel se niega a guardar un titular de más de 65 caracteres y muestra 
   assert.equal(fs.readFileSync(path.join(raiz, "posts/2026-09-07-1420-la-prensa-a1b2.json"), "utf8"), antes);
   await page.close();
 });
+
+test("Regenerar ilustración sin escena avisa dentro de la tarjeta y lleva el cursor al campo de la escena", async () => {
+  const page = await navegador.newPage({ viewport: { width: 400, height: 800 } });
+  await page.goto(`${base}/panel/`);
+  await page.waitForSelector(".tarjeta");
+  const antes = fs.readFileSync(path.join(raiz, "posts/2026-09-07-1420-la-prensa-a1b2.json"), "utf8");
+  await page.fill(".tarjeta textarea >> nth=3", "");
+  await page.click("text=Regenerar ilustración");
+  await page.waitForSelector(".tarjeta .aviso-tarjeta:not([hidden])");
+  assert.match(await page.textContent(".tarjeta .aviso-tarjeta"), /escena/i);
+  assert.equal(await page.evaluate(() => document.activeElement === document.querySelectorAll(".tarjeta textarea")[3]), true, "el foco va al campo de la escena");
+  assert.equal(await page.isDisabled("text=Regenerar ilustración"), false, "los botones se vuelven a habilitar");
+  assert.equal(fs.readFileSync(path.join(raiz, "posts/2026-09-07-1420-la-prensa-a1b2.json"), "utf8"), antes);
+  await page.close();
+});
