@@ -1,6 +1,6 @@
 {
   "id": "2026-09-07-1336-la-prensa-4fe9",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "La Prensa",
     "url": "https://www.prensa.com/judiciales/gota-a-gota-prestamos-violencia-y-la-sombra-del-crimen-organizado/",
@@ -28,8 +28,12 @@
     "renderizada": "2026-09-07T18:36:56.636Z"
   },
   "programado": "2026-09-07T14:30:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "18143614624563114",
+    "permalink": "https://www.instagram.com/p/DdBOCwplncC/",
+    "fecha": "2026-09-08T08:07:03.535Z"
+  },
   "error": null,
   "creado": "2026-09-07T18:36:32.436Z",
-  "actualizado": "2026-09-07T18:39:32.784Z"
+  "actualizado": "2026-09-08T08:07:03.535Z"
 }
