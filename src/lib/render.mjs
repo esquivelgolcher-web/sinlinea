@@ -41,6 +41,18 @@ export function construirHtml(post, config, { plantilla, baseHref, logoUrl, ilus
     .replace(/<script id="datos" type="application\/json">[\s\S]*?<\/script>/, () => `<script id="datos" type="application/json">${json}</script>`);
 }
 
+export const MENSAJES_NO_CABE = {
+  titular: "El titular no cabe en 3 líneas ni a 70 px: acórtalo (máximo 65 caracteres)",
+  bajada: "La bajada no cabe en 2 líneas ni a 30 px: acórtala (máximo 110 caracteres)",
+};
+
+export function errorTextoNoCabe(campo) {
+  const err = new Error(MENSAJES_NO_CABE[campo] || `El texto "${campo}" no cabe en la imagen`);
+  err.code = "TEXTO_NO_CABE";
+  err.campo = campo;
+  return err;
+}
+
 export async function abrirNavegador() {
   return chromium.launch();
 }
@@ -63,6 +75,8 @@ export async function renderizarPost(post, { config, navegador, raiz = process.c
   try {
     await page.goto(pathToFileURL(rutaHtml).href, { waitUntil: "load" });
     await page.waitForSelector('body[data-listo="1"]', { timeout: 15000 });
+    const noCabe = await page.evaluate(() => document.body.dataset.error || "");
+    if (noCabe) throw errorTextoNoCabe(noCabe);
     const png = await page.screenshot({ type: "png", fullPage: false });
     const rutaSalida = path.join(raiz, destino);
     fs.mkdirSync(path.dirname(rutaSalida), { recursive: true });

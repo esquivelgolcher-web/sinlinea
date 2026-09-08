@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="es" data-version="6">
+<html lang="es" data-version="7">
 <head>
 <meta charset="utf-8">
 <base href="__BASE__">
@@ -7,41 +7,48 @@
 <style>
   @font-face { font-family: "Anton"; src: url("assets/fonts/Anton-Regular.ttf") format("truetype"); font-display: block; }
   @font-face { font-family: "Inter"; src: url("assets/fonts/Inter-Variable.ttf") format("truetype"); font-weight: 100 900; font-display: block; }
-  :root { --amarillo: #FFD400; --rojo: #E30613; --negro: #111111; --blanco: #FFFFFF; }
+  :root { --amarillo: #FFD400; --rojo: #E30613; --negro: #111111; --blanco: #FFFFFF;
+          --margen: 72px; --barra-alto: 70px; --pie-alto: 80px; --cuerpo-abajo: 196px; }
   html, body { margin: 0; padding: 0; }
   body { width: 1080px; height: 1350px; overflow: hidden; font-family: "Inter", Arial, sans-serif; -webkit-font-smoothing: antialiased; }
-  .post { position: relative; width: 1080px; height: 1350px; box-sizing: border-box; padding: 72px 72px 88px;
-          display: flex; flex-direction: column; background: var(--fondo); color: var(--texto); }
+  .post { position: relative; width: 1080px; height: 1350px; box-sizing: border-box; overflow: hidden;
+          background: var(--fondo); color: var(--texto); }
   .post[data-variante="negro"]    { --fondo: var(--negro);    --texto: var(--blanco); --titular: var(--amarillo); --chip-fondo: var(--rojo);  --chip-texto: var(--blanco);   --barra: var(--rojo);  --barra-texto: var(--blanco); }
   .post[data-variante="amarillo"] { --fondo: var(--amarillo); --texto: var(--negro);  --titular: var(--negro);    --chip-fondo: var(--rojo);  --chip-texto: var(--blanco);   --barra: var(--rojo);  --barra-texto: var(--blanco); }
   .post[data-variante="rojo"]     { --fondo: var(--rojo);     --texto: var(--blanco); --titular: var(--blanco);   --chip-fondo: var(--negro); --chip-texto: var(--amarillo); --barra: var(--negro); --barra-texto: var(--amarillo); }
+  /* Ilustración de fondo: la mitad superior queda visible; el degradado va de transparente (centro) a negro (abajo). */
   .fondo { position: absolute; inset: 0; display: none; }
   .fondo img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .fondo::after { content: ""; position: absolute; inset: 0;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.20) 0%, rgba(0,0,0,0.35) 35%, rgba(0,0,0,0.88) 68%, rgba(0,0,0,0.96) 100%); }
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 42%, rgba(0,0,0,0.55) 56%, rgba(0,0,0,0.90) 72%, rgba(0,0,0,0.96) 100%); }
   .post.con-ilustracion { --fondo: var(--negro); --texto: var(--blanco); --titular: var(--amarillo); --chip-fondo: var(--rojo); --chip-texto: var(--blanco); --barra: var(--rojo); --barra-texto: var(--blanco); }
   .post.con-ilustracion .fondo { display: block; }
-  .post.con-ilustracion .cabecera, .post.con-ilustracion .cuerpo, .post.con-ilustracion .pie, .post.con-ilustracion .barra { position: relative; z-index: 1; }
-  .post.con-ilustracion .barra { position: absolute; }
   .post.con-ilustracion .bajada { opacity: 0.95; }
-  .rotulo { display: none; position: absolute; right: 72px; bottom: 226px; z-index: 1; font-size: 22px; letter-spacing: 0.02em; color: rgba(255,255,255,0.8); }
-  .post.con-ilustracion .rotulo { display: block; }
-  .cabecera { display: flex; justify-content: space-between; align-items: flex-start; height: 160px; }
-  .logo { width: 160px; height: 160px; border-radius: 50%; object-fit: cover; display: block; }
-  .post[data-variante="amarillo"] .logo { box-shadow: 0 0 0 6px var(--negro); }
+  .cabecera, .cuerpo, .pie, .barra, .rotulo { position: absolute; z-index: 1; }
+  /* Cabecera: logo pequeño arriba a la izquierda, categoría arriba a la derecha. */
+  .cabecera { top: var(--margen); left: var(--margen); right: var(--margen); height: 120px; display: flex; justify-content: space-between; align-items: flex-start; }
+  .logo { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; display: block; }
+  .post[data-variante="amarillo"] .logo { box-shadow: 0 0 0 5px var(--negro); }
   .post.con-ilustracion[data-variante] .logo { box-shadow: none; }
-  .logo-fallback { width: 160px; height: 160px; border-radius: 50%; box-sizing: border-box; background: var(--amarillo); color: var(--negro);
-                   display: flex; align-items: center; justify-content: center; font-family: "Anton", Impact, sans-serif; font-size: 34px; line-height: 1;
-                   text-align: center; border: 6px solid var(--negro); }
-  .chip { font-weight: 700; font-size: 28px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--chip-fondo); color: var(--chip-texto); padding: 14px 22px; margin-top: 8px; }
-  .cuerpo { flex: 1; min-height: 0; display: flex; flex-direction: column; justify-content: center; gap: 36px; padding: 40px 0; }
+  .logo-fallback { width: 120px; height: 120px; border-radius: 50%; box-sizing: border-box; background: var(--amarillo); color: var(--negro);
+                   display: flex; align-items: center; justify-content: center; font-family: "Anton", Impact, sans-serif; font-size: 26px; line-height: 1;
+                   text-align: center; border: 5px solid var(--negro); }
+  .chip { font-weight: 700; font-size: 26px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--chip-fondo); color: var(--chip-texto); padding: 12px 20px; margin-top: 6px; }
+  /* Cuerpo anclado a la mitad inferior: titular de 86 a 70 px (máx. 3 líneas) y bajada de 34 a 30 px (máx. 2 líneas). */
+  .cuerpo { left: var(--margen); right: var(--margen); bottom: var(--cuerpo-abajo); display: flex; flex-direction: column; justify-content: flex-end; gap: 28px; }
+  /* Sin ilustración (diseño tipográfico) el texto se centra entre la cabecera y el pie. */
+  .post:not(.con-ilustracion) .cuerpo { top: 232px; justify-content: center; }
   .titular { margin: 0; font-family: "Anton", Impact, sans-serif; font-weight: 400; text-transform: uppercase; line-height: 1.0; color: var(--titular);
-             font-size: 104px; max-height: 620px; overflow: hidden; overflow-wrap: break-word; }
-  .bajada { margin: 0; font-size: 36px; line-height: 1.3; opacity: 0.85; max-height: 150px; overflow: hidden; }
-  .pie { height: 130px; display: flex; justify-content: space-between; align-items: center; font-size: 26px; font-weight: 600;
+             font-size: 86px; overflow-wrap: normal; word-break: normal; hyphens: none; }
+  .bajada { margin: 0; font-size: 34px; line-height: 1.3; opacity: 0.9; overflow-wrap: normal; word-break: normal; hyphens: none; }
+  .bajada:empty { display: none; }
+  /* Rótulo, pie y franja: tamaños secundarios. */
+  .rotulo { display: none; right: var(--margen); bottom: calc(var(--barra-alto) + var(--pie-alto) + 10px); font-size: 22px; letter-spacing: 0.02em; color: rgba(255,255,255,0.8); }
+  .post.con-ilustracion .rotulo { display: block; }
+  .pie { left: var(--margen); right: var(--margen); bottom: var(--barra-alto); height: var(--pie-alto); display: flex; justify-content: space-between; align-items: center; font-size: 24px; font-weight: 600;
          border-top: 2px solid color-mix(in srgb, var(--texto) 30%, transparent); }
-  .barra { position: absolute; left: 0; right: 0; bottom: 0; height: 88px; background: var(--barra); color: var(--barra-texto);
-           display: flex; align-items: center; justify-content: center; font-family: "Anton", Impact, sans-serif; font-size: 36px; letter-spacing: 0.06em; text-transform: uppercase; }
+  .barra { left: 0; right: 0; bottom: 0; height: var(--barra-alto); background: var(--barra); color: var(--barra-texto);
+           display: flex; align-items: center; justify-content: center; font-family: "Anton", Impact, sans-serif; font-size: 32px; letter-spacing: 0.06em; text-transform: uppercase; }
 </style>
 </head>
 <body>
@@ -55,11 +62,11 @@
     <h1 class="titular" id="titular"></h1>
     <p class="bajada" id="bajada"></p>
   </main>
+  <div class="rotulo" id="rotulo"></div>
   <footer class="pie">
     <span id="fuente"></span>
     <span id="usuario"></span>
   </footer>
-  <div class="rotulo" id="rotulo"></div>
   <div class="barra" id="lema"></div>
 </div>
 <script id="datos" type="application/json">{}</script>
@@ -97,11 +104,18 @@
     $("logo").innerHTML = "SIN<br>LÍNEA";
   }
   await document.fonts.ready;
-  const t = $("titular");
-  let size = 104;
-  const cabe = () => t.scrollHeight <= 620 && t.scrollWidth <= t.clientWidth + 1 && Math.round(t.scrollHeight / size) <= 6;
-  t.style.fontSize = size + "px";
-  while (!cabe() && size > 64) { size -= 4; t.style.fontSize = size + "px"; }
+  // Reduce el tamaño de letra hasta que el texto quepa en las líneas permitidas sin cortar palabras.
+  function ajustar(el, { max, min, paso, interlineado, lineas }) {
+    let size = max;
+    const cabe = () => Math.round(el.scrollHeight / (size * interlineado)) <= lineas && el.scrollWidth <= el.clientWidth + 1;
+    el.style.fontSize = size + "px";
+    while (!cabe() && size > min) { size -= paso; el.style.fontSize = size + "px"; }
+    return cabe();
+  }
+  const titularCabe = ajustar($("titular"), { max: 86, min: 70, paso: 2, interlineado: 1.0, lineas: 3 });
+  const bajadaCabe = ajustar($("bajada"), { max: 34, min: 30, paso: 2, interlineado: 1.3, lineas: 2 });
+  if (!titularCabe) document.body.dataset.error = "titular";
+  else if (!bajadaCabe) document.body.dataset.error = "bajada";
   document.body.dataset.listo = "1";
 })();
 </script>
