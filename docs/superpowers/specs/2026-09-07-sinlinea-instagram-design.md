@@ -338,9 +338,19 @@ de `posts/` y `public/`, y no se toca `seen.json`.
   - Chip de categoría arriba a la derecha: mayúsculas, 28 px, espaciado de
     letras, esquinas rectas.
   - Titular en `Anton` (condensada pesada, OFL), mayúsculas, interlineado 1.0,
-    tamaño inicial 104 px que se reduce automáticamente hasta caber en máximo
-    6 líneas (mínimo 64 px).
-  - Bajada en `Inter` 36 px, máximo 3 líneas, color con 85 % de opacidad.
+    tamaño inicial 86 px que se reduce de 2 en 2 hasta caber en máximo 3 líneas
+    (mínimo 70 px), sin cortar palabras. Si no cabe, el render lanza un error
+    `TEXTO_NO_CABE` y GENERAR/REGENERAR piden a Claude un titular más corto
+    (`acortarTitular`, una sola vez) antes de marcar el post en error.
+    Límites de texto (`src/lib/texto.mjs`): titular 40-55 caracteres ideal, máximo
+    65; bajada máximo 110. El panel los valida antes de guardar (lineamientos del
+    2026-09-08, plantilla v7).
+  - Bajada en `Inter` de 34 a 30 px, máximo 2 líneas, opacidad 90 %.
+  - Logo de 120 px arriba a la izquierda, categoría arriba a la derecha, márgenes
+    laterales de 72 px, franja inferior de 70 px, pie (fecha y usuario) a 24 px.
+    Con ilustración el texto se ancla a la mitad inferior (la mitad superior de
+    la imagen queda visible, degradado de transparente en el centro a negro
+    abajo); sin ilustración el texto se centra verticalmente.
   - Franja inferior de 130 px: a la izquierda la fecha ("7 sep 2026"; la fuente va solo en el caption, decisión del 2026-09-08),
     a la derecha el usuario de Instagram; debajo una barra con el lema
     "Nuestra línea es el Pueblo" (roja con texto blanco en las variantes negro

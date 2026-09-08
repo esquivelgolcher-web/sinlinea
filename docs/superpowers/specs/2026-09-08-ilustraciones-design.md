@@ -68,7 +68,7 @@ Así, activar/desactivar o regenerar la ilustración vuelve a renderizar el post
   "proveedor": "gemini",
   "modelo": "gemini-3.1-flash-lite-image",
   "tamano": "1K",
-  "estilo": "Fotografía editorial realista de prensa, luz natural, colores sobrios, composición limpia con espacio libre en la mitad inferior. Sin personas identificables ni rostros, sin texto, sin logotipos, sin marcas de agua.",
+  "estilo": "(lineamientos de imagen del 2026-09-08: fotoperiodismo editorial realista, protagonista en el tercio superior derecho, zona izquierda y central despejada, margen seguro de 100 px, sin texto ni marcos ni degradados, sin rostros de personas reales; texto completo en config.json)",
   "rotulo": "Ilustración generada con IA",
   "timeoutMs": 60000,
   "maxPorCorrida": 4
@@ -86,7 +86,12 @@ El esquema de salida de Claude gana `escena` (string) por post seleccionado:
 una descripción visual de 15 a 40 palabras, en español, que represente el tema
 de forma concreta (lugar, objeto, situación) sin personas reales ni rostros,
 sin texto ni logotipos, sin violencia gráfica. Las reglas fijas del prompt lo
-indican; el estilo no va en la escena.
+indican; el estilo no va en la escena. Desde el 2026-09-08 las reglas también fijan el
+titular (40-55 caracteres ideal, máximo 65, protagonista + hecho) y la bajada (máximo
+110, complementaria), y piden que la escena deje al protagonista en el tercio superior
+derecho con la zona izquierda y central despejada. `acortarTitular({ client, config,
+titular, bajada, motivo })` pide una versión de máximo 65 caracteres cuando el render
+avisa que el titular no cabe.
 
 ## 6. Cliente de Gemini (`src/lib/ilustrador.mjs`)
 
@@ -127,7 +132,7 @@ cambiado).
 
 **PUBLICAR**: sin cambios.
 
-## 8. Plantilla (`templates/post.html`, versión 6)
+## 8. Plantilla (`templates/post.html`, versión 7)
 
 - Nuevo dato `ilustracionUrl` (ruta relativa a la raíz o `null`).
 - Con ilustración: capa `.fondo` con la imagen a pantalla completa
@@ -142,7 +147,7 @@ cambiado).
 - La clase `con-ilustracion` y el texto del rótulo solo se aplican después de
   que `fondo.decode()` resuelva con éxito; si la imagen no decodifica, el post
   queda tipográfico (sin clase ni rótulo) y el script continúa.
-- `versionPlantilla` = 6 (v6 = corrección del anillo del logo amarillo: con
+- `versionPlantilla` = 7 (v7 = lineamientos del 2026-09-08: titular 86-70 px en 3 líneas, bajada 34-30 px en 2, logo 120 px, franja 70 px, texto anclado a la mitad inferior; ver spec v1 §8). Antes: v6 = corrección del anillo del logo amarillo: con
   ilustración, `.post[data-variante="amarillo"] .logo` no debe llevar el
   `box-shadow` de la variante) → todos los posts activos se re-renderizan una
   vez.

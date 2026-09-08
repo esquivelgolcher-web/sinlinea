@@ -16,6 +16,11 @@ pulsa **Configurar** y pega el token de GitHub (ver `docs/CONFIGURACION.md`, pas
 
 En cada tarjeta puedes:
 - Editar titular, bajada, categoría, variante de color, caption y hashtags.
+  El titular admite hasta 65 caracteres (lo ideal son 40 a 55) y la bajada hasta 110;
+  el contador de cada tarjeta lo muestra y el panel no guarda si te pasas. En la imagen
+  el titular ocupa como máximo 3 líneas: si no cabe ni reduciendo la letra a 70 px,
+  el sistema le pide a Claude una versión más corta y vuelve a dibujar el post; si aun
+  así no cabe, el post queda en error para que lo acortes a mano.
   Si cambias algo que afecta a la imagen, verás "Regenerando imagen…" durante 1 a 3
   minutos hasta que se vuelva a dibujar.
 - **Aprobar**: propone la siguiente franja libre (7:00, 9:30, 12:00, 14:30, 17:00,

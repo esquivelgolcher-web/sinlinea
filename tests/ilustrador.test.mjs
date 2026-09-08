@@ -39,7 +39,7 @@ test("generar envía el estilo + escena con la clave en cabecera y devuelve un B
   assert.equal(llamadas[0].url, "https://generativelanguage.googleapis.com/v1beta/interactions");
   assert.equal(llamadas[0].cabeceras["x-goog-api-key"], "CLAVE");
   assert.equal(llamadas[0].cuerpo.model, cfg.ilustraciones.modelo);
-  assert.match(llamadas[0].cuerpo.input[0].text, /Fotografía editorial/);
+  assert.ok(llamadas[0].cuerpo.input[0].text.startsWith(cfg.ilustraciones.estilo), "el prompt empieza con el estilo configurado");
   assert.match(llamadas[0].cuerpo.input[0].text, /Escena: Canal de Panamá al amanecer\n\nRecuerda: sin personas identificables ni rostros, sin texto, sin logotipos\.$/);
   assert.deepEqual(llamadas[0].cuerpo.response_format, { type: "image", mime_type: "image/jpeg", aspect_ratio: "4:5", image_size: cfg.ilustraciones.tamano });
   assert.ok(!JSON.stringify(llamadas[0].url).includes("CLAVE"));
