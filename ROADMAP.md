@@ -68,6 +68,15 @@ configurable por cuenta (`idioma`, `es-PA` por defecto).
   Ilustraciones activas con estilo neutro provisional; generación y publicación
   siguen apagadas. Pendiente: revisar ambos en el panel, definir fuentes y la
   conexión de Instagram.
+- **Ajustes al borrador "Cómo investigar una empresa en Panamá" (2026-09-08,
+  noche)**: categoría nueva `INVESTIGACIÓN` en `CATEGORIAS` (estados.mjs;
+  disponible para todas las cuentas y en el redactor), bajada nueva, rótulo
+  "Ilustración generada con IA" restituido solo en la cuenta personal
+  (`ilustraciones.rotulo`), y reencuadre manual de la ilustración existente sin
+  llamar a Gemini (recorte 900x1125 alineado arriba/derecha y reescalado a
+  1080x1350 con sharp: los documentos ganan tamaño y el titular no los tapa).
+  El original queda en el historial de git. LEG sigue como marcador provisional
+  hasta que el operador entregue su logo.
 - **Ajuste del logo LEG (2026-09-08, noche)**: a petición del operador el
   cuadro pasa a negro (`oscuro` vuelve a `#161616`; `logo.png` regenerado con
   `npm run logo`) y el logo se dibuja más pequeño: nuevo campo opcional

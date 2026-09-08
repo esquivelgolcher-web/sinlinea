@@ -8,9 +8,9 @@
     "titulo": "Registro Público de Panamá: consulta de sociedades (portal oficial)",
     "publicado": "2026-09-08T20:00:00.000Z"
   },
-  "categoria": "EDUCACIÓN",
+  "categoria": "INVESTIGACIÓN",
   "titular": "Cómo investigar una empresa en Panamá",
-  "bajada": "Registro Público, PanamaCompra y Gaceta Oficial: tres fuentes oficiales y gratuitas para contrastar datos.",
+  "bajada": "Registro Público, PanamaCompra y Gaceta Oficial: dónde buscar y cómo contrastar información.",
   "caption": "Investigar una empresa en Panamá empieza por lo que consta en registros oficiales de acceso público, no por lo que la empresa dice de sí misma.\n\n1. Registro Público de Panamá (registro-publico.gob.pa): sociedades inscritas, directores y dignatarios, agente residente, fecha de constitución y cambios registrados.\n\n2. PanamaCompra (panamacompra.gob.pa): licitaciones, adjudicaciones y contratos con el Estado, buscables por proveedor.\n\n3. Gaceta Oficial (gacetaoficial.gob.pa): leyes, decretos, resoluciones y avisos que afectan a una empresa o a su sector.\n\nMétodo: buscar por el nombre exacto de la sociedad; anotar fecha y número de cada documento; guardar copia; comparar los nombres letra por letra, porque una letra distinta puede ser otra sociedad.\n\nUn registro público no demuestra por sí solo una irregularidad: sirve para confirmar o descartar datos y para saber qué preguntar.\n\nFuentes consultadas el 8 de septiembre de 2026: registro-publico.gob.pa, panamacompra.gob.pa y gacetaoficial.gob.pa, portales oficiales del Estado panameño.",
   "hashtags": [
     "#Investigación",
@@ -41,5 +41,5 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-08T18:33:04.708Z",
-  "actualizado": "2026-09-08T20:28:13.341Z"
+  "actualizado": "2026-09-08T20:34:14.000Z"
 }

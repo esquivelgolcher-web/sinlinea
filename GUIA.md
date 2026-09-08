@@ -66,9 +66,9 @@ casilla "Usar" queda destildada) para no seguir gastando cuota en algo que no
 funciona; el post sigue publicándose con el respaldo tipográfico. Para
 reactivarla, vuelve a marcar "Usar ilustración generada con IA" o pulsa
 "Regenerar ilustración"; cualquiera de las dos cuenta como un intento nuevo.
-- Las imágenes con ilustración ya no llevan rótulo (decisión del 2026-09-08). Si
-  se quiere volver a mostrarlo, basta poner un texto en `ilustraciones.rotulo` de la
-  cuenta; los posts activos se vuelven a dibujar solos.
+- El rótulo "Ilustración generada con IA" se controla por cuenta con
+  `ilustraciones.rotulo`: Sin Línea no lo lleva (decisión del 2026-09-08) y la
+  cuenta personal sí. Al cambiarlo, los posts activos se vuelven a dibujar solos.
 
 ## Si algo sale mal
 - Un post en **Errores** muestra el mensaje exacto. Los errores de imagen se

@@ -136,3 +136,8 @@ test("necesitaEscena: solo con usar=true y escena vacía, salvo error de hace me
   assert.equal(necesitaEscena(con({ usar: true, descripcion: "", error: { mensaje: "x", fecha: "2026-09-08T11:30:00Z" } }), ahora), false);
   assert.equal(necesitaEscena(con({ usar: true, descripcion: "", error: { mensaje: "x", fecha: "2026-09-08T10:00:00Z" } }), ahora), true);
 });
+
+test("(categorías) INVESTIGACIÓN es una categoría permitida (posts de investigación y transparencia)", () => {
+  assert.ok(CATEGORIAS.includes("INVESTIGACIÓN"));
+  assert.doesNotThrow(() => editarTexto(base(), { categoria: "INVESTIGACIÓN" }, AHORA));
+});

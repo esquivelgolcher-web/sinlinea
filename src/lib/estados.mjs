@@ -4,7 +4,7 @@ export const ESTADOS = ["borrador", "programado", "publicado", "descartado", "er
 export const VARIANTES = ["negro", "amarillo", "rojo"];
 export const CATEGORIAS = [
   "POLÍTICA", "ECONOMÍA", "SOCIEDAD", "SEGURIDAD", "SALUD",
-  "EDUCACIÓN", "DEPORTES", "CULTURA", "INTERNACIONAL", "ÚLTIMA HORA",
+  "EDUCACIÓN", "INVESTIGACIÓN", "DEPORTES", "CULTURA", "INTERNACIONAL", "ÚLTIMA HORA",
 ];
 export const CAMPOS_IMAGEN = ["titular", "bajada", "categoria", "variante"];
 const CAMPOS_EDITABLES = ["titular", "bajada", "caption", "hashtags", "categoria", "variante", "ilustracion"];
