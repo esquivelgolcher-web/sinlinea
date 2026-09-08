@@ -121,3 +121,24 @@ test("regenera la ilustración cuando cambió la escena y no llama con usar=fals
   const posts = Object.fromEntries(leerPosts(path.join(raiz, "posts")).map((p) => [p.id, p]));
   assert.equal(posts[conIlus.id].ilustracion.hashDescripcion, hashTexto("Nueva escena"));
 });
+
+test("(D1) si el ilustrador lanza, el post conserva usar y el render de los pendientes no se bloquea", async () => {
+  const conIlusQueFalla = {
+    ...base,
+    ilustracion: { descripcion: "Escena que falla", usar: true, ruta: null, hashDescripcion: null, proveedor: null, modelo: null, generada: null, error: null },
+  };
+  const otroPendiente = { ...base, id: base.id.slice(0, -4) + "0010", imagen: null };
+  const raiz = dirCon([conIlusQueFalla, otroPendiente]);
+  const ilustrador = { async generar() { throw new Error("Gemini respondió 500: caído"); } };
+  const renderizados = [];
+  const render = async (p) => { renderizados.push(p.id); return imagenDe(p); };
+  const r = await ejecutarRegenerar({ config: cfg, raiz, ahora, render, log, version: 1, ilustrador, guardar: async () => {} });
+  const posts = Object.fromEntries(leerPosts(path.join(raiz, "posts")).map((p) => [p.id, p]));
+  const falladoPost = posts[conIlusQueFalla.id];
+  assert.equal(falladoPost.ilustracion.usar, true, "con menos de 3 intentos, usar se conserva");
+  assert.match(falladoPost.ilustracion.error.mensaje, /500/);
+  assert.ok(!Number.isNaN(Date.parse(falladoPost.ilustracion.error.fecha)));
+  assert.equal(falladoPost.ilustracion.error.intentos, 1);
+  assert.ok(renderizados.includes(otroPendiente.id), "el render del otro post pendiente se ejecuta igual");
+  assert.deepEqual(r.renderizados.sort(), [conIlusQueFalla.id, otroPendiente.id].sort());
+});
