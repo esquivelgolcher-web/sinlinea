@@ -150,7 +150,7 @@ test("si el render avisa que el titular no cabe, REGENERAR acorta con Claude, gu
     if (p.titular === "Titular que no cabe") throw Object.assign(new Error("El titular no cabe en 3 líneas"), { code: "TEXTO_NO_CABE", campo: "titular" });
     return imagenDe(p);
   };
-  const r = await ejecutarRegenerar({ config: cfg, raiz, ahora, render, log, version: 1, acortar: async () => "Titular corto" });
+  const r = await ejecutarRegenerar({ config: cfg, raiz, ahora, render, log, version: 1, acortar: async () => ({ titular: "Titular corto", bajada: "Bajada corta" }) });
   assert.deepEqual(r.renderizados, [largo.id]);
   const guardado = leerPosts(path.join(raiz, "posts"))[0];
   assert.equal(guardado.titular, "Titular corto");
@@ -158,4 +158,16 @@ test("si el render avisa que el titular no cabe, REGENERAR acorta con Claude, gu
   assert.equal(guardado.imagen.hash, hashImagen(guardado, 1));
   const sin = await ejecutarRegenerar({ config: cfg, raiz: dirCon([largo]), ahora, render, log, version: 1 });
   assert.deepEqual(sin.fallidos, [largo.id]);
+});
+
+test("si el render sigue fallando tras acortar, REGENERAR guarda el post en error pero con el texto ya acortado", async () => {
+  const largo = { ...base, id: base.id.slice(0, -4) + "0302", titular: "T".repeat(70), bajada: "B".repeat(130), imagen: null };
+  const raiz = dirCon([largo]);
+  const render = async () => { throw Object.assign(new Error("La bajada no cabe en 2 líneas"), { code: "TEXTO_NO_CABE", campo: "bajada" }); };
+  const r = await ejecutarRegenerar({ config: cfg, raiz, ahora, render, log, version: 1, acortar: async () => ({ titular: "Titular corto", bajada: "Bajada corta" }) });
+  assert.deepEqual(r.fallidos, [largo.id]);
+  const guardado = leerPosts(path.join(raiz, "posts"))[0];
+  assert.equal(guardado.estado, "error");
+  assert.equal(guardado.titular, "Titular corto");
+  assert.equal(guardado.bajada, "Bajada corta");
 });

@@ -147,7 +147,7 @@ test("si Claude entrega un titular de más de 65 caracteres, GENERAR pide uno co
     parsed_output: { descartados: [], seleccion: [{ indiceCandidato: 0, categoria: "SOCIEDAD", titular: "Un titular larguísimo que se pasa de los sesenta y cinco caracteres permitidos por la plantilla", bajada: "Bajada", caption: "Caption", hashtags: ["#Panamá"], relevancia: 1, motivo: "m", escena: "Estación de bomberos de Panamá" }] },
   }) } };
   const acortados = [];
-  const acortar = async (a) => { acortados.push(a); return "Titular corto para la imagen"; };
+  const acortar = async (a) => { acortados.push(a); return { titular: "Titular corto para la imagen", bajada: "Bajada" }; };
   const r = await ejecutarGenerar({ config, raiz, ahora, fetchText, client, render: renderOkFalso, log, acortar });
   assert.equal(r.creados.length, 1);
   assert.equal(r.creados[0].titular, "Titular corto para la imagen");
@@ -164,7 +164,7 @@ test("si el render avisa que el titular no cabe en 3 líneas, GENERAR acorta y v
     if (post.titular === "Titular 0") throw Object.assign(new Error("El titular no cabe en 3 líneas"), { code: "TEXTO_NO_CABE", campo: "titular" });
     return renderOkFalso(post);
   };
-  const r = await ejecutarGenerar({ config, raiz, ahora, fetchText, client: clientFalso([0]), render, log, acortar: async () => "Titular 0 corto" });
+  const r = await ejecutarGenerar({ config, raiz, ahora, fetchText, client: clientFalso([0]), render, log, acortar: async () => ({ titular: "Titular 0 corto", bajada: "Bajada" }) });
   assert.equal(r.creados[0].estado, "borrador");
   assert.equal(r.creados[0].titular, "Titular 0 corto");
   const sinAcortar = await ejecutarGenerar({ config, raiz: raizTemporal(), ahora, fetchText, client: clientFalso([0]), render, log, acortar: null });

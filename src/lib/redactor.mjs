@@ -92,25 +92,32 @@ export async function redactar({ client, config, editorialMd, candidatos, recien
   };
 }
 
-const EsquemaTitular = z.object({ titular: z.string() });
+const EsquemaTextos = z.object({ titular: z.string(), bajada: z.string() });
 
-// Pide a Claude un titular más corto cuando el actual no cabe en la imagen.
-export async function acortarTitular({ client, config, titular, bajada, motivo }) {
+// Pide a Claude un titular y una bajada más cortos cuando el texto actual no cabe en la imagen.
+export async function acortarTextos({ client, config, titular, bajada, motivo }) {
   const [min, ideal] = LIMITES.titularIdeal;
   const res = await client.messages.parse({
     model: config.claude.modelo,
-    max_tokens: 400,
+    max_tokens: 1000,
     thinking: { type: "adaptive" },
-    output_config: { effort: "low", format: zodOutputFormat(EsquemaTitular) },
-    system: "Eres editor de titulares de un medio panameño. No inventes datos, nombres ni cifras: usa solo lo que dicen el titular y la bajada.",
-    messages: [{ role: "user", content: `Resume este titular a entre ${min} y ${ideal} caracteres (nunca más de ${LIMITES.titularMax} caracteres), en mayúsculas y minúsculas normales, sin punto final. Mantén protagonista + hecho principal.
+    output_config: { effort: "low", format: zodOutputFormat(EsquemaTextos) },
+    system: "Eres editor de titulares de un medio panameño. No inventes datos, nombres ni cifras: usa solo lo que dicen el titular y la bajada actuales.",
+    messages: [{ role: "user", content: `Reescribe el titular y la bajada para que quepan en la imagen del post.
+- Titular: entre ${min} y ${ideal} caracteres (nunca más de ${LIMITES.titularMax} caracteres), mayúsculas y minúsculas normales, sin punto final. Mantén protagonista + hecho principal.
+- Bajada: máximo ${LIMITES.bajadaMax} caracteres, información complementaria sin repetir el titular. Si la bajada actual ya cumple, devuélvela igual.
 
 Motivo: ${motivo}
 Titular actual: ${titular}
-Bajada (contexto, no la repitas): ${bajada}` }],
+Bajada actual: ${bajada}` }],
   });
-  const nuevo = String(res.parsed_output?.titular ?? "").trim();
-  if (!nuevo) throw new Error("Claude devolvió un titular vacío");
-  if (nuevo.length > LIMITES.titularMax) throw new Error(`Claude devolvió un titular de ${nuevo.length} caracteres (máximo ${LIMITES.titularMax})`);
-  return nuevo;
+  if (res.stop_reason === "refusal") {
+    throw new Error(`Claude rechazó la solicitud: ${res.stop_details?.explanation || "sin explicación"}`);
+  }
+  const t = String(res.parsed_output?.titular ?? "").trim();
+  const b = String(res.parsed_output?.bajada ?? "").trim();
+  if (!t) throw new Error("Claude devolvió un titular vacío");
+  if (t.length > LIMITES.titularMax) throw new Error(`Claude devolvió un titular de ${t.length} caracteres (máximo ${LIMITES.titularMax})`);
+  if (b.length > LIMITES.bajadaMax) throw new Error(`Claude devolvió una bajada de ${b.length} caracteres (máximo ${LIMITES.bajadaMax})`);
+  return { titular: t, bajada: b };
 }

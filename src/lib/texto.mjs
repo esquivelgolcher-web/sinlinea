@@ -16,29 +16,32 @@ export function validarTextos({ titular, bajada }) {
   return { ok: errores.length === 0, errores };
 }
 
-// Renderiza un post y, si el titular no cabe (por caracteres o por líneas), pide uno más corto una vez.
+// Renderiza un post y, si el texto no cabe (por caracteres o por líneas), pide una versión más corta una vez.
 // `render(post) → imagen` puede lanzar un error con code "TEXTO_NO_CABE" y campo "titular" | "bajada".
-// `acortar({ titular, bajada, motivo }) → titular` es opcional (null cuando no hay cliente de Claude).
+// `acortar({ titular, bajada, motivo }) → { titular, bajada }` es opcional (null cuando no hay cliente de Claude).
+// El error que se propaga lleva en `err.post` el post con el texto ya acortado (si lo hubo), para no perderlo.
 export async function renderizarConAjuste({ post, render, acortar = null, log = null }) {
   let actual = post;
   let acortado = false;
+  const conPost = (err) => { err.post = actual; return err; };
   const pedir = async (motivo) => {
-    const nuevo = await acortar({ titular: actual.titular, bajada: actual.bajada, motivo });
-    actual = { ...actual, titular: nuevo };
+    const r = await acortar({ titular: actual.titular, bajada: actual.bajada, motivo });
+    actual = { ...actual, titular: r.titular, bajada: r.bajada };
     acortado = true;
-    log?.info?.(`Titular acortado: "${nuevo}"`);
+    log?.info?.(`Texto acortado: "${r.titular}" · "${r.bajada}"`);
   };
-  const largo = String(post.titular ?? "").trim().length;
-  if (acortar && largo > LIMITES.titularMax) {
-    try { await pedir(`El titular tiene ${largo} caracteres; el máximo es ${LIMITES.titularMax}.`); }
-    catch (err) { log?.warn?.(`No se pudo acortar el titular: ${err.message}`); }
+  const v = validarTextos(post);
+  if (acortar && !v.ok && String(post.titular ?? "").trim()) {
+    try { await pedir(v.errores.join(" ")); }
+    catch (err) { log?.warn?.(`No se pudo acortar el texto: ${err.message}`); }
   }
   try {
     return { post: actual, imagen: await render(actual) };
   } catch (err) {
-    if (err?.code !== "TEXTO_NO_CABE" || err.campo !== "titular" || !acortar || acortado) throw err;
+    if (err?.code !== "TEXTO_NO_CABE" || !acortar || acortado) throw conPost(err);
     try { await pedir(err.message); }
-    catch (e) { log?.warn?.(`No se pudo acortar el titular: ${e.message}`); throw err; }
-    return { post: actual, imagen: await render(actual) };
+    catch (e) { log?.warn?.(`No se pudo acortar el texto: ${e.message}`); throw conPost(err); }
+    try { return { post: actual, imagen: await render(actual) }; }
+    catch (e2) { throw conPost(e2); }
   }
 }

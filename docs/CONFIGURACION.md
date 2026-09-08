@@ -24,8 +24,8 @@ Comprueba con `npm run preview` → `http://localhost:4173/vista/negro`.
 1. Entra en https://console.anthropic.com → **API Keys → Create Key**.
 2. En el repo → **Settings → Secrets and variables → Actions → New repository secret**:
    nombre `ANTHROPIC_API_KEY`, valor la clave.
-   La usan GENERAR (redacción) y REGENERAR (solo para acortar un titular que no
-   quepa en la imagen; sin la clave, ese post queda en error para corregirlo en el panel).
+   La usan GENERAR (redacción) y REGENERAR (solo para acortar titular y bajada cuando no
+   quepan en la imagen; sin la clave, ese post queda en error para corregirlo en el panel).
 3. Costo esperado: 3 a 4 USD al mes con `claude-sonnet-5` (el configurado); 7 a 10 con `claude-opus-5`.
 
 ## 4. App de Meta e Instagram
@@ -108,6 +108,6 @@ ilustración (con el fondo de color de la variante).
 6. `ilustraciones.activo` es el interruptor general: en `false` (o sin
    `GEMINI_API_KEY`), ningún post pide ilustración a Gemini y todos salen con
    el fondo de color de la variante, sin gastar cuota.
-6. `npm run generar -- --dry-run` sí llama a Gemini y gasta cuota igual que una
+7. `npm run generar -- --dry-run` sí llama a Gemini y gasta cuota igual que una
    corrida normal (solo evita escribir en `posts/`, `data/seen.json` y hacer
    commit); no lo uses para probar en bucle si la cuota es justa.

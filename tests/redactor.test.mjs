@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { construirSystem, construirUsuario, validarSeleccion, redactar, EsquemaRedaccion, acortarTitular } from "../src/lib/redactor.mjs";
+import { construirSystem, construirUsuario, validarSeleccion, redactar, EsquemaRedaccion, acortarTextos } from "../src/lib/redactor.mjs";
 import { cargarConfig } from "../src/lib/config.mjs";
 
 const cfg = cargarConfig("config.json");
@@ -88,22 +88,28 @@ test("las reglas de la escena piden protagonista arriba a la derecha y zona izqu
   assert.match(sys, /izquierda/);
 });
 
-test("acortarTitular pide a Claude un titular de máximo 65 caracteres y devuelve el texto", async () => {
+test("acortarTextos pide a Claude titular (máx. 65) y bajada (máx. 110) y los devuelve recortados", async () => {
   let params;
-  const client = { messages: { parse: async (p) => { params = p; return { parsed_output: { titular: "  Asamblea aprueba ley de arrecifes pese a veto de Mulino " }, stop_reason: "end_turn", usage: {} }; } } };
-  const t = await acortarTitular({ client, config: cfg, titular: "Asamblea aprueba por insistencia ley de arrecifes coralinos pese a objeción de Mulino", bajada: "El pleno avaló el proyecto 571.", motivo: "ocupa 4 líneas" });
-  assert.equal(t, "Asamblea aprueba ley de arrecifes pese a veto de Mulino");
+  const client = { messages: { parse: async (p) => { params = p; return { parsed_output: { titular: "  Asamblea aprueba ley de arrecifes pese a veto de Mulino ", bajada: " El pleno avaló el proyecto 571. " }, stop_reason: "end_turn", usage: {} }; } } };
+  const r = await acortarTextos({ client, config: cfg, titular: "Asamblea aprueba por insistencia ley de arrecifes coralinos pese a objeción de Mulino", bajada: "El pleno legislativo avaló con 50 votos a favor el proyecto 571, que refuerza la protección de arrecifes y pastos marinos, tras el rechazo presidencial.", motivo: "ocupa 4 líneas" });
+  assert.deepEqual(r, { titular: "Asamblea aprueba ley de arrecifes pese a veto de Mulino", bajada: "El pleno avaló el proyecto 571." });
   assert.equal(params.model, cfg.claude.modelo);
+  assert.ok(params.max_tokens >= 800, "margen para pensamiento + salida");
   assert.ok(params.output_config.format, "debe usar salida estructurada");
   assert.match(params.messages[0].content, /65 caracteres/);
+  assert.match(params.messages[0].content, /110 caracteres/);
   assert.match(params.messages[0].content, /ocupa 4 líneas/);
   assert.match(params.messages[0].content, /proyecto 571/);
   assert.match(params.system, /No inventes/i);
 });
 
-test("acortarTitular lanza si Claude devuelve un titular vacío o de más de 65 caracteres", async () => {
-  const largo = { messages: { parse: async () => ({ parsed_output: { titular: "X".repeat(66) }, stop_reason: "end_turn" }) } };
-  await assert.rejects(() => acortarTitular({ client: largo, config: cfg, titular: "t", bajada: "b", motivo: "m" }), /66 caracteres/);
-  const vacio = { messages: { parse: async () => ({ parsed_output: { titular: "  " }, stop_reason: "end_turn" }) } };
-  await assert.rejects(() => acortarTitular({ client: vacio, config: cfg, titular: "t", bajada: "b", motivo: "m" }), /vacío/);
+test("acortarTextos lanza si Claude rechaza, devuelve titular vacío, o se pasa de 65 / 110 caracteres", async () => {
+  const rechazo = { messages: { parse: async () => ({ parsed_output: null, stop_reason: "refusal", stop_details: { explanation: "no" } }) } };
+  await assert.rejects(() => acortarTextos({ client: rechazo, config: cfg, titular: "t", bajada: "b", motivo: "m" }), /rechazó/);
+  const largo = { messages: { parse: async () => ({ parsed_output: { titular: "X".repeat(66), bajada: "b" }, stop_reason: "end_turn" }) } };
+  await assert.rejects(() => acortarTextos({ client: largo, config: cfg, titular: "t", bajada: "b", motivo: "m" }), /66 caracteres/);
+  const bajadaLarga = { messages: { parse: async () => ({ parsed_output: { titular: "ok", bajada: "B".repeat(111) }, stop_reason: "end_turn" }) } };
+  await assert.rejects(() => acortarTextos({ client: bajadaLarga, config: cfg, titular: "t", bajada: "b", motivo: "m" }), /111 caracteres/);
+  const vacio = { messages: { parse: async () => ({ parsed_output: { titular: "  ", bajada: "b" }, stop_reason: "end_turn" }) } };
+  await assert.rejects(() => acortarTextos({ client: vacio, config: cfg, titular: "t", bajada: "b", motivo: "m" }), /vacío/);
 });

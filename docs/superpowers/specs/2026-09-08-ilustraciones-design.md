@@ -89,9 +89,9 @@ sin texto ni logotipos, sin violencia gráfica. Las reglas fijas del prompt lo
 indican; el estilo no va en la escena. Desde el 2026-09-08 las reglas también fijan el
 titular (40-55 caracteres ideal, máximo 65, protagonista + hecho) y la bajada (máximo
 110, complementaria), y piden que la escena deje al protagonista en el tercio superior
-derecho con la zona izquierda y central despejada. `acortarTitular({ client, config,
-titular, bajada, motivo })` pide una versión de máximo 65 caracteres cuando el render
-avisa que el titular no cabe.
+derecho con la zona izquierda y central despejada. `acortarTextos({ client, config,
+titular, bajada, motivo })` pide titular (máx. 65) y bajada (máx. 110) más cortos cuando
+alguno se pasa del límite o el render avisa que no cabe.
 
 ## 6. Cliente de Gemini (`src/lib/ilustrador.mjs`)
 

@@ -341,7 +341,7 @@ de `posts/` y `public/`, y no se toca `seen.json`.
     tamaño inicial 86 px que se reduce de 2 en 2 hasta caber en máximo 3 líneas
     (mínimo 70 px), sin cortar palabras. Si no cabe, el render lanza un error
     `TEXTO_NO_CABE` y GENERAR/REGENERAR piden a Claude un titular más corto
-    (`acortarTitular`, una sola vez) antes de marcar el post en error.
+    (`acortarTextos`, una sola vez, devuelve titular y bajada) antes de marcar el post en error.
     Límites de texto (`src/lib/texto.mjs`): titular 40-55 caracteres ideal, máximo
     65; bajada máximo 110. El panel los valida antes de guardar (lineamientos del
     2026-09-08, plantilla v7).

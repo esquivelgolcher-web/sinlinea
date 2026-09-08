@@ -8,7 +8,7 @@ import { fetchText as fetchTextReal } from "./lib/rss.mjs";
 import { recolectar } from "./lib/fuentes.mjs";
 import { cargarVistas, guardarVistas, estaVista, marcarVistas, purgarVistas } from "./lib/seen.mjs";
 import { leerPosts, escribirPost, crearPost, siguienteVariante, creadosHoy, archivar, rutaIlustracion } from "./lib/posts.mjs";
-import { redactar, acortarTitular } from "./lib/redactor.mjs";
+import { redactar, acortarTextos } from "./lib/redactor.mjs";
 import { renderizarConAjuste } from "./lib/texto.mjs";
 import { recortarCaption } from "./lib/caption.mjs";
 import { marcarError, renderOk, hashTexto } from "./lib/estados.mjs";
@@ -82,7 +82,7 @@ export async function ejecutarGenerar({ config, raiz = process.cwd(), ahora = ne
       post = renderOk(ajustado, imagen, iso);
     } catch (err) {
       log.warn(`Render falló para ${post.id}: ${err.message}`);
-      post = marcarError(post, { paso: "render", mensaje: err.message }, iso);
+      post = marcarError(err.post ?? post, { paso: "render", mensaje: err.message }, iso);
     }
     escribirPost(dirSalida, post);
     existentes.push(post);
@@ -111,7 +111,7 @@ async function main() {
     const r = await ejecutarGenerar({
       config, fetchText: fetchTextReal, client, dryRun, ilustrador,
       render: (post, o) => renderizarPost(post, { ...o, navegador }),
-      acortar: (a) => acortarTitular({ client, config, ...a }),
+      acortar: (a) => acortarTextos({ client, config, ...a }),
     });
     console.log(`Listo: ${r.creados.length} borradores nuevos (${r.motivo})${dryRun ? " [dry-run]" : ""}.`);
   } finally {
