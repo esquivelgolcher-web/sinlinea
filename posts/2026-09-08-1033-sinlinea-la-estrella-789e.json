@@ -1,7 +1,7 @@
 {
   "id": "2026-09-08-1033-sinlinea-la-estrella-789e",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "La Estrella de Panamá",
     "url": "https://www.laestrella.com.pa/economia/moody-s-apertura-o-no-de-cobre-panama-sera-decisivo-para-definir-el-grado-de-inversion-del-pais-ID25516178",
@@ -39,9 +39,9 @@
     "generada": "2026-09-08T15:33:38.643Z",
     "error": null
   },
-  "programado": null,
+  "programado": "2026-09-08T19:30:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-08T15:33:38.643Z",
-  "actualizado": "2026-09-08T15:33:38.643Z"
+  "actualizado": "2026-09-08T18:47:26.504Z"
 }
