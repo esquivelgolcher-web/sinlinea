@@ -23,16 +23,16 @@
   "imagen": {
     "ruta": "public/img/2026-09-07-1310-la-prensa-807e.jpg",
     "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-07-1310-la-prensa-807e.jpg",
-    "hash": "93ea0fe4b4f06d16",
-    "version": 9,
-    "estilo": "d6f8e985c6ae2dc7",
-    "renderizada": "2026-09-08T19:15:30.748Z"
+    "hash": "bd637c340c8f73ba",
+    "version": 10,
+    "estilo": "a92ceb586a180aae",
+    "renderizada": "2026-09-08T20:28:19.005Z"
   },
   "programado": "2026-09-08T11:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-07T18:10:04.522Z",
-  "actualizado": "2026-09-08T19:15:23.961Z",
+  "actualizado": "2026-09-08T20:28:13.341Z",
   "ilustracion": {
     "ruta": "public/ilus/2026-09-07-1310-la-prensa-807e.jpg",
     "proveedor": "gemini",

@@ -22,10 +22,10 @@
   "imagen": {
     "ruta": "public/img/2026-09-08-1333-luiseskivelgolcher-el-pais-c0ba.jpg",
     "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-08-1333-luiseskivelgolcher-el-pais-c0ba.jpg",
-    "hash": "083231d7dd5f67b5",
-    "version": 9,
-    "estilo": "da95144957c9bb83",
-    "renderizada": "2026-09-08T19:15:31.294Z"
+    "hash": "5df0569d924460c7",
+    "version": 10,
+    "estilo": "8df8d9e92c3ad10f",
+    "renderizada": "2026-09-08T20:28:19.436Z"
   },
   "ilustracion": {
     "descripcion": "Paisaje de colinas de Cisjordania al atardecer: en el tercio superior derecho, casas de tejado rojo de un asentamiento sobre una loma; la mitad izquierda y el centro muestran terreno árido y cielo despejados; un tramo de muro de hormigón bajo en el borde inferior derecho; sin personas, sin banderas, sin texto",
@@ -41,5 +41,5 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-08T18:33:05.299Z",
-  "actualizado": "2026-09-08T19:15:23.961Z"
+  "actualizado": "2026-09-08T20:28:13.341Z"
 }

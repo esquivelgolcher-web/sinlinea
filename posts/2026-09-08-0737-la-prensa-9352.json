@@ -23,10 +23,10 @@
   "imagen": {
     "ruta": "public/img/2026-09-08-0737-la-prensa-9352.jpg",
     "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-08-0737-la-prensa-9352.jpg",
-    "hash": "c27db5b3d43a0061",
-    "version": 9,
-    "estilo": "d6f8e985c6ae2dc7",
-    "renderizada": "2026-09-08T19:15:29.436Z"
+    "hash": "3ef927a1783b10fb",
+    "version": 10,
+    "estilo": "a92ceb586a180aae",
+    "renderizada": "2026-09-08T20:28:17.998Z"
   },
   "ilustracion": {
     "descripcion": "Aula escolar vacía con pupitres ordenados y un pizarrón en blanco, luz natural entrando por una ventana, zona izquierda y central despejadas. Un estudiante triste en medio de todo",
@@ -42,6 +42,6 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-08T12:37:50.322Z",
-  "actualizado": "2026-09-08T19:15:23.961Z",
+  "actualizado": "2026-09-08T20:28:13.341Z",
   "cuenta": "sinlinea"
 }
