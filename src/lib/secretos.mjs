@@ -54,11 +54,12 @@ export function leerSecretos(config, env = process.env) {
 // Lista de secretos que necesita la configuración, con su uso, para verificar y documentar.
 export function secretosRequeridos(config) {
   const n = nombresDeSecretos(config);
+  const publica = config?.automatico?.publicar !== false;
   return [
     { nombre: "ANTHROPIC_API_KEY", obligatorio: true, uso: "Claude: redacción (GENERAR) y acortado de textos y escenas (REGENERAR)" },
     { nombre: "GEMINI_API_KEY", obligatorio: Boolean(config?.ilustraciones?.activo), uso: "Gemini: ilustraciones de los posts" },
-    { nombre: n.token, obligatorio: true, uso: "Instagram: publicar y renovar el token" },
-    { nombre: n.usuarioId, obligatorio: true, uso: "Instagram: id de la cuenta profesional" },
+    { nombre: n.token, obligatorio: publica, uso: publica ? "Instagram: publicar y renovar el token" : "Instagram: publicar y renovar el token (publicación apagada: hace falta al activar automatico.publicar)" },
+    { nombre: n.usuarioId, obligatorio: publica, uso: publica ? "Instagram: id de la cuenta profesional" : "Instagram: id numérico de la cuenta (publicación apagada: hace falta al activar automatico.publicar)" },
     { nombre: "GH_PAT", obligatorio: false, uso: "renovación automática del token de Instagram (renovar-token.yml)" },
   ];
 }

@@ -38,7 +38,7 @@ export async function ejecutarPruebaInstagram({ configuracion, cuenta = null, en
         bien(`cuenta ${config.cuenta}: la credencial ${nombres.token} pertenece a @${perfil.username} (coincide con ${config.marca.usuario}); el id numérico coincide con ${nombres.usuarioId}`);
       } else {
         if (!usuarioOk) error(`cuenta ${config.cuenta}: la credencial ${nombres.token} pertenece a @${perfil.username || "?"}; se esperaba ${config.marca.usuario}`);
-        if (!idOk) error(`cuenta ${config.cuenta}: el id numérico no coincide: ${nombres.usuarioId} no es el user_id que devuelve la API para esa credencial`);
+        if (!idOk) error(perfil.userId ? `cuenta ${config.cuenta}: el id numérico no coincide: ${nombres.usuarioId} no es el user_id que devuelve la API para esa credencial` : `cuenta ${config.cuenta}: la API no devolvió user_id; no se pudo confirmar el id numérico (no actives la publicación)`);
       }
     } catch (err) {
       error(`cuenta ${config.cuenta}: la API respondió con error (${ocultarSecretos(err.message)})`);

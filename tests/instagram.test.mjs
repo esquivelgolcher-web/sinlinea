@@ -83,3 +83,13 @@ test("(M2) perfil() consulta /me con user_id y username y devuelve ambos", async
   assert.match(llamadas[0], /\/v23\.0\/me\?/);
   assert.match(llamadas[0], /fields=user_id%2Cusername/);
 });
+
+test("(M2 fix) perfil() no acepta el id de app como sustituto de user_id: sin user_id la comprobación del id falla", async () => {
+  const fetchImpl = async () => ({ ok: true, status: 200, json: async () => ({ id: "1784", username: "sinlinea.pa" }) });
+  const ig = crearClienteInstagram({ token: "T", usuarioId: "1784", apiVersion: "v23.0", fetchImpl, dormir: async () => {} });
+  const p = await ig.perfil();
+  assert.equal(p.userId, "");
+  assert.equal(p.coincideId, false, "falla cerrado: sin user_id no se puede confirmar la identidad");
+  const sinConfig = crearClienteInstagram({ token: "T", usuarioId: "", apiVersion: "v23.0", fetchImpl, dormir: async () => {} });
+  assert.equal((await sinConfig.perfil()).coincideId, undefined);
+});

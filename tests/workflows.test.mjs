@@ -115,4 +115,6 @@ test("(M2) probar-instagram es manual, de solo lectura, acepta la cuenta como en
   const texto = leer("probar-instagram");
   assert.match(texto, /node src\/probar-instagram\.mjs/);
   assert.equal(/git push|upload-artifact/.test(texto), false);
+  assert.equal(/run:.*\$\{\{\s*inputs\./.test(texto), false, "(M2 fix) la entrada va por env, no interpolada en run:");
+  assert.match(texto, /CUENTA: \$\{\{ inputs\.cuenta \}\}/);
 });

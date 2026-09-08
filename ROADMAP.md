@@ -29,7 +29,7 @@ configurable por cuenta (`idioma`, `es-PA` por defecto).
   verificación de identidad contra la API antes de publicar y workflow manual
   "Probar Instagram". Pendiente del operador: conectar la cuenta (docs/
   CONFIGURACION.md §6c, pasos 2-8) y definir su línea editorial, fuentes, logo y
-  colores definitivos. Suites: 221 unitarias, 14 de render, 9 del panel.
+  colores definitivos. Suites: 224 unitarias, 14 de render, 9 del panel.
 
 Estimaciones en días de trabajo de una persona con el flujo actual (pruebas,
 revisión y despliegue incluidos).

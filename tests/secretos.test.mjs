@@ -70,3 +70,13 @@ test("verificarSecretos separa presentes, faltantes obligatorios y opcionales, s
   assert.equal(r.ok, !cfg.ilustraciones.activo);
   assert.equal(JSON.stringify(r).includes(tokenIG), false, "el resultado nunca incluye valores");
 });
+
+test("(M2 fix) los secretos de Instagram de una cuenta con publicación apagada son opcionales hasta que se active", () => {
+  const apagada = { ...cfg, automatico: { generar: false, publicar: false }, instagram: { ...cfg.instagram, tokenSecreto: "IG_ACCESS_TOKEN_X", usuarioIdSecreto: "IG_USER_ID_X" } };
+  const req = Object.fromEntries(secretosRequeridos(apagada).map((r) => [r.nombre, r]));
+  assert.equal(req.IG_ACCESS_TOKEN_X.obligatorio, false);
+  assert.equal(req.IG_USER_ID_X.obligatorio, false);
+  assert.match(req.IG_ACCESS_TOKEN_X.uso, /apagada|activar/i);
+  const encendida = { ...apagada, automatico: { generar: false, publicar: true } };
+  assert.equal(secretosRequeridos(encendida).find((r) => r.nombre === "IG_ACCESS_TOKEN_X").obligatorio, true);
+});

@@ -47,6 +47,7 @@
   .post.con-ilustracion .rotulo { display: block; }
   .pie { left: var(--margen); right: var(--margen); bottom: var(--barra-alto); height: var(--pie-alto); display: flex; justify-content: space-between; align-items: center; font-size: 24px; font-weight: 600;
          border-top: 2px solid color-mix(in srgb, var(--texto) 30%, transparent); }
+  .barra:empty { display: none; }
   .barra { left: 0; right: 0; bottom: 0; height: var(--barra-alto); background: var(--barra); color: var(--barra-texto);
            display: flex; align-items: center; justify-content: center; font-family: "Anton", Impact, sans-serif; font-size: 32px; letter-spacing: 0.06em; text-transform: uppercase; }
 </style>
@@ -85,6 +86,7 @@
   $("fuente").textContent = d.fecha || "";
   $("usuario").textContent = d.usuario || "";
   $("lema").textContent = d.lema || "";
+  if (!d.lema) document.documentElement.style.setProperty("--barra-alto", "0px"); // sin lema, la franja inferior no se dibuja
   if (d.ilustracionUrl) {
     const fondo = new Image();
     fondo.alt = "";

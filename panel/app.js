@@ -128,7 +128,8 @@ function pintar() {
   const nota = $("nota-cuenta");
   if (apagado.length) {
     nota.hidden = false;
-    nota.textContent = `En ${activa.nombre} está desactivada ${apagado.join(" y ")}. Los posts aprobados quedan en cola hasta activarla en cuentas/${activa.id}/config.json.`;
+    const cola = activa.automatico?.publicar === false ? " Los posts aprobados quedan en cola hasta activarla." : "";
+    nota.textContent = `En ${activa.nombre} está desactivada ${apagado.join(" y ")}.${cola} Se activa en cuentas/${activa.id}/config.json (automatico).`;
   } else {
     nota.hidden = true;
   }

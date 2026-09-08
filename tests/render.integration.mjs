@@ -49,6 +49,8 @@ async function medir(post, { ilustracionUrl = null, config = cfg, logoUrl = "cue
         bajadaPx: px(b), bajadaLineas: Math.round(b.scrollHeight / (px(b) * 1.3)),
         barraAlto: r("lema").height, logoAncho: (document.querySelector("#post .logo") || document.querySelector("#post .logo-fallback")).getBoundingClientRect().width,
         barraColor: getComputedStyle(document.getElementById("lema")).backgroundColor,
+        chipColor: getComputedStyle(document.getElementById("categoria")).backgroundColor,
+        pieAbajo: 1350 - r("fuente").bottom,
         fondoColor: getComputedStyle(document.getElementById("post")).backgroundColor,
         fallbackTexto: document.querySelector("#post .logo-fallback")?.textContent || null,
         fallbackColor: document.querySelector("#post .logo-fallback") ? getComputedStyle(document.querySelector("#post .logo-fallback")).backgroundColor : null,
@@ -155,7 +157,9 @@ test("(M2) la plantilla usa los colores de la cuenta y, sin logo, un círculo co
   const personal = cargarConfiguracion(".").cuentas.find((c) => c.cuenta === "luiseskivelgolcher");
   const m = await medir({ ...base, variante: "negro" }, { config: personal, logoUrl: null });
   assert.equal(m.error, null);
-  assert.equal(m.barraColor, "rgb(31, 95, 191)", "la franja usa el acento de la cuenta (#1F5FBF)");
+  assert.equal(m.chipColor, "rgb(31, 95, 191)", "la categoría usa el acento de la cuenta (#1F5FBF)");
+  assert.equal(m.barraAlto, 0, "sin lema no se dibuja la franja inferior");
+  assert.ok(m.pieAbajo < 40, `el pie baja al borde cuando no hay franja (queda a ${m.pieAbajo}px)`);
   assert.equal(m.fondoColor, "rgb(22, 22, 22)", "el fondo negro usa el oscuro de la cuenta (#161616)");
   assert.equal(m.fallbackTexto, "LEG");
   assert.equal(m.fallbackColor, "rgb(233, 228, 218)", "el círculo usa el principal (#E9E4DA)");

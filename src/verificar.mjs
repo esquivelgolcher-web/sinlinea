@@ -62,10 +62,10 @@ export function ejecutarVerificacion({ raiz = process.cwd(), env = process.env, 
     lineas.push(`--- Cuenta ${config.cuenta} (${config.nombre}) · idioma ${config.idioma} · ${config.marca.usuario}`);
     if (config.automatico?.generar === false) aviso(`cuenta ${config.cuenta}: generación automática apagada (automatico.generar=false); Claude no redacta posts para ella`);
     if (config.automatico?.publicar === false) aviso(`cuenta ${config.cuenta}: publicación automática apagada (automatico.publicar=false); sus posts aprobados quedan en cola`);
-    for (const [ruta, descripcion] of [[config.rutas.editorial, "línea editorial"], [config.rutas.logo, "logo de la marca"]]) {
-      if (fs.existsSync(path.join(raiz, ruta))) bien(`${ruta} (${descripcion})`);
-      else error(`falta ${ruta} (${descripcion})`);
-    }
+    if (fs.existsSync(path.join(raiz, config.rutas.editorial))) bien(`${config.rutas.editorial} (línea editorial)`);
+    else error(`falta ${config.rutas.editorial} (línea editorial)`);
+    if (fs.existsSync(path.join(raiz, config.rutas.logo))) bien(`${config.rutas.logo} (logo de la marca)`);
+    else aviso(`falta ${config.rutas.logo}: la imagen usará un círculo con las iniciales de la marca`);
     const propios = secretosRequeridos(config).filter((s) => !compartidos.some((c) => c.nombre === s.nombre));
     informar(propios);
     const info = leerTokenInfo(raiz, config.rutas.datos);

@@ -51,8 +51,8 @@ test("token por vencer o sin fecha produce un aviso; baseUrl sin configurar y ar
   const raiz = raizTemporal();
   fs.rmSync(path.join(raiz, "cuentas/sinlinea/logo.png"));
   const sinLogo = ejecutarVerificacion({ raiz, env: envCompleto, ahora });
-  assert.equal(sinLogo.ok, false);
-  assert.match(sinLogo.lineas.join("\n"), /logo\.png/);
+  assert.equal(sinLogo.ok, true, "sin logo se usan las iniciales: aviso, no error");
+  assert.match(sinLogo.lineas.join("\n"), /AVISO.*logo\.png/);
 });
 
 test("una configuración inválida se reporta como error en lugar de lanzar", () => {
@@ -88,6 +88,16 @@ test("(M1 fix) avisa de posts cuya cuenta no está declarada (huérfanos que nin
   fs.writeFileSync(path.join(raiz, "posts", `${base.id}.json`), JSON.stringify({ ...base, cuenta: "fantasma" }));
   const r = ejecutarVerificacion({ raiz, env: envCompleto, ahora });
   assert.match(r.lineas.join("\n"), /AVISO.*fantasma.*1 post/);
+});
+
+test("(M2 fix) una cuenta apagada sin secretos ni logo produce avisos, no errores: la verificación pasa", () => {
+  const raiz = raizTemporal({ cuentas: ["sinlinea", "luiseskivelgolcher"] });
+  const r = ejecutarVerificacion({ raiz, env: envCompleto, ahora });
+  const texto = r.lineas.join("\n");
+  assert.equal(r.ok, true, texto);
+  assert.deepEqual(r.faltantes, []);
+  assert.match(texto, /AVISO.*IG_ACCESS_TOKEN_LUISESKIVELGOLCHER/);
+  assert.match(texto, /AVISO.*cuentas\/luiseskivelgolcher\/logo\.png.*iniciales/i);
 });
 
 test("(M2) la verificación avisa cuando una cuenta tiene la generación o la publicación automática apagadas", () => {

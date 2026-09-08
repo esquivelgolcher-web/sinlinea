@@ -67,8 +67,9 @@ export function crearClienteInstagram({
   // Identidad del token: usuario y si el id numérico coincide con el configurado.
   async function perfil() {
     const r = await llamar("GET", `${base}/me`, { fields: "user_id,username" });
-    const userId = String(r.user_id || r.id || "");
-    return { username: String(r.username || ""), userId, coincideId: usuarioId ? userId === String(usuarioId) : undefined };
+    // Solo vale `user_id` (id de la cuenta profesional); `id` es un id de app y no sirve. Sin user_id se falla cerrado.
+    const userId = r.user_id !== undefined && r.user_id !== null ? String(r.user_id) : "";
+    return { username: String(r.username || ""), userId, coincideId: usuarioId ? (userId !== "" && userId === String(usuarioId)) : undefined };
   }
 
   async function cuota() {
