@@ -106,6 +106,28 @@ configurable por cuenta (`idioma`, `es-PA` por defecto).
   campo entra en el sello visual, así que REGENERAR redibuja los posts activos.
   El `oscuro` de la paleta pasó de `#161616` al marrón del logo para que el
   fondo tipográfico y el logo compartan color; el resto de la paleta sigue igual.
+- **Panel maestro, fase 1 (2026-09-08, noche) — hecho en local, SIN push**:
+  commits `4a5f0f1` (núcleo: `src/lib/cuenta.mjs`, `archivada`, `editorial`,
+  `conexion.json`), `0989a3d` (persistencia con sha en local y GitHub),
+  `45a4340` + `8cb52ae` (interfaz y pruebas) y el de documentación. Vista
+  "Todas las cuentas" (tarjetas con identidad, estados de generación y
+  publicación por separado, estado de conexión, contadores, nombres exactos de
+  secretos), alta y edición desde el formulario, archivar/reactivar, "Verificar
+  identidad" con el flujo existente. Suites: 260 unitarias, 18 de render + 1 de
+  logo, 14 de panel (5 nuevas: vista, alta con validación, edición con
+  conflicto, archivar/reactivar con las pausas intactas, verificación en móvil).
+  Se añadieron `data/sinlinea/conexion.json` (error: code 190, token mal
+  guardado) y `data/luiseskivelgolcher/conexion.json` (verificada) a partir de
+  las corridas reales de ese día. **Pendiente para desplegar**: revisión del
+  operador de la vista previa, push (dispara GENERAR: solo borradores; las
+  pausas no cambian) y, en GitHub, dar al token del panel el permiso *Actions:
+  lectura y escritura* si se quiere lanzar la verificación desde el panel.
+  **Dependencia**: la verificación de una cuenta nueva falla con "falta el
+  secreto" hasta la fase 2 (secretos por entorno), ver M3b.
+- **Sin Línea sigue pausada** (`automatico.publicar = false`, 10 programados
+  en cola) y **@luiseskivelgolcher con generación y publicación apagadas**
+  (contenido: investigación y actualidad con contexto; sin ajedrez ni vida
+  personal). Sin publicaciones ni nuevos intentos de autenticación de Sin Línea.
 
 Estimaciones en días de trabajo de una persona con el flujo actual (pruebas,
 revisión y despliegue incluidos).
@@ -307,14 +329,61 @@ cuenta.
 
 ---
 
+## M3b · Panel maestro (fase 1 hecha; fases 2-5 pendientes)
+
+**Objetivo.** Administrar y añadir cuentas desde la interfaz, y sentar la base
+de las métricas por cuenta, sin backend ni servicios de pago mientras el
+repositorio y GitHub Actions basten.
+
+**Fase 1 (hecha, 2026-09-08).** Vista "Todas las cuentas", alta, edición,
+archivo y verificación de identidad desde el panel; estado de conexión en
+`data/<id>/conexion.json`; persistencia con bloqueo por sha y conservación de
+lo escrito ante errores. Detalle en ARCHITECTURE.md 2.3b.
+
+**Fase 2 · Secretos por cuenta sin tocar workflows (1-2 días).** GitHub
+Environments: un entorno `cuenta-<id>` por cuenta con `IG_ACCESS_TOKEN` e
+`IG_USER_ID`; PUBLICAR, RENOVAR TOKEN, Probar Instagram y Verificar pasan a un
+job por cuenta (`strategy.matrix` construida desde `config.json` por un job
+previo, `max-parallel: 1`, `environment: cuenta-${{ matrix.cuenta }}`), de modo
+que cada job recibe solo sus credenciales; los orquestadores aceptan
+`--cuenta` para procesar una sola. Migración: mover los secretos actuales a sus
+entornos (los nombres históricos de Sin Línea pueden convivir un tiempo). El
+panel ya muestra los nombres exactos; pasará a indicar el entorno. Criterio:
+dar de alta una cuenta desde el panel, crear su entorno y sus dos secretos en
+GitHub y verificar su identidad sin editar código ni workflows.
+
+**Fase 3 · Recogida y almacenamiento de métricas (2 días).** Un workflow diario
+consulta la API de Instagram (insights de cuenta y de cada publicación propia:
+alcance, impresiones, me gusta, comentarios, guardados, seguidores) y guarda
+series por cuenta y por publicación en `data/<id>/metricas/AAAA-MM.json`
+(append, sin tokens). Sin panel todavía; solo datos verificables.
+
+**Fase 4 · Dashboard comparativo e informes semanales (2-3 días).** Vista de
+métricas en el panel (por cuenta y comparativa: alcance, crecimiento, mejores
+categorías y franjas), e informe semanal en `data/<id>/informes/` redactado
+por Claude a partir de los datos guardados, con enlace desde la tarjeta de la
+cuenta. Nada se muestra si no hay datos reales.
+
+**Fase 5 · Experimentos y recomendaciones (2-3 días).** Propuestas basadas en
+métricas (cambiar una franja, probar una categoría, ajustar el tono) que se
+presentan como experimentos con hipótesis, duración y métrica objetivo; se
+aplican solo con aprobación en el panel y quedan registrados con su
+configuración anterior para revertirlos con un clic.
+
+**Pruebas.** Fase 1: `cuenta.test.mjs`, `maestro.test.mjs`,
+`serve-cuentas.test.mjs`, `almacen.test.mjs`, `panel-maestro.e2e.mjs`. Fases
+siguientes: por fase, con datos simulados y sin llamadas reales a Instagram.
+
+---
+
 ## M4 · Operación a escala (2-3 días)
 
 **Objetivo.** Que el sistema aguante varias cuentas durante meses sin
 intervención.
 
 **Alcance.**
-- Panel: vista "Todas las cuentas" con lo pendiente de aprobar, fecha del
-  último post por cuenta, avisos de token por vencer y de errores.
+- Panel: la vista "Todas las cuentas" (hecha en M3b fase 1) suma fecha del
+  último post por cuenta, avisos de token por vencer y de errores de corrida.
 - Límite de tiempo por corrida y reparto justo entre cuentas (una cuenta con
   muchas noticias no deja sin turno a otra).
 - Limpieza: borrar imágenes finales de posts archivados hace más de N días y

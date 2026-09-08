@@ -1,6 +1,6 @@
 # Arquitectura de Sin Línea
 
-Estado documentado: 2026-09-08 (actualizado tras M1: multi-cuenta).
+Estado documentado: 2026-09-08 (actualizado tras M1/M2 y la fase 1 del panel maestro).
 Propósito: describir cómo funciona hoy el sistema (una sola cuenta), qué se
 reutiliza tal cual, y cómo evoluciona hacia un panel multi-cuenta para medios
 digitales sin reescribir lo que ya funciona. El plan por etapas está en
@@ -83,6 +83,67 @@ bloqueo optimista por `sha` y un reintento en caso de conflicto. En local usa
 `src/serve.mjs` (`/api/posts`). Comparte lógica con el servidor a través de
 módulos isomorfos copiados a `dist/panel/lib/` por `src/build.mjs`.
 
+### 2.3b Panel maestro (`panel/`, fase 1)
+
+Misma página estática, tres vistas: **posts** (la de siempre, por cuenta),
+**Todas las cuentas** y **formulario de cuenta**. El botón "Cuentas" de la
+cabecera alterna entre la primera y la segunda; la elección se recuerda.
+
+- **Datos en vivo.** La lista de cuentas se lee del repositorio en cada carga
+  (`almacen.listarCuentas()`): `config.json` global, `cuentas/<id>/config.json`
+  (con su `sha`), presencia de `logo.png`, `data/<id>/conexion.json` y
+  `data/<id>/token-info.json`. `panel/config.json` (generado por `build.mjs`)
+  queda solo como reserva si esa lectura falla. La editorial se lee al abrir el
+  formulario.
+- **Tarjeta por cuenta.** Logo (o iniciales con los colores de la marca),
+  nombre, @, id, idioma; estado de generación y de publicación automáticas por
+  separado; estado de conexión; contadores de borradores y programados (de los
+  posts ya cargados); nombres exactos de los secretos de Instagram (nunca sus
+  valores); acciones Abrir panel, Editar, Verificar identidad, Archivar o
+  Reactivar.
+- **Alta y edición.** `src/lib/cuenta.mjs` (isomorfo) reúne las reglas:
+  validación del formulario con mensajes por campo (`erroresDeCuenta`),
+  plantilla de `editorial.md` a partir de temas, tono e idioma
+  (`plantillaEditorial`), conversión formulario ↔ `config.json`
+  (`configDesdeFormulario`, `formularioDesdeConfig`), archivar/reactivar y el
+  cálculo del estado de conexión (`estadoConexion`). `config.mjs` importa de
+  ahí las constantes compartidas, así el servidor y el navegador validan igual.
+  Una cuenta nueva se escribe en este orden: `cuentas/<id>/config.json`,
+  `cuentas/<id>/editorial.md`, `cuentas/<id>/logo.png` (opcional) y, al final,
+  su id en `cuentas` del `config.json` global. Empieza con `automatico.generar`
+  y `automatico.publicar` en `false`, sin conexión verificada y con los nombres
+  de secretos sugeridos `IG_ACCESS_TOKEN_<ID>` / `IG_USER_ID_<ID>`. Al editar,
+  el id es de solo lectura y se conservan los campos que el formulario no toca
+  (cupos, `automatico`, `archivada`, nombres de secretos ya declarados).
+- **Archivar.** `archivada: true`, `archivadaEn` y automatizaciones apagadas
+  (la validación lo exige). El id sigue en la lista global, los posts, imágenes
+  e historial se conservan y el panel individual sigue mostrándolos con una
+  nota. GENERAR, REGENERAR, PUBLICAR y RENOVAR TOKEN omiten la cuenta
+  (`motivo: "archivada"`); `verificar` la informa como aviso. Reactivar la
+  devuelve a la lista activa con las automatizaciones apagadas.
+- **Persistencia.** El almacén de GitHub gana `leerArchivo`, `escribirArchivo`,
+  `escribirBinario`, `listarCuentas` y `solicitarVerificacion`, todo por la API
+  de contenidos con bloqueo optimista por `sha`. Un 409/422 se traduce en
+  `ErrorConflictoArchivo` con la versión actual: el formulario avisa, conserva
+  lo escrito, actualiza el `sha` y el siguiente Guardar escribe sobre la versión
+  nueva. Al añadir el id a `config.json` hay un reintento automático si el
+  archivo cambió entre medias. En local, `serve.mjs` expone lo mismo
+  (`/api/cuentas`, `/api/archivo`, `/api/verificar-conexion`) con una lista
+  blanca de rutas (`config.json`, `cuentas/<id>/{config.json,editorial.md,logo.png}`,
+  `data/<id>/conexion.json`), el sha de blob de git como versión y la misma
+  validación (`validarGlobal`, `validarCuenta`) antes de escribir.
+- **Conexión con Instagram.** Cuatro estados, calculados en `estadoConexion`
+  solo a partir de `data/<id>/conexion.json` (nunca de tener usuario o
+  secretos): *credenciales pendientes* (no hay verificación, o la prueba dijo
+  que falta un secreto e indica cuál), *pendiente de verificación* (el panel la
+  solicitó o hay `token-info` sin identidad comprobada), *identidad verificada*
+  (usuario y fecha) y *error de conexión* (mensaje, `code` y `error_subcode`
+  de la API, sin credenciales). "Verificar identidad" escribe el estado
+  pendiente y lanza `probar-instagram.yml` por `workflow_dispatch` con el token
+  del panel (necesita el permiso *Actions: lectura y escritura*; si falta, el
+  panel lo explica y remite a lanzarlo a mano). El workflow escribe el resultado
+  en `conexion.json` también cuando la prueba falla.
+
 ### 2.4 PUBLICAR (`src/publicar.mjs`)
 Cada 30 minutos toma los posts `programado` cuya hora ya pasó y los publica con
 `lib/instagram.mjs` (contenedor → sondeo → publicación → permalink), usando la
@@ -151,6 +212,25 @@ tras `archivarDespuesDeDias`.
   claves en todo mensaje que se registra o se guarda. `src/verificar.mjs`
   (`npm run verificar` y el workflow manual "Verificar configuración y
   secretos") informa qué falta sin mostrar valores.
+
+- **Estado de conexión por cuenta**: `data/<id>/conexion.json`
+  (`estado`, `usuario`, `comprobado`, `detalle`), escrito por Probar Instagram
+  (verificada, error, credenciales pendientes) y por el panel (pendiente).
+  Nunca contiene valores de secretos; `detalle` pasa por `ocultarSecretos`.
+- **Dependencia conocida (secretos de cuentas nuevas).** Los workflows exponen
+  los secretos de Instagram con nombres fijos por cuenta en su `env`
+  (`IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}`, …). GitHub Actions no
+  permite exponer "el secreto cuyo nombre diga la configuración" sin volcar
+  todos los secretos al proceso (`toJSON(secrets)`), lo que daría a cada tarea
+  credenciales que no necesita. Por eso el alta desde el panel deja la cuenta
+  completa en lo editorial, pero su verificación fallará con "falta el secreto
+  …" hasta que sus nombres entren en los workflows. La solución sin backend ni
+  servicio de pago es **GitHub Environments**: un entorno por cuenta
+  (`cuenta-<id>`) con `IG_ACCESS_TOKEN` e `IG_USER_ID`, y un job por cuenta
+  (`environment: cuenta-${{ matrix.cuenta }}`, matriz derivada de `cuentas` en
+  `config.json`, `max-parallel: 1`) que recibe solo sus credenciales. Añadir
+  una cuenta pasa a ser crear su entorno y sus dos secretos en GitHub, sin tocar
+  código ni workflows. Queda diseñado como fase 2 del panel maestro (ROADMAP).
 
 ### 2.8 Convenciones
 Node 20+ ESM en español; dependencias inyectables en todos los orquestadores
@@ -302,6 +382,16 @@ flowchart TB
 - **Cuotas de API**: Claude y Gemini se comparten entre cuentas con una sola
   clave; los costos por cuenta se estiman por el registro de las corridas
   (tokens y llamadas por cuenta, M3).
+
+- **Secretos por cuenta en los workflows**: hoy cada nombre de secreto va
+  escrito en el `env` de cuatro workflows; una cuenta dada de alta desde el
+  panel no puede verificarse hasta que se añadan. Ver 2.7 (GitHub Environments)
+  para el mecanismo que entrega a cada job solo sus credenciales.
+- **Escrituras del panel maestro en el repositorio**: cada archivo guardado es
+  un commit (alta = 3-4 commits) y cada push a `cuentas/**` dispara GENERAR (que
+  solo crea borradores; las cuentas nuevas nacen apagadas). Es aceptable para
+  un operador; con muchos altas al día convendría agrupar en un solo commit vía
+  la API de git (árboles), sin cambiar el panel.
 
 ### 5.5 Camino a un servicio propio (cuando haga falta)
 
