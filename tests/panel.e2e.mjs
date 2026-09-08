@@ -195,7 +195,7 @@ test("(M2) la cuenta personal aparece en el selector y muestra la nota de automa
     await page.goto(`${base3}/panel/`);
     await page.waitForSelector(".tarjeta");
     assert.equal(await page.isHidden("#nota-cuenta"), true, "Sin Línea no muestra la nota");
-    await page.click("#cuentas >> text=Luis Eskivel Golcher");
+    await page.click("#cuentas >> text=Luis Esquivel Golcher");
     await page.waitForSelector("#nota-cuenta:not([hidden])");
     assert.match(await page.textContent("#nota-cuenta"), /desactivad/i);
     assert.match(await page.textContent("#pestanas"), /Borradores \(0\)/);

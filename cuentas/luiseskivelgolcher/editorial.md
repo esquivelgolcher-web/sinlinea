@@ -1,6 +1,6 @@
 # Línea editorial de @luiseskivelgolcher
 
-Cuenta personal con enfoque profesional de Luis Eskivel Golcher.
+Cuenta personal con enfoque profesional de Luis Esquivel Golcher.
 
 ## Qué se publica
 - Ajedrez: partidas, aperturas, torneos, historia y cultura del juego, análisis

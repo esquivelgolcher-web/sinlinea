@@ -6,7 +6,7 @@ import {
   leerSecretos, secretosRequeridos, verificarSecretos,
 } from "../src/lib/secretos.mjs";
 
-const cfg = cargarConfig("config.json");
+const cfg = { ...cargarConfig("config.json"), automatico: { generar: true, publicar: true } };
 const tokenIG = "IGAAR" + "x".repeat(60);
 const claveGoogle = "AIza" + "B".repeat(35);
 const claveAnthropic = "sk-ant-api03-" + "k".repeat(40);

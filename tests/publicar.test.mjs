@@ -10,7 +10,7 @@ import { cargarConfig } from "../src/lib/config.mjs";
 import { leerPosts, escribirPost } from "../src/lib/posts.mjs";
 import { hashImagen, aprobar } from "../src/lib/estados.mjs";
 
-const cfg = { ...cargarConfig("config.json"), pages: { baseUrl: "https://u.github.io/sinlinea" } };
+const cfg = { ...cargarConfig("config.json"), pages: { baseUrl: "https://u.github.io/sinlinea" }, automatico: { generar: true, publicar: true } };
 const base = JSON.parse(fs.readFileSync("tests/fixtures/post-ejemplo.json", "utf8"));
 const ahora = new Date("2026-09-07T22:10:00Z"); // 17:10 Panamá
 const log = { info: () => {}, warn: () => {} };

@@ -26,6 +26,14 @@ export function raizConCuentas({ cuentas = [CUENTA_PRINCIPAL], global = {}, pref
   for (const id of cuentas) {
     const origen = fs.existsSync(path.join("cuentas", id)) ? path.join("cuentas", id) : path.join("tests", "fixtures", "cuentas", id);
     copiarDir(origen, path.join(raiz, "cuentas", id), { omitir: ["logo.png"] });
+    if (id === CUENTA_PRINCIPAL) {
+      // Las pruebas ejercitan los flujos completos: la cuenta principal va siempre con la automatización
+      // encendida, aunque en producción esté pausada temporalmente.
+      const rutaCfg = path.join(raiz, "cuentas", id, "config.json");
+      const cfg = JSON.parse(fs.readFileSync(rutaCfg, "utf8"));
+      cfg.automatico = { generar: true, publicar: true };
+      fs.writeFileSync(rutaCfg, JSON.stringify(cfg, null, 2) + "\n");
+    }
     if (fs.existsSync(path.join(origen, "logo.png"))) fs.writeFileSync(path.join(raiz, "cuentas", id, "logo.png"), Buffer.from([0x89])); // marcador: solo se comprueba que exista
     fs.mkdirSync(path.join(raiz, "data", id), { recursive: true });
   }

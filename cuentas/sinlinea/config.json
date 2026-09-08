@@ -1,6 +1,10 @@
 {
   "nombre": "Sin Línea",
   "idioma": "es-PA",
+  "automatico": {
+    "generar": true,
+    "publicar": false
+  },
   "marca": {
     "nombre": "Sin Línea",
     "usuario": "@sinlinea.pa",

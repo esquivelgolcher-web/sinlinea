@@ -195,10 +195,12 @@ test("(M2) la cuenta luiseskivelgolcher carga con automatización apagada, color
 });
 
 test("(M2) automatico es opcional (true por defecto) y colores es opcional con la paleta de Sin Línea por defecto", () => {
-  const cfg = cargarConfig("config.json");
+  const g = cargarGlobal("config.json");
+  const c = cargarCuenta(".", "sinlinea");
+  const { automatico: _omitido, ...sinAutomatico } = c;
+  const cfg = configDeCuenta(g, sinAutomatico, "sinlinea");
   assert.deepEqual(cfg.automatico, { generar: true, publicar: true });
   assert.deepEqual(cfg.marca.colores, { principal: "#FFD400", acento: "#E30613", oscuro: "#111111", claro: "#FFFFFF" });
-  const c = cargarCuenta(".", "sinlinea");
   assert.throws(() => validarCuenta({ ...c, automatico: { generar: "no" } }, "sinlinea"), /automatico\.generar/);
   assert.throws(() => validarCuenta({ ...c, marca: { ...c.marca, colores: { principal: "amarillo" } } }, "sinlinea"), /colores/);
   assert.throws(() => validarCuenta({ ...c, marca: { ...c.marca, colores: { principal: "#FFD400" } } }, "sinlinea"), /colores/);
