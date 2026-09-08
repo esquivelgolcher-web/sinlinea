@@ -108,6 +108,7 @@ export async function regenerarCuentas({ configuracion, raiz = process.cwd(), ah
     (log.error || log.warn)(`Cuenta ${e.cuenta}: configuración inválida, se omite (${ocultarSecretos(e.mensaje)}).`);
   }
   for (const config of configuracion.cuentas) {
+    if (config.archivada) { resultados[config.cuenta] = { renderizados: [], fallidos: [], motivo: "archivada" }; log.info(`Cuenta ${config.cuenta}: archivada, se omite.`); continue; }
     try {
       resultados[config.cuenta] = await ejecutarRegenerar({
         config, raiz, ahora, render, log, version, guardar,

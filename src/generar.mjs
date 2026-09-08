@@ -122,6 +122,7 @@ export async function generarCuentas({ configuracion, raiz = process.cwd(), ahor
     (log.error || log.warn)(`Cuenta ${e.cuenta}: configuración inválida, se omite (${ocultarSecretos(e.mensaje)}).`);
   }
   for (const config of configuracion.cuentas) {
+    if (config.archivada) { resultados[config.cuenta] = { creados: [], motivo: "archivada" }; log.info(`Cuenta ${config.cuenta}: archivada, se omite.`); continue; }
     try {
       log.info(`Cuenta ${config.cuenta}: generando…`);
       resultados[config.cuenta] = await ejecutarGenerar({

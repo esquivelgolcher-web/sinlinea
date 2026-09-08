@@ -10,6 +10,15 @@ import { nombresDeSecretos, ocultarSecretos } from "./lib/secretos.mjs";
 import { crearClienteInstagram } from "./lib/instagram.mjs";
 import { claveDia } from "./lib/fechas.mjs";
 
+// Estado de conexión que lee el panel maestro (data/<cuenta>/conexion.json). Nunca lleva valores de secretos.
+export function escribirConexion(raiz, config, { estado, usuario = null, detalle = null, ahora = new Date() }) {
+  if (!raiz) return;
+  const carpeta = path.join(raiz, config.rutas?.datos || `data/${config.cuenta}`);
+  fs.mkdirSync(carpeta, { recursive: true });
+  const datos = { estado, usuario, comprobado: ahora.toISOString(), detalle: detalle ? ocultarSecretos(detalle) : null };
+  fs.writeFileSync(path.join(carpeta, "conexion.json"), JSON.stringify(datos, null, 2) + "\n");
+}
+
 export async function ejecutarPruebaInstagram({ configuracion, cuenta = null, env = process.env, igDe, raiz = null, ahora = new Date() }) {
   const lineas = [];
   let ok = true;
@@ -17,6 +26,7 @@ export async function ejecutarPruebaInstagram({ configuracion, cuenta = null, en
   const aviso = (m) => lineas.push(`AVISO  ${m}`);
   const bien = (m) => lineas.push(`OK     ${m}`);
   const valor = (k) => String(env[k] ?? "").trim();
+  const conexion = (config, estado, usuario, detalle) => escribirConexion(raiz, config, { estado, usuario, detalle, ahora });
 
   let objetivo = configuracion.cuentas;
   if (cuenta) {
@@ -28,8 +38,10 @@ export async function ejecutarPruebaInstagram({ configuracion, cuenta = null, en
     const token = valor(nombres.token);
     const usuarioId = valor(nombres.usuarioId);
     if (!token) {
-      if (cuenta) error(`cuenta ${config.cuenta}: falta el secreto ${nombres.token} (Settings → Secrets and variables → Actions)`);
-      else aviso(`cuenta ${config.cuenta}: sin secretos en el entorno (${nombres.token}, ${nombres.usuarioId}); se omite`);
+      if (cuenta) {
+        error(`cuenta ${config.cuenta}: falta el secreto ${nombres.token} (Settings → Secrets and variables → Actions)`);
+        conexion(config, "credenciales-pendientes", null, `falta el secreto ${nombres.token}`);
+      } else aviso(`cuenta ${config.cuenta}: sin secretos en el entorno (${nombres.token}, ${nombres.usuarioId}); se omite`);
       continue;
     }
     try {
@@ -38,19 +50,26 @@ export async function ejecutarPruebaInstagram({ configuracion, cuenta = null, en
       const esperado = String(config.marca.usuario).replace(/^@/, "");
       const usuarioOk = String(perfil.username || "").toLowerCase() === esperado.toLowerCase();
       if (!usuarioOk) {
-        error(`cuenta ${config.cuenta}: la credencial ${nombres.token} pertenece a @${perfil.username || "?"}; se esperaba ${config.marca.usuario}`);
+        const m = `la credencial ${nombres.token} pertenece a @${perfil.username || "?"}; se esperaba ${config.marca.usuario}`;
+        error(`cuenta ${config.cuenta}: ${m}`);
+        conexion(config, "error", null, m);
         continue;
       }
       if (!usuarioId) {
         // El id numérico no es una credencial: se muestra para que el operador lo guarde como secreto.
-        error(`cuenta ${config.cuenta}: la credencial pertenece a @${perfil.username}, pero falta el secreto ${nombres.usuarioId}. La API devuelve user_id = ${perfil.userId || "(vacío)"}: guárdalo como secreto ${nombres.usuarioId} y repite la prueba`);
+        const m = `la credencial pertenece a @${perfil.username}, pero falta el secreto ${nombres.usuarioId}. La API devuelve user_id = ${perfil.userId || "(vacío)"}: guárdalo como secreto ${nombres.usuarioId} y repite la prueba`;
+        error(`cuenta ${config.cuenta}: ${m}`);
+        conexion(config, "credenciales-pendientes", null, m);
         continue;
       }
       if (perfil.coincideId === false) {
-        error(perfil.userId ? `cuenta ${config.cuenta}: el id numérico no coincide: ${nombres.usuarioId} no es el user_id que devuelve la API para esa credencial` : `cuenta ${config.cuenta}: la API no devolvió user_id; no se pudo confirmar el id numérico (no actives la publicación)`);
+        const m = perfil.userId ? `el id numérico no coincide: ${nombres.usuarioId} no es el user_id que devuelve la API para esa credencial` : `la API no devolvió user_id; no se pudo confirmar el id numérico (no actives la publicación)`;
+        error(`cuenta ${config.cuenta}: ${m}`);
+        conexion(config, "error", null, m);
         continue;
       }
       bien(`cuenta ${config.cuenta}: la credencial ${nombres.token} pertenece a @${perfil.username} (coincide con ${config.marca.usuario}); el id numérico coincide con ${nombres.usuarioId}`);
+      conexion(config, "verificada", perfil.username, null);
       const v = typeof ig.vigencia === "function" ? await ig.vigencia() : { vence: null, origen: "desconocida" };
       if (v.vence) bien(`cuenta ${config.cuenta}: el token vence el ${v.vence} (${v.origen})`);
       else if (v.origen === "sin-caducidad") bien(`cuenta ${config.cuenta}: la API indica que el token no caduca`);
@@ -64,7 +83,9 @@ export async function ejecutarPruebaInstagram({ configuracion, cuenta = null, en
     } catch (err) {
       // Diagnóstico sin credenciales: message, code y error_subcode tal como los devuelve la API.
       const tipo = err.tipo ? ` · type ${err.tipo}` : "";
-      error(`cuenta ${config.cuenta}: la API respondió con error: message "${ocultarSecretos(err.message)}" · code ${err.codigo ?? "-"} · error_subcode ${err.subcodigo ?? "-"}${tipo}`);
+      const m = `la API respondió con error: message "${ocultarSecretos(err.message)}" · code ${err.codigo ?? "-"} · error_subcode ${err.subcodigo ?? "-"}${tipo}`;
+      error(`cuenta ${config.cuenta}: ${m}`);
+      conexion(config, "error", null, m);
     }
   }
   return { ok, lineas };

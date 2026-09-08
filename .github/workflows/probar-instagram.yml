@@ -39,8 +39,10 @@ jobs:
           IG_USER_ID_LUISESKIVELGOLCHER: ${{ secrets.IG_USER_ID_LUISESKIVELGOLCHER }}
         run: node src/probar-instagram.mjs --cuenta "$CUENTA"
 
-      - name: Guardar la caducidad comprobada
-        if: success()
+      # Se guarda también cuando la prueba falla: data/<cuenta>/conexion.json deja el estado (error o
+      # credenciales pendientes) que muestra el panel maestro. Nunca contiene valores de secretos.
+      - name: Guardar el estado de conexión y la caducidad comprobada
+        if: always()
         run: |
           git config user.name "sinlinea-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -48,7 +50,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "Sin cambios."
           else
-            git commit -m "token-info: comprobado $(date -u '+%Y-%m-%d') [skip ci]"
+            git commit -m "conexión: comprobada $(date -u '+%Y-%m-%d %H:%M UTC') [skip ci]"
             for i in 1 2 3; do
               if git pull --rebase && git push; then break; fi
               if [ "$i" = 3 ]; then echo "No se pudo hacer push tras 3 intentos"; exit 1; fi

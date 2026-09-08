@@ -30,6 +30,7 @@ export async function renovarCuentas({ configuracion, raiz = process.cwd(), ahor
     (log.error || log.warn)(`Cuenta ${e.cuenta}: configuración inválida, se omite (${e.mensaje}).`);
   }
   for (const config of configuracion.cuentas) {
+    if (config.archivada) { resultados[config.cuenta] = { motivo: "archivada" }; log.info(`Cuenta ${config.cuenta}: archivada, no se renueva su token.`); continue; }
     try {
       const secretos = leerSecretos(config, env);
       const ig = await igDe(config, secretos);

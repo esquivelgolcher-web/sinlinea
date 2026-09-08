@@ -111,6 +111,7 @@ export async function publicarCuentas({ configuracion, raiz = process.cwd(), aho
     (log.error || log.warn)(`Cuenta ${e.cuenta}: configuración inválida, se omite (${e.mensaje}).`);
   }
   for (const config of configuracion.cuentas) {
+    if (config.archivada) { resultados[config.cuenta] = { publicados: [], errores: [], pospuestos: [], motivo: "archivada" }; log.info(`Cuenta ${config.cuenta}: archivada, se omite (su cola se conserva).`); continue; }
     try {
       if (config.automatico?.publicar === false) {
         resultados[config.cuenta] = await ejecutarPublicar({ config, raiz, ahora, ig: null, log, dryRun });

@@ -4,15 +4,10 @@
 import fs from "node:fs";
 import path from "node:path";
 import { esNombreDeSecreto } from "./secretos.mjs";
+import { RE_ID_CUENTA, RE_IDIOMA, RE_COLOR, TIPOS_FUENTE, LOGO_FORMAS, LOGO_TAMANO, COLORES_POR_DEFECTO, AUTOMATICO_POR_DEFECTO, IDIOMA_POR_DEFECTO } from "./cuenta.mjs";
 
+export { RE_ID_CUENTA, LOGO_FORMAS, COLORES_POR_DEFECTO, AUTOMATICO_POR_DEFECTO, IDIOMA_POR_DEFECTO };
 export const ESFUERZOS = ["low", "medium", "high", "xhigh", "max"];
-const TIPOS_FUENTE = ["rss", "portada"];
-export const RE_ID_CUENTA = /^[a-z0-9][a-z0-9-]*$/;
-const RE_IDIOMA = /^[a-z]{2}(-[A-Z]{2})?$/;
-export const IDIOMA_POR_DEFECTO = "es-PA";
-export const COLORES_POR_DEFECTO = Object.freeze({ principal: "#FFD400", acento: "#E30613", oscuro: "#111111", claro: "#FFFFFF" });
-export const AUTOMATICO_POR_DEFECTO = Object.freeze({ generar: true, publicar: true });
-const RE_COLOR = /^#[0-9A-Fa-f]{6}$/;
 
 function exigir(cond, mensaje, archivo = "config.json") {
   if (!cond) throw new Error(`${archivo}: ${mensaje}`);
@@ -51,14 +46,13 @@ function validarGenerar(g, archivo) {
   }
 }
 
-export const LOGO_FORMAS = ["circulo", "cuadrado"];
-export const LOGO_FORMA_POR_DEFECTO = "circulo";
-export const LOGO_TAMANO_POR_DEFECTO = 120; // px en la imagen de 1080x1350
+export const LOGO_FORMA_POR_DEFECTO = LOGO_FORMAS[0];
+export const LOGO_TAMANO_POR_DEFECTO = LOGO_TAMANO.porDefecto; // px en la imagen de 1080x1350
 
 function validarMarca(marca, archivo) {
   exigir(typeof marca?.nombre === "string" && marca.nombre, "marca.nombre es obligatorio", archivo);
   if (marca.logoForma !== undefined) exigir(LOGO_FORMAS.includes(marca.logoForma), `marca.logoForma debe ser ${LOGO_FORMAS.join(" o ")}`, archivo);
-  if (marca.logoTamano !== undefined) exigir(Number.isInteger(marca.logoTamano) && marca.logoTamano >= 60 && marca.logoTamano <= 160, "marca.logoTamano debe ser un entero entre 60 y 160 (píxeles)", archivo);
+  if (marca.logoTamano !== undefined) exigir(Number.isInteger(marca.logoTamano) && marca.logoTamano >= LOGO_TAMANO.min && marca.logoTamano <= LOGO_TAMANO.max, `marca.logoTamano debe ser un entero entre ${LOGO_TAMANO.min} y ${LOGO_TAMANO.max} (píxeles)`, archivo);
   exigir(typeof marca?.usuario === "string" && marca.usuario.startsWith("@"), "marca.usuario debe empezar con @", archivo);
   exigir(typeof marca?.lema === "string", "marca.lema es obligatorio", archivo);
   if (marca.colores !== undefined) {
@@ -75,6 +69,20 @@ function validarAutomatico(a, archivo) {
   for (const k of Object.keys(AUTOMATICO_POR_DEFECTO)) {
     if (a[k] !== undefined) exigir(typeof a[k] === "boolean", `automatico.${k} debe ser true o false`, archivo);
   }
+}
+
+// Panel maestro: una cuenta archivada conserva posts e historial pero no corre en ningún flujo.
+function validarArchivo(c, archivo) {
+  if (c.archivada !== undefined) exigir(typeof c.archivada === "boolean", "archivada debe ser true o false", archivo);
+  if (c.archivadaEn !== undefined) exigir(typeof c.archivadaEn === "string" && !Number.isNaN(Date.parse(c.archivadaEn)), "archivadaEn debe ser una fecha ISO", archivo);
+  if (c.archivada === true) exigir(c.automatico?.generar === false && c.automatico?.publicar === false, "archivada: una cuenta archivada debe tener automatico.generar y automatico.publicar en false", archivo);
+}
+
+function validarEditorial(e, archivo) {
+  if (e === undefined) return;
+  exigir(e && typeof e === "object", "editorial debe ser un objeto { temas, tono }", archivo);
+  exigir(Array.isArray(e.temas) && e.temas.every((t) => typeof t === "string"), "editorial.temas debe ser una lista de textos", archivo);
+  if (e.tono !== undefined) exigir(typeof e.tono === "string", "editorial.tono debe ser texto", archivo);
 }
 
 function validarSecretosInstagram(ig, archivo) {
@@ -123,7 +131,7 @@ export function validarGlobal(g) {
   return g;
 }
 
-export const CLAVES_DE_CUENTA = ["nombre", "idioma", "zonaHoraria", "automatico", "marca", "fuentes", "generar", "franjas", "ilustraciones", "instagram"];
+export const CLAVES_DE_CUENTA = ["nombre", "idioma", "zonaHoraria", "automatico", "marca", "fuentes", "generar", "franjas", "ilustraciones", "instagram", "editorial", "archivada", "archivadaEn"];
 const CLAVES_SOLO_GLOBALES = ["pages", "claude", "archivarDespuesDeDias", "cuentas"];
 
 // Configuración de una cuenta (cuentas/<id>/config.json).
@@ -136,6 +144,8 @@ export function validarCuenta(c, id) {
   if (c.idioma !== undefined) exigir(typeof c.idioma === "string" && RE_IDIOMA.test(c.idioma), `idioma "${c.idioma}" debe tener la forma xx o xx-XX (p. ej. es-PA)`, archivo);
   if (c.zonaHoraria !== undefined) exigir(typeof c.zonaHoraria === "string" && c.zonaHoraria, "zonaHoraria debe ser texto", archivo);
   validarAutomatico(c.automatico, archivo);
+  validarArchivo(c, archivo);
+  validarEditorial(c.editorial, archivo);
   validarMarca(c.marca, archivo);
   validarFuentes(c.fuentes, archivo, { permitirVacio: c.automatico?.generar === false });
   validarGenerar(c.generar, archivo);
@@ -178,6 +188,7 @@ export function configDeCuenta(global, cuenta, id) {
     ...propias,
     cuenta: id,
     cuentaPrincipal: global.cuentas[0],
+    archivada: cuenta.archivada === true,
     nombre: cuenta.nombre,
     idioma: cuenta.idioma || IDIOMA_POR_DEFECTO,
     automatico: { ...AUTOMATICO_POR_DEFECTO, ...(cuenta.automatico || {}) },
@@ -232,6 +243,6 @@ export function resumenParaPanel(cuentas) {
     zonaHoraria: principal.zonaHoraria,
     franjas: principal.franjas,
     marca: principal.marca,
-    cuentas: cuentas.map((c) => ({ id: c.cuenta, nombre: c.nombre, idioma: c.idioma, zonaHoraria: c.zonaHoraria, marca: c.marca, franjas: c.franjas, automatico: c.automatico })),
+    cuentas: cuentas.map((c) => ({ id: c.cuenta, nombre: c.nombre, idioma: c.idioma, zonaHoraria: c.zonaHoraria, marca: c.marca, franjas: c.franjas, automatico: c.automatico, archivada: c.archivada === true })),
   };
 }

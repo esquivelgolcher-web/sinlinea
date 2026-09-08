@@ -60,6 +60,7 @@ export function ejecutarVerificacion({ raiz = process.cwd(), env = process.env, 
 
   for (const config of configuracion.cuentas) {
     lineas.push(`--- Cuenta ${config.cuenta} (${config.nombre}) · idioma ${config.idioma} · ${config.marca.usuario}`);
+    if (config.archivada) { aviso(`cuenta ${config.cuenta}: archivada${config.archivadaEn ? ` desde ${String(config.archivadaEn).slice(0, 10)}` : ""}; ningún flujo la procesa, sus posts e historial se conservan`); continue; }
     if (config.automatico?.generar === false) aviso(`cuenta ${config.cuenta}: generación automática apagada (automatico.generar=false); Claude no redacta posts para ella`);
     if (config.automatico?.publicar === false) aviso(`cuenta ${config.cuenta}: publicación automática apagada (automatico.publicar=false); sus posts aprobados quedan en cola`);
     if (fs.existsSync(path.join(raiz, config.rutas.editorial))) bien(`${config.rutas.editorial} (línea editorial)`);
