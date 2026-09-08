@@ -89,7 +89,8 @@ function validarIlustracionesGlobal(il, archivo) {
 
 function validarIlustracionesCuenta(il, archivo) {
   exigir(il && typeof il === "object", "ilustraciones (estilo y rotulo) es obligatorio", archivo);
-  for (const k of ["estilo", "rotulo"]) exigir(typeof il[k] === "string" && il[k].trim(), `ilustraciones.${k} es obligatorio`, archivo);
+  exigir(typeof il.estilo === "string" && il.estilo.trim(), "ilustraciones.estilo es obligatorio", archivo);
+  exigir(typeof il.rotulo === "string", "ilustraciones.rotulo debe ser texto (vacío = sin rótulo en la imagen)", archivo);
 }
 
 function validarComunes(cfg, archivo) {

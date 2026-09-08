@@ -110,7 +110,7 @@ test("(M1) configDeCuenta produce la configuración efectiva con la forma de sie
   assert.equal(e.ilustraciones.proveedor, "gemini");
   assert.equal(e.ilustraciones.maxPorCorrida, g.ilustraciones.maxPorCorrida);
   assert.match(e.ilustraciones.estilo, /prensa/i);
-  assert.equal(e.ilustraciones.rotulo, "Ilustración generada con IA");
+  assert.equal(e.ilustraciones.rotulo, "", "(rótulo) vacío = sin rótulo en la imagen");
   assert.equal(e.fuentes.length, 2);
   assert.equal(e.franjas.length, 6);
   assert.equal(e.generar.maxPorCorrida, 2);
@@ -217,4 +217,11 @@ test("(M2) resumenParaPanel incluye automatico y colores de cada cuenta", () => 
   const r = resumenParaPanel(c.cuentas);
   assert.deepEqual(r.cuentas[1].automatico, { generar: false, publicar: false });
   assert.equal(r.cuentas[1].marca.colores.acento, "#1F5FBF");
+});
+
+test("(rótulo) ilustraciones.rotulo puede ser una cadena vacía (sin rótulo) pero debe ser texto; estilo sigue siendo obligatorio", () => {
+  const c = cargarCuenta(".", "sinlinea");
+  assert.doesNotThrow(() => validarCuenta({ ...c, ilustraciones: { ...c.ilustraciones, rotulo: "" } }, "sinlinea"));
+  assert.throws(() => validarCuenta({ ...c, ilustraciones: { ...c.ilustraciones, rotulo: 5 } }, "sinlinea"), /rotulo/);
+  assert.throws(() => validarCuenta({ ...c, ilustraciones: { ...c.ilustraciones, estilo: "" } }, "sinlinea"), /estilo/);
 });

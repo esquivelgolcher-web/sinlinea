@@ -69,7 +69,7 @@ Así, activar/desactivar o regenerar la ilustración vuelve a renderizar el post
   "modelo": "gemini-3.1-flash-lite-image",
   "tamano": "1K",
   "estilo": "(lineamientos de imagen del 2026-09-08: fotoperiodismo editorial realista, protagonista en el tercio superior derecho, zona izquierda y central despejada, margen seguro de 100 px, sin texto ni marcos ni degradados, sin rostros de personas reales; texto completo en config.json)",
-  "rotulo": "Ilustración generada con IA",
+  "rotulo": "" (desde 2026-09-08 el rótulo es opcional: vacío = no se dibuja; antes "Ilustración generada con IA"),
   "timeoutMs": 60000,
   "maxPorCorrida": 4
 }

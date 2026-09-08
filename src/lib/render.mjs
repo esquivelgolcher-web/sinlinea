@@ -27,7 +27,7 @@ export function iniciales(nombre) {
 // Sello de la identidad visual de la cuenta (colores + presencia del logo): si cambia, REGENERAR re-dibuja.
 export function estiloVisual(config, logoUrl) {
   const c = config.marca?.colores || {};
-  return hashTexto(JSON.stringify({ principal: c.principal, acento: c.acento, oscuro: c.oscuro, claro: c.claro, logo: Boolean(logoUrl) }));
+  return hashTexto(JSON.stringify({ principal: c.principal, acento: c.acento, oscuro: c.oscuro, claro: c.claro, logo: Boolean(logoUrl), rotulo: config.ilustraciones?.rotulo || "" }));
 }
 
 export function datosDeRender(post, config, { logoUrl, ilustracionUrl = null }) {

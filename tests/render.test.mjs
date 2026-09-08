@@ -11,7 +11,7 @@ const plantilla = fs.readFileSync("templates/post.html", "utf8");
 
 test("versionPlantilla lee data-version", () => {
   assert.equal(versionPlantilla('<html lang="es" data-version="7">'), 7);
-  assert.equal(versionPlantilla(plantilla), 7);
+  assert.equal(versionPlantilla(plantilla), 8);
 });
 
 test("datosDeRender arma los textos de la imagen", () => {
@@ -49,7 +49,8 @@ test("construirHtml incluye la ilustración y el rótulo solo cuando se pasa ilu
   const m = con.match(/<script id="datos" type="application\/json">([\s\S]*?)<\/script>/);
   const datos = JSON.parse(m[1]);
   assert.equal(datos.ilustracionUrl, "public/ilus/x.jpg");
-  assert.equal(datos.rotulo, "Ilustración generada con IA");
+  assert.equal(datos.rotulo, cfg.ilustraciones.rotulo);
+  assert.equal(datos.rotulo, "", "(rótulo) Sin Línea ya no lleva rótulo de IA");
   const sin = construirHtml(post, cfg, { plantilla, baseHref: "/", logoUrl: null });
   assert.equal(JSON.parse(sin.match(/<script id="datos" type="application\/json">([\s\S]*?)<\/script>/)[1]).ilustracionUrl, null);
 });
@@ -74,4 +75,9 @@ test("(M2) estiloVisual cambia con los colores o con la presencia del logo y es 
   assert.notEqual(a, estiloVisual(cfg, null));
   assert.notEqual(a, estiloVisual({ ...cfg, marca: { ...cfg.marca, colores: { ...cfg.marca.colores, acento: "#000000" } } }, "cuentas/sinlinea/logo.png"));
   assert.match(a, /^[0-9a-f]{16}$/);
+});
+
+test("(rótulo) estiloVisual cambia si cambia el rótulo, para que REGENERAR vuelva a dibujar", () => {
+  const conRotulo = { ...cfg, ilustraciones: { ...cfg.ilustraciones, rotulo: "Ilustración generada con IA" } };
+  assert.notEqual(estiloVisual(cfg, null), estiloVisual(conRotulo, null));
 });

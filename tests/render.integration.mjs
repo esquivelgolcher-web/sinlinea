@@ -23,7 +23,7 @@ for (const variante of ["negro", "amarillo", "rojo"]) {
     assert.equal(meta.width, 1080);
     assert.equal(meta.height, 1350);
     assert.ok(fs.statSync(img.ruta).size < 1024 * 1024);
-    assert.equal(img.version, 7);
+    assert.equal(img.version, 8);
     assert.match(img.hash, /^[0-9a-f]{16}$/);
   });
 }
@@ -115,9 +115,10 @@ test("renderiza con ilustración de fondo cuando usar=true y el archivo existe",
   assert.notEqual(img.hash, (await renderizarPost({ ...post, ilustracion: { ...post.ilustracion, usar: false } }, { config: cfg, navegador, destino: path.join("temp", "test-render", "sin-ilustracion.jpg") })).hash);
 });
 
-test("con ilustración, la variante amarilla no dibuja el anillo del logo", async () => {
+test("con ilustración, la variante amarilla no dibuja el anillo del logo; con rótulo configurado el rótulo se ve", async () => {
   const plantilla = fs.readFileSync("templates/post.html", "utf8");
-  const html = construirHtml({ ...base, variante: "amarillo" }, cfg, {
+  const conRotulo = { ...cfg, ilustraciones: { ...cfg.ilustraciones, rotulo: "Ilustración generada con IA" } };
+  const html = construirHtml({ ...base, variante: "amarillo" }, conRotulo, {
     plantilla, baseHref: pathToFileURL(path.resolve(".") + path.sep).href, logoUrl: "cuentas/sinlinea/logo.png", ilustracionUrl: "tests/fixtures/ilustracion-ejemplo.jpg",
   });
   const rutaHtml = path.join("temp", "test-render", "amarillo-ilus.html");
@@ -173,4 +174,24 @@ test("(M2) renderizarPost devuelve imagen.estilo y difiere entre cuentas", async
   const b = await renderizarPost({ ...base, cuenta: "luiseskivelgolcher" }, { config: personal, navegador, destino: path.join("temp", "test-render", "estilo-leg.jpg") });
   assert.match(a.estilo, /^[0-9a-f]{16}$/);
   assert.notEqual(a.estilo, b.estilo);
+});
+
+test("(rótulo) con rotulo vacío no se dibuja ningún rótulo aunque haya ilustración", async () => {
+  const sinRotulo = { ...cfg, ilustraciones: { ...cfg.ilustraciones, rotulo: "" } };
+  const plantilla = fs.readFileSync("templates/post.html", "utf8");
+  const html = construirHtml(base, sinRotulo, { plantilla, baseHref: pathToFileURL(path.resolve(".") + path.sep).href, logoUrl: "cuentas/sinlinea/logo.png", ilustracionUrl: "tests/fixtures/ilustracion-ejemplo.jpg" });
+  const rutaHtml = path.join("temp", "test-render", "sin-rotulo.html");
+  fs.mkdirSync(path.dirname(rutaHtml), { recursive: true });
+  fs.writeFileSync(rutaHtml, html);
+  const page = await navegador.newPage({ viewport: { width: 1080, height: 1350 } });
+  try {
+    await page.goto(pathToFileURL(path.resolve(rutaHtml)).href, { waitUntil: "load" });
+    await page.waitForSelector('body[data-listo="1"]', { timeout: 15000 });
+    assert.equal(await page.$eval("#post", (n) => n.classList.contains("con-ilustracion")), true, "la ilustración sí se usa");
+    assert.equal(await page.$eval("#rotulo", (n) => getComputedStyle(n).display), "none");
+    assert.equal(await page.$eval("#rotulo", (n) => n.textContent), "");
+  } finally {
+    await page.close();
+    fs.rmSync(rutaHtml, { force: true });
+  }
 });

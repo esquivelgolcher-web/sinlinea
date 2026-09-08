@@ -42,6 +42,11 @@ configurable por cuenta (`idioma`, `es-PA` por defecto).
   with Instagram login → sinlinea.pa → Generate token, copiar con el botón),
   pegarlo en el secreto `IG_ACCESS_TOKEN`, ejecutar "Probar Instagram" para
   `sinlinea`, decidir qué posts reprogramar y reactivar `automatico.publicar`.
+- **Rótulo de IA retirado (2026-09-08)**: `ilustraciones.rotulo` pasa a ser
+  opcional y queda vacío en ambas cuentas; plantilla v8 (los posts activos se
+  vuelven a dibujar sin el rótulo). Reversible poniendo un texto en `rotulo`.
+  Nota: Instagram puede añadir su propia etiqueta de IA por la marca de agua
+  invisible de las imágenes de Gemini.
 - **Vista previa editorial de la cuenta personal (2026-09-08)**: nuevo
   `npm run borrador -- --cuenta <id> --entrada <archivo.json>` (`src/borrador.mjs`)
   crea borradores manuales sin Claude ni credenciales de Instagram y los dibuja

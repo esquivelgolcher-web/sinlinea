@@ -125,7 +125,8 @@ guiones) con tres archivos:
 
 - `config.json`: `nombre`, `idioma` (opcional, `es-PA` por defecto), `marca`
   (nombre, usuario con @, lema), `fuentes`, `generar` (cupos), `franjas`,
-  `ilustraciones` (`estilo` y `rotulo`) e `instagram` con los **nombres** de sus
+  `ilustraciones` (`estilo` y `rotulo`, este último opcional: vacío = sin rótulo en
+  la imagen) e `instagram` con los **nombres** de sus
   secretos (`tokenSecreto`, `usuarioIdSecreto`). Nunca valores.
 - `editorial.md`: la línea editorial que lee Claude.
 - `logo.png`: el logo que va en la imagen.

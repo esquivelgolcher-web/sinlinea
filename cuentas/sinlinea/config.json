@@ -49,7 +49,7 @@
   ],
   "ilustraciones": {
     "estilo": "Fotografía de prensa: estilo fotoperiodístico, editorial, profesional y realista, formato vertical 4:5. Representa claramente el hecho principal de la noticia. Coloca al protagonista o elemento principal en el tercio superior derecho, bien visible y no demasiado pequeño; mantén la zona izquierda y central relativamente despejada (allí va el titular) y evita elementos importantes en la parte inferior izquierda. Deja un margen visual seguro de unos 100 px alrededor de los bordes. La imagen cubre todo el lienzo, sin bordes. No incluyas texto, letras, números, titulares, logos, marcos, etiquetas, marcas de agua ni degradados. No inventes el rostro de personas reales: si la noticia trata de una persona, representa el lugar, la institución, el objeto o el contexto relacionado.",
-    "rotulo": "Ilustración generada con IA"
+    "rotulo": ""
   },
   "instagram": {
     "tokenSecreto": "IG_ACCESS_TOKEN",
