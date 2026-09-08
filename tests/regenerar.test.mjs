@@ -261,3 +261,12 @@ test("(M1) regenerarCuentas procesa todas las cuentas y un fallo en una no bloqu
   assert.match(r.resultados.sinlinea.error, /Gemini mal configurado/);
   assert.deepEqual(r.resultados.prueba.renderizados, [p2.id]);
 });
+
+test("(despliegue) el error de una cuenta en regenerarCuentas se guarda sin tokens ni claves", async () => {
+  const raiz = raizConCuentas({ cuentas: ["sinlinea"], prefijo: "regen-sec-" });
+  const configuracion = cargarConfiguracion(raiz);
+  const token = "IGAAR" + "x".repeat(60);
+  const r = await regenerarCuentas({ configuracion, raiz, ahora, log, version: 1, render: async (p) => imagenDe(p), ilustradorDe: () => { throw new Error(`token ${token} inválido`); } });
+  assert.equal(r.resultados.sinlinea.error.includes(token), false);
+  assert.match(r.resultados.sinlinea.error, /\[secreto\]/);
+});

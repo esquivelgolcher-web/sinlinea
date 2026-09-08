@@ -11,6 +11,7 @@ import { leerPosts, escribirPost, crearPost, siguienteVariante, creadosHoy, arch
 import { redactar, acortarTextos } from "./lib/redactor.mjs";
 import { renderizarConAjuste } from "./lib/texto.mjs";
 import { todasFallaron, anotarFallos, resumirResultados } from "./lib/corrida.mjs";
+import { ocultarSecretos } from "./lib/secretos.mjs";
 import { recortarCaption } from "./lib/caption.mjs";
 import { marcarError, renderOk, hashTexto } from "./lib/estados.mjs";
 import { abrirNavegador, renderizarPost } from "./lib/render.mjs";
@@ -109,8 +110,8 @@ export async function ejecutarGenerar({ config, raiz = process.cwd(), ahora = ne
 export async function generarCuentas({ configuracion, raiz = process.cwd(), ahora = new Date(), fetchText, client, render, log = console, dryRun = false, ilustrador = null, guardar = guardarIlustracion, acortar = null, ilustradorDe = null, acortarDe = null }) {
   const resultados = {};
   for (const e of configuracion.errores || []) {
-    resultados[e.cuenta] = { error: e.mensaje };
-    (log.error || log.warn)(`Cuenta ${e.cuenta}: configuración inválida, se omite (${e.mensaje}).`);
+    resultados[e.cuenta] = { error: ocultarSecretos(e.mensaje) };
+    (log.error || log.warn)(`Cuenta ${e.cuenta}: configuración inválida, se omite (${ocultarSecretos(e.mensaje)}).`);
   }
   for (const config of configuracion.cuentas) {
     try {
@@ -121,8 +122,9 @@ export async function generarCuentas({ configuracion, raiz = process.cwd(), ahor
         acortar: acortarDe ? acortarDe(config) : acortar,
       });
     } catch (err) {
-      resultados[config.cuenta] = { error: err.message };
-      (log.error || log.warn)(`Cuenta ${config.cuenta}: falló GENERAR (${err.message}); se continúa con las demás.`);
+      const mensaje = ocultarSecretos(err.message);
+      resultados[config.cuenta] = { error: mensaje };
+      (log.error || log.warn)(`Cuenta ${config.cuenta}: falló GENERAR (${mensaje}); se continúa con las demás.`);
     }
   }
   return { resultados };

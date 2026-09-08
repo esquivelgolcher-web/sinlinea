@@ -237,3 +237,15 @@ test("(M1 fix) ilustraciones.activo=false en una cuenta evita llamar a Gemini so
   assert.equal(ilustrador.llamadas.length, 1);
   assert.equal(r.resultados.prueba.creados[0].ilustracion?.usar ?? false, false);
 });
+
+test("(despliegue) el error de una cuenta en generarCuentas se guarda y se registra sin tokens ni claves", async () => {
+  const raiz = raizTemporal({ cuentas: ["sinlinea", "prueba"] });
+  const configuracion = cargarConfiguracion(raiz);
+  const clave = "sk-ant-api03-" + "k".repeat(40);
+  const client = { messages: { parse: async () => { throw new Error(`401 invalid x-api-key ${clave}`); } } };
+  const avisos = [];
+  const r = await generarCuentas({ configuracion, raiz, ahora, fetchText, client, render: renderOkFalso, log: { info: () => {}, warn: (m) => avisos.push(m), error: (m) => avisos.push(m) } });
+  assert.equal(r.resultados.sinlinea.error.includes(clave), false);
+  assert.match(r.resultados.sinlinea.error, /\[secreto\]/);
+  assert.ok(avisos.every((m) => !m.includes(clave)));
+});
