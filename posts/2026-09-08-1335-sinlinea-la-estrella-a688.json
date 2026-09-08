@@ -1,7 +1,7 @@
 {
   "id": "2026-09-08-1335-sinlinea-la-estrella-a688",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "La Estrella de Panamá",
     "url": "https://www.laestrella.com.pa/economia/ley-de-pasantias-entra-en-vigor-con-remuneracion-de-450-y-seguro-privado-para-jovenes-GD25518952",
@@ -39,9 +39,9 @@
     "generada": "2026-09-08T18:35:45.127Z",
     "error": null
   },
-  "programado": null,
+  "programado": "2026-09-08T14:30:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-08T18:35:45.127Z",
-  "actualizado": "2026-09-08T18:35:45.127Z"
+  "actualizado": "2026-09-08T18:47:01.902Z"
 }
