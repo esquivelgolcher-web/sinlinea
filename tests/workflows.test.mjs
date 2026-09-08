@@ -50,6 +50,13 @@ test("el reintento de push falla el paso cuando los tres intentos fallan", () =>
   }
 });
 
+test("generar y regenerar reciben GEMINI_API_KEY y guardan public/ilus", () => {
+  for (const n of ["generar", "regenerar"]) {
+    assert.match(leer(n), /secrets\.GEMINI_API_KEY/, n);
+    assert.match(leer(n), /git add posts public\/img public\/ilus/, n);
+  }
+});
+
 test("probar-gemini es manual, solo lee y usa el secreto GEMINI_API_KEY", () => {
   const w = wf("probar-gemini");
   assert.ok(w.on.workflow_dispatch !== undefined);

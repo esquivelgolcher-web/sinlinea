@@ -7,14 +7,15 @@ import { cargarConfig } from "./lib/config.mjs";
 import { fetchText as fetchTextReal } from "./lib/rss.mjs";
 import { recolectar } from "./lib/fuentes.mjs";
 import { cargarVistas, guardarVistas, estaVista, marcarVistas, purgarVistas } from "./lib/seen.mjs";
-import { leerPosts, escribirPost, crearPost, siguienteVariante, creadosHoy, archivar } from "./lib/posts.mjs";
+import { leerPosts, escribirPost, crearPost, siguienteVariante, creadosHoy, archivar, rutaIlustracion } from "./lib/posts.mjs";
 import { redactar } from "./lib/redactor.mjs";
 import { recortarCaption } from "./lib/caption.mjs";
-import { marcarError, renderOk } from "./lib/estados.mjs";
+import { marcarError, renderOk, hashTexto } from "./lib/estados.mjs";
 import { abrirNavegador, renderizarPost } from "./lib/render.mjs";
 import { claveDia } from "./lib/fechas.mjs";
+import { crearIlustrador, guardarIlustracion } from "./lib/ilustrador.mjs";
 
-export async function ejecutarGenerar({ config, raiz = process.cwd(), ahora = new Date(), fetchText, client, render, log = console, dryRun = false }) {
+export async function ejecutarGenerar({ config, raiz = process.cwd(), ahora = new Date(), fetchText, client, render, log = console, dryRun = false, ilustrador = null, guardar = guardarIlustracion }) {
   if (/CAMBIAR/.test(config.pages.baseUrl)) throw new Error("config.json: pages.baseUrl todavía tiene el valor CAMBIAR");
   const zona = config.zonaHoraria;
   const hoy = claveDia(ahora, zona);
@@ -62,6 +63,18 @@ export async function ejecutarGenerar({ config, raiz = process.cwd(), ahora = ne
       variante: siguienteVariante(existentes),
       ahora, zona,
     });
+    if (ilustrador && post.ilustracion) {
+      const rutaIlus = dryRun ? path.join("temp", "dry-run", "ilus", `${post.id}.jpg`) : rutaIlustracion(post.id);
+      try {
+        const buf = await ilustrador.generar(post.ilustracion.descripcion);
+        await guardar(buf, path.join(raiz, rutaIlus));
+        post = { ...post, ilustracion: { ...post.ilustracion, usar: true, ruta: rutaIlus, hashDescripcion: hashTexto(post.ilustracion.descripcion), proveedor: config.ilustraciones.proveedor, modelo: config.ilustraciones.modelo, generada: iso, error: null } };
+        log.info(`Ilustración generada para ${post.id}.`);
+      } catch (err) {
+        log.warn(`Ilustración falló para ${post.id}: ${err.message}`);
+        post = { ...post, ilustracion: { ...post.ilustracion, usar: false, error: { mensaje: err.message, fecha: iso } } };
+      }
+    }
     try {
       const imagen = await render(post, {
         config, raiz, destino: dryRun ? path.join("temp", "dry-run", "img", `${post.id}.jpg`) : undefined,
@@ -91,10 +104,12 @@ async function main() {
   const config = cargarConfig();
   if (!process.env.ANTHROPIC_API_KEY) throw new Error("Falta la variable de entorno ANTHROPIC_API_KEY");
   const client = new Anthropic();
+  const ilustrador = config.ilustraciones.activo && process.env.GEMINI_API_KEY ? crearIlustrador({ apiKey: process.env.GEMINI_API_KEY, config }) : null;
+  if (config.ilustraciones.activo && !process.env.GEMINI_API_KEY) console.info("Sin GEMINI_API_KEY: los posts saldrán sin ilustración.");
   const navegador = await abrirNavegador();
   try {
     const r = await ejecutarGenerar({
-      config, fetchText: fetchTextReal, client, dryRun,
+      config, fetchText: fetchTextReal, client, dryRun, ilustrador,
       render: (post, o) => renderizarPost(post, { ...o, navegador }),
     });
     console.log(`Listo: ${r.creados.length} borradores nuevos (${r.motivo})${dryRun ? " [dry-run]" : ""}.`);

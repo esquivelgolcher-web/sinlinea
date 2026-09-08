@@ -6,7 +6,7 @@ import path from "node:path";
 import { ejecutarRegenerar } from "../src/regenerar.mjs";
 import { cargarConfig } from "../src/lib/config.mjs";
 import { leerPosts, escribirPost, urlImagen } from "../src/lib/posts.mjs";
-import { hashImagen, marcarError, aprobar } from "../src/lib/estados.mjs";
+import { hashImagen, marcarError, aprobar, hashTexto } from "../src/lib/estados.mjs";
 
 const cfg = cargarConfig("config.json");
 const base = JSON.parse(fs.readFileSync("tests/fixtures/post-ejemplo.json", "utf8"));
@@ -61,4 +61,20 @@ test("una imagen con URL de otro baseUrl se vuelve a renderizar", async () => {
   const cfgReal = { ...cfg, pages: { baseUrl: "https://prueba.github.io/sinlinea" } };
   const r = await ejecutarRegenerar({ config: cfgReal, raiz, ahora, render: async (x) => ({ ...imagenDe(x), url: `https://prueba.github.io/sinlinea/img/${x.id}.jpg` }), log, version: 1 });
   assert.deepEqual(r.renderizados, [p.id]);
+});
+
+test("regenera la ilustración cuando cambió la escena y no llama con usar=false", async () => {
+  const conIlus = { ...base, imagen: imagenDe(base), ilustracion: { descripcion: "Nueva escena", usar: true, ruta: "public/ilus/a.jpg", hashDescripcion: "0000000000000000", proveedor: "gemini", modelo: "m", generada: ahora.toISOString(), error: null } };
+  const apagada = { ...base, id: base.id.slice(0, -4) + "0009", imagen: imagenDe({ ...base, id: base.id.slice(0, -4) + "0009" }), ilustracion: { descripcion: "Otra", usar: false, ruta: null, hashDescripcion: null, proveedor: null, modelo: null, generada: null, error: null } };
+  const raiz = dirCon([conIlus, apagada]);
+  const llamadas = [];
+  const ilustrador = { async generar(d) { llamadas.push(d); return Buffer.from("00", "hex"); } };
+  const guardadas = [];
+  const guardar = async (buf, ruta) => { guardadas.push(ruta); };
+  const r = await ejecutarRegenerar({ config: cfg, raiz, ahora, render: async (x) => imagenDe(x), log, version: 1, ilustrador, guardar });
+  assert.deepEqual(llamadas, ["Nueva escena"]);
+  assert.ok(guardadas[0].endsWith(path.join("public", "ilus", `${conIlus.id}.jpg`)));
+  assert.deepEqual(r.renderizados, [conIlus.id]);
+  const posts = Object.fromEntries(leerPosts(path.join(raiz, "posts")).map((p) => [p.id, p]));
+  assert.equal(posts[conIlus.id].ilustracion.hashDescripcion, hashTexto("Nueva escena"));
 });

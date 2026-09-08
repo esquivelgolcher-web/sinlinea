@@ -36,10 +36,12 @@ function clientFalso(indices) {
   return { messages: { parse: async (p) => ({
     stop_reason: "end_turn", usage: { input_tokens: 1, output_tokens: 1 },
     parsed_output: { descartados: [], seleccion: indices.map((i, k) => ({
-      indiceCandidato: i, categoria: "SOCIEDAD", titular: `Titular ${k}`, bajada: "Bajada", caption: "Caption", hashtags: ["#Panamá"], relevancia: 1 - k / 10, motivo: "m",
+      indiceCandidato: i, categoria: "SOCIEDAD", titular: `Titular ${k}`, bajada: "Bajada", caption: "Caption", hashtags: ["#Panamá"], relevancia: 1 - k / 10, motivo: "m", escena: "Estación de bomberos de Panamá",
     })) },
   }) } };
 }
+
+const ilustradorFalso = () => ({ llamadas: [], async generar(d) { this.llamadas.push(d); return Buffer.from("ffd8ffd9", "hex"); } });
 
 const renderOkFalso = async (post) => ({ ruta: `public/img/${post.id}.jpg`, url: `https://x/img/${post.id}.jpg`, hash: "0".repeat(16), version: 1, renderizada: ahora.toISOString() });
 const log = { info: () => {}, warn: () => {} };
@@ -106,4 +108,33 @@ test("se niega a generar mientras pages.baseUrl tenga el valor CAMBIAR", async (
   const config = cargarConfig(path.join(raiz, "config.json"));
   config.pages.baseUrl = "https://CAMBIAR.github.io/sinlinea";
   await assert.rejects(() => ejecutarGenerar({ config, raiz, ahora, fetchText, client: clientFalso([0]), render: renderOkFalso, log }), /CAMBIAR/);
+});
+
+test("con ilustrador, el post nace con ilustración usada y archivo guardado", async () => {
+  const raiz = raizTemporal();
+  const config = cargarConfig(path.join(raiz, "config.json"));
+  const guardadas = [];
+  const guardar = async (buf, ruta) => { guardadas.push(ruta); fs.mkdirSync(path.dirname(ruta), { recursive: true }); fs.writeFileSync(ruta, buf); };
+  const il = ilustradorFalso();
+  const r = await ejecutarGenerar({ config, raiz, ahora, fetchText, client: clientFalso([0]), render: renderOkFalso, log, ilustrador: il, guardar });
+  const p = r.creados[0];
+  assert.equal(il.llamadas[0], "Estación de bomberos de Panamá");
+  assert.equal(p.ilustracion.usar, true);
+  assert.equal(p.ilustracion.ruta, `public/ilus/${p.id}.jpg`);
+  assert.equal(p.ilustracion.proveedor, "gemini");
+  assert.ok(fs.existsSync(path.join(raiz, p.ilustracion.ruta)));
+});
+
+test("si la ilustración falla, el post sale con usar=false y error, y sin ilustrador no se llama", async () => {
+  const raiz = raizTemporal();
+  const config = cargarConfig(path.join(raiz, "config.json"));
+  const il = { async generar() { throw new Error("Gemini respondió 429: quota"); } };
+  const r = await ejecutarGenerar({ config, raiz, ahora, fetchText, client: clientFalso([0]), render: renderOkFalso, log, ilustrador: il });
+  assert.equal(r.creados[0].ilustracion.usar, false);
+  assert.match(r.creados[0].ilustracion.error.mensaje, /429/);
+  assert.equal(r.creados[0].estado, "borrador");
+  const raiz2 = raizTemporal();
+  const r2 = await ejecutarGenerar({ config: cargarConfig(path.join(raiz2, "config.json")), raiz: raiz2, ahora, fetchText, client: clientFalso([0]), render: renderOkFalso, log });
+  assert.equal(r2.creados[0].ilustracion.usar, false);
+  assert.equal(r2.creados[0].ilustracion.error, null);
 });
