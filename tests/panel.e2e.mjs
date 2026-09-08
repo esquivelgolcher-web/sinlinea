@@ -84,3 +84,18 @@ test("la escena y la casilla de ilustración se guardan en el post", async () =>
   assert.equal(limpio.ilustracion.usar, false);
   await page.close();
 });
+
+test("el panel se niega a guardar un titular de más de 65 caracteres y muestra el contador de titular y bajada", async () => {
+  const page = await navegador.newPage({ viewport: { width: 400, height: 800 } });
+  await page.goto(`${base}/panel/`);
+  await page.waitForSelector(".tarjeta");
+  const antes = fs.readFileSync(path.join(raiz, "posts/2026-09-07-1420-la-prensa-a1b2.json"), "utf8");
+  assert.match(await page.textContent(".tarjeta .contador"), /Titular \d+\/65/);
+  assert.match(await page.textContent(".tarjeta .contador"), /Bajada \d+\/110/);
+  await page.fill(".tarjeta textarea >> nth=0", "T".repeat(70));
+  await page.click("text=Guardar cambios");
+  await page.waitForSelector("#aviso:not([hidden])");
+  assert.match(await page.textContent("#aviso"), /70 caracteres.*65/);
+  assert.equal(fs.readFileSync(path.join(raiz, "posts/2026-09-07-1420-la-prensa-a1b2.json"), "utf8"), antes);
+  await page.close();
+});

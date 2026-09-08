@@ -1,6 +1,7 @@
 // Panel de aprobación de Sin Línea. Sin framework. Todo texto va por textContent.
 import { aprobar, descartar, quitarDeCola, reintentar, editarTexto, imagenDesactualizada, hashTexto, CATEGORIAS, VARIANTES } from "./lib/estados.mjs";
 import { componerCaption, validarCaption, normalizarHashtags, LIMITES } from "./lib/caption.mjs";
+import { validarTextos, LIMITES as LIMITES_TEXTO } from "./lib/texto.mjs";
 import { siguienteFranjaLibre, franjasOcupadas, choca } from "./lib/franjas.mjs";
 import { claveDia, isoDesdeClave, horaMinutoDeIso, ZONA_PANAMA } from "./lib/fechas.mjs";
 import { crearAlmacenLocal, crearAlmacenGitHub, deducirRepo, ErrorConflicto } from "./almacen.mjs";
@@ -137,8 +138,9 @@ function tarjeta({ post, sha }) {
   const actualizarContador = () => {
     const texto = componerCaption({ caption: campos.caption.value, medio: post.fuente.medio, hashtags: campos.hashtags.value.split(/\s+/) });
     const v = validarCaption(texto);
-    contador.textContent = `${texto.length}/${LIMITES.caracteres} caracteres · ${normalizarHashtags(campos.hashtags.value.split(/\s+/)).length}/${LIMITES.hashtags} hashtags`;
-    contador.className = "contador" + (v.ok ? "" : " excede");
+    const t = validarTextos({ titular: campos.titular.value, bajada: campos.bajada.value });
+    contador.textContent = `Titular ${campos.titular.value.trim().length}/${LIMITES_TEXTO.titularMax} · Bajada ${campos.bajada.value.trim().length}/${LIMITES_TEXTO.bajadaMax} · Caption ${texto.length}/${LIMITES.caracteres} · ${normalizarHashtags(campos.hashtags.value.split(/\s+/)).length}/${LIMITES.hashtags} hashtags`;
+    contador.className = "contador" + (v.ok && t.ok ? "" : " excede");
   };
 
   const cuerpo = el("div", { class: "cuerpo" }, [
@@ -179,7 +181,11 @@ function tarjeta({ post, sha }) {
     return ["titular", "bajada", "caption", "categoria", "variante"].some((k) => c[k] !== post[k]) || c.hashtags.join(" ") !== post.hashtags.join(" ")
       || (c.ilustracion?.descripcion ?? "") !== (post.ilustracion?.descripcion ?? "") || Boolean(c.ilustracion?.usar) !== Boolean(post.ilustracion?.usar);
   };
-  const captionValido = () => validarCaption(componerCaption({ caption: campos.caption.value, medio: post.fuente.medio, hashtags: campos.hashtags.value.split(/\s+/) }));
+  const captionValido = () => {
+    const t = validarTextos({ titular: campos.titular.value, bajada: campos.bajada.value });
+    const c = validarCaption(componerCaption({ caption: campos.caption.value, medio: post.fuente.medio, hashtags: campos.hashtags.value.split(/\s+/) }));
+    return { ok: t.ok && c.ok, errores: [...t.errores, ...c.errores] };
+  };
 
   const local = estado.borradores.get(post.id);
   if (local) for (const k of Object.keys(local)) {
@@ -200,6 +206,8 @@ function tarjeta({ post, sha }) {
   campos.variante.addEventListener("change", recordarBorrador);
   campos.usar.addEventListener("change", recordarBorrador);
 
+  campos.titular.addEventListener("input", actualizarContador);
+  campos.bajada.addEventListener("input", actualizarContador);
   campos.caption.addEventListener("input", actualizarContador);
   campos.hashtags.addEventListener("input", actualizarContador);
   actualizarContador();
