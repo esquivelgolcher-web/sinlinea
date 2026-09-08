@@ -1,7 +1,7 @@
 {
   "id": "2026-09-08-1333-luiseskivelgolcher-lichess-ce43",
   "cuenta": "luiseskivelgolcher",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "Lichess",
     "url": "https://lichess.org/analysis",
@@ -41,5 +41,5 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-08T18:33:04.103Z",
-  "actualizado": "2026-09-08T18:34:38.355Z"
+  "actualizado": "2026-09-08T18:45:33.755Z"
 }

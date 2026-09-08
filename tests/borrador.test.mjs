@@ -9,13 +9,15 @@ import { raizConCuentas } from "./ayuda/cuentas.mjs";
 
 const ahora = new Date("2026-09-08T18:00:00Z");
 const entrada = {
-  categoria: "CULTURA",
-  titular: "Mate del pastor: por qué funciona y cómo evitarlo",
-  bajada: "Cuatro jugadas bastan para dar mate a un principiante; una sola defensa correcta lo desarma.",
-  caption: "El mate del pastor es la trampa más conocida del ajedrez.\n\nSe explica en el post.",
-  hashtags: ["#Ajedrez", "#Aprende"],
-  fuente: { medio: "Lichess", url: "https://lichess.org/analysis", titulo: "Análisis de la posición", publicado: "2026-09-08T00:00:00.000Z" },
-  escena: "Tablero de ajedrez de madera con las piezas del mate del pastor, luz lateral suave, sin personas",
+  categoria: "EDUCACIÓN",
+  titular: "Cómo leer una licitación pública en cinco pasos",
+  bajada: "Qué mirar en un pliego: objeto, requisitos, plazos, criterios de evaluación y quién adjudica.",
+  caption: "Una licitación pública es un documento denso, pero tiene siempre la misma estructura.
+
+Se explica en el post.",
+  hashtags: ["#Transparencia", "#Aprende"],
+  fuente: { medio: "PanamaCompra", url: "https://www.panamacompra.gob.pa/", titulo: "Portal de contrataciones públicas", publicado: "2026-09-08T00:00:00.000Z" },
+  escena: "Pliego de licitación impreso sobre una mesa, con un marcador y una regla, luz de ventana, sin personas",
 };
 
 test("crea un borrador manual para la cuenta indicada sin credenciales de Instagram: estado borrador, sin programar, con cuenta y fuente", async () => {
@@ -27,9 +29,9 @@ test("crea un borrador manual para la cuenta indicada sin credenciales de Instag
   assert.equal(post.cuenta, "luiseskivelgolcher");
   assert.equal(post.estado, "borrador");
   assert.equal(post.programado, null);
-  assert.match(post.id, /-luiseskivelgolcher-lichess-/);
-  assert.equal(post.fuente.url, "https://lichess.org/analysis");
-  assert.deepEqual(post.hashtags, ["#Ajedrez", "#Aprende"]);
+  assert.match(post.id, /-luiseskivelgolcher-panamacompra-/);
+  assert.equal(post.fuente.url, "https://www.panamacompra.gob.pa/");
+  assert.deepEqual(post.hashtags, ["#Transparencia", "#Aprende"]);
   assert.equal(post.ilustracion.descripcion, entrada.escena);
   assert.equal(post.ilustracion.usar, configuracion.cuentas[1].ilustraciones.activo, "usa ilustración solo si la cuenta las tiene activas");
   assert.deepEqual(renders, [post.id]);

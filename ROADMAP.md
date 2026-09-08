@@ -45,15 +45,20 @@ configurable por cuenta (`idioma`, `es-PA` por defecto).
 - **Vista previa editorial de la cuenta personal (2026-09-08)**: nuevo
   `npm run borrador -- --cuenta <id> --entrada <archivo.json>` (`src/borrador.mjs`)
   crea borradores manuales sin Claude ni credenciales de Instagram y los dibuja
-  en local. Tres borradores de `luiseskivelgolcher` guardados sin aprobar ni
-  programar: ajedrez (mate del pastor, línea y defensa validadas con chess.js;
-  sin motor de evaluación disponible), investigación con registros públicos de
-  Panamá (Registro Público, PanamaCompra, Gaceta Oficial; sin hallazgos
-  propios) y noticia internacional del 8 de septiembre con tres fuentes (El
-  País, DW, BBC Mundo). Ilustraciones activadas para esa cuenta con un estilo
-  neutro provisional (`ilustraciones.activo = true`); generación y publicación
-  siguen apagadas. Pendiente: revisar los tres en el panel, definir fuentes,
-  logo y colores definitivos, y la conexión de Instagram.
+  en local. **Cambio de alcance**: el ajedrez sale de `luiseskivelgolcher` (se
+  desarrollará en una cuenta independiente, todavía no creada; no se implementan
+  diagramas ni funciones de ajedrez). El borrador del mate del pastor quedó
+  archivado sin borrar en `posts/archivo/2026-09/` (estado descartado; sus
+  imágenes se conservan). La cuenta se centra en investigaciones y periodismo,
+  transparencia y herramientas de investigación, y actualidad de Panamá y del
+  mundo con contexto y análisis (línea editorial en
+  `cuentas/luiseskivelgolcher/editorial.md`). Quedan dos borradores sin aprobar
+  ni programar: registros públicos de Panamá y la noticia internacional del 8 de
+  septiembre; sus escenas se rehicieron con la composición de la guía
+  (protagonista en el tercio superior derecho, zona del titular despejada).
+  Ilustraciones activas con estilo neutro provisional; generación y publicación
+  siguen apagadas. Pendiente: revisar ambos en el panel, definir fuentes, logo y
+  colores definitivos, y la conexión de Instagram.
 
 Estimaciones en días de trabajo de una persona con el flujo actual (pruebas,
 revisión y despliegue incluidos).
