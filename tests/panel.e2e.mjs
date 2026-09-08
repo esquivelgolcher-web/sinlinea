@@ -65,3 +65,17 @@ test("un texto editado sin guardar sobrevive al cambio de pestaña y Guardar sin
   assert.equal(await page.isEnabled("text=Aprobar"), true);
   await page.close();
 });
+
+test("la escena y la casilla de ilustración se guardan en el post", async () => {
+  const page = await navegador.newPage({ viewport: { width: 400, height: 800 } });
+  await page.goto(`${base}/panel/`);
+  await page.waitForSelector(".tarjeta");
+  await page.fill(".tarjeta textarea >> nth=3", "Edificio de la Asamblea Nacional al atardecer");
+  await page.check(".tarjeta input[type=checkbox]");
+  await page.click("text=Guardar cambios");
+  await page.waitForSelector("text=Generando ilustración…");
+  const guardado = JSON.parse(fs.readFileSync(path.join(raiz, "posts/2026-09-07-1420-la-prensa-a1b2.json"), "utf8"));
+  assert.equal(guardado.ilustracion.descripcion, "Edificio de la Asamblea Nacional al atardecer");
+  assert.equal(guardado.ilustracion.usar, true);
+  await page.close();
+});

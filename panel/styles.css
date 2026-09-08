@@ -33,6 +33,8 @@ body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, san
 .contador { font-size: 12px; color: #666; text-align: right; }
 .contador.excede { color: var(--rojo); font-weight: 700; }
 .error-texto { background: #fee2e2; color: #991b1b; padding: 8px; border-radius: 8px; font-size: 13px; }
+.tarjeta label.casilla { display: flex; align-items: center; gap: 8px; font-size: 14px; }
+.casilla input { width: 20px; height: 20px; margin: 0; }
 .acciones { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
 .boton { padding: 10px 14px; border-radius: 10px; border: 1px solid var(--gris-2); background: #fff; font: inherit; font-size: 15px; cursor: pointer; }
 .boton.primario { background: var(--negro); color: var(--amarillo); border-color: var(--negro); }

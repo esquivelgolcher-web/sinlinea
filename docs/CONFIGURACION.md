@@ -83,3 +83,15 @@ paso 4 (puntos 4, 6 y 7) para generar un token nuevo.
 ## 9. Renovaciones anuales
 Los tokens finos de GitHub vencen como máximo al año: repite los pasos 5 y 6 cuando
 GitHub te avise por correo.
+
+## 10. Ilustraciones con Gemini
+Paso opcional: sin este secreto, los posts se publican igual, solo que sin
+ilustración (con el fondo de color de la variante).
+
+1. Entra en https://aistudio.google.com/apikey y crea una clave de API.
+2. En el repo → **Settings → Secrets and variables → Actions → New repository
+   secret**: nombre `GEMINI_API_KEY`, valor la clave.
+3. Para comprobar que la clave, el modelo y el formato de respuesta funcionan sin
+   gastar una corrida completa: GitHub → **Actions → Probar Gemini → Run
+   workflow**. Al terminar, descarga el artefacto `prueba-gemini` de esa corrida
+   para ver la imagen generada.

@@ -28,9 +28,11 @@ config.json            fuentes, franjas, límites, modelo, marca
 prompts/editorial.md   línea editorial (editable sin tocar código)
 templates/post.html    plantilla 1080×1350 (data-version controla el re-render)
 src/                   generar, regenerar, publicar, renovar-token, build, serve + lib/
+src/lib/ilustrador.mjs generación de ilustraciones con Gemini
 panel/                 panel de aprobación (estático)
 posts/                 un JSON por post; posts/archivo/ para los antiguos
 public/img/            imágenes JPEG servidas por Pages en /img/
+public/ilus/           ilustraciones generadas con Gemini, una por post
 data/seen.json         URLs ya evaluadas · data/token-info.json vencimiento del token
-.github/workflows/     generar (3 h), regenerar (push a posts/), publicar (30 min), renovar-token (lunes)
+.github/workflows/     generar (3 h), regenerar (push a posts/), publicar (30 min), renovar-token (lunes), probar-gemini (manual)
 ```

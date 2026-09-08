@@ -118,6 +118,13 @@ function tarjeta({ post, sha }) {
     campos[nombre] = n;
     return el("label", { text: etiqueta }, [n]);
   };
+  const ilus = post.ilustracion || null;
+  const campoEscena = el("textarea", { disabled: bloqueado ? "" : null });
+  campoEscena.value = ilus ? ilus.descripcion : "";
+  campos.escena = campoEscena;
+  const casillaUsar = el("input", { type: "checkbox", disabled: bloqueado ? "" : null });
+  casillaUsar.checked = Boolean(ilus && ilus.usar);
+  campos.usar = casillaUsar;
   const contador = el("p", { class: "contador" });
   const actualizarContador = () => {
     const texto = componerCaption({ caption: campos.caption.value, medio: post.fuente.medio, hashtags: campos.hashtags.value.split(/\s+/) });
@@ -133,6 +140,7 @@ function tarjeta({ post, sha }) {
       el("a", { href: urlSegura(post.fuente.url), target: "_blank", rel: "noopener", text: post.fuente.medio }),
       post.programado ? el("span", { text: `Programado: ${claveDia(post.programado)} ${horaMinutoDeIso(post.programado)}` }) : "",
       imagenDesactualizada(post) && !["publicado", "descartado"].includes(post.estado) ? el("span", { class: "regenerando", text: "Regenerando imagen…" }) : "",
+      ilus && ilus.usar && !ilus.ruta && !ilus.error ? el("span", { class: "regenerando", text: "Generando ilustración…" }) : "",
     ]),
     post.error ? el("p", { class: "error-texto", text: `Error (${post.error.paso}): ${post.error.mensaje}` }) : "",
     campo("Titular", "titular"),
@@ -140,30 +148,43 @@ function tarjeta({ post, sha }) {
     el("div", { class: "fila" }, [campo("Categoría", "categoria", "select"), campo("Variante", "variante", "select")]),
     campo("Caption", "caption"),
     campo("Hashtags (separados por espacio)", "hashtags", "input"),
+    el("label", { text: "Escena de la ilustración (sin personas reales)" }, [campoEscena]),
+    el("label", { class: "casilla" }, [casillaUsar, el("span", { text: " Usar ilustración generada con IA" })]),
+    ilus && ilus.error ? el("p", { class: "error-texto", text: `La ilustración falló: ${ilus.error.mensaje}` }) : "",
     contador,
   ]);
   const cambios = () => ({
     titular: campos.titular.value.trim(), bajada: campos.bajada.value.trim(), caption: campos.caption.value.trim(),
     hashtags: normalizarHashtags(campos.hashtags.value.split(/\s+/)), categoria: campos.categoria.value, variante: campos.variante.value,
+    ilustracion: (campos.escena.value.trim() || post.ilustracion)
+      ? { ...(post.ilustracion || { ruta: null, hashDescripcion: null, proveedor: null, modelo: null, generada: null, error: null }), descripcion: campos.escena.value.trim(), usar: campos.usar.checked }
+      : null,
   });
   const hayCambios = () => {
     const c = cambios();
-    return ["titular", "bajada", "caption", "categoria", "variante"].some((k) => c[k] !== post[k]) || c.hashtags.join(" ") !== post.hashtags.join(" ");
+    return ["titular", "bajada", "caption", "categoria", "variante"].some((k) => c[k] !== post[k]) || c.hashtags.join(" ") !== post.hashtags.join(" ")
+      || (c.ilustracion?.descripcion ?? "") !== (post.ilustracion?.descripcion ?? "") || Boolean(c.ilustracion?.usar) !== Boolean(post.ilustracion?.usar);
   };
   const captionValido = () => validarCaption(componerCaption({ caption: campos.caption.value, medio: post.fuente.medio, hashtags: campos.hashtags.value.split(/\s+/) }));
 
   const local = estado.borradores.get(post.id);
-  if (local) for (const k of Object.keys(local)) if (campos[k]) campos[k].value = local[k];
+  if (local) for (const k of Object.keys(local)) {
+    if (!campos[k]) continue;
+    if (k === "usar") campos[k].checked = local[k];
+    else campos[k].value = local[k];
+  }
   const recordarBorrador = () => {
     if (hayCambios()) estado.borradores.set(post.id, {
       titular: campos.titular.value, bajada: campos.bajada.value, caption: campos.caption.value,
       hashtags: campos.hashtags.value, categoria: campos.categoria.value, variante: campos.variante.value,
+      escena: campos.escena.value, usar: campos.usar.checked,
     });
     else estado.borradores.delete(post.id);
   };
   for (const n of Object.values(campos)) n.addEventListener("input", recordarBorrador);
   campos.categoria.addEventListener("change", recordarBorrador);
   campos.variante.addEventListener("change", recordarBorrador);
+  campos.usar.addEventListener("change", recordarBorrador);
 
   campos.caption.addEventListener("input", actualizarContador);
   campos.hashtags.addEventListener("input", actualizarContador);
@@ -183,17 +204,26 @@ function tarjeta({ post, sha }) {
       const v = captionValido(); if (!v.ok) { avisar(v.errores.join(" ")); return null; }
       const h = await pedirHora(p); return h ? aprobar(conCambios(p), h, ahoraIso()) : null;
     };
+    const regenerarIlustracion = (p) => {
+      const descripcion = campos.escena.value.trim();
+      if (!descripcion) { avisar("Escribe una escena antes de regenerar."); return null; }
+      const base = p.ilustracion || { ruta: null, proveedor: null, modelo: null, generada: null };
+      return editarTexto(conCambios(p), { ilustracion: { ...base, descripcion, usar: true, hashDescripcion: null, error: null } }, ahoraIso());
+    };
     if (post.estado === "borrador") {
       acciones.append(boton("Aprobar", "primario", aprobarConHora));
       acciones.append(boton("Guardar cambios", "", guardarSiCambio));
+      acciones.append(boton("Regenerar ilustración", "", regenerarIlustracion));
       acciones.append(boton("Descartar", "peligro", (p) => descartar(p, ahoraIso())));
     } else if (post.estado === "programado") {
       acciones.append(boton("Cambiar hora", "primario", aprobarConHora));
       acciones.append(boton("Guardar cambios", "", guardarSiCambio));
+      acciones.append(boton("Regenerar ilustración", "", regenerarIlustracion));
       acciones.append(boton("Quitar de la cola", "peligro", (p) => quitarDeCola(p, ahoraIso())));
     } else if (post.estado === "error") {
       if (post.error?.paso === "instagram") acciones.append(boton("Reintentar", "primario", (p) => reintentar(conCambios(p), ahoraIso())));
       acciones.append(boton("Guardar cambios", "", guardarSiCambio));
+      acciones.append(boton("Regenerar ilustración", "", regenerarIlustracion));
       acciones.append(boton("Descartar", "peligro", (p) => descartar(p, ahoraIso())));
     }
   }

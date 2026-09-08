@@ -24,6 +24,28 @@ En cada tarjeta puedes:
 - **Quitar de la cola**: vuelve a Borradores un post programado.
 - **Reintentar**: en un post con error de Instagram, lo vuelve a poner en cola.
 
+## Ilustraciones
+Además de la foto de la noticia, cada post puede llevar una ilustración generada
+con IA (Gemini) en vez de la variante de color de fondo. Es opcional y se controla
+desde la propia tarjeta:
+- **Escena de la ilustración**: describe en un par de frases qué dibujar (sin
+  personas reales, solo escenas, objetos o lugares). El redactor ya propone una
+  escena al crear el borrador; puedes editarla libremente.
+- **Usar ilustración generada con IA**: la casilla que activa o desactiva el uso
+  de la ilustración en el post final. Si la desmarcas, el post vuelve a usar el
+  fondo de color de la variante.
+- **Regenerar ilustración**: guarda la escena actual, activa la casilla y fuerza
+  una nueva generación aunque el texto no haya cambiado. Útil si el resultado no
+  te convenció.
+
+Al guardar un cambio de escena o de casilla verás "Generando ilustración…" en la
+tarjeta durante uno o dos minutos, hasta que la imagen final se vuelva a dibujar.
+Si Gemini falla (clave inválida, contenido rechazado, error de red), el post se
+publica igual pero sin ilustración, usando el fondo de color de la variante como
+respaldo; el mensaje de error se muestra debajo de la casilla. Ten en cuenta que
+el nivel gratuito de Gemini tiene un cupo diario limitado y puede agotarse; en ese
+caso espera al día siguiente o pasa a un plan de pago en Google AI Studio.
+
 ## Si algo sale mal
 - Un post en **Errores** muestra el mensaje exacto. Los errores de imagen se
   reintentan solos; los de Instagram requieren pulsar Reintentar (o Descartar).
