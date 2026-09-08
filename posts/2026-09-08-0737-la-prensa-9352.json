@@ -1,0 +1,45 @@
+{
+  "id": "2026-09-08-0737-la-prensa-9352",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/mundo/pruebas-pisa-espana-obtiene-los-peores-resultados-educativos-de-su-historia-mientras-la-mayoria-de-los-paises-de-america-latina-sufren-retrocesos/",
+    "titulo": "Pruebas PISA: España obtiene los peores resultados educativos de su historia mientras la mayoría de los países de América Latina sufren retrocesos",
+    "publicado": "2026-09-08T11:48:47.000Z"
+  },
+  "categoria": "EDUCACIÓN",
+  "titular": "Pruebas PISA marcan el peor rendimiento educativo",
+  "bajada": "Más de 760 mil estudiantes de 91 países mostraron caídas en lectura, ciencias y matemáticas.",
+  "caption": "El examen que mide qué tan bien resuelven problemas los jóvenes de 15 años arrojó cifras alarmantes: el rendimiento más bajo desde que se aplica la prueba. La caída en matemáticas ha sido especialmente fuerte desde 2018. Un llamado de atención para los sistemas educativos de la región. ¿Cree que la educación en Panamá enfrenta los mismos retrocesos?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Educación",
+    "#PISA",
+    "#AméricaLatina",
+    "#Estudiantes"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-09-08-0737-la-prensa-9352.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-08-0737-la-prensa-9352.jpg",
+    "hash": "8892abe312ddfb9d",
+    "version": 7,
+    "renderizada": "2026-09-08T12:38:24.062Z"
+  },
+  "ilustracion": {
+    "descripcion": "Aula escolar vacía con pupitres ordenados y un pizarrón en blanco, luz natural entrando por una ventana, zona izquierda y central despejadas, pupitre destacado en el tercio superior derecho.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-08-0737-la-prensa-9352.jpg",
+    "hashDescripcion": "e78ad716faa8d83c",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-08T12:37:50.322Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-08T12:37:50.322Z",
+  "actualizado": "2026-09-08T12:37:50.322Z"
+}

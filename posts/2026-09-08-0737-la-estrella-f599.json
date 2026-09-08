@@ -1,0 +1,45 @@
+{
+  "id": "2026-09-08-0737-la-estrella-f599",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/proveedores-mineros-exponen-al-gobierno-sus-inquietudes-sobre-el-cierre-de-cobre-panama-LC25508524",
+    "titulo": "Proveedores mineros exponen al Gobierno sus inquietudes sobre el cierre de Cobre Panamá",
+    "publicado": "2026-09-07T22:32:00.000Z"
+  },
+  "categoria": "ECONOMÍA",
+  "titular": "Proveedores mineros advierten pérdida de 40 mil empleos",
+  "bajada": "APIMPA se reunió con ministros por el cierre de Cobre Panamá y pidió una salida a la crisis.",
+  "caption": "El cierre de la mina de Donoso, hace casi tres años, sigue golpeando a miles de familias que dependían de esta industria. El gremio de proveedores llevó sus números y preocupaciones directamente al Gobierno, que promete una recomendación basada en evidencia técnica. ¿Qué salida cree que debe tomar el Ejecutivo con Cobre Panamá?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#CobrePanamá",
+    "#Minería",
+    "#Empleo",
+    "#Donoso"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-09-08-0737-la-estrella-f599.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-08-0737-la-estrella-f599.jpg",
+    "hash": "52c81a1791d998a9",
+    "version": 7,
+    "renderizada": "2026-09-08T12:38:17.742Z"
+  },
+  "ilustracion": {
+    "descripcion": "Maquinaria industrial detenida y oxidándose en una zona minera boscosa de Panamá, con vegetación despejada en el centro y la izquierda de la imagen, maquinaria en el tercio superior derecho.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-08-0737-la-estrella-f599.jpg",
+    "hashDescripcion": "6711ef4c77969a6a",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-08T12:37:50.322Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-08T12:37:50.322Z",
+  "actualizado": "2026-09-08T12:37:50.322Z"
+}
