@@ -13,16 +13,15 @@ configurable por cuenta (`idioma`, `es-PA` por defecto).
 ## Estado y cómo retomar
 
 - **M0 hecho** (commit local `9453f62`).
-- **M1 hecho**: commit de M1 más una ronda de correcciones tras revisión
-  independiente, fusionados en `main` localmente y **sin push** (el push dispara
-  GENERAR). `origin/main` sigue en el estado anterior a M0. Suites: 201
-  unitarias, 12 de render, 8 del panel. Para retomar en otra sesión:
-  `git log --oneline -6` en `main` (deben verse M0, M1 y sus correcciones),
-  leer esta sección y la de M2, y ejecutar `npm test`.
-- **Antes del push de M1**: revisar el diff (`git diff origin/main --stat`),
-  crear `GH_PAT` si se quiere activar la renovación, y saber que el primer push
-  ejecutará GENERAR (crea hasta 2 borradores de `sinlinea`) y desplegará el
-  panel nuevo (sin selector visible mientras haya una sola cuenta).
+- **M1 desplegado en producción** (2026-09-08, push `854b623`, rebasado sobre
+  los commits del bot): GENERAR con el código nuevo creó 2 borradores con id
+  `…-sinlinea-…`, el panel nuevo quedó desplegado (selector oculto con una
+  cuenta) y el workflow "Verificar configuración y secretos" dio todo OK salvo
+  `GH_PAT` (opcional). Suites: 203 unitarias, 12 de render, 8 del panel. Para
+  retomar en otra sesión: `git log --oneline -8` en `main`, leer esta sección y
+  la de M2, y ejecutar `npm test`.
+- **Pendiente del operador**: crear `GH_PAT`, activar `renovar-token.yml` y
+  lanzarlo una vez (el token de Instagram vence el 2026-11-07).
 - **Siguiente**: M2 (segunda cuenta real). Ver "Pendientes que deja M1" abajo.
 
 Estimaciones en días de trabajo de una persona con el flujo actual (pruebas,
