@@ -32,7 +32,7 @@
     "descripcion": "Un vehículo estacionado de noche con la puerta trasera abierta y cajas selladas en su interior, bajo luces de una patrulla desenfocadas al fondo; el vehículo queda en el tercio superior derecho, resto despejado.",
     "usar": true,
     "ruta": "public/ilus/2026-09-08-0855-sinlinea-la-estrella-209f.jpg",
-    "hashDescripcion": "028dcdf160efba7b",
+    "hashDescripcion": null,
     "proveedor": "gemini",
     "modelo": "gemini-3.1-flash-lite-image",
     "generada": "2026-09-08T13:55:16.978Z",
@@ -42,5 +42,5 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-08T13:55:16.978Z",
-  "actualizado": "2026-09-08T13:55:16.978Z"
+  "actualizado": "2026-09-08T14:11:40.937Z"
 }
