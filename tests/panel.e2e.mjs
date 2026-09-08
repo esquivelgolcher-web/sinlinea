@@ -77,5 +77,10 @@ test("la escena y la casilla de ilustración se guardan en el post", async () =>
   const guardado = JSON.parse(fs.readFileSync(path.join(raiz, "posts/2026-09-07-1420-la-prensa-a1b2.json"), "utf8"));
   assert.equal(guardado.ilustracion.descripcion, "Edificio de la Asamblea Nacional al atardecer");
   assert.equal(guardado.ilustracion.usar, true);
+  await page.fill(".tarjeta textarea >> nth=3", "");
+  await page.click("text=Guardar cambios");
+  await page.waitForFunction(() => !document.body.textContent.includes("Generando ilustración…"));
+  const limpio = JSON.parse(fs.readFileSync(path.join(raiz, "posts/2026-09-07-1420-la-prensa-a1b2.json"), "utf8"));
+  assert.equal(limpio.ilustracion.usar, false);
   await page.close();
 });

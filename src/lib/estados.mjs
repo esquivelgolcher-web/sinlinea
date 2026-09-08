@@ -36,6 +36,7 @@ const HORA_MS = 3600000;
 export function necesitaIlustracion(post, ahora) {
   const il = post.ilustracion;
   if (!il || !il.usar) return false;
+  if (!String(il.descripcion || "").trim()) return false;
   if (il.ruta && il.hashDescripcion === hashTexto(il.descripcion)) return false;
   if (il.hashDescripcion && il.hashDescripcion !== hashTexto(il.descripcion)) return true;
   if (il.error && ahora.getTime() - Date.parse(il.error.fecha) < HORA_MS) return false;

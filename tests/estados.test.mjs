@@ -104,6 +104,7 @@ test("necesitaIlustracion: solo con usar=true y escena cambiada o sin imagen (sa
   assert.equal(necesitaIlustracion({ ilustracion: { ...ok, ruta: null, hashDescripcion: null, error: { mensaje: "x", fecha: "2026-09-08T11:30:00Z" } } }, ahora), false);
   assert.equal(necesitaIlustracion({ ilustracion: { ...ok, ruta: null, hashDescripcion: null, error: { mensaje: "x", fecha: "2026-09-08T09:00:00Z" } } }, ahora), true);
   assert.equal(necesitaIlustracion({ ilustracion: { ...ok, usar: false, descripcion: "Otra" } }, ahora), false);
+  assert.equal(necesitaIlustracion({ ilustracion: { ...ok, descripcion: "   ", ruta: null, hashDescripcion: null } }, ahora), false);
   assert.equal(necesitaIlustracion({ ilustracion: null }, ahora), false);
   assert.equal(necesitaIlustracion({}, ahora), false);
 });

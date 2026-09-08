@@ -45,6 +45,9 @@ publica igual pero sin ilustración, usando el fondo de color de la variante com
 respaldo; el mensaje de error se muestra debajo de la casilla. Ten en cuenta que
 el nivel gratuito de Gemini tiene un cupo diario limitado y puede agotarse; en ese
 caso espera al día siguiente o pasa a un plan de pago en Google AI Studio.
+- Toda imagen con ilustración lleva el rótulo "Ilustración generada con IA" en la
+  esquina inferior derecha; no se puede quitar desde el panel, porque es la forma
+  honesta de indicar que la imagen no es una foto real.
 
 ## Si algo sale mal
 - Un post en **Errores** muestra el mensaje exacto. Los errores de imagen se

@@ -22,7 +22,7 @@ for (const variante of ["negro", "amarillo", "rojo"]) {
     assert.equal(meta.width, 1080);
     assert.equal(meta.height, 1350);
     assert.ok(fs.statSync(img.ruta).size < 1024 * 1024);
-    assert.equal(img.version, 5);
+    assert.equal(img.version, 6);
     assert.match(img.hash, /^[0-9a-f]{16}$/);
   });
 }

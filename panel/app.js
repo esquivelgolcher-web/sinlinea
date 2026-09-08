@@ -153,13 +153,16 @@ function tarjeta({ post, sha }) {
     ilus && ilus.error ? el("p", { class: "error-texto", text: `La ilustración falló: ${ilus.error.mensaje}` }) : "",
     contador,
   ]);
-  const cambios = () => ({
-    titular: campos.titular.value.trim(), bajada: campos.bajada.value.trim(), caption: campos.caption.value.trim(),
-    hashtags: normalizarHashtags(campos.hashtags.value.split(/\s+/)), categoria: campos.categoria.value, variante: campos.variante.value,
-    ilustracion: (campos.escena.value.trim() || post.ilustracion)
-      ? { ...(post.ilustracion || { ruta: null, hashDescripcion: null, proveedor: null, modelo: null, generada: null, error: null }), descripcion: campos.escena.value.trim(), usar: campos.usar.checked }
-      : null,
-  });
+  const cambios = () => {
+    const escena = campos.escena.value.trim();
+    return {
+      titular: campos.titular.value.trim(), bajada: campos.bajada.value.trim(), caption: campos.caption.value.trim(),
+      hashtags: normalizarHashtags(campos.hashtags.value.split(/\s+/)), categoria: campos.categoria.value, variante: campos.variante.value,
+      ilustracion: (escena || post.ilustracion)
+        ? { ...(post.ilustracion || { ruta: null, hashDescripcion: null, proveedor: null, modelo: null, generada: null, error: null }), descripcion: escena, usar: campos.usar.checked && escena !== "" }
+        : null,
+    };
+  };
   const hayCambios = () => {
     const c = cambios();
     return ["titular", "bajada", "caption", "categoria", "variante"].some((k) => c[k] !== post[k]) || c.hashtags.join(" ") !== post.hashtags.join(" ")
@@ -207,6 +210,7 @@ function tarjeta({ post, sha }) {
     const regenerarIlustracion = (p) => {
       const descripcion = campos.escena.value.trim();
       if (!descripcion) { avisar("Escribe una escena antes de regenerar."); return null; }
+      const v = captionValido(); if (!v.ok) { avisar(v.errores.join(" ")); return null; }
       const base = p.ilustracion || { ruta: null, proveedor: null, modelo: null, generada: null };
       return editarTexto(conCambios(p), { ilustracion: { ...base, descripcion, usar: true, hashDescripcion: null, error: null } }, ahoraIso());
     };
