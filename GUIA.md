@@ -25,9 +25,8 @@ En cada tarjeta puedes:
 - **Reintentar**: en un post con error de Instagram, lo vuelve a poner en cola.
 
 ## Ilustraciones
-Además de la foto de la noticia, cada post puede llevar una ilustración generada
-con IA (Gemini) en vez de la variante de color de fondo. Es opcional y se controla
-desde la propia tarjeta:
+Cada post puede llevar una ilustración generada con IA (Gemini) en vez de la
+variante de color de fondo. Es opcional y se controla desde la propia tarjeta:
 - **Escena de la ilustración**: describe en un par de frases qué dibujar (sin
   personas reales, solo escenas, objetos o lugares). El redactor ya propone una
   escena al crear el borrador; puedes editarla libremente.
@@ -45,6 +44,11 @@ publica igual pero sin ilustración, usando el fondo de color de la variante com
 respaldo; el mensaje de error se muestra debajo de la casilla. Ten en cuenta que
 el nivel gratuito de Gemini tiene un cupo diario limitado y puede agotarse; en ese
 caso espera al día siguiente o pasa a un plan de pago en Google AI Studio.
+Tras 3 fallos seguidos para el mismo post, la ilustración se desactiva sola (la
+casilla "Usar" queda destildada) para no seguir gastando cuota en algo que no
+funciona; el post sigue publicándose con el respaldo tipográfico. Para
+reactivarla, vuelve a marcar "Usar ilustración generada con IA" o pulsa
+"Regenerar ilustración"; cualquiera de las dos cuenta como un intento nuevo.
 - Toda imagen con ilustración lleva el rótulo "Ilustración generada con IA" en la
   esquina inferior derecha; no se puede quitar desde el panel, porque es la forma
   honesta de indicar que la imagen no es una foto real.

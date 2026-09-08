@@ -47,7 +47,9 @@ se comportan como `usar: false`):
   descripción actual difiere, REGENERAR vuelve a pedir la imagen.
 - `ruta`: `public/ilus/<id>.jpg` (1080×1350, JPEG). Se versiona en el repo como
   las imágenes finales.
-- `error`: `null` o `{ mensaje, fecha }` del último intento fallido.
+- `error`: `null` o `{ mensaje, fecha, intentos }` del último intento fallido.
+  `intentos` cuenta los fallos consecutivos (se reinicia a `null` en el
+  siguiente éxito); al llegar a 3, `usar` pasa a `false` (ver §7).
 
 `hashImagen(post, version)` (estados.mjs) incorpora la ilustración: al texto
 que se hashea se añade `post.ilustracion?.usar ? post.ilustracion.hashDescripcion : ""`.
@@ -55,7 +57,8 @@ Así, activar/desactivar o regenerar la ilustración vuelve a renderizar el post
 
 `validarPost` acepta `ilustracion` ausente, `null`, o un objeto con
 `descripcion` (string), `usar` (boolean), `ruta` (string o null),
-`hashDescripcion` (string o null), `error` (null u objeto con `mensaje` y `fecha`).
+`hashDescripcion` (string o null), `error` (`null` o un objeto con `mensaje`,
+`fecha` e `intentos` opcional, entero ≥ 1 si está presente).
 
 ## 4. Configuración (`config.json`)
 
@@ -105,18 +108,26 @@ indican; el estilo no va en la escena.
 **GENERAR** (por cada post nuevo, antes del render): si `config.ilustraciones.activo`
 y hay `GEMINI_API_KEY`, `ilustracion = { descripcion: escena, usar: true, ... }`;
 se llama a `generar`; éxito → `ruta`, `hashDescripcion`, `generada`; fallo →
-`usar: false`, `error: { mensaje, fecha }` y aviso en el log. Sin clave o con
-`activo: false` → `usar: false` sin llamar. Luego el render normal.
+`usar: false`, `error: { mensaje, fecha, intentos: 1 }` y aviso en el log. Sin
+clave o con `activo: false` → `usar: false` sin llamar. Luego el render normal.
 
-**REGENERAR**: además de las reglas actuales, un post activo cuya
-`ilustracion.usar` sea `true` y cuyo `hashDescripcion` no coincida con
-`hashTexto(descripcion)` (o cuya `ruta` sea `null` sin `error` reciente de menos
-de 1 h) vuelve a pedir la ilustración y después se re-renderiza. Un post con
-`usar: false` nunca llama a Gemini.
+**REGENERAR**: un post activo cuya `ilustracion.usar` sea `true` y cuyo
+`hashDescripcion` no coincida con `hashTexto(descripcion)` (o cuya `ruta` sea
+`null`) vuelve a pedir la ilustración y después se re-renderiza — salvo que
+tenga un `error` de menos de 1 h, enfriamiento que aplica siempre, también
+cuando la descripción cambió. Un post con `usar: false` nunca llama a Gemini.
+Como máximo se hacen `config.ilustraciones.maxPorCorrida` llamadas a Gemini
+por corrida; los posts que se queden fuera esperan a la corrida de la
+siguiente hora (log `info`, no cuenta como fallo). Cada fallo incrementa
+`error.intentos`; al tercer fallo consecutivo, `usar` pasa a `false` (el post
+vuelve al respaldo tipográfico y deja de llamar a Gemini) hasta que alguien lo
+reactive desde el panel (casilla "Usar" o botón "Regenerar ilustración", que
+también limpia `error` y fuerza el re-render aunque la escena no haya
+cambiado).
 
 **PUBLICAR**: sin cambios.
 
-## 8. Plantilla (`templates/post.html`, versión 5)
+## 8. Plantilla (`templates/post.html`, versión 6)
 
 - Nuevo dato `ilustracionUrl` (ruta relativa a la raíz o `null`).
 - Con ilustración: capa `.fondo` con la imagen a pantalla completa
@@ -128,7 +139,13 @@ de 1 h) vuelve a pedir la ilustración y después se re-renderiza. Un post con
 - Rótulo `config.ilustraciones.rotulo` en Inter 22 px, blanco al 80 %, en la
   esquina inferior derecha justo encima de la franja del pie.
 - Sin ilustración: idéntica a la versión 4.
-- `versionPlantilla` = 5 → todos los posts activos se re-renderizan una vez.
+- La clase `con-ilustracion` y el texto del rótulo solo se aplican después de
+  que `fondo.decode()` resuelva con éxito; si la imagen no decodifica, el post
+  queda tipográfico (sin clase ni rótulo) y el script continúa.
+- `versionPlantilla` = 6 (v6 = corrección del anillo del logo amarillo: con
+  ilustración, `.post[data-variante="amarillo"] .logo` no debe llevar el
+  `box-shadow` de la variante) → todos los posts activos se re-renderizan una
+  vez.
 
 ## 9. Panel
 

@@ -99,3 +99,9 @@ ilustración (con el fondo de color de la variante).
    cuántas ilustraciones pide REGENERAR a Gemini en una misma corrida; los
    posts que se queden fuera esperan a la corrida de la siguiente hora (no se
    pierden, solo se posponen).
+5. `ilustraciones.activo` es el interruptor general: en `false` (o sin
+   `GEMINI_API_KEY`), ningún post pide ilustración a Gemini y todos salen con
+   el fondo de color de la variante, sin gastar cuota.
+6. `npm run generar -- --dry-run` sí llama a Gemini y gasta cuota igual que una
+   corrida normal (solo evita escribir en `posts/`, `data/seen.json` y hacer
+   commit); no lo uses para probar en bucle si la cuota es justa.
