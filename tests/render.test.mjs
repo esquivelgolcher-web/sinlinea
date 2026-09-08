@@ -11,7 +11,7 @@ const plantilla = fs.readFileSync("templates/post.html", "utf8");
 
 test("versionPlantilla lee data-version", () => {
   assert.equal(versionPlantilla('<html lang="es" data-version="7">'), 7);
-  assert.equal(versionPlantilla(plantilla), 9);
+  assert.equal(versionPlantilla(plantilla), 10);
 });
 
 test("datosDeRender arma los textos de la imagen", () => {
@@ -89,4 +89,12 @@ test("(logo) datosDeRender lleva la forma del logo y estiloVisual cambia con ell
   assert.equal(datosDeRender(post, personal, { logoUrl: "cuentas/luiseskivelgolcher/logo.png" }).logoForma, "cuadrado");
   const cuadrado = { ...cfg, marca: { ...cfg.marca, logoForma: "cuadrado" } };
   assert.notEqual(estiloVisual(cfg, "x"), estiloVisual(cuadrado, "x"), "cambiar la forma del logo obliga a REGENERAR a re-dibujar");
+});
+
+test("(logo) datosDeRender lleva el tamaño del logo y estiloVisual cambia con él", () => {
+  assert.equal(datosDeRender(post, cfg, { logoUrl: null }).logoTamano, 120);
+  const personal = cargarConfiguracion(".").cuentas.find((c) => c.cuenta === "luiseskivelgolcher");
+  assert.equal(datosDeRender(post, personal, { logoUrl: null }).logoTamano, 90);
+  const chico = { ...cfg, marca: { ...cfg.marca, logoTamano: 90 } };
+  assert.notEqual(estiloVisual(cfg, "x"), estiloVisual(chico, "x"));
 });

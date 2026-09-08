@@ -236,3 +236,15 @@ test("(logo) marca.logoForma es opcional (circulo por defecto), admite cuadrado 
   const personal = cargarConfiguracion(".").cuentas.find((x) => x.cuenta === "luiseskivelgolcher");
   assert.equal(personal.marca.logoForma, "cuadrado", "el logo LEG de la cuenta personal es cuadrado");
 });
+
+test("(logo) marca.logoTamano es opcional (120 px por defecto), debe ser un entero entre 60 y 160, y la cuenta personal usa 90", () => {
+  const g = cargarGlobal("config.json");
+  const c = cargarCuenta(".", "sinlinea");
+  assert.equal(configDeCuenta(g, c, "sinlinea").marca.logoTamano, 120);
+  assert.equal(configDeCuenta(g, { ...c, marca: { ...c.marca, logoTamano: 90 } }, "sinlinea").marca.logoTamano, 90);
+  assert.throws(() => validarCuenta({ ...c, marca: { ...c.marca, logoTamano: 40 } }, "sinlinea"), /logoTamano/);
+  assert.throws(() => validarCuenta({ ...c, marca: { ...c.marca, logoTamano: "90" } }, "sinlinea"), /logoTamano/);
+  const personal = cargarConfiguracion(".").cuentas.find((x) => x.cuenta === "luiseskivelgolcher");
+  assert.equal(personal.marca.logoTamano, 90);
+  assert.equal(personal.marca.colores.oscuro, "#161616", "el cuadro del logo LEG vuelve a ser negro");
+});

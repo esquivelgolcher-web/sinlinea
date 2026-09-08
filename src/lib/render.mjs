@@ -27,7 +27,7 @@ export function iniciales(nombre) {
 // Sello de la identidad visual de la cuenta (colores + presencia y forma del logo + rótulo): si cambia, REGENERAR re-dibuja.
 export function estiloVisual(config, logoUrl) {
   const c = config.marca?.colores || {};
-  return hashTexto(JSON.stringify({ principal: c.principal, acento: c.acento, oscuro: c.oscuro, claro: c.claro, logo: Boolean(logoUrl), forma: config.marca?.logoForma || "circulo", rotulo: config.ilustraciones?.rotulo || "" }));
+  return hashTexto(JSON.stringify({ principal: c.principal, acento: c.acento, oscuro: c.oscuro, claro: c.claro, logo: Boolean(logoUrl), forma: config.marca?.logoForma || "circulo", tamano: config.marca?.logoTamano || 120, rotulo: config.ilustraciones?.rotulo || "" }));
 }
 
 export function datosDeRender(post, config, { logoUrl, ilustracionUrl = null }) {
@@ -35,6 +35,7 @@ export function datosDeRender(post, config, { logoUrl, ilustracionUrl = null }) 
     colores: config.marca?.colores ? { ...config.marca.colores } : undefined,
     iniciales: iniciales(config.marca?.nombre),
     logoForma: config.marca?.logoForma || "circulo",
+    logoTamano: config.marca?.logoTamano || 120,
     titular: post.titular,
     bajada: post.bajada,
     categoria: post.categoria,

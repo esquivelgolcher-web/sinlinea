@@ -23,7 +23,7 @@ for (const variante of ["negro", "amarillo", "rojo"]) {
     assert.equal(meta.width, 1080);
     assert.equal(meta.height, 1350);
     assert.ok(fs.statSync(img.ruta).size < 1024 * 1024);
-    assert.equal(img.version, 9);
+    assert.equal(img.version, 10);
     assert.match(img.hash, /^[0-9a-f]{16}$/);
   });
 }
@@ -162,7 +162,7 @@ test("(M2) la plantilla usa los colores de la cuenta y, sin logo, las iniciales 
   assert.equal(m.chipColor, "rgb(31, 95, 191)", "la categoría usa el acento de la cuenta (#1F5FBF)");
   assert.equal(m.barraAlto, 0, "sin lema no se dibuja la franja inferior");
   assert.ok(m.pieAbajo < 40, `el pie baja al borde cuando no hay franja (queda a ${m.pieAbajo}px)`);
-  assert.equal(m.fondoColor, "rgb(59, 43, 31)", "el fondo oscuro usa el oscuro de la cuenta (#3B2B1F, el marrón del logo LEG)");
+  assert.equal(m.fondoColor, "rgb(22, 22, 22)", "el fondo oscuro usa el oscuro de la cuenta (#161616, el negro del logo LEG)");
   assert.equal(m.fallbackTexto, "LEG");
   assert.equal(m.fallbackColor, "rgb(233, 228, 218)", "las iniciales de reserva usan el principal (#E9E4DA)");
   const sl = await medir({ ...base, variante: "negro" });
@@ -204,4 +204,11 @@ test("(logo) con marca.logoForma cuadrado el logo y las iniciales de reserva se 
   assert.equal((await medir(base, { config: personal, logoUrl: "cuentas/luiseskivelgolcher/logo.png" })).logoRadio, "0px");
   assert.equal((await medir(base, { config: personal, logoUrl: null })).logoRadio, "0px", "también las iniciales de reserva");
   assert.equal((await medir(base, { config: { ...personal, marca: { ...personal.marca, logoForma: "circulo" } }, logoUrl: null })).logoRadio, "50%");
+});
+
+test("(logo) marca.logoTamano fija el ancho del logo: 90 px en la cuenta personal, 120 px por defecto", async () => {
+  const personal = cargarConfiguracion(".").cuentas.find((c) => c.cuenta === "luiseskivelgolcher");
+  assert.equal((await medir(base, { config: personal, logoUrl: "cuentas/luiseskivelgolcher/logo.png" })).logoAncho, 90);
+  assert.equal((await medir(base, { config: personal, logoUrl: null })).logoAncho, 90, "también las iniciales de reserva");
+  assert.equal((await medir(base)).logoAncho, 120);
 });

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="es" data-version="9">
+<html lang="es" data-version="10">
 <head>
 <meta charset="utf-8">
 <base href="__BASE__">
@@ -8,7 +8,7 @@
   @font-face { font-family: "Anton"; src: url("assets/fonts/Anton-Regular.ttf") format("truetype"); font-display: block; }
   @font-face { font-family: "Inter"; src: url("assets/fonts/Inter-Variable.ttf") format("truetype"); font-weight: 100 900; font-display: block; }
   :root { --amarillo: #FFD400; --rojo: #E30613; --negro: #111111; --blanco: #FFFFFF;
-          --margen: 72px; --barra-alto: 70px; --pie-alto: 80px; --cuerpo-abajo: 196px; }
+          --margen: 72px; --barra-alto: 70px; --pie-alto: 80px; --cuerpo-abajo: 196px; --logo-tamano: 120px; }
   html, body { margin: 0; padding: 0; }
   body { width: 1080px; height: 1350px; overflow: hidden; font-family: "Inter", Arial, sans-serif; -webkit-font-smoothing: antialiased; }
   .post { position: relative; width: 1080px; height: 1350px; box-sizing: border-box; overflow: hidden;
@@ -27,13 +27,13 @@
   .cabecera, .cuerpo, .pie, .barra, .rotulo { position: absolute; z-index: 1; }
   /* Cabecera: logo pequeño arriba a la izquierda, categoría arriba a la derecha. */
   .cabecera { top: var(--margen); left: var(--margen); right: var(--margen); height: 120px; display: flex; justify-content: space-between; align-items: flex-start; }
-  .logo { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; display: block; }
+  .logo { width: var(--logo-tamano); height: var(--logo-tamano); border-radius: 50%; object-fit: cover; display: block; }
   .post[data-variante="amarillo"] .logo { box-shadow: 0 0 0 5px var(--negro); }
   .post.con-ilustracion[data-variante] .logo { box-shadow: none; }
   /* marca.logoForma "cuadrado": el logo (o las iniciales de reserva) no se recorta en círculo. */
   .post[data-logo-forma="cuadrado"] .logo, .post[data-logo-forma="cuadrado"] .logo-fallback { border-radius: 0; }
-  .logo-fallback { width: 120px; height: 120px; border-radius: 50%; box-sizing: border-box; background: var(--amarillo); color: var(--negro);
-                   display: flex; align-items: center; justify-content: center; font-family: "Anton", Impact, sans-serif; font-size: 44px; line-height: 1; letter-spacing: 0.04em;
+  .logo-fallback { width: var(--logo-tamano); height: var(--logo-tamano); border-radius: 50%; box-sizing: border-box; background: var(--amarillo); color: var(--negro);
+                   display: flex; align-items: center; justify-content: center; font-family: "Anton", Impact, sans-serif; font-size: calc(var(--logo-tamano) * 0.37); line-height: 1; letter-spacing: 0.04em;
                    text-align: center; border: 5px solid var(--negro); }
   .chip { font-weight: 700; font-size: 26px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--chip-fondo); color: var(--chip-texto); padding: 12px 20px; margin-top: 6px; }
   /* Cuerpo anclado a la mitad inferior: titular de 86 a 70 px (máx. 3 líneas) y bajada de 34 a 30 px (máx. 2 líneas). */
@@ -84,6 +84,7 @@
   }
   $("post").dataset.variante = d.variante || "negro";
   $("post").dataset.logoForma = d.logoForma || "circulo";
+  document.documentElement.style.setProperty("--logo-tamano", `${Number(d.logoTamano) || 120}px`); // marca.logoTamano por cuenta
   $("categoria").textContent = d.categoria || "";
   $("titular").textContent = d.titular || "";
   $("bajada").textContent = d.bajada || "";

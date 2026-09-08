@@ -53,10 +53,12 @@ function validarGenerar(g, archivo) {
 
 export const LOGO_FORMAS = ["circulo", "cuadrado"];
 export const LOGO_FORMA_POR_DEFECTO = "circulo";
+export const LOGO_TAMANO_POR_DEFECTO = 120; // px en la imagen de 1080x1350
 
 function validarMarca(marca, archivo) {
   exigir(typeof marca?.nombre === "string" && marca.nombre, "marca.nombre es obligatorio", archivo);
   if (marca.logoForma !== undefined) exigir(LOGO_FORMAS.includes(marca.logoForma), `marca.logoForma debe ser ${LOGO_FORMAS.join(" o ")}`, archivo);
+  if (marca.logoTamano !== undefined) exigir(Number.isInteger(marca.logoTamano) && marca.logoTamano >= 60 && marca.logoTamano <= 160, "marca.logoTamano debe ser un entero entre 60 y 160 (píxeles)", archivo);
   exigir(typeof marca?.usuario === "string" && marca.usuario.startsWith("@"), "marca.usuario debe empezar con @", archivo);
   exigir(typeof marca?.lema === "string", "marca.lema es obligatorio", archivo);
   if (marca.colores !== undefined) {
@@ -179,7 +181,7 @@ export function configDeCuenta(global, cuenta, id) {
     nombre: cuenta.nombre,
     idioma: cuenta.idioma || IDIOMA_POR_DEFECTO,
     automatico: { ...AUTOMATICO_POR_DEFECTO, ...(cuenta.automatico || {}) },
-    marca: { ...cuenta.marca, logoForma: cuenta.marca.logoForma || LOGO_FORMA_POR_DEFECTO, colores: { ...COLORES_POR_DEFECTO, ...(cuenta.marca.colores || {}) } },
+    marca: { ...cuenta.marca, logoForma: cuenta.marca.logoForma || LOGO_FORMA_POR_DEFECTO, logoTamano: cuenta.marca.logoTamano || LOGO_TAMANO_POR_DEFECTO, colores: { ...COLORES_POR_DEFECTO, ...(cuenta.marca.colores || {}) } },
     zonaHoraria: cuenta.zonaHoraria || global.zonaHoraria,
     instagram: { apiVersion: global.instagram.apiVersion, ...cuenta.instagram },
     ilustraciones: { ...global.ilustraciones, ...cuenta.ilustraciones },

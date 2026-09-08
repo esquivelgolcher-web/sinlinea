@@ -155,8 +155,11 @@ Cada cuenta tiene además:
 - `marca.logoForma`: `"circulo"` (por defecto) o `"cuadrado"`. Con `"cuadrado"` el
   logo no se recorta en círculo (así va el logo LEG de `luiseskivelgolcher`).
   Si cambia, REGENERAR vuelve a dibujar los posts activos de esa cuenta.
+- `marca.logoTamano`: lado del logo en píxeles dentro de la imagen de 1080x1350
+  (120 por defecto; entero entre 60 y 160; `luiseskivelgolcher` usa 90). Si
+  cambia, REGENERAR vuelve a dibujar los posts activos de esa cuenta.
 - Sin `logo.png`, la imagen muestra las iniciales de `marca.nombre` (en círculo o
-  cuadrado según `marca.logoForma`).
+  cuadrado según `marca.logoForma`, del tamaño de `marca.logoTamano`).
 - `npm run logo -- --cuenta <id>` genera `cuentas/<id>/logo.png`: un cuadrado con
   las iniciales en la tipografía del titular (Anton), fondo `colores.oscuro` y
   letras `colores.principal`. Admite `--texto`, `--fondo`, `--letra`, `--tamano`

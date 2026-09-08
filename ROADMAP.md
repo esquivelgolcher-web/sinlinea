@@ -68,6 +68,11 @@ configurable por cuenta (`idioma`, `es-PA` por defecto).
   Ilustraciones activas con estilo neutro provisional; generación y publicación
   siguen apagadas. Pendiente: revisar ambos en el panel, definir fuentes y la
   conexión de Instagram.
+- **Ajuste del logo LEG (2026-09-08, noche)**: a petición del operador el
+  cuadro pasa a negro (`oscuro` vuelve a `#161616`; `logo.png` regenerado con
+  `npm run logo`) y el logo se dibuja más pequeño: nuevo campo opcional
+  `marca.logoTamano` (120 px por defecto, 90 en esta cuenta), plantilla v10; el
+  tamaño entra en el sello visual y REGENERAR redibuja los posts activos.
 - **Borrador para revisión (2026-09-08, noche)**: el borrador de registros
   públicos pasó a titularse "Cómo investigar una empresa en Panamá", con caption
   revisado (método, advertencia de que un registro no prueba una irregularidad)
@@ -85,7 +90,7 @@ configurable por cuenta (`idioma`, `es-PA` por defecto).
   oscura marrón/crema y versión clara blanco/negro). Nuevo comando
   `npm run logo -- --cuenta <id>` (`src/logo.mjs`, dibuja las iniciales con la
   Anton de la plantilla y las centra por su tinta real) que generó
-  `cuentas/luiseskivelgolcher/logo.png` (marrón `#3B2B1F`, letras `#E9E4DA`) y
+  `cuentas/luiseskivelgolcher/logo.png` (primero marrón `#3B2B1F`, desde esa misma noche negro `#161616`; letras `#E9E4DA`) y
   `logo-claro.png` (blanco, letras `#111111`; no lo usa la plantilla). Nuevo
   campo opcional `marca.logoForma` (`circulo` por defecto, `cuadrado` para esta
   cuenta) para que la plantilla no recorte el logo en círculo; plantilla v9 y el

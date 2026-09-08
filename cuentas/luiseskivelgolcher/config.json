@@ -10,10 +10,11 @@
     "usuario": "@luiseskivelgolcher",
     "lema": "",
     "logoForma": "cuadrado",
+    "logoTamano": 90,
     "colores": {
       "principal": "#E9E4DA",
       "acento": "#1F5FBF",
-      "oscuro": "#3B2B1F",
+      "oscuro": "#161616",
       "claro": "#FFFFFF"
     }
   },

@@ -38,8 +38,9 @@ texto lo haya escrito Luis. Español de Panamá.
 ## Pendiente de definir
 - Fuentes específicas (medios, portales oficiales, organismos) para la generación
   automática: hasta entonces `fuentes` está vacío y `automatico.generar` en `false`.
-- Colores definitivos: el logo (cuadrado "LEG", marrón `#3B2B1F` con letras
-  crema `#E9E4DA`; versión clara en `logo-claro.png`) quedó definido el
-  2026-09-08; el acento azul y el resto de la paleta siguen siendo provisionales.
+- Colores definitivos: el logo (cuadrado "LEG", negro `#161616` con letras
+  crema `#E9E4DA`, 90 px en la imagen; versión clara en `logo-claro.png`) quedó
+  definido el 2026-09-08; el acento azul y el resto de la paleta siguen siendo
+  provisionales.
 - `automatico.publicar` permanece en `false` hasta que la cuenta esté conectada,
   verificada y esta línea editorial esté aprobada en producción.
