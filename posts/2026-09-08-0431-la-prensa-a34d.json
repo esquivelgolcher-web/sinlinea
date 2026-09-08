@@ -23,23 +23,23 @@
   "imagen": {
     "ruta": "public/img/2026-09-08-0431-la-prensa-a34d.jpg",
     "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-08-0431-la-prensa-a34d.jpg",
-    "hash": "a3a0f3bbf570d5dd",
+    "hash": "bab916647cd2dd62",
     "version": 6,
-    "renderizada": "2026-09-08T10:01:34.251Z"
+    "renderizada": "2026-09-08T10:17:48.477Z"
   },
   "programado": null,
   "publicacion": null,
   "error": null,
   "creado": "2026-09-08T09:31:27.873Z",
-  "actualizado": "2026-09-08T10:17:03.372Z",
+  "actualizado": "2026-09-08T10:17:39.266Z",
   "ilustracion": {
     "descripcion": "Arrecife de coral vivo en aguas turquesas del Caribe panameño, peces de colores entre los corales, luz del sol filtrándose desde la superficie, sin personas",
     "usar": true,
-    "ruta": null,
-    "hashDescripcion": null,
-    "proveedor": null,
-    "modelo": null,
-    "generada": null,
+    "ruta": "public/ilus/2026-09-08-0431-la-prensa-a34d.jpg",
+    "hashDescripcion": "f6f5f3e4b050592e",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-08T10:17:39.266Z",
     "error": null
   }
 }
