@@ -56,6 +56,9 @@ test("con ilustración, la variante amarilla no dibuja el anillo del logo", asyn
   await page.goto(pathToFileURL(path.resolve(rutaHtml)).href, { waitUntil: "load" });
   await page.waitForSelector('body[data-listo="1"]', { timeout: 15000 });
   const sombra = await page.$eval("#post .logo", (n) => getComputedStyle(n).boxShadow);
+  assert.equal(await page.$eval("#rotulo", (n) => getComputedStyle(n).display), "block");
+  assert.match(await page.$eval("#rotulo", (n) => n.textContent), /Ilustración generada con IA/);
   await page.close();
   assert.equal(sombra, "none");
+  fs.rmSync(rutaHtml, { force: true });
 });
