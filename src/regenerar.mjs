@@ -26,7 +26,10 @@ export async function ejecutarRegenerar({ config, raiz = process.cwd(), ahora = 
         regeneradas.add(p.id);
         log.info(`Ilustración regenerada: ${p.id}`);
       } catch (err) {
-        nuevo = { ...p, ilustracion: { ...p.ilustracion, error: { mensaje: err.message, fecha: iso } }, actualizado: iso };
+        const intentos = (p.ilustracion.error?.intentos ?? 0) + 1;
+        const ilustracion = { ...p.ilustracion, error: { mensaje: err.message, fecha: iso, intentos } };
+        if (intentos >= 3) ilustracion.usar = false;
+        nuevo = { ...p, ilustracion, actualizado: iso };
         log.warn(`Ilustración falló para ${p.id}: ${err.message}`);
       }
       escribirPost(dir, nuevo);

@@ -109,6 +109,16 @@ test("necesitaIlustracion: solo con usar=true y escena cambiada o sin imagen (sa
   assert.equal(necesitaIlustracion({}, ahora), false);
 });
 
+test("necesitaIlustracion (I1): el enfriamiento de 1 h se aplica también cuando cambió la descripción", () => {
+  const ahora = new Date("2026-09-08T12:00:00Z");
+  const ilCambiada = (fecha) => ({
+    descripcion: "Nueva escena", usar: true, ruta: "public/ilus/x.jpg",
+    hashDescripcion: hashTexto("Escena vieja"), error: { mensaje: "x", fecha, intentos: 1 },
+  });
+  assert.equal(necesitaIlustracion({ ilustracion: ilCambiada("2026-09-08T11:50:00Z") }, ahora), false, "error hace 10 min");
+  assert.equal(necesitaIlustracion({ ilustracion: ilCambiada("2026-09-08T10:00:00Z") }, ahora), true, "error hace 2 h");
+});
+
 test("editarTexto acepta ilustracion válida y rechaza inválida", () => {
   const p = base();
   const e = editarTexto(p, { ilustracion: { descripcion: "Canal", usar: true, ruta: null, hashDescripcion: null, error: null } }, AHORA);

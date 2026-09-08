@@ -124,3 +124,12 @@ test("crearPost crea ilustracion cuando hay escena; validarPost la comprueba", (
   validarPost({ ...con, ilustracion: { ...con.ilustracion, usar: true, ruta: "public/ilus/a.jpg", hashDescripcion: "0123456789abcdef", error: null } });
   validarPost({ ...con, ilustracion: undefined });
 });
+
+test("validarPost (I1) acepta error.intentos ausente o entero >= 1 y rechaza otros valores", () => {
+  const con = crearPost({ candidato, redaccion: { ...redaccion, escena: "Estación de bomberos en Panamá al atardecer" }, variante: "negro", ahora });
+  const iso = ahora.toISOString();
+  validarPost({ ...con, ilustracion: { ...con.ilustracion, error: { mensaje: "m", fecha: iso } } });
+  validarPost({ ...con, ilustracion: { ...con.ilustracion, error: { mensaje: "m", fecha: iso, intentos: 2 } } });
+  assert.throws(() => validarPost({ ...con, ilustracion: { ...con.ilustracion, error: { mensaje: "m", fecha: iso, intentos: "2" } } }), /ilustracion/);
+  assert.throws(() => validarPost({ ...con, ilustracion: { ...con.ilustracion, error: { mensaje: "m", fecha: iso, intentos: 0 } } }), /ilustracion/);
+});

@@ -72,7 +72,7 @@ export async function ejecutarGenerar({ config, raiz = process.cwd(), ahora = ne
         log.info(`Ilustración generada para ${post.id}.`);
       } catch (err) {
         log.warn(`Ilustración falló para ${post.id}: ${err.message}`);
-        post = { ...post, ilustracion: { ...post.ilustracion, usar: false, error: { mensaje: err.message, fecha: iso } } };
+        post = { ...post, ilustracion: { ...post.ilustracion, usar: false, error: { mensaje: err.message, fecha: iso, intentos: 1 } } };
       }
     }
     try {

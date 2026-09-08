@@ -52,7 +52,8 @@ export function validarPost(post) {
     exigir(
       il && typeof il === "object" && typeof il.descripcion === "string" && typeof il.usar === "boolean"
         && (il.ruta === null || typeof il.ruta === "string") && (il.hashDescripcion === null || typeof il.hashDescripcion === "string")
-        && (il.error === null || (il.error && typeof il.error.mensaje === "string" && !Number.isNaN(Date.parse(il.error.fecha)))),
+        && (il.error === null || (il.error && typeof il.error.mensaje === "string" && !Number.isNaN(Date.parse(il.error.fecha))
+          && (il.error.intentos === undefined || (Number.isInteger(il.error.intentos) && il.error.intentos >= 1)))),
       "ilustracion debe tener descripcion, usar, ruta, hashDescripcion y error válidos"
     );
   }

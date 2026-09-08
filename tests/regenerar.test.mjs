@@ -80,6 +80,19 @@ test("Regenerar ilustración con la misma escena vuelve a renderizar (C1)", asyn
   assert.equal(guardado.ilustracion.hashDescripcion, hashTexto(descripcion));
 });
 
+test("(I1) al tercer fallo consecutivo la ilustración se desactiva (usar=false)", async () => {
+  const conFallosPrevios = {
+    ...base,
+    ilustracion: { descripcion: "Escena", usar: true, ruta: null, hashDescripcion: null, proveedor: null, modelo: null, generada: null, error: { mensaje: "previo", fecha: "2026-09-06T00:00:00.000Z", intentos: 2 } },
+  };
+  const raiz = dirCon([conFallosPrevios]);
+  const ilustrador = { async generar() { throw new Error("Gemini respondió 500: caído"); } };
+  await ejecutarRegenerar({ config: cfg, raiz, ahora, render: async (x) => imagenDe(x), log, version: 1, ilustrador, guardar: async () => {} });
+  const guardado = leerPosts(path.join(raiz, "posts"))[0];
+  assert.equal(guardado.ilustracion.error.intentos, 3);
+  assert.equal(guardado.ilustracion.usar, false);
+});
+
 test("regenera la ilustración cuando cambió la escena y no llama con usar=false", async () => {
   const conIlus = { ...base, imagen: imagenDe(base), ilustracion: { descripcion: "Nueva escena", usar: true, ruta: "public/ilus/a.jpg", hashDescripcion: "0000000000000000", proveedor: "gemini", modelo: "m", generada: ahora.toISOString(), error: null } };
   const apagada = { ...base, id: base.id.slice(0, -4) + "0009", imagen: imagenDe({ ...base, id: base.id.slice(0, -4) + "0009" }), ilustracion: { descripcion: "Otra", usar: false, ruta: null, hashDescripcion: null, proveedor: null, modelo: null, generada: null, error: null } };

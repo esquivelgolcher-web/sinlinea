@@ -155,11 +155,13 @@ function tarjeta({ post, sha }) {
   ]);
   const cambios = () => {
     const escena = campos.escena.value.trim();
+    const usar = campos.usar.checked && escena !== "";
+    const reactivada = usar && !(post.ilustracion && post.ilustracion.usar);
     return {
       titular: campos.titular.value.trim(), bajada: campos.bajada.value.trim(), caption: campos.caption.value.trim(),
       hashtags: normalizarHashtags(campos.hashtags.value.split(/\s+/)), categoria: campos.categoria.value, variante: campos.variante.value,
       ilustracion: (escena || post.ilustracion)
-        ? { ...(post.ilustracion || { ruta: null, hashDescripcion: null, proveedor: null, modelo: null, generada: null, error: null }), descripcion: escena, usar: campos.usar.checked && escena !== "" }
+        ? { ...(post.ilustracion || { ruta: null, hashDescripcion: null, proveedor: null, modelo: null, generada: null, error: null }), descripcion: escena, usar, ...(reactivada ? { error: null } : {}) }
         : null,
     };
   };
