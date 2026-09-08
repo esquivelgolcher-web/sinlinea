@@ -1,0 +1,35 @@
+{
+  "id": "2026-09-08-0431-la-prensa-7953",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/judiciales/conductor-de-plataforma-es-imputado-por-el-homicidio-del-empresario-suizo-espanol-miguel-angel-gonzalez/",
+    "titulo": "Conductor de plataforma es imputado por el homicidio del empresario suizo-español Miguel Ángel González",
+    "publicado": "2026-09-07T21:51:42.000Z"
+  },
+  "categoria": "SEGURIDAD",
+  "titular": "Imputan a conductor de plataforma por homicidio de empresario en Juan Díaz",
+  "bajada": "Jesús Vergara es la cuarta persona vinculada al crimen de Miguel Ángel González, cometido en abril por el robo de 77 kilos de plata.",
+  "caption": "El caso del empresario suizo-español asesinado en Juan Díaz suma un nuevo imputado: un conductor de plataforma que habría participado en la persecución previa al ataque. Las autoridades ya detectaron un patrón que conecta el crimen con la pandilla Los Galácticos. ¿Qué opinas de cómo avanza esta investigación?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Seguridad",
+    "#Justicia",
+    "#JuanDíaz",
+    "#CrimenOrganizado"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-09-08-0431-la-prensa-7953.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-08-0431-la-prensa-7953.jpg",
+    "hash": "d6b2882e806b33c4",
+    "version": 4,
+    "renderizada": "2026-09-08T09:31:56.836Z"
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-08T09:31:27.873Z",
+  "actualizado": "2026-09-08T09:31:27.873Z"
+}
