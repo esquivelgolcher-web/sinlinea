@@ -8,7 +8,7 @@
     "publicado": "2026-09-08T11:48:47.000Z"
   },
   "categoria": "EDUCACIÓN",
-  "titular": "Pruebas PISA marcan el peor rendimiento educativo",
+  "titular": "Pruebas PISA marcan el peor rendimiento",
   "bajada": "Más de 760 mil estudiantes de 91 países mostraron caídas en lectura, ciencias y matemáticas.",
   "caption": "El examen que mide qué tan bien resuelven problemas los jóvenes de 15 años arrojó cifras alarmantes: el rendimiento más bajo desde que se aplica la prueba. La caída en matemáticas ha sido especialmente fuerte desde 2018. Un llamado de atención para los sistemas educativos de la región. ¿Cree que la educación en Panamá enfrenta los mismos retrocesos?",
   "hashtags": [
@@ -28,10 +28,10 @@
     "renderizada": "2026-09-08T13:47:49.571Z"
   },
   "ilustracion": {
-    "descripcion": "Aula escolar vacía con pupitres ordenados y un pizarrón en blanco, luz natural entrando por una ventana, zona izquierda y central despejadas, pupitre destacado en el tercio superior derecho.",
+    "descripcion": "Aula escolar vacía con pupitres ordenados y un pizarrón en blanco, luz natural entrando por una ventana, zona izquierda y central despejadas. Un estudiante triste en medio de todo",
     "usar": true,
     "ruta": "public/ilus/2026-09-08-0737-la-prensa-9352.jpg",
-    "hashDescripcion": "e78ad716faa8d83c",
+    "hashDescripcion": null,
     "proveedor": "gemini",
     "modelo": "gemini-3.1-flash-lite-image",
     "generada": "2026-09-08T13:47:45.115Z",
@@ -41,5 +41,5 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-08T12:37:50.322Z",
-  "actualizado": "2026-09-08T13:47:45.115Z"
+  "actualizado": "2026-09-08T14:21:06.272Z"
 }
