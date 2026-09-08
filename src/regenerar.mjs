@@ -13,6 +13,7 @@ export async function ejecutarRegenerar({ config, raiz = process.cwd(), ahora = 
   const iso = ahora.toISOString();
   const actual = version ?? versionPlantilla(fs.readFileSync(path.join(raiz, RUTA_PLANTILLA), "utf8"));
   const activos = leerPosts(dir).filter((p) => ["borrador", "programado", "error"].includes(p.estado));
+  const regeneradas = new Set();
   if (ilustrador) {
     for (const p of activos) {
       if (!necesitaIlustracion(p, ahora)) continue;
@@ -22,6 +23,7 @@ export async function ejecutarRegenerar({ config, raiz = process.cwd(), ahora = 
         const buf = await ilustrador.generar(p.ilustracion.descripcion);
         await guardar(buf, path.join(raiz, ruta));
         nuevo = { ...p, ilustracion: { ...p.ilustracion, ruta, hashDescripcion: hashTexto(p.ilustracion.descripcion), proveedor: config.ilustraciones.proveedor, modelo: config.ilustraciones.modelo, generada: iso, error: null }, actualizado: iso };
+        regeneradas.add(p.id);
         log.info(`Ilustración regenerada: ${p.id}`);
       } catch (err) {
         nuevo = { ...p, ilustracion: { ...p.ilustracion, error: { mensaje: err.message, fecha: iso } }, actualizado: iso };
@@ -34,7 +36,8 @@ export async function ejecutarRegenerar({ config, raiz = process.cwd(), ahora = 
   const pendientes = vigentes.filter((p) =>
     imagenDesactualizada(p, actual)
     || (p.estado === "error" && p.error?.paso === "render")
-    || (p.imagen && p.imagen.url !== urlImagen(config.pages.baseUrl, p.id)));
+    || (p.imagen && p.imagen.url !== urlImagen(config.pages.baseUrl, p.id))
+    || regeneradas.has(p.id));
   const resultado = { renderizados: [], fallidos: [] };
   if (!pendientes.length) { log.info("Ninguna imagen que regenerar."); return resultado; }
   for (const p of pendientes) {

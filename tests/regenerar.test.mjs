@@ -63,6 +63,23 @@ test("una imagen con URL de otro baseUrl se vuelve a renderizar", async () => {
   assert.deepEqual(r.renderizados, [p.id]);
 });
 
+test("Regenerar ilustración con la misma escena vuelve a renderizar (C1)", async () => {
+  const descripcion = "Canal de Panamá desde Miraflores";
+  const hashDesc = hashTexto(descripcion);
+  const ilustracionBase = { descripcion, usar: true, ruta: `public/ilus/${base.id}.jpg`, hashDescripcion: null, proveedor: "gemini", modelo: "m", generada: ahora.toISOString(), error: null };
+  // El hash de la imagen ya está al día para la descripción actual (hashDescripcion == hashDesc);
+  // en el post real hashDescripcion se puso en null (p. ej. al pulsar "Regenerar ilustración").
+  const imagenAlDia = imagenDe({ ...base, ilustracion: { ...ilustracionBase, hashDescripcion: hashDesc } }, 1);
+  const post = { ...base, ilustracion: ilustracionBase, imagen: imagenAlDia };
+  const raiz = dirCon([post]);
+  const ilustrador = { async generar() { return Buffer.from("00", "hex"); } };
+  const guardar = async () => {};
+  const r = await ejecutarRegenerar({ config: cfg, raiz, ahora, render: async (x) => imagenDe(x, 1), log, version: 1, ilustrador, guardar });
+  assert.deepEqual(r.renderizados, [post.id]);
+  const guardado = leerPosts(path.join(raiz, "posts"))[0];
+  assert.equal(guardado.ilustracion.hashDescripcion, hashTexto(descripcion));
+});
+
 test("regenera la ilustración cuando cambió la escena y no llama con usar=false", async () => {
   const conIlus = { ...base, imagen: imagenDe(base), ilustracion: { descripcion: "Nueva escena", usar: true, ruta: "public/ilus/a.jpg", hashDescripcion: "0000000000000000", proveedor: "gemini", modelo: "m", generada: ahora.toISOString(), error: null } };
   const apagada = { ...base, id: base.id.slice(0, -4) + "0009", imagen: imagenDe({ ...base, id: base.id.slice(0, -4) + "0009" }), ilustracion: { descripcion: "Otra", usar: false, ruta: null, hashDescripcion: null, proveedor: null, modelo: null, generada: null, error: null } };
