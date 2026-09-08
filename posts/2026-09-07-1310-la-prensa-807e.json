@@ -23,23 +23,23 @@
   "imagen": {
     "ruta": "public/img/2026-09-07-1310-la-prensa-807e.jpg",
     "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-07-1310-la-prensa-807e.jpg",
-    "hash": "b0dc9128872024f2",
+    "hash": "89ea0026bef07cd4",
     "version": 7,
-    "renderizada": "2026-09-08T10:58:20.535Z"
+    "renderizada": "2026-09-08T11:25:26.871Z"
   },
   "programado": null,
   "publicacion": null,
   "error": null,
   "creado": "2026-09-07T18:10:04.522Z",
-  "actualizado": "2026-09-08T11:24:38.833Z",
+  "actualizado": "2026-09-08T11:25:17.609Z",
   "ilustracion": {
-    "ruta": null,
-    "proveedor": null,
-    "modelo": null,
-    "generada": null,
-    "descripcion": "",
+    "ruta": "public/ilus/2026-09-07-1310-la-prensa-807e.jpg",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-08T11:25:17.609Z",
+    "descripcion": "Fila de vehículos oficiales blancos estacionados en un patio gubernamental vacío, con una cadena y candado simbólico en la entrada, luz diurna, zona izquierda y central despejadas.",
     "usar": true,
-    "hashDescripcion": null,
+    "hashDescripcion": "877bc28b87bae2a1",
     "error": null
   }
 }
