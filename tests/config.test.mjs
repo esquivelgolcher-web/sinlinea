@@ -35,3 +35,13 @@ test("rechaza un esfuerzo inválido y una apiVersion mal formada", () => {
   cfg2.instagram.apiVersion = "23";
   assert.throws(() => validarConfig(cfg2), /apiVersion/);
 });
+
+test("valida el bloque ilustraciones", () => {
+  const cfg = base();
+  assert.equal(cfg.ilustraciones.proveedor, "gemini");
+  cfg.ilustraciones.tamano = "8K";
+  assert.throws(() => validarConfig(cfg), /ilustraciones\.tamano/);
+  const cfg2 = base();
+  cfg2.ilustraciones.activo = "si";
+  assert.throws(() => validarConfig(cfg2), /ilustraciones\.activo/);
+});

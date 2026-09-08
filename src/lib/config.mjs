@@ -45,6 +45,15 @@ export function validarConfig(cfg) {
     vistas.add(h);
   }
   exigir(/^v\d+\.\d+$/.test(cfg.instagram?.apiVersion || ""), "instagram.apiVersion debe tener la forma vNN.N");
+
+  const il = cfg.ilustraciones;
+  exigir(il && typeof il === "object", "ilustraciones es obligatorio");
+  exigir(typeof il.activo === "boolean", "ilustraciones.activo debe ser true o false");
+  exigir(il.proveedor === "gemini", "ilustraciones.proveedor debe ser gemini");
+  for (const k of ["modelo", "estilo", "rotulo"]) exigir(typeof il[k] === "string" && il[k].trim(), `ilustraciones.${k} es obligatorio`);
+  exigir(["512px", "1K", "2K"].includes(il.tamano), "ilustraciones.tamano debe ser 512px, 1K o 2K");
+  exigir(Number.isInteger(il.timeoutMs) && il.timeoutMs > 0, "ilustraciones.timeoutMs debe ser un entero positivo");
+
   exigir(Number.isInteger(cfg.archivarDespuesDeDias) && cfg.archivarDespuesDeDias > 0, "archivarDespuesDeDias debe ser un entero positivo");
   return cfg;
 }

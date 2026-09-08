@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import {
   hashImagen, imagenDesactualizada, aprobar, descartar, quitarDeCola, reintentar,
   marcarPublicado, marcarError, renderOk, editarTexto, CATEGORIAS, VARIANTES,
+  hashTexto, necesitaIlustracion,
 } from "../src/lib/estados.mjs";
 
 const AHORA = "2026-09-07T20:00:00.000Z";
@@ -80,4 +81,36 @@ test("editarTexto valida campos, categoría y variante", () => {
   assert.throws(() => editarTexto(base(), { categoria: "CHISMES" }, AHORA), /categor/i);
   const pub = marcarPublicado(aprobar(base(), "2026-09-07T17:00:00-05:00", AHORA), { idMedia: "1", permalink: "u" }, AHORA);
   assert.throws(() => editarTexto(pub, { titular: "x" }, AHORA), /Transición inválida/);
+});
+
+test("hashTexto es estable y hashImagen cambia con la ilustración usada", () => {
+  assert.equal(hashTexto("hola"), hashTexto("hola"));
+  assert.match(hashTexto("hola"), /^[0-9a-f]{16}$/);
+  const p = base();
+  const sin = hashImagen(p, 1);
+  const conIlus = { ...p, ilustracion: { descripcion: "Canal", usar: true, ruta: "public/ilus/x.jpg", hashDescripcion: hashTexto("Canal"), error: null } };
+  assert.notEqual(hashImagen(conIlus, 1), sin);
+  assert.equal(hashImagen({ ...conIlus, ilustracion: { ...conIlus.ilustracion, usar: false } }, 1), sin);
+  assert.equal(hashImagen({ ...conIlus, ilustracion: { ...conIlus.ilustracion, ruta: null } }, 1), sin);
+  assert.notEqual(hashImagen({ ...conIlus, ilustracion: { ...conIlus.ilustracion, hashDescripcion: hashTexto("Asamblea") } }, 1), hashImagen(conIlus, 1));
+});
+
+test("necesitaIlustracion: solo con usar=true y escena cambiada o sin imagen (salvo error reciente)", () => {
+  const ahora = new Date("2026-09-08T12:00:00Z");
+  const ok = { descripcion: "Canal", usar: true, ruta: "public/ilus/x.jpg", hashDescripcion: hashTexto("Canal"), error: null };
+  assert.equal(necesitaIlustracion({ ilustracion: ok }, ahora), false);
+  assert.equal(necesitaIlustracion({ ilustracion: { ...ok, descripcion: "Asamblea" } }, ahora), true);
+  assert.equal(necesitaIlustracion({ ilustracion: { ...ok, ruta: null, hashDescripcion: null } }, ahora), true);
+  assert.equal(necesitaIlustracion({ ilustracion: { ...ok, ruta: null, hashDescripcion: null, error: { mensaje: "x", fecha: "2026-09-08T11:30:00Z" } } }, ahora), false);
+  assert.equal(necesitaIlustracion({ ilustracion: { ...ok, ruta: null, hashDescripcion: null, error: { mensaje: "x", fecha: "2026-09-08T09:00:00Z" } } }, ahora), true);
+  assert.equal(necesitaIlustracion({ ilustracion: { ...ok, usar: false, descripcion: "Otra" } }, ahora), false);
+  assert.equal(necesitaIlustracion({ ilustracion: null }, ahora), false);
+  assert.equal(necesitaIlustracion({}, ahora), false);
+});
+
+test("editarTexto acepta ilustracion válida y rechaza inválida", () => {
+  const p = base();
+  const e = editarTexto(p, { ilustracion: { descripcion: "Canal", usar: true, ruta: null, hashDescripcion: null, error: null } }, AHORA);
+  assert.equal(e.ilustracion.usar, true);
+  assert.throws(() => editarTexto(p, { ilustracion: { descripcion: 5, usar: true } }, AHORA), /ilustracion/);
 });

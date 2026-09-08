@@ -5,6 +5,7 @@ import os from "node:os";
 import path from "node:path";
 import {
   validarPost, leerPosts, escribirPost, nuevoId, crearPost, siguienteVariante, creadosHoy, archivar, rutaImagen, urlImagen,
+  rutaIlustracion,
 } from "../src/lib/posts.mjs";
 
 const ahora = new Date("2026-09-07T19:20:31Z");
@@ -110,4 +111,16 @@ test("archivar mueve publicados y descartados viejos", () => {
   assert.deepEqual(movidos, [viejo.id]);
   assert.ok(fs.existsSync(path.join(dir, "archivo", "2026-08", `${viejo.id}.json`)));
   assert.equal(leerPosts(dir).length, 2);
+});
+
+test("crearPost crea ilustracion cuando hay escena; validarPost la comprueba", () => {
+  const con = crearPost({ candidato, redaccion: { ...redaccion, escena: "Estación de bomberos en Panamá al atardecer" }, variante: "negro", ahora });
+  assert.deepEqual(con.ilustracion, { descripcion: "Estación de bomberos en Panamá al atardecer", usar: false, ruta: null, hashDescripcion: null, proveedor: null, modelo: null, generada: null, error: null });
+  const sin = crearPost({ candidato, redaccion, variante: "negro", ahora });
+  assert.equal(sin.ilustracion, null);
+  assert.equal(rutaIlustracion(con.id), `public/ilus/${con.id}.jpg`);
+  assert.throws(() => validarPost({ ...con, ilustracion: { descripcion: "x" } }), /ilustracion/);
+  assert.throws(() => validarPost({ ...con, ilustracion: { ...con.ilustracion, error: { mensaje: 1 } } }), /ilustracion/);
+  validarPost({ ...con, ilustracion: { ...con.ilustracion, usar: true, ruta: "public/ilus/a.jpg", hashDescripcion: "0123456789abcdef", error: null } });
+  validarPost({ ...con, ilustracion: undefined });
 });

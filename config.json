@@ -31,5 +31,14 @@
   "claude": { "modelo": "claude-sonnet-5", "esfuerzo": "medium" },
   "franjas": ["07:00", "09:30", "12:00", "14:30", "17:00", "19:30"],
   "instagram": { "apiVersion": "v23.0" },
+  "ilustraciones": {
+    "activo": true,
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "tamano": "1K",
+    "estilo": "Fotografía editorial realista de prensa, luz natural, colores sobrios, composición limpia con espacio libre en la mitad inferior. Sin personas identificables ni rostros, sin texto, sin logotipos, sin marcas de agua.",
+    "rotulo": "Ilustración generada con IA",
+    "timeoutMs": 60000
+  },
   "archivarDespuesDeDias": 7
 }

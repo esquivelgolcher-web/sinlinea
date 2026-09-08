@@ -47,11 +47,24 @@ export function validarPost(post) {
   }
   exigir(post.programado === null || !Number.isNaN(Date.parse(post.programado)), "programado debe ser null o una fecha ISO");
   for (const k of ["creado", "actualizado"]) exigir(!Number.isNaN(Date.parse(post[k])), `${k} debe ser una fecha ISO`);
+  if (post.ilustracion !== undefined && post.ilustracion !== null) {
+    const il = post.ilustracion;
+    exigir(
+      il && typeof il === "object" && typeof il.descripcion === "string" && typeof il.usar === "boolean"
+        && (il.ruta === null || typeof il.ruta === "string") && (il.hashDescripcion === null || typeof il.hashDescripcion === "string")
+        && (il.error === null || (il.error && typeof il.error.mensaje === "string" && !Number.isNaN(Date.parse(il.error.fecha)))),
+      "ilustracion debe tener descripcion, usar, ruta, hashDescripcion y error válidos"
+    );
+  }
   return post;
 }
 
 export function rutaImagen(id) {
   return `public/img/${id}.jpg`;
+}
+
+export function rutaIlustracion(id) {
+  return `public/ilus/${id}.jpg`;
 }
 
 export function urlImagen(baseUrl, id) {
@@ -75,6 +88,9 @@ export function crearPost({ candidato, redaccion, variante, ahora, zona = ZONA_P
     hashtags: normalizarHashtags(redaccion.hashtags),
     variante,
     imagen: null,
+    ilustracion: typeof redaccion.escena === "string" && redaccion.escena.trim()
+      ? { descripcion: redaccion.escena.trim(), usar: false, ruta: null, hashDescripcion: null, proveedor: null, modelo: null, generada: null, error: null }
+      : null,
     programado: null,
     publicacion: null,
     error: null,

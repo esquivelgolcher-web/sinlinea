@@ -7,7 +7,7 @@ export const CATEGORIAS = [
   "EDUCACIÓN", "DEPORTES", "CULTURA", "INTERNACIONAL", "ÚLTIMA HORA",
 ];
 export const CAMPOS_IMAGEN = ["titular", "bajada", "categoria", "variante"];
-const CAMPOS_EDITABLES = ["titular", "bajada", "caption", "hashtags", "categoria", "variante"];
+const CAMPOS_EDITABLES = ["titular", "bajada", "caption", "hashtags", "categoria", "variante", "ilustracion"];
 
 function fnv1a(texto, base) {
   let h = base >>> 0;
@@ -18,9 +18,28 @@ function fnv1a(texto, base) {
   return h.toString(16).padStart(8, "0");
 }
 
+export function hashTexto(texto) {
+  const t = String(texto ?? "");
+  return fnv1a(t, 0x811c9dc5) + fnv1a(t, 0x050c5d1f);
+}
+
 export function hashImagen(post, version) {
-  const texto = [...CAMPOS_IMAGEN.map((c) => String(post[c] ?? "")), String(version)].join("\u0000");
+  const il = post.ilustracion;
+  const ilus = il && il.usar && il.ruta ? String(il.hashDescripcion || "") : "";
+  const texto = [...CAMPOS_IMAGEN.map((c) => String(post[c] ?? "")), ilus, String(version)].join("\u0000");
   return fnv1a(texto, 0x811c9dc5) + fnv1a(texto, 0x050c5d1f);
+}
+
+const HORA_MS = 3600000;
+
+// ¿Hay que pedir (o volver a pedir) la ilustración a Gemini?
+export function necesitaIlustracion(post, ahora) {
+  const il = post.ilustracion;
+  if (!il || !il.usar) return false;
+  if (il.ruta && il.hashDescripcion === hashTexto(il.descripcion)) return false;
+  if (il.hashDescripcion && il.hashDescripcion !== hashTexto(il.descripcion)) return true;
+  if (il.error && ahora.getTime() - Date.parse(il.error.fecha) < HORA_MS) return false;
+  return true;
 }
 
 export function imagenDesactualizada(post, version = post.imagen?.version) {
@@ -85,5 +104,11 @@ export function editarTexto(post, cambios, ahoraIso) {
   if (cambios.categoria !== undefined && !CATEGORIAS.includes(cambios.categoria)) throw new Error(`Categoría inválida: ${cambios.categoria}`);
   if (cambios.variante !== undefined && !VARIANTES.includes(cambios.variante)) throw new Error(`Variante inválida: ${cambios.variante}`);
   if (cambios.hashtags !== undefined && !Array.isArray(cambios.hashtags)) throw new Error("hashtags debe ser una lista");
+  if (cambios.ilustracion !== undefined && cambios.ilustracion !== null) {
+    const il = cambios.ilustracion;
+    if (!il || typeof il !== "object" || typeof il.descripcion !== "string" || typeof il.usar !== "boolean") {
+      throw new Error("ilustracion debe tener descripcion (texto) y usar (true/false)");
+    }
+  }
   return con(post, cambios, ahoraIso);
 }
