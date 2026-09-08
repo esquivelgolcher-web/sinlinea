@@ -187,6 +187,43 @@ export function crearServidor({ raiz = process.cwd() } = {}) {
         fs.writeFileSync(absoluta, contenido);
         return responderJson(res, 200, { ok: true, sha: shaDeBlob(contenido) });
       }
+      if (req.method === "PUT" && p === "/api/archivos") {
+        // Lote: se valida y se comprueban todos los sha ANTES de escribir; si algo falla, no se toca ningún archivo.
+        let cuerpo;
+        try { cuerpo = JSON.parse(await leerCuerpo(req)); } catch { return responderJson(res, 400, { error: "Cuerpo JSON inválido" }); }
+        const archivos = Array.isArray(cuerpo.archivos) ? cuerpo.archivos : null;
+        if (!archivos || !archivos.length) return responderJson(res, 400, { error: "archivos debe ser una lista con al menos un archivo" });
+        for (const a of archivos) if (typeof a?.ruta !== "string" || !rutaPermitida(a.ruta)) return responderJson(res, 403, { error: `Ruta no permitida: ${a?.ruta}` });
+        const preparados = [];
+        for (const a of archivos) {
+          const absoluta = path.join(raiz, ...a.ruta.split("/"));
+          const binario = a.ruta.endsWith(".png");
+          const actual = fs.existsSync(absoluta) ? fs.readFileSync(absoluta) : null;
+          const actualSha = actual ? shaDeBlob(actual) : null;
+          if (a.sha !== undefined) {
+            const version = { ruta: a.ruta, sha: actualSha, texto: actual && !binario ? actual.toString("utf8") : null };
+            if (a.sha === null && actual) return responderJson(res, 409, { error: `${a.ruta} ya existe`, ...version });
+            if (a.sha && a.sha !== actualSha) return responderJson(res, 409, { error: `${a.ruta} cambió (o ya no existe); vuelve a leerlo antes de guardar`, ...version });
+          }
+          let contenido;
+          if (binario) {
+            if (typeof a.base64 !== "string" || !a.base64) return responderJson(res, 400, { error: `Falta base64 en ${a.ruta}` });
+            contenido = Buffer.from(a.base64, "base64");
+          } else {
+            if (typeof a.texto !== "string") return responderJson(res, 400, { error: `Falta texto en ${a.ruta}` });
+            try { validarContenido(a.ruta, a.texto); } catch (err) { return responderJson(res, 400, { error: err.message }); }
+            contenido = Buffer.from(a.texto, "utf8");
+          }
+          preparados.push({ ruta: a.ruta, absoluta, contenido });
+        }
+        const shas = {};
+        for (const pr of preparados) {
+          fs.mkdirSync(path.dirname(pr.absoluta), { recursive: true });
+          fs.writeFileSync(pr.absoluta, pr.contenido);
+          shas[pr.ruta] = shaDeBlob(pr.contenido);
+        }
+        return responderJson(res, 200, { ok: true, shas });
+      }
       if (req.method === "POST" && p === "/api/verificar-conexion") {
         const cuenta = url.searchParams.get("cuenta") || "";
         const global = cargarGlobal(path.join(raiz, "config.json"));

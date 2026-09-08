@@ -79,6 +79,13 @@ export function crearAlmacenLocal() {
       if (!res.ok) throw new Error(j.error || `No se pudo guardar ${ruta} (HTTP ${res.status})`);
       return j.sha;
     },
+    // Varios archivos de una vez o ninguno (alta y edición de cuentas).
+    async escribirArchivos(archivos, { mensaje = "" } = {}) {
+      const { res, j } = await json(await fetch("/api/archivos", { method: "PUT", headers: { "content-type": "application/json" }, body: JSON.stringify({ mensaje, archivos }) }));
+      if (res.status === 409) throw new ErrorConflictoArchivo(j.ruta, j.sha ? { texto: j.texto ?? null, sha: j.sha } : null);
+      if (!res.ok) throw new Error(j.error || `No se pudieron guardar los archivos (HTTP ${res.status})`);
+      return { commit: null, shas: j.shas };
+    },
     async solicitarVerificacion(cuenta) {
       const { res, j } = await json(await fetch(`/api/verificar-conexion?cuenta=${encodeURIComponent(cuenta)}`, { method: "POST" }));
       if (!res.ok) throw new Error(j.error || `No se pudo solicitar la verificación (HTTP ${res.status})`);
@@ -116,6 +123,47 @@ export function crearAlmacenGitHub({ token, owner, repo, rama = "main", fetchImp
     if (!res.ok) throw new Error(`GitHub respondió ${res.status} al guardar ${ruta} (¿el token tiene permiso de escritura en Contents?)`);
     return (await res.json()).content.sha;
   }
+  const enviar = (ruta, metodo, cuerpo) => fetchImpl(`${api}/${ruta}`, { method: metodo, headers: cabeceras({ "content-type": "application/json" }), body: JSON.stringify(cuerpo) });
+  // Varios archivos en UN solo commit (API de git: blobs → árbol → commit → ref), para que un alta no quede a medias.
+  // `sha`: null = debe ser nuevo; texto = versión que se espera encontrar; undefined = sin comprobación (p. ej. el logo).
+  // Si la rama avanzó entre la lectura y el commit (la ref no avanza en línea recta), se rehace todo sobre la punta nueva.
+  async function escribirArchivos(archivos, { mensaje = "panel: cambios de cuenta" } = {}) {
+    for (let intento = 0; intento < 3; intento++) {
+      const ref = await fetchImpl(`${api}/git/ref/heads/${rama}`, { headers: cabeceras() });
+      if (!ref.ok) throw new Error(`GitHub respondió ${ref.status} al leer la rama ${rama}`);
+      const head = (await ref.json()).object.sha;
+      const commitBase = await fetchImpl(`${api}/git/commits/${head}`, { headers: cabeceras() });
+      if (!commitBase.ok) throw new Error(`GitHub respondió ${commitBase.status} al leer el commit ${head}`);
+      const arbolBase = (await commitBase.json()).tree.sha;
+      for (const a of archivos) {
+        if (a.sha === undefined) continue;
+        const res = await fetchImpl(`${api}/contents/${a.ruta}?ref=${head}`, { headers: cabeceras() });
+        if (!res.ok && res.status !== 404) throw new Error(`GitHub respondió ${res.status} al leer ${a.ruta}`);
+        const actual = res.status === 404 ? null : await res.json();
+        const version = actual ? { texto: actual.content ? desdeBase64Utf8(actual.content) : null, sha: actual.sha } : null;
+        if (a.sha === null && version) throw new ErrorConflictoArchivo(a.ruta, version);
+        if (a.sha && (version?.sha || null) !== a.sha) throw new ErrorConflictoArchivo(a.ruta, version);
+      }
+      const shas = {};
+      const arbol = [];
+      for (const a of archivos) {
+        const blob = await enviar("git/blobs", "POST", a.base64 !== undefined ? { content: a.base64, encoding: "base64" } : { content: a.texto, encoding: "utf-8" });
+        if (!blob.ok) throw new Error(`GitHub respondió ${blob.status} al subir ${a.ruta} (¿el token tiene permiso de escritura en Contents?)`);
+        shas[a.ruta] = (await blob.json()).sha;
+        arbol.push({ path: a.ruta, mode: "100644", type: "blob", sha: shas[a.ruta] });
+      }
+      const arbolRes = await enviar("git/trees", "POST", { base_tree: arbolBase, tree: arbol });
+      if (!arbolRes.ok) throw new Error(`GitHub respondió ${arbolRes.status} al crear el árbol`);
+      const commitRes = await enviar("git/commits", "POST", { message: mensaje, tree: (await arbolRes.json()).sha, parents: [head] });
+      if (!commitRes.ok) throw new Error(`GitHub respondió ${commitRes.status} al crear el commit`);
+      const commit = (await commitRes.json()).sha;
+      const mover = await enviar(`git/refs/heads/${rama}`, "PATCH", { sha: commit, force: false });
+      if (mover.status === 422 || mover.status === 409) continue; // la rama avanzó: se rehace sobre la punta nueva
+      if (!mover.ok) throw new Error(`GitHub respondió ${mover.status} al actualizar la rama ${rama}`);
+      return { commit, shas };
+    }
+    throw new Error(`La rama ${rama} cambió varias veces mientras se guardaba; vuelve a intentarlo.`);
+  }
   return {
     modo: "github",
     async listar() {
@@ -146,6 +194,7 @@ export function crearAlmacenGitHub({ token, owner, repo, rama = "main", fetchImp
     },
     // --- Panel maestro ---
     leerArchivo,
+    escribirArchivos,
     async escribirArchivo(ruta, texto, { sha = null, mensaje } = {}) {
       return subir(ruta, base64Utf8(texto), { sha, mensaje });
     },
