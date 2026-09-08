@@ -124,6 +124,20 @@ configurable por cuenta (`idioma`, `es-PA` por defecto).
   lectura y escritura* si se quiere lanzar la verificación desde el panel.
   **Dependencia**: la verificación de una cuenta nueva falla con "falta el
   secreto" hasta la fase 2 (secretos por entorno), ver M3b.
+- **Panel maestro, fase 1, segunda iteración (2026-09-09) — en local, SIN
+  push**: commits `08b822b` (estados de conexión con fecha, invalidación por
+  cambio de usuario o secretos, "Conexión pendiente de configuración"),
+  `7b3f79f` (escritura atómica con la API de git y `/api/archivos`), `37c5e93`
+  (alta y edición atómicas desde el panel, fecha de la última comprobación,
+  nombres de secretos editables, reactivar deja todo apagado y conserva la cola
+  sin publicarla) y el de documentación. Criterios cubiertos: alta atómica; el
+  cambio de usuario o de secretos invalida la verificación; fecha de la última
+  verificación siempre visible con aviso de que no garantiza nada; archivar
+  apaga ambas automatizaciones y reactivar las mantiene apagadas; la cola se
+  conserva y no se publica al reactivar; "sin verificar" en vez de afirmar
+  credenciales pendientes; "Conexión pendiente de configuración" para cuentas
+  cuyos secretos no llegan a los workflows. Suites: 270 unitarias, 18 de render
+  + 1 de logo, 15 de panel.
 - **Sin Línea sigue pausada** (`automatico.publicar = false`, 10 programados
   en cola) y **@luiseskivelgolcher con generación y publicación apagadas**
   (contenido: investigación y actualidad con contexto; sin ajedrez ni vida
@@ -340,17 +354,67 @@ archivo y verificación de identidad desde el panel; estado de conexión en
 `data/<id>/conexion.json`; persistencia con bloqueo por sha y conservación de
 lo escrito ante errores. Detalle en ARCHITECTURE.md 2.3b.
 
-**Fase 2 · Secretos por cuenta sin tocar workflows (1-2 días).** GitHub
-Environments: un entorno `cuenta-<id>` por cuenta con `IG_ACCESS_TOKEN` e
-`IG_USER_ID`; PUBLICAR, RENOVAR TOKEN, Probar Instagram y Verificar pasan a un
-job por cuenta (`strategy.matrix` construida desde `config.json` por un job
-previo, `max-parallel: 1`, `environment: cuenta-${{ matrix.cuenta }}`), de modo
-que cada job recibe solo sus credenciales; los orquestadores aceptan
-`--cuenta` para procesar una sola. Migración: mover los secretos actuales a sus
-entornos (los nombres históricos de Sin Línea pueden convivir un tiempo). El
-panel ya muestra los nombres exactos; pasará a indicar el entorno. Criterio:
-dar de alta una cuenta desde el panel, crear su entorno y sus dos secretos en
-GitHub y verificar su identidad sin editar código ni workflows.
+**Fase 2 · Secretos por cuenta sin tocar workflows (1-2 días). Siguiente.**
+
+*Objetivo.* Que dar de alta una cuenta desde el panel baste para verificarla y
+publicar, sin editar código ni workflows por cada cuenta, y que cada job reciba
+únicamente las credenciales de su cuenta.
+
+*Diseño.*
+1. **Un entorno de GitHub por cuenta**: `cuenta-<id>` (p. ej. `cuenta-sinlinea`,
+   `cuenta-luiseskivelgolcher`) con dos secretos de entorno de nombre fijo,
+   `IG_ACCESS_TOKEN` e `IG_USER_ID`. El nombre del entorno se deriva del id, así
+   que la configuración de la cuenta ya no necesita `instagram.tokenSecreto` ni
+   `usuarioIdSecreto` (se conservan como opcionales para compatibilidad y para
+   el modo de transición).
+2. **Un job por cuenta** en PUBLICAR, RENOVAR TOKEN, Probar Instagram y
+   Verificar: un job previo `cuentas` lee `config.json` y emite la matriz
+   (`cuentas` activas no archivadas, o la del input `cuenta`); el job de trabajo
+   lleva `strategy.matrix.cuenta`, `max-parallel: 1` (los commits del bot
+   siguen siendo secuenciales) y `environment: cuenta-${{ matrix.cuenta }}`, y
+   expone solo `IG_ACCESS_TOKEN` e `IG_USER_ID` de ese entorno. Los
+   orquestadores aceptan `--cuenta <id>` para procesar una sola cuenta con los
+   nombres fijos; el resumen y las anotaciones `::error::` no cambian.
+   GENERAR y REGENERAR no llevan secretos de Instagram y siguen como están
+   (claves de Claude y Gemini compartidas, secretos de repositorio).
+3. **Estado de conexión**: `secretosExpuestos` deja de leer el `env` y pasa a
+   comprobar, con la API de GitHub, que el entorno `cuenta-<id>` existe y tiene
+   los dos secretos (`GET /repos/{o}/{r}/environments/{nombre}/secrets`, solo
+   nombres); el panel muestra el nombre del entorno y los pasos para crearlo.
+   "Conexión pendiente de configuración" pasa a significar "falta el entorno o
+   alguno de sus dos secretos".
+4. **Documentación**: `docs/CONFIGURACION.md` §6b/§6c pasan de "secretos de
+   repositorio con sufijo" a "entorno por cuenta con dos secretos".
+
+*Migración de las dos cuentas existentes (sin perder las pausas).*
+1. Crear en GitHub los entornos `cuenta-sinlinea` y `cuenta-luiseskivelgolcher`
+   y copiar en cada uno el token y el id numérico como `IG_ACCESS_TOKEN` e
+   `IG_USER_ID` (los pega el operador; el panel y el asistente solo indican
+   nombres). Para Sin Línea, el token nuevo cuando se regenere en Meta; hasta
+   entonces su entorno queda sin token y la cuenta sigue pausada.
+2. Desplegar los workflows por cuenta con un **modo de transición**: si el
+   entorno no tiene `IG_ACCESS_TOKEN`, el job usa el secreto de repositorio con
+   el nombre declarado en la configuración de la cuenta (`IG_ACCESS_TOKEN`,
+   `IG_ACCESSTOKEN_LUISESKIVELGOLCHER`…). Así nada deja de funcionar durante el
+   cambio.
+3. Ejecutar Probar Instagram para cada cuenta desde el panel y comprobar que
+   `conexion.json` queda como verificada con los secretos del entorno.
+4. Borrar los secretos de repositorio con sufijo y, después, el modo de
+   transición. `automatico.generar/publicar` no se tocan en ningún paso: Sin
+   Línea sigue con la publicación pausada y su cola intacta, y
+   @luiseskivelgolcher con todo apagado, hasta que el operador los encienda.
+5. Marcha atrás: volver a los workflows anteriores es un `git revert`; los
+   secretos de repositorio siguen existiendo hasta el paso 4.
+
+*Criterio de aceptación.* Dar de alta una cuenta desde el panel, crear su
+entorno con los dos secretos en GitHub y verificar su identidad desde el panel
+sin tocar código ni workflows; una cuenta sin entorno aparece como "Conexión
+pendiente de configuración"; los jobs de una cuenta no ven las credenciales de
+otra (comprobable en los logs: solo dos nombres de secretos por job).
+
+*Pruebas.* Unitarias de la matriz (`cuentas` activas, `--cuenta`), del modo de
+transición y del nuevo `secretosExpuestos`; e2e del panel con el entorno
+simulado; despliegue controlado con Sin Línea pausada.
 
 **Fase 3 · Recogida y almacenamiento de métricas (2 días).** Un workflow diario
 consulta la API de Instagram (insights de cuenta y de cada publicación propia:

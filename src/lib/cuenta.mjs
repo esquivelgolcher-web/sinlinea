@@ -282,7 +282,7 @@ export function estadoConexion({ conexion = null, tokenInfo = null, config = nul
     };
   }
   if (c.estado === "error") {
-    return { clave: "error", texto: `Error de conexión${cuando}${c.detalle ? `: ${c.detalle}` : ""}`, detalle: c.detalle || null, fecha, antigua: false };
+    return { clave: "error", texto: `Error de conexión${cuando}${c.detalle ? `: ${c.detalle}` : ""}`, detalle: "Corrige el secreto en GitHub y vuelve a verificar la identidad; hasta entonces no actives la publicación.", fecha, antigua: false };
   }
   if (c.estado === "pendiente") {
     if (c.motivo === "cambio") {

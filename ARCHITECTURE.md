@@ -122,27 +122,59 @@ cabecera alterna entre la primera y la segunda; la elección se recuerda.
   (`motivo: "archivada"`); `verificar` la informa como aviso. Reactivar la
   devuelve a la lista activa con las automatizaciones apagadas.
 - **Persistencia.** El almacén de GitHub gana `leerArchivo`, `escribirArchivo`,
-  `escribirBinario`, `listarCuentas` y `solicitarVerificacion`, todo por la API
-  de contenidos con bloqueo optimista por `sha`. Un 409/422 se traduce en
-  `ErrorConflictoArchivo` con la versión actual: el formulario avisa, conserva
-  lo escrito, actualiza el `sha` y el siguiente Guardar escribe sobre la versión
-  nueva. Al añadir el id a `config.json` hay un reintento automático si el
-  archivo cambió entre medias. En local, `serve.mjs` expone lo mismo
-  (`/api/cuentas`, `/api/archivo`, `/api/verificar-conexion`) con una lista
-  blanca de rutas (`config.json`, `cuentas/<id>/{config.json,editorial.md,logo.png}`,
-  `data/<id>/conexion.json`), el sha de blob de git como versión y la misma
-  validación (`validarGlobal`, `validarCuenta`) antes de escribir.
-- **Conexión con Instagram.** Cuatro estados, calculados en `estadoConexion`
-  solo a partir de `data/<id>/conexion.json` (nunca de tener usuario o
-  secretos): *credenciales pendientes* (no hay verificación, o la prueba dijo
-  que falta un secreto e indica cuál), *pendiente de verificación* (el panel la
-  solicitó o hay `token-info` sin identidad comprobada), *identidad verificada*
-  (usuario y fecha) y *error de conexión* (mensaje, `code` y `error_subcode`
-  de la API, sin credenciales). "Verificar identidad" escribe el estado
-  pendiente y lanza `probar-instagram.yml` por `workflow_dispatch` con el token
-  del panel (necesita el permiso *Actions: lectura y escritura*; si falta, el
-  panel lo explica y remite a lanzarlo a mano). El workflow escribe el resultado
-  en `conexion.json` también cuando la prueba falla.
+  `escribirBinario`, `escribirArchivos`, `listarCuentas` y `solicitarVerificacion`.
+  Los cambios de un solo archivo (archivar, reactivar, marcar pendiente) van por
+  la API de contenidos con bloqueo optimista por `sha`. El alta y la edición van
+  por `escribirArchivos`, que usa la API de git (blobs → árbol → commit → ref
+  con `force: false`): comprueba el `sha` de todos los archivos contra la punta
+  de la rama, sube los blobs, crea un único commit y mueve la ref; si la rama
+  avanzó entre medias (422), rehace todo sobre la punta nueva. Así un alta
+  escribe `config.json`, `editorial.md`, el logo y la lista global **de forma
+  atómica**: o entra todo o no entra nada, y nunca queda una cuenta a medias.
+  Un conflicto se traduce en `ErrorConflictoArchivo` con la versión actual: el
+  formulario avisa, conserva lo escrito, actualiza el `sha` y el siguiente
+  Guardar escribe sobre la versión nueva; si lo que cambió fue la lista global,
+  se rehace solo una vez. En local, `serve.mjs` expone lo mismo (`/api/cuentas`,
+  `/api/archivo`, `/api/archivos` como lote todo-o-nada, `/api/verificar-conexion`)
+  con una lista blanca de rutas (`config.json`,
+  `cuentas/<id>/{config.json,editorial.md,logo.png}`, `data/<id>/conexion.json`),
+  el sha de blob de git como versión y la misma validación (`validarGlobal`,
+  `validarCuenta`) antes de escribir.
+- **Conexión con Instagram.** Seis estados, calculados en `estadoConexion` a
+  partir de `data/<id>/conexion.json`, de la configuración de la cuenta y de los
+  nombres de secretos que llegan a los workflows (leídos del `env` de
+  `publicar.yml` y `probar-instagram.yml`). Nunca se deduce "conectada" de tener
+  usuario o secretos:
+  1. *Conexión sin verificar*: no hay verificación; **no se afirma** que falten
+     credenciales, porque el panel no sabe si los secretos existen.
+  2. *Conexión pendiente de configuración*: los nombres de secretos de la cuenta
+     no llegan a los workflows (cuentas dadas de alta desde el panel hasta la
+     fase 2). Tiene prioridad sobre cualquier verificación previa y el botón
+     "Verificar identidad" queda deshabilitado.
+  3. *Credenciales pendientes*: solo cuando Probar Instagram lo comprobó (falta
+     un secreto, o falta el id numérico y la API indica cuál guardar), con fecha.
+  4. *Pendiente de verificación*: solicitada desde el panel (con fecha), o
+     invalidada porque cambió el usuario de Instagram o el nombre de los secretos
+     (el panel escribe `{ estado: "pendiente", motivo: "cambio", anterior }` en la
+     misma escritura atómica que la edición; además `estadoConexion` compara el
+     `usuario` y los `secretos` guardados en la verificación con la configuración
+     actual, así que un cambio hecho fuera del panel también la invalida), o
+     hay `token-info` sin identidad comprobada.
+  5. *Identidad verificada*: usuario, fecha y hora UTC de la última comprobación
+     y antigüedad; siempre acompañada del aviso de que un resultado pasado no
+     garantiza que la conexión siga válida (más de 7 días se marca como antigua).
+  6. *Error de conexión*: mensaje, `code` y `error_subcode` de la API, con fecha,
+     sin credenciales.
+  Probar Instagram guarda en `conexion.json` el estado, el usuario, la fecha y
+  los nombres de secretos con los que verificó; el workflow lo confirma también
+  cuando la prueba falla. "Verificar identidad" escribe el estado pendiente y
+  lanza `probar-instagram.yml` por `workflow_dispatch` con el token del panel
+  (permiso *Actions: lectura y escritura*; si falta, el panel lo explica y remite
+  a lanzarlo a mano). Las tarjetas muestran "Última comprobación: fecha UTC".
+- **Archivar y reactivar.** Archivar apaga generación y publicación y conserva
+  la cola; reactivar deja **ambas apagadas** hasta que el operador las habilite
+  expresamente, y la cola sigue sin publicarse (PUBLICAR la deja en espera). El
+  panel lo recuerda al reactivar, con el número de programados en cola.
 
 ### 2.4 PUBLICAR (`src/publicar.mjs`)
 Cada 30 minutos toma los posts `programado` cuya hora ya pasó y los publica con
