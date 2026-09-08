@@ -1,0 +1,35 @@
+{
+  "id": "2026-09-08-0306-la-prensa-2d58",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/politica/contraloria-cautela-bienes-por-cerca-de-50-millones-tras-auditorias/",
+    "titulo": "Contraloría cautela bienes por cerca de $50 millones tras auditorías",
+    "publicado": "2026-09-08T05:02:00.000Z"
+  },
+  "categoria": "POLÍTICA",
+  "titular": "Contraloría cautela bienes por casi $50 millones tras auditorías",
+  "bajada": "El contralor Anel Flores informó a la Asamblea que las auditorías han derivado en secuestros preventivos por esa cifra, con 601 casos remitidos al Ministerio Público.",
+  "caption": "El contralor reveló ante la Comisión de Presupuesto cifras concretas del avance en la lucha contra el mal manejo de fondos públicos, incluyendo la llamada descentralización paralela. Son recursos del Estado que podrían volver a la ciudadanía. ¿Confías en que estas investigaciones lleguen a buen puerto?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Contraloría",
+    "#Corrupción",
+    "#FondosPúblicos",
+    "#Descentralización"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-09-08-0306-la-prensa-2d58.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-08-0306-la-prensa-2d58.jpg",
+    "hash": "e5c616440e7d4b7e",
+    "version": 3,
+    "renderizada": "2026-09-08T08:06:31.189Z"
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-08T08:06:02.846Z",
+  "actualizado": "2026-09-08T08:06:02.846Z"
+}
