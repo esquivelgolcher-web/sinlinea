@@ -108,3 +108,12 @@ test("(vigencia) vigencia() usa debug_token cuando existe y devuelve la fecha re
   const noSoportado = crearClienteInstagram({ token: "T", usuarioId: "1", apiVersion: "v23.0", fetchImpl: async () => ({ ok: false, status: 400, json: async () => ({ error: { message: "Unsupported get request" } }) }), dormir: async () => {} });
   assert.deepEqual(await noSoportado.vigencia(), { vence: null, origen: "desconocida" });
 });
+
+test("(diagnóstico) el error de la API conserva code, error_subcode y type para poder reportarlos sin credenciales", async () => {
+  const a = fetchFalso([{ status: 400, json: { error: { message: "Error validating access token: Session has expired", type: "OAuthException", code: 190, error_subcode: 463 } } }]);
+  const ig = crearClienteInstagram({ ...opciones, fetchImpl: a.impl });
+  await assert.rejects(() => ig.perfil(), (e) => e.message === "Error validating access token: Session has expired" && e.codigo === 190 && e.subcodigo === 463 && e.tipo === "OAuthException");
+  const b = fetchFalso([{ status: 400, json: { error: { message: "Cannot parse access token", code: 190 } } }]);
+  const ig2 = crearClienteInstagram({ ...opciones, fetchImpl: b.impl });
+  await assert.rejects(() => ig2.perfil(), (e) => e.codigo === 190 && e.subcodigo === null && e.tipo === null);
+});

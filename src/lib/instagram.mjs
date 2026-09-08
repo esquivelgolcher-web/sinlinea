@@ -4,6 +4,8 @@ const HOST = "https://graph.instagram.com";
 function errorDeApi(json, status) {
   const e = new Error(json?.error?.message || `HTTP ${status}`);
   e.codigo = json?.error?.code ?? status;
+  e.subcodigo = json?.error?.error_subcode ?? null; // p. ej. 463 = token caducado, 460 = contraseña cambiada
+  e.tipo = json?.error?.type ?? null; // p. ej. OAuthException
   e.status = status;
   return e;
 }

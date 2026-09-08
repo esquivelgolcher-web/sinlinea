@@ -71,3 +71,18 @@ test("(vigencia) si hay token pero falta el secreto del id numérico, la prueba 
   assert.match(r.lineas.join("\n"), /IG_USER_ID_LUISESKIVELGOLCHER/);
   assert.equal(r.lineas.join("\n").includes(token), false);
 });
+
+test("(diagnóstico) si la API falla, la prueba reporta message, code y error_subcode sin revelar el token", async () => {
+  const igDe = () => ({ perfil: async () => { const e = new Error("Error validating access token: Session has expired"); e.codigo = 190; e.subcodigo = 463; e.tipo = "OAuthException"; throw e; } });
+  const r = await ejecutarPruebaInstagram({ configuracion, cuenta: "sinlinea", env, igDe });
+  assert.equal(r.ok, false);
+  const texto = r.lineas.join(" ");
+  assert.match(texto, /message "Error validating access token: Session has expired"/);
+  assert.match(texto, /code 190/);
+  assert.match(texto, /error_subcode 463/);
+  assert.match(texto, /type OAuthException/);
+  assert.equal(texto.includes(token), false);
+  const sinDetalle = () => ({ perfil: async () => { throw new Error("red caída"); } });
+  const r2 = await ejecutarPruebaInstagram({ configuracion, cuenta: "sinlinea", env, igDe: sinDetalle });
+  assert.match(r2.lineas.join(" "), /message "red caída" · code - · error_subcode -/);
+});

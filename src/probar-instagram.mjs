@@ -62,7 +62,9 @@ export async function ejecutarPruebaInstagram({ configuracion, cuenta = null, en
         fs.writeFileSync(path.join(carpeta, "token-info.json"), JSON.stringify(info, null, 2) + "\n");
       }
     } catch (err) {
-      error(`cuenta ${config.cuenta}: la API respondió con error (${ocultarSecretos(err.message)})`);
+      // Diagnóstico sin credenciales: message, code y error_subcode tal como los devuelve la API.
+      const tipo = err.tipo ? ` · type ${err.tipo}` : "";
+      error(`cuenta ${config.cuenta}: la API respondió con error: message "${ocultarSecretos(err.message)}" · code ${err.codigo ?? "-"} · error_subcode ${err.subcodigo ?? "-"}${tipo}`);
     }
   }
   return { ok, lineas };
