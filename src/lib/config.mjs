@@ -53,6 +53,7 @@ export function validarConfig(cfg) {
   for (const k of ["modelo", "estilo", "rotulo"]) exigir(typeof il[k] === "string" && il[k].trim(), `ilustraciones.${k} es obligatorio`);
   exigir(["512px", "1K", "2K"].includes(il.tamano), "ilustraciones.tamano debe ser 512px, 1K o 2K");
   exigir(Number.isInteger(il.timeoutMs) && il.timeoutMs > 0, "ilustraciones.timeoutMs debe ser un entero positivo");
+  exigir(Number.isInteger(il.maxPorCorrida) && il.maxPorCorrida > 0, "ilustraciones.maxPorCorrida debe ser un entero positivo");
 
   exigir(Number.isInteger(cfg.archivarDespuesDeDias) && cfg.archivarDespuesDeDias > 0, "archivarDespuesDeDias debe ser un entero positivo");
   return cfg;

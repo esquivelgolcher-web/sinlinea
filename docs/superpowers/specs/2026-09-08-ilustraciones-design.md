@@ -67,12 +67,15 @@ Así, activar/desactivar o regenerar la ilustración vuelve a renderizar el post
   "tamano": "1K",
   "estilo": "Fotografía editorial realista de prensa, luz natural, colores sobrios, composición limpia con espacio libre en la mitad inferior. Sin personas identificables ni rostros, sin texto, sin logotipos, sin marcas de agua.",
   "rotulo": "Ilustración generada con IA",
-  "timeoutMs": 60000
+  "timeoutMs": 60000,
+  "maxPorCorrida": 4
 }
 ```
 
 `validarConfig` exige `activo` booleano, `proveedor` = `gemini`, `modelo` y
-`estilo` cadenas no vacías, `tamano` en `512px | 1K | 2K`.
+`estilo` cadenas no vacías, `tamano` en `512px | 1K | 2K`, y `maxPorCorrida`
+entero positivo (tope de llamadas a Gemini que REGENERAR hace en una misma
+corrida; ver §7).
 
 ## 5. Redacción (redactor.mjs)
 

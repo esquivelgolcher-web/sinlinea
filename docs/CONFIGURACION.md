@@ -95,3 +95,7 @@ ilustración (con el fondo de color de la variante).
    gastar una corrida completa: GitHub → **Actions → Probar Gemini → Run
    workflow**. Al terminar, descarga el artefacto `prueba-gemini` de esa corrida
    para ver la imagen generada.
+4. `config.json` → `ilustraciones.maxPorCorrida` (por defecto `4`) limita
+   cuántas ilustraciones pide REGENERAR a Gemini en una misma corrida; los
+   posts que se queden fuera esperan a la corrida de la siguiente hora (no se
+   pierden, solo se posponen).

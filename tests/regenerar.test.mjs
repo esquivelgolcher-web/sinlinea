@@ -93,6 +93,19 @@ test("(I1) al tercer fallo consecutivo la ilustración se desactiva (usar=false)
   assert.equal(guardado.ilustracion.usar, false);
 });
 
+test("(M5) REGENERAR no supera ilustraciones.maxPorCorrida llamadas a Gemini por corrida", async () => {
+  const posts = Array.from({ length: 6 }, (_, i) => ({
+    ...base, id: base.id.slice(0, -4) + String(1000 + i),
+    ilustracion: { descripcion: `Escena ${i}`, usar: true, ruta: null, hashDescripcion: null, proveedor: null, modelo: null, generada: null, error: null },
+  }));
+  const raiz = dirCon(posts);
+  const llamadas = [];
+  const ilustrador = { async generar(d) { llamadas.push(d); return Buffer.from("00", "hex"); } };
+  const cfgConTope = { ...cfg, ilustraciones: { ...cfg.ilustraciones, maxPorCorrida: 4 } };
+  await ejecutarRegenerar({ config: cfgConTope, raiz, ahora, render: async (x) => imagenDe(x), log, version: 1, ilustrador, guardar: async () => {} });
+  assert.equal(llamadas.length, 4);
+});
+
 test("regenera la ilustración cuando cambió la escena y no llama con usar=false", async () => {
   const conIlus = { ...base, imagen: imagenDe(base), ilustracion: { descripcion: "Nueva escena", usar: true, ruta: "public/ilus/a.jpg", hashDescripcion: "0000000000000000", proveedor: "gemini", modelo: "m", generada: ahora.toISOString(), error: null } };
   const apagada = { ...base, id: base.id.slice(0, -4) + "0009", imagen: imagenDe({ ...base, id: base.id.slice(0, -4) + "0009" }), ilustracion: { descripcion: "Otra", usar: false, ruta: null, hashDescripcion: null, proveedor: null, modelo: null, generada: null, error: null } };

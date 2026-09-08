@@ -45,3 +45,17 @@ test("valida el bloque ilustraciones", () => {
   cfg2.ilustraciones.activo = "si";
   assert.throws(() => validarConfig(cfg2), /ilustraciones\.activo/);
 });
+
+test("(M5) ilustraciones.maxPorCorrida es obligatorio y debe ser un entero positivo", () => {
+  const cfg = base();
+  assert.equal(cfg.ilustraciones.maxPorCorrida, 4);
+  const sinMax = base();
+  delete sinMax.ilustraciones.maxPorCorrida;
+  assert.throws(() => validarConfig(sinMax), /ilustraciones\.maxPorCorrida/);
+  const cero = base();
+  cero.ilustraciones.maxPorCorrida = 0;
+  assert.throws(() => validarConfig(cero), /ilustraciones\.maxPorCorrida/);
+  const noEntero = base();
+  noEntero.ilustraciones.maxPorCorrida = "4";
+  assert.throws(() => validarConfig(noEntero), /ilustraciones\.maxPorCorrida/);
+});

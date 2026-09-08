@@ -15,8 +15,12 @@ export async function ejecutarRegenerar({ config, raiz = process.cwd(), ahora = 
   const activos = leerPosts(dir).filter((p) => ["borrador", "programado", "error"].includes(p.estado));
   const regeneradas = new Set();
   if (ilustrador) {
+    const tope = config.ilustraciones.maxPorCorrida;
+    let llamadas = 0;
     for (const p of activos) {
       if (!necesitaIlustracion(p, ahora)) continue;
+      if (llamadas >= tope) { log.info(`Tope de ilustraciones por corrida (${tope}) alcanzado; ${p.id} espera a la siguiente hora.`); continue; }
+      llamadas++;
       const ruta = rutaIlustracion(p.id);
       let nuevo;
       try {

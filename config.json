@@ -38,7 +38,8 @@
     "tamano": "1K",
     "estilo": "Fotografía editorial realista de prensa, luz natural, colores sobrios, composición limpia con espacio libre en la mitad inferior. Sin personas identificables ni rostros, sin texto, sin logotipos, sin marcas de agua.",
     "rotulo": "Ilustración generada con IA",
-    "timeoutMs": 60000
+    "timeoutMs": 60000,
+    "maxPorCorrida": 4
   },
   "archivarDespuesDeDias": 7
 }
