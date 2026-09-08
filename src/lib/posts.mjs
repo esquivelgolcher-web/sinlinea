@@ -132,7 +132,7 @@ export function creadosHoy(posts, claveDiaHoy, zona = ZONA_PANAMA) {
   return posts.filter((p) => claveDia(p.creado, zona) === claveDiaHoy).length;
 }
 
-export function archivar(dir, { ahora, dias, zona = ZONA_PANAMA }) {
+export function archivar(dir, { ahora, dias, zona = ZONA_PANAMA, raiz = path.dirname(dir) }) {
   const limite = ahora.getTime() - dias * 86400000;
   const movidos = [];
   for (const p of leerPosts(dir)) {
@@ -142,6 +142,7 @@ export function archivar(dir, { ahora, dias, zona = ZONA_PANAMA }) {
     const destino = path.join(dir, "archivo", mes);
     fs.mkdirSync(destino, { recursive: true });
     fs.renameSync(path.join(dir, `${p.id}.json`), path.join(destino, `${p.id}.json`));
+    fs.rmSync(path.join(raiz, "public", "ilus", `${p.id}.jpg`), { force: true });
     movidos.push(p.id);
   }
   return movidos;

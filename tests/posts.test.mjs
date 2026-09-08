@@ -113,6 +113,21 @@ test("archivar mueve publicados y descartados viejos", () => {
   assert.equal(leerPosts(dir).length, 2);
 });
 
+test("archivar (I3) borra el jpg de public/ilus del post archivado y conserva el de uno no archivado", () => {
+  const raiz = fs.mkdtempSync(path.join(os.tmpdir(), "raiz-"));
+  const dir = path.join(raiz, "posts");
+  const viejo = { ...crearPost({ candidato, redaccion, variante: "negro", ahora: new Date("2026-08-20T10:00:00Z") }), estado: "publicado", actualizado: "2026-08-20T10:00:00.000Z" };
+  const reciente = { ...crearPost({ candidato: { ...candidato, url: "https://www.prensa.com/u4/" }, redaccion, variante: "negro", ahora }), estado: "publicado", actualizado: ahora.toISOString() };
+  for (const p of [viejo, reciente]) escribirPost(dir, p);
+  fs.mkdirSync(path.join(raiz, "public", "ilus"), { recursive: true });
+  fs.writeFileSync(path.join(raiz, "public", "ilus", `${viejo.id}.jpg`), "jpg");
+  fs.writeFileSync(path.join(raiz, "public", "ilus", `${reciente.id}.jpg`), "jpg");
+  const movidos = archivar(dir, { ahora, dias: 7 });
+  assert.deepEqual(movidos, [viejo.id]);
+  assert.ok(!fs.existsSync(path.join(raiz, "public", "ilus", `${viejo.id}.jpg`)), "el jpg del post archivado debe borrarse");
+  assert.ok(fs.existsSync(path.join(raiz, "public", "ilus", `${reciente.id}.jpg`)), "el jpg de un post no archivado se conserva");
+});
+
 test("crearPost crea ilustracion cuando hay escena; validarPost la comprueba", () => {
   const con = crearPost({ candidato, redaccion: { ...redaccion, escena: "Estación de bomberos en Panamá al atardecer" }, variante: "negro", ahora });
   assert.deepEqual(con.ilustracion, { descripcion: "Estación de bomberos en Panamá al atardecer", usar: false, ruta: null, hashDescripcion: null, proveedor: null, modelo: null, generada: null, error: null });
