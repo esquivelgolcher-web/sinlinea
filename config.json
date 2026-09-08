@@ -30,7 +30,7 @@
   },
   "claude": { "modelo": "claude-sonnet-5", "esfuerzo": "medium" },
   "franjas": ["07:00", "09:30", "12:00", "14:30", "17:00", "19:30"],
-  "instagram": { "apiVersion": "v23.0" },
+  "instagram": { "apiVersion": "v23.0", "tokenSecreto": "IG_ACCESS_TOKEN", "usuarioIdSecreto": "IG_USER_ID" },
   "ilustraciones": {
     "activo": true,
     "proveedor": "gemini",

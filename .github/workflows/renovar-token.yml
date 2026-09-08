@@ -29,6 +29,16 @@ jobs:
       - name: Instalar dependencias
         run: npm ci
 
+      - name: Comprobar que existe el secreto GH_PAT
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}
+        run: |
+          if [ -z "$GH_PAT" ]; then
+            echo "::error::Falta el secreto GH_PAT (token fino con permiso Secrets: lectura y escritura). Sin él no se puede guardar el token renovado, así que no se pide uno nuevo. Ver docs/CONFIGURACION.md §5."
+            exit 1
+          fi
+          echo "GH_PAT presente."
+
       - name: Pedir un token nuevo
         env:
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}

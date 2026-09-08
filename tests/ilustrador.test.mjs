@@ -54,10 +54,11 @@ test("(M4) la escena se recorta a 400 caracteres en el prompt", async () => {
   assert.ok(!llamadas[0].cuerpo.input[0].text.includes("x".repeat(401)));
 });
 
-test("(M4) sanearMensaje oculta claves AIza... y recorta a 300 caracteres", () => {
+test("(M4) sanearMensaje oculta claves y tokens y recorta a 300 caracteres", () => {
   const claveFalsa = "AIza" + "a".repeat(35);
-  assert.equal(sanearMensaje(`Gemini respondió 400: clave inválida ${claveFalsa}`), "Gemini respondió 400: clave inválida [clave]");
+  assert.equal(sanearMensaje(`Gemini respondió 400: clave inválida ${claveFalsa}`), "Gemini respondió 400: clave inválida [secreto]");
   assert.equal(sanearMensaje("x".repeat(400)).length, 300);
+  assert.equal(sanearMensaje(`token IGAAR${"y".repeat(60)} fin`).includes("IGAAR"), false, "(M0) tapa tokens de Instagram");
   assert.equal(sanearMensaje("x".repeat(2000), 1500).length, 1500);
 });
 

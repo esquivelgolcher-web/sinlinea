@@ -61,6 +61,10 @@ no requiere revisión de Meta.
 2. Nombre `sinlinea-actions`, vencimiento 1 año, **Repository access: Only select
    repositories → sinlinea**, **Permissions → Repository → Secrets: Read and write**.
 3. Guárdalo como secreto del repo con nombre `GH_PAT`.
+4. `renovar-token.yml` comprueba que `GH_PAT` exista **antes** de pedir un token nuevo;
+   si falta, la corrida falla con un mensaje claro y no se toca el token actual.
+   Después de crearlo, activa el workflow en **Actions → Renovar token de Instagram →
+   Enable workflow** y lánzalo una vez con **Run workflow** para comprobarlo.
 
 ## 6. Token para el panel (celular)
 1. Igual que arriba, nombre `sinlinea-panel`, solo el repo `sinlinea`,
@@ -68,6 +72,42 @@ no requiere revisión de Meta.
 2. En el celular abre `https://<tu-usuario>.github.io/sinlinea/panel/` →
    **Configurar** → pega el token → **Guardar y conectar**. Queda guardado solo en ese
    navegador. Repite en cada dispositivo desde el que quieras aprobar.
+
+## 6b. Variables y secretos: resumen y verificación
+
+Todos los valores sensibles viven **solo** en *Settings → Secrets and variables →
+Actions* del repositorio (y el token del panel, solo en el navegador). Nunca van en
+`config.json`, en `posts/*.json`, en GitHub Pages ni en el código del panel. Los
+mensajes de error que se guardan o se registran pasan por un filtro que tapa tokens y
+claves (`src/lib/secretos.mjs`).
+
+| Secreto | Obligatorio | Lo usan | Cómo se obtiene |
+|---|---|---|---|
+| `ANTHROPIC_API_KEY` | sí | GENERAR (redacción), REGENERAR (acortar textos, redactar escenas) | §3 |
+| `GEMINI_API_KEY` | sí, si `ilustraciones.activo` es `true` | GENERAR y REGENERAR (ilustraciones), Probar Gemini | §10 |
+| `IG_ACCESS_TOKEN` | sí | PUBLICAR, RENOVAR TOKEN | §4 |
+| `IG_USER_ID` | sí | PUBLICAR, RENOVAR TOKEN | §4 |
+| `GH_PAT` | no (pero sin él el token de Instagram no se renueva solo) | RENOVAR TOKEN | §5 |
+
+Los nombres de los secretos de Instagram se declaran en `config.json`:
+
+```json
+"instagram": { "apiVersion": "v23.0", "tokenSecreto": "IG_ACCESS_TOKEN", "usuarioIdSecreto": "IG_USER_ID" }
+```
+
+**Convención para cuentas adicionales** (se usará a partir del hito M1 del ROADMAP):
+cada cuenta declara sus propios nombres siguiendo el patrón `IG_ACCESS_TOKEN_<ID>` e
+`IG_USER_ID_<ID>`, con `<ID>` el identificador de la cuenta en mayúsculas y solo con
+letras, dígitos y guion bajo (por ejemplo, la cuenta `otro-medio` usa
+`IG_ACCESS_TOKEN_OTRO_MEDIO`). La cuenta actual conserva `IG_ACCESS_TOKEN` e
+`IG_USER_ID`. Un nombre inválido hace fallar la validación de `config.json`.
+
+**Verificar que no falta nada.** Sin revelar ningún valor:
+- En GitHub: **Actions → Verificar configuración y secretos → Run workflow**. El
+  informe marca cada secreto como OK o FALTA, comprueba `config.json`, el logo, las
+  fuentes tipográficas y la fecha de vencimiento del token de Instagram.
+- En tu computadora: `npm run verificar` (los secretos que no tengas como variables de
+  entorno aparecerán como FALTA; eso es normal en local).
 
 ## 7. Primera corrida
 1. GitHub → **Actions → Generar borradores → Run workflow**. Tarda 3 a 5 minutos.

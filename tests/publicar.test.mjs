@@ -102,3 +102,17 @@ test("sin cuota no publica; dry-run no publica; baseUrl sin configurar lanza; to
   await ejecutarPublicar({ config: cfg, raiz, ahora, ig: igFalso(), log: { info: () => {}, warn: (m) => avisos.push(m) } });
   assert.ok(avisos.some((m) => /token.*vence/i.test(m)));
 });
+
+test("(M0) un error de la API que incluya un token se guarda y se registra sin el token", async () => {
+  const token = "IGAAR" + "x".repeat(60);
+  const p = conImagen(aprobar(base, "2026-09-07T17:00:00-05:00", "2026-09-07T20:00:00.000Z"));
+  const raiz = raizCon([p]);
+  const avisos = [];
+  const ig = igFalso({ fallo: new Error(`Invalid OAuth access token ${token} (url ?access_token=${token})`) });
+  await ejecutarPublicar({ config: cfg, raiz, ahora, ig, log: { info: () => {}, warn: (m) => avisos.push(m) } });
+  const guardado = leerPosts(path.join(raiz, "posts"))[0];
+  assert.equal(guardado.estado, "error");
+  assert.equal(guardado.error.mensaje.includes(token), false);
+  assert.match(guardado.error.mensaje, /\[secreto\]/);
+  assert.ok(avisos.every((m) => !m.includes(token)), "el log tampoco lleva el token");
+});

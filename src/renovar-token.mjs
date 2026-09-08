@@ -5,6 +5,7 @@ import { pathToFileURL } from "node:url";
 import { cargarConfig } from "./lib/config.mjs";
 import { crearClienteInstagram } from "./lib/instagram.mjs";
 import { claveDia, ZONA_PANAMA } from "./lib/fechas.mjs";
+import { ocultarSecretos, leerSecretos } from "./lib/secretos.mjs";
 
 export async function ejecutarRenovar({ raiz = process.cwd(), ahora = new Date(), ig, log = console, zona = ZONA_PANAMA }) {
   const { token, expiraEnSegundos } = await ig.refrescarToken();
@@ -19,13 +20,13 @@ export async function ejecutarRenovar({ raiz = process.cwd(), ahora = new Date()
 
 async function main() {
   const config = cargarConfig();
-  if (!process.env.IG_ACCESS_TOKEN) throw new Error("Falta la variable de entorno IG_ACCESS_TOKEN");
-  const ig = crearClienteInstagram({ token: process.env.IG_ACCESS_TOKEN, usuarioId: process.env.IG_USER_ID || "", apiVersion: config.instagram.apiVersion });
+  const { token, usuarioId } = leerSecretos(config, process.env);
+  const ig = crearClienteInstagram({ token, usuarioId, apiVersion: config.instagram.apiVersion });
   const original = ig.refrescarToken;
   ig.refrescarToken = async () => { const r = await original(); console.log(`::add-mask::${r.token}`); return r; };
   await ejecutarRenovar({ ig });
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
-  main().catch((err) => { console.error(`Error al renovar el token: ${err.message}`); process.exit(1); });
+  main().catch((err) => { console.error(`Error al renovar el token: ${ocultarSecretos(err.message)}`); process.exit(1); });
 }

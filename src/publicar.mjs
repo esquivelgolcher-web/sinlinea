@@ -8,6 +8,7 @@ import { marcarPublicado, marcarError, imagenDesactualizada } from "./lib/estado
 import { componerCaption, validarCaption } from "./lib/caption.mjs";
 import { crearClienteInstagram } from "./lib/instagram.mjs";
 import { claveDia } from "./lib/fechas.mjs";
+import { ocultarSecretos, leerSecretos, nombresDeSecretos } from "./lib/secretos.mjs";
 
 const MAX_ESPERAS_IMAGEN = 3;
 
@@ -72,9 +73,10 @@ export async function ejecutarPublicar({ config, raiz = process.cwd(), ahora = n
       disponibles -= 1;
       log.info(`Publicado ${listo.id}: ${r.permalink}`);
     } catch (err) {
-      escribirPost(dir, marcarError(listo, { paso: "instagram", mensaje: err.message }, iso));
+      const mensaje = ocultarSecretos(err.message);
+      escribirPost(dir, marcarError(listo, { paso: "instagram", mensaje }, iso));
       resumen.errores.push(listo.id);
-      log.warn(`Instagram rechazó ${listo.id}: ${err.message}`);
+      log.warn(`Instagram rechazó ${listo.id}: ${mensaje}`);
     }
   }
   return resumen;
@@ -84,16 +86,16 @@ async function main() {
   const dryRun = process.argv.includes("--dry-run");
   const config = cargarConfig();
   let ig;
-  if (dryRun && !process.env.IG_ACCESS_TOKEN) {
+  if (dryRun && !process.env[nombresDeSecretos(config).token]) {
     ig = { cuota: async () => ({ usados: 0, limite: 100 }), imagenPublica: async () => true, publicarImagen: async () => { throw new Error("no aplica en dry-run"); } };
   } else {
-    for (const k of ["IG_ACCESS_TOKEN", "IG_USER_ID"]) if (!process.env[k]) throw new Error(`Falta la variable de entorno ${k}`);
-    ig = crearClienteInstagram({ token: process.env.IG_ACCESS_TOKEN, usuarioId: process.env.IG_USER_ID, apiVersion: config.instagram.apiVersion });
+    const { token, usuarioId } = leerSecretos(config, process.env);
+    ig = crearClienteInstagram({ token, usuarioId, apiVersion: config.instagram.apiVersion });
   }
   const r = await ejecutarPublicar({ config, ig, dryRun });
   console.log(`Listo: ${r.publicados.length} publicados, ${r.errores.length} con error, ${r.pospuestos.length} pospuestos${dryRun ? " [dry-run]" : ""}.`);
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
-  main().catch((err) => { console.error(`Error en publicar: ${err.message}`); process.exit(1); });
+  main().catch((err) => { console.error(`Error en publicar: ${ocultarSecretos(err.message)}`); process.exit(1); });
 }

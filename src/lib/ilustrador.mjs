@@ -2,6 +2,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import sharp from "sharp";
+import { ocultarSecretos } from "./secretos.mjs";
 
 export const ENDPOINT_GEMINI = "https://generativelanguage.googleapis.com/v1beta/interactions";
 
@@ -28,7 +29,7 @@ export function textoDeRespuesta(json) {
 
 // Oculta claves de Gemini que se hayan colado en un mensaje de error de la API y lo acota.
 export function sanearMensaje(m, max = 300) {
-  return String(m).replace(/AIza[0-9A-Za-z_-]{35}/g, "[clave]").slice(0, max);
+  return ocultarSecretos(m).slice(0, max);
 }
 
 export function crearIlustrador({ apiKey, config, fetchImpl = fetch, dormir = (ms) => new Promise((r) => setTimeout(r, ms)) }) {

@@ -19,6 +19,7 @@ npm run test:e2e             # panel en modo local con Playwright
 npm run preview              # http://localhost:4173 (plantilla y panel local)
 npm run generar -- --dry-run # simula una corrida (necesita ANTHROPIC_API_KEY)
 npm run publicar -- --dry-run
+npm run verificar            # configuración, archivos y secretos (solo nombres, nunca valores)
 ```
 
 ## Estructura
@@ -34,5 +35,5 @@ posts/                 un JSON por post; posts/archivo/ para los antiguos
 public/img/            imágenes JPEG servidas por Pages en /img/
 public/ilus/           ilustraciones generadas con Gemini, una por post
 data/seen.json         URLs ya evaluadas · data/token-info.json vencimiento del token
-.github/workflows/     generar (3 h), regenerar (cada hora y al hacer push a posts/), publicar (30 min), renovar-token (lunes), probar-gemini (manual)
+.github/workflows/     generar (3 h), regenerar (cada hora y al hacer push a posts/), publicar (30 min), renovar-token (lunes), probar-gemini (manual), verificar (manual)
 ```

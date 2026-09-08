@@ -1,5 +1,6 @@
 // Carga y valida config.json. Falla temprano con un mensaje claro.
 import fs from "node:fs";
+import { esNombreDeSecreto } from "./secretos.mjs";
 
 export const ESFUERZOS = ["low", "medium", "high", "xhigh", "max"];
 const TIPOS_FUENTE = ["rss", "portada"];
@@ -45,6 +46,9 @@ export function validarConfig(cfg) {
     vistas.add(h);
   }
   exigir(/^v\d+\.\d+$/.test(cfg.instagram?.apiVersion || ""), "instagram.apiVersion debe tener la forma vNN.N");
+  for (const k of ["tokenSecreto", "usuarioIdSecreto"]) {
+    if (cfg.instagram[k] !== undefined) exigir(esNombreDeSecreto(cfg.instagram[k]), `instagram.${k} debe ser un nombre de secreto en mayúsculas (A-Z, 0-9 y _), p. ej. IG_ACCESS_TOKEN_OTRO_MEDIO`);
+  }
 
   const il = cfg.ilustraciones;
   exigir(il && typeof il === "object", "ilustraciones es obligatorio");

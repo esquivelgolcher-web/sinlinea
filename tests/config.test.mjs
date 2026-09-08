@@ -59,3 +59,16 @@ test("(M5) ilustraciones.maxPorCorrida es obligatorio y debe ser un entero posit
   noEntero.ilustraciones.maxPorCorrida = "4";
   assert.throws(() => validarConfig(noEntero), /ilustraciones\.maxPorCorrida/);
 });
+
+test("(M0) instagram.tokenSecreto y usuarioIdSecreto son opcionales y deben ser nombres de secreto válidos", () => {
+  const cfg = base();
+  assert.equal(cfg.instagram.tokenSecreto, "IG_ACCESS_TOKEN");
+  assert.equal(cfg.instagram.usuarioIdSecreto, "IG_USER_ID");
+  delete cfg.instagram.tokenSecreto; delete cfg.instagram.usuarioIdSecreto;
+  assert.doesNotThrow(() => validarConfig(cfg));
+  cfg.instagram.tokenSecreto = "ig token";
+  assert.throws(() => validarConfig(cfg), /tokenSecreto/);
+  cfg.instagram.tokenSecreto = "IG_ACCESS_TOKEN_OTRO";
+  cfg.instagram.usuarioIdSecreto = "id-otro";
+  assert.throws(() => validarConfig(cfg), /usuarioIdSecreto/);
+});

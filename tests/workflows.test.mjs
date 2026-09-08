@@ -68,3 +68,24 @@ test("probar-gemini es manual, solo lee y usa el secreto GEMINI_API_KEY", () => 
   assert.equal(w.permissions.contents, "read");
   assert.match(leer("probar-gemini"), /secrets\.GEMINI_API_KEY/);
 });
+
+test("(M0) renovar-token comprueba GH_PAT antes de pedir un token nuevo", () => {
+  const texto = leer("renovar-token");
+  const comprobar = texto.indexOf("GH_PAT");
+  const pedir = texto.indexOf("node src/renovar-token.mjs");
+  assert.ok(comprobar >= 0 && pedir >= 0 && comprobar < pedir, "la comprobación de GH_PAT va antes de pedir el token");
+  const pasos = wf("renovar-token").jobs.renovar.steps.map((s) => s.name);
+  assert.ok(pasos.some((n) => /GH_PAT/.test(n)), "hay un paso dedicado a comprobar GH_PAT");
+  assert.ok(pasos.findIndex((n) => /GH_PAT/.test(n)) < pasos.findIndex((n) => /token nuevo/i.test(n)));
+});
+
+test("(M0) verificar es manual, solo lectura, expone todos los secretos como variables y no publica artefactos", () => {
+  const v = wf("verificar");
+  assert.deepEqual(Object.keys(v.on), ["workflow_dispatch"]);
+  assert.equal(v.permissions.contents, "read");
+  const texto = leer("verificar");
+  for (const s of ["ANTHROPIC_API_KEY", "GEMINI_API_KEY", "IG_ACCESS_TOKEN", "IG_USER_ID", "GH_PAT"]) assert.match(texto, new RegExp(`secrets\\.${s}`), s);
+  assert.match(texto, /node src\/verificar\.mjs/);
+  assert.equal(/upload-artifact/.test(texto), false);
+  assert.equal(/git push/.test(texto), false);
+});
