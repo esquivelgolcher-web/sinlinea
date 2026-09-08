@@ -62,3 +62,22 @@ test("con ilustración, la variante amarilla no dibuja el anillo del logo", asyn
   assert.equal(sombra, "none");
   fs.rmSync(rutaHtml, { force: true });
 });
+
+test("(M1) si la ilustración no decodifica, el post queda tipográfico (sin clase ni rótulo)", async () => {
+  const plantilla = fs.readFileSync("templates/post.html", "utf8");
+  const html = construirHtml({ ...base, variante: "negro" }, cfg, {
+    plantilla, baseHref: pathToFileURL(path.resolve(".") + path.sep).href, logoUrl: "assets/logo.png", ilustracionUrl: "tests/fixtures/no-existe.jpg",
+  });
+  const rutaHtml = path.join("temp", "test-render", "negro-ilus-rota.html");
+  fs.mkdirSync(path.dirname(rutaHtml), { recursive: true });
+  fs.writeFileSync(rutaHtml, html);
+  const page = await navegador.newPage({ viewport: { width: 1080, height: 1350 } });
+  await page.goto(pathToFileURL(path.resolve(rutaHtml)).href, { waitUntil: "load" });
+  await page.waitForSelector('body[data-listo="1"]', { timeout: 15000 });
+  const tieneClase = await page.$eval("#post", (n) => n.classList.contains("con-ilustracion"));
+  const rotuloVisible = await page.$eval("#rotulo", (n) => getComputedStyle(n).display);
+  await page.close();
+  fs.rmSync(rutaHtml, { force: true });
+  assert.equal(tieneClase, false);
+  assert.equal(rotuloVisible, "none");
+});

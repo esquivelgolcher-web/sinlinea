@@ -79,9 +79,11 @@
     fondo.alt = "";
     fondo.src = d.ilustracionUrl;
     $("fondo").replaceChildren(fondo);
-    $("post").classList.add("con-ilustracion");
-    $("rotulo").textContent = d.rotulo || "";
-    await fondo.decode().catch(() => {});
+    try {
+      await fondo.decode();
+      $("post").classList.add("con-ilustracion");
+      $("rotulo").textContent = d.rotulo || "";
+    } catch { /* la imagen no decodifica: se conserva el post tipográfico, sin clase ni rótulo */ }
   }
   if (d.logoUrl) {
     const img = new Image();
