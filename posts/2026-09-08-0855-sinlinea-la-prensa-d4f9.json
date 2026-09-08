@@ -1,7 +1,7 @@
 {
   "id": "2026-09-08-0855-sinlinea-la-prensa-d4f9",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "La Prensa",
     "url": "https://www.prensa.com/economia/jubilados-advierten-que-descuentos-no-son-negociables-y-cuales-podrian-evaluar-en-la-reunion-con-mulino-y-empresarios/",
@@ -38,9 +38,9 @@
     "generada": "2026-09-08T13:55:16.978Z",
     "error": null
   },
-  "programado": null,
+  "programado": "2026-09-08T15:05:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-08T13:55:16.978Z",
-  "actualizado": "2026-09-08T13:55:16.978Z"
+  "actualizado": "2026-09-08T14:23:43.883Z"
 }
