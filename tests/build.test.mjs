@@ -10,6 +10,8 @@ test("construirDist copia imágenes, panel, módulos isomorfos e índice", () =>
   fs.mkdirSync(path.join(raiz, "public/img"), { recursive: true });
   fs.writeFileSync(path.join(raiz, "public/img/a.jpg"), "jpg");
   fs.writeFileSync(path.join(raiz, "public/img/.gitkeep"), "");
+  fs.mkdirSync(path.join(raiz, "public/ilus"), { recursive: true });
+  fs.writeFileSync(path.join(raiz, "public/ilus/x.jpg"), "jpg");
   fs.mkdirSync(path.join(raiz, "panel"), { recursive: true });
   fs.writeFileSync(path.join(raiz, "panel/index.html"), "<p>panel</p>");
   fs.mkdirSync(path.join(raiz, "src/lib"), { recursive: true });
@@ -18,6 +20,7 @@ test("construirDist copia imágenes, panel, módulos isomorfos e índice", () =>
   const dist = construirDist({ raiz });
   assert.ok(fs.existsSync(path.join(dist, "img/a.jpg")));
   assert.ok(!fs.existsSync(path.join(dist, "img/.gitkeep")));
+  assert.ok(!fs.existsSync(path.join(dist, "ilus")), "public/ilus no debe publicarse en dist/ (I2)");
   assert.ok(fs.existsSync(path.join(dist, "panel/index.html")));
   assert.ok(fs.existsSync(path.join(dist, "panel/lib/estados.mjs")));
   assert.ok(fs.existsSync(path.join(dist, ".nojekyll")));

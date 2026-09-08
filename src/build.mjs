@@ -22,7 +22,7 @@ export function construirDist({ raiz = process.cwd(), destino = "dist" } = {}) {
   const dist = path.join(raiz, destino);
   fs.rmSync(dist, { recursive: true, force: true });
   fs.mkdirSync(dist, { recursive: true });
-  copiarDir(path.join(raiz, "public"), dist);
+  copiarDir(path.join(raiz, "public", "img"), path.join(dist, "img"));
   copiarDir(path.join(raiz, "panel"), path.join(dist, "panel"));
   fs.mkdirSync(path.join(dist, "panel", "lib"), { recursive: true });
   for (const f of MODULOS_ISOMORFOS) fs.copyFileSync(path.join(raiz, "src", "lib", f), path.join(dist, "panel", "lib", f));
