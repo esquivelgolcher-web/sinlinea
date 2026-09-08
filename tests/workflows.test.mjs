@@ -51,6 +51,10 @@ test("el reintento de push falla el paso cuando los tres intentos fallan", () =>
   }
 });
 
+test("regenerar recibe ANTHROPIC_API_KEY para acortar titulares que no caben", () => {
+  assert.match(leer("regenerar"), /secrets\.ANTHROPIC_API_KEY/);
+});
+
 test("generar y regenerar reciben GEMINI_API_KEY y guardan public/ilus", () => {
   for (const n of ["generar", "regenerar"]) {
     assert.match(leer(n), /secrets\.GEMINI_API_KEY/, n);

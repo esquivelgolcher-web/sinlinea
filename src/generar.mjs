@@ -8,14 +8,15 @@ import { fetchText as fetchTextReal } from "./lib/rss.mjs";
 import { recolectar } from "./lib/fuentes.mjs";
 import { cargarVistas, guardarVistas, estaVista, marcarVistas, purgarVistas } from "./lib/seen.mjs";
 import { leerPosts, escribirPost, crearPost, siguienteVariante, creadosHoy, archivar, rutaIlustracion } from "./lib/posts.mjs";
-import { redactar } from "./lib/redactor.mjs";
+import { redactar, acortarTitular } from "./lib/redactor.mjs";
+import { renderizarConAjuste } from "./lib/texto.mjs";
 import { recortarCaption } from "./lib/caption.mjs";
 import { marcarError, renderOk, hashTexto } from "./lib/estados.mjs";
 import { abrirNavegador, renderizarPost } from "./lib/render.mjs";
 import { claveDia } from "./lib/fechas.mjs";
 import { crearIlustrador, guardarIlustracion, sanearMensaje } from "./lib/ilustrador.mjs";
 
-export async function ejecutarGenerar({ config, raiz = process.cwd(), ahora = new Date(), fetchText, client, render, log = console, dryRun = false, ilustrador = null, guardar = guardarIlustracion }) {
+export async function ejecutarGenerar({ config, raiz = process.cwd(), ahora = new Date(), fetchText, client, render, log = console, dryRun = false, ilustrador = null, guardar = guardarIlustracion, acortar = null }) {
   if (/CAMBIAR/.test(config.pages.baseUrl)) throw new Error("config.json: pages.baseUrl todavía tiene el valor CAMBIAR");
   const zona = config.zonaHoraria;
   const hoy = claveDia(ahora, zona);
@@ -76,10 +77,9 @@ export async function ejecutarGenerar({ config, raiz = process.cwd(), ahora = ne
       }
     }
     try {
-      const imagen = await render(post, {
-        config, raiz, destino: dryRun ? path.join("temp", "dry-run", "img", `${post.id}.jpg`) : undefined,
-      });
-      post = renderOk(post, imagen, iso);
+      const destino = dryRun ? path.join("temp", "dry-run", "img", `${post.id}.jpg`) : undefined;
+      const { post: ajustado, imagen } = await renderizarConAjuste({ post, acortar, log, render: (q) => render(q, { config, raiz, destino }) });
+      post = renderOk(ajustado, imagen, iso);
     } catch (err) {
       log.warn(`Render falló para ${post.id}: ${err.message}`);
       post = marcarError(post, { paso: "render", mensaje: err.message }, iso);
@@ -111,6 +111,7 @@ async function main() {
     const r = await ejecutarGenerar({
       config, fetchText: fetchTextReal, client, dryRun, ilustrador,
       render: (post, o) => renderizarPost(post, { ...o, navegador }),
+      acortar: (a) => acortarTitular({ client, config, ...a }),
     });
     console.log(`Listo: ${r.creados.length} borradores nuevos (${r.motivo})${dryRun ? " [dry-run]" : ""}.`);
   } finally {

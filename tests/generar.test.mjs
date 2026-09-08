@@ -138,3 +138,36 @@ test("si la ilustración falla, el post sale con usar=false y error, y sin ilust
   assert.equal(r2.creados[0].ilustracion.usar, false);
   assert.equal(r2.creados[0].ilustracion.error, null);
 });
+
+test("si Claude entrega un titular de más de 65 caracteres, GENERAR pide uno corto y renderiza ese", async () => {
+  const raiz = raizTemporal();
+  const config = cargarConfig(path.join(raiz, "config.json"));
+  const client = { messages: { parse: async () => ({
+    stop_reason: "end_turn", usage: { input_tokens: 1, output_tokens: 1 },
+    parsed_output: { descartados: [], seleccion: [{ indiceCandidato: 0, categoria: "SOCIEDAD", titular: "Un titular larguísimo que se pasa de los sesenta y cinco caracteres permitidos por la plantilla", bajada: "Bajada", caption: "Caption", hashtags: ["#Panamá"], relevancia: 1, motivo: "m", escena: "Estación de bomberos de Panamá" }] },
+  }) } };
+  const acortados = [];
+  const acortar = async (a) => { acortados.push(a); return "Titular corto para la imagen"; };
+  const r = await ejecutarGenerar({ config, raiz, ahora, fetchText, client, render: renderOkFalso, log, acortar });
+  assert.equal(r.creados.length, 1);
+  assert.equal(r.creados[0].titular, "Titular corto para la imagen");
+  assert.equal(r.creados[0].estado, "borrador");
+  assert.equal(acortados.length, 1);
+  assert.match(acortados[0].motivo, /caracteres/);
+  assert.equal(leerPosts(path.join(raiz, "posts"))[0].titular, "Titular corto para la imagen");
+});
+
+test("si el render avisa que el titular no cabe en 3 líneas, GENERAR acorta y vuelve a renderizar", async () => {
+  const raiz = raizTemporal();
+  const config = cargarConfig(path.join(raiz, "config.json"));
+  const render = async (post) => {
+    if (post.titular === "Titular 0") throw Object.assign(new Error("El titular no cabe en 3 líneas"), { code: "TEXTO_NO_CABE", campo: "titular" });
+    return renderOkFalso(post);
+  };
+  const r = await ejecutarGenerar({ config, raiz, ahora, fetchText, client: clientFalso([0]), render, log, acortar: async () => "Titular 0 corto" });
+  assert.equal(r.creados[0].estado, "borrador");
+  assert.equal(r.creados[0].titular, "Titular 0 corto");
+  const sinAcortar = await ejecutarGenerar({ config, raiz: raizTemporal(), ahora, fetchText, client: clientFalso([0]), render, log, acortar: null });
+  assert.equal(sinAcortar.creados[0].estado, "error");
+  assert.match(sinAcortar.creados[0].error.mensaje, /3 líneas/);
+});

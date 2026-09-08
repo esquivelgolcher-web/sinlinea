@@ -7,8 +7,11 @@ import { leerPosts, escribirPost, urlImagen, rutaIlustracion } from "./lib/posts
 import { imagenDesactualizada, renderOk, marcarError, necesitaIlustracion, hashTexto } from "./lib/estados.mjs";
 import { versionPlantilla, RUTA_PLANTILLA, abrirNavegador, renderizarPost } from "./lib/render.mjs";
 import { crearIlustrador, guardarIlustracion, sanearMensaje } from "./lib/ilustrador.mjs";
+import { acortarTitular } from "./lib/redactor.mjs";
+import { renderizarConAjuste } from "./lib/texto.mjs";
+import Anthropic from "@anthropic-ai/sdk";
 
-export async function ejecutarRegenerar({ config, raiz = process.cwd(), ahora = new Date(), render, log = console, version, ilustrador = null, guardar = guardarIlustracion }) {
+export async function ejecutarRegenerar({ config, raiz = process.cwd(), ahora = new Date(), render, log = console, version, ilustrador = null, guardar = guardarIlustracion, acortar = null }) {
   const dir = path.join(raiz, "posts");
   const iso = ahora.toISOString();
   const actual = version ?? versionPlantilla(fs.readFileSync(path.join(raiz, RUTA_PLANTILLA), "utf8"));
@@ -49,8 +52,8 @@ export async function ejecutarRegenerar({ config, raiz = process.cwd(), ahora = 
   if (!pendientes.length) { log.info("Ninguna imagen que regenerar."); return resultado; }
   for (const p of pendientes) {
     try {
-      const imagen = await render(p, { config, raiz });
-      escribirPost(dir, renderOk(p, imagen, iso));
+      const { post: ajustado, imagen } = await renderizarConAjuste({ post: p, acortar, log, render: (q) => render(q, { config, raiz }) });
+      escribirPost(dir, renderOk(ajustado, imagen, iso));
       resultado.renderizados.push(p.id);
       log.info(`Imagen regenerada: ${p.id}`);
     } catch (err) {
@@ -66,9 +69,11 @@ async function main() {
   const config = cargarConfig();
   const ilustrador = config.ilustraciones.activo && process.env.GEMINI_API_KEY ? crearIlustrador({ apiKey: process.env.GEMINI_API_KEY, config }) : null;
   if (config.ilustraciones.activo && !process.env.GEMINI_API_KEY) console.info("Sin GEMINI_API_KEY: los posts saldrán sin ilustración.");
+  const acortar = process.env.ANTHROPIC_API_KEY ? ((client) => (a) => acortarTitular({ client, config, ...a }))(new Anthropic()) : null;
+  if (!process.env.ANTHROPIC_API_KEY) console.info("Sin ANTHROPIC_API_KEY: los titulares que no quepan quedarán en error para corregirlos en el panel.");
   const navegador = await abrirNavegador();
   try {
-    const r = await ejecutarRegenerar({ config, render: (post, o) => renderizarPost(post, { ...o, navegador }), ilustrador });
+    const r = await ejecutarRegenerar({ config, render: (post, o) => renderizarPost(post, { ...o, navegador }), ilustrador, acortar });
     console.log(`Listo: ${r.renderizados.length} regeneradas, ${r.fallidos.length} fallidas.`);
   } finally {
     await navegador.close();

@@ -142,3 +142,20 @@ test("(D1) si el ilustrador lanza, el post conserva usar y el render de los pend
   assert.ok(renderizados.includes(otroPendiente.id), "el render del otro post pendiente se ejecuta igual");
   assert.deepEqual(r.renderizados.sort(), [conIlusQueFalla.id, otroPendiente.id].sort());
 });
+
+test("si el render avisa que el titular no cabe, REGENERAR acorta con Claude, guarda el titular nuevo y renderiza", async () => {
+  const largo = { ...base, id: base.id.slice(0, -4) + "0301", titular: "Titular que no cabe", imagen: null };
+  const raiz = dirCon([largo]);
+  const render = async (p) => {
+    if (p.titular === "Titular que no cabe") throw Object.assign(new Error("El titular no cabe en 3 líneas"), { code: "TEXTO_NO_CABE", campo: "titular" });
+    return imagenDe(p);
+  };
+  const r = await ejecutarRegenerar({ config: cfg, raiz, ahora, render, log, version: 1, acortar: async () => "Titular corto" });
+  assert.deepEqual(r.renderizados, [largo.id]);
+  const guardado = leerPosts(path.join(raiz, "posts"))[0];
+  assert.equal(guardado.titular, "Titular corto");
+  assert.equal(guardado.estado, "borrador");
+  assert.equal(guardado.imagen.hash, hashImagen(guardado, 1));
+  const sin = await ejecutarRegenerar({ config: cfg, raiz: dirCon([largo]), ahora, render, log, version: 1 });
+  assert.deepEqual(sin.fallidos, [largo.id]);
+});

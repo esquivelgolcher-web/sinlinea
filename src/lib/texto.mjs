@@ -15,3 +15,30 @@ export function validarTextos({ titular, bajada }) {
   if (b.length > LIMITES.bajadaMax) errores.push(`La bajada tiene ${b.length} caracteres; el máximo es ${LIMITES.bajadaMax}.`);
   return { ok: errores.length === 0, errores };
 }
+
+// Renderiza un post y, si el titular no cabe (por caracteres o por líneas), pide uno más corto una vez.
+// `render(post) → imagen` puede lanzar un error con code "TEXTO_NO_CABE" y campo "titular" | "bajada".
+// `acortar({ titular, bajada, motivo }) → titular` es opcional (null cuando no hay cliente de Claude).
+export async function renderizarConAjuste({ post, render, acortar = null, log = null }) {
+  let actual = post;
+  let acortado = false;
+  const pedir = async (motivo) => {
+    const nuevo = await acortar({ titular: actual.titular, bajada: actual.bajada, motivo });
+    actual = { ...actual, titular: nuevo };
+    acortado = true;
+    log?.info?.(`Titular acortado: "${nuevo}"`);
+  };
+  const largo = String(post.titular ?? "").trim().length;
+  if (acortar && largo > LIMITES.titularMax) {
+    try { await pedir(`El titular tiene ${largo} caracteres; el máximo es ${LIMITES.titularMax}.`); }
+    catch (err) { log?.warn?.(`No se pudo acortar el titular: ${err.message}`); }
+  }
+  try {
+    return { post: actual, imagen: await render(actual) };
+  } catch (err) {
+    if (err?.code !== "TEXTO_NO_CABE" || err.campo !== "titular" || !acortar || acortado) throw err;
+    try { await pedir(err.message); }
+    catch (e) { log?.warn?.(`No se pudo acortar el titular: ${e.message}`); throw err; }
+    return { post: actual, imagen: await render(actual) };
+  }
+}
