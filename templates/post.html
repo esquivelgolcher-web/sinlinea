@@ -45,7 +45,7 @@
   /* Rótulo, pie y franja: tamaños secundarios. */
   .rotulo { display: none; right: var(--margen); bottom: calc(var(--barra-alto) + var(--pie-alto) + 10px); font-size: 22px; letter-spacing: 0.02em; color: rgba(255,255,255,0.8); }
   .post.con-ilustracion .rotulo { display: block; }
-  .rotulo:empty { display: none; } /* sin texto de rótulo configurado, no se dibuja nada */
+  .post.con-ilustracion .rotulo:empty { display: none; } /* sin texto de rótulo configurado, no se dibuja nada */
   .pie { left: var(--margen); right: var(--margen); bottom: var(--barra-alto); height: var(--pie-alto); display: flex; justify-content: space-between; align-items: center; font-size: 24px; font-weight: 600;
          border-top: 2px solid color-mix(in srgb, var(--texto) 30%, transparent); }
   .barra:empty { display: none; }
