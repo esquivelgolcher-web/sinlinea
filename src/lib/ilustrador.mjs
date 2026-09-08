@@ -26,6 +26,11 @@ export function textoDeRespuesta(json) {
   return partes.filter((p) => p?.text).map((p) => p.text).join(" ").trim();
 }
 
+// Oculta claves de Gemini que se hayan colado en un mensaje de error de la API y lo acota.
+export function sanearMensaje(m) {
+  return String(m).replace(/AIza[0-9A-Za-z_-]{35}/g, "[clave]").slice(0, 300);
+}
+
 export function crearIlustrador({ apiKey, config, fetchImpl = fetch, dormir = (ms) => new Promise((r) => setTimeout(r, ms)) }) {
   const c = config.ilustraciones;
   if (!apiKey) throw new Error("Falta la clave de Gemini");
@@ -33,7 +38,7 @@ export function crearIlustrador({ apiKey, config, fetchImpl = fetch, dormir = (m
   async function generar(descripcion) {
     const cuerpo = {
       model: c.modelo,
-      input: [{ type: "text", text: `${c.estilo}\n\nEscena: ${descripcion}` }],
+      input: [{ type: "text", text: `${c.estilo}\n\nEscena: ${descripcion.slice(0, 400)}\n\nRecuerda: sin personas identificables ni rostros, sin texto, sin logotipos.` }],
       response_format: { type: "image", mime_type: "image/jpeg", aspect_ratio: "4:5", image_size: c.tamano },
     };
     let ultimo;
@@ -58,10 +63,10 @@ export function crearIlustrador({ apiKey, config, fetchImpl = fetch, dormir = (m
       }
       if (res.ok) {
         const b64 = extraerImagenBase64(json);
-        if (!b64) throw new Error(`Gemini no devolvió imagen: ${textoDeRespuesta(json) || "sin detalle"}`);
+        if (!b64) throw new Error(sanearMensaje(`Gemini no devolvió imagen: ${textoDeRespuesta(json) || "sin detalle"}`));
         return Buffer.from(b64, "base64");
       }
-      const mensaje = `Gemini respondió ${res.status}: ${json?.error?.message || "error"}`;
+      const mensaje = sanearMensaje(`Gemini respondió ${res.status}: ${json?.error?.message || "error"}`);
       if (res.status === 429 || res.status >= 500) {
         ultimo = new Error(mensaje);
         if (intento === 0) { await dormir(5000); continue; }
@@ -69,7 +74,6 @@ export function crearIlustrador({ apiKey, config, fetchImpl = fetch, dormir = (m
       }
       throw new Error(mensaje);
     }
-    throw ultimo;
   }
 
   return { generar };

@@ -4,7 +4,7 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import sharp from "sharp";
-import { crearIlustrador, extraerImagenBase64, textoDeRespuesta, guardarIlustracion } from "../src/lib/ilustrador.mjs";
+import { crearIlustrador, extraerImagenBase64, textoDeRespuesta, guardarIlustracion, sanearMensaje } from "../src/lib/ilustrador.mjs";
 import { cargarConfig } from "../src/lib/config.mjs";
 
 const cfg = cargarConfig("config.json");
@@ -40,9 +40,24 @@ test("generar envía el estilo + escena con la clave en cabecera y devuelve un B
   assert.equal(llamadas[0].cabeceras["x-goog-api-key"], "CLAVE");
   assert.equal(llamadas[0].cuerpo.model, cfg.ilustraciones.modelo);
   assert.match(llamadas[0].cuerpo.input[0].text, /Fotografía editorial/);
-  assert.match(llamadas[0].cuerpo.input[0].text, /Escena: Canal de Panamá al amanecer$/);
+  assert.match(llamadas[0].cuerpo.input[0].text, /Escena: Canal de Panamá al amanecer\n\nRecuerda: sin personas identificables ni rostros, sin texto, sin logotipos\.$/);
   assert.deepEqual(llamadas[0].cuerpo.response_format, { type: "image", mime_type: "image/jpeg", aspect_ratio: "4:5", image_size: cfg.ilustraciones.tamano });
   assert.ok(!JSON.stringify(llamadas[0].url).includes("CLAVE"));
+});
+
+test("(M4) la escena se recorta a 400 caracteres en el prompt", async () => {
+  const larga = "x".repeat(450);
+  const { impl, llamadas } = fetchFalso([{ json: { output_image: { data: pixel } } }]);
+  const il = crearIlustrador({ apiKey: "K", config: cfg, fetchImpl: impl, dormir });
+  await il.generar(larga);
+  assert.match(llamadas[0].cuerpo.input[0].text, new RegExp(`Escena: ${"x".repeat(400)}\\n\\n`));
+  assert.ok(!llamadas[0].cuerpo.input[0].text.includes("x".repeat(401)));
+});
+
+test("(M4) sanearMensaje oculta claves AIza... y recorta a 300 caracteres", () => {
+  const claveFalsa = "AIza" + "a".repeat(35);
+  assert.equal(sanearMensaje(`Gemini respondió 400: clave inválida ${claveFalsa}`), "Gemini respondió 400: clave inválida [clave]");
+  assert.equal(sanearMensaje("x".repeat(400)).length, 300);
 });
 
 test("generar reintenta una vez ante 429 o error de red, y lanza ante 4xx o sin imagen", async () => {

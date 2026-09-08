@@ -13,7 +13,7 @@ import { recortarCaption } from "./lib/caption.mjs";
 import { marcarError, renderOk, hashTexto } from "./lib/estados.mjs";
 import { abrirNavegador, renderizarPost } from "./lib/render.mjs";
 import { claveDia } from "./lib/fechas.mjs";
-import { crearIlustrador, guardarIlustracion } from "./lib/ilustrador.mjs";
+import { crearIlustrador, guardarIlustracion, sanearMensaje } from "./lib/ilustrador.mjs";
 
 export async function ejecutarGenerar({ config, raiz = process.cwd(), ahora = new Date(), fetchText, client, render, log = console, dryRun = false, ilustrador = null, guardar = guardarIlustracion }) {
   if (/CAMBIAR/.test(config.pages.baseUrl)) throw new Error("config.json: pages.baseUrl todavía tiene el valor CAMBIAR");
@@ -72,7 +72,7 @@ export async function ejecutarGenerar({ config, raiz = process.cwd(), ahora = ne
         log.info(`Ilustración generada para ${post.id}.`);
       } catch (err) {
         log.warn(`Ilustración falló para ${post.id}: ${err.message}`);
-        post = { ...post, ilustracion: { ...post.ilustracion, usar: false, error: { mensaje: err.message, fecha: iso, intentos: 1 } } };
+        post = { ...post, ilustracion: { ...post.ilustracion, usar: false, error: { mensaje: sanearMensaje(err.message), fecha: iso, intentos: 1 } } };
       }
     }
     try {

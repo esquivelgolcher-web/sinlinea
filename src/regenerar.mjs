@@ -6,7 +6,7 @@ import { cargarConfig } from "./lib/config.mjs";
 import { leerPosts, escribirPost, urlImagen, rutaIlustracion } from "./lib/posts.mjs";
 import { imagenDesactualizada, renderOk, marcarError, necesitaIlustracion, hashTexto } from "./lib/estados.mjs";
 import { versionPlantilla, RUTA_PLANTILLA, abrirNavegador, renderizarPost } from "./lib/render.mjs";
-import { crearIlustrador, guardarIlustracion } from "./lib/ilustrador.mjs";
+import { crearIlustrador, guardarIlustracion, sanearMensaje } from "./lib/ilustrador.mjs";
 
 export async function ejecutarRegenerar({ config, raiz = process.cwd(), ahora = new Date(), render, log = console, version, ilustrador = null, guardar = guardarIlustracion }) {
   const dir = path.join(raiz, "posts");
@@ -27,7 +27,7 @@ export async function ejecutarRegenerar({ config, raiz = process.cwd(), ahora = 
         log.info(`Ilustración regenerada: ${p.id}`);
       } catch (err) {
         const intentos = (p.ilustracion.error?.intentos ?? 0) + 1;
-        const ilustracion = { ...p.ilustracion, error: { mensaje: err.message, fecha: iso, intentos } };
+        const ilustracion = { ...p.ilustracion, error: { mensaje: sanearMensaje(err.message), fecha: iso, intentos } };
         if (intentos >= 3) ilustracion.usar = false;
         nuevo = { ...p, ilustracion, actualizado: iso };
         log.warn(`Ilustración falló para ${p.id}: ${err.message}`);
