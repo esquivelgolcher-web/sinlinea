@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { construirSystem, construirUsuario, validarSeleccion, redactar, EsquemaRedaccion, acortarTextos } from "../src/lib/redactor.mjs";
+import { construirSystem, construirUsuario, validarSeleccion, redactar, EsquemaRedaccion, acortarTextos, escribirEscena } from "../src/lib/redactor.mjs";
 import { cargarConfig } from "../src/lib/config.mjs";
 
 const cfg = cargarConfig("config.json");
@@ -112,4 +112,24 @@ test("acortarTextos lanza si Claude rechaza, devuelve titular vacío, o se pasa 
   await assert.rejects(() => acortarTextos({ client: bajadaLarga, config: cfg, titular: "t", bajada: "b", motivo: "m" }), /111 caracteres/);
   const vacio = { messages: { parse: async () => ({ parsed_output: { titular: "  ", bajada: "b" }, stop_reason: "end_turn" }) } };
   await assert.rejects(() => acortarTextos({ client: vacio, config: cfg, titular: "t", bajada: "b", motivo: "m" }), /vacío/);
+});
+
+test("escribirEscena pide a Claude una escena a partir del titular y la bajada y la devuelve recortada", async () => {
+  let params;
+  const client = { messages: { parse: async (p) => { params = p; return { parsed_output: { escena: "  Flota de vehículos oficiales estacionados frente a un edificio público en Panamá, sin personas  " }, stop_reason: "end_turn" }; } } };
+  const e = await escribirEscena({ client, config: cfg, titular: "Contralor frena compra de vehículos", bajada: "Pidió al MEF suspender adquisiciones." });
+  assert.equal(e, "Flota de vehículos oficiales estacionados frente a un edificio público en Panamá, sin personas");
+  assert.equal(params.model, cfg.claude.modelo);
+  assert.ok(params.output_config.format, "salida estructurada");
+  assert.match(params.messages[0].content, /Contralor frena compra/);
+  assert.match(params.messages[0].content, /suspender adquisiciones/);
+  assert.match(params.system, /tercio superior derecho/);
+  assert.match(params.system, /Nunca personas reales/);
+});
+
+test("escribirEscena lanza si Claude rechaza o devuelve una escena vacía", async () => {
+  const rechazo = { messages: { parse: async () => ({ parsed_output: null, stop_reason: "refusal", stop_details: { explanation: "no" } }) } };
+  await assert.rejects(() => escribirEscena({ client: rechazo, config: cfg, titular: "t", bajada: "b" }), /rechazó/);
+  const vacio = { messages: { parse: async () => ({ parsed_output: { escena: " " }, stop_reason: "end_turn" }) } };
+  await assert.rejects(() => escribirEscena({ client: vacio, config: cfg, titular: "t", bajada: "b" }), /vacía/);
 });

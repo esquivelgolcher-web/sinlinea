@@ -121,3 +121,23 @@ Bajada actual: ${bajada}` }],
   if (b.length > LIMITES.bajadaMax) throw new Error(`Claude devolvió una bajada de ${b.length} caracteres (máximo ${LIMITES.bajadaMax})`);
   return { titular: t, bajada: b };
 }
+
+const EsquemaEscena = z.object({ escena: z.string() });
+
+// Redacta la escena de la ilustración cuando el post no la tiene (p. ej. borradores antiguos).
+export async function escribirEscena({ client, config, titular, bajada }) {
+  const res = await client.messages.parse({
+    model: config.claude.modelo,
+    max_tokens: 800,
+    thinking: { type: "adaptive" },
+    output_config: { effort: "low", format: zodOutputFormat(EsquemaEscena) },
+    system: `Eres editor gráfico de un medio panameño. Describe en 15 a 40 palabras, en español, una imagen concreta que represente el hecho principal de la noticia (un lugar, un objeto, una situación). El protagonista o elemento principal queda en el tercio superior derecho y la zona izquierda y central queda despejada. Nunca personas reales ni rostros reconocibles, nunca texto ni logotipos, nunca violencia gráfica ni sangre. No incluyas el estilo fotográfico. No inventes datos que no estén en el titular o la bajada.`,
+    messages: [{ role: "user", content: `Titular: ${titular}\nBajada: ${bajada}` }],
+  });
+  if (res.stop_reason === "refusal") {
+    throw new Error(`Claude rechazó la solicitud: ${res.stop_details?.explanation || "sin explicación"}`);
+  }
+  const escena = String(res.parsed_output?.escena ?? "").trim();
+  if (!escena) throw new Error("Claude devolvió una escena vacía");
+  return escena;
+}

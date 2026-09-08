@@ -41,7 +41,9 @@ variante de color de fondo. Es opcional y se controla desde la propia tarjeta:
   fondo de color de la variante.
 - **Regenerar ilustración**: guarda la escena actual, activa la casilla y fuerza
   una nueva generación aunque el texto no haya cambiado. Útil si el resultado no
-  te convenció.
+  te convenció. Si la escena está vacía (borradores antiguos), Claude la redacta
+  a partir del titular y la bajada en la siguiente pasada y después Gemini
+  genera la imagen; verás "Generando ilustración… (Claude redacta la escena)".
 
 Al guardar un cambio de escena o de casilla verás "Generando ilustración…" en la
 tarjeta durante uno o dos minutos, hasta que la imagen final se vuelva a dibujar.

@@ -157,7 +157,10 @@ cambiado).
 En cada tarjeta, debajo de la bajada: campo **Escena de la ilustración**
 (textarea), casilla **Usar ilustración**, y botón **Regenerar ilustración**
 (guarda la descripción actual y borra `hashDescripcion` para forzar la
-regeneración). Si `ilustracion.error` existe, se muestra el mensaje. La imagen
+regeneración; con la escena vacía guarda `usar: true` y `descripcion: ""`, y
+REGENERAR pide la escena a Claude con `escribirEscena` — `necesitaEscena` en
+estados.mjs, mismo enfriamiento de 1 h y freno de 3 fallos — antes de llamar a
+Gemini). Si `ilustracion.error` existe, se muestra el mensaje. La imagen
 de la tarjeta sigue siendo el render final, así que el efecto se ve tras la
 corrida de REGENERAR ("Regenerando imagen…").
 

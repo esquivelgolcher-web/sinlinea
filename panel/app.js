@@ -150,7 +150,7 @@ function tarjeta({ post, sha }) {
       el("a", { href: urlSegura(post.fuente.url), target: "_blank", rel: "noopener", text: post.fuente.medio }),
       post.programado ? el("span", { text: `Programado: ${claveDia(post.programado)} ${horaMinutoDeIso(post.programado)}` }) : "",
       imagenDesactualizada(post) && !["publicado", "descartado"].includes(post.estado) ? el("span", { class: "regenerando", text: "Regenerando imagen…" }) : "",
-      generandoIlustracion(ilus) ? el("span", { class: "regenerando", text: "Generando ilustración…" }) : "",
+      generandoIlustracion(ilus) ? el("span", { class: "regenerando", text: ilus.descripcion.trim() ? "Generando ilustración…" : "Generando ilustración… (Claude redacta la escena)" }) : "",
       regenerandoIlustracion(ilus) ? el("span", { class: "regenerando", text: "Regenerando ilustración…" }) : "",
     ]),
     post.error ? el("p", { class: "error-texto", text: `Error (${post.error.paso}): ${post.error.mensaje}` }) : "",
@@ -166,12 +166,12 @@ function tarjeta({ post, sha }) {
   ]);
   const cambios = () => {
     const escena = campos.escena.value.trim();
-    const usar = campos.usar.checked && escena !== "";
+    const usar = campos.usar.checked; // sin escena, REGENERAR se la pide a Claude
     const reactivada = usar && !(post.ilustracion && post.ilustracion.usar);
     return {
       titular: campos.titular.value.trim(), bajada: campos.bajada.value.trim(), caption: campos.caption.value.trim(),
       hashtags: normalizarHashtags(campos.hashtags.value.split(/\s+/)), categoria: campos.categoria.value, variante: campos.variante.value,
-      ilustracion: (escena || post.ilustracion)
+      ilustracion: (escena || usar || post.ilustracion)
         ? { ...(post.ilustracion || { ruta: null, hashDescripcion: null, proveedor: null, modelo: null, generada: null, error: null }), descripcion: escena, usar, ...(reactivada ? { error: null } : {}) }
         : null,
     };
@@ -232,12 +232,8 @@ function tarjeta({ post, sha }) {
     };
     const regenerarIlustracion = (p) => {
       const descripcion = campos.escena.value.trim();
-      if (!descripcion) {
-        avisarAqui("Este post no tiene escena. Escribe en el campo \"Escena de la ilustración\" qué imagen quieres (sin personas reales) y vuelve a pulsar Regenerar ilustración.");
-        campos.escena.focus();
-        return null;
-      }
       const v = captionValido(); if (!v.ok) { avisarAqui(v.errores.join(" ")); return null; }
+      // Sin escena: se guarda usar=true con la escena vacía y REGENERAR se la pide a Claude.
       const base = p.ilustracion || { ruta: null, proveedor: null, modelo: null, generada: null };
       return editarTexto(conCambios(p), { ilustracion: { ...base, descripcion, usar: true, hashDescripcion: null, error: null } }, ahoraIso());
     };

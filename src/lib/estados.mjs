@@ -42,6 +42,15 @@ export function necesitaIlustracion(post, ahora) {
   return true;
 }
 
+// ¿Hay que pedir a Claude la escena (usar=true sin descripción, sin error reciente)?
+export function necesitaEscena(post, ahora) {
+  const il = post.ilustracion;
+  if (!il || !il.usar) return false;
+  if (String(il.descripcion || "").trim()) return false;
+  if (il.error && ahora.getTime() - Date.parse(il.error.fecha) < HORA_MS) return false;
+  return true;
+}
+
 export function imagenDesactualizada(post, version = post.imagen?.version) {
   if (!post.imagen || !post.imagen.hash) return true;
   return post.imagen.hash !== hashImagen(post, version ?? 1);

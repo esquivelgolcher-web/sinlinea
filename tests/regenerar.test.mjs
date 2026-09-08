@@ -171,3 +171,52 @@ test("si el render sigue fallando tras acortar, REGENERAR guarda el post en erro
   assert.equal(guardado.titular, "Titular corto");
   assert.equal(guardado.bajada, "Bajada corta");
 });
+
+const sinEscena = (sufijo, extra = {}) => ({ ...base, id: base.id.slice(0, -4) + sufijo, imagen: null,
+  ilustracion: { descripcion: "", usar: true, ruta: null, hashDescripcion: null, proveedor: null, modelo: null, generada: null, error: null, ...extra } });
+
+test("un post con usar=true y escena vacía recibe la escena de Claude, la ilustración de Gemini y el render", async () => {
+  const p = sinEscena("0401");
+  const raiz = dirCon([p]);
+  const ilustrador = { llamadas: [], async generar(d) { this.llamadas.push(d); return Buffer.from("ffd8ffd9", "hex"); } };
+  const escenas = [];
+  const redactarEscena = async (a) => { escenas.push(a); return "Vehículos oficiales frente a un edificio público"; };
+  const r = await ejecutarRegenerar({ config: cfg, raiz, ahora, render: async (q) => imagenDe(q), log, version: 1, ilustrador, guardar: async () => {}, redactarEscena });
+  assert.deepEqual(escenas.map((a) => a.titular), [p.titular]);
+  assert.deepEqual(ilustrador.llamadas, ["Vehículos oficiales frente a un edificio público"]);
+  const guardado = leerPosts(path.join(raiz, "posts"))[0];
+  assert.equal(guardado.ilustracion.descripcion, "Vehículos oficiales frente a un edificio público");
+  assert.equal(guardado.ilustracion.hashDescripcion, hashTexto(guardado.ilustracion.descripcion));
+  assert.ok(guardado.ilustracion.ruta);
+  assert.deepEqual(r.renderizados, [p.id]);
+});
+
+test("sin redactarEscena (sin clave de Claude) un post con escena vacía no llama a Gemini y queda igual", async () => {
+  const p = sinEscena("0402");
+  const raiz = dirCon([p]);
+  const ilustrador = { llamadas: [], async generar(d) { this.llamadas.push(d); return Buffer.from("ffd8ffd9", "hex"); } };
+  await ejecutarRegenerar({ config: cfg, raiz, ahora, render: async (q) => imagenDe(q), log, version: 1, ilustrador, guardar: async () => {} });
+  assert.deepEqual(ilustrador.llamadas, []);
+  assert.equal(leerPosts(path.join(raiz, "posts"))[0].ilustracion.descripcion, "");
+});
+
+test("si Claude no logra redactar la escena, se anota el error con intentos y se respeta el enfriamiento de 1 h", async () => {
+  const p = sinEscena("0403");
+  const raiz = dirCon([p]);
+  const ilustrador = { llamadas: [], async generar(d) { this.llamadas.push(d); return Buffer.from("ffd8ffd9", "hex"); } };
+  let pedidas = 0;
+  const redactarEscena = async () => { pedidas++; throw new Error("Claude no disponible"); };
+  await ejecutarRegenerar({ config: cfg, raiz, ahora, render: async (q) => imagenDe(q), log, version: 1, ilustrador, guardar: async () => {}, redactarEscena });
+  const guardado = leerPosts(path.join(raiz, "posts"))[0];
+  assert.equal(pedidas, 1);
+  assert.deepEqual(ilustrador.llamadas, []);
+  assert.equal(guardado.ilustracion.usar, true);
+  assert.match(guardado.ilustracion.error.mensaje, /Claude no disponible/);
+  assert.equal(guardado.ilustracion.error.intentos, 1);
+  await ejecutarRegenerar({ config: cfg, raiz, ahora: new Date(ahora.getTime() + 10 * 60000), render: async (q) => imagenDe(q), log, version: 1, ilustrador, guardar: async () => {}, redactarEscena });
+  assert.equal(pedidas, 1, "dentro de la hora no se vuelve a pedir");
+  const tercero = sinEscena("0404", { error: { mensaje: "x", fecha: new Date(ahora.getTime() - 2 * 3600000).toISOString(), intentos: 2 } });
+  const raiz2 = dirCon([tercero]);
+  await ejecutarRegenerar({ config: cfg, raiz: raiz2, ahora, render: async (q) => imagenDe(q), log, version: 1, ilustrador, guardar: async () => {}, redactarEscena });
+  assert.equal(leerPosts(path.join(raiz2, "posts"))[0].ilustracion.usar, false, "al tercer fallo se desactiva");
+});

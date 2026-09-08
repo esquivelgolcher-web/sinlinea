@@ -77,11 +77,12 @@ test("la escena y la casilla de ilustración se guardan en el post", async () =>
   const guardado = JSON.parse(fs.readFileSync(path.join(raiz, "posts/2026-09-07-1420-la-prensa-a1b2.json"), "utf8"));
   assert.equal(guardado.ilustracion.descripcion, "Edificio de la Asamblea Nacional al atardecer");
   assert.equal(guardado.ilustracion.usar, true);
-  await page.fill(".tarjeta textarea >> nth=3", "");
+  await page.uncheck(".tarjeta input[type=checkbox]");
   await page.click("text=Guardar cambios");
   await page.waitForFunction(() => !document.body.textContent.includes("Generando ilustración…"));
   const limpio = JSON.parse(fs.readFileSync(path.join(raiz, "posts/2026-09-07-1420-la-prensa-a1b2.json"), "utf8"));
   assert.equal(limpio.ilustracion.usar, false);
+  assert.equal(limpio.ilustracion.descripcion, "Edificio de la Asamblea Nacional al atardecer", "desmarcar la casilla conserva la escena");
   await page.close();
 });
 
@@ -100,17 +101,18 @@ test("el panel se niega a guardar un titular de más de 65 caracteres y muestra 
   await page.close();
 });
 
-test("Regenerar ilustración sin escena avisa dentro de la tarjeta y lleva el cursor al campo de la escena", async () => {
+test("Regenerar ilustración con la escena vacía guarda usar=true sin escena y muestra el chip de Claude", async () => {
   const page = await navegador.newPage({ viewport: { width: 400, height: 800 } });
   await page.goto(`${base}/panel/`);
   await page.waitForSelector(".tarjeta");
-  const antes = fs.readFileSync(path.join(raiz, "posts/2026-09-07-1420-la-prensa-a1b2.json"), "utf8");
   await page.fill(".tarjeta textarea >> nth=3", "");
   await page.click("text=Regenerar ilustración");
-  await page.waitForSelector(".tarjeta .aviso-tarjeta:not([hidden])");
-  assert.match(await page.textContent(".tarjeta .aviso-tarjeta"), /escena/i);
-  assert.equal(await page.evaluate(() => document.activeElement === document.querySelectorAll(".tarjeta textarea")[3]), true, "el foco va al campo de la escena");
-  assert.equal(await page.isDisabled("text=Regenerar ilustración"), false, "los botones se vuelven a habilitar");
-  assert.equal(fs.readFileSync(path.join(raiz, "posts/2026-09-07-1420-la-prensa-a1b2.json"), "utf8"), antes);
+  await page.waitForSelector("text=Claude redacta la escena");
+  assert.match(await page.textContent(".tarjeta"), /Generando ilustración… \(Claude redacta la escena\)/);
+  assert.equal(await page.isChecked(".tarjeta input[type=checkbox]"), true, "la casilla Usar queda marcada");
+  const guardado = JSON.parse(fs.readFileSync(path.join(raiz, "posts/2026-09-07-1420-la-prensa-a1b2.json"), "utf8"));
+  assert.equal(guardado.ilustracion.usar, true);
+  assert.equal(guardado.ilustracion.descripcion, "");
+  assert.equal(guardado.ilustracion.hashDescripcion, null);
   await page.close();
 });

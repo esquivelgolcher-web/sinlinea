@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import {
+import { necesitaEscena,
   hashImagen, imagenDesactualizada, aprobar, descartar, quitarDeCola, reintentar,
   marcarPublicado, marcarError, renderOk, editarTexto, CATEGORIAS, VARIANTES,
   hashTexto, necesitaIlustracion,
@@ -124,4 +124,15 @@ test("editarTexto acepta ilustracion válida y rechaza inválida", () => {
   const e = editarTexto(p, { ilustracion: { descripcion: "Canal", usar: true, ruta: null, hashDescripcion: null, error: null } }, AHORA);
   assert.equal(e.ilustracion.usar, true);
   assert.throws(() => editarTexto(p, { ilustracion: { descripcion: 5, usar: true } }, AHORA), /ilustracion/);
+});
+
+test("necesitaEscena: solo con usar=true y escena vacía, salvo error de hace menos de 1 h", () => {
+  const ahora = new Date("2026-09-08T12:00:00Z");
+  const con = (il) => ({ ilustracion: il });
+  assert.equal(necesitaEscena(con(null), ahora), false);
+  assert.equal(necesitaEscena(con({ usar: false, descripcion: "" }), ahora), false);
+  assert.equal(necesitaEscena(con({ usar: true, descripcion: "Canal" }), ahora), false);
+  assert.equal(necesitaEscena(con({ usar: true, descripcion: "  " }), ahora), true);
+  assert.equal(necesitaEscena(con({ usar: true, descripcion: "", error: { mensaje: "x", fecha: "2026-09-08T11:30:00Z" } }), ahora), false);
+  assert.equal(necesitaEscena(con({ usar: true, descripcion: "", error: { mensaje: "x", fecha: "2026-09-08T10:00:00Z" } }), ahora), true);
 });
