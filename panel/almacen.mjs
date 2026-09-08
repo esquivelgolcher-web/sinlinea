@@ -32,6 +32,7 @@ export class ErrorConflictoArchivo extends Error {
   }
 }
 
+export const WORKFLOWS_INSTAGRAM = [".github/workflows/publicar.yml", ".github/workflows/probar-instagram.yml"];
 const PENDIENTE = (ahoraIso) => JSON.stringify({ estado: "pendiente", solicitada: ahoraIso }, null, 2) + "\n";
 
 export function crearAlmacenLocal() {
@@ -163,13 +164,17 @@ export function crearAlmacenGitHub({ token, owner, repo, rama = "main", fetchImp
         const entradas = await dir.json();
         const nombres = new Set(entradas.map((e) => e.name));
         const cfg = await leerArchivo(`cuentas/${id}/config.json`);
-        const [conexion, tokenInfo] = await Promise.all([leerJson(`data/${id}/conexion.json`), leerJson(`data/${id}/token-info.json`)]);
+        const [conexionArchivo, tokenInfo] = await Promise.all([leerArchivo(`data/${id}/conexion.json`).catch(() => null), leerJson(`data/${id}/token-info.json`)]);
+        let conexion = null;
+        try { conexion = conexionArchivo ? JSON.parse(conexionArchivo.texto) : null; } catch { conexion = null; }
         let config = null; let error = null;
         try { config = cfg ? JSON.parse(cfg.texto) : null; } catch (err) { error = `cuentas/${id}/config.json no es JSON válido (${err.message})`; }
         if (!cfg) error = `falta cuentas/${id}/config.json`;
-        return { id, config, sha: cfg?.sha || null, editorialSha: entradas.find((e) => e.name === "editorial.md")?.sha || null, logo: nombres.has("logo.png"), conexion, tokenInfo, error };
+        return { id, config, sha: cfg?.sha || null, editorialSha: entradas.find((e) => e.name === "editorial.md")?.sha || null, logo: nombres.has("logo.png"), conexion, conexionSha: conexionArchivo?.sha || null, tokenInfo, error };
       }));
-      return { global, globalSha: g.sha, cuentas };
+      // Workflows de Instagram: el panel deduce de su `env` qué nombres de secretos ya llegan a las corridas.
+      const workflows = await Promise.all(WORKFLOWS_INSTAGRAM.map((r) => leerArchivo(r).catch(() => null)));
+      return { global, globalSha: g.sha, cuentas, workflows: { archivos: WORKFLOWS_INSTAGRAM.filter((_, i) => workflows[i]), textos: workflows.filter(Boolean).map((a) => a.texto) } };
     },
     // Marca la cuenta como pendiente y lanza el workflow "Probar Instagram" (workflow_dispatch) para esa cuenta.
     async solicitarVerificacion(cuenta, ahoraIso = new Date().toISOString()) {

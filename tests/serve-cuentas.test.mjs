@@ -11,6 +11,9 @@ before(async () => {
   raiz = raizConCuentas({ cuentas: ["sinlinea", "prueba"], prefijo: "serve-cuentas-" });
   fs.writeFileSync(path.join(raiz, "data/sinlinea/token-info.json"), '{ "vence": "2026-11-01" }');
   fs.writeFileSync(path.join(raiz, "data/prueba/conexion.json"), JSON.stringify({ estado: "error", usuario: null, comprobado: "2026-09-08T20:00:00.000Z", detalle: "code 190" }));
+  fs.mkdirSync(path.join(raiz, ".github/workflows"), { recursive: true });
+  fs.copyFileSync(".github/workflows/publicar.yml", path.join(raiz, ".github/workflows/publicar.yml"));
+  fs.copyFileSync(".github/workflows/probar-instagram.yml", path.join(raiz, ".github/workflows/probar-instagram.yml"));
   servidor = crearServidor({ raiz });
   await new Promise((r) => servidor.listen(0, "127.0.0.1", r));
   base = `http://127.0.0.1:${servidor.address().port}`;
@@ -37,6 +40,9 @@ test("(maestro) /api/cuentas lista cada cuenta con su config cruda, editorial, s
   assert.deepEqual(sinlinea.tokenInfo, { vence: "2026-11-01" });
   assert.equal(sinlinea.conexion, null);
   assert.equal(sinlinea.logo, true);
+  assert.match(prueba.conexionSha, /^[0-9a-f]{40}$/);
+  assert.equal(sinlinea.conexionSha, null);
+  assert.deepEqual(r.workflows.expuestos, ["IG_ACCESSTOKEN_LUISESKIVELGOLCHER", "IG_ACCESS_TOKEN", "IG_USER_ID", "IG_USER_ID_LUISESKIVELGOLCHER"], "nombres de secretos que llegan a los workflows de Instagram");
   assert.equal(JSON.stringify(r).includes("IGAA"), false);
 });
 

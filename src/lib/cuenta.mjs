@@ -190,24 +190,104 @@ export function cuentasActivas(cuentas) {
   return (cuentas || []).filter((c) => !c.archivada);
 }
 
-// Estado de conexión con Instagram que muestra el panel. Nunca se deduce "conectada" de tener usuario o secretos:
-// solo lo dice una verificación de identidad (data/<cuenta>/conexion.json, escrito por Probar Instagram).
-export function estadoConexion({ conexion = null, tokenInfo = null } = {}) {
+export const ESTADOS_CONEXION_PANEL = ["sin-verificar", "pendiente-configuracion", "credenciales-pendientes", "pendiente", "verificada", "error"];
+export const DIAS_VERIFICACION_ANTIGUA = 7;
+
+// Nombres de secretos efectivos de una cuenta: los declarados o, si no, los sugeridos a partir del id.
+export function nombresSecretosDe(config, id = "") {
+  const sugeridos = nombresSecretosSugeridos(id || "cuenta");
+  return {
+    tokenSecreto: config?.instagram?.tokenSecreto || sugeridos.tokenSecreto,
+    usuarioIdSecreto: config?.instagram?.usuarioIdSecreto || sugeridos.usuarioIdSecreto,
+  };
+}
+
+// "2026-09-08T20:20:00.000Z" → "2026-09-08 20:20" (UTC). Devuelve "" si no hay fecha válida.
+export function fechaCortaUtc(iso) {
+  const t = Date.parse(iso);
+  if (Number.isNaN(t)) return "";
+  const d = new Date(t);
+  const dos = (n) => String(n).padStart(2, "0");
+  return `${d.getUTCFullYear()}-${dos(d.getUTCMonth() + 1)}-${dos(d.getUTCDate())} ${dos(d.getUTCHours())}:${dos(d.getUTCMinutes())}`;
+}
+
+function diasDesde(iso, ahora) {
+  const t = Date.parse(iso);
+  if (Number.isNaN(t)) return null;
+  return Math.floor((ahora.getTime() - t) / 86400000);
+}
+
+// Nombres de secretos que un workflow expone por `env` como `NOMBRE: ${{ secrets.NOMBRE }}`.
+export function secretosExpuestos(textoYml) {
+  const nombres = new Set();
+  const re = /^\s*([A-Z][A-Z0-9_]*):\s*\$\{\{\s*secrets\.([A-Z][A-Z0-9_]*)\s*\}\}\s*$/gm;
+  let m;
+  while ((m = re.exec(String(textoYml || ""))) !== null) nombres.add(m[1]);
+  return [...nombres].sort();
+}
+
+// Nombres presentes en TODOS los workflows leídos (null si no se leyó ninguno: no se afirma nada).
+export function secretosExpuestosComunes(listas) {
+  if (!Array.isArray(listas) || !listas.length) return null;
+  return listas.slice(1).reduce((acc, l) => acc.filter((n) => l.includes(n)), [...listas[0]]).sort();
+}
+
+// Estado de conexión con Instagram que muestra el panel. Nunca se deduce "conectada" de tener usuario o secretos: solo
+// lo dice una verificación de identidad (data/<cuenta>/conexion.json, escrito por Probar Instagram). Reglas:
+// - Si los secretos de la cuenta no llegan a los workflows (`expuestos` los conocidos), la conexión está pendiente de
+//   configuración, haya o no verificación previa.
+// - Una verificación deja de valer si cambió el usuario de Instagram o el nombre de los secretos.
+// - Toda verificación muestra su fecha: un resultado pasado no garantiza que la conexión siga válida.
+// - Sin ninguna verificación no se afirma que falten credenciales: solo que la conexión está sin verificar.
+export function estadoConexion({ conexion = null, tokenInfo = null, config = null, id = "", expuestos = null, ahora = new Date() } = {}) {
+  const nombres = nombresSecretosDe(config, id);
+  const usuarioConfig = config?.marca?.usuario ? normalizarUsuario(config.marca.usuario).slice(1).toLowerCase() : null;
+  if (Array.isArray(expuestos)) {
+    const faltan = [nombres.tokenSecreto, nombres.usuarioIdSecreto].filter((n) => !expuestos.includes(n));
+    if (faltan.length) {
+      return {
+        clave: "pendiente-configuracion",
+        texto: "Conexión pendiente de configuración: sus secretos todavía no llegan a los workflows",
+        detalle: `Falta exponer ${faltan.join(" y ")} en los workflows de Instagram (fase 2: entornos por cuenta). Hasta entonces la verificación no puede pasar.`,
+        fecha: null, antigua: false,
+      };
+    }
+  }
   const c = conexion || {};
+  const fecha = c.comprobado || c.cambiado || c.solicitada || null;
+  const cuando = fecha ? ` el ${fechaCortaUtc(fecha)} UTC` : "";
   if (c.estado === "verificada") {
-    return { clave: "verificada", texto: `Identidad verificada${c.usuario ? ` (@${c.usuario})` : ""}${c.comprobado ? ` el ${String(c.comprobado).slice(0, 10)}` : ""}`, detalle: c.detalle || null };
+    const usuarioVerificado = c.usuario ? String(c.usuario).replace(/^@/, "").toLowerCase() : null;
+    if (usuarioConfig && usuarioVerificado && usuarioVerificado !== usuarioConfig) {
+      return { clave: "pendiente", texto: `Pendiente de verificación: el usuario cambió (@${usuarioVerificado} → @${usuarioConfig}); la verificación${cuando} ya no vale`, detalle: "Verifica de nuevo la identidad antes de activar la publicación.", fecha, antigua: true };
+    }
+    if (c.secretos && (c.secretos.tokenSecreto !== nombres.tokenSecreto || c.secretos.usuarioIdSecreto !== nombres.usuarioIdSecreto)) {
+      return { clave: "pendiente", texto: `Pendiente de verificación: los nombres de los secretos cambiaron; la verificación${cuando} ya no vale`, detalle: "Verifica de nuevo la identidad con los secretos nuevos.", fecha, antigua: true };
+    }
+    const dias = diasDesde(fecha, ahora);
+    const antigua = dias !== null && dias > DIAS_VERIFICACION_ANTIGUA;
+    return {
+      clave: "verificada",
+      texto: `Identidad verificada${c.usuario ? ` (@${String(c.usuario).replace(/^@/, "")})` : ""}${cuando}${dias !== null && dias >= 1 ? ` · hace ${dias} día${dias === 1 ? "" : "s"}` : ""}`,
+      detalle: "Una verificación pasada no garantiza que la conexión siga válida: vuelve a verificar antes de activar la publicación o si cambian las credenciales.",
+      fecha, antigua,
+    };
   }
   if (c.estado === "error") {
-    return { clave: "error", texto: `Error de conexión${c.detalle ? `: ${c.detalle}` : ""}`, detalle: c.detalle || null };
+    return { clave: "error", texto: `Error de conexión${cuando}${c.detalle ? `: ${c.detalle}` : ""}`, detalle: c.detalle || null, fecha, antigua: false };
   }
   if (c.estado === "pendiente") {
-    return { clave: "pendiente", texto: `Pendiente de verificación${c.solicitada ? ` (solicitada ${String(c.solicitada).slice(0, 16).replace("T", " ")} UTC)` : ""}`, detalle: null };
+    if (c.motivo === "cambio") {
+      const ant = c.anterior?.comprobado ? ` (la verificación del ${fechaCortaUtc(c.anterior.comprobado)} UTC ya no vale)` : " (la verificación anterior ya no vale)";
+      return { clave: "pendiente", texto: `Pendiente de verificación: el usuario o los secretos cambiaron${cuando}${ant}`, detalle: "Verifica de nuevo la identidad.", fecha, antigua: true };
+    }
+    return { clave: "pendiente", texto: `Pendiente de verificación${c.solicitada ? ` (solicitada el ${fechaCortaUtc(c.solicitada)} UTC)` : ""}`, detalle: null, fecha, antigua: false };
   }
   if (c.estado === "credenciales-pendientes") {
-    return { clave: "credenciales-pendientes", texto: `Credenciales pendientes${c.detalle ? `: ${c.detalle}` : ""}`, detalle: c.detalle || null };
+    return { clave: "credenciales-pendientes", texto: `Credenciales pendientes según Probar Instagram${cuando}${c.detalle ? `: ${c.detalle}` : ""}`, detalle: c.detalle || null, fecha, antigua: false };
   }
   if (!conexion && tokenInfo && (tokenInfo.vence || tokenInfo.comprobado)) {
-    return { clave: "pendiente", texto: "Pendiente de verificación (hay datos del token, pero la identidad no se ha comprobado)", detalle: null };
+    return { clave: "pendiente", texto: "Pendiente de verificación: hay datos del token, pero la identidad no se ha comprobado", detalle: null, fecha: null, antigua: false };
   }
-  return { clave: "credenciales-pendientes", texto: "Credenciales pendientes", detalle: null };
+  return { clave: "sin-verificar", texto: "Conexión sin verificar: no se ha comprobado la identidad (se desconoce si los secretos existen)", detalle: "Guarda los secretos en GitHub si aún no están y pulsa Verificar identidad.", fecha: null, antigua: false };
 }

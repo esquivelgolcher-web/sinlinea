@@ -5,6 +5,7 @@ import fs from "node:fs";
 import {
   nombresSecretosSugeridos, idSugerido, normalizarUsuario, erroresDeCuenta, plantillaEditorial,
   configDesdeFormulario, formularioDesdeConfig, archivarCuenta, reactivarCuenta, estadoConexion, cuentasActivas,
+  secretosExpuestos, secretosExpuestosComunes,
 } from "../src/lib/cuenta.mjs";
 import { nombreSecretoDeCuenta } from "../src/lib/secretos.mjs";
 import { validarCuenta, cargarConfiguracion } from "../src/lib/config.mjs";
@@ -119,17 +120,82 @@ test("(maestro) archivarCuenta detiene las automatizaciones y conserva el resto;
   assert.deepEqual(cuentasActivas([{ cuenta: "a" }, { cuenta: "b", archivada: true }]).map((x) => x.cuenta), ["a"]);
 });
 
-test("(maestro) estadoConexion distingue credenciales pendientes, pendiente de verificación, verificada y error", () => {
-  assert.equal(estadoConexion({ conexion: null, tokenInfo: null }).clave, "credenciales-pendientes");
-  assert.equal(estadoConexion({ conexion: null, tokenInfo: { vence: "2026-11-07" } }).clave, "pendiente", "hay datos del token pero la identidad nunca se verificó");
-  assert.equal(estadoConexion({ conexion: { estado: "pendiente", solicitada: "2026-09-08T20:00:00Z" } }).clave, "pendiente");
-  const v = estadoConexion({ conexion: { estado: "verificada", usuario: "luiseskivelgolcher", comprobado: "2026-09-08" } });
+const ahora = new Date("2026-09-10T12:00:00Z");
+const cfgX = { marca: { usuario: "@luiseskivelgolcher" }, instagram: { tokenSecreto: "IG_ACCESSTOKEN_LUISESKIVELGOLCHER", usuarioIdSecreto: "IG_USER_ID_LUISESKIVELGOLCHER" } };
+const secretosX = { tokenSecreto: "IG_ACCESSTOKEN_LUISESKIVELGOLCHER", usuarioIdSecreto: "IG_USER_ID_LUISESKIVELGOLCHER" };
+
+test("(maestro) estadoConexion: sin verificación no afirma nada sobre los secretos (sin-verificar); credenciales pendientes solo si lo dijo Probar Instagram", () => {
+  const s = estadoConexion({ conexion: null, tokenInfo: null, config: cfgX, ahora });
+  assert.equal(s.clave, "sin-verificar");
+  assert.match(s.texto, /sin verificar/i);
+  assert.doesNotMatch(s.texto, /credenciales pendientes/i);
+  assert.equal(estadoConexion({ conexion: null, tokenInfo: { vence: "2026-11-07" }, config: cfgX, ahora }).clave, "pendiente", "hay datos del token pero la identidad nunca se verificó");
+  const cp = estadoConexion({ conexion: { estado: "credenciales-pendientes", detalle: "falta el secreto IG_ACCESS_TOKEN_X", comprobado: "2026-09-08T19:00:00Z" }, config: cfgX, ahora });
+  assert.equal(cp.clave, "credenciales-pendientes");
+  assert.match(cp.texto, /2026-09-08/);
+  assert.match(cp.texto, /IG_ACCESS_TOKEN_X/);
+  assert.equal(estadoConexion({ conexion: { estado: "raro" }, config: cfgX, ahora }).clave, "sin-verificar", "un estado desconocido nunca se muestra como conectado");
+});
+
+test("(maestro) estadoConexion: verificada muestra la fecha de la última verificación y avisa de que un resultado pasado no garantiza nada", () => {
+  const v = estadoConexion({ conexion: { estado: "verificada", usuario: "luiseskivelgolcher", comprobado: "2026-09-08T20:20:00.000Z", secretos: secretosX }, config: cfgX, ahora });
   assert.equal(v.clave, "verificada");
   assert.match(v.texto, /@luiseskivelgolcher/);
-  assert.match(v.texto, /2026-09-08/);
-  const e = estadoConexion({ conexion: { estado: "error", detalle: "code 190", comprobado: "2026-09-08" } });
+  assert.match(v.texto, /2026-09-08 20:20/);
+  assert.equal(v.fecha, "2026-09-08T20:20:00.000Z");
+  assert.match(v.detalle, /no garantiza/i);
+  assert.equal(v.antigua, false);
+  const vieja = estadoConexion({ conexion: { estado: "verificada", usuario: "luiseskivelgolcher", comprobado: "2026-08-20T10:00:00.000Z", secretos: secretosX }, config: cfgX, ahora });
+  assert.equal(vieja.antigua, true, "más de 7 días: se marca como antigua");
+  assert.match(vieja.texto, /hace 21 días/);
+  const e = estadoConexion({ conexion: { estado: "error", detalle: "code 190", comprobado: "2026-09-08T19:35:00Z" }, config: cfgX, ahora });
   assert.equal(e.clave, "error");
   assert.match(e.texto, /code 190/);
-  assert.equal(estadoConexion({ conexion: { estado: "credenciales-pendientes", detalle: "falta el secreto IG_ACCESS_TOKEN_X" } }).clave, "credenciales-pendientes");
-  assert.equal(estadoConexion({ conexion: { estado: "raro" } }).clave, "credenciales-pendientes", "un estado desconocido nunca se muestra como conectado");
+  assert.match(e.texto, /2026-09-08 19:35/);
+});
+
+test("(maestro) estadoConexion: si cambia el usuario o el nombre de los secretos, la verificación anterior deja de valer", () => {
+  const verificada = { estado: "verificada", usuario: "luiseskivelgolcher", comprobado: "2026-09-08T20:20:00.000Z", secretos: secretosX };
+  const otroUsuario = estadoConexion({ conexion: verificada, config: { ...cfgX, marca: { usuario: "@otro.usuario" } }, ahora });
+  assert.equal(otroUsuario.clave, "pendiente");
+  assert.match(otroUsuario.texto, /usuario cambió/i);
+  assert.match(otroUsuario.texto, /2026-09-08/);
+  const otroSecreto = estadoConexion({ conexion: verificada, config: { ...cfgX, instagram: { ...cfgX.instagram, tokenSecreto: "IG_ACCESS_TOKEN_NUEVO" } }, ahora });
+  assert.equal(otroSecreto.clave, "pendiente");
+  assert.match(otroSecreto.texto, /secretos cambiaron/i);
+  const invalidada = estadoConexion({ conexion: { estado: "pendiente", motivo: "cambio", cambiado: "2026-09-09T10:00:00Z", anterior: { estado: "verificada", comprobado: "2026-09-08T20:20:00.000Z" } }, config: cfgX, ahora });
+  assert.equal(invalidada.clave, "pendiente");
+  assert.match(invalidada.texto, /ya no vale/i);
+  assert.match(invalidada.texto, /2026-09-08/);
+  assert.equal(estadoConexion({ conexion: { estado: "pendiente", solicitada: "2026-09-08T20:00:00Z" }, config: cfgX, ahora }).clave, "pendiente");
+});
+
+test("(maestro) estadoConexion: si los secretos de la cuenta no llegan a los workflows, la conexión está pendiente de configuración (aunque haya verificación previa)", () => {
+  const expuestos = ["IG_ACCESS_TOKEN", "IG_USER_ID", "IG_ACCESSTOKEN_LUISESKIVELGOLCHER", "IG_USER_ID_LUISESKIVELGOLCHER"];
+  assert.equal(estadoConexion({ conexion: null, config: cfgX, expuestos, ahora }).clave, "sin-verificar", "sus secretos sí llegan");
+  const nueva = { marca: { usuario: "@nuevomedio" }, instagram: { tokenSecreto: "IG_ACCESS_TOKEN_NUEVO_MEDIO", usuarioIdSecreto: "IG_USER_ID_NUEVO_MEDIO" } };
+  const pc = estadoConexion({ conexion: null, config: nueva, expuestos, ahora });
+  assert.equal(pc.clave, "pendiente-configuracion");
+  assert.match(pc.texto, /pendiente de configuración/i);
+  assert.match(pc.detalle, /IG_ACCESS_TOKEN_NUEVO_MEDIO/);
+  assert.equal(estadoConexion({ conexion: { estado: "verificada", usuario: "nuevomedio", comprobado: "2026-09-01T00:00:00Z" }, config: nueva, expuestos, ahora }).clave, "pendiente-configuracion");
+  assert.equal(estadoConexion({ conexion: null, config: nueva, expuestos: null, ahora }).clave, "sin-verificar", "sin datos de los workflows no se afirma nada");
+  // Sin nombres declarados se usan los sugeridos a partir del id
+  assert.equal(estadoConexion({ conexion: null, id: "prueba", config: { marca: { usuario: "@prueba.diario" } }, expuestos, ahora }).clave, "pendiente-configuracion");
+});
+
+test("(maestro) secretosExpuestos lee los nombres de secretos que un workflow pasa por env", () => {
+  const yml = `
+      - name: Publicar
+        env:
+          IG_ACCESS_TOKEN: \${{ secrets.IG_ACCESS_TOKEN }}
+          IG_USER_ID: \${{ secrets.IG_USER_ID }}
+          IG_ACCESSTOKEN_LUISESKIVELGOLCHER: \${{ secrets.IG_ACCESSTOKEN_LUISESKIVELGOLCHER }}
+          CUENTA: \${{ inputs.cuenta }}
+        run: node src/publicar.mjs
+  `;
+  assert.deepEqual(secretosExpuestos(yml), ["IG_ACCESSTOKEN_LUISESKIVELGOLCHER", "IG_ACCESS_TOKEN", "IG_USER_ID"]);
+  assert.deepEqual(secretosExpuestos(""), []);
+  assert.deepEqual(secretosExpuestosComunes([secretosExpuestos(yml), ["IG_ACCESS_TOKEN", "IG_USER_ID", "OTRO"]]), ["IG_ACCESS_TOKEN", "IG_USER_ID"]);
+  assert.equal(secretosExpuestosComunes([]), null, "sin workflows leídos no se sabe nada");
 });

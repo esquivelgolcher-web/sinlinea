@@ -15,7 +15,7 @@ export function escribirConexion(raiz, config, { estado, usuario = null, detalle
   if (!raiz) return;
   const carpeta = path.join(raiz, config.rutas?.datos || `data/${config.cuenta}`);
   fs.mkdirSync(carpeta, { recursive: true });
-  const datos = { estado, usuario, comprobado: ahora.toISOString(), detalle: detalle ? ocultarSecretos(detalle) : null };
+  const datos = { estado, usuario, comprobado: ahora.toISOString(), detalle: detalle ? ocultarSecretos(detalle) : null, secretos: { tokenSecreto: nombresDeSecretos(config).token, usuarioIdSecreto: nombresDeSecretos(config).usuarioId } };
   fs.writeFileSync(path.join(carpeta, "conexion.json"), JSON.stringify(datos, null, 2) + "\n");
 }
 

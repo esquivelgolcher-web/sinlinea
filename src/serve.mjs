@@ -8,6 +8,14 @@ import { cargarConfiguracion, cargarGlobal, resumenParaPanel, validarGlobal, val
 import { leerPosts, escribirPost, validarPost, CUENTA_LEGADO } from "./lib/posts.mjs";
 import { construirHtml, RUTA_PLANTILLA, RUTA_LOGO } from "./lib/render.mjs";
 import { VARIANTES } from "./lib/estados.mjs";
+import { secretosExpuestos, secretosExpuestosComunes } from "./lib/cuenta.mjs";
+
+// Workflows que exponen los secretos de Instagram: el panel deduce de ellos si una cuenta nueva ya puede verificarse.
+export const WORKFLOWS_INSTAGRAM = [".github/workflows/publicar.yml", ".github/workflows/probar-instagram.yml"];
+export function leerWorkflows(raiz) {
+  const textos = WORKFLOWS_INSTAGRAM.map((r) => path.join(raiz, ...r.split("/"))).filter((r) => fs.existsSync(r)).map((r) => fs.readFileSync(r, "utf8"));
+  return { archivos: WORKFLOWS_INSTAGRAM.filter((r) => fs.existsSync(path.join(raiz, ...r.split("/")))), expuestos: secretosExpuestosComunes(textos.map(secretosExpuestos)) };
+}
 
 const TIPOS = {
   ".html": "text/html; charset=utf-8", ".js": "text/javascript; charset=utf-8", ".mjs": "text/javascript; charset=utf-8",
@@ -139,11 +147,12 @@ export function crearServidor({ raiz = process.cwd() } = {}) {
             editorial: textoEd, editorialSha: textoEd ? shaDeBlob(textoEd) : null,
             logo: fs.existsSync(path.join(carpeta, "logo.png")),
             conexion: leerJsonSiExiste(path.join(raiz, "data", id, "conexion.json")),
+            conexionSha: fs.existsSync(path.join(raiz, "data", id, "conexion.json")) ? shaDeBlob(fs.readFileSync(path.join(raiz, "data", id, "conexion.json"))) : null,
             tokenInfo: leerJsonSiExiste(path.join(raiz, "data", id, "token-info.json")),
             error,
           };
         });
-        return responderJson(res, 200, { global, globalSha: shaDeBlob(textoGlobal), cuentas });
+        return responderJson(res, 200, { global, globalSha: shaDeBlob(textoGlobal), cuentas, workflows: leerWorkflows(raiz) });
       }
       if ((req.method === "GET" || req.method === "PUT") && p === "/api/archivo") {
         const ruta = url.searchParams.get("ruta") || "";

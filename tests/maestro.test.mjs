@@ -101,7 +101,10 @@ test("(maestro) Probar Instagram deja el estado de conexión en data/<cuenta>/co
 
   const ok = () => ({ perfil: async () => ({ username: "luiseskivelgolcher", userId: "9999", coincideId: true }), vigencia: async () => ({ vence: null, origen: "desconocida" }) });
   await ejecutarPruebaInstagram({ configuracion, cuenta: "luiseskivelgolcher", env: envPersonal, igDe: ok, raiz, ahora });
-  assert.deepEqual(leer("luiseskivelgolcher"), { estado: "verificada", usuario: "luiseskivelgolcher", comprobado: "2026-09-08T21:00:00.000Z", detalle: null });
+  assert.deepEqual(leer("luiseskivelgolcher"), {
+    estado: "verificada", usuario: "luiseskivelgolcher", comprobado: "2026-09-08T21:00:00.000Z", detalle: null,
+    secretos: { tokenSecreto: "IG_ACCESSTOKEN_LUISESKIVELGOLCHER", usuarioIdSecreto: "IG_USER_ID_LUISESKIVELGOLCHER" },
+  }, "guarda con qué usuario y con qué nombres de secretos se verificó, para invalidar si cambian");
 
   const falla = () => ({ perfil: async () => { const e = new Error("Invalid OAuth access token - Cannot parse access token"); e.codigo = 190; e.subcodigo = null; e.tipo = "OAuthException"; throw e; } });
   await ejecutarPruebaInstagram({ configuracion, cuenta: "luiseskivelgolcher", env: envPersonal, igDe: falla, raiz, ahora });
@@ -124,4 +127,19 @@ test("(maestro) Probar Instagram deja el estado de conexión en data/<cuenta>/co
   assert.equal(leer("luiseskivelgolcher").estado, "credenciales-pendientes");
   assert.match(leer("luiseskivelgolcher").detalle, /17841400000000001/);
   assert.equal(fs.existsSync(path.join(raiz, "data", "sinlinea", "conexion.json")), false, "no toca otras cuentas");
+});
+
+test("(maestro) reactivar una cuenta archivada conserva su cola sin publicarla: PUBLICAR la deja en espera hasta que el operador encienda automatico.publicar", async () => {
+  const { raiz, programado } = raizConArchivada();
+  const ruta = path.join(raiz, "cuentas", "prueba", "config.json");
+  const { reactivarCuenta } = await import("../src/lib/cuenta.mjs");
+  fs.writeFileSync(ruta, JSON.stringify(reactivarCuenta(JSON.parse(fs.readFileSync(ruta, "utf8"))), null, 2));
+  const configuracion = cargarConfiguracion(raiz);
+  const prueba = configuracion.cuentas.find((c) => c.cuenta === "prueba");
+  assert.equal(prueba.archivada, false);
+  assert.deepEqual(prueba.automatico, { generar: false, publicar: false });
+  const r = await publicarCuentas({ configuracion, raiz, ahora: new Date("2026-09-09T12:00:00Z"), log, igDe: () => { throw new Error("no debe publicar"); } });
+  assert.equal(r.resultados.prueba.motivo, "publicar-desactivado");
+  assert.deepEqual(r.resultados.prueba.pospuestos, [programado.id]);
+  assert.equal(leerPosts(path.join(raiz, "posts")).find((x) => x.id === programado.id).estado, "programado");
 });
