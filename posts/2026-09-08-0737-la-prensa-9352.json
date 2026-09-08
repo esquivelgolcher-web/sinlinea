@@ -31,7 +31,7 @@
     "descripcion": "Aula escolar vacía con pupitres ordenados y un pizarrón en blanco, luz natural entrando por una ventana, zona izquierda y central despejadas, pupitre destacado en el tercio superior derecho.",
     "usar": true,
     "ruta": "public/ilus/2026-09-08-0737-la-prensa-9352.jpg",
-    "hashDescripcion": "e78ad716faa8d83c",
+    "hashDescripcion": null,
     "proveedor": "gemini",
     "modelo": "gemini-3.1-flash-lite-image",
     "generada": "2026-09-08T12:37:50.322Z",
@@ -41,5 +41,5 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-08T12:37:50.322Z",
-  "actualizado": "2026-09-08T12:37:50.322Z"
+  "actualizado": "2026-09-08T13:46:48.101Z"
 }
