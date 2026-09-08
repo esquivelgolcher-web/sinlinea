@@ -1,0 +1,31 @@
+name: Probar Gemini
+
+# Manual: genera una ilustración de prueba y la deja como artefacto de la corrida.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  probar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar el repositorio
+        uses: actions/checkout@v4
+      - name: Preparar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+      - name: Instalar dependencias
+        run: npm ci
+      - name: Generar ilustración de prueba
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: node src/probar-gemini.mjs
+      - name: Guardar la imagen como artefacto
+        uses: actions/upload-artifact@v4
+        with:
+          name: prueba-gemini
+          path: temp/prueba-gemini.jpg

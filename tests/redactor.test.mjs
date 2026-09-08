@@ -10,10 +10,10 @@ const candidatos = [
 ];
 const salida = {
   seleccion: [
-    { indiceCandidato: 1, categoria: "ECONOMÍA", titular: "T2", bajada: "B2", caption: "C2", hashtags: ["#Panamá"], relevancia: 0.6, motivo: "m" },
-    { indiceCandidato: 0, categoria: "SOCIEDAD", titular: "T1", bajada: "B1", caption: "C1", hashtags: ["#Panamá"], relevancia: 0.9, motivo: "m" },
-    { indiceCandidato: 0, categoria: "SOCIEDAD", titular: "dup", bajada: "b", caption: "c", hashtags: [], relevancia: 0.1, motivo: "m" },
-    { indiceCandidato: 7, categoria: "SALUD", titular: "fuera", bajada: "b", caption: "c", hashtags: [], relevancia: 0.5, motivo: "m" },
+    { indiceCandidato: 1, categoria: "ECONOMÍA", titular: "T2", bajada: "B2", caption: "C2", hashtags: ["#Panamá"], relevancia: 0.6, motivo: "m", escena: "Estación de bomberos" },
+    { indiceCandidato: 0, categoria: "SOCIEDAD", titular: "T1", bajada: "B1", caption: "C1", hashtags: ["#Panamá"], relevancia: 0.9, motivo: "m", escena: "Estación de bomberos" },
+    { indiceCandidato: 0, categoria: "SOCIEDAD", titular: "dup", bajada: "b", caption: "c", hashtags: [], relevancia: 0.1, motivo: "m", escena: "Estación de bomberos" },
+    { indiceCandidato: 7, categoria: "SALUD", titular: "fuera", bajada: "b", caption: "c", hashtags: [], relevancia: 0.5, motivo: "m", escena: "Estación de bomberos" },
   ],
   descartados: [],
 };
@@ -63,4 +63,12 @@ test("redactar lanza si Claude rechaza o no devuelve salida válida", async () =
   await assert.rejects(() => redactar({ client: rechazo, config: cfg, editorialMd: "", candidatos, recientes: [], max: 1 }), /rechazó/);
   const vacio = { messages: { parse: async () => ({ parsed_output: null, stop_reason: "end_turn" }) } };
   await assert.rejects(() => redactar({ client: vacio, config: cfg, editorialMd: "", candidatos, recientes: [], max: 1 }), /salida válida/);
+});
+
+test("el esquema exige escena y las reglas la describen", () => {
+  const sin = structuredClone(salida);
+  delete sin.seleccion[0].escena;
+  assert.equal(EsquemaRedaccion.safeParse(sin).success, false);
+  assert.match(construirSystem(""), /"escena"/);
+  assert.match(construirSystem(""), /Nunca personas reales/);
 });

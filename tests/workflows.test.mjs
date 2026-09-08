@@ -49,3 +49,10 @@ test("el reintento de push falla el paso cuando los tres intentos fallan", () =>
     assert.ok(!texto.includes("&& break || sleep 5"), `${n} aún tiene el bucle antiguo`);
   }
 });
+
+test("probar-gemini es manual, solo lee y usa el secreto GEMINI_API_KEY", () => {
+  const w = wf("probar-gemini");
+  assert.ok(w.on.workflow_dispatch !== undefined);
+  assert.equal(w.permissions.contents, "read");
+  assert.match(leer("probar-gemini"), /secrets\.GEMINI_API_KEY/);
+});
