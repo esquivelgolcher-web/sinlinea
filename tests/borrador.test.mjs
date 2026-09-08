@@ -12,9 +12,7 @@ const entrada = {
   categoria: "EDUCACIÓN",
   titular: "Cómo leer una licitación pública en cinco pasos",
   bajada: "Qué mirar en un pliego: objeto, requisitos, plazos, criterios de evaluación y quién adjudica.",
-  caption: "Una licitación pública es un documento denso, pero tiene siempre la misma estructura.
-
-Se explica en el post.",
+  caption: "Una licitación pública es un documento denso, pero tiene siempre la misma estructura. Se explica en el post.",
   hashtags: ["#Transparencia", "#Aprende"],
   fuente: { medio: "PanamaCompra", url: "https://www.panamacompra.gob.pa/", titulo: "Portal de contrataciones públicas", publicado: "2026-09-08T00:00:00.000Z" },
   escena: "Pliego de licitación impreso sobre una mesa, con un marcador y una regla, luz de ventana, sin personas",
