@@ -48,7 +48,7 @@ export function crearServidor({ raiz = process.cwd() } = {}) {
     try {
       if (req.method === "GET" && p === "/") {
         const enlaces = VARIANTES.map((v) => `<li><a href="/vista/${v}">Plantilla · ${v}</a></li>`).join("");
-        return responder(res, 200, `<!doctype html><meta charset="utf-8"><title>Sin Línea · previsualización</title><h1>Sin Línea</h1><ul>${enlaces}<li><a href="/panel/">Panel (modo local)</a></li></ul>`, TIPOS[".html"]);
+        return responder(res, 200, `<!doctype html><meta charset="utf-8"><title>Sin Línea · previsualización</title><h1>Sin Línea</h1><ul>${enlaces}<li><a href="/vista/negro?ilustracion=1">Plantilla · con ilustración</a></li><li><a href="/panel/">Panel (modo local)</a></li></ul>`, TIPOS[".html"]);
       }
       if (req.method === "GET" && p.startsWith("/vista/")) {
         const variante = p.slice("/vista/".length);
@@ -56,10 +56,12 @@ export function crearServidor({ raiz = process.cwd() } = {}) {
         const ejemplo = JSON.parse(fs.readFileSync(path.join(raiz, "tests", "fixtures", "post-ejemplo.json"), "utf8"));
         const plantilla = fs.readFileSync(path.join(raiz, RUTA_PLANTILLA), "utf8");
         const logoUrl = fs.existsSync(path.join(raiz, RUTA_LOGO)) ? RUTA_LOGO : null;
-        return responder(res, 200, construirHtml({ ...ejemplo, variante }, config, { plantilla, baseHref: "/", logoUrl }), TIPOS[".html"]);
+        const ilustracionUrl = url.searchParams.get("ilustracion") === "1" ? "tests/fixtures/ilustracion-ejemplo.jpg" : null;
+        return responder(res, 200, construirHtml({ ...ejemplo, variante }, config, { plantilla, baseHref: "/", logoUrl, ilustracionUrl }), TIPOS[".html"]);
       }
       if (req.method === "GET" && p.startsWith("/assets/")) return servirArchivo(res, path.join(raiz, "assets"), p.slice("/assets/".length));
       if (req.method === "GET" && p.startsWith("/img/")) return servirArchivo(res, path.join(raiz, "public", "img"), p.slice("/img/".length));
+      if (req.method === "GET" && p.startsWith("/tests/fixtures/")) return servirArchivo(res, path.join(raiz, "tests", "fixtures"), p.slice("/tests/fixtures/".length));
       if (req.method === "GET" && p === "/panel/config.json") {
         return responder(res, 200, JSON.stringify({ franjas: config.franjas, zonaHoraria: config.zonaHoraria, marca: config.marca }), TIPOS[".json"]);
       }

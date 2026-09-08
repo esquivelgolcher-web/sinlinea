@@ -10,7 +10,7 @@ const plantilla = fs.readFileSync("templates/post.html", "utf8");
 
 test("versionPlantilla lee data-version", () => {
   assert.equal(versionPlantilla('<html lang="es" data-version="7">'), 7);
-  assert.equal(versionPlantilla(plantilla), 4);
+  assert.equal(versionPlantilla(plantilla), 5);
 });
 
 test("datosDeRender arma los textos de la imagen", () => {
@@ -41,4 +41,14 @@ test("construirHtml no interpreta patrones $ del texto (p. ej. $& o $$)", () => 
   assert.equal(datos.titular, "Precio sube a $& y $$ el doble");
   assert.equal(datos.bajada, "Cuesta $' hoy");
   assert.equal((html.match(/<script id="datos"/g) || []).length, 1);
+});
+
+test("construirHtml incluye la ilustración y el rótulo solo cuando se pasa ilustracionUrl", () => {
+  const con = construirHtml(post, cfg, { plantilla, baseHref: "/", logoUrl: null, ilustracionUrl: "public/ilus/x.jpg" });
+  const m = con.match(/<script id="datos" type="application\/json">([\s\S]*?)<\/script>/);
+  const datos = JSON.parse(m[1]);
+  assert.equal(datos.ilustracionUrl, "public/ilus/x.jpg");
+  assert.equal(datos.rotulo, "Ilustración generada con IA");
+  const sin = construirHtml(post, cfg, { plantilla, baseHref: "/", logoUrl: null });
+  assert.equal(JSON.parse(sin.match(/<script id="datos" type="application\/json">([\s\S]*?)<\/script>/)[1]).ilustracionUrl, null);
 });

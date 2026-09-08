@@ -22,7 +22,7 @@ for (const variante of ["negro", "amarillo", "rojo"]) {
     assert.equal(meta.width, 1080);
     assert.equal(meta.height, 1350);
     assert.ok(fs.statSync(img.ruta).size < 1024 * 1024);
-    assert.equal(img.version, 4);
+    assert.equal(img.version, 5);
     assert.match(img.hash, /^[0-9a-f]{16}$/);
   });
 }
@@ -31,4 +31,14 @@ test("un titular muy largo se reduce pero no desborda (no lanza)", async () => {
   const post = { ...base, titular: "Un titular exageradamente largo que obliga a la plantilla a reducir el tamaño de la letra varias veces hasta que quepa bien" };
   const img = await renderizarPost(post, { config: cfg, navegador, destino: path.join("temp", "test-render", "largo.jpg") });
   assert.ok(fs.existsSync(img.ruta));
+});
+
+test("renderiza con ilustración de fondo cuando usar=true y el archivo existe", async () => {
+  const post = { ...base, ilustracion: { descripcion: "Canal", usar: true, ruta: "tests/fixtures/ilustracion-ejemplo.jpg", hashDescripcion: "0000000000000000", proveedor: "gemini", modelo: "x", generada: base.creado, error: null } };
+  const img = await renderizarPost(post, { config: cfg, navegador, destino: path.join("temp", "test-render", "ilustracion.jpg") });
+  const meta = await sharp(img.ruta).metadata();
+  assert.equal(meta.width, 1080);
+  const stats = await sharp(img.ruta).stats();
+  assert.ok(stats.channels[2].mean > 25, "el fondo debe tener el azul de la fixture, no negro puro");
+  assert.notEqual(img.hash, (await renderizarPost({ ...post, ilustracion: { ...post.ilustracion, usar: false } }, { config: cfg, navegador, destino: path.join("temp", "test-render", "sin-ilustracion.jpg") })).hash);
 });

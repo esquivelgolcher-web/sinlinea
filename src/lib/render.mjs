@@ -1,4 +1,5 @@
 // Render de un post a JPEG 1080x1350 con Playwright (Chromium) + sharp.
+// Las rutas (logoUrl, ilustracionUrl) son relativas a la raíz del repo.
 import fs from "node:fs";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
@@ -17,7 +18,7 @@ export function versionPlantilla(html) {
   return Number(m[1]);
 }
 
-export function datosDeRender(post, config, { logoUrl }) {
+export function datosDeRender(post, config, { logoUrl, ilustracionUrl = null }) {
   return {
     titular: post.titular,
     bajada: post.bajada,
@@ -28,11 +29,13 @@ export function datosDeRender(post, config, { logoUrl }) {
     usuario: config.marca.usuario,
     lema: config.marca.lema,
     logoUrl,
+    ilustracionUrl,
+    rotulo: config.ilustraciones.rotulo,
   };
 }
 
-export function construirHtml(post, config, { plantilla, baseHref, logoUrl }) {
-  const json = JSON.stringify(datosDeRender(post, config, { logoUrl })).replace(/<\//g, "<\\/");
+export function construirHtml(post, config, { plantilla, baseHref, logoUrl, ilustracionUrl = null }) {
+  const json = JSON.stringify(datosDeRender(post, config, { logoUrl, ilustracionUrl })).replace(/<\//g, "<\\/");
   return plantilla
     .replace("__BASE__", () => baseHref)
     .replace(/<script id="datos" type="application\/json">[\s\S]*?<\/script>/, () => `<script id="datos" type="application/json">${json}</script>`);
@@ -46,8 +49,10 @@ export async function renderizarPost(post, { config, navegador, raiz = process.c
   const plantilla = fs.readFileSync(path.join(raiz, RUTA_PLANTILLA), "utf8");
   const version = versionPlantilla(plantilla);
   const logoUrl = fs.existsSync(path.join(raiz, RUTA_LOGO)) ? RUTA_LOGO : null;
+  const il = post.ilustracion;
+  const ilustracionUrl = il && il.usar && il.ruta && fs.existsSync(path.join(raiz, il.ruta)) ? il.ruta.replace(/\\/g, "/") : null;
   const baseHref = pathToFileURL(path.resolve(raiz) + path.sep).href;
-  const html = construirHtml(post, config, { plantilla, baseHref, logoUrl });
+  const html = construirHtml(post, config, { plantilla, baseHref, logoUrl, ilustracionUrl });
 
   const dirTemp = path.join(raiz, "temp", "render");
   fs.mkdirSync(dirTemp, { recursive: true });

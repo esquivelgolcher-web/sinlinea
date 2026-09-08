@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="es" data-version="4">
+<html lang="es" data-version="5">
 <head>
 <meta charset="utf-8">
 <base href="__BASE__">
@@ -15,6 +15,17 @@
   .post[data-variante="negro"]    { --fondo: var(--negro);    --texto: var(--blanco); --titular: var(--amarillo); --chip-fondo: var(--rojo);  --chip-texto: var(--blanco);   --barra: var(--rojo);  --barra-texto: var(--blanco); }
   .post[data-variante="amarillo"] { --fondo: var(--amarillo); --texto: var(--negro);  --titular: var(--negro);    --chip-fondo: var(--rojo);  --chip-texto: var(--blanco);   --barra: var(--rojo);  --barra-texto: var(--blanco); }
   .post[data-variante="rojo"]     { --fondo: var(--rojo);     --texto: var(--blanco); --titular: var(--blanco);   --chip-fondo: var(--negro); --chip-texto: var(--amarillo); --barra: var(--negro); --barra-texto: var(--amarillo); }
+  .fondo { position: absolute; inset: 0; display: none; }
+  .fondo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .fondo::after { content: ""; position: absolute; inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.20) 0%, rgba(0,0,0,0.35) 35%, rgba(0,0,0,0.88) 68%, rgba(0,0,0,0.96) 100%); }
+  .post.con-ilustracion { --fondo: var(--negro); --texto: var(--blanco); --titular: var(--amarillo); --chip-fondo: var(--rojo); --chip-texto: var(--blanco); --barra: var(--rojo); --barra-texto: var(--blanco); }
+  .post.con-ilustracion .fondo { display: block; }
+  .post.con-ilustracion .cabecera, .post.con-ilustracion .cuerpo, .post.con-ilustracion .pie, .post.con-ilustracion .barra { position: relative; z-index: 1; }
+  .post.con-ilustracion .barra { position: absolute; }
+  .post.con-ilustracion .bajada { opacity: 0.95; }
+  .rotulo { display: none; position: absolute; right: 72px; bottom: 226px; z-index: 1; font-size: 22px; letter-spacing: 0.02em; color: rgba(255,255,255,0.8); }
+  .post.con-ilustracion .rotulo { display: block; }
   .cabecera { display: flex; justify-content: space-between; align-items: flex-start; height: 160px; }
   .logo { width: 160px; height: 160px; border-radius: 50%; object-fit: cover; display: block; }
   .post[data-variante="amarillo"] .logo { box-shadow: 0 0 0 6px var(--negro); }
@@ -34,6 +45,7 @@
 </head>
 <body>
 <div class="post" id="post" data-variante="negro">
+  <div class="fondo" id="fondo"></div>
   <header class="cabecera">
     <div id="logo"></div>
     <div class="chip" id="categoria"></div>
@@ -46,6 +58,7 @@
     <span id="fuente"></span>
     <span id="usuario"></span>
   </footer>
+  <div class="rotulo" id="rotulo"></div>
   <div class="barra" id="lema"></div>
 </div>
 <script id="datos" type="application/json">{}</script>
@@ -60,6 +73,15 @@
   $("fuente").textContent = d.fecha || "";
   $("usuario").textContent = d.usuario || "";
   $("lema").textContent = d.lema || "";
+  if (d.ilustracionUrl) {
+    const fondo = new Image();
+    fondo.alt = "";
+    fondo.src = d.ilustracionUrl;
+    $("fondo").replaceChildren(fondo);
+    $("post").classList.add("con-ilustracion");
+    $("rotulo").textContent = d.rotulo || "";
+    await fondo.decode().catch(() => {});
+  }
   if (d.logoUrl) {
     const img = new Image();
     img.className = "logo";

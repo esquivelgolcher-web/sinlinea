@@ -12,6 +12,7 @@ before(async () => {
   fs.copyFileSync("config.json", path.join(raiz, "config.json"));
   fs.copyFileSync("templates/post.html", path.join(raiz, "templates/post.html"));
   fs.copyFileSync("tests/fixtures/post-ejemplo.json", path.join(raiz, "tests/fixtures/post-ejemplo.json"));
+  fs.copyFileSync("tests/fixtures/ilustracion-ejemplo.jpg", path.join(raiz, "tests/fixtures/ilustracion-ejemplo.jpg"));
   fs.copyFileSync("tests/fixtures/post-ejemplo.json", path.join(raiz, "posts/2026-09-07-1420-la-prensa-a1b2.json"));
   fs.writeFileSync(path.join(raiz, "data/token-info.json"), '{ "vence": "2026-11-01" }');
   fs.writeFileSync(path.join(raiz, "panel/index.html"), "<p>panel</p>");
@@ -26,6 +27,11 @@ test("sirve la vista de la plantilla con la variante pedida", async () => {
   const html = await (await fetch(`${base}/vista/rojo`)).text();
   assert.match(html, /<base href="\/">/);
   assert.match(html, /"variante":"rojo"/);
+});
+
+test("sirve la vista con ilustración y el archivo de la fixture", async () => {
+  assert.match(await (await fetch(`${base}/vista/negro?ilustracion=1`)).text(), /"ilustracionUrl":"tests\/fixtures\/ilustracion-ejemplo.jpg"/);
+  assert.equal((await fetch(`${base}/tests/fixtures/ilustracion-ejemplo.jpg`)).status, 200);
 });
 
 test("api de posts: lista, actualiza y rechaza inválidos; token-info", async () => {
