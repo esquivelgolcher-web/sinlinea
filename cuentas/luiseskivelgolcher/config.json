@@ -35,7 +35,7 @@
     "rotulo": ""
   },
   "instagram": {
-    "tokenSecreto": "IG_ACCESS_TOKEN_LUISESKIVELGOLCHER",
+    "tokenSecreto": "IG_ACCESSTOKEN_LUISESKIVELGOLCHER",
     "usuarioIdSecreto": "IG_USER_ID_LUISESKIVELGOLCHER"
   }
 }

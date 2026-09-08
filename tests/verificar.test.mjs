@@ -97,13 +97,13 @@ test("(M2 fix) una cuenta apagada sin secretos ni logo produce avisos, no errore
   const texto = r.lineas.join("\n");
   assert.equal(r.ok, true, texto);
   assert.deepEqual(r.faltantes, []);
-  assert.match(texto, /AVISO.*IG_ACCESS_TOKEN_LUISESKIVELGOLCHER/);
+  assert.match(texto, /AVISO.*IG_ACCESSTOKEN_LUISESKIVELGOLCHER/);
   assert.match(texto, /AVISO.*cuentas\/luiseskivelgolcher\/logo\.png.*iniciales/i);
 });
 
 test("(M2) la verificación avisa cuando una cuenta tiene la generación o la publicación automática apagadas", () => {
   const raiz = raizTemporal({ cuentas: ["sinlinea", "luiseskivelgolcher"] });
-  const r = ejecutarVerificacion({ raiz, env: { ...envCompleto, IG_ACCESS_TOKEN_LUISESKIVELGOLCHER: "IGAAR" + "y".repeat(60), IG_USER_ID_LUISESKIVELGOLCHER: "9" }, ahora });
+  const r = ejecutarVerificacion({ raiz, env: { ...envCompleto, IG_ACCESSTOKEN_LUISESKIVELGOLCHER: "IGAAR" + "y".repeat(60), IG_USER_ID_LUISESKIVELGOLCHER: "9" }, ahora });
   const texto = r.lineas.join("\n");
   assert.match(texto, /Cuenta luiseskivelgolcher/);
   assert.match(texto, /AVISO.*luiseskivelgolcher.*generación automática apagada/i);

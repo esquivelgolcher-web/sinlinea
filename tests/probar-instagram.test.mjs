@@ -8,7 +8,7 @@ import { raizConCuentas } from "./ayuda/cuentas.mjs";
 
 const configuracion = cargarConfiguracion(".");
 const token = "IGAAR" + "x".repeat(60);
-const env = { IG_ACCESS_TOKEN: token, IG_USER_ID: "1784", IG_ACCESS_TOKEN_LUISESKIVELGOLCHER: token + "L", IG_USER_ID_LUISESKIVELGOLCHER: "9999" };
+const env = { IG_ACCESS_TOKEN: token, IG_USER_ID: "1784", IG_ACCESSTOKEN_LUISESKIVELGOLCHER: token + "L", IG_USER_ID_LUISESKIVELGOLCHER: "9999" };
 
 test("la prueba confirma la identidad cuando el usuario y el id numérico coinciden, sin revelar secretos", async () => {
   const igDe = (config, secretos) => ({ perfil: async () => ({ username: "luiseskivelgolcher", userId: secretos.usuarioId, coincideId: true }) });
@@ -35,7 +35,7 @@ test("sin secretos la prueba lo dice por nombre; una cuenta desconocida es un er
   const igDe = (config) => ({ perfil: async () => ({ username: config.marca.usuario.slice(1), userId: "x", coincideId: true }) });
   const sin = await ejecutarPruebaInstagram({ configuracion, cuenta: "luiseskivelgolcher", env: {}, igDe });
   assert.equal(sin.ok, false);
-  assert.match(sin.lineas.join("\n"), /IG_ACCESS_TOKEN_LUISESKIVELGOLCHER/);
+  assert.match(sin.lineas.join("\n"), /IG_ACCESSTOKEN_LUISESKIVELGOLCHER/);
   const desconocida = await ejecutarPruebaInstagram({ configuracion, cuenta: "nadie", env, igDe });
   assert.equal(desconocida.ok, false);
   assert.match(desconocida.lineas.join("\n"), /nadie/);
@@ -63,7 +63,7 @@ test("(vigencia) la prueba escribe data/<cuenta>/token-info.json con la fecha re
 });
 
 test("(vigencia) si hay token pero falta el secreto del id numérico, la prueba informa el user_id devuelto por la API para guardarlo como secreto", async () => {
-  const soloToken = { IG_ACCESS_TOKEN_LUISESKIVELGOLCHER: token + "L" };
+  const soloToken = { IG_ACCESSTOKEN_LUISESKIVELGOLCHER: token + "L" };
   const igDe = () => ({ perfil: async () => ({ username: "luiseskivelgolcher", userId: "17841400000000001", coincideId: undefined }), vigencia: async () => ({ vence: null, origen: "desconocida" }) });
   const r = await ejecutarPruebaInstagram({ configuracion, cuenta: "luiseskivelgolcher", env: soloToken, igDe });
   assert.equal(r.ok, false, "sin el id numérico guardado no se da por verificada");

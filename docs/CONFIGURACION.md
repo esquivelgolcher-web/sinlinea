@@ -93,8 +93,14 @@ claves (`src/lib/secretos.mjs`).
 | `GEMINI_API_KEY` | sí, si `ilustraciones.activo` es `true` | GENERAR y REGENERAR (ilustraciones), Probar Gemini | §10 |
 | `IG_ACCESS_TOKEN` | sí | PUBLICAR, RENOVAR TOKEN | §4 |
 | `IG_USER_ID` | sí | PUBLICAR, RENOVAR TOKEN | §4 |
-| `IG_ACCESS_TOKEN_LUISESKIVELGOLCHER` | cuando se active la cuenta | PUBLICAR, RENOVAR TOKEN, Probar Instagram | §6c |
+| `IG_ACCESSTOKEN_LUISESKIVELGOLCHER` | cuando se active la cuenta | PUBLICAR, RENOVAR TOKEN, Probar Instagram | §6c |
 | `IG_USER_ID_LUISESKIVELGOLCHER` | cuando se active la cuenta | PUBLICAR, RENOVAR TOKEN, Probar Instagram | §6c |
+
+Nota: el secreto del token de `luiseskivelgolcher` se llama
+`IG_ACCESSTOKEN_LUISESKIVELGOLCHER` (sin guion bajo entre ACCESS y TOKEN) porque
+así lo creó el operador el 2026-09-08; la configuración de la cuenta y los
+workflows usan ese nombre. La convención para cuentas nuevas sigue siendo
+`IG_ACCESS_TOKEN_<ID>`.
 | `GH_PAT` | no (pero sin él el token de Instagram no se renueva solo) | RENOVAR TOKEN | §5 |
 
 Los nombres de los secretos de Instagram se declaran en la configuración de cada
@@ -169,7 +175,7 @@ comprobación sin publicar (entrada `cuenta`, vacío = todas).
 
 1. Carpeta `cuentas/luiseskivelgolcher/` con `config.json` (ya creada, con
    `automatico.generar` y `automatico.publicar` en `false`, colores propios,
-   sin fuentes y con `instagram.tokenSecreto` = `IG_ACCESS_TOKEN_LUISESKIVELGOLCHER`
+   sin fuentes y con `instagram.tokenSecreto` = `IG_ACCESSTOKEN_LUISESKIVELGOLCHER`
    y `usuarioIdSecreto` = `IG_USER_ID_LUISESKIVELGOLCHER`), `editorial.md`
    y `logo.png` (LEG en cuadrado, generado con `npm run logo`). `data/luiseskivelgolcher/`
    con `seen.json` y `token-info.json`. El id está en `cuentas` del `config.json`
@@ -191,7 +197,7 @@ comprobación sin publicar (entrada `cuenta`, vacío = todas).
    el informe indica el `user_id` que devuelve la API. Nunca pegues el token en una
    URL del navegador ni en el chat.
 6. **Secretos.** Repo → Settings → Secrets and variables → Actions → New repository
-   secret: `IG_ACCESS_TOKEN_LUISESKIVELGOLCHER` (el token) e
+   secret: `IG_ACCESSTOKEN_LUISESKIVELGOLCHER` (el token) e
    `IG_USER_ID_LUISESKIVELGOLCHER` (el id numérico). Los workflows ya exponen esos
    nombres.
 7. **Verificar identidad y caducidad.** Actions → **Probar Instagram** → Run

@@ -64,6 +64,12 @@ configurable por cuenta (`idioma`, `es-PA` por defecto).
   Ilustraciones activas con estilo neutro provisional; generación y publicación
   siguen apagadas. Pendiente: revisar ambos en el panel, definir fuentes y la
   conexión de Instagram.
+- **Secreto del token de la cuenta personal (2026-09-08, noche)**: el operador
+  guardó el token como `IG_ACCESSTOKEN_LUISESKIVELGOLCHER` (sin guion bajo entre
+  ACCESS y TOKEN). En vez de pedir un tercer pegado, `instagram.tokenSecreto` y
+  los cuatro workflows pasaron a ese nombre; el id numérico conserva
+  `IG_USER_ID_LUISESKIVELGOLCHER`. Reversible creando el secreto con el nombre de
+  la convención y deshaciendo el cambio.
 - **Logo LEG de la cuenta personal (2026-09-08)**: a partir de la referencia del
   operador (cuadrado con las iniciales "LEG" en tipografía condensada, versión
   oscura marrón/crema y versión clara blanco/negro). Nuevo comando

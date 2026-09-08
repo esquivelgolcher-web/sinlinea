@@ -30,7 +30,7 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
-          IG_ACCESS_TOKEN_LUISESKIVELGOLCHER: ${{ secrets.IG_ACCESS_TOKEN_LUISESKIVELGOLCHER }}
+          IG_ACCESSTOKEN_LUISESKIVELGOLCHER: ${{ secrets.IG_ACCESSTOKEN_LUISESKIVELGOLCHER }}
           IG_USER_ID_LUISESKIVELGOLCHER: ${{ secrets.IG_USER_ID_LUISESKIVELGOLCHER }}
           GH_PAT: ${{ secrets.GH_PAT }}
         run: node src/verificar.mjs
