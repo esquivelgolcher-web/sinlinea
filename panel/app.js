@@ -1,10 +1,15 @@
-// Panel de aprobación de Sin Línea. Sin framework. Todo texto va por textContent.
+// Panel de aprobación de Sin Línea y panel maestro de cuentas. Sin framework. Todo texto va por textContent.
 import { aprobar, descartar, quitarDeCola, reintentar, editarTexto, imagenDesactualizada, hashTexto, CATEGORIAS, VARIANTES } from "./lib/estados.mjs";
 import { componerCaption, validarCaption, normalizarHashtags, LIMITES } from "./lib/caption.mjs";
 import { validarTextos, LIMITES as LIMITES_TEXTO } from "./lib/texto.mjs";
 import { siguienteFranjaLibre, franjasOcupadas, choca } from "./lib/franjas.mjs";
 import { claveDia, isoDesdeClave, horaMinutoDeIso, ZONA_PANAMA } from "./lib/fechas.mjs";
-import { crearAlmacenLocal, crearAlmacenGitHub, deducirRepo, ErrorConflicto } from "./almacen.mjs";
+import {
+  IDIOMAS, IDIOMA_POR_DEFECTO, ZONA_POR_DEFECTO, COLORES_POR_DEFECTO, LOGO_TAMANO, FRANJAS_POR_DEFECTO, ESTILO_ILUSTRACION_POR_DEFECTO,
+  idSugerido, normalizarUsuario, nombresSecretosSugeridos, erroresDeCuenta, plantillaEditorial, configDesdeFormulario, formularioDesdeConfig,
+  archivarCuenta, reactivarCuenta, estadoConexion,
+} from "./lib/cuenta.mjs";
+import { crearAlmacenLocal, crearAlmacenGitHub, deducirRepo, ErrorConflicto, ErrorConflictoArchivo } from "./almacen.mjs";
 
 const configPanel = { franjas: ["07:00", "09:30", "12:00", "14:30", "17:00", "19:30"], zonaHoraria: ZONA_PANAMA, marca: {}, cuentas: [] };
 async function cargarConfigPanel() {
@@ -29,15 +34,18 @@ function elegirCuentaInicial() {
 function seleccionarCuenta(id) {
   estado.cuenta = id;
   try { localStorage.setItem("sinlinea.cuenta", id); } catch { /* sin almacenamiento */ }
+  if (estado.items.length) pintar(); // los posts ya cargados se filtran al instante; cargar() refresca después
   cargar();
 }
 const PESTANAS = [
   ["borrador", "Borradores"], ["programado", "Programados"], ["error", "Errores"], ["publicado", "Publicados"], ["descartado", "Descartados"],
 ];
-const estado = { almacen: null, items: [], pestana: "borrador", borradores: new Map(), cuenta: null };
+const estado = { almacen: null, items: [], pestana: "borrador", borradores: new Map(), cuenta: null, vista: "posts", cuentasInfo: null, formulario: null };
 const $ = (id) => document.getElementById(id);
 const ahoraIso = () => new Date().toISOString();
 const urlSegura = (u) => (/^https?:\/\//i.test(String(u)) ? u : "#");
+const esLocal = () => ["localhost", "127.0.0.1"].includes(location.hostname);
+const soloLectura = () => estado.almacen.modo === "github" && !localStorage.getItem("sinlinea.token");
 
 // Pistas sobre el estado de la ilustración de un post (usadas por el sondeo y la tarjeta).
 export function generandoIlustracion(ilus) {
@@ -67,8 +75,7 @@ function avisar(mensaje, ms = 6000) {
 
 // --- Conexión ---------------------------------------------------------------
 function configurarAlmacen() {
-  const local = ["localhost", "127.0.0.1"].includes(location.hostname);
-  if (local) { estado.almacen = crearAlmacenLocal(); $("boton-config").hidden = true; return; }
+  if (esLocal()) { estado.almacen = crearAlmacenLocal(); $("boton-config").hidden = true; return; }
   const deducido = deducirRepo(location) || {};
   const owner = localStorage.getItem("sinlinea.owner") || deducido.owner || "";
   const repo = localStorage.getItem("sinlinea.repo") || deducido.repo || "";
@@ -88,6 +95,19 @@ $("boton-guardar-config").addEventListener("click", () => {
 });
 $("boton-borrar-config").addEventListener("click", () => { localStorage.removeItem("sinlinea.token"); location.reload(); });
 
+// --- Vistas -----------------------------------------------------------------
+function mostrarVista(vista) {
+  estado.vista = vista;
+  $("vista-posts").hidden = vista !== "posts";
+  $("maestro").hidden = vista !== "maestro";
+  $("formulario-cuenta").hidden = vista !== "formulario";
+  $("boton-cuentas").textContent = vista === "posts" ? "Cuentas" : "Panel de posts";
+  try { localStorage.setItem("sinlinea.vista", vista === "formulario" ? "maestro" : vista); } catch { /* sin almacenamiento */ }
+  if (vista === "maestro") pintarMaestro();
+  window.scrollTo(0, 0);
+}
+$("boton-cuentas").addEventListener("click", () => mostrarVista(estado.vista === "posts" ? "maestro" : "posts"));
+
 // --- Carga ------------------------------------------------------------------
 async function cargar() {
   try {
@@ -96,8 +116,37 @@ async function cargar() {
     const info = await estado.almacen.tokenInfo(estado.cuenta);
     mostrarToken(info);
     pintar();
+    if (estado.vista === "maestro") pintarMaestro();
   } catch (err) {
     $("lista").replaceChildren(el("p", { class: "vacio", text: `No se pudieron cargar los posts: ${err.message}` }));
+  }
+}
+
+// Lista de cuentas en vivo (config global + config de cada cuenta + estado de conexión). Sustituye a la copia
+// estática de panel/config.json, que queda como reserva si la lectura falla.
+function cuentaParaPanel(c) {
+  const cfg = c.config || {};
+  return {
+    id: c.id, nombre: cfg.nombre || c.id, idioma: cfg.idioma || IDIOMA_POR_DEFECTO,
+    zonaHoraria: cfg.zonaHoraria || estado.cuentasInfo?.global?.zonaHoraria || configPanel.zonaHoraria,
+    marca: { ...(cfg.marca || {}), colores: { ...COLORES_POR_DEFECTO, ...(cfg.marca?.colores || {}) } },
+    franjas: cfg.franjas || FRANJAS_POR_DEFECTO,
+    automatico: { generar: true, publicar: true, ...(cfg.automatico || {}) },
+    archivada: cfg.archivada === true,
+  };
+}
+async function cargarCuentas() {
+  try {
+    const info = await estado.almacen.listarCuentas();
+    estado.cuentasInfo = info;
+    const validas = info.cuentas.filter((c) => c.config);
+    if (validas.length) {
+      configPanel.cuentas = validas.map(cuentaParaPanel);
+      configPanel.cuentaPrincipal = info.global.cuentas[0];
+      configPanel.zonaHoraria = info.global.zonaHoraria || configPanel.zonaHoraria;
+    }
+  } catch (err) {
+    estado.cuentasInfo = { global: { cuentas: configPanel.cuentas.map((c) => c.id) }, cuentas: [], error: err.message };
   }
 }
 
@@ -116,7 +165,7 @@ function pintar() {
   if (configPanel.cuentas.length > 1) {
     selector.hidden = false;
     selector.replaceChildren(...configPanel.cuentas.map((c) => el("button", {
-      type: "button", class: c.id === estado.cuenta ? "activa" : "", text: c.nombre, onclick: () => seleccionarCuenta(c.id),
+      type: "button", class: c.id === estado.cuenta ? "activa" : "", text: c.archivada ? `${c.nombre} (archivada)` : c.nombre, onclick: () => seleccionarCuenta(c.id),
     })));
   } else {
     selector.hidden = true;
@@ -126,7 +175,10 @@ function pintar() {
   if (activa.automatico?.generar === false) apagado.push("la generación automática de borradores");
   if (activa.automatico?.publicar === false) apagado.push("la publicación automática en Instagram");
   const nota = $("nota-cuenta");
-  if (apagado.length) {
+  if (activa.archivada) {
+    nota.hidden = false;
+    nota.textContent = `${activa.nombre} está archivada: sus automatizaciones están detenidas y sus posts e historial se conservan. Puedes reactivarla desde Cuentas.`;
+  } else if (apagado.length) {
     nota.hidden = false;
     const cola = activa.automatico?.publicar === false ? " Los posts aprobados quedan en cola hasta activarla." : "";
     nota.textContent = `En ${activa.nombre} está desactivada ${apagado.join(" y ")}.${cola} Se activa en cuentas/${activa.id}/config.json (automatico).`;
@@ -147,14 +199,12 @@ function pintar() {
 
 function urlImagen(post) {
   if (!post.imagen?.url) return null;
-  const local = ["localhost", "127.0.0.1"].includes(location.hostname);
-  const base = local ? `/img/${post.id}.jpg` : urlSegura(post.imagen.url);
+  const base = esLocal() ? `/img/${post.id}.jpg` : urlSegura(post.imagen.url);
   return `${base}?v=${post.imagen.hash}`;
 }
 
 function tarjeta({ post, sha }) {
-  const soloLectura = estado.almacen.modo === "github" && !localStorage.getItem("sinlinea.token");
-  const bloqueado = ["publicado", "descartado"].includes(post.estado) || soloLectura;
+  const bloqueado = ["publicado", "descartado"].includes(post.estado) || soloLectura();
   const src = urlImagen(post);
   const campos = {};
   const campo = (etiqueta, nombre, tipo = "textarea") => {
@@ -356,11 +406,356 @@ function pedirHora(post) {
   });
 }
 
+// --- Panel maestro: todas las cuentas -----------------------------------------
+const iniciales = (nombre) => String(nombre || "").trim().split(/\s+/).filter(Boolean).slice(0, 3).map((w) => w[0].toUpperCase()).join("") || "?";
+const urlLogo = (id) => (esLocal() ? `/cuentas/${id}/logo.png` : `../cuentas/${id}/logo.png`); // en Pages el logo no se publica: se usan las iniciales
+
+function logoMini(c) {
+  const cfg = c.config || {};
+  const forma = cfg.marca?.logoForma === "cuadrado" ? "cuadrado" : "circulo";
+  if (c.logo && esLocal()) return el("img", { class: `logo-mini ${forma}`, src: `${urlLogo(c.id)}?v=${c.sha || ""}`, alt: "" });
+  const colores = { ...COLORES_POR_DEFECTO, ...(cfg.marca?.colores || {}) };
+  const n = el("div", { class: `logo-mini ${forma}`, text: iniciales(cfg.marca?.nombre || cfg.nombre || c.id) });
+  n.style.background = colores.oscuro; n.style.color = colores.principal;
+  return n;
+}
+
+function tarjetaCuenta(c) {
+  const cfg = c.config || {};
+  const auto = { generar: true, publicar: true, ...(cfg.automatico || {}) };
+  const archivada = cfg.archivada === true;
+  const conexion = estadoConexion({ conexion: c.conexion, tokenInfo: c.tokenInfo });
+  const posts = estado.items.map((x) => x.post).filter((p) => cuentaDe(p) === c.id);
+  const cuenta = (e) => posts.filter((p) => p.estado === e).length;
+  const secretos = { ...nombresSecretosSugeridos(c.id), ...(cfg.instagram || {}) };
+  const bloqueado = soloLectura();
+  const acciones = el("div", { class: "acciones" }, [
+    el("button", { type: "button", class: "boton primario", text: "Abrir panel", onclick: () => { seleccionarCuenta(c.id); mostrarVista("posts"); } }),
+  ]);
+  if (!bloqueado) {
+    if (!archivada) {
+      acciones.append(el("button", { type: "button", class: "boton", text: "Editar", onclick: () => abrirFormulario("editar", c.id) }));
+      acciones.append(el("button", { type: "button", class: "boton", text: "Verificar identidad", onclick: () => verificarIdentidad(c.id) }));
+      acciones.append(el("button", { type: "button", class: "boton peligro", text: "Archivar", onclick: () => archivar(c.id) }));
+    } else {
+      acciones.append(el("button", { type: "button", class: "boton", text: "Reactivar", onclick: () => reactivar(c.id) }));
+    }
+  }
+  return el("article", { class: `cuenta-tarjeta${archivada ? " archivada" : ""}`, "data-cuenta": c.id }, [
+    el("div", { class: "cuenta-encabezado" }, [
+      logoMini(c),
+      el("div", {}, [
+        el("div", { class: "cuenta-nombre", text: cfg.nombre || c.id }),
+        el("div", { class: "cuenta-usuario", text: `${cfg.marca?.usuario || ""} · ${c.id}${cfg.idioma ? ` · ${cfg.idioma}` : ""}` }),
+      ]),
+    ]),
+    c.error ? el("p", { class: "error-texto", text: c.error }) : "",
+    el("div", { class: "cuenta-estados" }, [
+      archivada ? el("span", { class: "estado apagado", text: `Archivada${cfg.archivadaEn ? ` desde ${String(cfg.archivadaEn).slice(0, 10)}` : ""}` }) : "",
+      el("span", { class: `estado ${auto.generar ? "encendido" : "apagado"}`, text: `Generación automática: ${auto.generar ? "activa" : "apagada"}` }),
+      el("span", { class: `estado ${auto.publicar ? "encendido" : "apagado"}`, text: `Publicación automática: ${auto.publicar ? "activa" : "apagada"}` }),
+      el("span", { class: `estado conexion-${conexion.clave}`, text: conexion.texto }),
+    ]),
+    el("p", { class: "cuenta-contadores", text: `Borradores ${cuenta("borrador")} · Programados ${cuenta("programado")}${cuenta("error") ? ` · Errores ${cuenta("error")}` : ""}` }),
+    el("p", { class: "cuenta-secretos", text: `Secretos de Instagram en GitHub: ${secretos.tokenSecreto} · ${secretos.usuarioIdSecreto}` }),
+    conexion.clave === "credenciales-pendientes" && !archivada ? el("p", { class: "cuenta-detalle", text: "Guarda los dos secretos en GitHub (Settings → Secrets and variables → Actions) y pulsa Verificar identidad. Sin esa verificación la cuenta no se considera conectada." }) : "",
+    acciones,
+  ]);
+}
+
+function pintarMaestro() {
+  const grid = $("cuentas-grid");
+  const info = estado.cuentasInfo;
+  const nota = $("nota-maestro");
+  if (!info) { grid.replaceChildren(el("p", { class: "vacio", text: "Cargando…" })); return; }
+  if (info.error) { nota.hidden = false; nota.textContent = `No se pudo leer la configuración de las cuentas: ${info.error}`; }
+  else if (soloLectura()) { nota.hidden = false; nota.textContent = "Sin token: puedes ver las cuentas pero no crear, editar ni archivar. Pulsa Configurar."; }
+  else if (esLocal()) { nota.hidden = false; nota.textContent = "Modo local: los cambios se escriben en la carpeta del proyecto. Verificar identidad solo marca la cuenta como pendiente; el workflow corre en GitHub."; }
+  else nota.hidden = true;
+  $("boton-anadir").disabled = soloLectura();
+  const activas = info.cuentas.filter((c) => !(c.config?.archivada === true));
+  const archivadas = info.cuentas.filter((c) => c.config?.archivada === true);
+  grid.replaceChildren(...(activas.length ? activas.map(tarjetaCuenta) : [el("p", { class: "vacio", text: "No hay cuentas activas." })]));
+  $("archivadas").hidden = archivadas.length === 0;
+  $("archivadas-titulo").textContent = `Archivadas (${archivadas.length})`;
+  $("cuentas-archivadas").replaceChildren(...archivadas.map(tarjetaCuenta));
+}
+
+async function refrescarCuentas() {
+  await cargarCuentas();
+  if (!configPanel.cuentas.some((c) => c.id === estado.cuenta)) elegirCuentaInicial();
+  pintar();
+  pintarMaestro();
+}
+
+async function verificarIdentidad(id) {
+  const boton = document.querySelector(`[data-cuenta="${id}"] button:nth-of-type(3)`);
+  if (boton) boton.disabled = true;
+  try {
+    const r = await estado.almacen.solicitarVerificacion(id);
+    avisar(r.nota || "Verificación solicitada.", 10000);
+  } catch (err) {
+    avisar(`No se pudo solicitar la verificación: ${err.message}`, 15000);
+  }
+  await refrescarCuentas();
+}
+
+async function archivar(id) {
+  const c = estado.cuentasInfo.cuentas.find((x) => x.id === id);
+  if (!c || !confirm(`¿Archivar la cuenta ${c.config?.nombre || id}? Se detienen su generación y publicación automáticas; sus posts, imágenes e historial se conservan y podrás reactivarla.`)) return;
+  await guardarConfigCuenta(id, (actual) => archivarCuenta(actual, ahoraIso()), `panel: archivar cuenta ${id}`);
+}
+
+async function reactivar(id) {
+  await guardarConfigCuenta(id, (actual) => reactivarCuenta(actual), `panel: reactivar cuenta ${id}`);
+}
+
+// Lee la versión actual del config de la cuenta, aplica `transformar` y guarda con su sha (un reintento si cambió entre medias).
+async function guardarConfigCuenta(id, transformar, mensaje) {
+  const ruta = `cuentas/${id}/config.json`;
+  for (let intento = 0; intento < 2; intento++) {
+    const actual = await estado.almacen.leerArchivo(ruta);
+    if (!actual) { avisar(`No existe ${ruta}.`, 10000); return; }
+    const nuevo = transformar(JSON.parse(actual.texto));
+    try {
+      await estado.almacen.escribirArchivo(ruta, JSON.stringify(nuevo, null, 2) + "\n", { sha: actual.sha, mensaje });
+      await refrescarCuentas();
+      return;
+    } catch (err) {
+      if (err instanceof ErrorConflictoArchivo && intento === 0) continue; // alguien lo cambió: se reintenta sobre la versión nueva
+      avisar(`No se pudo guardar ${ruta}: ${err.message}`, 15000);
+      return;
+    }
+  }
+}
+
+// --- Formulario de cuenta -------------------------------------------------------
+const ZONAS = ["America/Panama", "America/Bogota", "America/Mexico_City", "America/Lima", "America/Santiago", "America/Argentina/Buenos_Aires", "America/Costa_Rica", "America/Guatemala", "America/Caracas", "America/Santo_Domingo", "America/New_York", "Europe/Madrid", "UTC"];
+$("fc-idioma").replaceChildren(...IDIOMAS.map(([codigo, nombre]) => el("option", { value: codigo, text: `${nombre} (${codigo})` })));
+$("zonas").replaceChildren(...ZONAS.map((z) => el("option", { value: z })));
+
+function filaFuente(f = { nombre: "", tipo: "rss", url: "", patronArticulo: "" }) {
+  const nombre = el("input", { placeholder: "Medio", autocomplete: "off" }); nombre.value = f.nombre || "";
+  const tipo = el("select", {}, [el("option", { value: "rss", text: "RSS" }), el("option", { value: "portada", text: "Portada" })]); tipo.value = f.tipo || "rss";
+  const url = el("input", { placeholder: "https://…", autocomplete: "off" }); url.value = f.url || "";
+  const patron = el("input", { placeholder: "Patrón de URL de artículo (expresión regular)", autocomplete: "off" }); patron.value = f.patronArticulo || "";
+  const labelPatron = el("label", { class: "patron", text: "Patrón de artículo (solo portada)" }, [patron]);
+  const quitar = el("button", { type: "button", class: "boton peligro", text: "Quitar" });
+  const fila = el("div", { class: "fuente-fila" }, [
+    el("label", { text: "Nombre" }, [nombre]), el("label", { text: "Tipo" }, [tipo]), el("label", { class: "url", text: "URL" }, [url]), quitar, labelPatron,
+  ]);
+  const ajustar = () => { labelPatron.hidden = tipo.value !== "portada"; };
+  tipo.addEventListener("change", ajustar); ajustar();
+  quitar.addEventListener("click", () => fila.remove());
+  fila.leer = () => ({ nombre: nombre.value.trim(), tipo: tipo.value, url: url.value.trim(), ...(tipo.value === "portada" ? { patronArticulo: patron.value.trim() } : {}) });
+  return fila;
+}
+$("fc-anadir-fuente").addEventListener("click", () => $("fc-fuentes").append(filaFuente()));
+
+function leerFormulario() {
+  const f = estado.formulario;
+  return {
+    id: (f.modo === "editar" ? f.id : $("fc-id").value.trim()),
+    nombre: $("fc-nombre").value.trim(),
+    usuario: $("fc-usuario").value.trim(),
+    lema: $("fc-lema").value.trim(),
+    idioma: $("fc-idioma").value,
+    zonaHoraria: $("fc-zona").value.trim(),
+    temas: $("fc-temas").value.split("\n").map((t) => t.trim()).filter(Boolean),
+    tono: $("fc-tono").value.trim(),
+    editorialMd: $("fc-editorial").value,
+    fuentes: [...$("fc-fuentes").children].map((fila) => fila.leer()),
+    franjas: $("fc-franjas").value.split(/[\s,;]+/).map((h) => h.trim()).filter(Boolean),
+    colores: { principal: $("fc-color-principal").value.toUpperCase(), acento: $("fc-color-acento").value.toUpperCase(), oscuro: $("fc-color-oscuro").value.toUpperCase(), claro: $("fc-color-claro").value.toUpperCase() },
+    logoForma: $("fc-logo-forma").value,
+    logoTamano: Number($("fc-logo-tamano").value),
+    ilustracionesActivo: $("fc-ilus-activo").checked,
+    estiloIlustracion: $("fc-ilus-estilo").value.trim(),
+    rotulo: $("fc-rotulo").value,
+  };
+}
+
+function rellenarFormulario(d) {
+  $("fc-nombre").value = d.nombre || "";
+  $("fc-usuario").value = d.usuario || "";
+  $("fc-id").value = d.id || "";
+  $("fc-idioma").value = IDIOMAS.some(([c]) => c === d.idioma) ? d.idioma : IDIOMA_POR_DEFECTO;
+  $("fc-lema").value = d.lema || "";
+  $("fc-temas").value = (d.temas || []).join("\n");
+  $("fc-tono").value = d.tono || "";
+  $("fc-editorial").value = d.editorialMd || "";
+  $("fc-fuentes").replaceChildren(...(d.fuentes || []).map(filaFuente));
+  $("fc-franjas").value = (d.franjas || []).join(", ");
+  const colores = { ...COLORES_POR_DEFECTO, ...(d.colores || {}) };
+  for (const k of Object.keys(COLORES_POR_DEFECTO)) $(`fc-color-${k}`).value = colores[k];
+  $("fc-logo-forma").value = d.logoForma || "circulo";
+  $("fc-logo-tamano").value = d.logoTamano || LOGO_TAMANO.porDefecto;
+  $("fc-ilus-activo").checked = d.ilustracionesActivo !== false;
+  $("fc-ilus-estilo").value = d.estiloIlustracion || "";
+  $("fc-rotulo").value = d.rotulo || "";
+  $("fc-zona").value = d.zonaHoraria || ZONA_POR_DEFECTO;
+  $("fc-logo").value = "";
+  $("fc-logo-previa").replaceChildren();
+  $("fc-logo-nota").textContent = "";
+  actualizarSecretosFormulario();
+}
+
+function actualizarSecretosFormulario() {
+  const f = estado.formulario;
+  const id = f.modo === "editar" ? f.id : $("fc-id").value.trim();
+  const declarados = f.modo === "editar" ? (f.base?.instagram || {}) : {};
+  const s = { ...nombresSecretosSugeridos(id || "nueva-cuenta"), ...declarados };
+  $("fc-secretos").textContent = `Guarda en GitHub (Settings → Secrets and variables → Actions) dos secretos con estos nombres exactos: ${s.tokenSecreto} (token de acceso) y ${s.usuarioIdSecreto} (id numérico). Después pulsa "Verificar identidad" en la tarjeta de la cuenta. Nota: hoy los workflows solo exponen los secretos de las cuentas que ya tienen en su env; una cuenta nueva necesita ese ajuste (ver ROADMAP) antes de que la verificación pueda pasar.`;
+}
+
+// La editorial se genera sola mientras el operador no la haya tocado (solo al crear).
+function regenerarEditorialSiAuto() {
+  const f = estado.formulario;
+  if (!f || f.modo !== "crear" || f.editorialManual) return;
+  const d = leerFormulario();
+  $("fc-editorial").value = plantillaEditorial(d);
+}
+for (const id of ["fc-nombre", "fc-usuario", "fc-temas", "fc-tono"]) $(id).addEventListener("input", regenerarEditorialSiAuto);
+$("fc-idioma").addEventListener("change", regenerarEditorialSiAuto);
+$("fc-editorial").addEventListener("input", () => { if (estado.formulario) { estado.formulario.editorialManual = true; $("fc-editorial-nota").textContent = "Editado a mano: se guardará tal cual."; } });
+$("fc-usuario").addEventListener("input", () => {
+  const f = estado.formulario;
+  if (!f || f.modo !== "crear" || f.idManual) return;
+  $("fc-id").value = idSugerido($("fc-usuario").value);
+  actualizarSecretosFormulario();
+});
+$("fc-id").addEventListener("input", () => { if (estado.formulario) estado.formulario.idManual = true; actualizarSecretosFormulario(); });
+$("fc-logo").addEventListener("change", () => {
+  const archivo = $("fc-logo").files[0];
+  const f = estado.formulario;
+  if (!archivo || !f) return;
+  if (archivo.type !== "image/png" || archivo.size > 1024 * 1024) { $("fc-logo-nota").textContent = "El logo debe ser un PNG de menos de 1 MB."; $("fc-logo").value = ""; return; }
+  const lector = new FileReader();
+  lector.onload = () => {
+    f.logoBase64 = String(lector.result).split(",")[1];
+    $("fc-logo-previa").replaceChildren(el("img", { src: lector.result, alt: "" }));
+    $("fc-logo-nota").textContent = `${archivo.name} (${Math.round(archivo.size / 1024)} KB) se subirá al guardar.`;
+  };
+  lector.readAsDataURL(archivo);
+});
+
+async function abrirFormulario(modo, id = null) {
+  $("form-errores").hidden = true;
+  if (modo === "crear") {
+    estado.formulario = { modo, id: null, base: null, shas: {}, editorialManual: false, idManual: false, logoBase64: null };
+    $("fc-titulo").textContent = "Añadir cuenta";
+    $("fc-id").readOnly = false;
+    rellenarFormulario({ idioma: IDIOMA_POR_DEFECTO, zonaHoraria: estado.cuentasInfo?.global?.zonaHoraria || ZONA_POR_DEFECTO, franjas: FRANJAS_POR_DEFECTO, colores: COLORES_POR_DEFECTO, logoForma: "circulo", logoTamano: LOGO_TAMANO.porDefecto, ilustracionesActivo: true, estiloIlustracion: ESTILO_ILUSTRACION_POR_DEFECTO, rotulo: "", fuentes: [] });
+    $("fc-editorial-nota").textContent = "Se redacta solo a partir de los temas y el tono hasta que lo edites a mano.";
+    regenerarEditorialSiAuto();
+  } else {
+    const c = estado.cuentasInfo.cuentas.find((x) => x.id === id);
+    if (!c?.config) { avisar("No se pudo abrir la cuenta.", 8000); return; }
+    let editorial = c.editorial;
+    let editorialSha = c.editorialSha;
+    if (editorial === undefined || editorial === null) {
+      try { const a = await estado.almacen.leerArchivo(`cuentas/${id}/editorial.md`); editorial = a?.texto || ""; editorialSha = a?.sha || null; } catch { editorial = ""; }
+    }
+    estado.formulario = { modo, id, base: c.config, shas: { config: c.sha, editorial: editorialSha }, editorialManual: true, idManual: true, logoBase64: null };
+    $("fc-titulo").textContent = `Editar ${c.config.nombre}`;
+    $("fc-id").readOnly = true;
+    rellenarFormulario(formularioDesdeConfig(id, c.config, editorial));
+    $("fc-editorial-nota").textContent = "Se guarda tal cual en cuentas/" + id + "/editorial.md.";
+  }
+  mostrarVista("formulario");
+}
+$("boton-anadir").addEventListener("click", () => abrirFormulario("crear"));
+$("fc-cancelar").addEventListener("click", () => { estado.formulario = null; mostrarVista("maestro"); });
+
+function mostrarErroresFormulario(lista) {
+  const n = $("form-errores");
+  n.hidden = false;
+  n.replaceChildren(...lista.map((m) => el("div", { text: m })));
+  n.scrollIntoView({ block: "nearest" });
+}
+
+$("form-cuenta").addEventListener("submit", async (ev) => {
+  ev.preventDefault();
+  const f = estado.formulario;
+  if (!f) return;
+  const d = leerFormulario();
+  const idsExistentes = (estado.cuentasInfo?.global?.cuentas || []);
+  const errores = erroresDeCuenta(d, { idsExistentes, editando: f.modo === "editar" });
+  if (errores.length) { mostrarErroresFormulario(errores); return; }
+  const botones = $("form-cuenta").querySelectorAll("button");
+  botones.forEach((b) => { b.disabled = true; });
+  try {
+    await guardarFormulario(d);
+    estado.formulario = null;
+    avisar(f.modo === "crear" ? `Cuenta ${d.id} creada: empieza apagada y sin conexión verificada.` : `Cuenta ${d.id} guardada.`, 8000);
+    await refrescarCuentas();
+    mostrarVista("maestro");
+  } catch (err) {
+    // El formulario conserva lo escrito: el operador corrige o reintenta.
+    mostrarErroresFormulario([err.message]);
+  } finally {
+    botones.forEach((b) => { b.disabled = false; });
+  }
+});
+
+// Guarda config, editorial, logo y (al crear) la lista global de cuentas. Cada archivo lleva su sha: si alguien lo cambió,
+// se avisa, se actualiza el sha guardado y el siguiente intento escribe sobre la versión nueva.
+async function guardarFormulario(d) {
+  const f = estado.formulario;
+  const id = d.id;
+  const config = configDesdeFormulario(d, f.base);
+  const textoConfig = JSON.stringify(config, null, 2) + "\n";
+  const editorial = d.editorialMd.trim() ? d.editorialMd.replace(/\r\n/g, "\n").replace(/\n*$/, "\n") : plantillaEditorial(d);
+  const escribir = async (clave, ruta, texto, binario = false) => {
+    try {
+      const sha = f.shas[clave] || null;
+      f.shas[clave] = binario
+        ? await estado.almacen.escribirBinario(ruta, texto, { sha, mensaje: `panel: ${f.modo === "crear" ? "alta" : "edición"} de cuenta ${id} (${clave})` })
+        : await estado.almacen.escribirArchivo(ruta, texto, { sha, mensaje: `panel: ${f.modo === "crear" ? "alta" : "edición"} de cuenta ${id} (${clave})` });
+    } catch (err) {
+      if (err instanceof ErrorConflictoArchivo) {
+        f.shas[clave] = err.actual?.sha || null;
+        if (f.modo === "crear" && err.actual) throw new Error(`${ruta} ya existe en el repositorio. Si es una cuenta anterior, edítala desde su tarjeta; si no, elige otro identificador.`);
+        throw new Error(`${err.message} Lo que escribiste sigue aquí: pulsa Guardar de nuevo para escribir sobre la versión actual.`);
+      }
+      throw err;
+    }
+  };
+  await escribir("config", `cuentas/${id}/config.json`, textoConfig);
+  await escribir("editorial", `cuentas/${id}/editorial.md`, editorial);
+  if (f.logoBase64) { await escribir("logo", `cuentas/${id}/logo.png`, f.logoBase64, true); f.logoBase64 = null; }
+  if (f.modo === "crear") await anadirALaLista(id);
+}
+
+async function anadirALaLista(id) {
+  for (let intento = 0; intento < 2; intento++) {
+    const actual = await estado.almacen.leerArchivo("config.json");
+    if (!actual) throw new Error("No se encontró config.json en el repositorio.");
+    const global = JSON.parse(actual.texto);
+    if ((global.cuentas || []).includes(id)) return;
+    const nuevo = { ...global, cuentas: [...(global.cuentas || []), id] };
+    try {
+      await estado.almacen.escribirArchivo("config.json", JSON.stringify(nuevo, null, 2) + "\n", { sha: actual.sha, mensaje: `panel: alta de cuenta ${id} (lista de cuentas)` });
+      return;
+    } catch (err) {
+      if (err instanceof ErrorConflictoArchivo && intento === 0) continue;
+      throw new Error(`Los archivos de la cuenta se guardaron, pero no se pudo añadir "${id}" a la lista de cuentas de config.json: ${err.message} Pulsa Guardar de nuevo para reintentar.`);
+    }
+  }
+}
+
 // --- Arranque ---------------------------------------------------------------
 configurarAlmacen();
-cargarConfigPanel().then(() => { elegirCuentaInicial(); return cargar(); });
+cargarConfigPanel().then(async () => {
+  await cargarCuentas();
+  elegirCuentaInicial();
+  let vista = "posts";
+  try { vista = localStorage.getItem("sinlinea.vista") === "maestro" ? "maestro" : "posts"; } catch { /* sin almacenamiento */ }
+  mostrarVista(vista);
+  return cargar();
+});
 setInterval(() => {
   const hayRegenerando = estado.items.some((x) => ["borrador", "programado", "error"].includes(x.post.estado)
     && (imagenDesactualizada(x.post) || generandoIlustracion(x.post.ilustracion) || regenerandoIlustracion(x.post.ilustracion)));
-  if (hayRegenerando && !document.querySelector("dialog[open]") && estado.borradores.size === 0) cargar();
+  if (hayRegenerando && !document.querySelector("dialog[open]") && estado.borradores.size === 0 && estado.vista === "posts") cargar();
 }, 30000);

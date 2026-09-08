@@ -11,12 +11,13 @@
 <header class="cabecera">
   <div class="marca"><span class="marca-sin">SIN</span><span class="marca-linea">LÍNEA</span> <span class="marca-sub">panel</span></div>
   <div class="estado-token" id="estado-token" hidden></div>
+  <button class="boton-texto" id="boton-cuentas" type="button">Cuentas</button>
   <button class="boton-texto" id="boton-config" type="button">Configurar</button>
 </header>
 
 <section class="config" id="config" hidden>
   <h2>Conexión con GitHub</h2>
-  <p>Pega un token fino de GitHub limitado al repositorio del panel, con permiso <strong>Contents: lectura y escritura</strong>. Se guarda solo en este navegador.</p>
+  <p>Pega un token fino de GitHub limitado al repositorio del panel, con permiso <strong>Contents: lectura y escritura</strong> (y <strong>Actions: lectura y escritura</strong> si quieres lanzar la verificación de identidad desde aquí). Se guarda solo en este navegador.</p>
   <label>Usuario u organización <input id="campo-owner" autocomplete="off"></label>
   <label>Repositorio <input id="campo-repo" autocomplete="off"></label>
   <label>Token <input id="campo-token" type="password" autocomplete="off"></label>
@@ -26,11 +27,97 @@
   </div>
 </section>
 
-<nav class="cuentas" id="cuentas" hidden></nav>
-<p class="nota-cuenta" id="nota-cuenta" hidden></p>
-<nav class="pestanas" id="pestanas"></nav>
 <p class="aviso" id="aviso" hidden></p>
-<main class="lista" id="lista"><p class="vacio">Cargando…</p></main>
+
+<!-- Vista de posts de la cuenta seleccionada (panel individual) -->
+<div id="vista-posts">
+  <nav class="cuentas" id="cuentas" hidden></nav>
+  <p class="nota-cuenta" id="nota-cuenta" hidden></p>
+  <nav class="pestanas" id="pestanas"></nav>
+  <main class="lista" id="lista"><p class="vacio">Cargando…</p></main>
+</div>
+
+<!-- Panel maestro: todas las cuentas -->
+<section class="maestro" id="maestro" hidden>
+  <div class="maestro-cabecera">
+    <h2>Todas las cuentas</h2>
+    <button class="boton primario" id="boton-anadir" type="button">Añadir cuenta</button>
+  </div>
+  <p class="nota-cuenta" id="nota-maestro" hidden></p>
+  <div class="cuentas-grid" id="cuentas-grid"><p class="vacio">Cargando…</p></div>
+  <details class="archivadas" id="archivadas" open hidden>
+    <summary id="archivadas-titulo">Archivadas</summary>
+    <div class="cuentas-grid" id="cuentas-archivadas"></div>
+  </details>
+</section>
+
+<!-- Alta y edición de una cuenta -->
+<section class="formulario-cuenta" id="formulario-cuenta" hidden>
+  <form id="form-cuenta" novalidate>
+    <h2 id="fc-titulo">Añadir cuenta</h2>
+    <p class="nota-cuenta">Toda cuenta nueva empieza con la generación y la publicación automáticas apagadas y sin conexión verificada. Los secretos de Instagram se guardan en GitHub, nunca aquí.</p>
+    <fieldset>
+      <legend>Identidad</legend>
+      <div class="fila">
+        <label>Nombre visible <input id="fc-nombre" autocomplete="off" required></label>
+        <label>Usuario de Instagram <input id="fc-usuario" autocomplete="off" placeholder="@usuario" required></label>
+      </div>
+      <div class="fila">
+        <label>Identificador interno <input id="fc-id" autocomplete="off" pattern="[a-z0-9][a-z0-9-]*" placeholder="minúsculas, dígitos y guiones"><small>No cambia después: nombra la carpeta <code>cuentas/&lt;id&gt;/</code>, los secretos y los posts.</small></label>
+        <label>Idioma <select id="fc-idioma"></select></label>
+      </div>
+      <label>Lema (opcional, franja inferior de la imagen) <input id="fc-lema" autocomplete="off"></label>
+    </fieldset>
+    <fieldset>
+      <legend>Línea editorial</legend>
+      <label>Temas (uno por línea) <textarea id="fc-temas" rows="3"></textarea></label>
+      <label>Tono editorial <input id="fc-tono" autocomplete="off" placeholder="p. ej. claro, sobrio y didáctico"></label>
+      <label>Texto completo de la línea editorial (<code>editorial.md</code>, es lo que lee Claude) <textarea id="fc-editorial" rows="10"></textarea><small id="fc-editorial-nota">Se redacta solo a partir de los temas y el tono hasta que lo edites a mano.</small></label>
+    </fieldset>
+    <fieldset>
+      <legend>Fuentes</legend>
+      <div id="fc-fuentes"></div>
+      <button class="boton" id="fc-anadir-fuente" type="button">Añadir fuente</button>
+      <small>Sin fuentes la cuenta puede existir, pero la generación automática no podrá encenderse.</small>
+    </fieldset>
+    <fieldset>
+      <legend>Identidad visual</legend>
+      <div class="fila">
+        <label>Logo (PNG, opcional) <input id="fc-logo" type="file" accept="image/png"><small id="fc-logo-nota"></small></label>
+        <div class="logo-previa" id="fc-logo-previa"></div>
+      </div>
+      <div class="fila">
+        <label>Forma del logo <select id="fc-logo-forma"><option value="circulo">Círculo</option><option value="cuadrado">Cuadrado</option></select></label>
+        <label>Tamaño del logo (px) <input id="fc-logo-tamano" type="number" min="60" max="160" step="1" value="120"></label>
+      </div>
+      <div class="fila colores">
+        <label>Principal <input id="fc-color-principal" type="color"></label>
+        <label>Acento <input id="fc-color-acento" type="color"></label>
+        <label>Oscuro <input id="fc-color-oscuro" type="color"></label>
+        <label>Claro <input id="fc-color-claro" type="color"></label>
+      </div>
+      <label class="casilla"><input id="fc-ilus-activo" type="checkbox"> <span>Ilustraciones con IA (Gemini)</span></label>
+      <label>Estilo de las ilustraciones <textarea id="fc-ilus-estilo" rows="3"></textarea></label>
+      <label>Rótulo sobre la imagen (vacío = sin rótulo) <input id="fc-rotulo" autocomplete="off" placeholder="Ilustración generada con IA"></label>
+    </fieldset>
+    <fieldset>
+      <legend>Horarios</legend>
+      <div class="fila">
+        <label>Zona horaria <input id="fc-zona" list="zonas" autocomplete="off"><datalist id="zonas"></datalist></label>
+        <label>Horas de publicación (HH:MM, separadas por comas) <input id="fc-franjas" autocomplete="off" placeholder="09:00, 13:00, 18:00"></label>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Conexión con Instagram</legend>
+      <p class="nota" id="fc-secretos"></p>
+    </fieldset>
+    <p class="error-texto" id="form-errores" hidden></p>
+    <div class="acciones">
+      <button class="boton primario" id="fc-guardar" type="submit">Guardar</button>
+      <button class="boton" id="fc-cancelar" type="button">Cancelar</button>
+    </div>
+  </form>
+</section>
 
 <dialog id="dialogo-hora">
   <form method="dialog">

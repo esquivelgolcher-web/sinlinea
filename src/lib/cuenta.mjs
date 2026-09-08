@@ -130,7 +130,8 @@ export function configDesdeFormulario(d, base = null) {
     nombre: String(d.nombre || "").trim(),
     idioma: d.idioma || base?.idioma || IDIOMA_POR_DEFECTO,
     zonaHoraria: d.zonaHoraria || base?.zonaHoraria || ZONA_POR_DEFECTO,
-    automatico: base?.automatico ? { ...base.automatico } : { generar: false, publicar: false },
+    // Al crear, todo apagado; al editar se conserva exactamente lo que la cuenta declaraba (incluso nada).
+    automatico: base ? base.automatico : { generar: false, publicar: false },
     marca,
     editorial: { temas, tono: String(d.tono || "").trim() },
     fuentes: (d.fuentes || []).map((f) => ({
