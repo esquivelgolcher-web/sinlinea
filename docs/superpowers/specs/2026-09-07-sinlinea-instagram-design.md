@@ -341,7 +341,7 @@ de `posts/` y `public/`, y no se toca `seen.json`.
     tamaño inicial 104 px que se reduce automáticamente hasta caber en máximo
     6 líneas (mínimo 64 px).
   - Bajada en `Inter` 36 px, máximo 3 líneas, color con 85 % de opacidad.
-  - Franja inferior de 130 px: a la izquierda "Fuente: La Prensa · 7 sep 2026",
+  - Franja inferior de 130 px: a la izquierda la fecha ("7 sep 2026"; la fuente va solo en el caption, decisión del 2026-09-08),
     a la derecha el usuario de Instagram; debajo una barra con el lema
     "Nuestra línea es el Pueblo" (roja con texto blanco en las variantes negro
     y amarillo; negra con texto amarillo en la variante rojo, para que

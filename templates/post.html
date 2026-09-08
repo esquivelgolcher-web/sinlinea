@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="es" data-version="3">
+<html lang="es" data-version="4">
 <head>
 <meta charset="utf-8">
 <base href="__BASE__">
@@ -57,7 +57,7 @@
   $("categoria").textContent = d.categoria || "";
   $("titular").textContent = d.titular || "";
   $("bajada").textContent = d.bajada || "";
-  $("fuente").textContent = "Fuente: " + (d.medio || "") + " · " + (d.fecha || "");
+  $("fuente").textContent = d.fecha || "";
   $("usuario").textContent = d.usuario || "";
   $("lema").textContent = d.lema || "";
   if (d.logoUrl) {
