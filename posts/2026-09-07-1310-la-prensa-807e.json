@@ -1,6 +1,6 @@
 {
   "id": "2026-09-07-1310-la-prensa-807e",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "La Prensa",
     "url": "https://www.prensa.com/politica/contralor-anel-flores-frena-compra-de-vehiculos-para-el-estado/",
@@ -27,11 +27,11 @@
     "version": 7,
     "renderizada": "2026-09-08T11:25:26.871Z"
   },
-  "programado": null,
+  "programado": "2026-09-08T11:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-07T18:10:04.522Z",
-  "actualizado": "2026-09-08T11:25:17.609Z",
+  "actualizado": "2026-09-08T11:37:31.900Z",
   "ilustracion": {
     "ruta": "public/ilus/2026-09-07-1310-la-prensa-807e.jpg",
     "proveedor": "gemini",
