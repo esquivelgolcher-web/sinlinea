@@ -2,6 +2,7 @@
 import { z } from "zod";
 import { zodOutputFormat } from "@anthropic-ai/sdk/helpers/zod";
 import { CATEGORIAS } from "./estados.mjs";
+import { LIMITES } from "./texto.mjs";
 
 export const EsquemaRedaccion = z.object({
   seleccion: z.array(z.object({
@@ -89,4 +90,27 @@ export async function redactar({ client, config, editorialMd, candidatos, recien
     descartados: res.parsed_output.descartados || [],
     uso: res.usage,
   };
+}
+
+const EsquemaTitular = z.object({ titular: z.string() });
+
+// Pide a Claude un titular más corto cuando el actual no cabe en la imagen.
+export async function acortarTitular({ client, config, titular, bajada, motivo }) {
+  const [min, ideal] = LIMITES.titularIdeal;
+  const res = await client.messages.parse({
+    model: config.claude.modelo,
+    max_tokens: 400,
+    thinking: { type: "adaptive" },
+    output_config: { effort: "low", format: zodOutputFormat(EsquemaTitular) },
+    system: "Eres editor de titulares de un medio panameño. No inventes datos, nombres ni cifras: usa solo lo que dicen el titular y la bajada.",
+    messages: [{ role: "user", content: `Resume este titular a entre ${min} y ${ideal} caracteres (nunca más de ${LIMITES.titularMax} caracteres), en mayúsculas y minúsculas normales, sin punto final. Mantén protagonista + hecho principal.
+
+Motivo: ${motivo}
+Titular actual: ${titular}
+Bajada (contexto, no la repitas): ${bajada}` }],
+  });
+  const nuevo = String(res.parsed_output?.titular ?? "").trim();
+  if (!nuevo) throw new Error("Claude devolvió un titular vacío");
+  if (nuevo.length > LIMITES.titularMax) throw new Error(`Claude devolvió un titular de ${nuevo.length} caracteres (máximo ${LIMITES.titularMax})`);
+  return nuevo;
 }
