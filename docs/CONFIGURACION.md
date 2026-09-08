@@ -199,14 +199,16 @@ comprobación sin publicar (entrada `cuenta`, vacío = todas).
 6. **Secretos.** Repo → Settings → Secrets and variables → Actions → New repository
    secret: `IG_ACCESSTOKEN_LUISESKIVELGOLCHER` (el token) e
    `IG_USER_ID_LUISESKIVELGOLCHER` (el id numérico). Los workflows ya exponen esos
-   nombres.
+   nombres. Hecho el 2026-09-08: ambos secretos creados por el operador.
 7. **Verificar identidad y caducidad.** Actions → **Probar Instagram** → Run
    workflow con `cuenta` = `luiseskivelgolcher`. Debe decir que la credencial
    pertenece a `@luiseskivelgolcher` y que el id numérico coincide. El workflow
    guarda en `data/luiseskivelgolcher/token-info.json` la caducidad real si la API
    la informa; si no, queda como **desconocida** hasta la primera renovación
    (`renovar-token.yml` devuelve un token nuevo con su fecha real). No se asume
-   "hoy + 60 días".
+   "hoy + 60 días". Hecho el 2026-09-08: la prueba confirmó que la credencial es de
+   `@luiseskivelgolcher` y que el id numérico coincide; la API no informó caducidad,
+   así que quedó registrada como desconocida.
 8. **Encender.** Solo después de la prueba: define `editorial.md`, `fuentes`,
    `franjas`, colores y logo definitivos, y pon `automatico.publicar` (y cuando
    toque `automatico.generar`) en `true`. Mientras estén en `false`, la cuenta

@@ -30,8 +30,12 @@ configurable por cuenta (`idioma`, `es-PA` por defecto).
   antes de publicar y workflow manual "Probar Instagram" (identidad y caducidad
   real del token o "desconocida"). Línea editorial acordada en
   `cuentas/luiseskivelgolcher/editorial.md`. El panel muestra ambas cuentas.
-  Pendiente del operador: conectar la cuenta (docs/CONFIGURACION.md §6c) y
-  definir fuentes. Logo definido el 2026-09-08 (ver abajo).
+  **Cuenta conectada y verificada el 2026-09-08**: Probar Instagram confirmó
+  que la credencial es de @luiseskivelgolcher y que el id numérico coincide; la
+  caducidad quedó registrada como desconocida en
+  `data/luiseskivelgolcher/token-info.json`. Automatizaciones siguen apagadas.
+  Pendiente del operador: definir fuentes y encender `automatico.publicar`
+  cuando decida publicar. Logo definido el 2026-09-08 (ver abajo).
 - **Incidente 2026-09-08**: el token de Instagram de Sin Línea quedó
   invalidado por Meta (cambio de contraseña o sesión revocada). Publicación
   automática de `sinlinea` **pausada** (`automatico.publicar = false`) con la
@@ -64,6 +68,12 @@ configurable por cuenta (`idioma`, `es-PA` por defecto).
   Ilustraciones activas con estilo neutro provisional; generación y publicación
   siguen apagadas. Pendiente: revisar ambos en el panel, definir fuentes y la
   conexión de Instagram.
+- **Borrador para revisión (2026-09-08, noche)**: el borrador de registros
+  públicos pasó a titularse "Cómo investigar una empresa en Panamá", con caption
+  revisado (método, advertencia de que un registro no prueba una irregularidad)
+  y fuentes oficiales verificadas ese día (Registro Público, PanamaCompra y
+  Gaceta Oficial responden). Sigue en estado borrador, sin aprobar ni programar;
+  el ajedrez queda fuera de la cuenta.
 - **Secreto del token de la cuenta personal (2026-09-08, noche)**: el operador
   guardó el token como `IG_ACCESSTOKEN_LUISESKIVELGOLCHER` (sin guion bajo entre
   ACCESS y TOKEN). En vez de pedir un tercer pegado, `instagram.tokenSecreto` y
