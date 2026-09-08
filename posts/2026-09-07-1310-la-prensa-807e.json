@@ -31,5 +31,15 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-07T18:10:04.522Z",
-  "actualizado": "2026-09-08T10:57:54.296Z"
+  "actualizado": "2026-09-08T11:24:38.833Z",
+  "ilustracion": {
+    "ruta": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "descripcion": "",
+    "usar": true,
+    "hashDescripcion": null,
+    "error": null
+  }
 }
