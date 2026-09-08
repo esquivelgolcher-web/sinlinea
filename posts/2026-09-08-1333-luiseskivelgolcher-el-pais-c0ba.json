@@ -1,0 +1,45 @@
+{
+  "id": "2026-09-08-1333-luiseskivelgolcher-el-pais-c0ba",
+  "cuenta": "luiseskivelgolcher",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "El País",
+    "url": "https://elpais.com/internacional/2026-09-08/once-paises-europeos-y-canada-anuncian-sanciones-contra-productos-de-los-asentamientos-israelies.html",
+    "titulo": "Doce países elevan la presión sobre Israel por la colonización de Cisjordania",
+    "publicado": "2026-09-08T16:03:32.000Z"
+  },
+  "categoria": "INTERNACIONAL",
+  "titular": "Doce países anuncian medidas contra asentamientos israelíes",
+  "bajada": "Reino Unido, Canadá y Francia vetarán productos de los asentamientos; Israel cierra el consulado británico.",
+  "caption": "Qué pasó (8 de septiembre de 2026): doce países occidentales anunciaron medidas contra los asentamientos israelíes en Cisjordania.\n\nSegún El País, Reino Unido, Canadá y Francia dejarán de comprar productos de los asentamientos. Según DW, varios gobiernos estudian o anuncian restricciones comerciales, y Londres vetará las importaciones procedentes de los asentamientos y denuncia la violencia de colonos contra palestinos.\n\nReino Unido anunció además sanciones contra colonos israelíes; su ministro de Asuntos Exteriores presentó las medidas ante el Parlamento y acusó a Israel de \"limpieza étnica\" (BBC Mundo). Israel calificó la decisión británica de \"flagrante injerencia\" en su proceso electoral y respondió con el cierre del consulado británico en Jerusalén Este (El País, DW).\n\nContexto: el Consejo de Seguridad de la ONU declaró en la Resolución 2334 (2016) que los asentamientos no tienen validez legal; Israel rechaza esa posición.\n\nFuentes: BBC Mundo, DW y El País, 8 de septiembre de 2026.",
+  "hashtags": [
+    "#Internacional",
+    "#Cisjordania",
+    "#Israel",
+    "#ReinoUnido"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-09-08-1333-luiseskivelgolcher-el-pais-c0ba.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-08-1333-luiseskivelgolcher-el-pais-c0ba.jpg",
+    "hash": "f26ad676836cd228",
+    "version": 7,
+    "estilo": "626198fa24ecf75c",
+    "renderizada": "2026-09-08T18:33:05.522Z"
+  },
+  "ilustracion": {
+    "descripcion": "Paisaje de colinas de Cisjordania con casas de un asentamiento a lo lejos y un muro de hormigón en primer plano, luz de tarde, cielo despejado, sin personas, sin banderas, sin texto",
+    "usar": true,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-08T18:33:05.299Z",
+  "actualizado": "2026-09-08T18:33:05.299Z"
+}

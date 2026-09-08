@@ -1,0 +1,45 @@
+{
+  "id": "2026-09-08-1333-luiseskivelgolcher-lichess-ce43",
+  "cuenta": "luiseskivelgolcher",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Lichess",
+    "url": "https://lichess.org/analysis",
+    "titulo": "Tablero de análisis: mate del pastor (1.e4 e5 2.Dh5 Cc6 3.Ac4 Cf6 4.Dxf7#)",
+    "publicado": "2026-09-08T12:00:00.000Z"
+  },
+  "categoria": "EDUCACIÓN",
+  "titular": "Mate del pastor: por qué funciona y cómo evitarlo",
+  "bajada": "Cuatro jugadas bastan contra un principiante; con 3...g6 la trampa se desarma y la dama pierde tiempo.",
+  "caption": "El mate del pastor es la trampa más conocida del ajedrez y la primera que conviene aprender a ver venir.\n\nLa secuencia: 1.e4 e5 2.Dh5 Cc6 3.Ac4 Cf6 4.Dxf7#. La dama y el alfil apuntan al mismo punto débil, el peón de f7, que al inicio solo defiende el rey.\n\nPor qué funciona: el peón f7 está protegido únicamente por el rey, y 3...Cf6 ataca a la dama pero deja f7 sin cobertura.\n\nCómo evitarlo: tras 3.Ac4, jugar 3...g6 (o 3...De7). El peón cubre h5 y f7 queda a salvo; la dama blanca tiene que retirarse y las negras ganan tiempo de desarrollo. Sacar la dama tan pronto suele costar caro contra quien conoce la defensa.\n\nPuedes reproducir la línea en cualquier tablero de análisis.",
+  "hashtags": [
+    "#Ajedrez",
+    "#AprendeAjedrez",
+    "#MateDelPastor",
+    "#Aperturas"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-09-08-1333-luiseskivelgolcher-lichess-ce43.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-08-1333-luiseskivelgolcher-lichess-ce43.jpg",
+    "hash": "48a5c6b56f1ef47f",
+    "version": 7,
+    "estilo": "626198fa24ecf75c",
+    "renderizada": "2026-09-08T18:33:04.324Z"
+  },
+  "ilustracion": {
+    "descripcion": "Tablero de ajedrez de madera visto en ángulo, la dama blanca dando mate al rey negro en f7, piezas de torneo, luz lateral cálida, fondo neutro, sin personas, sin texto",
+    "usar": true,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-08T18:33:04.103Z",
+  "actualizado": "2026-09-08T18:33:04.103Z"
+}

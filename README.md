@@ -20,6 +20,7 @@ npm run preview              # http://localhost:4173 (plantilla y panel local)
 npm run generar -- --dry-run # simula una corrida (necesita ANTHROPIC_API_KEY)
 npm run publicar -- --dry-run
 npm run verificar            # configuración, archivos y secretos (solo nombres, nunca valores)
+npm run borrador -- --cuenta <id> --entrada borrador.json   # borrador manual (sin Claude ni Instagram)
 ```
 
 ## Estructura

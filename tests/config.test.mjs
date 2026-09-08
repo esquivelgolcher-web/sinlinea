@@ -187,7 +187,7 @@ test("(M2) la cuenta luiseskivelgolcher carga con automatización apagada, color
   assert.deepEqual(e.automatico, { generar: false, publicar: false });
   assert.equal(e.marca.usuario, "@luiseskivelgolcher");
   assert.deepEqual(e.fuentes, []);
-  assert.equal(e.ilustraciones.activo, false);
+  assert.equal(e.ilustraciones.activo, true, "ilustraciones activas con estilo provisional para las vistas previas");
   assert.equal(e.instagram.tokenSecreto, "IG_ACCESS_TOKEN_LUISESKIVELGOLCHER");
   assert.equal(e.instagram.usuarioIdSecreto, "IG_USER_ID_LUISESKIVELGOLCHER");
   assert.notDeepEqual(e.marca.colores, c.cuentas[0].marca.colores, "no hereda los colores de Sin Línea");

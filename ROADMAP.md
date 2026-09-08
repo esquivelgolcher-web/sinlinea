@@ -35,8 +35,25 @@ configurable por cuenta (`idioma`, `es-PA` por defecto).
 - **Incidente 2026-09-08**: el token de Instagram de Sin Línea quedó
   invalidado por Meta (cambio de contraseña o sesión revocada). Publicación
   automática de `sinlinea` **pausada** (`automatico.publicar = false`) con la
-  cola conservada hasta reemplazar el secreto `IG_ACCESS_TOKEN`, pasar "Probar
-  Instagram" y decidir qué posts reprogramar.
+  cola conservada (6 programados). Dos intentos de guardar un token nuevo
+  fallaron ("Cannot parse access token": el valor guardado no tiene forma de
+  token). **Conexión aplazada al 2026-09-09**; hasta entonces no se hacen más
+  intentos de autenticación. Al retomar: generar el token en Meta (API setup
+  with Instagram login → sinlinea.pa → Generate token, copiar con el botón),
+  pegarlo en el secreto `IG_ACCESS_TOKEN`, ejecutar "Probar Instagram" para
+  `sinlinea`, decidir qué posts reprogramar y reactivar `automatico.publicar`.
+- **Vista previa editorial de la cuenta personal (2026-09-08)**: nuevo
+  `npm run borrador -- --cuenta <id> --entrada <archivo.json>` (`src/borrador.mjs`)
+  crea borradores manuales sin Claude ni credenciales de Instagram y los dibuja
+  en local. Tres borradores de `luiseskivelgolcher` guardados sin aprobar ni
+  programar: ajedrez (mate del pastor, línea y defensa validadas con chess.js;
+  sin motor de evaluación disponible), investigación con registros públicos de
+  Panamá (Registro Público, PanamaCompra, Gaceta Oficial; sin hallazgos
+  propios) y noticia internacional del 8 de septiembre con tres fuentes (El
+  País, DW, BBC Mundo). Ilustraciones activadas para esa cuenta con un estilo
+  neutro provisional (`ilustraciones.activo = true`); generación y publicación
+  siguen apagadas. Pendiente: revisar los tres en el panel, definir fuentes,
+  logo y colores definitivos, y la conexión de Instagram.
 
 Estimaciones en días de trabajo de una persona con el flujo actual (pruebas,
 revisión y despliegue incluidos).

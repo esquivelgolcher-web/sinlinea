@@ -1,0 +1,45 @@
+{
+  "id": "2026-09-08-1333-luiseskivelgolcher-registro-pub-b8ea",
+  "cuenta": "luiseskivelgolcher",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Registro Público de Panamá",
+    "url": "https://www.registro-publico.gob.pa/",
+    "titulo": "Registro Público de Panamá: consulta de sociedades",
+    "publicado": "2026-09-08T12:00:00.000Z"
+  },
+  "categoria": "EDUCACIÓN",
+  "titular": "Cómo verificar una empresa en Panamá con registros públicos",
+  "bajada": "Registro Público, PanamaCompra y Gaceta Oficial: tres fuentes oficiales y gratuitas para contrastar datos.",
+  "caption": "Antes de creer lo que una empresa dice de sí misma, conviene contrastarlo con lo que consta en registros oficiales de acceso público.\n\n1. Registro Público de Panamá (registro-publico.gob.pa): permite consultar sociedades inscritas, sus directores y dignatarios, el agente residente y los cambios registrados.\n\n2. PanamaCompra (panamacompra.gob.pa): el portal de contrataciones del Estado muestra licitaciones, adjudicaciones y contratos por proveedor.\n\n3. Gaceta Oficial (gacetaoficial.gob.pa): publica leyes, decretos, resoluciones y avisos que pueden afectar a una empresa o a su sector.\n\nMétodo: anotar fecha y número de cada documento, guardar copia y comparar nombres exactos (una letra distinta puede ser otra sociedad). Un registro público no demuestra por sí solo una irregularidad: sirve para confirmar o descartar datos y para saber qué preguntar.",
+  "hashtags": [
+    "#Investigación",
+    "#OSINT",
+    "#Transparencia",
+    "#Panamá"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-09-08-1333-luiseskivelgolcher-registro-pub-b8ea.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-08-1333-luiseskivelgolcher-registro-pub-b8ea.jpg",
+    "hash": "631cf92e423cfe0c",
+    "version": 7,
+    "estilo": "626198fa24ecf75c",
+    "renderizada": "2026-09-08T18:33:04.931Z"
+  },
+  "ilustracion": {
+    "descripcion": "Escritorio de madera con documentos oficiales impresos, un sello, una lupa y una carpeta, luz natural de ventana, composición sobria, sin personas, sin texto legible",
+    "usar": true,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-08T18:33:04.708Z",
+  "actualizado": "2026-09-08T18:33:04.708Z"
+}
