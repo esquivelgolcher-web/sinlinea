@@ -1,0 +1,47 @@
+{
+  "id": "2026-09-08-1335-sinlinea-la-estrella-e005",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/mulino-evalua-contratar-medicos-extranjeros-ante-falta-de-especialistas-en-panama-IA25520392",
+    "titulo": "Mulino evalúa contratar médicos extranjeros ante falta de especialistas en Panamá",
+    "publicado": "2026-09-08T14:52:00.000Z"
+  },
+  "categoria": "SALUD",
+  "titular": "Mulino evalúa contratar médicos extranjeros",
+  "bajada": "El Gobierno busca cubrir vacantes ante la apertura del primer centro oncológico del interior.",
+  "caption": "La falta de especialistas en Panamá podría abrir la puerta a la contratación de médicos, enfermeras y técnicos extranjeros. El anuncio llega justo antes de la apertura del primer centro oncológico público del interior, en Bugaba, que necesitará personal capacitado en medicina nuclear. ¿Debería Panamá abrirse a médicos extranjeros para resolver la escasez?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Salud",
+    "#Mulino",
+    "#Cáncer",
+    "#Chiriquí"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-09-08-1335-sinlinea-la-estrella-e005.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-08-1335-sinlinea-la-estrella-e005.jpg",
+    "hash": "867dfce83b325536",
+    "version": 7,
+    "estilo": "c7a9fb44614ef1f6",
+    "renderizada": "2026-09-08T18:36:22.218Z"
+  },
+  "ilustracion": {
+    "descripcion": "Pasillo de un hospital público moderno con equipo médico visible, elemento principal en el tercio superior derecho, zona izquierda y central despejadas, sin personas ni rostros.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-08-1335-sinlinea-la-estrella-e005.jpg",
+    "hashDescripcion": "138b99fcef9af64a",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-08T18:35:45.127Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-08T18:35:45.127Z",
+  "actualizado": "2026-09-08T18:35:45.127Z"
+}

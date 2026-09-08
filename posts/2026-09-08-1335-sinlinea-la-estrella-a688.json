@@ -1,0 +1,47 @@
+{
+  "id": "2026-09-08-1335-sinlinea-la-estrella-a688",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/economia/ley-de-pasantias-entra-en-vigor-con-remuneracion-de-450-y-seguro-privado-para-jovenes-GD25518952",
+    "titulo": "Ley de Pasantías entra en vigor con remuneración de $450 y seguro privado para jóvenes",
+    "publicado": "2026-09-08T16:30:00.000Z"
+  },
+  "categoria": "ECONOMÍA",
+  "titular": "Ley de Pasantías entra en vigor con pago de $450 mensuales",
+  "bajada": "Jóvenes de 18 a 25 años podrán acceder a su primer empleo remunerado con seguro privado incluido.",
+  "caption": "La Ley de Pasantías ya es una realidad y busca abrirle la puerta del mercado laboral a miles de jóvenes que hoy no consiguen trabajo por falta de experiencia. Las empresas pagarán $450 al mes más seguro privado, sin costo para el Estado. Mitradel vigilará que se cumplan las condiciones. ¿Crees que esta ley resolverá el problema del desempleo juvenil?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Empleo",
+    "#Pasantías",
+    "#Jóvenes",
+    "#Mitradel"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-09-08-1335-sinlinea-la-estrella-a688.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-08-1335-sinlinea-la-estrella-a688.jpg",
+    "hash": "17de5fd8e00c000e",
+    "version": 7,
+    "estilo": "c7a9fb44614ef1f6",
+    "renderizada": "2026-09-08T18:36:15.417Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada de la Cámara de Comercio de Panamá con banderas panameñas ondeando, elemento principal en el tercio superior derecho, zona izquierda y central despejadas, sin personas ni texto.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-08-1335-sinlinea-la-estrella-a688.jpg",
+    "hashDescripcion": "594e9ac2bba14cb0",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-08T18:35:45.127Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-08T18:35:45.127Z",
+  "actualizado": "2026-09-08T18:35:45.127Z"
+}
