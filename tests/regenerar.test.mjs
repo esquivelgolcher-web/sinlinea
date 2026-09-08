@@ -220,3 +220,16 @@ test("si Claude no logra redactar la escena, se anota el error con intentos y se
   await ejecutarRegenerar({ config: cfg, raiz: raiz2, ahora, render: async (q) => imagenDe(q), log, version: 1, ilustrador, guardar: async () => {}, redactarEscena });
   assert.equal(leerPosts(path.join(raiz2, "posts"))[0].ilustracion.usar, false, "al tercer fallo se desactiva");
 });
+
+test("la redacción de escenas respeta ilustraciones.maxPorCorrida por corrida", async () => {
+  const posts = ["0501", "0502", "0503", "0504", "0505", "0506"].map((s) => sinEscena(s));
+  const raiz = dirCon(posts);
+  const ilustrador = { llamadas: [], async generar(d) { this.llamadas.push(d); return Buffer.from("ffd8ffd9", "hex"); } };
+  let pedidas = 0;
+  const redactarEscena = async () => { pedidas++; return `Escena ${pedidas}`; };
+  const config = { ...cfg, ilustraciones: { ...cfg.ilustraciones, maxPorCorrida: 4 } };
+  await ejecutarRegenerar({ config, raiz, ahora, render: async (q) => imagenDe(q), log, version: 1, ilustrador, guardar: async () => {}, redactarEscena });
+  assert.equal(pedidas, 4, "solo 4 escenas por corrida");
+  assert.equal(ilustrador.llamadas.length, 4);
+  assert.equal(leerPosts(path.join(raiz, "posts")).filter((p) => p.ilustracion.descripcion === "").length, 2, "las otras dos esperan a la siguiente hora");
+});

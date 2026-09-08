@@ -17,9 +17,13 @@ export async function ejecutarRegenerar({ config, raiz = process.cwd(), ahora = 
   const actual = version ?? versionPlantilla(fs.readFileSync(path.join(raiz, RUTA_PLANTILLA), "utf8"));
   const esActivo = (p) => ["borrador", "programado", "error"].includes(p.estado);
   // 1) Escenas: posts marcados para ilustrar pero sin escena (p. ej. borradores antiguos) → Claude la redacta.
+  const tope = config.ilustraciones.maxPorCorrida;
+  const sinEscena = leerPosts(dir).filter((p) => esActivo(p) && necesitaEscena(p, ahora));
   if (ilustrador && redactarEscena) {
-    for (const p of leerPosts(dir).filter(esActivo)) {
-      if (!necesitaEscena(p, ahora)) continue;
+    let escenas = 0;
+    for (const p of sinEscena) {
+      if (escenas >= tope) { log.info(`Tope de escenas por corrida (${tope}) alcanzado; ${p.id} espera a la siguiente hora.`); break; }
+      escenas++;
       let nuevo;
       try {
         const descripcion = await redactarEscena({ titular: p.titular, bajada: p.bajada });
@@ -34,14 +38,13 @@ export async function ejecutarRegenerar({ config, raiz = process.cwd(), ahora = 
       }
       escribirPost(dir, nuevo);
     }
-  } else if (ilustrador && leerPosts(dir).some((p) => esActivo(p) && necesitaEscena(p, ahora))) {
+  } else if (ilustrador && sinEscena.length) {
     log.info("Hay posts sin escena marcados para ilustrar; sin ANTHROPIC_API_KEY no se puede redactarla.");
   }
   // 2) Ilustraciones.
   const activos = leerPosts(dir).filter(esActivo);
   const regeneradas = new Set();
   if (ilustrador) {
-    const tope = config.ilustraciones.maxPorCorrida;
     let llamadas = 0;
     for (const p of activos) {
       if (!necesitaIlustracion(p, ahora)) continue;

@@ -116,3 +116,15 @@ test("Regenerar ilustración con la escena vacía guarda usar=true sin escena y 
   assert.equal(guardado.ilustracion.hashDescripcion, null);
   await page.close();
 });
+
+test("con imagen previa y escena borrada, el chip también dice que Claude redacta la escena", async () => {
+  const f = path.join(raiz, "posts/2026-09-07-1420-la-prensa-a1b2.json");
+  const p = JSON.parse(fs.readFileSync(f, "utf8"));
+  p.ilustracion = { descripcion: "", usar: true, ruta: "public/ilus/x.jpg", hashDescripcion: null, proveedor: "gemini", modelo: "m", generada: p.creado, error: null };
+  fs.writeFileSync(f, JSON.stringify(p, null, 2) + "\n");
+  const page = await navegador.newPage({ viewport: { width: 400, height: 800 } });
+  await page.goto(`${base}/panel/`);
+  await page.waitForSelector(".tarjeta");
+  assert.match(await page.textContent(".tarjeta"), /Regenerando ilustración… \(Claude redacta la escena\)/);
+  await page.close();
+});

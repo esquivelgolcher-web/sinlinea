@@ -151,7 +151,7 @@ function tarjeta({ post, sha }) {
       post.programado ? el("span", { text: `Programado: ${claveDia(post.programado)} ${horaMinutoDeIso(post.programado)}` }) : "",
       imagenDesactualizada(post) && !["publicado", "descartado"].includes(post.estado) ? el("span", { class: "regenerando", text: "Regenerando imagen…" }) : "",
       generandoIlustracion(ilus) ? el("span", { class: "regenerando", text: ilus.descripcion.trim() ? "Generando ilustración…" : "Generando ilustración… (Claude redacta la escena)" }) : "",
-      regenerandoIlustracion(ilus) ? el("span", { class: "regenerando", text: "Regenerando ilustración…" }) : "",
+      regenerandoIlustracion(ilus) ? el("span", { class: "regenerando", text: ilus.descripcion.trim() ? "Regenerando ilustración…" : "Regenerando ilustración… (Claude redacta la escena)" }) : "",
     ]),
     post.error ? el("p", { class: "error-texto", text: `Error (${post.error.paso}): ${post.error.mensaje}` }) : "",
     campo("Titular", "titular"),
