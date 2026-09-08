@@ -22,10 +22,10 @@
   "imagen": {
     "ruta": "public/img/2026-09-08-1333-luiseskivelgolcher-registro-pub-b8ea.jpg",
     "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-08-1333-luiseskivelgolcher-registro-pub-b8ea.jpg",
-    "hash": "c7a3f7e6b0c47498",
-    "version": 7,
-    "estilo": "626198fa24ecf75c",
-    "renderizada": "2026-09-08T18:48:37.406Z"
+    "hash": "d2a40937afc47305",
+    "version": 8,
+    "estilo": "77f64c27768820a9",
+    "renderizada": "2026-09-08T18:56:45.261Z"
   },
   "ilustracion": {
     "descripcion": "Mesa de madera lisa vista desde arriba en ángulo: en el tercio superior derecho, una carpeta abierta con documentos oficiales sellados, una lupa y un sello de caucho; la zona izquierda y central de la mesa queda despejada, solo madera con luz de ventana lateral; tonos cálidos y sobrios, sin personas, sin texto legible",
@@ -41,5 +41,5 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-08T18:33:04.708Z",
-  "actualizado": "2026-09-08T18:48:28.110Z"
+  "actualizado": "2026-09-08T18:56:36.958Z"
 }

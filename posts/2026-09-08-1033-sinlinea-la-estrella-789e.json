@@ -24,10 +24,10 @@
   "imagen": {
     "ruta": "public/img/2026-09-08-1033-sinlinea-la-estrella-789e.jpg",
     "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-08-1033-sinlinea-la-estrella-789e.jpg",
-    "hash": "43306eec327035da",
-    "version": 7,
-    "estilo": "c7a9fb44614ef1f6",
-    "renderizada": "2026-09-08T15:34:03.321Z"
+    "hash": "4a3079f125702163",
+    "version": 8,
+    "estilo": "ac2dff4131832993",
+    "renderizada": "2026-09-08T18:56:39.942Z"
   },
   "ilustracion": {
     "descripcion": "Vista aérea de una mina a cielo abierto con maquinaria pesada detenida, cielo despejado, la excavadora principal ubicada en el tercio superior derecho, zona izquierda y central despejadas.",
@@ -43,5 +43,5 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-08T15:33:38.643Z",
-  "actualizado": "2026-09-08T18:47:26.504Z"
+  "actualizado": "2026-09-08T18:56:36.958Z"
 }

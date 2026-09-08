@@ -23,9 +23,10 @@
   "imagen": {
     "ruta": "public/img/2026-09-08-0737-la-estrella-f599.jpg",
     "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-08-0737-la-estrella-f599.jpg",
-    "hash": "52c81a1791d998a9",
-    "version": 7,
-    "renderizada": "2026-09-08T12:38:17.742Z"
+    "hash": "47c808c69ad9a6d4",
+    "version": 8,
+    "estilo": "ac2dff4131832993",
+    "renderizada": "2026-09-08T18:56:42.130Z"
   },
   "ilustracion": {
     "descripcion": "Maquinaria industrial detenida y oxidándose en una zona minera boscosa de Panamá, con vegetación despejada en el centro y la izquierda de la imagen, maquinaria en el tercio superior derecho.",
@@ -41,5 +42,6 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-08T12:37:50.322Z",
-  "actualizado": "2026-09-08T14:19:48.738Z"
+  "actualizado": "2026-09-08T18:56:36.958Z",
+  "cuenta": "sinlinea"
 }
