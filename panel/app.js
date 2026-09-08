@@ -7,7 +7,7 @@ import { claveDia, isoDesdeClave, horaMinutoDeIso, ZONA_PANAMA } from "./lib/fec
 import {
   IDIOMAS, IDIOMA_POR_DEFECTO, ZONA_POR_DEFECTO, COLORES_POR_DEFECTO, LOGO_TAMANO, FRANJAS_POR_DEFECTO, ESTILO_ILUSTRACION_POR_DEFECTO,
   idSugerido, normalizarUsuario, nombresSecretosSugeridos, erroresDeCuenta, plantillaEditorial, configDesdeFormulario, formularioDesdeConfig,
-  archivarCuenta, reactivarCuenta, estadoConexion,
+  archivarCuenta, reactivarCuenta, estadoConexion, secretosExpuestos, secretosExpuestosComunes, fechaCortaUtc,
 } from "./lib/cuenta.mjs";
 import { crearAlmacenLocal, crearAlmacenGitHub, deducirRepo, ErrorConflicto, ErrorConflictoArchivo } from "./almacen.mjs";
 
@@ -424,7 +424,7 @@ function tarjetaCuenta(c) {
   const cfg = c.config || {};
   const auto = { generar: true, publicar: true, ...(cfg.automatico || {}) };
   const archivada = cfg.archivada === true;
-  const conexion = estadoConexion({ conexion: c.conexion, tokenInfo: c.tokenInfo });
+  const conexion = estadoConexion({ conexion: c.conexion, tokenInfo: c.tokenInfo, config: cfg, id: c.id, expuestos: secretosExpuestosActuales(), ahora: new Date() });
   const posts = estado.items.map((x) => x.post).filter((p) => cuentaDe(p) === c.id);
   const cuenta = (e) => posts.filter((p) => p.estado === e).length;
   const secretos = { ...nombresSecretosSugeridos(c.id), ...(cfg.instagram || {}) };
@@ -435,7 +435,11 @@ function tarjetaCuenta(c) {
   if (!bloqueado) {
     if (!archivada) {
       acciones.append(el("button", { type: "button", class: "boton", text: "Editar", onclick: () => abrirFormulario("editar", c.id) }));
-      acciones.append(el("button", { type: "button", class: "boton", text: "Verificar identidad", onclick: () => verificarIdentidad(c.id) }));
+      acciones.append(el("button", {
+        type: "button", class: "boton", text: "Verificar identidad", onclick: () => verificarIdentidad(c.id),
+        disabled: conexion.clave === "pendiente-configuracion" ? "" : null,
+        title: conexion.clave === "pendiente-configuracion" ? "Sus secretos todavía no llegan a los workflows: la verificación no puede pasar" : "Marca la cuenta como pendiente y lanza el workflow Probar Instagram",
+      }));
       acciones.append(el("button", { type: "button", class: "boton peligro", text: "Archivar", onclick: () => archivar(c.id) }));
     } else {
       acciones.append(el("button", { type: "button", class: "boton", text: "Reactivar", onclick: () => reactivar(c.id) }));
@@ -458,9 +462,19 @@ function tarjetaCuenta(c) {
     ]),
     el("p", { class: "cuenta-contadores", text: `Borradores ${cuenta("borrador")} · Programados ${cuenta("programado")}${cuenta("error") ? ` · Errores ${cuenta("error")}` : ""}` }),
     el("p", { class: "cuenta-secretos", text: `Secretos de Instagram en GitHub: ${secretos.tokenSecreto} · ${secretos.usuarioIdSecreto}` }),
-    conexion.clave === "credenciales-pendientes" && !archivada ? el("p", { class: "cuenta-detalle", text: "Guarda los dos secretos en GitHub (Settings → Secrets and variables → Actions) y pulsa Verificar identidad. Sin esa verificación la cuenta no se considera conectada." }) : "",
+    conexion.fecha ? el("p", { class: "cuenta-fecha", text: `Última comprobación: ${fechaCortaUtc(conexion.fecha)} UTC` }) : "",
+    conexion.detalle && !archivada ? el("p", { class: `cuenta-detalle${conexion.antigua ? " antigua" : ""}`, text: conexion.detalle }) : "",
     acciones,
   ]);
+}
+
+// Nombres de secretos que llegan a los workflows de Instagram (null si no se pudieron leer: no se afirma nada).
+function secretosExpuestosActuales() {
+  const w = estado.cuentasInfo?.workflows;
+  if (!w) return null;
+  if (Array.isArray(w.expuestos)) return w.expuestos;
+  if (Array.isArray(w.textos) && w.textos.length) return secretosExpuestosComunes(w.textos.map(secretosExpuestos));
+  return null;
 }
 
 function pintarMaestro() {
@@ -507,7 +521,10 @@ async function archivar(id) {
 }
 
 async function reactivar(id) {
-  await guardarConfigCuenta(id, (actual) => reactivarCuenta(actual), `panel: reactivar cuenta ${id}`);
+  const ok = await guardarConfigCuenta(id, (actual) => reactivarCuenta(actual), `panel: reactivar cuenta ${id}`);
+  if (!ok) return;
+  const enCola = estado.items.filter((x) => cuentaDe(x.post) === id && x.post.estado === "programado").length;
+  avisar(`Cuenta reactivada. La generación y la publicación automáticas siguen apagadas hasta que las actives expresamente en cuentas/${id}/config.json (automatico)${enCola ? `; ${enCola} programado${enCola === 1 ? "" : "s"} siguen en cola sin publicarse` : ""}.`, 15000);
 }
 
 // Lee la versión actual del config de la cuenta, aplica `transformar` y guarda con su sha (un reintento si cambió entre medias).
@@ -520,13 +537,14 @@ async function guardarConfigCuenta(id, transformar, mensaje) {
     try {
       await estado.almacen.escribirArchivo(ruta, JSON.stringify(nuevo, null, 2) + "\n", { sha: actual.sha, mensaje });
       await refrescarCuentas();
-      return;
+      return true;
     } catch (err) {
       if (err instanceof ErrorConflictoArchivo && intento === 0) continue; // alguien lo cambió: se reintenta sobre la versión nueva
       avisar(`No se pudo guardar ${ruta}: ${err.message}`, 15000);
-      return;
+      return false;
     }
   }
+  return false;
 }
 
 // --- Formulario de cuenta -------------------------------------------------------
@@ -572,6 +590,8 @@ function leerFormulario() {
     ilustracionesActivo: $("fc-ilus-activo").checked,
     estiloIlustracion: $("fc-ilus-estilo").value.trim(),
     rotulo: $("fc-rotulo").value,
+    tokenSecreto: $("fc-token-secreto").value.trim(),
+    usuarioIdSecreto: $("fc-id-secreto").value.trim(),
   };
 }
 
@@ -594,6 +614,8 @@ function rellenarFormulario(d) {
   $("fc-ilus-estilo").value = d.estiloIlustracion || "";
   $("fc-rotulo").value = d.rotulo || "";
   $("fc-zona").value = d.zonaHoraria || ZONA_POR_DEFECTO;
+  $("fc-token-secreto").value = d.tokenSecreto || "";
+  $("fc-id-secreto").value = d.usuarioIdSecreto || "";
   $("fc-logo").value = "";
   $("fc-logo-previa").replaceChildren();
   $("fc-logo-nota").textContent = "";
@@ -602,11 +624,24 @@ function rellenarFormulario(d) {
 
 function actualizarSecretosFormulario() {
   const f = estado.formulario;
+  if (!f) return;
   const id = f.modo === "editar" ? f.id : $("fc-id").value.trim();
-  const declarados = f.modo === "editar" ? (f.base?.instagram || {}) : {};
-  const s = { ...nombresSecretosSugeridos(id || "nueva-cuenta"), ...declarados };
-  $("fc-secretos").textContent = `Guarda en GitHub (Settings → Secrets and variables → Actions) dos secretos con estos nombres exactos: ${s.tokenSecreto} (token de acceso) y ${s.usuarioIdSecreto} (id numérico). Después pulsa "Verificar identidad" en la tarjeta de la cuenta. Nota: hoy los workflows solo exponen los secretos de las cuentas que ya tienen en su env; una cuenta nueva necesita ese ajuste (ver ROADMAP) antes de que la verificación pueda pasar.`;
+  if (f.modo === "crear" && !f.secretosManuales) {
+    const s = nombresSecretosSugeridos(id || "nueva-cuenta");
+    $("fc-token-secreto").value = s.tokenSecreto;
+    $("fc-id-secreto").value = s.usuarioIdSecreto;
+  }
+  const token = $("fc-token-secreto").value.trim() || "(sin nombre)";
+  const numero = $("fc-id-secreto").value.trim() || "(sin nombre)";
+  const expuestos = secretosExpuestosActuales();
+  const llegan = Array.isArray(expuestos) ? expuestos.includes(token) && expuestos.includes(numero) : null;
+  const aviso = llegan === false
+    ? " Estos nombres todavía no llegan a los workflows: la cuenta quedará como «Conexión pendiente de configuración» hasta la fase 2 (entornos por cuenta)."
+    : "";
+  const cambio = f.modo === "editar" ? " Si cambias el usuario de Instagram o estos nombres, la verificación anterior deja de valer y habrá que verificar de nuevo." : "";
+  $("fc-secretos").textContent = `Guarda en GitHub (Settings → Secrets and variables → Actions) dos secretos con estos nombres exactos: ${token} (token de acceso) y ${numero} (id numérico). Aquí solo se guardan los nombres, nunca los valores.${aviso}${cambio}`;
 }
+for (const id of ["fc-token-secreto", "fc-id-secreto"]) $(id).addEventListener("input", () => { if (estado.formulario) estado.formulario.secretosManuales = true; actualizarSecretosFormulario(); });
 
 // La editorial se genera sola mientras el operador no la haya tocado (solo al crear).
 function regenerarEditorialSiAuto() {
@@ -642,7 +677,7 @@ $("fc-logo").addEventListener("change", () => {
 async function abrirFormulario(modo, id = null) {
   $("form-errores").hidden = true;
   if (modo === "crear") {
-    estado.formulario = { modo, id: null, base: null, shas: {}, editorialManual: false, idManual: false, logoBase64: null };
+    estado.formulario = { modo, id: null, base: null, shas: {}, editorialManual: false, idManual: false, secretosManuales: false, logoBase64: null };
     $("fc-titulo").textContent = "Añadir cuenta";
     $("fc-id").readOnly = false;
     rellenarFormulario({ idioma: IDIOMA_POR_DEFECTO, zonaHoraria: estado.cuentasInfo?.global?.zonaHoraria || ZONA_POR_DEFECTO, franjas: FRANJAS_POR_DEFECTO, colores: COLORES_POR_DEFECTO, logoForma: "circulo", logoTamano: LOGO_TAMANO.porDefecto, ilustracionesActivo: true, estiloIlustracion: ESTILO_ILUSTRACION_POR_DEFECTO, rotulo: "", fuentes: [] });
@@ -656,7 +691,7 @@ async function abrirFormulario(modo, id = null) {
     if (editorial === undefined || editorial === null) {
       try { const a = await estado.almacen.leerArchivo(`cuentas/${id}/editorial.md`); editorial = a?.texto || ""; editorialSha = a?.sha || null; } catch { editorial = ""; }
     }
-    estado.formulario = { modo, id, base: c.config, shas: { config: c.sha, editorial: editorialSha }, editorialManual: true, idManual: true, logoBase64: null };
+    estado.formulario = { modo, id, base: c.config, shas: { config: c.sha, editorial: editorialSha, conexion: c.conexionSha || null }, conexion: c.conexion || null, editorialManual: true, idManual: true, secretosManuales: true, logoBase64: null };
     $("fc-titulo").textContent = `Editar ${c.config.nombre}`;
     $("fc-id").readOnly = true;
     rellenarFormulario(formularioDesdeConfig(id, c.config, editorial));
@@ -698,48 +733,53 @@ $("form-cuenta").addEventListener("submit", async (ev) => {
   }
 });
 
-// Guarda config, editorial, logo y (al crear) la lista global de cuentas. Cada archivo lleva su sha: si alguien lo cambió,
-// se avisa, se actualiza el sha guardado y el siguiente intento escribe sobre la versión nueva.
+// Guarda config, editorial, logo y (al crear) la lista global de cuentas en UNA sola escritura atómica: o entra todo o no
+// entra nada, así no quedan cuentas a medias. Cada archivo lleva su sha: si alguien lo cambió, se avisa, se conserva lo
+// escrito y se actualiza el sha para que el siguiente Guardar escriba sobre la versión nueva.
 async function guardarFormulario(d) {
   const f = estado.formulario;
   const id = d.id;
   const config = configDesdeFormulario(d, f.base);
   const textoConfig = JSON.stringify(config, null, 2) + "\n";
   const editorial = d.editorialMd.trim() ? d.editorialMd.replace(/\r\n/g, "\n").replace(/\n*$/, "\n") : plantillaEditorial(d);
-  const escribir = async (clave, ruta, texto, binario = false) => {
-    try {
-      const sha = f.shas[clave] || null;
-      f.shas[clave] = binario
-        ? await estado.almacen.escribirBinario(ruta, texto, { sha, mensaje: `panel: ${f.modo === "crear" ? "alta" : "edición"} de cuenta ${id} (${clave})` })
-        : await estado.almacen.escribirArchivo(ruta, texto, { sha, mensaje: `panel: ${f.modo === "crear" ? "alta" : "edición"} de cuenta ${id} (${clave})` });
-    } catch (err) {
-      if (err instanceof ErrorConflictoArchivo) {
-        f.shas[clave] = err.actual?.sha || null;
-        if (f.modo === "crear" && err.actual) throw new Error(`${ruta} ya existe en el repositorio. Si es una cuenta anterior, edítala desde su tarjeta; si no, elige otro identificador.`);
-        throw new Error(`${err.message} Lo que escribiste sigue aquí: pulsa Guardar de nuevo para escribir sobre la versión actual.`);
-      }
-      throw err;
+  const accion = f.modo === "crear" ? "alta" : "edición";
+  const archivos = [
+    { clave: "config", ruta: `cuentas/${id}/config.json`, texto: textoConfig, sha: f.shas.config ?? null },
+    { clave: "editorial", ruta: `cuentas/${id}/editorial.md`, texto: editorial, sha: f.shas.editorial ?? null },
+  ];
+  if (f.logoBase64) archivos.push({ clave: "logo", ruta: `cuentas/${id}/logo.png`, base64: f.logoBase64 }); // sin comprobación de versión
+  if (f.modo === "editar") {
+    // Si cambió el usuario de Instagram o el nombre de los secretos, la verificación anterior deja de valer.
+    const antes = f.base || {};
+    const usuarioCambio = normalizarUsuario(antes.marca?.usuario || "").toLowerCase() !== normalizarUsuario(config.marca.usuario).toLowerCase();
+    const nombresAntes = { ...nombresSecretosSugeridos(id), ...(antes.instagram || {}) };
+    const secretosCambio = nombresAntes.tokenSecreto !== config.instagram.tokenSecreto || nombresAntes.usuarioIdSecreto !== config.instagram.usuarioIdSecreto;
+    if ((usuarioCambio || secretosCambio) && f.conexion?.estado !== "sin-verificar") {
+      const anterior = f.conexion ? { estado: f.conexion.estado, comprobado: f.conexion.comprobado || null, usuario: f.conexion.usuario || null } : null;
+      const conexion = { estado: "pendiente", motivo: "cambio", cambiado: ahoraIso(), detalle: usuarioCambio ? `el usuario de Instagram cambió a ${config.marca.usuario}` : "cambiaron los nombres de los secretos", anterior };
+      archivos.push({ clave: "conexion", ruta: `data/${id}/conexion.json`, texto: JSON.stringify(conexion, null, 2) + "\n", sha: f.shas.conexion ?? null });
     }
-  };
-  await escribir("config", `cuentas/${id}/config.json`, textoConfig);
-  await escribir("editorial", `cuentas/${id}/editorial.md`, editorial);
-  if (f.logoBase64) { await escribir("logo", `cuentas/${id}/logo.png`, f.logoBase64, true); f.logoBase64 = null; }
-  if (f.modo === "crear") await anadirALaLista(id);
-}
-
-async function anadirALaLista(id) {
+  }
   for (let intento = 0; intento < 2; intento++) {
-    const actual = await estado.almacen.leerArchivo("config.json");
-    if (!actual) throw new Error("No se encontró config.json en el repositorio.");
-    const global = JSON.parse(actual.texto);
-    if ((global.cuentas || []).includes(id)) return;
-    const nuevo = { ...global, cuentas: [...(global.cuentas || []), id] };
+    const lote = [...archivos];
+    if (f.modo === "crear") {
+      const actual = await estado.almacen.leerArchivo("config.json");
+      if (!actual) throw new Error("No se encontró config.json en el repositorio.");
+      const global = JSON.parse(actual.texto);
+      if (!(global.cuentas || []).includes(id)) lote.push({ clave: "global", ruta: "config.json", texto: JSON.stringify({ ...global, cuentas: [...(global.cuentas || []), id] }, null, 2) + "\n", sha: actual.sha });
+    }
     try {
-      await estado.almacen.escribirArchivo("config.json", JSON.stringify(nuevo, null, 2) + "\n", { sha: actual.sha, mensaje: `panel: alta de cuenta ${id} (lista de cuentas)` });
+      const r = await estado.almacen.escribirArchivos(lote, { mensaje: `panel: ${accion} de cuenta ${id}` });
+      for (const a of lote) if (a.clave !== "global") f.shas[a.clave] = r.shas[a.ruta] || f.shas[a.clave] || null;
+      f.logoBase64 = null;
       return;
     } catch (err) {
-      if (err instanceof ErrorConflictoArchivo && intento === 0) continue;
-      throw new Error(`Los archivos de la cuenta se guardaron, pero no se pudo añadir "${id}" a la lista de cuentas de config.json: ${err.message} Pulsa Guardar de nuevo para reintentar.`);
+      if (!(err instanceof ErrorConflictoArchivo)) throw err;
+      if (err.ruta === "config.json" && intento === 0) continue; // la lista global cambió entre medias: se rehace con la versión nueva
+      const propio = archivos.find((a) => a.ruta === err.ruta);
+      if (propio) f.shas[propio.clave] = err.actual?.sha || null;
+      if (f.modo === "crear" && propio && err.actual) throw new Error(`${err.ruta} ya existe en el repositorio. Si es una cuenta anterior, edítala desde su tarjeta; si no, elige otro identificador.`);
+      throw new Error(`${err.message} Lo que escribiste sigue aquí: pulsa Guardar de nuevo para escribir sobre la versión actual. No se guardó ningún archivo.`);
     }
   }
 }

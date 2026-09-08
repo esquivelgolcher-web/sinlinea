@@ -84,6 +84,9 @@ export function erroresDeCuenta(d, { idsExistentes = [], editando = false } = {}
     }
   });
   if (d.ilustracionesActivo && !String(d.estiloIlustracion || "").trim()) e.push("estiloIlustracion: describe el estilo de las ilustraciones o desactívalas");
+  for (const k of ["tokenSecreto", "usuarioIdSecreto"]) {
+    if (d[k] !== undefined && d[k] !== "" && !/^[A-Z][A-Z0-9_]*$/.test(String(d[k]))) e.push(`${k}: el nombre del secreto va en mayúsculas (A-Z, 0-9 y _), p. ej. IG_ACCESS_TOKEN_NUEVO_MEDIO`);
+  }
   return e;
 }
 
@@ -147,7 +150,10 @@ export function configDesdeFormulario(d, base = null) {
       estilo: String(d.estiloIlustracion || base?.ilustraciones?.estilo || ESTILO_ILUSTRACION_POR_DEFECTO).trim(),
       rotulo: String(d.rotulo ?? base?.ilustraciones?.rotulo ?? ""),
     },
-    instagram: base?.instagram && (base.instagram.tokenSecreto || base.instagram.usuarioIdSecreto) ? { ...base.instagram } : nombresSecretosSugeridos(id),
+    instagram: {
+      tokenSecreto: String(d.tokenSecreto || "").trim() || base?.instagram?.tokenSecreto || nombresSecretosSugeridos(id).tokenSecreto,
+      usuarioIdSecreto: String(d.usuarioIdSecreto || "").trim() || base?.instagram?.usuarioIdSecreto || nombresSecretosSugeridos(id).usuarioIdSecreto,
+    },
   };
   return config;
 }
@@ -171,6 +177,8 @@ export function formularioDesdeConfig(id, c, editorialMd = "") {
     ilustracionesActivo: c.ilustraciones?.activo !== false,
     estiloIlustracion: c.ilustraciones?.estilo || "",
     rotulo: c.ilustraciones?.rotulo ?? "",
+    tokenSecreto: c.instagram?.tokenSecreto || nombresSecretosSugeridos(id).tokenSecreto,
+    usuarioIdSecreto: c.instagram?.usuarioIdSecreto || nombresSecretosSugeridos(id).usuarioIdSecreto,
     editorialMd,
   };
 }

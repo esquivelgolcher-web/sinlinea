@@ -99,3 +99,7 @@ a { color: inherit; }
   .fuente-fila .url { grid-column: 1 / -1; }
   .maestro-cabecera { flex-wrap: wrap; }
 }
+.estado.conexion-sin-verificar { background: #e5e7eb; color: #374151; }
+.estado.conexion-pendiente-configuracion { background: #ede9fe; color: #4c1d95; }
+.cuenta-detalle.antigua { color: var(--alerta); }
+.cuenta-fecha { font-size: 12px; color: #555; }

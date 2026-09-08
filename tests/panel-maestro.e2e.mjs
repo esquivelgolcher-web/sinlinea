@@ -23,6 +23,8 @@ async function montar(prefijo) {
   fs.copyFileSync("tests/fixtures/post-ejemplo.json", path.join(raiz, "tests/fixtures/post-ejemplo.json"));
   for (const f of fs.readdirSync("panel")) fs.copyFileSync(path.join("panel", f), path.join(raiz, "panel", f));
   for (const f of fs.readdirSync("src/lib")) fs.copyFileSync(path.join("src/lib", f), path.join(raiz, "src/lib", f));
+  fs.mkdirSync(path.join(raiz, ".github/workflows"), { recursive: true });
+  for (const w of ["publicar.yml", "probar-instagram.yml"]) fs.copyFileSync(path.join(".github/workflows", w), path.join(raiz, ".github/workflows", w));
   const rutaSl = path.join(raiz, "cuentas/sinlinea/config.json");
   fs.writeFileSync(rutaSl, JSON.stringify({ ...leerJson(rutaSl), automatico: { generar: true, publicar: false } }, null, 2) + "\n");
   const posts = [
@@ -30,6 +32,7 @@ async function montar(prefijo) {
     { ...base0, id: base0.id.slice(0, -4) + "b002", cuenta: "sinlinea", estado: "programado", programado: "2026-09-09T12:00:00-05:00", titular: "Programado de Sin Línea" },
     { ...base0, id: base0.id.slice(0, -4) + "b003", cuenta: "luiseskivelgolcher", titular: "Borrador personal" },
     { ...base0, id: base0.id.slice(0, -4) + "b004", cuenta: "prueba", titular: "Borrador de prueba" },
+    { ...base0, id: base0.id.slice(0, -4) + "b005", cuenta: "prueba", estado: "programado", programado: "2026-09-09T18:00:00-05:00", titular: "Programado de prueba" },
   ];
   for (const p of posts) fs.writeFileSync(path.join(raiz, "posts", `${p.id}.json`), JSON.stringify(p, null, 2));
   fs.writeFileSync(path.join(raiz, "data/sinlinea/token-info.json"), '{ "vence": "2026-11-07" }');
@@ -63,12 +66,16 @@ test("(maestro) la vista Todas las cuentas muestra tarjetas con identidad, conta
     assert.match(await sl.textContent(), /Pendiente de verificación/, "hay token-info pero ninguna verificación de identidad");
     assert.match(await sl.textContent(), /IG_ACCESS_TOKEN · IG_USER_ID/, "nombres exactos de los secretos");
     const luis = page.locator('.cuenta-tarjeta[data-cuenta="luiseskivelgolcher"]');
-    assert.match(await luis.textContent(), /Identidad verificada \(@luiseskivelgolcher\) el 2026-09-08/);
+    assert.match(await luis.textContent(), /Identidad verificada \(@luiseskivelgolcher\) el 2026-09-08 20:20 UTC/);
+    assert.match(await luis.textContent(), /Última comprobación: 2026-09-08 20:20 UTC/);
+    assert.match(await luis.textContent(), /no garantiza/i, "un resultado pasado no garantiza que la conexión siga válida");
     assert.match(await luis.textContent(), /Generación automática: apagada/);
     assert.match(await luis.textContent(), /IG_ACCESSTOKEN_LUISESKIVELGOLCHER · IG_USER_ID_LUISESKIVELGOLCHER/);
     const prueba = page.locator('.cuenta-tarjeta[data-cuenta="prueba"]');
-    assert.match(await prueba.textContent(), /Credenciales pendientes/);
+    assert.match(await prueba.textContent(), /Conexión pendiente de configuración/, "sus secretos no llegan a los workflows");
+    assert.doesNotMatch(await prueba.textContent(), /Credenciales pendientes/, "no se afirma que falten credenciales sin haberlo comprobado");
     assert.match(await prueba.textContent(), /IG_ACCESS_TOKEN_PRUEBA · IG_USER_ID_PRUEBA/, "nombres sugeridos cuando la cuenta no los declara");
+    assert.equal(await prueba.locator('button:has-text("Verificar identidad")').isDisabled(), true, "no se puede verificar lo que no llega a los workflows");
     assert.equal((await page.textContent("#maestro")).includes("IGAA"), false, "ningún valor de secreto en la vista");
     // Abrir panel de la cuenta personal → vista de posts filtrada
     await luis.locator("text=Abrir panel").click();
@@ -107,7 +114,9 @@ test("(maestro) Añadir cuenta crea config, editorial y la lista global; empieza
     await page.fill(".fuente-fila >> nth=0 >> input >> nth=1", "https://www.prensa.com/arc/outboundfeeds/rss/?outputType=xml");
     await page.fill("#fc-franjas", "09:00, 18:00");
     await page.selectOption("#fc-logo-forma", "cuadrado");
+    assert.equal(await page.inputValue("#fc-token-secreto"), "IG_ACCESS_TOKEN_NUEVO_MEDIO", "nombres de secretos sugeridos y editables");
     assert.match(await page.textContent("#fc-secretos"), /IG_ACCESS_TOKEN_NUEVO_MEDIO/);
+    assert.match(await page.textContent("#fc-secretos"), /pendiente de configuración/i);
     // Un error de validación se muestra y conserva lo escrito
     await page.fill("#fc-franjas", "25:00");
     await page.click("#fc-guardar");
@@ -135,7 +144,7 @@ test("(maestro) Añadir cuenta crea config, editorial y la lista global; empieza
     const tarjeta = await page.textContent('.cuenta-tarjeta[data-cuenta="nuevo-medio"]');
     assert.match(tarjeta, /Generación automática: apagada/);
     assert.match(tarjeta, /Publicación automática: apagada/);
-    assert.match(tarjeta, /Credenciales pendientes/);
+    assert.match(tarjeta, /Conexión pendiente de configuración/);
     assert.match(tarjeta, /Borradores 0 · Programados 0/);
     await page.click("#boton-cuentas");
     await page.waitForSelector("#vista-posts:not([hidden])");
@@ -214,6 +223,9 @@ test("(maestro) Archivar detiene las automatizaciones y conserva id, posts e his
     assert.equal(re.archivada, false);
     assert.equal(re.archivadaEn, undefined);
     assert.deepEqual(re.automatico, { generar: false, publicar: false }, "reactivar no enciende nada");
+    assert.match(await page.textContent("#aviso"), /siguen apagadas/i);
+    assert.match(await page.textContent("#aviso"), /1 programado siguen en cola sin publicarse/);
+    assert.equal(leerJson(path.join(raiz, "posts", `${base0.id.slice(0, -4)}b005.json`)).estado, "programado", "la cola se conserva y no se publica");
   } finally {
     await page.close();
     servidor.close();
@@ -226,14 +238,48 @@ test("(maestro) Verificar identidad marca la cuenta como pendiente de verificaci
   const page = await navegador.newPage();
   try {
     await abrirMaestro(page, base, { width: 390, height: 800 }); // móvil
-    await page.locator('.cuenta-tarjeta[data-cuenta="prueba"] >> button:has-text("Verificar identidad")').click();
-    await page.waitForFunction(() => /Pendiente de verificación/.test(document.querySelector('.cuenta-tarjeta[data-cuenta="prueba"]')?.textContent || ""));
-    const c = leerJson(path.join(raiz, "data/prueba/conexion.json"));
+    await page.locator('.cuenta-tarjeta[data-cuenta="sinlinea"] >> button:has-text("Verificar identidad")').click();
+    await page.waitForFunction(() => /Pendiente de verificación \(solicitada/.test(document.querySelector('.cuenta-tarjeta[data-cuenta="sinlinea"]')?.textContent || ""));
+    const c = leerJson(path.join(raiz, "data/sinlinea/conexion.json"));
     assert.equal(c.estado, "pendiente");
     assert.match(c.solicitada, /^\d{4}-\d{2}-\d{2}T/);
-    assert.equal(fs.existsSync(path.join(raiz, "data/sinlinea/conexion.json")), false, "no toca otras cuentas");
+    assert.equal(fs.existsSync(path.join(raiz, "data/prueba/conexion.json")), false, "no toca otras cuentas");
     const ancho = await page.evaluate(() => document.documentElement.scrollWidth);
     assert.ok(ancho <= 390, `sin desbordamiento horizontal en móvil (${ancho})`);
+  } finally {
+    await page.close();
+    servidor.close();
+  }
+});
+
+test("(maestro) cambiar el usuario de Instagram invalida la verificación anterior en la misma escritura y exige verificar de nuevo", async () => {
+  const { raiz, servidor, base } = await montar("maestro-invalidar-");
+  const page = await navegador.newPage();
+  try {
+    await abrirMaestro(page, base);
+    await page.locator('.cuenta-tarjeta[data-cuenta="luiseskivelgolcher"] >> text=Editar').click();
+    await page.waitForSelector("#formulario-cuenta:not([hidden])");
+    assert.equal(await page.inputValue("#fc-token-secreto"), "IG_ACCESSTOKEN_LUISESKIVELGOLCHER", "muestra los nombres declarados");
+    // Guardar sin tocar usuario ni secretos conserva la verificación
+    await page.fill("#fc-tono", "Tono revisado");
+    await page.click("#fc-guardar");
+    await page.waitForSelector('#maestro:not([hidden]) .cuenta-tarjeta[data-cuenta="luiseskivelgolcher"]');
+    assert.equal(leerJson(path.join(raiz, "data/luiseskivelgolcher/conexion.json")).estado, "verificada");
+    // Cambiar el usuario → pendiente (motivo cambio) con la verificación anterior registrada
+    await page.locator('.cuenta-tarjeta[data-cuenta="luiseskivelgolcher"] >> text=Editar').click();
+    await page.waitForSelector("#formulario-cuenta:not([hidden])");
+    await page.fill("#fc-usuario", "@otro.usuario");
+    await page.click("#fc-guardar");
+    await page.waitForFunction(() => /ya no vale/.test(document.querySelector('.cuenta-tarjeta[data-cuenta="luiseskivelgolcher"]')?.textContent || ""));
+    const c = leerJson(path.join(raiz, "data/luiseskivelgolcher/conexion.json"));
+    assert.equal(c.estado, "pendiente");
+    assert.equal(c.motivo, "cambio");
+    assert.equal(c.anterior.estado, "verificada");
+    assert.equal(c.anterior.comprobado, "2026-09-08T20:20:00.000Z");
+    assert.equal(leerJson(path.join(raiz, "cuentas/luiseskivelgolcher/config.json")).marca.usuario, "@otro.usuario");
+    const tarjeta = await page.textContent('.cuenta-tarjeta[data-cuenta="luiseskivelgolcher"]');
+    assert.match(tarjeta, /Pendiente de verificación/);
+    assert.doesNotMatch(tarjeta, /Identidad verificada/);
   } finally {
     await page.close();
     servidor.close();
