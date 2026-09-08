@@ -2,7 +2,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
-import { cargarConfig } from "./lib/config.mjs";
+import { cargarConfiguracion, resumenParaPanel } from "./lib/config.mjs";
 
 export const MODULOS_ISOMORFOS = ["estados.mjs", "caption.mjs", "franjas.mjs", "fechas.mjs", "texto.mjs"];
 
@@ -26,8 +26,9 @@ export function construirDist({ raiz = process.cwd(), destino = "dist" } = {}) {
   copiarDir(path.join(raiz, "panel"), path.join(dist, "panel"));
   fs.mkdirSync(path.join(dist, "panel", "lib"), { recursive: true });
   for (const f of MODULOS_ISOMORFOS) fs.copyFileSync(path.join(raiz, "src", "lib", f), path.join(dist, "panel", "lib", f));
-  const cfg = cargarConfig(path.join(raiz, "config.json"));
-  fs.writeFileSync(path.join(dist, "panel", "config.json"), JSON.stringify({ franjas: cfg.franjas, zonaHoraria: cfg.zonaHoraria, marca: cfg.marca }, null, 2));
+  const { cuentas, errores } = cargarConfiguracion(raiz);
+  for (const e of errores) console.warn(`Cuenta ${e.cuenta} omitida en el panel: ${e.mensaje}`);
+  fs.writeFileSync(path.join(dist, "panel", "config.json"), JSON.stringify(resumenParaPanel(cuentas), null, 2));
   fs.writeFileSync(path.join(dist, "index.html"), '<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="0; url=panel/"><title>Sin Línea</title><a href="panel/">Panel</a>\n');
   fs.writeFileSync(path.join(dist, ".nojekyll"), "");
   return dist;

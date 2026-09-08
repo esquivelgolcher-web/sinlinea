@@ -4,10 +4,10 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { construirDist } from "../src/build.mjs";
+import { raizConCuentas } from "./ayuda/cuentas.mjs";
 
 test("construirDist copia imágenes, panel, módulos isomorfos e índice", () => {
-  const raiz = fs.mkdtempSync(path.join(os.tmpdir(), "dist-"));
-  fs.mkdirSync(path.join(raiz, "public/img"), { recursive: true });
+  const raiz = raizConCuentas({ cuentas: ["sinlinea", "prueba"], prefijo: "dist-" });
   fs.writeFileSync(path.join(raiz, "public/img/a.jpg"), "jpg");
   fs.writeFileSync(path.join(raiz, "public/img/.gitkeep"), "");
   fs.mkdirSync(path.join(raiz, "public/ilus"), { recursive: true });
@@ -16,7 +16,6 @@ test("construirDist copia imágenes, panel, módulos isomorfos e índice", () =>
   fs.writeFileSync(path.join(raiz, "panel/index.html"), "<p>panel</p>");
   fs.mkdirSync(path.join(raiz, "src/lib"), { recursive: true });
   for (const f of ["estados.mjs", "caption.mjs", "franjas.mjs", "fechas.mjs", "texto.mjs"]) fs.copyFileSync(`src/lib/${f}`, path.join(raiz, "src/lib", f));
-  fs.copyFileSync("config.json", path.join(raiz, "config.json"));
   const dist = construirDist({ raiz });
   assert.ok(fs.existsSync(path.join(dist, "img/a.jpg")));
   assert.ok(!fs.existsSync(path.join(dist, "img/.gitkeep")));
@@ -26,5 +25,12 @@ test("construirDist copia imágenes, panel, módulos isomorfos e índice", () =>
   assert.ok(fs.existsSync(path.join(dist, "panel/lib/texto.mjs")), "el panel necesita texto.mjs para validar titular y bajada");
   assert.ok(fs.existsSync(path.join(dist, ".nojekyll")));
   assert.match(fs.readFileSync(path.join(dist, "index.html"), "utf8"), /url=panel\//);
-  assert.equal(JSON.parse(fs.readFileSync(path.join(dist, "panel/config.json"))).franjas.length, 6);
+  const cfgPanel = JSON.parse(fs.readFileSync(path.join(dist, "panel/config.json")));
+  assert.equal(cfgPanel.franjas.length, 6, "franjas de la cuenta principal (compatibilidad)");
+  assert.equal(cfgPanel.zonaHoraria, "America/Panama");
+  assert.deepEqual(cfgPanel.cuentas.map((c) => c.id), ["sinlinea", "prueba"], "(M1) lista de cuentas para el selector");
+  assert.equal(cfgPanel.cuentas[1].nombre, "Cuenta de prueba");
+  assert.equal(cfgPanel.cuentas[1].franjas.length, 3);
+  assert.equal(cfgPanel.cuentas[1].marca.usuario, "@prueba.diario");
+  assert.equal(JSON.stringify(cfgPanel).includes("Secreto"), false, "el panel nunca recibe nombres de secretos ni claves");
 });

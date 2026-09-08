@@ -1,45 +1,25 @@
 {
-  "marca": {
-    "nombre": "Sin Línea",
-    "usuario": "@sinlinea.pa",
-    "lema": "Nuestra línea es el Pueblo"
-  },
   "zonaHoraria": "America/Panama",
-  "pages": { "baseUrl": "https://esquivelgolcher-web.github.io/sinlinea" },
-  "fuentes": [
-    {
-      "nombre": "La Prensa",
-      "tipo": "rss",
-      "url": "https://www.prensa.com/arc/outboundfeeds/rss/?outputType=xml",
-      "excluirSecciones": ["opinion", "status-k"]
-    },
-    {
-      "nombre": "La Estrella de Panamá",
-      "tipo": "portada",
-      "url": "https://www.laestrella.com.pa/",
-      "patronArticulo": "^/[a-z-]+(?:/[a-z-]+)*/[a-z0-9-]+-[A-Z]{2}\\d{6,}$",
-      "excluirSecciones": ["opinion", "tag", "autor"]
-    }
-  ],
-  "generar": {
-    "maxPorCorrida": 2,
-    "maxBorradoresPorDia": 12,
-    "candidatosMax": 20,
-    "diasSinRepetir": 3,
-    "maxHorasAntiguedad": 48
+  "pages": {
+    "baseUrl": "https://esquivelgolcher-web.github.io/sinlinea"
   },
-  "claude": { "modelo": "claude-sonnet-5", "esfuerzo": "medium" },
-  "franjas": ["07:00", "09:30", "12:00", "14:30", "17:00", "19:30"],
-  "instagram": { "apiVersion": "v23.0", "tokenSecreto": "IG_ACCESS_TOKEN", "usuarioIdSecreto": "IG_USER_ID" },
+  "claude": {
+    "modelo": "claude-sonnet-5",
+    "esfuerzo": "medium"
+  },
+  "instagram": {
+    "apiVersion": "v23.0"
+  },
   "ilustraciones": {
     "activo": true,
     "proveedor": "gemini",
     "modelo": "gemini-3.1-flash-lite-image",
     "tamano": "1K",
-    "estilo": "Fotografía de prensa: estilo fotoperiodístico, editorial, profesional y realista, formato vertical 4:5. Representa claramente el hecho principal de la noticia. Coloca al protagonista o elemento principal en el tercio superior derecho, bien visible y no demasiado pequeño; mantén la zona izquierda y central relativamente despejada (allí va el titular) y evita elementos importantes en la parte inferior izquierda. Deja un margen visual seguro de unos 100 px alrededor de los bordes. La imagen cubre todo el lienzo, sin bordes. No incluyas texto, letras, números, titulares, logos, marcos, etiquetas, marcas de agua ni degradados. No inventes el rostro de personas reales: si la noticia trata de una persona, representa el lugar, la institución, el objeto o el contexto relacionado.",
-    "rotulo": "Ilustración generada con IA",
     "timeoutMs": 60000,
     "maxPorCorrida": 4
   },
-  "archivarDespuesDeDias": 7
+  "archivarDespuesDeDias": 7,
+  "cuentas": [
+    "sinlinea"
+  ]
 }

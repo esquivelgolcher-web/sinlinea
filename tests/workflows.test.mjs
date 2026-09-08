@@ -29,7 +29,8 @@ test("disparadores y secretos de cada workflow", () => {
   const t = wf("renovar-token");
   assert.equal(t.on.schedule[0].cron, "0 14 * * 1");
   assert.match(leer("renovar-token"), /secrets\.GH_PAT/);
-  assert.match(leer("renovar-token"), /gh secret set IG_ACCESS_TOKEN/);
+  assert.match(leer("renovar-token"), /gh secret set "\$nombre"/, "(M1) guarda un secreto por cada archivo temp/nuevo-token-<SECRETO>.txt");
+  assert.match(leer("renovar-token"), /temp\/nuevo-token-\*\.txt/);
 });
 
 test("generar y regenerar despliegan Pages; publicar y renovar solo escriben en el repo", () => {

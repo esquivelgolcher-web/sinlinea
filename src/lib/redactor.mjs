@@ -19,10 +19,20 @@ export const EsquemaRedaccion = z.object({
   descartados: z.array(z.object({ indiceCandidato: z.number().int(), motivo: z.string() })),
 });
 
-const REGLAS_FIJAS = `
+const NOMBRES_IDIOMA = {
+  "es": "español", "es-PA": "español de Panamá", "es-MX": "español de México", "es-CO": "español de Colombia",
+  "es-ES": "español de España", "es-AR": "español de Argentina", "en": "inglés", "en-US": "inglés", "en-GB": "inglés",
+  "pt": "portugués", "pt-BR": "portugués de Brasil", "fr": "francés", "it": "italiano",
+};
+
+export function nombreIdioma(idioma = "es-PA") {
+  return NOMBRES_IDIOMA[idioma] || `el idioma "${idioma}"`;
+}
+
+const reglasFijas = (idioma) => `
 ## Reglas que no se negocian
 - No inventes datos, nombres, cifras ni declaraciones: usa solo lo que dice el texto del candidato.
-- Escribe en español de Panamá.
+- Escribe en ${nombreIdioma(idioma)}.
 - Una noticia por post. No repitas temas que aparezcan en la lista de "publicado recientemente",
   salvo que el candidato aporte un hecho nuevo y lo digas en el motivo.
 - Prefiere noticias de interés general e impacto para la ciudadanía.
@@ -33,7 +43,7 @@ const REGLAS_FIJAS = `
 - "titular": entre 40 y 55 caracteres (ideal) y nunca más de 65 caracteres. Prioriza protagonista +
   hecho principal. Sin punto final. Cabe en tres líneas de letra grande: si dudas, acórtalo.
 - "bajada": máximo 110 caracteres. Añade información complementaria sin repetir el titular.
-- "escena": describe en 15 a 40 palabras, en español, una imagen concreta que represente el hecho
+- "escena": describe en 15 a 40 palabras, en ${nombreIdioma(idioma)}, una imagen concreta que represente el hecho
   principal de la noticia (un lugar, un objeto, una situación): por ejemplo "Fachada de la Asamblea
   Nacional de Panamá al atardecer". Indica que el protagonista o elemento principal queda en el
   tercio superior derecho y que la zona izquierda y central queda despejada. Nunca personas reales ni
@@ -41,8 +51,8 @@ const REGLAS_FIJAS = `
   estilo fotográfico: se añade aparte.
 `;
 
-export function construirSystem(editorialMd) {
-  return `${String(editorialMd || "").trim()}\n${REGLAS_FIJAS}`.trim();
+export function construirSystem(editorialMd, { idioma = "es-PA" } = {}) {
+  return `${String(editorialMd || "").trim()}\n${reglasFijas(idioma)}`.trim();
 }
 
 export function construirUsuario({ candidatos, recientes, max }) {
@@ -78,7 +88,7 @@ export async function redactar({ client, config, editorialMd, candidatos, recien
     max_tokens: 16000,
     thinking: { type: "adaptive" },
     output_config: { effort: config.claude.esfuerzo, format: zodOutputFormat(EsquemaRedaccion) },
-    system: [{ type: "text", text: construirSystem(editorialMd), cache_control: { type: "ephemeral" } }],
+    system: [{ type: "text", text: construirSystem(editorialMd, { idioma: config.idioma }), cache_control: { type: "ephemeral" } }],
     messages: [{ role: "user", content: construirUsuario({ candidatos, recientes, max }) }],
   });
   if (res.stop_reason === "refusal") {
@@ -103,7 +113,7 @@ export async function acortarTextos({ client, config, titular, bajada, motivo })
     thinking: { type: "adaptive" },
     output_config: { effort: "low", format: zodOutputFormat(EsquemaTextos) },
     system: "Eres editor de titulares de un medio panameño. No inventes datos, nombres ni cifras: usa solo lo que dicen el titular y la bajada actuales.",
-    messages: [{ role: "user", content: `Reescribe el titular y la bajada para que quepan en la imagen del post.
+    messages: [{ role: "user", content: `Reescribe el titular y la bajada para que quepan en la imagen del post. Escribe en ${nombreIdioma(config.idioma)}.
 - Titular: entre ${min} y ${ideal} caracteres (nunca más de ${LIMITES.titularMax} caracteres), mayúsculas y minúsculas normales, sin punto final. Mantén protagonista + hecho principal.
 - Bajada: máximo ${LIMITES.bajadaMax} caracteres, información complementaria sin repetir el titular. Si la bajada actual ya cumple, devuélvela igual.
 
@@ -131,7 +141,7 @@ export async function escribirEscena({ client, config, titular, bajada }) {
     max_tokens: 800,
     thinking: { type: "adaptive" },
     output_config: { effort: "low", format: zodOutputFormat(EsquemaEscena) },
-    system: `Eres editor gráfico de un medio panameño. Describe en 15 a 40 palabras, en español, una imagen concreta que represente el hecho principal de la noticia (un lugar, un objeto, una situación). El protagonista o elemento principal queda en el tercio superior derecho y la zona izquierda y central queda despejada. Nunca personas reales ni rostros reconocibles, nunca texto ni logotipos, nunca violencia gráfica ni sangre. No incluyas el estilo fotográfico. No inventes datos que no estén en el titular o la bajada.`,
+    system: `Eres editor gráfico de un medio de noticias. Describe en 15 a 40 palabras, en ${nombreIdioma(config.idioma)}, una imagen concreta que represente el hecho principal de la noticia (un lugar, un objeto, una situación). El protagonista o elemento principal queda en el tercio superior derecho y la zona izquierda y central queda despejada. Nunca personas reales ni rostros reconocibles, nunca texto ni logotipos, nunca violencia gráfica ni sangre. No incluyas el estilo fotográfico. No inventes datos que no estén en el titular o la bajada.`,
     messages: [{ role: "user", content: `Titular: ${titular}\nBajada: ${bajada}` }],
   });
   if (res.stop_reason === "refusal") {

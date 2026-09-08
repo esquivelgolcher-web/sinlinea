@@ -2,8 +2,8 @@
 import fs from "node:fs";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
-import { cargarConfig } from "./lib/config.mjs";
-import { leerPosts, escribirPost, urlImagen, rutaIlustracion } from "./lib/posts.mjs";
+import { cargarConfiguracion } from "./lib/config.mjs";
+import { leerPosts, escribirPost, urlImagen, rutaIlustracion, CUENTA_LEGADO } from "./lib/posts.mjs";
 import { imagenDesactualizada, renderOk, marcarError, necesitaIlustracion, necesitaEscena, hashTexto } from "./lib/estados.mjs";
 import { versionPlantilla, RUTA_PLANTILLA, abrirNavegador, renderizarPost } from "./lib/render.mjs";
 import { crearIlustrador, guardarIlustracion, sanearMensaje } from "./lib/ilustrador.mjs";
@@ -15,10 +15,13 @@ export async function ejecutarRegenerar({ config, raiz = process.cwd(), ahora = 
   const dir = path.join(raiz, "posts");
   const iso = ahora.toISOString();
   const actual = version ?? versionPlantilla(fs.readFileSync(path.join(raiz, RUTA_PLANTILLA), "utf8"));
-  const esActivo = (p) => ["borrador", "programado", "error"].includes(p.estado);
+  const cuenta = config.cuenta || CUENTA_LEGADO;
+  const opcionesLectura = { cuentaPorDefecto: config.cuentaPrincipal || CUENTA_LEGADO };
+  // Solo los posts de esta cuenta; los antiguos sin campo `cuenta` pertenecen a la cuenta principal.
+  const esActivo = (p) => p.cuenta === cuenta && ["borrador", "programado", "error"].includes(p.estado);
   // 1) Escenas: posts marcados para ilustrar pero sin escena (p. ej. borradores antiguos) → Claude la redacta.
   const tope = config.ilustraciones.maxPorCorrida;
-  const sinEscena = leerPosts(dir).filter((p) => esActivo(p) && necesitaEscena(p, ahora));
+  const sinEscena = leerPosts(dir, opcionesLectura).filter((p) => esActivo(p) && necesitaEscena(p, ahora));
   if (ilustrador && redactarEscena) {
     let escenas = 0;
     for (const p of sinEscena) {
@@ -42,7 +45,7 @@ export async function ejecutarRegenerar({ config, raiz = process.cwd(), ahora = 
     log.info("Hay posts sin escena marcados para ilustrar; sin ANTHROPIC_API_KEY no se puede redactarla.");
   }
   // 2) Ilustraciones.
-  const activos = leerPosts(dir).filter(esActivo);
+  const activos = leerPosts(dir, opcionesLectura).filter(esActivo);
   const regeneradas = new Set();
   if (ilustrador) {
     let llamadas = 0;
@@ -68,7 +71,7 @@ export async function ejecutarRegenerar({ config, raiz = process.cwd(), ahora = 
       escribirPost(dir, nuevo);
     }
   }
-  const vigentes = leerPosts(dir).filter((p) => ["borrador", "programado", "error"].includes(p.estado));
+  const vigentes = leerPosts(dir, opcionesLectura).filter(esActivo);
   const pendientes = vigentes.filter((p) =>
     imagenDesactualizada(p, actual)
     || (p.estado === "error" && p.error?.paso === "render")
@@ -91,18 +94,48 @@ export async function ejecutarRegenerar({ config, raiz = process.cwd(), ahora = 
   return resultado;
 }
 
+// Ejecuta REGENERAR para cada cuenta activa; un fallo en una cuenta no detiene a las demás.
+// `ilustradorDe`, `acortarDe` y `redactarEscenaDe` reciben la configuración efectiva de la cuenta.
+export async function regenerarCuentas({ configuracion, raiz = process.cwd(), ahora = new Date(), render, log = console, version, ilustrador = null, guardar = guardarIlustracion, acortar = null, redactarEscena = null, ilustradorDe = null, acortarDe = null, redactarEscenaDe = null }) {
+  const resultados = {};
+  for (const e of configuracion.errores || []) {
+    resultados[e.cuenta] = { error: e.mensaje };
+    (log.error || log.warn)(`Cuenta ${e.cuenta}: configuración inválida, se omite (${e.mensaje}).`);
+  }
+  for (const config of configuracion.cuentas) {
+    try {
+      resultados[config.cuenta] = await ejecutarRegenerar({
+        config, raiz, ahora, render, log, version, guardar,
+        ilustrador: ilustradorDe ? ilustradorDe(config) : ilustrador,
+        acortar: acortarDe ? acortarDe(config) : acortar,
+        redactarEscena: redactarEscenaDe ? redactarEscenaDe(config) : redactarEscena,
+      });
+    } catch (err) {
+      resultados[config.cuenta] = { error: err.message };
+      (log.error || log.warn)(`Cuenta ${config.cuenta}: falló REGENERAR (${err.message}); se continúa con las demás.`);
+    }
+  }
+  return { resultados };
+}
+
 async function main() {
-  const config = cargarConfig();
-  const ilustrador = config.ilustraciones.activo && process.env.GEMINI_API_KEY ? crearIlustrador({ apiKey: process.env.GEMINI_API_KEY, config }) : null;
-  if (config.ilustraciones.activo && !process.env.GEMINI_API_KEY) console.info("Sin GEMINI_API_KEY: los posts saldrán sin ilustración.");
+  const configuracion = cargarConfiguracion();
+  const global = configuracion.global;
+  const conGemini = global.ilustraciones.activo && process.env.GEMINI_API_KEY;
+  if (global.ilustraciones.activo && !process.env.GEMINI_API_KEY) console.info("Sin GEMINI_API_KEY: los posts saldrán sin ilustración.");
   const client = process.env.ANTHROPIC_API_KEY ? new Anthropic() : null;
-  const acortar = client ? (a) => acortarTextos({ client, config, ...a }) : null;
-  const redactarEscena = client ? (a) => escribirEscena({ client, config, ...a }) : null;
-  if (!process.env.ANTHROPIC_API_KEY) console.info("Sin ANTHROPIC_API_KEY: los titulares que no quepan quedarán en error para corregirlos en el panel.");
+  if (!client) console.info("Sin ANTHROPIC_API_KEY: los titulares que no quepan quedarán en error para corregirlos en el panel.");
   const navegador = await abrirNavegador();
   try {
-    const r = await ejecutarRegenerar({ config, render: (post, o) => renderizarPost(post, { ...o, navegador }), ilustrador, acortar, redactarEscena });
-    console.log(`Listo: ${r.renderizados.length} regeneradas, ${r.fallidos.length} fallidas.`);
+    const r = await regenerarCuentas({
+      configuracion,
+      render: (post, o) => renderizarPost(post, { ...o, navegador }),
+      ilustradorDe: (config) => (conGemini ? crearIlustrador({ apiKey: process.env.GEMINI_API_KEY, config }) : null),
+      acortarDe: (config) => (client ? (a) => acortarTextos({ client, config, ...a }) : null),
+      redactarEscenaDe: (config) => (client ? (a) => escribirEscena({ client, config, ...a }) : null),
+    });
+    const resumen = Object.entries(r.resultados).map(([id, x]) => `${id}: ${x.error ? `ERROR (${x.error})` : `${x.renderizados.length} regeneradas, ${x.fallidos.length} fallidas`}`).join(" · ");
+    console.log(`Listo: ${resumen}.`);
   } finally {
     await navegador.close();
   }

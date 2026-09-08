@@ -3,7 +3,9 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
-import { ejecutarPublicar } from "../src/publicar.mjs";
+import { ejecutarPublicar, publicarCuentas } from "../src/publicar.mjs";
+import { cargarConfiguracion } from "../src/lib/config.mjs";
+import { raizConCuentas } from "./ayuda/cuentas.mjs";
 import { cargarConfig } from "../src/lib/config.mjs";
 import { leerPosts, escribirPost } from "../src/lib/posts.mjs";
 import { hashImagen, aprobar } from "../src/lib/estados.mjs";
@@ -16,8 +18,8 @@ const conImagen = (p) => ({ ...p, imagen: { ruta: `public/img/${p.id}.jpg`, url:
 
 function raizCon(posts, tokenInfo = { vence: "2026-11-01" }) {
   const raiz = fs.mkdtempSync(path.join(os.tmpdir(), "pub-"));
-  fs.mkdirSync(path.join(raiz, "data"), { recursive: true });
-  fs.writeFileSync(path.join(raiz, "data/token-info.json"), JSON.stringify(tokenInfo));
+  fs.mkdirSync(path.join(raiz, "data/sinlinea"), { recursive: true });
+  fs.writeFileSync(path.join(raiz, "data/sinlinea/token-info.json"), JSON.stringify(tokenInfo));
   for (const p of posts) escribirPost(path.join(raiz, "posts"), p);
   return raiz;
 }
@@ -115,4 +117,53 @@ test("(M0) un error de la API que incluya un token se guarda y se registra sin e
   assert.equal(guardado.error.mensaje.includes(token), false);
   assert.match(guardado.error.mensaje, /\[secreto\]/);
   assert.ok(avisos.every((m) => !m.includes(token)), "el log tampoco lleva el token");
+});
+
+test("(M1) una aprobación publica en la cuenta correcta: cada cliente de Instagram recibe solo los posts de su cuenta", async () => {
+  const raiz = raizConCuentas({ cuentas: ["sinlinea", "prueba"], prefijo: "pub-m1-" });
+  const configuracion = cargarConfiguracion(raiz);
+  for (const c of ["sinlinea", "prueba"]) fs.writeFileSync(path.join(raiz, "data", c, "token-info.json"), JSON.stringify({ vence: "2026-11-01" }));
+  const iso = "2026-09-07T20:00:00.000Z";
+  const deSinlinea = conImagen(aprobar({ ...base, id: base.id.slice(0, -4) + "0701", cuenta: "sinlinea" }, "2026-09-07T17:00:00-05:00", iso));
+  const dePrueba = conImagen(aprobar({ ...base, id: base.id.slice(0, -4) + "0702", cuenta: "prueba" }, "2026-09-07T17:00:00-05:00", iso));
+  const antiguo = conImagen(aprobar({ ...base, id: base.id.slice(0, -4) + "0703" }, "2026-09-07T17:00:00-05:00", iso)); // sin cuenta → principal
+  for (const p of [deSinlinea, dePrueba, antiguo]) escribirPost(path.join(raiz, "posts"), p);
+  const igSinlinea = igFalso();
+  const igPrueba = igFalso();
+  const r = await publicarCuentas({ configuracion, raiz, ahora, log, igDe: (config) => (config.cuenta === "sinlinea" ? igSinlinea : igPrueba) });
+  assert.deepEqual(r.resultados.sinlinea.publicados.sort(), [deSinlinea.id, antiguo.id].sort());
+  assert.deepEqual(r.resultados.prueba.publicados, [dePrueba.id]);
+  const idsPublicados = (ig) => ig.llamadas.filter((l) => l[0] === "publicar").map((l) => l[1]);
+  assert.ok(idsPublicados(igSinlinea).every((u) => u.includes("0701") || u.includes("0703")));
+  assert.deepEqual(idsPublicados(igPrueba).length, 1);
+  assert.ok(idsPublicados(igPrueba)[0].includes("0702"));
+});
+
+test("(M1) un fallo o un secreto ausente en una cuenta no bloquea la publicación de las demás", async () => {
+  const raiz = raizConCuentas({ cuentas: ["sinlinea", "prueba"], prefijo: "pub-m1b-" });
+  const configuracion = cargarConfiguracion(raiz);
+  for (const c of ["sinlinea", "prueba"]) fs.writeFileSync(path.join(raiz, "data", c, "token-info.json"), JSON.stringify({ vence: "2026-11-01" }));
+  const iso = "2026-09-07T20:00:00.000Z";
+  const a = conImagen(aprobar({ ...base, id: base.id.slice(0, -4) + "0711", cuenta: "sinlinea" }, "2026-09-07T17:00:00-05:00", iso));
+  const b = conImagen(aprobar({ ...base, id: base.id.slice(0, -4) + "0712", cuenta: "prueba" }, "2026-09-07T17:00:00-05:00", iso));
+  for (const p of [a, b]) escribirPost(path.join(raiz, "posts"), p);
+  const igPrueba = igFalso();
+  const avisos = [];
+  const r = await publicarCuentas({
+    configuracion, raiz, ahora, log: { info: () => {}, warn: (m) => avisos.push(m), error: (m) => avisos.push(m) },
+    igDe: (config) => { if (config.cuenta === "sinlinea") throw new Error("Faltan los secretos: IG_ACCESS_TOKEN"); return igPrueba; },
+  });
+  assert.match(r.resultados.sinlinea.error, /IG_ACCESS_TOKEN/);
+  assert.deepEqual(r.resultados.prueba.publicados, [b.id]);
+  assert.ok(avisos.some((m) => /sinlinea/.test(m) && /IG_ACCESS_TOKEN/.test(m)));
+  const posts = Object.fromEntries(leerPosts(path.join(raiz, "posts")).map((p) => [p.id, p]));
+  assert.equal(posts[a.id].estado, "programado", "el post de la cuenta fallida queda intacto para la siguiente corrida");
+  assert.equal(posts[b.id].estado, "publicado");
+});
+
+test("(M1) el aviso de vencimiento lee data/<cuenta>/token-info.json", async () => {
+  const raiz = raizCon([], { vence: "2026-09-09" });
+  const avisos = [];
+  await ejecutarPublicar({ config: cfg, raiz, ahora, ig: igFalso(), log: { info: () => {}, warn: (m) => avisos.push(m) } });
+  assert.ok(avisos.some((m) => /vence en/.test(m)), avisos.join(" | "));
 });

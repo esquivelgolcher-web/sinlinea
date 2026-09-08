@@ -38,8 +38,8 @@ export function crearAlmacenLocal() {
       if (!res.ok) throw new Error((await res.json()).error || `HTTP ${res.status}`);
       return null;
     },
-    async tokenInfo() {
-      try { return await (await fetch("/api/token-info")).json(); } catch { return { vence: null }; }
+    async tokenInfo(cuenta) {
+      try { return await (await fetch(`/api/token-info${cuenta ? `?cuenta=${encodeURIComponent(cuenta)}` : ""}`)).json(); } catch { return { vence: null }; }
     },
   };
 }
@@ -82,8 +82,8 @@ export function crearAlmacenGitHub({ token, owner, repo, rama = "main" }) {
       if (!res.ok) throw new Error(`GitHub respondió ${res.status} al guardar (¿el token tiene permiso de escritura?)`);
       return (await res.json()).content.sha;
     },
-    async tokenInfo() {
-      try { const a = await leerArchivo("data/token-info.json"); return a ? JSON.parse(a.texto) : { vence: null }; } catch { return { vence: null }; }
+    async tokenInfo(cuenta) {
+      try { const a = await leerArchivo(cuenta ? `data/${cuenta}/token-info.json` : "data/token-info.json"); return a ? JSON.parse(a.texto) : { vence: null }; } catch { return { vence: null }; }
     },
   };
 }

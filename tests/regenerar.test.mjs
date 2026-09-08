@@ -3,7 +3,9 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
-import { ejecutarRegenerar } from "../src/regenerar.mjs";
+import { ejecutarRegenerar, regenerarCuentas } from "../src/regenerar.mjs";
+import { cargarConfiguracion } from "../src/lib/config.mjs";
+import { raizConCuentas } from "./ayuda/cuentas.mjs";
 import { cargarConfig } from "../src/lib/config.mjs";
 import { leerPosts, escribirPost, urlImagen } from "../src/lib/posts.mjs";
 import { hashImagen, marcarError, aprobar, hashTexto } from "../src/lib/estados.mjs";
@@ -232,4 +234,30 @@ test("la redacción de escenas respeta ilustraciones.maxPorCorrida por corrida",
   assert.equal(pedidas, 4, "solo 4 escenas por corrida");
   assert.equal(ilustrador.llamadas.length, 4);
   assert.equal(leerPosts(path.join(raiz, "posts")).filter((p) => p.ilustracion.descripcion === "").length, 2, "las otras dos esperan a la siguiente hora");
+});
+
+test("(M1) REGENERAR solo toca los posts de su cuenta; los antiguos sin cuenta pertenecen a la principal", async () => {
+  const mio = { ...base, id: base.id.slice(0, -4) + "0601", imagen: null };
+  const ajeno = { ...base, id: base.id.slice(0, -4) + "0602", cuenta: "prueba", imagen: null };
+  const raiz = dirCon([mio, ajeno]);
+  const renderizados = [];
+  const r = await ejecutarRegenerar({ config: cfg, raiz, ahora, render: async (p) => { renderizados.push(p.id); return imagenDe(p); }, log, version: 1 });
+  assert.deepEqual(r.renderizados, [mio.id]);
+  assert.deepEqual(renderizados, [mio.id]);
+});
+
+test("(M1) regenerarCuentas procesa todas las cuentas y un fallo en una no bloquea a las demás", async () => {
+  const raiz = raizConCuentas({ cuentas: ["sinlinea", "prueba"], prefijo: "regen-" });
+  const configuracion = cargarConfiguracion(raiz);
+  const p1 = { ...base, id: base.id.slice(0, -4) + "0611", cuenta: "sinlinea", imagen: null };
+  const p2 = { ...base, id: base.id.slice(0, -4) + "0612", cuenta: "prueba", imagen: null };
+  const { escribirPost } = await import("../src/lib/posts.mjs");
+  for (const p of [p1, p2]) escribirPost(path.join(raiz, "posts"), p);
+  const r = await regenerarCuentas({
+    configuracion, raiz, ahora, log, version: 1,
+    render: async (p) => imagenDe(p),
+    ilustradorDe: (config) => { if (config.cuenta === "sinlinea") throw new Error("Gemini mal configurado para sinlinea"); return null; },
+  });
+  assert.match(r.resultados.sinlinea.error, /Gemini mal configurado/);
+  assert.deepEqual(r.resultados.prueba.renderizados, [p2.id]);
 });

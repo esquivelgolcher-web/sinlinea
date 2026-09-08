@@ -3,7 +3,9 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
-import { ejecutarGenerar } from "../src/generar.mjs";
+import { ejecutarGenerar, generarCuentas } from "../src/generar.mjs";
+import { cargarConfiguracion } from "../src/lib/config.mjs";
+import { raizConCuentas } from "./ayuda/cuentas.mjs";
 import { cargarConfig } from "../src/lib/config.mjs";
 import { leerPosts } from "../src/lib/posts.mjs";
 import { cargarVistas } from "../src/lib/seen.mjs";
@@ -13,16 +15,9 @@ const portada = fs.readFileSync("tests/fixtures/laestrella-portada.html", "utf8"
 const articulo = fs.readFileSync("tests/fixtures/laestrella-articulo.html", "utf8");
 const ahora = new Date("2026-09-07T19:20:31Z");
 
-function raizTemporal() {
-  const raiz = fs.mkdtempSync(path.join(os.tmpdir(), "sinlinea-"));
-  fs.mkdirSync(path.join(raiz, "posts"), { recursive: true });
-  fs.mkdirSync(path.join(raiz, "data"), { recursive: true });
-  fs.mkdirSync(path.join(raiz, "prompts"), { recursive: true });
-  fs.copyFileSync("config.json", path.join(raiz, "config.json"));
-  const cfgTexto = fs.readFileSync(path.join(raiz, "config.json"), "utf8").replace("https://CAMBIAR.github.io/sinlinea", "https://prueba.github.io/sinlinea");
-  fs.writeFileSync(path.join(raiz, "config.json"), cfgTexto);
-  fs.copyFileSync("prompts/editorial.md", path.join(raiz, "prompts/editorial.md"));
-  fs.writeFileSync(path.join(raiz, "data/seen.json"), '{ "urls": {} }\n');
+function raizTemporal({ cuentas = ["sinlinea"] } = {}) {
+  const raiz = raizConCuentas({ cuentas, global: { pages: { baseUrl: "https://prueba.github.io/sinlinea" } }, prefijo: "sinlinea-" });
+  for (const c of cuentas) fs.writeFileSync(path.join(raiz, "data", c, "seen.json"), '{ "urls": {} }\n');
   return raiz;
 }
 
@@ -56,7 +51,7 @@ test("crea borradores, marca todas las URLs candidatas como vistas y rota varian
   assert.equal(posts.length, 2);
   assert.deepEqual(posts.map((p) => p.variante).sort(), ["amarillo", "negro"]);
   assert.ok(posts.every((p) => p.estado === "borrador" && p.imagen?.hash));
-  const vistas = cargarVistas(path.join(raiz, "data/seen.json"));
+  const vistas = cargarVistas(path.join(raiz, "data/sinlinea/seen.json"));
   assert.ok(Object.keys(vistas.urls).length >= 3, "marca elegidos y no elegidos");
   const otra = await ejecutarGenerar({ config, raiz, ahora, fetchText, client: clientFalso([0]), render: renderOkFalso, log });
   assert.equal(otra.motivo, "sin-candidatos");
@@ -92,7 +87,7 @@ test("dry-run escribe en temp/ y no toca posts ni seen", async () => {
   assert.equal(r.creados.length, 1);
   assert.equal(leerPosts(path.join(raiz, "posts")).length, 0);
   assert.equal(leerPosts(path.join(raiz, "temp/dry-run/posts")).length, 1);
-  assert.deepEqual(cargarVistas(path.join(raiz, "data/seen.json")), { urls: {} });
+  assert.deepEqual(cargarVistas(path.join(raiz, "data/sinlinea/seen.json")), { urls: {} });
 });
 
 test("tres posts en la misma corrida usan las tres variantes", async () => {
@@ -170,4 +165,62 @@ test("si el render avisa que el titular no cabe en 3 líneas, GENERAR acorta y v
   const sinAcortar = await ejecutarGenerar({ config, raiz: raizTemporal(), ahora, fetchText, client: clientFalso([0]), render, log, acortar: null });
   assert.equal(sinAcortar.creados[0].estado, "error");
   assert.match(sinAcortar.creados[0].error.mensaje, /3 líneas/);
+});
+
+test("(M1) los posts nuevos llevan cuenta e id con cuenta, y el historial de URLs se guarda en data/<cuenta>/seen.json", async () => {
+  const raiz = raizTemporal();
+  const config = cargarConfig(path.join(raiz, "config.json"));
+  const r = await ejecutarGenerar({ config, raiz, ahora, fetchText, client: clientFalso([0]), render: renderOkFalso, log });
+  assert.equal(r.creados.length, 1);
+  assert.equal(r.creados[0].cuenta, "sinlinea");
+  assert.match(r.creados[0].id, /^\d{4}-\d{2}-\d{2}-\d{4}-sinlinea-/);
+  assert.ok(Object.keys(cargarVistas(path.join(raiz, "data/sinlinea/seen.json")).urls).length > 0);
+  assert.equal(fs.existsSync(path.join(raiz, "data/seen.json")), false);
+});
+
+test("(M1) generarCuentas procesa cada cuenta con su cupo, su historial y su línea editorial; el cupo de una no afecta a la otra", async () => {
+  const raiz = raizTemporal({ cuentas: ["sinlinea", "prueba"] });
+  const configuracion = cargarConfiguracion(raiz);
+  const sistemas = [];
+  const client = { messages: { parse: async (p) => {
+    sistemas.push(p.system[0].text);
+    return { stop_reason: "end_turn", usage: { input_tokens: 1, output_tokens: 1 }, parsed_output: { descartados: [], seleccion: [
+      { indiceCandidato: 0, categoria: "SOCIEDAD", titular: "Titular", bajada: "Bajada", caption: "Caption", hashtags: ["#Panamá"], relevancia: 1, motivo: "m", escena: "Estación de bomberos de Panamá" },
+    ] } };
+  } } };
+  // 12 borradores de hoy para sinlinea → cupo agotado solo para sinlinea
+  const { escribirPost } = await import("../src/lib/posts.mjs");
+  const base = JSON.parse(fs.readFileSync("tests/fixtures/post-ejemplo.json", "utf8"));
+  for (let i = 0; i < 12; i++) {
+    escribirPost(path.join(raiz, "posts"), { ...base, id: `${base.id.slice(0, -4)}${String(i).padStart(4, "0")}`, cuenta: "sinlinea", creado: ahora.toISOString(), actualizado: ahora.toISOString(), imagen: null });
+  }
+  const r = await generarCuentas({ configuracion, raiz, ahora, fetchText, client, render: renderOkFalso, log });
+  assert.equal(r.resultados.sinlinea.motivo, "cupo");
+  assert.equal(r.resultados.prueba.motivo, "ok");
+  assert.equal(r.resultados.prueba.creados.length, 1);
+  assert.equal(r.resultados.prueba.creados[0].cuenta, "prueba");
+  assert.equal(sistemas.length, 1, "Claude solo se llamó para la cuenta con cupo");
+  assert.match(sistemas[0], /cuenta de prueba/i, "usa la línea editorial de la cuenta");
+  assert.ok(Object.keys(cargarVistas(path.join(raiz, "data/prueba/seen.json")).urls).length > 0);
+  assert.equal(Object.keys(cargarVistas(path.join(raiz, "data/sinlinea/seen.json")).urls).length, 0, "el historial de sinlinea no se toca");
+});
+
+test("(M1) un fallo en una cuenta (Claude, fuentes o configuración) no bloquea a las demás", async () => {
+  const raiz = raizTemporal({ cuentas: ["sinlinea", "prueba"] });
+  const configuracion = cargarConfiguracion(raiz);
+  configuracion.errores.push({ cuenta: "rota", mensaje: "cuentas/rota/config.json: marca.nombre es obligatorio" });
+  const client = { messages: { parse: async (p) => {
+    if (/Sin Línea|Nuestra línea/i.test(p.system[0].text)) throw new Error("Claude no disponible para sinlinea");
+    return { stop_reason: "end_turn", usage: { input_tokens: 1, output_tokens: 1 }, parsed_output: { descartados: [], seleccion: [
+      { indiceCandidato: 0, categoria: "SOCIEDAD", titular: "Titular", bajada: "Bajada", caption: "Caption", hashtags: ["#Panamá"], relevancia: 1, motivo: "m", escena: "" },
+    ] } };
+  } } };
+  const avisos = [];
+  const r = await generarCuentas({ configuracion, raiz, ahora, fetchText, client, render: renderOkFalso, log: { info: () => {}, warn: (m) => avisos.push(m), error: (m) => avisos.push(m) } });
+  assert.match(r.resultados.sinlinea.error, /Claude no disponible/);
+  assert.equal(r.resultados.prueba.motivo, "ok");
+  assert.equal(r.resultados.prueba.creados.length, 1);
+  assert.match(r.resultados.rota.error, /marca\.nombre/);
+  assert.ok(avisos.some((m) => /sinlinea/.test(m) && /Claude no disponible/.test(m)));
+  assert.ok(avisos.some((m) => /rota/.test(m)));
 });

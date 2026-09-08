@@ -3,7 +3,7 @@
 Sigue los pasos en orden. Cada uno se hace una sola vez.
 
 ## 1. El logo
-Guarda el logo oficial (círculo amarillo con SIN LÍNEA) como `assets/logo.png`,
+Guarda el logo oficial (círculo amarillo con SIN LÍNEA) como `cuentas/sinlinea/logo.png`,
 mínimo 512×512 px. Si no está, la plantilla dibuja un círculo de reserva con el
 nombre; funciona, pero conviene poner el real antes del primer post.
 Comprueba con `npm run preview` → `http://localhost:4173/vista/negro`.
@@ -49,7 +49,7 @@ No hace falta página de Facebook.
    `https://graph.instagram.com/v23.0/me?fields=user_id,username&access_token=TOKEN`
    Copia el valor de `user_id`.
 6. Crea los secretos `IG_ACCESS_TOKEN` (el token) e `IG_USER_ID` (el user_id).
-7. Escribe en `data/token-info.json` la fecha de hoy más 60 días:
+7. Escribe en `data/sinlinea/token-info.json` la fecha de hoy más 60 días:
    `{ "vence": "AAAA-MM-DD" }`. Commit y push.
 
 La app puede quedarse en modo desarrollo: publicar en tu propia cuenta (tester)
@@ -109,6 +109,42 @@ letras, dígitos y guion bajo (por ejemplo, la cuenta `otro-medio` usa
 - En tu computadora: `npm run verificar` (los secretos que no tengas como variables de
   entorno aparecerán como FALTA; eso es normal en local).
 
+## 6c. Cuentas: cómo funciona y cómo añadir otra
+
+Cada cuenta de Instagram vive en `cuentas/<id>/` (id en minúsculas, dígitos y
+guiones) con tres archivos:
+
+- `config.json`: `nombre`, `idioma` (opcional, `es-PA` por defecto), `marca`
+  (nombre, usuario con @, lema), `fuentes`, `generar` (cupos), `franjas`,
+  `ilustraciones` (`estilo` y `rotulo`) e `instagram` con los **nombres** de sus
+  secretos (`tokenSecreto`, `usuarioIdSecreto`). Nunca valores.
+- `editorial.md`: la línea editorial que lee Claude.
+- `logo.png`: el logo que va en la imagen.
+
+`config.json` de la raíz declara la lista `cuentas` (la primera es la principal:
+a ella pertenecen los posts anteriores al soporte multi-cuenta) y lo compartido
+(Pages, Claude, Gemini, versión de la API). Los datos de cada cuenta van en
+`data/<id>/` (`seen.json`, `token-info.json`); los posts siguen todos en
+`posts/`, con el campo `cuenta` en los nuevos.
+
+Para añadir una cuenta (el alta completa con su app de Meta se detalla en el
+hito M2 del ROADMAP):
+
+1. Copia `cuentas/sinlinea/` a `cuentas/<id>/` y edita `config.json`,
+   `editorial.md` y `logo.png`. En `instagram` pon `IG_ACCESS_TOKEN_<ID>` e
+   `IG_USER_ID_<ID>` (id en mayúsculas, guiones → `_`).
+2. Crea esos dos secretos en GitHub con el token y el id de esa cuenta, y añade
+   sus nombres al `env` de `publicar.yml`, `renovar-token.yml` y `verificar.yml`
+   (hoy solo exponen los de la cuenta principal; M2 lo automatiza).
+3. Añade el id a `cuentas` en `config.json` de la raíz y crea `data/<id>/` con
+   `seen.json` (`{ "urls": {} }`) y `token-info.json` (`{ "vence": "AAAA-MM-DD" }`).
+4. Ejecuta `npm run verificar` o el workflow "Verificar configuración y
+   secretos": debe listar la cuenta con todo en OK.
+5. El panel mostrará el selector de cuentas automáticamente.
+
+Si una cuenta tiene la configuración rota o le falta un secreto, esa cuenta se
+omite con un aviso en el registro y las demás siguen funcionando.
+
 ## 7. Primera corrida
 1. GitHub → **Actions → Generar borradores → Run workflow**. Tarda 3 a 5 minutos.
 2. Abre el panel: deben aparecer 1 o 2 borradores con imagen.
@@ -149,5 +185,5 @@ ilustración (con el fondo de color de la variante).
    `GEMINI_API_KEY`), ningún post pide ilustración a Gemini y todos salen con
    el fondo de color de la variante, sin gastar cuota.
 7. `npm run generar -- --dry-run` sí llama a Gemini y gasta cuota igual que una
-   corrida normal (solo evita escribir en `posts/`, `data/seen.json` y hacer
+   corrida normal (solo evita escribir en `posts/`, `data/<cuenta>/seen.json` y hacer
    commit); no lo uses para probar en bucle si la cuota es justa.

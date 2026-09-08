@@ -3,11 +3,11 @@ import fs from "node:fs";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 import Anthropic from "@anthropic-ai/sdk";
-import { cargarConfig } from "./lib/config.mjs";
+import { cargarConfiguracion } from "./lib/config.mjs";
 import { fetchText as fetchTextReal } from "./lib/rss.mjs";
 import { recolectar } from "./lib/fuentes.mjs";
 import { cargarVistas, guardarVistas, estaVista, marcarVistas, purgarVistas } from "./lib/seen.mjs";
-import { leerPosts, escribirPost, crearPost, siguienteVariante, creadosHoy, archivar, rutaIlustracion } from "./lib/posts.mjs";
+import { leerPosts, escribirPost, crearPost, siguienteVariante, creadosHoy, archivar, rutaIlustracion, CUENTA_LEGADO } from "./lib/posts.mjs";
 import { redactar, acortarTextos } from "./lib/redactor.mjs";
 import { renderizarConAjuste } from "./lib/texto.mjs";
 import { recortarCaption } from "./lib/caption.mjs";
@@ -19,13 +19,16 @@ import { crearIlustrador, guardarIlustracion, sanearMensaje } from "./lib/ilustr
 export async function ejecutarGenerar({ config, raiz = process.cwd(), ahora = new Date(), fetchText, client, render, log = console, dryRun = false, ilustrador = null, guardar = guardarIlustracion, acortar = null }) {
   if (/CAMBIAR/.test(config.pages.baseUrl)) throw new Error("config.json: pages.baseUrl todavía tiene el valor CAMBIAR");
   const zona = config.zonaHoraria;
+  const cuenta = config.cuenta || CUENTA_LEGADO;
   const hoy = claveDia(ahora, zona);
   const iso = ahora.toISOString();
   const dirReal = path.join(raiz, "posts");
   const dirSalida = dryRun ? path.join(raiz, "temp", "dry-run", "posts") : dirReal;
-  const rutaVistas = path.join(raiz, "data", "seen.json");
+  const rutaVistas = path.join(raiz, config.rutas?.datos || "data", "seen.json");
+  const rutaEditorial = path.join(raiz, config.rutas?.editorial || path.join("prompts", "editorial.md"));
 
-  const posts = leerPosts(dirReal);
+  // Solo cuentan los posts de esta cuenta (cupo, repetición de temas, rotación de variantes).
+  const posts = leerPosts(dirReal, { cuentaPorDefecto: config.cuentaPrincipal || CUENTA_LEGADO }).filter((p) => p.cuenta === cuenta);
   let vistas = purgarVistas(cargarVistas(rutaVistas), hoy);
 
   const cupo = config.generar.maxBorradoresPorDia - creadosHoy(posts, hoy, zona);
@@ -47,7 +50,7 @@ export async function ejecutarGenerar({ config, raiz = process.cwd(), ahora = ne
   const recientes = posts
     .filter((p) => p.estado !== "descartado" && new Date(p.creado).getTime() >= limite)
     .map((p) => p.titular);
-  const editorialMd = fs.readFileSync(path.join(raiz, "prompts", "editorial.md"), "utf8");
+  const editorialMd = fs.readFileSync(rutaEditorial, "utf8");
   const max = Math.min(config.generar.maxPorCorrida, cupo);
 
   const { seleccion, uso } = await redactar({ client, config, editorialMd, candidatos, recientes, max });
@@ -62,7 +65,7 @@ export async function ejecutarGenerar({ config, raiz = process.cwd(), ahora = ne
       candidato: s.candidato,
       redaccion: { ...s, caption: r.caption, hashtags: r.hashtags },
       variante: siguienteVariante(existentes),
-      ahora, zona,
+      ahora, zona, cuenta,
     });
     if (ilustrador && post.ilustracion) {
       const rutaIlus = dryRun ? path.join("temp", "dry-run", "ilus", `${post.id}.jpg`) : rutaIlustracion(post.id);
@@ -99,21 +102,50 @@ export async function ejecutarGenerar({ config, raiz = process.cwd(), ahora = ne
   return { creados, motivo: "ok" };
 }
 
+// Ejecuta GENERAR para cada cuenta activa. Un fallo en una cuenta se registra y no detiene a las demás.
+// `ilustradorDe(config)` y `acortarDe(config)` crean las dependencias que dependen de cada cuenta
+// (estilo de ilustración, idioma); si no se pasan, se usan `ilustrador` y `acortar` tal cual.
+export async function generarCuentas({ configuracion, raiz = process.cwd(), ahora = new Date(), fetchText, client, render, log = console, dryRun = false, ilustrador = null, guardar = guardarIlustracion, acortar = null, ilustradorDe = null, acortarDe = null }) {
+  const resultados = {};
+  for (const e of configuracion.errores || []) {
+    resultados[e.cuenta] = { error: e.mensaje };
+    (log.error || log.warn)(`Cuenta ${e.cuenta}: configuración inválida, se omite (${e.mensaje}).`);
+  }
+  for (const config of configuracion.cuentas) {
+    try {
+      log.info(`Cuenta ${config.cuenta}: generando…`);
+      resultados[config.cuenta] = await ejecutarGenerar({
+        config, raiz, ahora, fetchText, client, render, log, dryRun, guardar,
+        ilustrador: ilustradorDe ? ilustradorDe(config) : ilustrador,
+        acortar: acortarDe ? acortarDe(config) : acortar,
+      });
+    } catch (err) {
+      resultados[config.cuenta] = { error: err.message };
+      (log.error || log.warn)(`Cuenta ${config.cuenta}: falló GENERAR (${err.message}); se continúa con las demás.`);
+    }
+  }
+  return { resultados };
+}
+
 async function main() {
   const dryRun = process.argv.includes("--dry-run");
-  const config = cargarConfig();
+  const configuracion = cargarConfiguracion();
+  const global = configuracion.global;
   if (!process.env.ANTHROPIC_API_KEY) throw new Error("Falta la variable de entorno ANTHROPIC_API_KEY");
   const client = new Anthropic();
-  const ilustrador = config.ilustraciones.activo && process.env.GEMINI_API_KEY ? crearIlustrador({ apiKey: process.env.GEMINI_API_KEY, config }) : null;
-  if (config.ilustraciones.activo && !process.env.GEMINI_API_KEY) console.info("Sin GEMINI_API_KEY: los posts saldrán sin ilustración.");
+  const conGemini = global.ilustraciones.activo && process.env.GEMINI_API_KEY;
+  if (global.ilustraciones.activo && !process.env.GEMINI_API_KEY) console.info("Sin GEMINI_API_KEY: los posts saldrán sin ilustración.");
   const navegador = await abrirNavegador();
   try {
-    const r = await ejecutarGenerar({
-      config, fetchText: fetchTextReal, client, dryRun, ilustrador,
+    const r = await generarCuentas({
+      configuracion, fetchText: fetchTextReal, client, dryRun,
       render: (post, o) => renderizarPost(post, { ...o, navegador }),
-      acortar: (a) => acortarTextos({ client, config, ...a }),
+      ilustradorDe: (config) => (conGemini ? crearIlustrador({ apiKey: process.env.GEMINI_API_KEY, config }) : null),
+      acortarDe: (config) => (a) => acortarTextos({ client, config, ...a }),
     });
-    console.log(`Listo: ${r.creados.length} borradores nuevos (${r.motivo})${dryRun ? " [dry-run]" : ""}.`);
+    const resumen = Object.entries(r.resultados).map(([id, x]) => `${id}: ${x.error ? `ERROR (${x.error})` : `${x.creados.length} borradores (${x.motivo})`}`).join(" · ");
+    console.log(`Listo: ${resumen}${dryRun ? " [dry-run]" : ""}.`);
+    if (Object.values(r.resultados).length && Object.values(r.resultados).every((x) => x.error)) process.exitCode = 1;
   } finally {
     await navegador.close();
   }

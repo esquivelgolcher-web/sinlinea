@@ -11,7 +11,7 @@ test("package.json es ESM y define los scripts principales", () => {
 });
 
 test("config.json y los archivos de datos son JSON válido", () => {
-  for (const f of ["config.json", "data/seen.json", "data/token-info.json"]) {
+  for (const f of ["config.json", "cuentas/sinlinea/config.json", "data/sinlinea/seen.json", "data/sinlinea/token-info.json"]) {
     assert.doesNotThrow(() => JSON.parse(fs.readFileSync(f, "utf8")), f);
   }
 });

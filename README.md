@@ -25,8 +25,9 @@ npm run verificar            # configuración, archivos y secretos (solo nombres
 ## Estructura
 
 ```
-config.json            fuentes, franjas, límites, modelo, marca
-prompts/editorial.md   línea editorial (editable sin tocar código)
+config.json            configuración global: Pages, modelo de Claude, Gemini, lista de cuentas
+cuentas/<id>/          una carpeta por cuenta: config.json (marca, fuentes, franjas, cupos,
+                       estilo de ilustración, nombres de secretos), editorial.md y logo.png
 templates/post.html    plantilla 1080×1350 (data-version controla el re-render)
 src/                   generar, regenerar, publicar, renovar-token, build, serve + lib/
 src/lib/ilustrador.mjs generación de ilustraciones con Gemini
@@ -34,6 +35,6 @@ panel/                 panel de aprobación (estático)
 posts/                 un JSON por post; posts/archivo/ para los antiguos
 public/img/            imágenes JPEG servidas por Pages en /img/
 public/ilus/           ilustraciones generadas con Gemini, una por post
-data/seen.json         URLs ya evaluadas · data/token-info.json vencimiento del token
+data/<id>/             por cuenta: seen.json (URLs ya evaluadas) y token-info.json (vencimiento del token)
 .github/workflows/     generar (3 h), regenerar (cada hora y al hacer push a posts/), publicar (30 min), renovar-token (lunes), probar-gemini (manual), verificar (manual)
 ```

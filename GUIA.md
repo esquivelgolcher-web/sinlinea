@@ -14,6 +14,12 @@
 Abre `https://<tu-usuario>.github.io/sinlinea/panel/` en el celular. La primera vez
 pulsa **Configurar** y pega el token de GitHub (ver `docs/CONFIGURACION.md`, paso 6).
 
+Si hay más de una cuenta configurada, arriba de las pestañas aparecen sus nombres:
+toca uno para ver y aprobar solo los posts de esa cuenta. El panel recuerda la
+última cuenta elegida en ese dispositivo. Al aprobar, las franjas horarias son las
+de la cuenta del post, y dos cuentas pueden publicar a la misma hora. Cada
+aprobación publica en la cuenta de Instagram de ese post, nunca en otra.
+
 En cada tarjeta puedes:
 - Editar titular, bajada, categoría, variante de color, caption y hashtags.
   El titular admite hasta 65 caracteres (lo ideal son 40 a 55) y la bajada hasta 110;
@@ -73,6 +79,6 @@ reactivarla, vuelve a marcar "Usar ilustración generada con IA" o pulsa
 ## Ajustes sin tocar código
 - `config.json`: franjas, máximos por corrida y por día, modelo de Claude
   (`claude-sonnet-5` por defecto; `claude-opus-5` para máxima calidad a más del doble de costo), fuentes.
-- `prompts/editorial.md`: tono, qué elegir, cómo escribir.
+- `cuentas/<id>/editorial.md`: tono, qué elegir, cómo escribir (una por cuenta).
 - `templates/post.html`: diseño. Al cambiarla, sube `data-version` en `<html>` para
   que se regeneren las imágenes de los posts activos.

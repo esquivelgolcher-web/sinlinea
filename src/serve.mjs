@@ -3,8 +3,8 @@ import http from "node:http";
 import fs from "node:fs";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
-import { cargarConfig } from "./lib/config.mjs";
-import { leerPosts, escribirPost, validarPost } from "./lib/posts.mjs";
+import { cargarConfiguracion, resumenParaPanel } from "./lib/config.mjs";
+import { leerPosts, escribirPost, validarPost, CUENTA_LEGADO } from "./lib/posts.mjs";
 import { construirHtml, RUTA_PLANTILLA, RUTA_LOGO } from "./lib/render.mjs";
 import { VARIANTES } from "./lib/estados.mjs";
 
@@ -36,7 +36,11 @@ function leerCuerpo(req) {
 }
 
 export function crearServidor({ raiz = process.cwd() } = {}) {
-  const config = cargarConfig(path.join(raiz, "config.json"));
+  const configuracion = cargarConfiguracion(raiz);
+  if (!configuracion.cuentas.length) throw new Error(`Ninguna cuenta válida: ${configuracion.errores.map((e) => e.mensaje).join("; ")}`);
+  const config = configuracion.cuentas[0]; // la vista de la plantilla usa la cuenta principal
+  const principal = config.cuenta || CUENTA_LEGADO;
+  const idsCuentas = new Set(configuracion.cuentas.map((c) => c.cuenta));
   return http.createServer(async (req, res) => {
     const url = new URL(req.url, "http://localhost");
     let p;
@@ -55,21 +59,31 @@ export function crearServidor({ raiz = process.cwd() } = {}) {
         if (!VARIANTES.includes(variante)) return responder(res, 404, "Variante desconocida");
         const ejemplo = JSON.parse(fs.readFileSync(path.join(raiz, "tests", "fixtures", "post-ejemplo.json"), "utf8"));
         const plantilla = fs.readFileSync(path.join(raiz, RUTA_PLANTILLA), "utf8");
-        const logoUrl = fs.existsSync(path.join(raiz, RUTA_LOGO)) ? RUTA_LOGO : null;
+        const rutaLogo = config.rutas?.logo || RUTA_LOGO;
+        const logoUrl = fs.existsSync(path.join(raiz, rutaLogo)) ? rutaLogo : null;
         const ilustracionUrl = url.searchParams.get("ilustracion") === "1" ? "tests/fixtures/ilustracion-ejemplo.jpg" : null;
         return responder(res, 200, construirHtml({ ...ejemplo, variante }, config, { plantilla, baseHref: "/", logoUrl, ilustracionUrl }), TIPOS[".html"]);
       }
       if (req.method === "GET" && p.startsWith("/assets/")) return servirArchivo(res, path.join(raiz, "assets"), p.slice("/assets/".length));
+      if (req.method === "GET" && p.startsWith("/cuentas/")) {
+        // Solo imágenes (logos): nunca config.json ni editorial.md de las cuentas.
+        if (![".png", ".jpg"].includes(path.extname(p))) return responder(res, 404, "No encontrado");
+        return servirArchivo(res, path.join(raiz, "cuentas"), p.slice("/cuentas/".length));
+      }
       if (req.method === "GET" && p.startsWith("/img/")) return servirArchivo(res, path.join(raiz, "public", "img"), p.slice("/img/".length));
       if (req.method === "GET" && p.startsWith("/tests/fixtures/")) return servirArchivo(res, path.join(raiz, "tests", "fixtures"), p.slice("/tests/fixtures/".length));
       if (req.method === "GET" && p === "/panel/config.json") {
-        return responder(res, 200, JSON.stringify({ franjas: config.franjas, zonaHoraria: config.zonaHoraria, marca: config.marca }), TIPOS[".json"]);
+        return responder(res, 200, JSON.stringify(resumenParaPanel(configuracion.cuentas)), TIPOS[".json"]);
       }
       if (req.method === "GET" && p.startsWith("/panel/lib/")) return servirArchivo(res, path.join(raiz, "src", "lib"), p.slice("/panel/lib/".length));
       if (req.method === "GET" && (p === "/panel" || p === "/panel/")) return servirArchivo(res, path.join(raiz, "panel"), "index.html");
       if (req.method === "GET" && p.startsWith("/panel/")) return servirArchivo(res, path.join(raiz, "panel"), p.slice("/panel/".length));
-      if (req.method === "GET" && p === "/api/posts") return responder(res, 200, JSON.stringify(leerPosts(path.join(raiz, "posts"))), TIPOS[".json"]);
-      if (req.method === "GET" && p === "/api/token-info") return servirArchivo(res, path.join(raiz, "data"), "token-info.json");
+      if (req.method === "GET" && p === "/api/posts") return responder(res, 200, JSON.stringify(leerPosts(path.join(raiz, "posts"), { cuentaPorDefecto: principal })), TIPOS[".json"]);
+      if (req.method === "GET" && p === "/api/token-info") {
+        const cuenta = url.searchParams.get("cuenta") || principal;
+        if (!idsCuentas.has(cuenta)) return responder(res, 404, "Cuenta desconocida");
+        return servirArchivo(res, path.join(raiz, "data", cuenta), "token-info.json");
+      }
       if (req.method === "PUT" && p.startsWith("/api/posts/")) {
         const id = p.slice("/api/posts/".length);
         let post;

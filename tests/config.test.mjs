@@ -1,6 +1,9 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { cargarConfig, validarConfig } from "../src/lib/config.mjs";
+import fs from "node:fs";
+import path from "node:path";
+import { cargarConfig, validarConfig, cargarGlobal, cargarCuenta, configDeCuenta, cargarConfiguracion, validarCuenta } from "../src/lib/config.mjs";
+import { raizConCuentas } from "./ayuda/cuentas.mjs";
 
 test("config.json del repo es válido", () => {
   const cfg = cargarConfig("config.json");
@@ -71,4 +74,83 @@ test("(M0) instagram.tokenSecreto y usuarioIdSecreto son opcionales y deben ser 
   cfg.instagram.tokenSecreto = "IG_ACCESS_TOKEN_OTRO";
   cfg.instagram.usuarioIdSecreto = "id-otro";
   assert.throws(() => validarConfig(cfg), /usuarioIdSecreto/);
+});
+
+test("(M1) config.json global es válido, declara cuentas y ya no lleva marca ni fuentes", () => {
+  const g = cargarGlobal("config.json");
+  assert.deepEqual(g.cuentas, ["sinlinea"]);
+  assert.equal(g.marca, undefined);
+  assert.equal(g.fuentes, undefined);
+  assert.equal(g.instagram.apiVersion, "v23.0");
+  assert.equal(typeof g.ilustraciones.maxPorCorrida, "number");
+});
+
+test("(M1) cargarCuenta lee cuentas/<id>/config.json con idioma es-PA por defecto y sus nombres de secretos", () => {
+  const c = cargarCuenta(".", "sinlinea");
+  assert.equal(c.nombre, "Sin Línea");
+  assert.equal(c.idioma, "es-PA");
+  assert.equal(c.marca.usuario, "@sinlinea.pa");
+  assert.equal(c.instagram.tokenSecreto, "IG_ACCESS_TOKEN");
+  assert.equal(c.instagram.usuarioIdSecreto, "IG_USER_ID");
+  assert.throws(() => cargarCuenta(".", "no-existe"), /cuentas\/no-existe\/config\.json/);
+});
+
+test("(M1) configDeCuenta produce la configuración efectiva con la forma de siempre más cuenta, nombre, idioma y rutas", () => {
+  const g = cargarGlobal("config.json");
+  const e = configDeCuenta(g, cargarCuenta(".", "sinlinea"), "sinlinea");
+  assert.equal(e.cuenta, "sinlinea");
+  assert.equal(e.nombre, "Sin Línea");
+  assert.equal(e.idioma, "es-PA");
+  assert.equal(e.zonaHoraria, "America/Panama");
+  assert.equal(e.pages.baseUrl, g.pages.baseUrl);
+  assert.equal(e.claude.modelo, g.claude.modelo);
+  assert.equal(e.instagram.apiVersion, "v23.0");
+  assert.equal(e.instagram.tokenSecreto, "IG_ACCESS_TOKEN");
+  assert.equal(e.ilustraciones.proveedor, "gemini");
+  assert.equal(e.ilustraciones.maxPorCorrida, g.ilustraciones.maxPorCorrida);
+  assert.match(e.ilustraciones.estilo, /prensa/i);
+  assert.equal(e.ilustraciones.rotulo, "Ilustración generada con IA");
+  assert.equal(e.fuentes.length, 2);
+  assert.equal(e.franjas.length, 6);
+  assert.equal(e.generar.maxPorCorrida, 2);
+  assert.deepEqual(e.rutas, { carpeta: "cuentas/sinlinea", editorial: "cuentas/sinlinea/editorial.md", logo: "cuentas/sinlinea/logo.png", datos: "data/sinlinea" });
+  assert.equal(e.cuentas, undefined, "la efectiva no lleva la lista de cuentas");
+  assert.doesNotThrow(() => validarConfig(e));
+});
+
+test("(M1) cargarConfig sigue devolviendo la configuración efectiva de la primera cuenta (compatibilidad)", () => {
+  const cfg = cargarConfig("config.json");
+  assert.equal(cfg.cuenta, "sinlinea");
+  assert.equal(cfg.marca.usuario, "@sinlinea.pa");
+  assert.equal(cfg.fuentes.length, 2);
+});
+
+test("(M1) cargarConfiguracion carga todas las cuentas y reporta las inválidas sin bloquear a las demás", () => {
+  const raiz = raizConCuentas({ cuentas: ["sinlinea", "prueba"] });
+  const c = cargarConfiguracion(raiz);
+  assert.deepEqual(c.cuentas.map((x) => x.cuenta), ["sinlinea", "prueba"]);
+  assert.equal(c.cuentas[1].marca.usuario, "@prueba.diario");
+  assert.equal(c.cuentas[1].instagram.tokenSecreto, "IG_ACCESS_TOKEN_PRUEBA");
+  assert.equal(c.cuentas[1].rutas.datos, "data/prueba");
+  assert.deepEqual(c.errores, []);
+  const g = JSON.parse(fs.readFileSync(path.join(raiz, "config.json"), "utf8"));
+  g.cuentas = ["sinlinea", "rota", "prueba"];
+  fs.writeFileSync(path.join(raiz, "config.json"), JSON.stringify(g));
+  fs.mkdirSync(path.join(raiz, "cuentas/rota"), { recursive: true });
+  fs.writeFileSync(path.join(raiz, "cuentas/rota/config.json"), JSON.stringify({ nombre: "Rota" }));
+  const c2 = cargarConfiguracion(raiz);
+  assert.deepEqual(c2.cuentas.map((x) => x.cuenta), ["sinlinea", "prueba"]);
+  assert.equal(c2.errores.length, 1);
+  assert.equal(c2.errores[0].cuenta, "rota");
+  assert.match(c2.errores[0].mensaje, /marca/);
+});
+
+test("(M1) validarCuenta rechaza ids e idiomas inválidos y exige un id en cuentas/ del global", () => {
+  const c = cargarCuenta(".", "sinlinea");
+  assert.throws(() => validarCuenta({ ...c, idioma: "español" }, "sinlinea"), /idioma/);
+  assert.throws(() => validarCuenta(c, "Sin Linea"), /id de cuenta/);
+  assert.throws(() => validarCuenta(c, "otra_cuenta"), /id de cuenta/);
+  assert.doesNotThrow(() => validarCuenta({ ...c, idioma: "en" }, "otro-medio"));
+  const g = cargarGlobal("config.json");
+  assert.throws(() => configDeCuenta({ ...g, cuentas: [] }, c, "sinlinea"), /cuentas/);
 });

@@ -1,6 +1,6 @@
 # Arquitectura de Sin Línea
 
-Estado documentado: 2026-09-08, commit `835fc97` de `main`.
+Estado documentado: 2026-09-08 (actualizado tras M1: multi-cuenta).
 Propósito: describir cómo funciona hoy el sistema (una sola cuenta), qué se
 reutiliza tal cual, y cómo evoluciona hacia un panel multi-cuenta para medios
 digitales sin reescribir lo que ya funciona. El plan por etapas está en
@@ -53,12 +53,13 @@ flowchart LR
 ```
 
 ### 2.1 GENERAR (`src/generar.mjs`)
-1. Lee `config.json` y los posts existentes; calcula el cupo diario restante.
+1. Por cada cuenta activa (`generarCuentas`): lee su configuración efectiva y
+   sus posts; calcula el cupo diario restante de esa cuenta.
 2. Recolecta candidatos (`lib/fuentes.mjs` → `rss.mjs`, `portada.mjs`,
    `articulo.mjs`), filtrando URLs ya vistas (`lib/seen.mjs`) y ya usadas.
 3. Claude (`lib/redactor.mjs`, salida estructurada con Zod) elige hasta
    `maxPorCorrida` noticias y redacta titular, bajada, caption, hashtags y
-   escena de la ilustración, con la línea editorial de `prompts/editorial.md`.
+   escena de la ilustración, con la línea editorial de `cuentas/<id>/editorial.md`.
 4. Por cada post: ilustración con Gemini (`lib/ilustrador.mjs`), render con
    Chromium + sharp (`lib/render.mjs` + `templates/post.html`) con acortado
    automático del texto si no cabe (`lib/texto.mjs`), y escritura de
@@ -155,7 +156,16 @@ Node 20+ ESM en español; dependencias inyectables en todos los orquestadores
 último; grupo de concurrencia `sinlinea` para que las corridas no se pisen;
 todo dato del panel se pinta con `textContent` (sin HTML inyectado).
 
-## 3. Supuestos de "una sola cuenta" (lo que hay que desacoplar)
+## 3. Supuestos de "una sola cuenta" (estado tras M1)
+
+Resueltos en M1: configuración por cuenta (`cuentas/<id>/`), línea editorial y
+logo por cuenta, secretos por nombre, `data/<id>/` por cuenta, campo `cuenta` en
+los posts nuevos (los antiguos se leen como de la cuenta principal), ids con
+cuenta, selector en el panel, bucle por cuenta en los cuatro flujos con
+aislamiento de fallos. Pendiente (M2): colores de la plantilla por cuenta y los
+nombres de secretos de cuentas adicionales en el `env` de los workflows.
+
+La tabla original, como referencia de lo que estaba acoplado:
 
 | Supuesto | Dónde vive |
 |---|---|

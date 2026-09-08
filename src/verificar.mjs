@@ -3,15 +3,13 @@
 import fs from "node:fs";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
-import { cargarConfig } from "./lib/config.mjs";
+import { cargarConfiguracion } from "./lib/config.mjs";
 import { secretosRequeridos, verificarSecretos } from "./lib/secretos.mjs";
 import { leerTokenInfo } from "./publicar.mjs";
 import { claveDia } from "./lib/fechas.mjs";
 
-const ARCHIVOS = [
-  ["prompts/editorial.md", "línea editorial"],
+const ARCHIVOS_COMPARTIDOS = [
   ["templates/post.html", "plantilla del post"],
-  ["assets/logo.png", "logo de la marca"],
   ["assets/fonts/Anton-Regular.ttf", "fuente Anton"],
   ["assets/fonts/Inter-Variable.ttf", "fuente Inter"],
 ];
@@ -24,40 +22,59 @@ export function ejecutarVerificacion({ raiz = process.cwd(), env = process.env, 
   const aviso = (m) => lineas.push(`AVISO  ${m}`);
   const bien = (m) => lineas.push(`OK     ${m}`);
 
-  let config;
+  let configuracion;
   try {
-    config = cargarConfig(path.join(raiz, "config.json"));
-    bien("config.json válido");
+    configuracion = cargarConfiguracion(raiz);
+    bien(`config.json válido (${configuracion.global.cuentas.length} cuenta(s) declarada(s))`);
   } catch (err) {
     error(/^config\.json/.test(err.message) ? err.message : `config.json: ${err.message}`);
     return { ok, lineas, faltantes };
   }
-  if (/CAMBIAR/.test(config.pages.baseUrl)) error("pages.baseUrl todavía tiene el valor CAMBIAR");
-  else bien(`pages.baseUrl = ${config.pages.baseUrl}`);
+  const { global } = configuracion;
+  for (const e of configuracion.errores) error(e.mensaje);
+  if (/CAMBIAR/.test(global.pages.baseUrl)) error("pages.baseUrl todavía tiene el valor CAMBIAR");
+  else bien(`pages.baseUrl = ${global.pages.baseUrl}`);
 
-  for (const [ruta, descripcion] of ARCHIVOS) {
+  for (const [ruta, descripcion] of ARCHIVOS_COMPARTIDOS) {
     if (fs.existsSync(path.join(raiz, ruta))) bien(`${ruta} (${descripcion})`);
     else error(`falta ${ruta} (${descripcion})`);
   }
 
-  const requeridos = secretosRequeridos(config);
-  const r = verificarSecretos(env, requeridos);
-  for (const s of requeridos) {
-    if (r.presentes.includes(s.nombre)) bien(`${s.nombre}: OK (${s.uso})`);
-    else if (s.obligatorio) error(`${s.nombre}: FALTA (${s.uso})`);
-    else aviso(`${s.nombre}: falta (opcional: ${s.uso})`);
-  }
-  faltantes.push(...r.faltantes);
+  // Secretos compartidos por todas las cuentas: se informan una sola vez.
+  const compartidos = [
+    { nombre: "ANTHROPIC_API_KEY", obligatorio: true, uso: "Claude: redacción (GENERAR) y acortado de textos y escenas (REGENERAR)" },
+    { nombre: "GEMINI_API_KEY", obligatorio: Boolean(global.ilustraciones.activo), uso: "Gemini: ilustraciones de los posts" },
+    { nombre: "GH_PAT", obligatorio: false, uso: "renovación automática del token de Instagram (renovar-token.yml)" },
+  ];
+  const informar = (requeridos) => {
+    const r = verificarSecretos(env, requeridos);
+    for (const s of requeridos) {
+      if (r.presentes.includes(s.nombre)) bien(`${s.nombre}: OK (${s.uso})`);
+      else if (s.obligatorio) error(`${s.nombre}: FALTA (${s.uso})`);
+      else aviso(`${s.nombre}: falta (opcional: ${s.uso})`);
+    }
+    faltantes.push(...r.faltantes);
+  };
+  informar(compartidos);
 
-  const info = leerTokenInfo(raiz);
-  if (!info.vence) {
-    aviso("data/token-info.json no tiene la fecha de vencimiento del token de Instagram");
-  } else {
-    const dias = Math.floor((Date.parse(info.vence) - Date.parse(claveDia(ahora, config.zonaHoraria))) / 86400000);
-    if (Number.isNaN(dias)) error(`data/token-info.json: la fecha "${info.vence}" no es válida`);
-    else if (dias < 0) error(`el token de Instagram venció el ${info.vence}; genera uno nuevo y actualiza el secreto`);
-    else if (dias < 14) aviso(`el token de Instagram vence en ${dias} días (${info.vence}); confirma que GH_PAT existe y renovar-token.yml está activo`);
-    else bien(`el token de Instagram vence el ${info.vence} (en ${dias} días)`);
+  for (const config of configuracion.cuentas) {
+    lineas.push(`--- Cuenta ${config.cuenta} (${config.nombre}) · idioma ${config.idioma} · ${config.marca.usuario}`);
+    for (const [ruta, descripcion] of [[config.rutas.editorial, "línea editorial"], [config.rutas.logo, "logo de la marca"]]) {
+      if (fs.existsSync(path.join(raiz, ruta))) bien(`${ruta} (${descripcion})`);
+      else error(`falta ${ruta} (${descripcion})`);
+    }
+    const propios = secretosRequeridos(config).filter((s) => !compartidos.some((c) => c.nombre === s.nombre));
+    informar(propios);
+    const info = leerTokenInfo(raiz, config.rutas.datos);
+    if (!info.vence) {
+      aviso(`${config.rutas.datos}/token-info.json no tiene la fecha de vencimiento del token de Instagram`);
+    } else {
+      const dias = Math.floor((Date.parse(info.vence) - Date.parse(claveDia(ahora, config.zonaHoraria))) / 86400000);
+      if (Number.isNaN(dias)) error(`${config.rutas.datos}/token-info.json: la fecha "${info.vence}" no es válida`);
+      else if (dias < 0) error(`el token de Instagram de ${config.cuenta} venció el ${info.vence}; genera uno nuevo y actualiza el secreto`);
+      else if (dias < 14) aviso(`el token de Instagram de ${config.cuenta} vence en ${dias} días (${info.vence}); confirma que GH_PAT existe y renovar-token.yml está activo`);
+      else bien(`el token de Instagram de ${config.cuenta} vence el ${info.vence} (en ${dias} días)`);
+    }
   }
   return { ok, lineas, faltantes };
 }

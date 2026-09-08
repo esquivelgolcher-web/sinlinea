@@ -148,3 +148,43 @@ test("validarPost (I1) acepta error.intentos ausente o entero >= 1 y rechaza otr
   assert.throws(() => validarPost({ ...con, ilustracion: { ...con.ilustracion, error: { mensaje: "m", fecha: iso, intentos: "2" } } }), /ilustracion/);
   assert.throws(() => validarPost({ ...con, ilustracion: { ...con.ilustracion, error: { mensaje: "m", fecha: iso, intentos: 0 } } }), /ilustracion/);
 });
+
+import { CUENTA_LEGADO, nuevoId as nuevoIdM1, crearPost as crearPostM1, leerPosts as leerPostsM1, validarPost as validarPostM1, escribirPost as escribirPostM1 } from "../src/lib/posts.mjs";
+
+test("(M1) validarPost acepta cuenta ausente o con id válido y rechaza ids inválidos", () => {
+  const base = JSON.parse(fs.readFileSync("tests/fixtures/post-ejemplo.json", "utf8"));
+  assert.doesNotThrow(() => validarPostM1(base));
+  assert.doesNotThrow(() => validarPostM1({ ...base, cuenta: "otro-medio" }));
+  assert.throws(() => validarPostM1({ ...base, cuenta: "Sin Linea" }), /cuenta/);
+  assert.throws(() => validarPostM1({ ...base, cuenta: "" }), /cuenta/);
+});
+
+test("(M1) leerPosts completa cuenta en memoria para los posts antiguos sin reescribir el archivo", () => {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), "posts-m1-"));
+  const base = JSON.parse(fs.readFileSync("tests/fixtures/post-ejemplo.json", "utf8"));
+  fs.writeFileSync(path.join(dir, `${base.id}.json`), JSON.stringify(base, null, 2) + "\n");
+  const antes = fs.readFileSync(path.join(dir, `${base.id}.json`), "utf8");
+  const [p1] = leerPostsM1(dir);
+  assert.equal(p1.cuenta, CUENTA_LEGADO);
+  assert.equal(CUENTA_LEGADO, "sinlinea");
+  const [p2] = leerPostsM1(dir, { cuentaPorDefecto: "otra" });
+  assert.equal(p2.cuenta, "otra");
+  assert.equal(fs.readFileSync(path.join(dir, `${base.id}.json`), "utf8"), antes, "el archivo no cambia");
+  assert.equal(antes.includes('"cuenta"'), false);
+});
+
+test("(M1) nuevoId incluye la cuenta y crearPost guarda el campo cuenta", () => {
+  const ahora = new Date("2026-09-08T15:05:00Z");
+  const conCuenta = nuevoIdM1({ medio: "La Prensa", url: "https://p.test/a", ahora, cuenta: "prueba" });
+  assert.match(conCuenta, /^2026-09-08-1005-prueba-la-prensa-[0-9a-f]{4}$/);
+  const sinCuenta = nuevoIdM1({ medio: "La Prensa", url: "https://p.test/a", ahora });
+  assert.match(sinCuenta, /^2026-09-08-1005-la-prensa-[0-9a-f]{4}$/);
+  const candidato = { medio: "La Prensa", url: "https://p.test/a", titulo: "T", fecha: "2026-09-08T14:00:00.000Z" };
+  const redaccion = { categoria: "SOCIEDAD", titular: "Titular", bajada: "Bajada", caption: "Caption", hashtags: ["#Panamá"], escena: "" };
+  const post = crearPostM1({ candidato, redaccion, variante: "negro", ahora, cuenta: "prueba" });
+  assert.equal(post.cuenta, "prueba");
+  assert.equal(post.id, conCuenta);
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), "posts-m1b-"));
+  escribirPostM1(dir, post);
+  assert.equal(JSON.parse(fs.readFileSync(path.join(dir, `${post.id}.json`), "utf8")).cuenta, "prueba");
+});

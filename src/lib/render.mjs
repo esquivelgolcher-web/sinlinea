@@ -60,7 +60,8 @@ export async function abrirNavegador() {
 export async function renderizarPost(post, { config, navegador, raiz = process.cwd(), destino = rutaImagen(post.id) }) {
   const plantilla = fs.readFileSync(path.join(raiz, RUTA_PLANTILLA), "utf8");
   const version = versionPlantilla(plantilla);
-  const logoUrl = fs.existsSync(path.join(raiz, RUTA_LOGO)) ? RUTA_LOGO : null;
+  const rutaLogo = config.rutas?.logo || RUTA_LOGO;
+  const logoUrl = fs.existsSync(path.join(raiz, rutaLogo)) ? rutaLogo.replace(/\\/g, "/") : null;
   const il = post.ilustracion;
   const ilustracionUrl = il && il.usar && il.ruta && fs.existsSync(path.join(raiz, il.ruta)) ? il.ruta.replace(/\\/g, "/") : null;
   const baseHref = pathToFileURL(path.resolve(raiz) + path.sep).href;

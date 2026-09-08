@@ -2,8 +2,8 @@
 import fs from "node:fs";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
-import { cargarConfig } from "./lib/config.mjs";
-import { leerPosts, escribirPost } from "./lib/posts.mjs";
+import { cargarConfiguracion } from "./lib/config.mjs";
+import { leerPosts, escribirPost, CUENTA_LEGADO } from "./lib/posts.mjs";
 import { marcarPublicado, marcarError, imagenDesactualizada } from "./lib/estados.mjs";
 import { componerCaption, validarCaption } from "./lib/caption.mjs";
 import { crearClienteInstagram } from "./lib/instagram.mjs";
@@ -12,15 +12,16 @@ import { ocultarSecretos, leerSecretos, nombresDeSecretos } from "./lib/secretos
 
 const MAX_ESPERAS_IMAGEN = 3;
 
-export function leerTokenInfo(raiz) {
-  const ruta = path.join(raiz, "data", "token-info.json");
+export function leerTokenInfo(raiz, rutaDatos = "data") {
+  const ruta = path.join(raiz, rutaDatos, "token-info.json");
   if (!fs.existsSync(ruta)) return { vence: null };
   try { return JSON.parse(fs.readFileSync(ruta, "utf8")); } catch { return { vence: null }; }
 }
 
 function avisarToken(raiz, ahora, config, log) {
-  const info = leerTokenInfo(raiz);
-  if (!info.vence) { log.warn("data/token-info.json no tiene fecha de vencimiento del token de Instagram."); return; }
+  const rutaDatos = config.rutas?.datos || "data";
+  const info = leerTokenInfo(raiz, rutaDatos);
+  if (!info.vence) { log.warn(`${rutaDatos}/token-info.json no tiene fecha de vencimiento del token de Instagram.`); return; }
   const dias = Math.floor((Date.parse(info.vence) - Date.parse(claveDia(ahora, config.zonaHoraria))) / 86400000);
   if (dias < 7) log.warn(`El token de Instagram vence en ${dias} días (${info.vence}); revisa renovar-token.yml.`);
 }
@@ -30,8 +31,9 @@ export async function ejecutarPublicar({ config, raiz = process.cwd(), ahora = n
   const dir = path.join(raiz, "posts");
   const iso = ahora.toISOString();
   const resumen = { publicados: [], errores: [], pospuestos: [] };
-  const listos = leerPosts(dir)
-    .filter((p) => p.estado === "programado" && Date.parse(p.programado) <= ahora.getTime())
+  const cuenta = config.cuenta || CUENTA_LEGADO;
+  const listos = leerPosts(dir, { cuentaPorDefecto: config.cuentaPrincipal || CUENTA_LEGADO })
+    .filter((p) => p.cuenta === cuenta && p.estado === "programado" && Date.parse(p.programado) <= ahora.getTime())
     .sort((a, b) => Date.parse(a.programado) - Date.parse(b.programado));
   avisarToken(raiz, ahora, config, log);
   if (!listos.length) { log.info("Nada que publicar."); return resumen; }
@@ -82,18 +84,40 @@ export async function ejecutarPublicar({ config, raiz = process.cwd(), ahora = n
   return resumen;
 }
 
+// Ejecuta PUBLICAR para cada cuenta activa. `igDe(config)` crea el cliente de Instagram de la cuenta
+// (lanza si faltan sus secretos). Un fallo en una cuenta se registra y no detiene a las demás.
+export async function publicarCuentas({ configuracion, raiz = process.cwd(), ahora = new Date(), log = console, dryRun = false, igDe }) {
+  const resultados = {};
+  for (const e of configuracion.errores || []) {
+    resultados[e.cuenta] = { error: e.mensaje };
+    (log.error || log.warn)(`Cuenta ${e.cuenta}: configuración inválida, se omite (${e.mensaje}).`);
+  }
+  for (const config of configuracion.cuentas) {
+    try {
+      const ig = await igDe(config);
+      resultados[config.cuenta] = await ejecutarPublicar({ config, raiz, ahora, ig, log, dryRun });
+    } catch (err) {
+      const mensaje = ocultarSecretos(err.message);
+      resultados[config.cuenta] = { error: mensaje };
+      (log.error || log.warn)(`Cuenta ${config.cuenta}: falló PUBLICAR (${mensaje}); se continúa con las demás.`);
+    }
+  }
+  return { resultados };
+}
+
 async function main() {
   const dryRun = process.argv.includes("--dry-run");
-  const config = cargarConfig();
-  let ig;
-  if (dryRun && !process.env[nombresDeSecretos(config).token]) {
-    ig = { cuota: async () => ({ usados: 0, limite: 100 }), imagenPublica: async () => true, publicarImagen: async () => { throw new Error("no aplica en dry-run"); } };
-  } else {
+  const configuracion = cargarConfiguracion();
+  const igDe = (config) => {
+    if (dryRun && !process.env[nombresDeSecretos(config).token]) {
+      return { cuota: async () => ({ usados: 0, limite: 100 }), imagenPublica: async () => true, publicarImagen: async () => { throw new Error("no aplica en dry-run"); } };
+    }
     const { token, usuarioId } = leerSecretos(config, process.env);
-    ig = crearClienteInstagram({ token, usuarioId, apiVersion: config.instagram.apiVersion });
-  }
-  const r = await ejecutarPublicar({ config, ig, dryRun });
-  console.log(`Listo: ${r.publicados.length} publicados, ${r.errores.length} con error, ${r.pospuestos.length} pospuestos${dryRun ? " [dry-run]" : ""}.`);
+    return crearClienteInstagram({ token, usuarioId, apiVersion: config.instagram.apiVersion });
+  };
+  const r = await publicarCuentas({ configuracion, dryRun, igDe });
+  const resumen = Object.entries(r.resultados).map(([id, x]) => `${id}: ${x.error ? `ERROR (${x.error})` : `${x.publicados.length} publicados, ${x.errores.length} con error, ${x.pospuestos.length} pospuestos`}`).join(" · ");
+  console.log(`Listo: ${resumen}${dryRun ? " [dry-run]" : ""}.`);
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {

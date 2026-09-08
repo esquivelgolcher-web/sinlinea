@@ -6,17 +6,34 @@ import { siguienteFranjaLibre, franjasOcupadas, choca } from "./lib/franjas.mjs"
 import { claveDia, isoDesdeClave, horaMinutoDeIso, ZONA_PANAMA } from "./lib/fechas.mjs";
 import { crearAlmacenLocal, crearAlmacenGitHub, deducirRepo, ErrorConflicto } from "./almacen.mjs";
 
-const configPanel = { franjas: ["07:00", "09:30", "12:00", "14:30", "17:00", "19:30"], zonaHoraria: ZONA_PANAMA };
+const configPanel = { franjas: ["07:00", "09:30", "12:00", "14:30", "17:00", "19:30"], zonaHoraria: ZONA_PANAMA, marca: {}, cuentas: [] };
 async function cargarConfigPanel() {
   try {
     const r = await fetch("./config.json", { cache: "no-store" });
     if (r.ok) Object.assign(configPanel, await r.json());
   } catch { /* se usan los valores por defecto */ }
+  if (!Array.isArray(configPanel.cuentas) || !configPanel.cuentas.length) {
+    configPanel.cuentas = [{ id: "sinlinea", nombre: configPanel.marca.nombre || "Sin Línea", marca: configPanel.marca, franjas: configPanel.franjas, zonaHoraria: configPanel.zonaHoraria }];
+  }
+}
+// --- Cuentas ----------------------------------------------------------------
+const cuentaPrincipal = () => configPanel.cuentas[0].id;
+const cuentaDe = (post) => post.cuenta || cuentaPrincipal(); // los posts antiguos sin cuenta son de la principal
+const configDeCuenta = (id) => configPanel.cuentas.find((c) => c.id === id) || configPanel.cuentas[0];
+function elegirCuentaInicial() {
+  let guardada = null;
+  try { guardada = localStorage.getItem("sinlinea.cuenta"); } catch { /* sin almacenamiento */ }
+  estado.cuenta = configPanel.cuentas.some((c) => c.id === guardada) ? guardada : cuentaPrincipal();
+}
+function seleccionarCuenta(id) {
+  estado.cuenta = id;
+  try { localStorage.setItem("sinlinea.cuenta", id); } catch { /* sin almacenamiento */ }
+  cargar();
 }
 const PESTANAS = [
   ["borrador", "Borradores"], ["programado", "Programados"], ["error", "Errores"], ["publicado", "Publicados"], ["descartado", "Descartados"],
 ];
-const estado = { almacen: null, items: [], pestana: "borrador", borradores: new Map() };
+const estado = { almacen: null, items: [], pestana: "borrador", borradores: new Map(), cuenta: null };
 const $ = (id) => document.getElementById(id);
 const ahoraIso = () => new Date().toISOString();
 const urlSegura = (u) => (/^https?:\/\//i.test(String(u)) ? u : "#");
@@ -75,7 +92,7 @@ async function cargar() {
   try {
     estado.items = await estado.almacen.listar();
     estado.items.sort((a, b) => b.post.creado.localeCompare(a.post.creado));
-    const info = await estado.almacen.tokenInfo();
+    const info = await estado.almacen.tokenInfo(estado.cuenta);
     mostrarToken(info);
     pintar();
   } catch (err) {
@@ -94,14 +111,24 @@ function mostrarToken(info) {
 
 // --- Pintado ----------------------------------------------------------------
 function pintar() {
-  const conteo = Object.fromEntries(PESTANAS.map(([k]) => [k, estado.items.filter((x) => x.post.estado === k).length]));
+  const selector = $("cuentas");
+  if (configPanel.cuentas.length > 1) {
+    selector.hidden = false;
+    selector.replaceChildren(...configPanel.cuentas.map((c) => el("button", {
+      type: "button", class: c.id === estado.cuenta ? "activa" : "", text: c.nombre, onclick: () => seleccionarCuenta(c.id),
+    })));
+  } else {
+    selector.hidden = true;
+  }
+  const deCuenta = estado.items.filter((x) => cuentaDe(x.post) === estado.cuenta);
+  const conteo = Object.fromEntries(PESTANAS.map(([k]) => [k, deCuenta.filter((x) => x.post.estado === k).length]));
   $("pestanas").replaceChildren(...PESTANAS
     .filter(([k]) => k !== "error" || conteo.error > 0)
     .map(([k, nombre]) => el("button", {
       type: "button", class: k === estado.pestana ? "activa" : "", text: `${nombre} (${conteo[k]})`,
       onclick: () => { estado.pestana = k; pintar(); },
     })));
-  const visibles = estado.items.filter((x) => x.post.estado === estado.pestana);
+  const visibles = deCuenta.filter((x) => x.post.estado === estado.pestana);
   $("lista").replaceChildren(...(visibles.length ? visibles.map(tarjeta) : [el("p", { class: "vacio", text: "Nada por aquí." })]));
 }
 
@@ -291,10 +318,13 @@ async function ejecutar(id, sha, fn) {
 }
 
 function pedirHora(post) {
-  const ocupadas = franjasOcupadas(estado.items.map((x) => x.post).filter((p) => p.id !== post.id));
+  // Franjas y horas ocupadas de la cuenta del post: dos cuentas pueden publicar a la misma hora.
+  const cuenta = cuentaDe(post);
+  const cfgCuenta = configDeCuenta(cuenta);
+  const ocupadas = franjasOcupadas(estado.items.map((x) => x.post).filter((p) => p.id !== post.id && cuentaDe(p) === cuenta));
   let propuesta;
-  try { propuesta = siguienteFranjaLibre({ franjas: configPanel.franjas, ocupadas, ahora: new Date(), zonaHoraria: configPanel.zonaHoraria }); }
-  catch { propuesta = isoDesdeClave(claveDia(new Date()), "19:30"); }
+  try { propuesta = siguienteFranjaLibre({ franjas: cfgCuenta.franjas, ocupadas, ahora: new Date(), zonaHoraria: cfgCuenta.zonaHoraria || configPanel.zonaHoraria }); }
+  catch { propuesta = isoDesdeClave(claveDia(new Date()), cfgCuenta.franjas[cfgCuenta.franjas.length - 1]); }
   const dialogo = $("dialogo-hora");
   $("hora-fecha").value = claveDia(propuesta); $("hora-hora").value = horaMinutoDeIso(propuesta); $("hora-nota").textContent = "";
   const revisar = () => {
@@ -315,7 +345,7 @@ function pedirHora(post) {
 
 // --- Arranque ---------------------------------------------------------------
 configurarAlmacen();
-cargarConfigPanel().then(cargar);
+cargarConfigPanel().then(() => { elegirCuentaInicial(); return cargar(); });
 setInterval(() => {
   const hayRegenerando = estado.items.some((x) => ["borrador", "programado", "error"].includes(x.post.estado)
     && (imagenDesactualizada(x.post) || generandoIlustracion(x.post.ilustracion) || regenerandoIlustracion(x.post.ilustracion)));

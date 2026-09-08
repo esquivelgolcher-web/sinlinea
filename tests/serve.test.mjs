@@ -4,17 +4,17 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { crearServidor } from "../src/serve.mjs";
+import { raizConCuentas } from "./ayuda/cuentas.mjs";
 
 let servidor, base, raiz;
 before(async () => {
-  raiz = fs.mkdtempSync(path.join(os.tmpdir(), "serve-"));
+  raiz = raizConCuentas({ cuentas: ["sinlinea", "prueba"], prefijo: "serve-" });
   for (const d of ["posts", "data", "templates", "panel", "src/lib", "public/img", "assets/fonts", "tests/fixtures"]) fs.mkdirSync(path.join(raiz, d), { recursive: true });
-  fs.copyFileSync("config.json", path.join(raiz, "config.json"));
   fs.copyFileSync("templates/post.html", path.join(raiz, "templates/post.html"));
   fs.copyFileSync("tests/fixtures/post-ejemplo.json", path.join(raiz, "tests/fixtures/post-ejemplo.json"));
   fs.copyFileSync("tests/fixtures/ilustracion-ejemplo.jpg", path.join(raiz, "tests/fixtures/ilustracion-ejemplo.jpg"));
   fs.copyFileSync("tests/fixtures/post-ejemplo.json", path.join(raiz, "posts/2026-09-07-1420-la-prensa-a1b2.json"));
-  fs.writeFileSync(path.join(raiz, "data/token-info.json"), '{ "vence": "2026-11-01" }');
+  fs.writeFileSync(path.join(raiz, "data/sinlinea/token-info.json"), '{ "vence": "2026-11-01" }');
   fs.writeFileSync(path.join(raiz, "panel/index.html"), "<p>panel</p>");
   fs.copyFileSync("src/lib/estados.mjs", path.join(raiz, "src/lib/estados.mjs"));
   servidor = crearServidor({ raiz });
@@ -55,4 +55,22 @@ test("sirve el panel, sus módulos desde src/lib y bloquea rutas fuera de la ra�
   assert.equal((await fetch(`${base}/assets/../config.json`)).status, 404);
   assert.equal((await fetch(`${base}/assets/..%5c..%5cconfig.json`)).status, 404);
   assert.equal((await fetch(`${base}/%zz`)).status, 400);
+});
+
+test("(M1) /panel/config.json lista las cuentas y /cuentas/<id>/logo.png sirve el logo de la cuenta", async () => {
+  const cfg = await (await fetch(`${base}/panel/config.json`)).json();
+  assert.deepEqual(cfg.cuentas.map((c) => c.id), ["sinlinea", "prueba"]);
+  assert.equal(cfg.cuentas[0].franjas.length, 6);
+  assert.equal(cfg.franjas.length, 6);
+  const logo = await fetch(`${base}/cuentas/sinlinea/logo.png`);
+  assert.equal(logo.status, 200);
+  assert.equal(logo.headers.get("content-type"), "image/png");
+  assert.equal((await fetch(`${base}/cuentas/sinlinea/config.json`)).status, 404, "la configuración de la cuenta no se sirve");
+  assert.equal((await fetch(`${base}/cuentas/../config.json`)).status, 404);
+});
+
+test("(M1) /api/token-info devuelve el de la cuenta pedida y el de la principal por defecto", async () => {
+  fs.writeFileSync(path.join(raiz, "data/prueba/token-info.json"), '{ "vence": "2026-12-01" }');
+  assert.equal((await (await fetch(`${base}/api/token-info`)).json()).vence, "2026-11-01");
+  assert.equal((await (await fetch(`${base}/api/token-info?cuenta=prueba`)).json()).vence, "2026-12-01");
 });

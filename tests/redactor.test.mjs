@@ -133,3 +133,22 @@ test("escribirEscena lanza si Claude rechaza o devuelve una escena vacía", asyn
   const vacio = { messages: { parse: async () => ({ parsed_output: { escena: " " }, stop_reason: "end_turn" }) } };
   await assert.rejects(() => escribirEscena({ client: vacio, config: cfg, titular: "t", bajada: "b" }), /vacía/);
 });
+
+test("(M1) las reglas piden escribir en el idioma de la cuenta (español de Panamá por defecto)", () => {
+  assert.match(construirSystem(""), /Escribe en español de Panamá\./);
+  assert.match(construirSystem("", { idioma: "es-PA" }), /Escribe en español de Panamá\./);
+  assert.match(construirSystem("", { idioma: "en" }), /Escribe en inglés\./);
+  assert.match(construirSystem("", { idioma: "pt-BR" }), /Escribe en portugués de Brasil\./);
+  assert.match(construirSystem("", { idioma: "xx" }), /Escribe en el idioma "xx"\./);
+});
+
+test("(M1) redactar y acortarTextos usan config.idioma en sus instrucciones", async () => {
+  let params;
+  const client = { messages: { parse: async (p) => { params = p; return { parsed_output: salida, stop_reason: "end_turn", usage: {} }; } } };
+  await redactar({ client, config: { ...cfg, idioma: "en" }, editorialMd: "Editorial.", candidatos, recientes: [], max: 1 });
+  assert.match(params.system[0].text, /Escribe en inglés/);
+  const client2 = { messages: { parse: async (p) => { params = p; return { parsed_output: { titular: "Short title", bajada: "Short" }, stop_reason: "end_turn" }; } } };
+  await acortarTextos({ client: client2, config: { ...cfg, idioma: "en" }, titular: "t", bajada: "b", motivo: "m" });
+  assert.match(params.messages[0].content, /inglés/);
+  assert.doesNotMatch(params.messages[0].content, /en español/);
+});

@@ -7,6 +7,9 @@ import { slugify, sha1short } from "./util.mjs";
 import { normalizarHashtags } from "./caption.mjs";
 
 const RE_ID = /^\d{4}-\d{2}-\d{2}-\d{4}-[a-z0-9-]+-[0-9a-f]{4}$/;
+const RE_CUENTA = /^[a-z0-9][a-z0-9-]*$/;
+// Cuenta a la que pertenecen los posts creados antes del soporte multi-cuenta (sin campo `cuenta`).
+export const CUENTA_LEGADO = "sinlinea";
 
 function exigir(cond, msg) {
   if (!cond) throw new Error(`Post inválido: ${msg}`);
@@ -16,6 +19,7 @@ export function validarPost(post) {
   exigir(post && typeof post === "object", "no es un objeto");
   exigir(RE_ID.test(post.id || ""), `id "${post.id}" no tiene el formato esperado`);
   exigir(ESTADOS.includes(post.estado), `estado "${post.estado}" desconocido`);
+  if (post.cuenta !== undefined) exigir(typeof post.cuenta === "string" && RE_CUENTA.test(post.cuenta), `cuenta "${post.cuenta}" no es un id de cuenta válido`);
   exigir(post.fuente && typeof post.fuente.medio === "string" && /^https?:\/\//.test(post.fuente.url || ""), "fuente.medio y fuente.url son obligatorios");
   exigir(typeof post.fuente.titulo === "string", "fuente.titulo debe ser texto");
   exigir(!Number.isNaN(Date.parse(post.fuente.publicado)), "fuente.publicado debe ser una fecha ISO");
@@ -72,14 +76,16 @@ export function urlImagen(baseUrl, id) {
   return `${String(baseUrl).replace(/\/+$/, "")}/img/${id}.jpg`;
 }
 
-export function nuevoId({ medio, url, ahora, zona = ZONA_PANAMA }) {
-  return `${claveMinuto(ahora, zona)}-${slugify(medio, 12)}-${sha1short(url, 4)}`;
+export function nuevoId({ medio, url, ahora, zona = ZONA_PANAMA, cuenta = null }) {
+  const parteCuenta = cuenta ? `${cuenta}-` : "";
+  return `${claveMinuto(ahora, zona)}-${parteCuenta}${slugify(medio, 12)}-${sha1short(url, 4)}`;
 }
 
-export function crearPost({ candidato, redaccion, variante, ahora, zona = ZONA_PANAMA }) {
+export function crearPost({ candidato, redaccion, variante, ahora, zona = ZONA_PANAMA, cuenta = null }) {
   const iso = ahora.toISOString();
   return validarPost({
-    id: nuevoId({ medio: candidato.medio, url: candidato.url, ahora, zona }),
+    id: nuevoId({ medio: candidato.medio, url: candidato.url, ahora, zona, cuenta }),
+    ...(cuenta ? { cuenta } : {}),
     estado: "borrador",
     fuente: { medio: candidato.medio, url: candidato.url, titulo: candidato.titulo, publicado: candidato.fecha },
     categoria: redaccion.categoria,
@@ -100,12 +106,15 @@ export function crearPost({ candidato, redaccion, variante, ahora, zona = ZONA_P
   });
 }
 
-export function leerPosts(dir = "posts", { log = console } = {}) {
+// Los posts sin `cuenta` (anteriores al soporte multi-cuenta) se leen como de `cuentaPorDefecto`;
+// el archivo no se reescribe.
+export function leerPosts(dir = "posts", { log = console, cuentaPorDefecto = CUENTA_LEGADO } = {}) {
   if (!fs.existsSync(dir)) return [];
   const posts = [];
   for (const f of fs.readdirSync(dir).filter((a) => a.endsWith(".json"))) {
     try {
-      posts.push(validarPost(JSON.parse(fs.readFileSync(path.join(dir, f), "utf8"))));
+      const post = validarPost(JSON.parse(fs.readFileSync(path.join(dir, f), "utf8")));
+      posts.push(post.cuenta ? post : { ...post, cuenta: cuentaPorDefecto });
     } catch (err) {
       log.warn(`Post omitido ${f}: ${err.message}`);
     }

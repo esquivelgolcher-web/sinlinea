@@ -4,10 +4,24 @@ Complementa [ARCHITECTURE.md](ARCHITECTURE.md). Cada hito es pequeño, deja el
 sistema funcionando al terminar y se construye con pruebas primero. Ningún hito
 reescribe componentes que ya funcionan.
 
-Supuesto de partida (a confirmar): en los hitos M1 a M5 hay **un operador** (o
-un equipo de confianza) que gestiona varias cuentas desde el mismo panel y el
-mismo repositorio. Que cada medio entre con su propio usuario y vea solo lo
-suyo es el hito M6, porque exige un servicio con autenticación.
+Decisiones tomadas (2026-09-08): en los hitos M1 a M5 hay **un operador** (o un
+equipo de confianza) que gestiona varias cuentas desde el mismo panel y el mismo
+repositorio; que cada medio entre con su propio usuario es el hito M6 (futuro).
+Las claves de Claude y Gemini se comparten entre cuentas. El idioma es
+configurable por cuenta (`idioma`, `es-PA` por defecto).
+
+## Estado y cómo retomar
+
+- **M0 hecho** (commit local `9453f62`).
+- **M1 hecho** en la rama `m1-cuentas`, fusionada en `main` localmente y **sin
+  push** (el push dispara GENERAR). Suites: 194 unitarias, 12 de render, 8 del
+  panel. Para retomar en otra sesión: `git log --oneline -5` en `main`, leer
+  esta sección y la de M2, y ejecutar `npm test`.
+- **Antes del push de M1**: revisar el diff (`git diff origin/main --stat`),
+  crear `GH_PAT` si se quiere activar la renovación, y saber que el primer push
+  ejecutará GENERAR (crea hasta 2 borradores de `sinlinea`) y desplegará el
+  panel nuevo (sin selector visible mientras haya una sola cuenta).
+- **Siguiente**: M2 (segunda cuenta real). Ver "Pendientes que deja M1" abajo.
 
 Estimaciones en días de trabajo de una persona con el flujo actual (pruebas,
 revisión y despliegue incluidos).
@@ -113,6 +127,34 @@ métricas, permisos.
 **Riesgos.** Mover `prompts/editorial.md`, `assets/logo.png` y `data/*.json`
 en el mismo commit que el código que los lee (hacerlo en un solo commit y
 verificar con `npm run generar -- --dry-run` en local antes de publicar).
+
+**Estado (2026-09-08): hecho.** Implementado tal como se describe, con estas
+precisiones:
+- `cargarConfig()` sigue existiendo y devuelve la configuración efectiva de la
+  cuenta principal (compatibilidad para herramientas y pruebas de un solo flujo);
+  los orquestadores usan `cargarConfiguracion()` → `{ global, cuentas, errores }`.
+- La configuración efectiva añade `cuenta`, `cuentaPrincipal`, `nombre`,
+  `idioma` y `rutas { carpeta, editorial, logo, datos }`.
+- Los flujos exponen `generarCuentas`, `regenerarCuentas`, `publicarCuentas` y
+  `renovarCuentas`; las dependencias que dependen de la cuenta se crean con
+  fábricas (`ilustradorDe`, `acortarDe`, `redactarEscenaDe`, `igDe`).
+- Segunda cuenta de prueba sin credenciales: `tests/fixtures/cuentas/prueba/`,
+  usada por `tests/ayuda/cuentas.mjs` (`raizConCuentas`).
+- Probado: una aprobación publica solo en la cuenta del post; un fallo (Claude,
+  Gemini, secretos ausentes o configuración inválida) en una cuenta no bloquea a
+  las demás; el panel con una sola cuenta no muestra selector.
+- El workflow de renovación guarda un secreto por cada archivo
+  `temp/nuevo-token-<SECRETO>.txt` (ya multi-cuenta).
+
+**Pendientes que deja M1 (para M2).**
+- Los workflows solo exponen `IG_ACCESS_TOKEN` e `IG_USER_ID`; una segunda
+  cuenta real necesita sus nombres en el `env` de `publicar.yml`,
+  `renovar-token.yml` y `verificar.yml`.
+- Colores de las variantes por cuenta en la plantilla (hoy solo cambian logo,
+  usuario y lema).
+- `src/serve.mjs` previsualiza la plantilla con la cuenta principal.
+- Los posts antiguos reciben el campo `cuenta` solo cuando se editan y guardan
+  desde el panel (no hay migración).
 
 ---
 
