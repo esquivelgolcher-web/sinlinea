@@ -9,7 +9,7 @@
   },
   "categoria": "POLÍTICA",
   "titular": "Contralor frena compra de vehículos nuevos para el Estado",
-  "bajada": "Anel Flores anunció una nota al MEF para suspender adquisiciones, salvo casos de urgencia notoria, mientras se revisa la flota estatal de 32 mil vehículos.",
+  "bajada": "Anel Flores pidió al MEF suspender adquisiciones, salvo urgencia, mientras se revisa la flota estatal",
   "caption": "El contralor reveló que hasta 5 mil vehículos del Estado podrían estar convertidos en chatarra por fallas menores sin reparar. La medida busca frenar el gasto mientras se ordena el mantenimiento de la flota pública. ¿Cree que esta decisión ayudará a cuidar mejor los recursos del Estado?",
   "hashtags": [
     "#Panamá",
@@ -23,13 +23,13 @@
   "imagen": {
     "ruta": "public/img/2026-09-07-1310-la-prensa-807e.jpg",
     "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-07-1310-la-prensa-807e.jpg",
-    "hash": "dbd126f5dd1684d7",
-    "version": 6,
-    "renderizada": "2026-09-08T10:01:36.788Z"
+    "hash": "b0dc9128872024f2",
+    "version": 7,
+    "renderizada": "2026-09-08T10:58:20.535Z"
   },
   "programado": null,
   "publicacion": null,
   "error": null,
   "creado": "2026-09-07T18:10:04.522Z",
-  "actualizado": "2026-09-08T10:01:33.451Z"
+  "actualizado": "2026-09-08T10:57:54.296Z"
 }

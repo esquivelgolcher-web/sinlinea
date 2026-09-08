@@ -9,7 +9,7 @@
   },
   "categoria": "SEGURIDAD",
   "titular": "Más de 40 disparos en balacera en la vía Transístmica",
-  "bajada": "Sujetos armados atacaron un vehículo en una gasolinera de Pueblo Nuevo; dos personas fueron aprehendidas y se decomisaron tres armas.",
+  "bajada": "Atacaron un vehículo en una gasolinera de Pueblo Nuevo; hay dos aprehendidos y tres armas decomisadas",
   "caption": "El ataque ocurrió en una de las vías más transitadas de la capital y no dejó heridos de milagro, ya que el conductor había bajado del auto minutos antes. Las autoridades ya investigan a los aprehendidos y revisan cámaras de seguridad de la zona. ¿Qué tan seguro te sientes transitando por esta zona de la ciudad?",
   "hashtags": [
     "#Panamá",
@@ -23,13 +23,13 @@
   "imagen": {
     "ruta": "public/img/2026-09-07-1310-la-estrella-7928.jpg",
     "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-07-1310-la-estrella-7928.jpg",
-    "hash": "60d69dff7c60288d",
-    "version": 6,
-    "renderizada": "2026-09-08T10:01:36.435Z"
+    "hash": "de63e9f9ff83fe23",
+    "version": 7,
+    "renderizada": "2026-09-08T10:58:18.420Z"
   },
   "programado": null,
   "publicacion": null,
   "error": null,
   "creado": "2026-09-07T18:10:04.522Z",
-  "actualizado": "2026-09-08T10:01:33.451Z"
+  "actualizado": "2026-09-08T10:57:54.296Z"
 }
