@@ -22,24 +22,24 @@
   "imagen": {
     "ruta": "public/img/2026-09-08-1333-luiseskivelgolcher-lichess-ce43.jpg",
     "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-08-1333-luiseskivelgolcher-lichess-ce43.jpg",
-    "hash": "48a5c6b56f1ef47f",
+    "hash": "82e68145a3db5947",
     "version": 7,
     "estilo": "626198fa24ecf75c",
-    "renderizada": "2026-09-08T18:33:04.324Z"
+    "renderizada": "2026-09-08T18:34:52.137Z"
   },
   "ilustracion": {
     "descripcion": "Tablero de ajedrez de madera visto en ángulo, la dama blanca dando mate al rey negro en f7, piezas de torneo, luz lateral cálida, fondo neutro, sin personas, sin texto",
     "usar": true,
-    "ruta": null,
-    "hashDescripcion": null,
-    "proveedor": null,
-    "modelo": null,
-    "generada": null,
+    "ruta": "public/ilus/2026-09-08-1333-luiseskivelgolcher-lichess-ce43.jpg",
+    "hashDescripcion": "066734657c91ee07",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-08T18:34:38.355Z",
     "error": null
   },
   "programado": null,
   "publicacion": null,
   "error": null,
   "creado": "2026-09-08T18:33:04.103Z",
-  "actualizado": "2026-09-08T18:33:04.103Z"
+  "actualizado": "2026-09-08T18:34:38.355Z"
 }

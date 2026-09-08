@@ -22,24 +22,24 @@
   "imagen": {
     "ruta": "public/img/2026-09-08-1333-luiseskivelgolcher-registro-pub-b8ea.jpg",
     "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-08-1333-luiseskivelgolcher-registro-pub-b8ea.jpg",
-    "hash": "631cf92e423cfe0c",
+    "hash": "043a944d0d55e0d3",
     "version": 7,
     "estilo": "626198fa24ecf75c",
-    "renderizada": "2026-09-08T18:33:04.931Z"
+    "renderizada": "2026-09-08T18:34:51.490Z"
   },
   "ilustracion": {
     "descripcion": "Escritorio de madera con documentos oficiales impresos, un sello, una lupa y una carpeta, luz natural de ventana, composición sobria, sin personas, sin texto legible",
     "usar": true,
-    "ruta": null,
-    "hashDescripcion": null,
-    "proveedor": null,
-    "modelo": null,
-    "generada": null,
+    "ruta": "public/ilus/2026-09-08-1333-luiseskivelgolcher-registro-pub-b8ea.jpg",
+    "hashDescripcion": "46e66a46fe1d6940",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-08T18:34:38.355Z",
     "error": null
   },
   "programado": null,
   "publicacion": null,
   "error": null,
   "creado": "2026-09-08T18:33:04.708Z",
-  "actualizado": "2026-09-08T18:33:04.708Z"
+  "actualizado": "2026-09-08T18:34:38.355Z"
 }
