@@ -58,6 +58,7 @@ test("(M4) sanearMensaje oculta claves AIza... y recorta a 300 caracteres", () =
   const claveFalsa = "AIza" + "a".repeat(35);
   assert.equal(sanearMensaje(`Gemini respondió 400: clave inválida ${claveFalsa}`), "Gemini respondió 400: clave inválida [clave]");
   assert.equal(sanearMensaje("x".repeat(400)).length, 300);
+  assert.equal(sanearMensaje("x".repeat(2000), 1500).length, 1500);
 });
 
 test("generar reintenta una vez ante 429 o error de red, y lanza ante 4xx o sin imagen", async () => {

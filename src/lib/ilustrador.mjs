@@ -27,8 +27,8 @@ export function textoDeRespuesta(json) {
 }
 
 // Oculta claves de Gemini que se hayan colado en un mensaje de error de la API y lo acota.
-export function sanearMensaje(m) {
-  return String(m).replace(/AIza[0-9A-Za-z_-]{35}/g, "[clave]").slice(0, 300);
+export function sanearMensaje(m, max = 300) {
+  return String(m).replace(/AIza[0-9A-Za-z_-]{35}/g, "[clave]").slice(0, max);
 }
 
 export function crearIlustrador({ apiKey, config, fetchImpl = fetch, dormir = (ms) => new Promise((r) => setTimeout(r, ms)) }) {
@@ -63,10 +63,10 @@ export function crearIlustrador({ apiKey, config, fetchImpl = fetch, dormir = (m
       }
       if (res.ok) {
         const b64 = extraerImagenBase64(json);
-        if (!b64) throw new Error(sanearMensaje(`Gemini no devolvió imagen: ${textoDeRespuesta(json) || "sin detalle"}`));
+        if (!b64) throw new Error(sanearMensaje(`Gemini no devolvió imagen: ${textoDeRespuesta(json) || "sin detalle"}`, 1500));
         return Buffer.from(b64, "base64");
       }
-      const mensaje = sanearMensaje(`Gemini respondió ${res.status}: ${json?.error?.message || "error"}`);
+      const mensaje = sanearMensaje(`Gemini respondió ${res.status}: ${json?.error?.message || "error"}`, 1500);
       if (res.status === 429 || res.status >= 500) {
         ultimo = new Error(mensaje);
         if (intento === 0) { await dormir(5000); continue; }
