@@ -1,6 +1,6 @@
 {
   "id": "2026-09-08-0737-la-estrella-f599",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "La Estrella de Panamá",
     "url": "https://www.laestrella.com.pa/panama/nacional/proveedores-mineros-exponen-al-gobierno-sus-inquietudes-sobre-el-cierre-de-cobre-panama-LC25508524",
@@ -37,9 +37,9 @@
     "generada": "2026-09-08T12:37:50.322Z",
     "error": null
   },
-  "programado": null,
+  "programado": "2026-09-08T13:05:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-08T12:37:50.322Z",
-  "actualizado": "2026-09-08T12:37:50.322Z"
+  "actualizado": "2026-09-08T14:19:48.738Z"
 }
