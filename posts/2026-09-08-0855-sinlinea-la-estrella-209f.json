@@ -1,7 +1,7 @@
 {
   "id": "2026-09-08-0855-sinlinea-la-estrella-209f",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "La Estrella de Panamá",
     "url": "https://www.laestrella.com.pa/panama/nacional/operativo-en-tocumen-culmina-con-el-decomiso-de-400-paquetes-de-presunta-droga-PD25514308",
@@ -38,9 +38,9 @@
     "generada": "2026-09-08T14:12:15.072Z",
     "error": null
   },
-  "programado": null,
+  "programado": "2026-09-08T11:15:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-08T13:55:16.978Z",
-  "actualizado": "2026-09-08T14:12:15.072Z"
+  "actualizado": "2026-09-08T14:19:33.079Z"
 }
