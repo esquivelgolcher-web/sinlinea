@@ -121,6 +121,17 @@ function pintar() {
   } else {
     selector.hidden = true;
   }
+  const activa = configDeCuenta(estado.cuenta);
+  const apagado = [];
+  if (activa.automatico?.generar === false) apagado.push("la generación automática de borradores");
+  if (activa.automatico?.publicar === false) apagado.push("la publicación automática en Instagram");
+  const nota = $("nota-cuenta");
+  if (apagado.length) {
+    nota.hidden = false;
+    nota.textContent = `En ${activa.nombre} está desactivada ${apagado.join(" y ")}. Los posts aprobados quedan en cola hasta activarla en cuentas/${activa.id}/config.json.`;
+  } else {
+    nota.hidden = true;
+  }
   const deCuenta = estado.items.filter((x) => cuentaDe(x.post) === estado.cuenta);
   const conteo = Object.fromEntries(PESTANAS.map(([k]) => [k, deCuenta.filter((x) => x.post.estado === k).length]));
   $("pestanas").replaceChildren(...PESTANAS

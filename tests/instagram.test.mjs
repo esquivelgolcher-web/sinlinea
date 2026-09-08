@@ -73,3 +73,13 @@ test("cuota, refrescarToken e imagenPublica", async () => {
   assert.equal(llamadas[2].metodo, "HEAD");
   assert.equal(await ig.imagenPublica("https://x/img/b.jpg"), false);
 });
+
+test("(M2) perfil() consulta /me con user_id y username y devuelve ambos", async () => {
+  const llamadas = [];
+  const fetchImpl = async (url) => { llamadas.push(url); return { ok: true, status: 200, json: async () => ({ user_id: "1784", username: "sinlinea.pa" }) }; };
+  const ig = crearClienteInstagram({ token: "T", usuarioId: "1784", apiVersion: "v23.0", fetchImpl, dormir: async () => {} });
+  const p = await ig.perfil();
+  assert.deepEqual(p, { username: "sinlinea.pa", userId: "1784", coincideId: true });
+  assert.match(llamadas[0], /\/v23\.0\/me\?/);
+  assert.match(llamadas[0], /fields=user_id%2Cusername/);
+});

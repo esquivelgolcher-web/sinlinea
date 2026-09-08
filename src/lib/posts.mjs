@@ -34,6 +34,7 @@ export function validarPost(post) {
         && Number.isInteger(i.version) && !Number.isNaN(Date.parse(i.renderizada)),
       "imagen debe ser null o tener ruta, url, hash, version y renderizada"
     );
+    exigir(i.estilo === undefined || typeof i.estilo === "string", "imagen.estilo debe ser texto si está presente");
   }
   if (post.publicacion !== null) {
     const u = post.publicacion;

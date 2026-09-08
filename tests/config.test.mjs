@@ -78,7 +78,8 @@ test("(M0) instagram.tokenSecreto y usuarioIdSecreto son opcionales y deben ser 
 
 test("(M1) config.json global es válido, declara cuentas y ya no lleva marca ni fuentes", () => {
   const g = cargarGlobal("config.json");
-  assert.deepEqual(g.cuentas, ["sinlinea"]);
+  assert.deepEqual(g.cuentas, ["sinlinea", "luiseskivelgolcher"]);
+  assert.equal(g.cuentas[0], "sinlinea", "la principal sigue siendo sinlinea");
   assert.equal(g.marca, undefined);
   assert.equal(g.fuentes, undefined);
   assert.equal(g.instagram.apiVersion, "v23.0");
@@ -176,4 +177,42 @@ test("(M1 fix) resumenParaPanel expone cuentaPrincipal = primera cuenta declarad
   const r = resumenParaPanel(c.cuentas);
   assert.equal(r.cuentaPrincipal, "sinlinea");
   assert.equal(g.cuentas[0], "sinlinea");
+});
+
+test("(M2) la cuenta luiseskivelgolcher carga con automatización apagada, colores propios, sin fuentes y con sus secretos", () => {
+  const c = cargarConfiguracion(".");
+  assert.deepEqual(c.global.cuentas, ["sinlinea", "luiseskivelgolcher"]);
+  assert.deepEqual(c.errores, []);
+  const e = c.cuentas.find((x) => x.cuenta === "luiseskivelgolcher");
+  assert.deepEqual(e.automatico, { generar: false, publicar: false });
+  assert.equal(e.marca.usuario, "@luiseskivelgolcher");
+  assert.deepEqual(e.fuentes, []);
+  assert.equal(e.ilustraciones.activo, false);
+  assert.equal(e.instagram.tokenSecreto, "IG_ACCESS_TOKEN_LUISESKIVELGOLCHER");
+  assert.equal(e.instagram.usuarioIdSecreto, "IG_USER_ID_LUISESKIVELGOLCHER");
+  assert.notDeepEqual(e.marca.colores, c.cuentas[0].marca.colores, "no hereda los colores de Sin Línea");
+  assert.match(e.marca.colores.acento, /^#[0-9A-Fa-f]{6}$/);
+});
+
+test("(M2) automatico es opcional (true por defecto) y colores es opcional con la paleta de Sin Línea por defecto", () => {
+  const cfg = cargarConfig("config.json");
+  assert.deepEqual(cfg.automatico, { generar: true, publicar: true });
+  assert.deepEqual(cfg.marca.colores, { principal: "#FFD400", acento: "#E30613", oscuro: "#111111", claro: "#FFFFFF" });
+  const c = cargarCuenta(".", "sinlinea");
+  assert.throws(() => validarCuenta({ ...c, automatico: { generar: "no" } }, "sinlinea"), /automatico\.generar/);
+  assert.throws(() => validarCuenta({ ...c, marca: { ...c.marca, colores: { principal: "amarillo" } } }, "sinlinea"), /colores/);
+  assert.throws(() => validarCuenta({ ...c, marca: { ...c.marca, colores: { principal: "#FFD400" } } }, "sinlinea"), /colores/);
+});
+
+test("(M2) fuentes puede estar vacía solo si la generación automática está apagada", () => {
+  const c = cargarCuenta(".", "sinlinea");
+  assert.throws(() => validarCuenta({ ...c, fuentes: [] }, "sinlinea"), /fuentes/);
+  assert.doesNotThrow(() => validarCuenta({ ...c, fuentes: [], automatico: { generar: false, publicar: true } }, "sinlinea"));
+});
+
+test("(M2) resumenParaPanel incluye automatico y colores de cada cuenta", () => {
+  const c = cargarConfiguracion(".");
+  const r = resumenParaPanel(c.cuentas);
+  assert.deepEqual(r.cuentas[1].automatico, { generar: false, publicar: false });
+  assert.equal(r.cuentas[1].marca.colores.acento, "#1F5FBF");
 });

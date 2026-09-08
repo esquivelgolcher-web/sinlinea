@@ -5,7 +5,7 @@ import path from "node:path";
 import { pathToFileURL } from "node:url";
 import sharp from "sharp";
 import { chromium } from "playwright";
-import { hashImagen } from "./estados.mjs";
+import { hashImagen, hashTexto } from "./estados.mjs";
 import { rutaImagen, urlImagen } from "./posts.mjs";
 import { fechaCorta } from "./fechas.mjs";
 
@@ -18,8 +18,22 @@ export function versionPlantilla(html) {
   return Number(m[1]);
 }
 
+// Iniciales de la marca para el círculo de reserva cuando la cuenta no tiene logo.
+export function iniciales(nombre) {
+  const letras = String(nombre || "").trim().split(/\s+/).filter(Boolean).slice(0, 3).map((w) => w[0].toUpperCase()).join("");
+  return letras || "?";
+}
+
+// Sello de la identidad visual de la cuenta (colores + presencia del logo): si cambia, REGENERAR re-dibuja.
+export function estiloVisual(config, logoUrl) {
+  const c = config.marca?.colores || {};
+  return hashTexto(JSON.stringify({ principal: c.principal, acento: c.acento, oscuro: c.oscuro, claro: c.claro, logo: Boolean(logoUrl) }));
+}
+
 export function datosDeRender(post, config, { logoUrl, ilustracionUrl = null }) {
   return {
+    colores: config.marca?.colores ? { ...config.marca.colores } : undefined,
+    iniciales: iniciales(config.marca?.nombre),
     titular: post.titular,
     bajada: post.bajada,
     categoria: post.categoria,
@@ -91,6 +105,7 @@ export async function renderizarPost(post, { config, navegador, raiz = process.c
     url: urlImagen(config.pages.baseUrl, post.id),
     hash: hashImagen(post, version),
     version,
+    estilo: estiloVisual(config, logoUrl),
     renderizada: new Date().toISOString(),
   };
 }

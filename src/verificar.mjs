@@ -60,6 +60,8 @@ export function ejecutarVerificacion({ raiz = process.cwd(), env = process.env, 
 
   for (const config of configuracion.cuentas) {
     lineas.push(`--- Cuenta ${config.cuenta} (${config.nombre}) · idioma ${config.idioma} · ${config.marca.usuario}`);
+    if (config.automatico?.generar === false) aviso(`cuenta ${config.cuenta}: generación automática apagada (automatico.generar=false); Claude no redacta posts para ella`);
+    if (config.automatico?.publicar === false) aviso(`cuenta ${config.cuenta}: publicación automática apagada (automatico.publicar=false); sus posts aprobados quedan en cola`);
     for (const [ruta, descripcion] of [[config.rutas.editorial, "línea editorial"], [config.rutas.logo, "logo de la marca"]]) {
       if (fs.existsSync(path.join(raiz, ruta))) bien(`${ruta} (${descripcion})`);
       else error(`falta ${ruta} (${descripcion})`);

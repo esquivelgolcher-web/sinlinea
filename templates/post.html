@@ -31,7 +31,7 @@
   .post[data-variante="amarillo"] .logo { box-shadow: 0 0 0 5px var(--negro); }
   .post.con-ilustracion[data-variante] .logo { box-shadow: none; }
   .logo-fallback { width: 120px; height: 120px; border-radius: 50%; box-sizing: border-box; background: var(--amarillo); color: var(--negro);
-                   display: flex; align-items: center; justify-content: center; font-family: "Anton", Impact, sans-serif; font-size: 26px; line-height: 1;
+                   display: flex; align-items: center; justify-content: center; font-family: "Anton", Impact, sans-serif; font-size: 44px; line-height: 1; letter-spacing: 0.04em;
                    text-align: center; border: 5px solid var(--negro); }
   .chip { font-weight: 700; font-size: 26px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--chip-fondo); color: var(--chip-texto); padding: 12px 20px; margin-top: 6px; }
   /* Cuerpo anclado a la mitad inferior: titular de 86 a 70 px (máx. 3 líneas) y bajada de 34 a 30 px (máx. 2 líneas). */
@@ -74,6 +74,10 @@
 (async function () {
   const d = JSON.parse(document.getElementById("datos").textContent || "{}");
   const $ = (id) => document.getElementById(id);
+  // Colores de la marca de la cuenta (por defecto, la paleta de Sin Línea definida en :root).
+  for (const [variable, valor] of [["--amarillo", d.colores?.principal], ["--rojo", d.colores?.acento], ["--negro", d.colores?.oscuro], ["--blanco", d.colores?.claro]]) {
+    if (valor) document.documentElement.style.setProperty(variable, valor);
+  }
   $("post").dataset.variante = d.variante || "negro";
   $("categoria").textContent = d.categoria || "";
   $("titular").textContent = d.titular || "";
@@ -101,7 +105,7 @@
     await img.decode().catch(() => {});
   } else {
     $("logo").className = "logo-fallback";
-    $("logo").innerHTML = "SIN<br>LÍNEA";
+    $("logo").textContent = d.iniciales || "?";
   }
   await document.fonts.ready;
   // Reduce el tamaño de letra hasta que el texto quepa en las líneas permitidas sin cortar palabras.

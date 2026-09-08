@@ -24,7 +24,7 @@ export function raizConCuentas({ cuentas = [CUENTA_PRINCIPAL], global = {}, pref
   const g = { ...JSON.parse(fs.readFileSync("config.json", "utf8")), ...global, cuentas };
   fs.writeFileSync(path.join(raiz, "config.json"), JSON.stringify(g, null, 2) + "\n");
   for (const id of cuentas) {
-    const origen = id === CUENTA_PRINCIPAL ? path.join("cuentas", id) : path.join("tests", "fixtures", "cuentas", id);
+    const origen = fs.existsSync(path.join("cuentas", id)) ? path.join("cuentas", id) : path.join("tests", "fixtures", "cuentas", id);
     copiarDir(origen, path.join(raiz, "cuentas", id), { omitir: ["logo.png"] });
     if (fs.existsSync(path.join(origen, "logo.png"))) fs.writeFileSync(path.join(raiz, "cuentas", id, "logo.png"), Buffer.from([0x89])); // marcador: solo se comprueba que exista
     fs.mkdirSync(path.join(raiz, "data", id), { recursive: true });

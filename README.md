@@ -36,5 +36,5 @@ posts/                 un JSON por post; posts/archivo/ para los antiguos
 public/img/            imágenes JPEG servidas por Pages en /img/
 public/ilus/           ilustraciones generadas con Gemini, una por post
 data/<id>/             por cuenta: seen.json (URLs ya evaluadas) y token-info.json (vencimiento del token)
-.github/workflows/     generar (3 h), regenerar (cada hora y al hacer push a posts/), publicar (30 min), renovar-token (lunes), probar-gemini (manual), verificar (manual)
+.github/workflows/     generar (3 h), regenerar (cada hora y al hacer push a posts/), publicar (30 min), renovar-token (lunes), probar-gemini (manual), verificar (manual), probar-instagram (manual)
 ```

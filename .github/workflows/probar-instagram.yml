@@ -1,15 +1,20 @@
-name: Verificar configuración y secretos
+name: Probar Instagram
 
-# Manual. Comprueba config.json, los archivos necesarios y qué secretos existen.
-# Solo imprime nombres y estados; nunca valores. No escribe en el repositorio.
+# Manual. Comprueba que la credencial de una cuenta pertenece al usuario esperado
+# (usuario e id numérico) llamando a la API. No publica nada y no escribe en el repositorio.
 on:
   workflow_dispatch:
+    inputs:
+      cuenta:
+        description: "Id de la cuenta a probar (vacío = todas las que tengan secretos)"
+        required: false
+        default: ""
 
 permissions:
   contents: read
 
 jobs:
-  verificar:
+  probar:
     runs-on: ubuntu-latest
     steps:
       - name: Descargar el repositorio
@@ -24,13 +29,10 @@ jobs:
       - name: Instalar dependencias
         run: npm ci
 
-      - name: Verificar configuración, archivos y secretos
+      - name: Comprobar la identidad de la credencial
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
           IG_ACCESS_TOKEN_LUISESKIVELGOLCHER: ${{ secrets.IG_ACCESS_TOKEN_LUISESKIVELGOLCHER }}
           IG_USER_ID_LUISESKIVELGOLCHER: ${{ secrets.IG_USER_ID_LUISESKIVELGOLCHER }}
-          GH_PAT: ${{ secrets.GH_PAT }}
-        run: node src/verificar.mjs
+        run: node src/probar-instagram.mjs --cuenta "${{ inputs.cuenta }}"

@@ -89,3 +89,13 @@ test("(M1 fix) avisa de posts cuya cuenta no está declarada (huérfanos que nin
   const r = ejecutarVerificacion({ raiz, env: envCompleto, ahora });
   assert.match(r.lineas.join("\n"), /AVISO.*fantasma.*1 post/);
 });
+
+test("(M2) la verificación avisa cuando una cuenta tiene la generación o la publicación automática apagadas", () => {
+  const raiz = raizTemporal({ cuentas: ["sinlinea", "luiseskivelgolcher"] });
+  const r = ejecutarVerificacion({ raiz, env: { ...envCompleto, IG_ACCESS_TOKEN_LUISESKIVELGOLCHER: "IGAAR" + "y".repeat(60), IG_USER_ID_LUISESKIVELGOLCHER: "9" }, ahora });
+  const texto = r.lineas.join("\n");
+  assert.match(texto, /Cuenta luiseskivelgolcher/);
+  assert.match(texto, /AVISO.*luiseskivelgolcher.*generación automática apagada/i);
+  assert.match(texto, /AVISO.*luiseskivelgolcher.*publicación automática apagada/i);
+  assert.doesNotMatch(texto, /AVISO.*sinlinea.*apagada/i);
+});

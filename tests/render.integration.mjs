@@ -5,7 +5,7 @@ import path from "node:path";
 import { pathToFileURL } from "node:url";
 import sharp from "sharp";
 import { abrirNavegador, renderizarPost, construirHtml } from "../src/lib/render.mjs";
-import { cargarConfig } from "../src/lib/config.mjs";
+import { cargarConfig, cargarConfiguracion } from "../src/lib/config.mjs";
 
 const cfg = cargarConfig("config.json");
 const base = JSON.parse(fs.readFileSync("tests/fixtures/post-ejemplo.json", "utf8"));
@@ -28,9 +28,9 @@ for (const variante of ["negro", "amarillo", "rojo"]) {
   });
 }
 
-async function medir(post, { ilustracionUrl = null } = {}) {
+async function medir(post, { ilustracionUrl = null, config = cfg, logoUrl = "cuentas/sinlinea/logo.png" } = {}) {
   const plantilla = fs.readFileSync("templates/post.html", "utf8");
-  const html = construirHtml(post, cfg, { plantilla, baseHref: pathToFileURL(path.resolve(".") + path.sep).href, logoUrl: "assets/logo.png", ilustracionUrl });
+  const html = construirHtml(post, config, { plantilla, baseHref: pathToFileURL(path.resolve(".") + path.sep).href, logoUrl, ilustracionUrl });
   const rutaHtml = path.join("temp", "test-render", `medir-${Math.random().toString(16).slice(2)}.html`);
   fs.mkdirSync(path.dirname(rutaHtml), { recursive: true });
   fs.writeFileSync(rutaHtml, html);
@@ -47,7 +47,11 @@ async function medir(post, { ilustracionUrl = null } = {}) {
         error: document.body.dataset.error || null,
         titularPx: px(t), titularLineas: Math.round(t.scrollHeight / px(t)), titularTop: r("titular").top,
         bajadaPx: px(b), bajadaLineas: Math.round(b.scrollHeight / (px(b) * 1.3)),
-        barraAlto: r("lema").height, logoAncho: document.querySelector("#post .logo").getBoundingClientRect().width,
+        barraAlto: r("lema").height, logoAncho: (document.querySelector("#post .logo") || document.querySelector("#post .logo-fallback")).getBoundingClientRect().width,
+        barraColor: getComputedStyle(document.getElementById("lema")).backgroundColor,
+        fondoColor: getComputedStyle(document.getElementById("post")).backgroundColor,
+        fallbackTexto: document.querySelector("#post .logo-fallback")?.textContent || null,
+        fallbackColor: document.querySelector("#post .logo-fallback") ? getComputedStyle(document.querySelector("#post .logo-fallback")).backgroundColor : null,
         cuerpoIzq: r("titular").left, cuerpoDer: 1080 - r("titular").right,
       };
     });
@@ -112,7 +116,7 @@ test("renderiza con ilustración de fondo cuando usar=true y el archivo existe",
 test("con ilustración, la variante amarilla no dibuja el anillo del logo", async () => {
   const plantilla = fs.readFileSync("templates/post.html", "utf8");
   const html = construirHtml({ ...base, variante: "amarillo" }, cfg, {
-    plantilla, baseHref: pathToFileURL(path.resolve(".") + path.sep).href, logoUrl: "assets/logo.png", ilustracionUrl: "tests/fixtures/ilustracion-ejemplo.jpg",
+    plantilla, baseHref: pathToFileURL(path.resolve(".") + path.sep).href, logoUrl: "cuentas/sinlinea/logo.png", ilustracionUrl: "tests/fixtures/ilustracion-ejemplo.jpg",
   });
   const rutaHtml = path.join("temp", "test-render", "amarillo-ilus.html");
   fs.mkdirSync(path.dirname(rutaHtml), { recursive: true });
@@ -131,7 +135,7 @@ test("con ilustración, la variante amarilla no dibuja el anillo del logo", asyn
 test("(M1) si la ilustración no decodifica, el post queda tipográfico (sin clase ni rótulo)", async () => {
   const plantilla = fs.readFileSync("templates/post.html", "utf8");
   const html = construirHtml({ ...base, variante: "negro" }, cfg, {
-    plantilla, baseHref: pathToFileURL(path.resolve(".") + path.sep).href, logoUrl: "assets/logo.png", ilustracionUrl: "tests/fixtures/no-existe.jpg",
+    plantilla, baseHref: pathToFileURL(path.resolve(".") + path.sep).href, logoUrl: "cuentas/sinlinea/logo.png", ilustracionUrl: "tests/fixtures/no-existe.jpg",
   });
   const rutaHtml = path.join("temp", "test-render", "negro-ilus-rota.html");
   fs.mkdirSync(path.dirname(rutaHtml), { recursive: true });
@@ -145,4 +149,24 @@ test("(M1) si la ilustración no decodifica, el post queda tipográfico (sin cla
   fs.rmSync(rutaHtml, { force: true });
   assert.equal(tieneClase, false);
   assert.equal(rotuloVisible, "none");
+});
+
+test("(M2) la plantilla usa los colores de la cuenta y, sin logo, un círculo con las iniciales en el color principal", async () => {
+  const personal = cargarConfiguracion(".").cuentas.find((c) => c.cuenta === "luiseskivelgolcher");
+  const m = await medir({ ...base, variante: "negro" }, { config: personal, logoUrl: null });
+  assert.equal(m.error, null);
+  assert.equal(m.barraColor, "rgb(31, 95, 191)", "la franja usa el acento de la cuenta (#1F5FBF)");
+  assert.equal(m.fondoColor, "rgb(22, 22, 22)", "el fondo negro usa el oscuro de la cuenta (#161616)");
+  assert.equal(m.fallbackTexto, "LEG");
+  assert.equal(m.fallbackColor, "rgb(233, 228, 218)", "el círculo usa el principal (#E9E4DA)");
+  const sl = await medir({ ...base, variante: "negro" });
+  assert.equal(sl.barraColor, "rgb(227, 6, 19)", "Sin Línea conserva su rojo");
+});
+
+test("(M2) renderizarPost devuelve imagen.estilo y difiere entre cuentas", async () => {
+  const personal = cargarConfiguracion(".").cuentas.find((c) => c.cuenta === "luiseskivelgolcher");
+  const a = await renderizarPost(base, { config: cfg, navegador, destino: path.join("temp", "test-render", "estilo-sl.jpg") });
+  const b = await renderizarPost({ ...base, cuenta: "luiseskivelgolcher" }, { config: personal, navegador, destino: path.join("temp", "test-render", "estilo-leg.jpg") });
+  assert.match(a.estilo, /^[0-9a-f]{16}$/);
+  assert.notEqual(a.estilo, b.estilo);
 });

@@ -33,6 +33,8 @@ jobs:
         env:
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_ACCESS_TOKEN_LUISESKIVELGOLCHER: ${{ secrets.IG_ACCESS_TOKEN_LUISESKIVELGOLCHER }}
+          IG_USER_ID_LUISESKIVELGOLCHER: ${{ secrets.IG_USER_ID_LUISESKIVELGOLCHER }}
         run: node src/publicar.mjs
 
       - name: Guardar cambios en el repositorio

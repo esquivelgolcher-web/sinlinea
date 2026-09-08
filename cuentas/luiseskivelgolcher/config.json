@@ -1,0 +1,20 @@
+{
+  "nombre": "Luis Eskivel Golcher",
+  "idioma": "es-PA",
+  "automatico": { "generar": false, "publicar": false },
+  "marca": {
+    "nombre": "Luis Eskivel Golcher",
+    "usuario": "@luiseskivelgolcher",
+    "lema": "",
+    "colores": { "principal": "#E9E4DA", "acento": "#1F5FBF", "oscuro": "#161616", "claro": "#FFFFFF" }
+  },
+  "fuentes": [],
+  "generar": { "maxPorCorrida": 1, "maxBorradoresPorDia": 2, "candidatosMax": 10, "diasSinRepetir": 3, "maxHorasAntiguedad": 48 },
+  "franjas": ["12:00", "18:00"],
+  "ilustraciones": {
+    "activo": false,
+    "estilo": "Pendiente de definir: estilo visual de la cuenta personal.",
+    "rotulo": "Ilustración generada con IA"
+  },
+  "instagram": { "tokenSecreto": "IG_ACCESS_TOKEN_LUISESKIVELGOLCHER", "usuarioIdSecreto": "IG_USER_ID_LUISESKIVELGOLCHER" }
+}

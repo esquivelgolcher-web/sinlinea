@@ -5,7 +5,7 @@ import { pathToFileURL } from "node:url";
 import { cargarConfiguracion } from "./lib/config.mjs";
 import { leerPosts, escribirPost, urlImagen, rutaIlustracion, CUENTA_LEGADO } from "./lib/posts.mjs";
 import { imagenDesactualizada, renderOk, marcarError, necesitaIlustracion, necesitaEscena, hashTexto } from "./lib/estados.mjs";
-import { versionPlantilla, RUTA_PLANTILLA, abrirNavegador, renderizarPost } from "./lib/render.mjs";
+import { versionPlantilla, RUTA_PLANTILLA, RUTA_LOGO, abrirNavegador, renderizarPost, estiloVisual } from "./lib/render.mjs";
 import { crearIlustrador, guardarIlustracion, sanearMensaje } from "./lib/ilustrador.mjs";
 import { acortarTextos, escribirEscena } from "./lib/redactor.mjs";
 import { renderizarConAjuste } from "./lib/texto.mjs";
@@ -13,10 +13,12 @@ import Anthropic from "@anthropic-ai/sdk";
 import { todasFallaron, anotarFallos, resumirResultados } from "./lib/corrida.mjs";
 import { ocultarSecretos } from "./lib/secretos.mjs";
 
-export async function ejecutarRegenerar({ config, raiz = process.cwd(), ahora = new Date(), render, log = console, version, ilustrador = null, guardar = guardarIlustracion, acortar = null, redactarEscena = null }) {
+export async function ejecutarRegenerar({ config, raiz = process.cwd(), ahora = new Date(), render, log = console, version, ilustrador = null, guardar = guardarIlustracion, acortar = null, redactarEscena = null, estiloActual = null }) {
   const dir = path.join(raiz, "posts");
   const iso = ahora.toISOString();
   const actual = version ?? versionPlantilla(fs.readFileSync(path.join(raiz, RUTA_PLANTILLA), "utf8"));
+  const rutaLogo = config.rutas?.logo || RUTA_LOGO;
+  const estilo = estiloActual ?? estiloVisual(config, fs.existsSync(path.join(raiz, rutaLogo)) ? rutaLogo : null);
   const cuenta = config.cuenta || CUENTA_LEGADO;
   const opcionesLectura = { cuentaPorDefecto: config.cuentaPrincipal || CUENTA_LEGADO };
   // Solo los posts de esta cuenta; los antiguos sin campo `cuenta` pertenecen a la cuenta principal.
@@ -78,6 +80,7 @@ export async function ejecutarRegenerar({ config, raiz = process.cwd(), ahora = 
     imagenDesactualizada(p, actual)
     || (p.estado === "error" && p.error?.paso === "render")
     || (p.imagen && p.imagen.url !== urlImagen(config.pages.baseUrl, p.id))
+    || (typeof p.imagen?.estilo === "string" && p.imagen.estilo !== estilo) // cambió la paleta o el logo de la cuenta
     || regeneradas.has(p.id));
   const resultado = { renderizados: [], fallidos: [] };
   if (!pendientes.length) { log.info("Ninguna imagen que regenerar."); return resultado; }

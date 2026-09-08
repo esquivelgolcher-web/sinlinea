@@ -188,3 +188,11 @@ test("(M1) nuevoId incluye la cuenta y crearPost guarda el campo cuenta", () => 
   escribirPostM1(dir, post);
   assert.equal(JSON.parse(fs.readFileSync(path.join(dir, `${post.id}.json`), "utf8")).cuenta, "prueba");
 });
+
+test("(M2) validarPost acepta imagen.estilo opcional (texto) y rechaza otros tipos", () => {
+  const base = JSON.parse(fs.readFileSync("tests/fixtures/post-ejemplo.json", "utf8"));
+  const conImagen = { ...base, imagen: { ruta: "public/img/x.jpg", url: "https://u/img/x.jpg", hash: "0".repeat(16), version: 7, renderizada: base.creado } };
+  assert.doesNotThrow(() => validarPostM1(conImagen));
+  assert.doesNotThrow(() => validarPostM1({ ...conImagen, imagen: { ...conImagen.imagen, estilo: "abcd" } }));
+  assert.throws(() => validarPostM1({ ...conImagen, imagen: { ...conImagen.imagen, estilo: 5 } }), /estilo/);
+});

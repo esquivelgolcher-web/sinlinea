@@ -64,6 +64,13 @@ export function crearClienteInstagram({
     return r.permalink || "";
   }
 
+  // Identidad del token: usuario y si el id numérico coincide con el configurado.
+  async function perfil() {
+    const r = await llamar("GET", `${base}/me`, { fields: "user_id,username" });
+    const userId = String(r.user_id || r.id || "");
+    return { username: String(r.username || ""), userId, coincideId: usuarioId ? userId === String(usuarioId) : undefined };
+  }
+
   async function cuota() {
     const r = await llamar("GET", `${base}/${usuarioId}/content_publishing_limit`, { fields: "quota_usage,config" });
     const d = r.data?.[0] || {};
@@ -93,5 +100,5 @@ export function crearClienteInstagram({
     return { idMedia, permalink: await permalink(idMedia) };
   }
 
-  return { crearContenedor, esperarContenedor, publicar, permalink, cuota, refrescarToken, imagenPublica, publicarImagen };
+  return { crearContenedor, esperarContenedor, publicar, permalink, cuota, refrescarToken, imagenPublica, publicarImagen, perfil };
 }

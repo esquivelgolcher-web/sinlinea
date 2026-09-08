@@ -18,7 +18,10 @@ Si hay más de una cuenta configurada, arriba de las pestañas aparecen sus nomb
 toca uno para ver y aprobar solo los posts de esa cuenta. El panel recuerda la
 última cuenta elegida en ese dispositivo. Al aprobar, las franjas horarias son las
 de la cuenta del post, y dos cuentas pueden publicar a la misma hora. Cada
-aprobación publica en la cuenta de Instagram de ese post, nunca en otra.
+aprobación publica en la cuenta de Instagram de ese post, nunca en otra. Antes
+de publicar, el sistema confirma con la API que la credencial pertenece a esa
+cuenta; si no coincide, no publica y lo avisa. Si una cuenta muestra la nota
+"está desactivada…", sus posts aprobados quedan en cola hasta que se active.
 
 En cada tarjeta puedes:
 - Editar titular, bajada, categoría, variante de color, caption y hashtags.

@@ -13,6 +13,7 @@ body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, san
 .config input { display: block; width: 100%; margin-top: 4px; padding: 10px; font-size: 16px; border: 1px solid var(--gris-2); border-radius: 8px; }
 .cuentas { display: flex; gap: 6px; padding: 10px 12px 0; overflow-x: auto; }
 .cuentas[hidden] { display: none; }
+.nota-cuenta { margin: 8px 12px 0; padding: 8px 10px; border-radius: 8px; background: #eef2f7; color: #334; font-size: 13px; }
 .cuentas button { flex: 0 0 auto; padding: 6px 12px; border-radius: 8px; border: 1px solid var(--negro); background: #fff; font: inherit; font-size: 14px; font-weight: 600; }
 .cuentas button.activa { background: var(--amarillo); color: var(--negro); }
 .pestanas { display: flex; gap: 6px; padding: 10px 12px; overflow-x: auto; }

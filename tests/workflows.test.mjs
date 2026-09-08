@@ -2,6 +2,8 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
 import { parse } from "yaml";
+import { cargarConfiguracion } from "../src/lib/config.mjs";
+import { nombresDeSecretos } from "../src/lib/secretos.mjs";
 
 const leer = (n) => fs.readFileSync(`.github/workflows/${n}.yml`, "utf8");
 const wf = (n) => parse(leer(n));
@@ -89,4 +91,28 @@ test("(M0) verificar es manual, solo lectura, expone todos los secretos como var
   assert.match(texto, /node src\/verificar\.mjs/);
   assert.equal(/upload-artifact/.test(texto), false);
   assert.equal(/git push/.test(texto), false);
+});
+
+test("(M2) los workflows exponen los secretos de Instagram de cada cuenta declarada", () => {
+  const { cuentas } = cargarConfiguracion(".");
+  assert.ok(cuentas.length >= 2);
+  for (const c of cuentas) {
+    const n = nombresDeSecretos(c);
+    for (const wf of ["publicar", "renovar-token", "verificar", "probar-instagram"]) {
+      const texto = leer(wf);
+      for (const nombre of [n.token, n.usuarioId]) {
+        assert.match(texto, new RegExp(`${nombre}: \\$\\{\\{ secrets\\.${nombre} \\}\\}`), `${wf} debe exponer ${nombre} para la cuenta ${c.cuenta}`);
+      }
+    }
+  }
+});
+
+test("(M2) probar-instagram es manual, de solo lectura, acepta la cuenta como entrada y no escribe en el repo", () => {
+  const v = wf("probar-instagram");
+  assert.deepEqual(Object.keys(v.on), ["workflow_dispatch"]);
+  assert.ok(v.on.workflow_dispatch.inputs.cuenta, "entrada cuenta");
+  assert.equal(v.permissions.contents, "read");
+  const texto = leer("probar-instagram");
+  assert.match(texto, /node src\/probar-instagram\.mjs/);
+  assert.equal(/git push|upload-artifact/.test(texto), false);
 });

@@ -10,13 +10,17 @@ const TIPOS_FUENTE = ["rss", "portada"];
 export const RE_ID_CUENTA = /^[a-z0-9][a-z0-9-]*$/;
 const RE_IDIOMA = /^[a-z]{2}(-[A-Z]{2})?$/;
 export const IDIOMA_POR_DEFECTO = "es-PA";
+export const COLORES_POR_DEFECTO = Object.freeze({ principal: "#FFD400", acento: "#E30613", oscuro: "#111111", claro: "#FFFFFF" });
+export const AUTOMATICO_POR_DEFECTO = Object.freeze({ generar: true, publicar: true });
+const RE_COLOR = /^#[0-9A-Fa-f]{6}$/;
 
 function exigir(cond, mensaje, archivo = "config.json") {
   if (!cond) throw new Error(`${archivo}: ${mensaje}`);
 }
 
-function validarFuentes(fuentes, archivo) {
-  exigir(Array.isArray(fuentes) && fuentes.length > 0, "fuentes debe tener al menos una fuente", archivo);
+function validarFuentes(fuentes, archivo, { permitirVacio = false } = {}) {
+  exigir(Array.isArray(fuentes), "fuentes debe ser una lista", archivo);
+  exigir(fuentes.length > 0 || permitirVacio, "fuentes debe tener al menos una fuente (o apaga automatico.generar)", archivo);
   fuentes.forEach((f, i) => {
     exigir(typeof f.nombre === "string" && f.nombre, `fuentes[${i}].nombre es obligatorio`, archivo);
     exigir(TIPOS_FUENTE.includes(f.tipo), `fuentes[${i}].tipo debe ser rss o portada`, archivo);
@@ -51,6 +55,20 @@ function validarMarca(marca, archivo) {
   exigir(typeof marca?.nombre === "string" && marca.nombre, "marca.nombre es obligatorio", archivo);
   exigir(typeof marca?.usuario === "string" && marca.usuario.startsWith("@"), "marca.usuario debe empezar con @", archivo);
   exigir(typeof marca?.lema === "string", "marca.lema es obligatorio", archivo);
+  if (marca.colores !== undefined) {
+    exigir(marca.colores && typeof marca.colores === "object", "marca.colores debe ser un objeto", archivo);
+    for (const k of Object.keys(COLORES_POR_DEFECTO)) {
+      exigir(typeof marca.colores[k] === "string" && RE_COLOR.test(marca.colores[k]), `marca.colores.${k} es obligatorio y debe ser un color #RRGGBB`, archivo);
+    }
+  }
+}
+
+function validarAutomatico(a, archivo) {
+  if (a === undefined) return;
+  exigir(a && typeof a === "object", "automatico debe ser un objeto", archivo);
+  for (const k of Object.keys(AUTOMATICO_POR_DEFECTO)) {
+    if (a[k] !== undefined) exigir(typeof a[k] === "boolean", `automatico.${k} debe ser true o false`, archivo);
+  }
 }
 
 function validarSecretosInstagram(ig, archivo) {
@@ -98,7 +116,7 @@ export function validarGlobal(g) {
   return g;
 }
 
-export const CLAVES_DE_CUENTA = ["nombre", "idioma", "zonaHoraria", "marca", "fuentes", "generar", "franjas", "ilustraciones", "instagram"];
+export const CLAVES_DE_CUENTA = ["nombre", "idioma", "zonaHoraria", "automatico", "marca", "fuentes", "generar", "franjas", "ilustraciones", "instagram"];
 const CLAVES_SOLO_GLOBALES = ["pages", "claude", "archivarDespuesDeDias", "cuentas"];
 
 // Configuración de una cuenta (cuentas/<id>/config.json).
@@ -110,8 +128,9 @@ export function validarCuenta(c, id) {
   exigir(typeof c.nombre === "string" && c.nombre.trim(), "nombre es obligatorio", archivo);
   if (c.idioma !== undefined) exigir(typeof c.idioma === "string" && RE_IDIOMA.test(c.idioma), `idioma "${c.idioma}" debe tener la forma xx o xx-XX (p. ej. es-PA)`, archivo);
   if (c.zonaHoraria !== undefined) exigir(typeof c.zonaHoraria === "string" && c.zonaHoraria, "zonaHoraria debe ser texto", archivo);
+  validarAutomatico(c.automatico, archivo);
   validarMarca(c.marca, archivo);
-  validarFuentes(c.fuentes, archivo);
+  validarFuentes(c.fuentes, archivo, { permitirVacio: c.automatico?.generar === false });
   validarGenerar(c.generar, archivo);
   validarFranjas(c.franjas, archivo);
   validarIlustracionesCuenta(c.ilustraciones, archivo);
@@ -122,9 +141,10 @@ export function validarCuenta(c, id) {
 // Configuración efectiva: la forma "de siempre" (una sola cuenta) más cuenta, nombre, idioma y rutas.
 export function validarConfig(cfg) {
   exigir(cfg && typeof cfg === "object", "debe ser un objeto");
+  validarAutomatico(cfg.automatico, "config.json");
   validarMarca(cfg.marca, "config.json");
   validarComunes(cfg, "config.json");
-  validarFuentes(cfg.fuentes, "config.json");
+  validarFuentes(cfg.fuentes, "config.json", { permitirVacio: cfg.automatico?.generar === false });
   validarGenerar(cfg.generar, "config.json");
   validarFranjas(cfg.franjas, "config.json");
   validarSecretosInstagram(cfg.instagram, "config.json");
@@ -153,6 +173,8 @@ export function configDeCuenta(global, cuenta, id) {
     cuentaPrincipal: global.cuentas[0],
     nombre: cuenta.nombre,
     idioma: cuenta.idioma || IDIOMA_POR_DEFECTO,
+    automatico: { ...AUTOMATICO_POR_DEFECTO, ...(cuenta.automatico || {}) },
+    marca: { ...cuenta.marca, colores: { ...COLORES_POR_DEFECTO, ...(cuenta.marca.colores || {}) } },
     zonaHoraria: cuenta.zonaHoraria || global.zonaHoraria,
     instagram: { apiVersion: global.instagram.apiVersion, ...cuenta.instagram },
     ilustraciones: { ...global.ilustraciones, ...cuenta.ilustraciones },
@@ -203,6 +225,6 @@ export function resumenParaPanel(cuentas) {
     zonaHoraria: principal.zonaHoraria,
     franjas: principal.franjas,
     marca: principal.marca,
-    cuentas: cuentas.map((c) => ({ id: c.cuenta, nombre: c.nombre, idioma: c.idioma, zonaHoraria: c.zonaHoraria, marca: c.marca, franjas: c.franjas })),
+    cuentas: cuentas.map((c) => ({ id: c.cuenta, nombre: c.nombre, idioma: c.idioma, zonaHoraria: c.zonaHoraria, marca: c.marca, franjas: c.franjas, automatico: c.automatico })),
   };
 }

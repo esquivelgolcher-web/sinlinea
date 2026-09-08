@@ -36,8 +36,25 @@ export async function ejecutarPublicar({ config, raiz = process.cwd(), ahora = n
   const listos = leerPosts(dir, { cuentaPorDefecto: config.cuentaPrincipal || CUENTA_LEGADO })
     .filter((p) => p.cuenta === cuenta && p.estado === "programado" && Date.parse(p.programado) <= ahora.getTime())
     .sort((a, b) => Date.parse(a.programado) - Date.parse(b.programado));
+  if (config.automatico?.publicar === false) {
+    log.info(`Cuenta ${cuenta}: publicación automática desactivada (automatico.publicar); ${listos.length} programado(s) quedan en cola.`);
+    return { ...resumen, motivo: "publicar-desactivado", pospuestos: listos.map((p) => p.id) };
+  }
   avisarToken(raiz, ahora, config, log);
   if (!listos.length) { log.info("Nada que publicar."); return resumen; }
+
+  // Identidad: el token debe pertenecer a la cuenta configurada (usuario y, si se conoce, id numérico).
+  if (typeof ig.perfil === "function") {
+    const esperado = String(config.marca.usuario).replace(/^@/, "").toLowerCase();
+    const perfil = await ig.perfil();
+    const usuario = String(perfil.username || "").toLowerCase();
+    if (usuario !== esperado || perfil.coincideId === false) {
+      resumen.identidad = `la credencial pertenece a @${perfil.username || "?"}${perfil.coincideId === false ? " (id numérico distinto al secreto)" : ""}; se esperaba ${config.marca.usuario}`;
+      log.warn(`Cuenta ${cuenta}: identidad no coincide (${resumen.identidad}); no se publica nada.`);
+      return resumen;
+    }
+    resumen.identidad = "ok";
+  }
 
   const q = await ig.cuota();
   let disponibles = q.limite - q.usados;
@@ -95,6 +112,10 @@ export async function publicarCuentas({ configuracion, raiz = process.cwd(), aho
   }
   for (const config of configuracion.cuentas) {
     try {
+      if (config.automatico?.publicar === false) {
+        resultados[config.cuenta] = await ejecutarPublicar({ config, raiz, ahora, ig: null, log, dryRun });
+        continue;
+      }
       const ig = await igDe(config);
       resultados[config.cuenta] = await ejecutarPublicar({ config, raiz, ahora, ig, log, dryRun });
     } catch (err) {

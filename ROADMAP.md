@@ -22,7 +22,14 @@ configurable por cuenta (`idioma`, `es-PA` por defecto).
   la de M2, y ejecutar `npm test`.
 - **Pendiente del operador**: crear `GH_PAT`, activar `renovar-token.yml` y
   lanzarlo una vez (el token de Instagram vence el 2026-11-07).
-- **Siguiente**: M2 (segunda cuenta real). Ver "Pendientes que deja M1" abajo.
+- **M2 en curso** (rama `m2-cuentas`, sin push): segunda cuenta
+  `luiseskivelgolcher` (@luiseskivelgolcher) dada de alta con configuración
+  propia, automatización apagada (`automatico.generar/publicar = false`),
+  colores por cuenta en la plantilla, secretos por cuenta en los workflows,
+  verificación de identidad contra la API antes de publicar y workflow manual
+  "Probar Instagram". Pendiente del operador: conectar la cuenta (docs/
+  CONFIGURACION.md §6c, pasos 2-8) y definir su línea editorial, fuentes, logo y
+  colores definitivos. Suites: 221 unitarias, 14 de render, 9 del panel.
 
 Estimaciones en días de trabajo de una persona con el flujo actual (pruebas,
 revisión y despliegue incluidos).
@@ -183,6 +190,18 @@ precisiones:
 **Criterios de aceptación.** Un post de la segunda cuenta publicado desde el
 panel con su marca; la cuenta `sinlinea` sin cambios visibles; un fallo de
 token en una cuenta no afecta a la otra.
+
+**Estado (2026-09-08).** Hecho en código y probado sin publicar: colores por
+cuenta (`marca.colores`, variables CSS; iniciales cuando no hay logo;
+`imagen.estilo` para re-dibujar si cambia la paleta), `automatico` por cuenta,
+secretos de la cuenta nueva en `publicar.yml`, `renovar-token.yml`,
+`verificar.yml` y `probar-instagram.yml`, comprobación de identidad (`/me`:
+usuario e id numérico) en PUBLICAR y en el workflow manual "Probar Instagram",
+nota en el panel cuando la automatización está apagada. Falta lo que solo el
+operador puede hacer: cuenta profesional, probadora en la app de Meta, token,
+`user_id`, secretos, prueba de identidad, y definir editorial/fuentes/logo/
+colores antes de encender `automatico`. Los posts de esta cuenta, mientras
+esté apagada, se crean solo a mano (no hay generación) y no se publican.
 
 **Pruebas.** `render.integration.mjs` con dos marcas (colores y logo
 distintos en el JPEG); `workflows.test.mjs` verifica que los secretos por

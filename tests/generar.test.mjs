@@ -249,3 +249,18 @@ test("(despliegue) el error de una cuenta en generarCuentas se guarda y se regis
   assert.match(r.resultados.sinlinea.error, /\[secreto\]/);
   assert.ok(avisos.every((m) => !m.includes(clave)));
 });
+
+test("(M2) generarCuentas omite la cuenta con automatico.generar=false sin llamar a Claude ni tocar su historial", async () => {
+  const raiz = raizTemporal({ cuentas: ["sinlinea", "luiseskivelgolcher"] });
+  const configuracion = cargarConfiguracion(raiz);
+  let llamadas = 0;
+  const client = { messages: { parse: async (p) => { llamadas++; return { stop_reason: "end_turn", usage: { input_tokens: 1, output_tokens: 1 }, parsed_output: { descartados: [], seleccion: [
+    { indiceCandidato: 0, categoria: "SOCIEDAD", titular: "Titular", bajada: "Bajada", caption: "Caption", hashtags: ["#Panamá"], relevancia: 1, motivo: "m", escena: "" },
+  ] } }; } } };
+  const r = await generarCuentas({ configuracion, raiz, ahora, fetchText, client, render: renderOkFalso, log });
+  assert.equal(r.resultados.sinlinea.creados.length, 1);
+  assert.equal(r.resultados.luiseskivelgolcher.motivo, "generar-desactivado");
+  assert.deepEqual(r.resultados.luiseskivelgolcher.creados, []);
+  assert.equal(llamadas, 1);
+  assert.equal(fs.readFileSync(path.join(raiz, "data/luiseskivelgolcher/seen.json"), "utf8"), '{ "urls": {} }\n');
+});

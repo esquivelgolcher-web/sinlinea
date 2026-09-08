@@ -270,3 +270,14 @@ test("(despliegue) el error de una cuenta en regenerarCuentas se guarda sin toke
   assert.equal(r.resultados.sinlinea.error.includes(token), false);
   assert.match(r.resultados.sinlinea.error, /\[secreto\]/);
 });
+
+test("(M2) REGENERAR vuelve a dibujar un post cuyo imagen.estilo no coincide con los colores/logo actuales de la cuenta; sin estilo guardado no lo toca", async () => {
+  const conEstilo = { ...base, id: base.id.slice(0, -4) + "0901", imagen: { ...imagenDe({ ...base, id: base.id.slice(0, -4) + "0901" }), estilo: "0000000000000000" } };
+  const sinEstilo = { ...base, id: base.id.slice(0, -4) + "0902", imagen: imagenDe({ ...base, id: base.id.slice(0, -4) + "0902" }) };
+  const raiz = dirCon([conEstilo, sinEstilo]);
+  const r = await ejecutarRegenerar({ config: cfg, raiz, ahora, render: async (p) => ({ ...imagenDe(p), estilo: "1111111111111111" }), log, version: 1, estiloActual: "1111111111111111" });
+  assert.deepEqual(r.renderizados, [conEstilo.id]);
+  const posts = Object.fromEntries(leerPosts(path.join(raiz, "posts")).map((p) => [p.id, p]));
+  assert.equal(posts[conEstilo.id].imagen.estilo, "1111111111111111");
+  assert.equal(posts[sinEstilo.id].imagen.estilo, undefined);
+});

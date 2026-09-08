@@ -24,10 +24,11 @@ function raizCon(posts, tokenInfo = { vence: "2026-11-01" }) {
   return raiz;
 }
 
-function igFalso({ cuota = { usados: 0, limite: 100 }, publica = true, fallo = null } = {}) {
+function igFalso({ cuota = { usados: 0, limite: 100 }, publica = true, fallo = null, perfil = "sinlinea.pa" } = {}) {
   const llamadas = [];
   return {
     llamadas,
+    perfil: async () => ({ username: perfil, userId: "1784" }),
     cuota: async () => cuota,
     imagenPublica: async (u) => { llamadas.push(["head", u]); return publica; },
     publicarImagen: async ({ imageUrl, caption }) => {
@@ -129,7 +130,7 @@ test("(M1) una aprobación publica en la cuenta correcta: cada cliente de Instag
   const antiguo = conImagen(aprobar({ ...base, id: base.id.slice(0, -4) + "0703" }, "2026-09-07T17:00:00-05:00", iso)); // sin cuenta → principal
   for (const p of [deSinlinea, dePrueba, antiguo]) escribirPost(path.join(raiz, "posts"), p);
   const igSinlinea = igFalso();
-  const igPrueba = igFalso();
+  const igPrueba = igFalso({ perfil: "prueba.diario" });
   const r = await publicarCuentas({ configuracion, raiz, ahora, log, igDe: (config) => (config.cuenta === "sinlinea" ? igSinlinea : igPrueba) });
   assert.deepEqual(r.resultados.sinlinea.publicados.sort(), [deSinlinea.id, antiguo.id].sort());
   assert.deepEqual(r.resultados.prueba.publicados, [dePrueba.id]);
@@ -147,7 +148,7 @@ test("(M1) un fallo o un secreto ausente en una cuenta no bloquea la publicació
   const a = conImagen(aprobar({ ...base, id: base.id.slice(0, -4) + "0711", cuenta: "sinlinea" }, "2026-09-07T17:00:00-05:00", iso));
   const b = conImagen(aprobar({ ...base, id: base.id.slice(0, -4) + "0712", cuenta: "prueba" }, "2026-09-07T17:00:00-05:00", iso));
   for (const p of [a, b]) escribirPost(path.join(raiz, "posts"), p);
-  const igPrueba = igFalso();
+  const igPrueba = igFalso({ perfil: "prueba.diario" });
   const avisos = [];
   const r = await publicarCuentas({
     configuracion, raiz, ahora, log: { info: () => {}, warn: (m) => avisos.push(m), error: (m) => avisos.push(m) },
@@ -166,4 +167,38 @@ test("(M1) el aviso de vencimiento lee data/<cuenta>/token-info.json", async () 
   const avisos = [];
   await ejecutarPublicar({ config: cfg, raiz, ahora, ig: igFalso(), log: { info: () => {}, warn: (m) => avisos.push(m) } });
   assert.ok(avisos.some((m) => /vence en/.test(m)), avisos.join(" | "));
+});
+
+test("(M2) publicarCuentas no publica en una cuenta con automatico.publicar=false: sus programados quedan intactos y no se toca su cliente", async () => {
+  const raiz = raizConCuentas({ cuentas: ["sinlinea", "luiseskivelgolcher"], prefijo: "pub-m2-" });
+  const configuracion = cargarConfiguracion(raiz);
+  for (const c of ["sinlinea", "luiseskivelgolcher"]) fs.writeFileSync(path.join(raiz, "data", c, "token-info.json"), JSON.stringify({ vence: "2026-11-01" }));
+  const iso = "2026-09-07T20:00:00.000Z";
+  const a = conImagen(aprobar({ ...base, id: base.id.slice(0, -4) + "0801", cuenta: "sinlinea" }, "2026-09-07T17:00:00-05:00", iso));
+  const b = conImagen(aprobar({ ...base, id: base.id.slice(0, -4) + "0802", cuenta: "luiseskivelgolcher" }, "2026-09-07T17:00:00-05:00", iso));
+  for (const p of [a, b]) escribirPost(path.join(raiz, "posts"), p);
+  const igPersonal = igFalso();
+  let clientesCreados = 0;
+  const r = await publicarCuentas({ configuracion, raiz, ahora, log, igDe: (config) => { clientesCreados++; return config.cuenta === "sinlinea" ? igFalso({ perfil: "sinlinea.pa" }) : igPersonal; } });
+  assert.deepEqual(r.resultados.sinlinea.publicados, [a.id]);
+  assert.equal(r.resultados.luiseskivelgolcher.motivo, "publicar-desactivado");
+  assert.deepEqual(igPersonal.llamadas, []);
+  assert.equal(clientesCreados, 1, "no se crea cliente para la cuenta apagada");
+  assert.equal(leerPosts(path.join(raiz, "posts")).find((p) => p.id === b.id).estado, "programado");
+});
+
+test("(M2) antes de publicar se comprueba la identidad de la cuenta con la API: si el usuario no coincide no se publica nada", async () => {
+  const p = conImagen(aprobar(base, "2026-09-07T17:00:00-05:00", "2026-09-07T20:00:00.000Z"));
+  const raiz = raizCon([p]);
+  const avisos = [];
+  const ig = igFalso({ perfil: "otra.cuenta" });
+  const r = await ejecutarPublicar({ config: cfg, raiz, ahora, ig, log: { info: () => {}, warn: (m) => avisos.push(m) } });
+  assert.deepEqual(r.publicados, []);
+  assert.equal(ig.llamadas.some((l) => l[0] === "publicar"), false);
+  assert.match(r.identidad, /otra\.cuenta/);
+  assert.ok(avisos.some((m) => /identidad|no coincide/i.test(m)));
+  assert.equal(leerPosts(path.join(raiz, "posts"))[0].estado, "programado", "el post sigue en cola");
+  const bien = igFalso({ perfil: "sinlinea.pa" });
+  const r2 = await ejecutarPublicar({ config: cfg, raiz, ahora, ig: bien, log });
+  assert.deepEqual(r2.publicados, [p.id]);
 });

@@ -30,6 +30,14 @@ export async function ejecutarGenerar({ config, raiz = process.cwd(), ahora = ne
   const rutaEditorial = path.join(raiz, config.rutas?.editorial || path.join("prompts", "editorial.md"));
 
   // Solo cuentan los posts de esta cuenta (cupo, repetición de temas, rotación de variantes).
+  if (config.automatico?.generar === false) {
+    log.info(`Cuenta ${cuenta}: generación automática desactivada (automatico.generar); no se llama a Claude.`);
+    return { creados: [], motivo: "generar-desactivado" };
+  }
+  if (!config.fuentes.length) {
+    log.info(`Cuenta ${cuenta}: sin fuentes configuradas; nada que generar.`);
+    return { creados: [], motivo: "sin-fuentes" };
+  }
   const posts = leerPosts(dirReal, { cuentaPorDefecto: config.cuentaPrincipal || CUENTA_LEGADO }).filter((p) => p.cuenta === cuenta);
   let vistas = purgarVistas(cargarVistas(rutaVistas), hoy);
 

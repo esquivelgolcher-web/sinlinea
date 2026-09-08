@@ -176,3 +176,31 @@ test("(M1) con dos cuentas el selector filtra las tarjetas, cuenta por cuenta, r
     servidor2.close();
   }
 });
+
+test("(M2) la cuenta personal aparece en el selector y muestra la nota de automatización apagada", async () => {
+  const raiz3 = raizConCuentas({ cuentas: ["sinlinea", "luiseskivelgolcher"], prefijo: "e2e3-" });
+  for (const d of ["templates", "panel", "src/lib", "public/img", "assets", "tests/fixtures"]) fs.mkdirSync(path.join(raiz3, d), { recursive: true });
+  fs.copyFileSync("templates/post.html", path.join(raiz3, "templates/post.html"));
+  fs.copyFileSync("tests/fixtures/post-ejemplo.json", path.join(raiz3, "tests/fixtures/post-ejemplo.json"));
+  for (const f of fs.readdirSync("panel")) fs.copyFileSync(path.join("panel", f), path.join(raiz3, "panel", f));
+  for (const f of fs.readdirSync("src/lib")) fs.copyFileSync(path.join("src/lib", f), path.join(raiz3, "src/lib", f));
+  const base0 = JSON.parse(fs.readFileSync("tests/fixtures/post-ejemplo.json", "utf8"));
+  fs.writeFileSync(path.join(raiz3, "posts", `${base0.id}.json`), JSON.stringify(base0, null, 2));
+  fs.writeFileSync(path.join(raiz3, "data/sinlinea/token-info.json"), '{ "vence": "2026-11-01" }');
+  const servidor3 = crearServidor({ raiz: raiz3 });
+  await new Promise((r) => servidor3.listen(0, "127.0.0.1", r));
+  const base3 = `http://127.0.0.1:${servidor3.address().port}`;
+  const page = await navegador.newPage({ viewport: { width: 400, height: 800 } });
+  try {
+    await page.goto(`${base3}/panel/`);
+    await page.waitForSelector(".tarjeta");
+    assert.equal(await page.isHidden("#nota-cuenta"), true, "Sin Línea no muestra la nota");
+    await page.click("#cuentas >> text=Luis Eskivel Golcher");
+    await page.waitForSelector("#nota-cuenta:not([hidden])");
+    assert.match(await page.textContent("#nota-cuenta"), /desactivad/i);
+    assert.match(await page.textContent("#pestanas"), /Borradores \(0\)/);
+  } finally {
+    await page.close();
+    servidor3.close();
+  }
+});

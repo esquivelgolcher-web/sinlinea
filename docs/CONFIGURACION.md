@@ -87,6 +87,8 @@ claves (`src/lib/secretos.mjs`).
 | `GEMINI_API_KEY` | sí, si `ilustraciones.activo` es `true` | GENERAR y REGENERAR (ilustraciones), Probar Gemini | §10 |
 | `IG_ACCESS_TOKEN` | sí | PUBLICAR, RENOVAR TOKEN | §4 |
 | `IG_USER_ID` | sí | PUBLICAR, RENOVAR TOKEN | §4 |
+| `IG_ACCESS_TOKEN_LUISESKIVELGOLCHER` | cuando se active la cuenta | PUBLICAR, RENOVAR TOKEN, Probar Instagram | §6c |
+| `IG_USER_ID_LUISESKIVELGOLCHER` | cuando se active la cuenta | PUBLICAR, RENOVAR TOKEN, Probar Instagram | §6c |
 | `GH_PAT` | no (pero sin él el token de Instagram no se renueva solo) | RENOVAR TOKEN | §5 |
 
 Los nombres de los secretos de Instagram se declaran en la configuración de cada
@@ -128,20 +130,59 @@ a ella pertenecen los posts anteriores al soporte multi-cuenta) y lo compartido
 `data/<id>/` (`seen.json`, `token-info.json`); los posts siguen todos en
 `posts/`, con el campo `cuenta` en los nuevos.
 
-Para añadir una cuenta (el alta completa con su app de Meta se detalla en el
-hito M2 del ROADMAP):
+Cada cuenta tiene además:
 
-1. Copia `cuentas/sinlinea/` a `cuentas/<id>/` y edita `config.json`,
-   `editorial.md` y `logo.png`. En `instagram` pon `IG_ACCESS_TOKEN_<ID>` e
-   `IG_USER_ID_<ID>` (id en mayúsculas, guiones → `_`).
-2. Crea esos dos secretos en GitHub con el token y el id de esa cuenta, y añade
-   sus nombres al `env` de `publicar.yml`, `renovar-token.yml` y `verificar.yml`
-   (hoy solo exponen los de la cuenta principal; M2 lo automatiza).
-3. Añade el id a `cuentas` en `config.json` de la raíz y crea `data/<id>/` con
-   `seen.json` (`{ "urls": {} }`) y `token-info.json` (`{ "vence": "AAAA-MM-DD" }`).
-4. Ejecuta `npm run verificar` o el workflow "Verificar configuración y
-   secretos": debe listar la cuenta con todo en OK.
-5. El panel mostrará el selector de cuentas automáticamente.
+- `automatico`: `{ "generar": true|false, "publicar": true|false }` (ambos `true`
+  si no se indica). Con `generar: false` Claude no redacta posts para la cuenta;
+  con `publicar: false` sus posts aprobados quedan en cola y no se publican.
+  Sirve para dar de alta una cuenta y probarla antes de encenderla.
+- `marca.colores`: `{ "principal", "acento", "oscuro", "claro" }` en `#RRGGBB`
+  (la paleta de Sin Línea por defecto). Si cambian, REGENERAR vuelve a dibujar
+  los posts activos de esa cuenta.
+- Sin `logo.png`, la imagen muestra un círculo con las iniciales de `marca.nombre`.
+
+**Identidad antes de publicar.** PUBLICAR consulta `/me` con el token de cada
+cuenta y solo publica si el usuario devuelto coincide con `marca.usuario` y el
+`user_id` con el secreto de id numérico. Si no coinciden, no publica y lo anota
+en el resumen de la corrida. El workflow manual **Probar Instagram** hace la misma
+comprobación sin publicar (entrada `cuenta`, vacío = todas).
+
+### Alta de una cuenta nueva (ejemplo: `luiseskivelgolcher`)
+
+1. Carpeta `cuentas/luiseskivelgolcher/` con `config.json` (ya creada, con
+   `automatico.generar` y `automatico.publicar` en `false`, colores provisionales,
+   sin fuentes y con `instagram.tokenSecreto` = `IG_ACCESS_TOKEN_LUISESKIVELGOLCHER`
+   y `usuarioIdSecreto` = `IG_USER_ID_LUISESKIVELGOLCHER`), `editorial.md`
+   (pendiente de definir) y, cuando exista, `logo.png`. `data/luiseskivelgolcher/`
+   con `seen.json` y `token-info.json`. El id está en `cuentas` del `config.json`
+   global y el panel ya la muestra en el selector.
+2. **Cuenta profesional.** En la app de Instagram: Configuración → Tipo de cuenta
+   → Cambiar a cuenta profesional (Creador o Empresa). Sin esto la API no puede
+   publicar ni identificar la cuenta.
+3. **Probadora de la app de Meta.** En https://developers.facebook.com → app
+   "Sin Línea" → App roles → Roles → Add people → Instagram Tester → usuario
+   `luiseskivelgolcher`. Acepta la invitación desde Instagram: Configuración →
+   Sitios web y permisos → Apps y sitios web → Invitaciones de tester.
+4. **Token.** En la app → Instagram → API setup with Instagram login → Add
+   account (inicia sesión con @luiseskivelgolcher) → Generate token, permisos
+   `instagram_business_basic` e `instagram_business_content_publish`. Copia el
+   token (larga duración, 60 días).
+5. **Id numérico.** El `@` no sirve como id. Abre en el navegador (sustituye
+   TOKEN por el token recién copiado):
+   `https://graph.instagram.com/v23.0/me?fields=user_id,username&access_token=TOKEN`
+   Comprueba que `username` sea `luiseskivelgolcher` y copia el valor de `user_id`.
+6. **Secretos.** Repo → Settings → Secrets and variables → Actions → New repository
+   secret: `IG_ACCESS_TOKEN_LUISESKIVELGOLCHER` (el token) e
+   `IG_USER_ID_LUISESKIVELGOLCHER` (el `user_id`). Los workflows ya exponen esos
+   nombres. Nunca pegues el token en el chat ni en archivos del repo.
+7. **Verificar identidad.** Actions → **Probar Instagram** → Run workflow con
+   `cuenta` = `luiseskivelgolcher`. Debe decir que la credencial pertenece a
+   `@luiseskivelgolcher` y que el id numérico coincide. Escribe en
+   `data/luiseskivelgolcher/token-info.json` la fecha de hoy más 60 días.
+8. **Encender.** Solo después de la prueba: define `editorial.md`, `fuentes`,
+   `franjas`, colores y logo definitivos, y pon `automatico.publicar` (y cuando
+   toque `automatico.generar`) en `true`. Mientras estén en `false`, la cuenta
+   puede editarse y aprobar posts en el panel sin que nada salga a Instagram.
 
 Si una cuenta tiene la configuración rota o le falta un secreto, esa cuenta se
 omite con un aviso en el registro y las demás siguen funcionando.
