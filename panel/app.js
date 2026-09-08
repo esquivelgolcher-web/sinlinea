@@ -306,6 +306,6 @@ configurarAlmacen();
 cargarConfigPanel().then(cargar);
 setInterval(() => {
   const hayRegenerando = estado.items.some((x) => ["borrador", "programado", "error"].includes(x.post.estado)
-    && (imagenDesactualizada(x.post) || generandoIlustracion(x.post.ilustracion)));
+    && (imagenDesactualizada(x.post) || generandoIlustracion(x.post.ilustracion) || regenerandoIlustracion(x.post.ilustracion)));
   if (hayRegenerando && !document.querySelector("dialog[open]") && estado.borradores.size === 0) cargar();
 }, 30000);
