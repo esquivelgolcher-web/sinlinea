@@ -93,3 +93,18 @@ test("(M2 fix) perfil() no acepta el id de app como sustituto de user_id: sin us
   const sinConfig = crearClienteInstagram({ token: "T", usuarioId: "", apiVersion: "v23.0", fetchImpl, dormir: async () => {} });
   assert.equal((await sinConfig.perfil()).coincideId, undefined);
 });
+
+test("(vigencia) vigencia() usa debug_token cuando existe y devuelve la fecha real; si no se puede, la marca como desconocida", async () => {
+  const conFecha = async (url) => {
+    if (/\/debug_token\?/.test(url)) return { ok: true, status: 200, json: async () => ({ data: { expires_at: 1762473600, is_valid: true } }) };
+    throw new Error("no esperado");
+  };
+  const ig = crearClienteInstagram({ token: "T", usuarioId: "1", apiVersion: "v23.0", fetchImpl: conFecha, dormir: async () => {} });
+  const v = await ig.vigencia();
+  assert.equal(v.vence, "2025-11-07");
+  assert.equal(v.origen, "debug_token");
+  const sinFin = crearClienteInstagram({ token: "T", usuarioId: "1", apiVersion: "v23.0", fetchImpl: async () => ({ ok: true, status: 200, json: async () => ({ data: { expires_at: 0, is_valid: true } }) }), dormir: async () => {} });
+  assert.deepEqual(await sinFin.vigencia(), { vence: null, origen: "sin-caducidad" });
+  const noSoportado = crearClienteInstagram({ token: "T", usuarioId: "1", apiVersion: "v23.0", fetchImpl: async () => ({ ok: false, status: 400, json: async () => ({ error: { message: "Unsupported get request" } }) }), dormir: async () => {} });
+  assert.deepEqual(await noSoportado.vigencia(), { vence: null, origen: "desconocida" });
+});

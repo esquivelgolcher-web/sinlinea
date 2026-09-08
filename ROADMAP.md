@@ -27,9 +27,12 @@ configurable por cuenta (`idioma`, `es-PA` por defecto).
   propia, automatización apagada (`automatico.generar/publicar = false`),
   colores por cuenta en la plantilla, secretos por cuenta en los workflows,
   verificación de identidad contra la API antes de publicar y workflow manual
-  "Probar Instagram". Pendiente del operador: conectar la cuenta (docs/
-  CONFIGURACION.md §6c, pasos 2-8) y definir su línea editorial, fuentes, logo y
-  colores definitivos. Suites: 224 unitarias, 14 de render, 9 del panel.
+  "Probar Instagram" (verifica identidad y registra la caducidad real del token o
+  "desconocida"). Línea editorial acordada en `cuentas/luiseskivelgolcher/editorial.md`
+  (marca personal profesional: ajedrez, investigaciones, noticias mundiales con
+  contexto; nada personal; sin opiniones inventadas ni investigaciones inéditas).
+  Pendiente del operador: conectar la cuenta (docs/CONFIGURACION.md §6c, pasos
+  2-8) y definir fuentes, logo y colores definitivos. Suites: 224 unitarias, 14 de render, 9 del panel.
 
 Estimaciones en días de trabajo de una persona con el flujo actual (pruebas,
 revisión y despliegue incluidos).

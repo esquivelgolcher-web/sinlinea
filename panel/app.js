@@ -103,7 +103,7 @@ async function cargar() {
 
 function mostrarToken(info) {
   const n = $("estado-token");
-  if (!info?.vence) { n.hidden = false; n.textContent = "Token IG: sin fecha"; n.className = "estado-token alerta"; return; }
+  if (!info?.vence) { n.hidden = false; n.textContent = "Token IG: caducidad desconocida"; n.className = "estado-token alerta"; return; }
   const dias = Math.floor((Date.parse(info.vence) - Date.parse(claveDia(new Date(), ZONA_PANAMA))) / 86400000);
   n.hidden = false;
   n.textContent = `Token IG vence ${info.vence}`;

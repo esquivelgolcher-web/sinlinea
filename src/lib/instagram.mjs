@@ -72,6 +72,20 @@ export function crearClienteInstagram({
     return { username: String(r.username || ""), userId, coincideId: usuarioId ? (userId !== "" && userId === String(usuarioId)) : undefined };
   }
 
+  // Caducidad real del token. graph.instagram.com no documenta debug_token para Instagram Login:
+  // se intenta y, si no responde con expires_at, la caducidad queda "desconocida" (nunca se asume +60 días).
+  async function vigencia() {
+    try {
+      const r = await llamar("GET", `${HOST}/debug_token`, { input_token: token });
+      const expiresAt = Number(r?.data?.expires_at);
+      if (!Number.isFinite(expiresAt)) return { vence: null, origen: "desconocida" };
+      if (expiresAt === 0) return { vence: null, origen: "sin-caducidad" };
+      return { vence: new Date(expiresAt * 1000).toISOString().slice(0, 10), origen: "debug_token" };
+    } catch {
+      return { vence: null, origen: "desconocida" };
+    }
+  }
+
   async function cuota() {
     const r = await llamar("GET", `${base}/${usuarioId}/content_publishing_limit`, { fields: "quota_usage,config" });
     const d = r.data?.[0] || {};
@@ -101,5 +115,5 @@ export function crearClienteInstagram({
     return { idMedia, permalink: await permalink(idMedia) };
   }
 
-  return { crearContenedor, esperarContenedor, publicar, permalink, cuota, refrescarToken, imagenPublica, publicarImagen, perfil };
+  return { crearContenedor, esperarContenedor, publicar, permalink, cuota, refrescarToken, imagenPublica, publicarImagen, perfil, vigencia };
 }

@@ -45,12 +45,18 @@ No hace falta página de Facebook.
 4. Junto a la cuenta pulsa **Generate token**, autoriza los permisos
    `instagram_business_basic` e `instagram_business_content_publish`, y copia el
    token (es de larga duración: 60 días).
-5. Obtén el id de usuario abriendo en el navegador (sustituye TOKEN):
-   `https://graph.instagram.com/v23.0/me?fields=user_id,username&access_token=TOKEN`
-   Copia el valor de `user_id`.
-6. Crea los secretos `IG_ACCESS_TOKEN` (el token) e `IG_USER_ID` (el user_id).
-7. Escribe en `data/sinlinea/token-info.json` la fecha de hoy más 60 días:
-   `{ "vence": "AAAA-MM-DD" }`. Commit y push.
+5. Obtén el id numérico de la cuenta (el `@` no sirve como id): en el mismo panel de
+   la app de Meta, junto a la cuenta añadida, aparece su **Instagram account ID**.
+   Si no lo ves, sigue con el paso 6 solo con el token y ejecuta **Probar
+   Instagram** (paso 7): el informe te dirá el `user_id` que devuelve la API para
+   guardarlo como secreto. Nunca pegues el token en una URL del navegador ni en
+   el chat.
+6. Crea los secretos `IG_ACCESS_TOKEN` (el token) e `IG_USER_ID` (el id numérico).
+7. Actions → **Probar Instagram** → Run workflow con `cuenta` = `sinlinea`. Comprueba
+   que la credencial pertenece al usuario esperado y guarda en
+   `data/sinlinea/token-info.json` la caducidad real si la API la informa; si no,
+   queda como **desconocida** (no se asume "hoy + 60 días"). La renovación semanal
+   (`renovar-token.yml`, necesita `GH_PAT`) devuelve un token nuevo con su fecha real.
 
 La app puede quedarse en modo desarrollo: publicar en tu propia cuenta (tester)
 no requiere revisión de Meta.
@@ -167,18 +173,22 @@ comprobación sin publicar (entrada `cuenta`, vacío = todas).
    account (inicia sesión con @luiseskivelgolcher) → Generate token, permisos
    `instagram_business_basic` e `instagram_business_content_publish`. Copia el
    token (larga duración, 60 días).
-5. **Id numérico.** El `@` no sirve como id. Abre en el navegador (sustituye
-   TOKEN por el token recién copiado):
-   `https://graph.instagram.com/v23.0/me?fields=user_id,username&access_token=TOKEN`
-   Comprueba que `username` sea `luiseskivelgolcher` y copia el valor de `user_id`.
+5. **Id numérico.** El `@` no sirve como id. En el panel de la app de Meta, junto a
+   la cuenta añadida, aparece su **Instagram account ID**; cópialo. Si no lo ves,
+   guarda primero solo el token (paso 6) y ejecuta **Probar Instagram** (paso 7):
+   el informe indica el `user_id` que devuelve la API. Nunca pegues el token en una
+   URL del navegador ni en el chat.
 6. **Secretos.** Repo → Settings → Secrets and variables → Actions → New repository
    secret: `IG_ACCESS_TOKEN_LUISESKIVELGOLCHER` (el token) e
-   `IG_USER_ID_LUISESKIVELGOLCHER` (el `user_id`). Los workflows ya exponen esos
-   nombres. Nunca pegues el token en el chat ni en archivos del repo.
-7. **Verificar identidad.** Actions → **Probar Instagram** → Run workflow con
-   `cuenta` = `luiseskivelgolcher`. Debe decir que la credencial pertenece a
-   `@luiseskivelgolcher` y que el id numérico coincide. Escribe en
-   `data/luiseskivelgolcher/token-info.json` la fecha de hoy más 60 días.
+   `IG_USER_ID_LUISESKIVELGOLCHER` (el id numérico). Los workflows ya exponen esos
+   nombres.
+7. **Verificar identidad y caducidad.** Actions → **Probar Instagram** → Run
+   workflow con `cuenta` = `luiseskivelgolcher`. Debe decir que la credencial
+   pertenece a `@luiseskivelgolcher` y que el id numérico coincide. El workflow
+   guarda en `data/luiseskivelgolcher/token-info.json` la caducidad real si la API
+   la informa; si no, queda como **desconocida** hasta la primera renovación
+   (`renovar-token.yml` devuelve un token nuevo con su fecha real). No se asume
+   "hoy + 60 días".
 8. **Encender.** Solo después de la prueba: define `editorial.md`, `fuentes`,
    `franjas`, colores y logo definitivos, y pon `automatico.publicar` (y cuando
    toque `automatico.generar`) en `true`. Mientras estén en `false`, la cuenta

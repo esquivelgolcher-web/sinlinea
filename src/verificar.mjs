@@ -70,7 +70,7 @@ export function ejecutarVerificacion({ raiz = process.cwd(), env = process.env, 
     informar(propios);
     const info = leerTokenInfo(raiz, config.rutas.datos);
     if (!info.vence) {
-      aviso(`${config.rutas.datos}/token-info.json no tiene la fecha de vencimiento del token de Instagram`);
+      aviso(`${config.rutas.datos}/token-info.json: caducidad del token de Instagram desconocida (ejecuta "Probar Instagram" o la renovación para obtener la fecha real)`);
     } else {
       const dias = Math.floor((Date.parse(info.vence) - Date.parse(claveDia(ahora, config.zonaHoraria))) / 86400000);
       if (Number.isNaN(dias)) error(`${config.rutas.datos}/token-info.json: la fecha "${info.vence}" no es válida`);

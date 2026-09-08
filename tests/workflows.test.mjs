@@ -107,14 +107,16 @@ test("(M2) los workflows exponen los secretos de Instagram de cada cuenta declar
   }
 });
 
-test("(M2) probar-instagram es manual, de solo lectura, acepta la cuenta como entrada y no escribe en el repo", () => {
+test("(M2) probar-instagram es manual, acepta la cuenta como entrada y solo guarda data/<cuenta>/token-info.json", () => {
   const v = wf("probar-instagram");
   assert.deepEqual(Object.keys(v.on), ["workflow_dispatch"]);
   assert.ok(v.on.workflow_dispatch.inputs.cuenta, "entrada cuenta");
-  assert.equal(v.permissions.contents, "read");
+  assert.equal(v.permissions.contents, "write", "(vigencia) guarda data/<cuenta>/token-info.json con la caducidad real o desconocida");
   const texto = leer("probar-instagram");
   assert.match(texto, /node src\/probar-instagram\.mjs/);
-  assert.equal(/git push|upload-artifact/.test(texto), false);
+  assert.equal(/upload-artifact/.test(texto), false);
+  assert.match(texto, /git add data\b/);
+  assert.equal(/git add (posts|public|cuentas|src)/.test(texto), false, "solo escribe en data/");
   assert.equal(/run:.*\$\{\{\s*inputs\./.test(texto), false, "(M2 fix) la entrada va por env, no interpolada en run:");
   assert.match(texto, /CUENTA: \$\{\{ inputs\.cuenta \}\}/);
 });

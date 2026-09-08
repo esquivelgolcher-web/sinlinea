@@ -1,7 +1,8 @@
 name: Probar Instagram
 
 # Manual. Comprueba que la credencial de una cuenta pertenece al usuario esperado
-# (usuario e id numérico) llamando a la API. No publica nada y no escribe en el repositorio.
+# (usuario e id numérico) llamando a la API y registra la caducidad real del token (o "desconocida")
+# en data/<cuenta>/token-info.json. No publica nada.
 on:
   workflow_dispatch:
     inputs:
@@ -11,7 +12,7 @@ on:
         default: ""
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   probar:
@@ -37,3 +38,20 @@ jobs:
           IG_ACCESS_TOKEN_LUISESKIVELGOLCHER: ${{ secrets.IG_ACCESS_TOKEN_LUISESKIVELGOLCHER }}
           IG_USER_ID_LUISESKIVELGOLCHER: ${{ secrets.IG_USER_ID_LUISESKIVELGOLCHER }}
         run: node src/probar-instagram.mjs --cuenta "$CUENTA"
+
+      - name: Guardar la caducidad comprobada
+        if: success()
+        run: |
+          git config user.name "sinlinea-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data
+          if git diff --cached --quiet; then
+            echo "Sin cambios."
+          else
+            git commit -m "token-info: comprobado $(date -u '+%Y-%m-%d') [skip ci]"
+            for i in 1 2 3; do
+              if git pull --rebase && git push; then break; fi
+              if [ "$i" = 3 ]; then echo "No se pudo hacer push tras 3 intentos"; exit 1; fi
+              sleep 5
+            done
+          fi

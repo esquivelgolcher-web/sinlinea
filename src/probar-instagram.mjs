@@ -1,17 +1,22 @@
 // PROBAR INSTAGRAM: confirma que la credencial de una cuenta pertenece al usuario esperado
-// (usuario y id numérico) sin publicar nada ni revelar secretos.
+// (usuario y id numérico) y registra la caducidad real del token, o "desconocida" si la API no la
+// informa. No publica nada y nunca imprime valores de secretos.
 // Uso: node src/probar-instagram.mjs [--cuenta <id>]   (sin --cuenta prueba todas las que tengan secretos)
+import fs from "node:fs";
+import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { cargarConfiguracion } from "./lib/config.mjs";
-import { leerSecretos, nombresDeSecretos, ocultarSecretos } from "./lib/secretos.mjs";
+import { nombresDeSecretos, ocultarSecretos } from "./lib/secretos.mjs";
 import { crearClienteInstagram } from "./lib/instagram.mjs";
+import { claveDia } from "./lib/fechas.mjs";
 
-export async function ejecutarPruebaInstagram({ configuracion, cuenta = null, env = process.env, igDe }) {
+export async function ejecutarPruebaInstagram({ configuracion, cuenta = null, env = process.env, igDe, raiz = null, ahora = new Date() }) {
   const lineas = [];
   let ok = true;
   const error = (m) => { ok = false; lineas.push(`ERROR  ${m}`); };
   const aviso = (m) => lineas.push(`AVISO  ${m}`);
   const bien = (m) => lineas.push(`OK     ${m}`);
+  const valor = (k) => String(env[k] ?? "").trim();
 
   let objetivo = configuracion.cuentas;
   if (cuenta) {
@@ -20,25 +25,41 @@ export async function ejecutarPruebaInstagram({ configuracion, cuenta = null, en
   }
   for (const config of objetivo) {
     const nombres = nombresDeSecretos(config);
-    let secretos;
-    try {
-      secretos = leerSecretos(config, env);
-    } catch (err) {
-      if (cuenta) error(`cuenta ${config.cuenta}: ${err.message}`);
+    const token = valor(nombres.token);
+    const usuarioId = valor(nombres.usuarioId);
+    if (!token) {
+      if (cuenta) error(`cuenta ${config.cuenta}: falta el secreto ${nombres.token} (Settings → Secrets and variables → Actions)`);
       else aviso(`cuenta ${config.cuenta}: sin secretos en el entorno (${nombres.token}, ${nombres.usuarioId}); se omite`);
       continue;
     }
     try {
-      const ig = await igDe(config, secretos);
+      const ig = await igDe(config, { token, usuarioId });
       const perfil = await ig.perfil();
       const esperado = String(config.marca.usuario).replace(/^@/, "");
       const usuarioOk = String(perfil.username || "").toLowerCase() === esperado.toLowerCase();
-      const idOk = perfil.coincideId !== false;
-      if (usuarioOk && idOk) {
-        bien(`cuenta ${config.cuenta}: la credencial ${nombres.token} pertenece a @${perfil.username} (coincide con ${config.marca.usuario}); el id numérico coincide con ${nombres.usuarioId}`);
-      } else {
-        if (!usuarioOk) error(`cuenta ${config.cuenta}: la credencial ${nombres.token} pertenece a @${perfil.username || "?"}; se esperaba ${config.marca.usuario}`);
-        if (!idOk) error(perfil.userId ? `cuenta ${config.cuenta}: el id numérico no coincide: ${nombres.usuarioId} no es el user_id que devuelve la API para esa credencial` : `cuenta ${config.cuenta}: la API no devolvió user_id; no se pudo confirmar el id numérico (no actives la publicación)`);
+      if (!usuarioOk) {
+        error(`cuenta ${config.cuenta}: la credencial ${nombres.token} pertenece a @${perfil.username || "?"}; se esperaba ${config.marca.usuario}`);
+        continue;
+      }
+      if (!usuarioId) {
+        // El id numérico no es una credencial: se muestra para que el operador lo guarde como secreto.
+        error(`cuenta ${config.cuenta}: la credencial pertenece a @${perfil.username}, pero falta el secreto ${nombres.usuarioId}. La API devuelve user_id = ${perfil.userId || "(vacío)"}: guárdalo como secreto ${nombres.usuarioId} y repite la prueba`);
+        continue;
+      }
+      if (perfil.coincideId === false) {
+        error(perfil.userId ? `cuenta ${config.cuenta}: el id numérico no coincide: ${nombres.usuarioId} no es el user_id que devuelve la API para esa credencial` : `cuenta ${config.cuenta}: la API no devolvió user_id; no se pudo confirmar el id numérico (no actives la publicación)`);
+        continue;
+      }
+      bien(`cuenta ${config.cuenta}: la credencial ${nombres.token} pertenece a @${perfil.username} (coincide con ${config.marca.usuario}); el id numérico coincide con ${nombres.usuarioId}`);
+      const v = typeof ig.vigencia === "function" ? await ig.vigencia() : { vence: null, origen: "desconocida" };
+      if (v.vence) bien(`cuenta ${config.cuenta}: el token vence el ${v.vence} (${v.origen})`);
+      else if (v.origen === "sin-caducidad") bien(`cuenta ${config.cuenta}: la API indica que el token no caduca`);
+      else aviso(`cuenta ${config.cuenta}: caducidad desconocida: la API no informa la fecha de este token. Se registra como desconocida; la renovación (renovar-token.yml, con GH_PAT) devuelve un token nuevo con fecha real`);
+      if (raiz) {
+        const info = { vence: v.vence ?? null, comprobado: claveDia(ahora, config.zonaHoraria), origen: v.origen };
+        const carpeta = path.join(raiz, config.rutas?.datos || "data");
+        fs.mkdirSync(carpeta, { recursive: true });
+        fs.writeFileSync(path.join(carpeta, "token-info.json"), JSON.stringify(info, null, 2) + "\n");
       }
     } catch (err) {
       error(`cuenta ${config.cuenta}: la API respondió con error (${ocultarSecretos(err.message)})`);
@@ -52,7 +73,7 @@ if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) 
   const cuenta = i >= 0 ? String(process.argv[i + 1] || "").trim() || null : null;
   const configuracion = cargarConfiguracion();
   const igDe = (config, { token, usuarioId }) => crearClienteInstagram({ token, usuarioId, apiVersion: config.instagram.apiVersion });
-  ejecutarPruebaInstagram({ configuracion, cuenta, igDe }).then((r) => {
+  ejecutarPruebaInstagram({ configuracion, cuenta, igDe, raiz: process.cwd() }).then((r) => {
     for (const l of r.lineas) console.log(l);
     if (!r.ok) { console.error("La prueba de Instagram falló: no actives la publicación de esa cuenta hasta corregirlo."); process.exit(1); }
     console.log("Prueba de Instagram completa: las credenciales presentes corresponden a los usuarios esperados.");

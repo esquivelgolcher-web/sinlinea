@@ -22,7 +22,7 @@ export function leerTokenInfo(raiz, rutaDatos = "data") {
 function avisarToken(raiz, ahora, config, log) {
   const rutaDatos = config.rutas?.datos || "data";
   const info = leerTokenInfo(raiz, rutaDatos);
-  if (!info.vence) { log.warn(`${rutaDatos}/token-info.json no tiene fecha de vencimiento del token de Instagram.`); return; }
+  if (!info.vence) { log.warn(`${rutaDatos}/token-info.json: caducidad del token de Instagram desconocida.`); return; }
   const dias = Math.floor((Date.parse(info.vence) - Date.parse(claveDia(ahora, config.zonaHoraria))) / 86400000);
   if (dias < 7) log.warn(`El token de Instagram vence en ${dias} días (${info.vence}); revisa renovar-token.yml.`);
 }
