@@ -31,5 +31,15 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-08T09:31:27.873Z",
-  "actualizado": "2026-09-08T10:01:33.451Z"
+  "actualizado": "2026-09-08T10:17:03.372Z",
+  "ilustracion": {
+    "descripcion": "Arrecife de coral vivo en aguas turquesas del Caribe panameño, peces de colores entre los corales, luz del sol filtrándose desde la superficie, sin personas",
+    "usar": true,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  }
 }

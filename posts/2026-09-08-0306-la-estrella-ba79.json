@@ -31,5 +31,15 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-08T08:06:02.846Z",
-  "actualizado": "2026-09-08T10:01:33.451Z"
+  "actualizado": "2026-09-08T10:17:03.372Z",
+  "ilustracion": {
+    "descripcion": "Vista aérea de las esclusas del Canal de Panamá con un buque portacontenedores cruzando al amanecer, cielo despejado, sin personas",
+    "usar": true,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  }
 }
