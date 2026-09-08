@@ -26,10 +26,10 @@
   .post.con-ilustracion .bajada { opacity: 0.95; }
   .rotulo { display: none; position: absolute; right: 72px; bottom: 226px; z-index: 1; font-size: 22px; letter-spacing: 0.02em; color: rgba(255,255,255,0.8); }
   .post.con-ilustracion .rotulo { display: block; }
-  .post.con-ilustracion .logo { box-shadow: none; }
   .cabecera { display: flex; justify-content: space-between; align-items: flex-start; height: 160px; }
   .logo { width: 160px; height: 160px; border-radius: 50%; object-fit: cover; display: block; }
   .post[data-variante="amarillo"] .logo { box-shadow: 0 0 0 6px var(--negro); }
+  .post.con-ilustracion[data-variante] .logo { box-shadow: none; }
   .logo-fallback { width: 160px; height: 160px; border-radius: 50%; box-sizing: border-box; background: var(--amarillo); color: var(--negro);
                    display: flex; align-items: center; justify-content: center; font-family: "Anton", Impact, sans-serif; font-size: 34px; line-height: 1;
                    text-align: center; border: 6px solid var(--negro); }

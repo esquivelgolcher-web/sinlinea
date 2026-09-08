@@ -2,8 +2,9 @@ import { test, before, after } from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
 import path from "node:path";
+import { pathToFileURL } from "node:url";
 import sharp from "sharp";
-import { abrirNavegador, renderizarPost } from "../src/lib/render.mjs";
+import { abrirNavegador, renderizarPost, construirHtml } from "../src/lib/render.mjs";
 import { cargarConfig } from "../src/lib/config.mjs";
 
 const cfg = cargarConfig("config.json");
@@ -41,4 +42,20 @@ test("renderiza con ilustración de fondo cuando usar=true y el archivo existe",
   const stats = await sharp(img.ruta).stats();
   assert.ok(stats.channels[2].mean > 25, "el fondo debe tener el azul de la fixture, no negro puro");
   assert.notEqual(img.hash, (await renderizarPost({ ...post, ilustracion: { ...post.ilustracion, usar: false } }, { config: cfg, navegador, destino: path.join("temp", "test-render", "sin-ilustracion.jpg") })).hash);
+});
+
+test("con ilustración, la variante amarilla no dibuja el anillo del logo", async () => {
+  const plantilla = fs.readFileSync("templates/post.html", "utf8");
+  const html = construirHtml({ ...base, variante: "amarillo" }, cfg, {
+    plantilla, baseHref: pathToFileURL(path.resolve(".") + path.sep).href, logoUrl: "assets/logo.png", ilustracionUrl: "tests/fixtures/ilustracion-ejemplo.jpg",
+  });
+  const rutaHtml = path.join("temp", "test-render", "amarillo-ilus.html");
+  fs.mkdirSync(path.dirname(rutaHtml), { recursive: true });
+  fs.writeFileSync(rutaHtml, html);
+  const page = await navegador.newPage({ viewport: { width: 1080, height: 1350 } });
+  await page.goto(pathToFileURL(path.resolve(rutaHtml)).href, { waitUntil: "load" });
+  await page.waitForSelector('body[data-listo="1"]', { timeout: 15000 });
+  const sombra = await page.$eval("#post .logo", (n) => getComputedStyle(n).boxShadow);
+  await page.close();
+  assert.equal(sombra, "none");
 });
