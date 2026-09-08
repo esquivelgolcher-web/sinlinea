@@ -72,3 +72,18 @@ test("el esquema exige escena y las reglas la describen", () => {
   assert.match(construirSystem(""), /"escena"/);
   assert.match(construirSystem(""), /Nunca personas reales/);
 });
+
+test("las reglas fijan los límites del titular (40-55, máx. 65) y de la bajada (máx. 110)", () => {
+  const sys = construirSystem("");
+  assert.match(sys, /40 y 55 caracteres/);
+  assert.match(sys, /65 caracteres/);
+  assert.match(sys, /110 caracteres/);
+  assert.match(sys, /protagonista/i);
+  assert.match(sys, /sin repetir el titular/i);
+});
+
+test("las reglas de la escena piden protagonista arriba a la derecha y zona izquierda despejada", () => {
+  const sys = construirSystem("");
+  assert.match(sys, /tercio superior derecho/);
+  assert.match(sys, /izquierda/);
+});

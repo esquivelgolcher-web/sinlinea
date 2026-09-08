@@ -29,10 +29,15 @@ const REGLAS_FIJAS = `
 - "indiceCandidato" es el número entre corchetes de la lista de candidatos.
 - "relevancia" va de 0 a 1. Devuelve primero los más relevantes.
 - Si ningún candidato vale la pena, devuelve "seleccion" vacía y explica en "descartados".
-- "escena": describe en 15 a 40 palabras, en español, una imagen concreta que represente la noticia
-  (un lugar, un objeto, una situación): por ejemplo "Fachada de la Asamblea Nacional de Panamá al
-  atardecer". Nunca personas reales ni rostros reconocibles, nunca texto ni logotipos, nunca violencia
-  gráfica ni sangre. No incluyas el estilo fotográfico: se añade aparte.
+- "titular": entre 40 y 55 caracteres (ideal) y nunca más de 65 caracteres. Prioriza protagonista +
+  hecho principal. Sin punto final. Cabe en tres líneas de letra grande: si dudas, acórtalo.
+- "bajada": máximo 110 caracteres. Añade información complementaria sin repetir el titular.
+- "escena": describe en 15 a 40 palabras, en español, una imagen concreta que represente el hecho
+  principal de la noticia (un lugar, un objeto, una situación): por ejemplo "Fachada de la Asamblea
+  Nacional de Panamá al atardecer". Indica que el protagonista o elemento principal queda en el
+  tercio superior derecho y que la zona izquierda y central queda despejada. Nunca personas reales ni
+  rostros reconocibles, nunca texto ni logotipos, nunca violencia gráfica ni sangre. No incluyas el
+  estilo fotográfico: se añade aparte.
 `;
 
 export function construirSystem(editorialMd) {
