@@ -17,6 +17,7 @@ test("disparadores y secretos de cada workflow", () => {
   const g = wf("generar");
   assert.equal(g.on.schedule[0].cron, "20 */3 * * *");
   assert.ok(g.on.push["paths-ignore"].includes("posts/**"));
+  assert.ok(g.on.push["paths-ignore"].includes("public/ilus/**"), "generar (M3) debe ignorar public/ilus/**");
   assert.match(leer("generar"), /secrets\.ANTHROPIC_API_KEY/);
   const r = wf("regenerar");
   assert.ok(r.on.push.paths.includes("posts/**"));

@@ -11,6 +11,7 @@ on:
       - "posts/**"
       - "data/**"
       - "public/img/**"
+      - "public/ilus/**"
       - "README.md"
       - "GUIA.md"
       - "docs/**"
