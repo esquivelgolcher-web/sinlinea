@@ -17,13 +17,14 @@ async function cargarConfigPanel() {
   }
 }
 // --- Cuentas ----------------------------------------------------------------
-const cuentaPrincipal = () => configPanel.cuentas[0].id;
+const cuentaPrincipal = () => configPanel.cuentaPrincipal || configPanel.cuentas[0].id;
 const cuentaDe = (post) => post.cuenta || cuentaPrincipal(); // los posts antiguos sin cuenta son de la principal
 const configDeCuenta = (id) => configPanel.cuentas.find((c) => c.id === id) || configPanel.cuentas[0];
 function elegirCuentaInicial() {
   let guardada = null;
   try { guardada = localStorage.getItem("sinlinea.cuenta"); } catch { /* sin almacenamiento */ }
-  estado.cuenta = configPanel.cuentas.some((c) => c.id === guardada) ? guardada : cuentaPrincipal();
+  const existe = (id) => configPanel.cuentas.some((c) => c.id === id);
+  estado.cuenta = existe(guardada) ? guardada : (existe(cuentaPrincipal()) ? cuentaPrincipal() : configPanel.cuentas[0].id);
 }
 function seleccionarCuenta(id) {
   estado.cuenta = id;

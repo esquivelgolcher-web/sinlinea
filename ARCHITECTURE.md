@@ -35,7 +35,7 @@ flowchart LR
   subgraph Repo[Repositorio = base de datos]
     POSTS[(posts/*.json)]
     IMG[(public/img, public/ilus)]
-    DATA[(data/seen.json, token-info.json)]
+    DATA[(data/<cuenta>/seen.json, token-info.json)]
   end
   PANEL[Panel en GitHub Pages]
   IG[Instagram API]
@@ -92,10 +92,11 @@ URL pública de la imagen en GitHub Pages. Avisa cuando el token está por vence
 
 | Módulo | Responsabilidad | Isomorfo | Depende de |
 |---|---|---|---|
-| `lib/config.mjs` | Carga y valida `config.json` | no | `secretos.mjs` |
+| `lib/config.mjs` | Carga y valida `config.json` (global) y `cuentas/<id>/config.json`; configuración efectiva por cuenta | no | `secretos.mjs` |
 | `lib/secretos.mjs` | Nombres de secretos por cuenta, lectura desde el entorno, filtro de valores | no | — |
 | `lib/rss.mjs`, `portada.mjs`, `articulo.mjs`, `fuentes.mjs` | Descarga y normaliza candidatos por fuente | no | `util.mjs` |
-| `lib/seen.mjs` | URLs ya consideradas (`data/seen.json`) | no | — |
+| `lib/seen.mjs` | URLs ya consideradas (`data/<cuenta>/seen.json`) | no | — |
+| `lib/corrida.mjs` | Código de salida y anotaciones `::error::` de las corridas multi-cuenta | no | — |
 | `lib/redactor.mjs` | Prompts y llamadas a Claude: selección/redacción, acortado de textos, escena | no | SDK Anthropic, `texto.mjs`, `estados.mjs` |
 | `lib/caption.mjs` | Composición y límites del caption | **sí** | — |
 | `lib/texto.mjs` | Límites titular/bajada, render con ajuste | **sí** | — |
@@ -133,12 +134,14 @@ tras `archivarDespuesDeDias`.
 
 ### 2.7 Configuración y secretos
 
-- `config.json`: marca (nombre, usuario, lema), zona horaria, `pages.baseUrl`,
-  fuentes, cupos de generación, modelo y esfuerzo de Claude, franjas,
-  versión de la API de Instagram, ilustraciones (proveedor, modelo, estilo,
-  rótulo, tope por corrida), días de archivo.
-- `prompts/editorial.md`: línea editorial (system prompt).
-- `templates/post.html` y `assets/logo.png`, `assets/fonts/`.
+- `config.json` (global): zona horaria por defecto, `pages.baseUrl`, modelo y
+  esfuerzo de Claude, versión de la API de Instagram, ilustraciones (activo,
+  proveedor, modelo, tamaño, tiempo de espera, tope por corrida), días de
+  archivo y la lista `cuentas` (la primera es la principal).
+- `cuentas/<id>/config.json`: nombre, idioma, marca, fuentes, cupos, franjas,
+  estilo y rótulo de ilustración, nombres de los secretos de Instagram.
+  `cuentas/<id>/editorial.md` (system prompt) y `cuentas/<id>/logo.png`.
+- `templates/post.html` y `assets/fonts/` (compartidos).
 - Secretos del repositorio: `ANTHROPIC_API_KEY`, `GEMINI_API_KEY`,
   `IG_ACCESS_TOKEN`, `IG_USER_ID` (y `GH_PAT`, pendiente, para renovar el
   token de Instagram). El token del panel vive solo en el navegador.
@@ -216,8 +219,8 @@ cuentas/
   sinlinea/
     config.json      marca, fuentes, franjas, cupos, ilustraciones.estilo/rotulo,
                      instagram { usuarioIdSecreto, tokenSecreto }, zonaHoraria (opcional)
-    editorial.md     línea editorial (hoy prompts/editorial.md)
-    logo.png         logo (hoy assets/logo.png)
+    editorial.md     línea editorial (antes prompts/editorial.md)
+    logo.png         logo (antes assets/logo.png)
   otro-medio/
     ...
 ```

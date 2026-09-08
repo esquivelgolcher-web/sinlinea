@@ -81,3 +81,11 @@ test("(M1) la verificación recorre todas las cuentas: secretos por cuenta, arch
   const r2 = ejecutarVerificacion({ raiz, env: envCompleto, ahora });
   assert.match(r2.lineas.join("\n"), /ERROR.*cuentas\/rota\/config\.json/);
 });
+
+test("(M1 fix) avisa de posts cuya cuenta no está declarada (huérfanos que ningún flujo procesaría)", () => {
+  const raiz = raizTemporal();
+  const base = JSON.parse(fs.readFileSync("tests/fixtures/post-ejemplo.json", "utf8"));
+  fs.writeFileSync(path.join(raiz, "posts", `${base.id}.json`), JSON.stringify({ ...base, cuenta: "fantasma" }));
+  const r = ejecutarVerificacion({ raiz, env: envCompleto, ahora });
+  assert.match(r.lineas.join("\n"), /AVISO.*fantasma.*1 post/);
+});

@@ -2,7 +2,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
 import path from "node:path";
-import { cargarConfig, validarConfig, cargarGlobal, cargarCuenta, configDeCuenta, cargarConfiguracion, validarCuenta } from "../src/lib/config.mjs";
+import { cargarConfig, validarConfig, cargarGlobal, cargarCuenta, configDeCuenta, cargarConfiguracion, validarCuenta, resumenParaPanel } from "../src/lib/config.mjs";
 import { raizConCuentas } from "./ayuda/cuentas.mjs";
 
 test("config.json del repo es válido", () => {
@@ -153,4 +153,27 @@ test("(M1) validarCuenta rechaza ids e idiomas inválidos y exige un id en cuent
   assert.doesNotThrow(() => validarCuenta({ ...c, idioma: "en" }, "otro-medio"));
   const g = cargarGlobal("config.json");
   assert.throws(() => configDeCuenta({ ...g, cuentas: [] }, c, "sinlinea"), /cuentas/);
+});
+
+test("(M1 fix) una cuenta no puede pisar claves globales: validarCuenta las rechaza y configDeCuenta solo toma las suyas", () => {
+  const g = cargarGlobal("config.json");
+  const c = cargarCuenta(".", "sinlinea");
+  for (const k of ["pages", "claude", "archivarDespuesDeDias", "cuentas"]) {
+    assert.throws(() => validarCuenta({ ...c, [k]: {} }, "sinlinea"), new RegExp(k), `rechaza ${k}`);
+  }
+  const e = configDeCuenta(g, { ...c, ilustraciones: { ...c.ilustraciones, activo: false } }, "sinlinea");
+  assert.equal(e.ilustraciones.activo, false, "activo sí puede fijarse por cuenta");
+  assert.equal(e.pages.baseUrl, g.pages.baseUrl);
+  assert.equal(e.archivarDespuesDeDias, g.archivarDespuesDeDias);
+});
+
+test("(M1 fix) resumenParaPanel expone cuentaPrincipal = primera cuenta declarada aunque no sea la primera válida", () => {
+  const raiz = raizConCuentas({ cuentas: ["sinlinea", "prueba"] });
+  const g = JSON.parse(fs.readFileSync(path.join(raiz, "config.json"), "utf8"));
+  fs.writeFileSync(path.join(raiz, "cuentas/sinlinea/config.json"), "{ \"nombre\": \"rota\" }");
+  const c = cargarConfiguracion(raiz);
+  assert.deepEqual(c.cuentas.map((x) => x.cuenta), ["prueba"]);
+  const r = resumenParaPanel(c.cuentas);
+  assert.equal(r.cuentaPrincipal, "sinlinea");
+  assert.equal(g.cuentas[0], "sinlinea");
 });

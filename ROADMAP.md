@@ -13,10 +13,12 @@ configurable por cuenta (`idioma`, `es-PA` por defecto).
 ## Estado y cómo retomar
 
 - **M0 hecho** (commit local `9453f62`).
-- **M1 hecho** en la rama `m1-cuentas`, fusionada en `main` localmente y **sin
-  push** (el push dispara GENERAR). Suites: 194 unitarias, 12 de render, 8 del
-  panel. Para retomar en otra sesión: `git log --oneline -5` en `main`, leer
-  esta sección y la de M2, y ejecutar `npm test`.
+- **M1 hecho**: commit de M1 más una ronda de correcciones tras revisión
+  independiente, fusionados en `main` localmente y **sin push** (el push dispara
+  GENERAR). `origin/main` sigue en el estado anterior a M0. Suites: 201
+  unitarias, 12 de render, 8 del panel. Para retomar en otra sesión:
+  `git log --oneline -6` en `main` (deben verse M0, M1 y sus correcciones),
+  leer esta sección y la de M2, y ejecutar `npm test`.
 - **Antes del push de M1**: revisar el diff (`git diff origin/main --stat`),
   crear `GH_PAT` si se quiere activar la renovación, y saber que el primer push
   ejecutará GENERAR (crea hasta 2 borradores de `sinlinea`) y desplegará el
@@ -153,8 +155,16 @@ precisiones:
 - Colores de las variantes por cuenta en la plantilla (hoy solo cambian logo,
   usuario y lema).
 - `src/serve.mjs` previsualiza la plantilla con la cuenta principal.
-- Los posts antiguos reciben el campo `cuenta` solo cuando se editan y guardan
-  desde el panel (no hay migración).
+- Los posts antiguos no reciben el campo `cuenta` (no hay migración): el panel
+  en modo GitHub guarda el archivo tal cual y solo el servidor local lo
+  completa en memoria. Siguen perteneciendo a la cuenta principal.
+- Quedan textos solo en español bajo un `idioma` configurable: nombres de mes en
+  la imagen (`lib/fechas.mjs`), "Fuente:" en el caption (`lib/caption.mjs`) y las
+  categorías. Resolver cuando exista una cuenta en otro idioma.
+- `archivar()` corre una vez por cuenta sobre todos los posts (idempotente;
+  hacerlo una sola vez por corrida en M4).
+- Posts con una cuenta no declarada quedan fuera de todos los flujos y del
+  panel: `npm run verificar` los avisa.
 
 ---
 

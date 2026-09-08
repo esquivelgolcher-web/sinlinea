@@ -77,7 +77,8 @@ reactivarla, vuelve a marcar "Usar ilustración generada con IA" o pulsa
   vencido; revisa `docs/CONFIGURACION.md` sección 8.
 
 ## Ajustes sin tocar código
-- `config.json`: franjas, máximos por corrida y por día, modelo de Claude
+- `cuentas/<id>/config.json`: franjas, máximos por corrida y por día, fuentes, marca, estilo de ilustración e idioma de cada cuenta
+- `config.json`: modelo de Claude, Gemini y la lista de cuentas (compartido)
   (`claude-sonnet-5` por defecto; `claude-opus-5` para máxima calidad a más del doble de costo), fuentes.
 - `cuentas/<id>/editorial.md`: tono, qué elegir, cómo escribir (una por cuenta).
 - `templates/post.html`: diseño. Al cambiarla, sube `data-version` en `<html>` para

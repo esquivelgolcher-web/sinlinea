@@ -224,3 +224,16 @@ test("(M1) un fallo en una cuenta (Claude, fuentes o configuración) no bloquea 
   assert.ok(avisos.some((m) => /sinlinea/.test(m) && /Claude no disponible/.test(m)));
   assert.ok(avisos.some((m) => /rota/.test(m)));
 });
+
+test("(M1 fix) ilustraciones.activo=false en una cuenta evita llamar a Gemini solo para esa cuenta", async () => {
+  const raiz = raizTemporal({ cuentas: ["sinlinea", "prueba"] });
+  const configuracion = cargarConfiguracion(raiz);
+  const ilustrador = ilustradorFalso();
+  const creadas = [];
+  const r = await generarCuentas({ configuracion, raiz, ahora, fetchText, client: clientFalso([0]), render: renderOkFalso, log, guardar: async () => {}, ilustradorDe: (config) => { creadas.push(config.cuenta); return ilustrador; } });
+  assert.equal(r.resultados.sinlinea.creados.length, 1);
+  assert.equal(r.resultados.prueba.creados.length, 1);
+  assert.deepEqual(creadas, ["sinlinea"], "la fábrica no se invoca para la cuenta con ilustraciones apagadas");
+  assert.equal(ilustrador.llamadas.length, 1);
+  assert.equal(r.resultados.prueba.creados[0].ilustracion?.usar ?? false, false);
+});

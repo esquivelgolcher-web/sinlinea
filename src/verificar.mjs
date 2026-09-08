@@ -7,6 +7,7 @@ import { cargarConfiguracion } from "./lib/config.mjs";
 import { secretosRequeridos, verificarSecretos } from "./lib/secretos.mjs";
 import { leerTokenInfo } from "./publicar.mjs";
 import { claveDia } from "./lib/fechas.mjs";
+import { leerPosts } from "./lib/posts.mjs";
 
 const ARCHIVOS_COMPARTIDOS = [
   ["templates/post.html", "plantilla del post"],
@@ -75,6 +76,14 @@ export function ejecutarVerificacion({ raiz = process.cwd(), env = process.env, 
       else if (dias < 14) aviso(`el token de Instagram de ${config.cuenta} vence en ${dias} días (${info.vence}); confirma que GH_PAT existe y renovar-token.yml está activo`);
       else bien(`el token de Instagram de ${config.cuenta} vence el ${info.vence} (en ${dias} días)`);
     }
+  }
+  // Posts cuya cuenta no está declarada: ningún flujo los procesaría y el panel no los muestra.
+  const huerfanos = leerPosts(path.join(raiz, "posts"), { cuentaPorDefecto: global.cuentas[0], log: { warn: () => {} } })
+    .filter((p) => !global.cuentas.includes(p.cuenta));
+  if (huerfanos.length) {
+    const porCuenta = {};
+    for (const p of huerfanos) porCuenta[p.cuenta] = (porCuenta[p.cuenta] || 0) + 1;
+    aviso(`posts con cuenta no declarada en config.json: ${Object.entries(porCuenta).map(([c, n]) => `${c} (${n} post${n === 1 ? "" : "s"})`).join(", ")}; añade la cuenta o corrige el campo cuenta`);
   }
   return { ok, lineas, faltantes };
 }

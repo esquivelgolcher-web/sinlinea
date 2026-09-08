@@ -6,6 +6,7 @@ import { cargarConfiguracion } from "./lib/config.mjs";
 import { crearClienteInstagram } from "./lib/instagram.mjs";
 import { claveDia, ZONA_PANAMA } from "./lib/fechas.mjs";
 import { ocultarSecretos, leerSecretos, nombresDeSecretos } from "./lib/secretos.mjs";
+import { anotarFallos } from "./lib/corrida.mjs";
 
 // Renueva un token y deja el valor nuevo en temp/nuevo-token-<NOMBRE_DEL_SECRETO>.txt (carpeta ignorada
 // por git) para que el workflow lo guarde como secreto y lo borre. El valor nunca se registra.
@@ -51,6 +52,7 @@ async function main() {
     return ig;
   };
   const r = await renovarCuentas({ configuracion, igDe });
+  anotarFallos(r.resultados, "RENOVAR TOKEN");
   const renovadas = Object.values(r.resultados).filter((x) => !x.error).length;
   if (!renovadas) throw new Error("No se renovó ningún token");
 }

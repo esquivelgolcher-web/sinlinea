@@ -9,6 +9,7 @@ import { componerCaption, validarCaption } from "./lib/caption.mjs";
 import { crearClienteInstagram } from "./lib/instagram.mjs";
 import { claveDia } from "./lib/fechas.mjs";
 import { ocultarSecretos, leerSecretos, nombresDeSecretos } from "./lib/secretos.mjs";
+import { todasFallaron, anotarFallos, resumirResultados } from "./lib/corrida.mjs";
 
 const MAX_ESPERAS_IMAGEN = 3;
 
@@ -116,8 +117,9 @@ async function main() {
     return crearClienteInstagram({ token, usuarioId, apiVersion: config.instagram.apiVersion });
   };
   const r = await publicarCuentas({ configuracion, dryRun, igDe });
-  const resumen = Object.entries(r.resultados).map(([id, x]) => `${id}: ${x.error ? `ERROR (${x.error})` : `${x.publicados.length} publicados, ${x.errores.length} con error, ${x.pospuestos.length} pospuestos`}`).join(" · ");
-  console.log(`Listo: ${resumen}${dryRun ? " [dry-run]" : ""}.`);
+  console.log(`Listo: ${resumirResultados(r.resultados, (x) => `${x.publicados.length} publicados, ${x.errores.length} con error, ${x.pospuestos.length} pospuestos`)}${dryRun ? " [dry-run]" : ""}.`);
+  anotarFallos(r.resultados, "PUBLICAR");
+  if (todasFallaron(r.resultados)) process.exitCode = 1;
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {

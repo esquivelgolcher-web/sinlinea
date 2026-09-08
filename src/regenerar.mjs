@@ -10,6 +10,7 @@ import { crearIlustrador, guardarIlustracion, sanearMensaje } from "./lib/ilustr
 import { acortarTextos, escribirEscena } from "./lib/redactor.mjs";
 import { renderizarConAjuste } from "./lib/texto.mjs";
 import Anthropic from "@anthropic-ai/sdk";
+import { todasFallaron, anotarFallos, resumirResultados } from "./lib/corrida.mjs";
 
 export async function ejecutarRegenerar({ config, raiz = process.cwd(), ahora = new Date(), render, log = console, version, ilustrador = null, guardar = guardarIlustracion, acortar = null, redactarEscena = null }) {
   const dir = path.join(raiz, "posts");
@@ -106,7 +107,7 @@ export async function regenerarCuentas({ configuracion, raiz = process.cwd(), ah
     try {
       resultados[config.cuenta] = await ejecutarRegenerar({
         config, raiz, ahora, render, log, version, guardar,
-        ilustrador: ilustradorDe ? ilustradorDe(config) : ilustrador,
+        ilustrador: config.ilustraciones?.activo === false ? null : (ilustradorDe ? ilustradorDe(config) : ilustrador),
         acortar: acortarDe ? acortarDe(config) : acortar,
         redactarEscena: redactarEscenaDe ? redactarEscenaDe(config) : redactarEscena,
       });
@@ -134,8 +135,9 @@ async function main() {
       acortarDe: (config) => (client ? (a) => acortarTextos({ client, config, ...a }) : null),
       redactarEscenaDe: (config) => (client ? (a) => escribirEscena({ client, config, ...a }) : null),
     });
-    const resumen = Object.entries(r.resultados).map(([id, x]) => `${id}: ${x.error ? `ERROR (${x.error})` : `${x.renderizados.length} regeneradas, ${x.fallidos.length} fallidas`}`).join(" · ");
-    console.log(`Listo: ${resumen}.`);
+    console.log(`Listo: ${resumirResultados(r.resultados, (x) => `${x.renderizados.length} regeneradas, ${x.fallidos.length} fallidas`)}.`);
+    anotarFallos(r.resultados, "REGENERAR");
+    if (todasFallaron(r.resultados)) process.exitCode = 1;
   } finally {
     await navegador.close();
   }

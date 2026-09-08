@@ -38,8 +38,8 @@ function leerCuerpo(req) {
 export function crearServidor({ raiz = process.cwd() } = {}) {
   const configuracion = cargarConfiguracion(raiz);
   if (!configuracion.cuentas.length) throw new Error(`Ninguna cuenta válida: ${configuracion.errores.map((e) => e.mensaje).join("; ")}`);
-  const config = configuracion.cuentas[0]; // la vista de la plantilla usa la cuenta principal
-  const principal = config.cuenta || CUENTA_LEGADO;
+  const principal = configuracion.global.cuentas[0] || CUENTA_LEGADO; // dueña de los posts sin campo `cuenta`
+  const config = configuracion.cuentas.find((c) => c.cuenta === principal) || configuracion.cuentas[0]; // vista de la plantilla
   const idsCuentas = new Set(configuracion.cuentas.map((c) => c.cuenta));
   return http.createServer(async (req, res) => {
     const url = new URL(req.url, "http://localhost");

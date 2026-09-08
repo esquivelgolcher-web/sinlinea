@@ -10,6 +10,7 @@ import { cargarVistas, guardarVistas, estaVista, marcarVistas, purgarVistas } fr
 import { leerPosts, escribirPost, crearPost, siguienteVariante, creadosHoy, archivar, rutaIlustracion, CUENTA_LEGADO } from "./lib/posts.mjs";
 import { redactar, acortarTextos } from "./lib/redactor.mjs";
 import { renderizarConAjuste } from "./lib/texto.mjs";
+import { todasFallaron, anotarFallos, resumirResultados } from "./lib/corrida.mjs";
 import { recortarCaption } from "./lib/caption.mjs";
 import { marcarError, renderOk, hashTexto } from "./lib/estados.mjs";
 import { abrirNavegador, renderizarPost } from "./lib/render.mjs";
@@ -116,7 +117,7 @@ export async function generarCuentas({ configuracion, raiz = process.cwd(), ahor
       log.info(`Cuenta ${config.cuenta}: generando…`);
       resultados[config.cuenta] = await ejecutarGenerar({
         config, raiz, ahora, fetchText, client, render, log, dryRun, guardar,
-        ilustrador: ilustradorDe ? ilustradorDe(config) : ilustrador,
+        ilustrador: config.ilustraciones?.activo === false ? null : (ilustradorDe ? ilustradorDe(config) : ilustrador),
         acortar: acortarDe ? acortarDe(config) : acortar,
       });
     } catch (err) {
@@ -143,9 +144,9 @@ async function main() {
       ilustradorDe: (config) => (conGemini ? crearIlustrador({ apiKey: process.env.GEMINI_API_KEY, config }) : null),
       acortarDe: (config) => (a) => acortarTextos({ client, config, ...a }),
     });
-    const resumen = Object.entries(r.resultados).map(([id, x]) => `${id}: ${x.error ? `ERROR (${x.error})` : `${x.creados.length} borradores (${x.motivo})`}`).join(" · ");
-    console.log(`Listo: ${resumen}${dryRun ? " [dry-run]" : ""}.`);
-    if (Object.values(r.resultados).length && Object.values(r.resultados).every((x) => x.error)) process.exitCode = 1;
+    console.log(`Listo: ${resumirResultados(r.resultados, (x) => `${x.creados.length} borradores (${x.motivo})`)}${dryRun ? " [dry-run]" : ""}.`);
+    anotarFallos(r.resultados, "GENERAR");
+    if (todasFallaron(r.resultados)) process.exitCode = 1;
   } finally {
     await navegador.close();
   }

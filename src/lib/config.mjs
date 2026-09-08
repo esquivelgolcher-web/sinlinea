@@ -98,11 +98,15 @@ export function validarGlobal(g) {
   return g;
 }
 
+export const CLAVES_DE_CUENTA = ["nombre", "idioma", "zonaHoraria", "marca", "fuentes", "generar", "franjas", "ilustraciones", "instagram"];
+const CLAVES_SOLO_GLOBALES = ["pages", "claude", "archivarDespuesDeDias", "cuentas"];
+
 // Configuración de una cuenta (cuentas/<id>/config.json).
 export function validarCuenta(c, id) {
   const archivo = `cuentas/${id}/config.json`;
   exigir(typeof id === "string" && RE_ID_CUENTA.test(id), `"${id}" no es un id de cuenta válido (minúsculas, dígitos y guiones)`, "id de cuenta");
   exigir(c && typeof c === "object", "debe ser un objeto", archivo);
+  for (const k of CLAVES_SOLO_GLOBALES) exigir(c[k] === undefined, `${k} es global: va en el config.json de la raíz, no en la cuenta`, archivo);
   exigir(typeof c.nombre === "string" && c.nombre.trim(), "nombre es obligatorio", archivo);
   if (c.idioma !== undefined) exigir(typeof c.idioma === "string" && RE_IDIOMA.test(c.idioma), `idioma "${c.idioma}" debe tener la forma xx o xx-XX (p. ej. es-PA)`, archivo);
   if (c.zonaHoraria !== undefined) exigir(typeof c.zonaHoraria === "string" && c.zonaHoraria, "zonaHoraria debe ser texto", archivo);
@@ -141,9 +145,10 @@ export function configDeCuenta(global, cuenta, id) {
   validarCuenta(cuenta, id);
   exigir(global.cuentas.includes(id), `cuentas no incluye "${id}"`);
   const { cuentas, ...compartido } = global;
+  const propias = Object.fromEntries(CLAVES_DE_CUENTA.filter((k) => cuenta[k] !== undefined).map((k) => [k, cuenta[k]]));
   const efectiva = {
     ...compartido,
-    ...cuenta,
+    ...propias,
     cuenta: id,
     cuentaPrincipal: global.cuentas[0],
     nombre: cuenta.nombre,
@@ -192,8 +197,9 @@ export function cargarConfig(ruta = "config.json") {
 // Lo que el panel necesita de cada cuenta (nunca nombres de secretos ni fuentes).
 export function resumenParaPanel(cuentas) {
   if (!cuentas.length) throw new Error("config.json: ninguna cuenta válida");
-  const principal = cuentas[0];
+  const principal = cuentas.find((c) => c.cuenta === cuentas[0].cuentaPrincipal) || cuentas[0];
   return {
+    cuentaPrincipal: cuentas[0].cuentaPrincipal, // primera cuenta declarada: dueña de los posts sin campo `cuenta`
     zonaHoraria: principal.zonaHoraria,
     franjas: principal.franjas,
     marca: principal.marca,

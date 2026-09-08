@@ -1,12 +1,37 @@
 {
   "nombre": "Cuenta de prueba",
   "idioma": "es-PA",
-  "marca": { "nombre": "Prueba Diario", "usuario": "@prueba.diario", "lema": "Noticias de prueba" },
+  "marca": {
+    "nombre": "Prueba Diario",
+    "usuario": "@prueba.diario",
+    "lema": "Noticias de prueba"
+  },
   "fuentes": [
-    { "nombre": "La Prensa", "tipo": "rss", "url": "https://www.prensa.com/arc/outboundfeeds/rss/?outputType=xml" }
+    {
+      "nombre": "La Prensa",
+      "tipo": "rss",
+      "url": "https://www.prensa.com/arc/outboundfeeds/rss/?outputType=xml"
+    }
   ],
-  "generar": { "maxPorCorrida": 1, "maxBorradoresPorDia": 3, "candidatosMax": 10, "diasSinRepetir": 3, "maxHorasAntiguedad": 48 },
-  "franjas": ["08:00", "13:00", "18:00"],
-  "ilustraciones": { "estilo": "Ilustración plana y sobria, sin personas, sin texto.", "rotulo": "Ilustración generada con IA" },
-  "instagram": { "tokenSecreto": "IG_ACCESS_TOKEN_PRUEBA", "usuarioIdSecreto": "IG_USER_ID_PRUEBA" }
+  "generar": {
+    "maxPorCorrida": 1,
+    "maxBorradoresPorDia": 3,
+    "candidatosMax": 10,
+    "diasSinRepetir": 3,
+    "maxHorasAntiguedad": 48
+  },
+  "franjas": [
+    "08:00",
+    "13:00",
+    "18:00"
+  ],
+  "ilustraciones": {
+    "activo": false,
+    "estilo": "Ilustración plana y sobria, sin personas, sin texto.",
+    "rotulo": "Ilustración generada con IA"
+  },
+  "instagram": {
+    "tokenSecreto": "IG_ACCESS_TOKEN_PRUEBA",
+    "usuarioIdSecreto": "IG_USER_ID_PRUEBA"
+  }
 }

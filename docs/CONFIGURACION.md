@@ -89,13 +89,14 @@ claves (`src/lib/secretos.mjs`).
 | `IG_USER_ID` | sí | PUBLICAR, RENOVAR TOKEN | §4 |
 | `GH_PAT` | no (pero sin él el token de Instagram no se renueva solo) | RENOVAR TOKEN | §5 |
 
-Los nombres de los secretos de Instagram se declaran en `config.json`:
+Los nombres de los secretos de Instagram se declaran en la configuración de cada
+cuenta (`cuentas/<id>/config.json`); la versión de la API va en el `config.json` global:
 
 ```json
-"instagram": { "apiVersion": "v23.0", "tokenSecreto": "IG_ACCESS_TOKEN", "usuarioIdSecreto": "IG_USER_ID" }
+"instagram": { "tokenSecreto": "IG_ACCESS_TOKEN", "usuarioIdSecreto": "IG_USER_ID" }
 ```
 
-**Convención para cuentas adicionales** (se usará a partir del hito M1 del ROADMAP):
+**Convención para cuentas adicionales:**
 cada cuenta declara sus propios nombres siguiendo el patrón `IG_ACCESS_TOKEN_<ID>` e
 `IG_USER_ID_<ID>`, con `<ID>` el identificador de la cuenta en mayúsculas y solo con
 letras, dígitos y guion bajo (por ejemplo, la cuenta `otro-medio` usa
@@ -180,7 +181,9 @@ ilustración (con el fondo de color de la variante).
 5. `ilustraciones.estilo` son las instrucciones fijas que se envían a Gemini con
    cada escena (lineamientos de imagen: fotoperiodismo realista, protagonista en el
    tercio superior derecho, zona del titular despejada, sin texto ni rostros reales).
-   Edítalo en `config.json` si cambian los lineamientos.
+   Edítalo en `cuentas/<id>/config.json` si cambian los lineamientos de esa cuenta;
+   `ilustraciones.activo` puede fijarse por cuenta (apaga Gemini solo para ella) y, si
+   no se indica, vale lo del `config.json` global.
 6. `ilustraciones.activo` es el interruptor general: en `false` (o sin
    `GEMINI_API_KEY`), ningún post pide ilustración a Gemini y todos salen con
    el fondo de color de la variante, sin gastar cuota.
