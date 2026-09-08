@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
-import { construirDist } from "../src/build.mjs";
+import { construirDist, MODULOS_ISOMORFOS } from "../src/build.mjs";
 import { raizConCuentas } from "./ayuda/cuentas.mjs";
 
 test("construirDist copia imágenes, panel, módulos isomorfos e índice", () => {
@@ -15,7 +15,7 @@ test("construirDist copia imágenes, panel, módulos isomorfos e índice", () =>
   fs.mkdirSync(path.join(raiz, "panel"), { recursive: true });
   fs.writeFileSync(path.join(raiz, "panel/index.html"), "<p>panel</p>");
   fs.mkdirSync(path.join(raiz, "src/lib"), { recursive: true });
-  for (const f of ["estados.mjs", "caption.mjs", "franjas.mjs", "fechas.mjs", "texto.mjs"]) fs.copyFileSync(`src/lib/${f}`, path.join(raiz, "src/lib", f));
+  for (const f of MODULOS_ISOMORFOS) fs.copyFileSync(`src/lib/${f}`, path.join(raiz, "src/lib", f));
   const dist = construirDist({ raiz });
   assert.ok(fs.existsSync(path.join(dist, "img/a.jpg")));
   assert.ok(!fs.existsSync(path.join(dist, "img/.gitkeep")));
