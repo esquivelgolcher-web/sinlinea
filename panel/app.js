@@ -1,5 +1,5 @@
 // Panel de aprobación de Sin Línea. Sin framework. Todo texto va por textContent.
-import { aprobar, descartar, quitarDeCola, reintentar, editarTexto, imagenDesactualizada, CATEGORIAS, VARIANTES } from "./lib/estados.mjs";
+import { aprobar, descartar, quitarDeCola, reintentar, editarTexto, imagenDesactualizada, hashTexto, CATEGORIAS, VARIANTES } from "./lib/estados.mjs";
 import { componerCaption, validarCaption, normalizarHashtags, LIMITES } from "./lib/caption.mjs";
 import { siguienteFranjaLibre, franjasOcupadas, choca } from "./lib/franjas.mjs";
 import { claveDia, isoDesdeClave, horaMinutoDeIso, ZONA_PANAMA } from "./lib/fechas.mjs";
@@ -19,6 +19,14 @@ const estado = { almacen: null, items: [], pestana: "borrador", borradores: new 
 const $ = (id) => document.getElementById(id);
 const ahoraIso = () => new Date().toISOString();
 const urlSegura = (u) => (/^https?:\/\//i.test(String(u)) ? u : "#");
+
+// Pistas sobre el estado de la ilustración de un post (usadas por el sondeo y la tarjeta).
+export function generandoIlustracion(ilus) {
+  return Boolean(ilus && ilus.usar && !ilus.ruta && !ilus.error);
+}
+export function regenerandoIlustracion(ilus) {
+  return Boolean(ilus && ilus.usar && ilus.ruta && ilus.hashDescripcion !== hashTexto(ilus.descripcion));
+}
 
 function el(tag, props = {}, hijos = []) {
   const n = document.createElement(tag);
@@ -140,7 +148,8 @@ function tarjeta({ post, sha }) {
       el("a", { href: urlSegura(post.fuente.url), target: "_blank", rel: "noopener", text: post.fuente.medio }),
       post.programado ? el("span", { text: `Programado: ${claveDia(post.programado)} ${horaMinutoDeIso(post.programado)}` }) : "",
       imagenDesactualizada(post) && !["publicado", "descartado"].includes(post.estado) ? el("span", { class: "regenerando", text: "Regenerando imagen…" }) : "",
-      ilus && ilus.usar && !ilus.ruta && !ilus.error ? el("span", { class: "regenerando", text: "Generando ilustración…" }) : "",
+      generandoIlustracion(ilus) ? el("span", { class: "regenerando", text: "Generando ilustración…" }) : "",
+      regenerandoIlustracion(ilus) ? el("span", { class: "regenerando", text: "Regenerando ilustración…" }) : "",
     ]),
     post.error ? el("p", { class: "error-texto", text: `Error (${post.error.paso}): ${post.error.mensaje}` }) : "",
     campo("Titular", "titular"),
@@ -296,6 +305,7 @@ function pedirHora(post) {
 configurarAlmacen();
 cargarConfigPanel().then(cargar);
 setInterval(() => {
-  const hayRegenerando = estado.items.some((x) => ["borrador", "programado", "error"].includes(x.post.estado) && imagenDesactualizada(x.post));
+  const hayRegenerando = estado.items.some((x) => ["borrador", "programado", "error"].includes(x.post.estado)
+    && (imagenDesactualizada(x.post) || generandoIlustracion(x.post.ilustracion)));
   if (hayRegenerando && !document.querySelector("dialog[open]") && estado.borradores.size === 0) cargar();
 }, 30000);
