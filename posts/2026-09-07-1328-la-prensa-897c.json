@@ -1,6 +1,6 @@
 {
   "id": "2026-09-07-1328-la-prensa-897c",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "La Prensa",
     "url": "https://www.prensa.com/judiciales/crean-la-fiscalia-superior-de-personas-desaparecidas-reportan-ocho-casos-al-dia-en-panama/",
@@ -31,5 +31,5 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-07T18:28:21.391Z",
-  "actualizado": "2026-09-08T10:57:54.296Z"
+  "actualizado": "2026-09-08T11:02:29.233Z"
 }
