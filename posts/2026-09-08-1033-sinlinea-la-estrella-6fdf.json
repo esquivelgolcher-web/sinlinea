@@ -1,7 +1,7 @@
 {
   "id": "2026-09-08-1033-sinlinea-la-estrella-6fdf",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "La Estrella de Panamá",
     "url": "https://www.laestrella.com.pa/panama/nacional/colaborador-de-empresa-de-seguridad-resulto-herido-durante-intento-de-asalto-a-carro-blindado-en-marbella-AD25514884",
@@ -39,9 +39,9 @@
     "generada": "2026-09-08T15:33:38.643Z",
     "error": null
   },
-  "programado": null,
+  "programado": "2026-09-08T17:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-08T15:33:38.643Z",
-  "actualizado": "2026-09-08T15:33:38.643Z"
+  "actualizado": "2026-09-08T18:47:14.566Z"
 }
