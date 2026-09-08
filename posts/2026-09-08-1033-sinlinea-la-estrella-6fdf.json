@@ -1,0 +1,47 @@
+{
+  "id": "2026-09-08-1033-sinlinea-la-estrella-6fdf",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/colaborador-de-empresa-de-seguridad-resulto-herido-durante-intento-de-asalto-a-carro-blindado-en-marbella-AD25514884",
+    "titulo": "Colaborador de empresa de seguridad resultó herido durante intento de asalto a carro blindado en Marbella",
+    "publicado": "2026-09-08T12:28:00.000Z"
+  },
+  "categoria": "SEGURIDAD",
+  "titular": "Hieren a guardia en asalto a carro blindado en Marbella",
+  "bajada": "Un colaborador de seguridad resultó herido tras intento de robo a vehículo blindado frente a Banco General.",
+  "caption": "Un intento de asalto a un carro blindado en Marbella terminó con un guardia herido y un intercambio de disparos en plena vía. El hecho ocurrió de noche, sin clientes en la sucursal, pero deja otra vez la duda sobre la seguridad en las calles de la ciudad. El banco cerró la sucursal al día siguiente mientras avanzan las investigaciones. ¿Qué tan seguros nos sentimos hoy en las calles de Panamá?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Seguridad",
+    "#Marbella",
+    "#AsaltoBlindado",
+    "#BancoGeneral"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-09-08-1033-sinlinea-la-estrella-6fdf.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-08-1033-sinlinea-la-estrella-6fdf.jpg",
+    "hash": "34be4c99d4cb1fef",
+    "version": 7,
+    "estilo": "c7a9fb44614ef1f6",
+    "renderizada": "2026-09-08T15:34:08.630Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada de una sucursal bancaria de noche con un cajero automático iluminado, calle vacía, un vehículo blindado estacionado en el tercio superior derecho, zona izquierda y central despejadas, sin personas.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-08-1033-sinlinea-la-estrella-6fdf.jpg",
+    "hashDescripcion": "ed4dbeaee479b73c",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-08T15:33:38.643Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-08T15:33:38.643Z",
+  "actualizado": "2026-09-08T15:33:38.643Z"
+}

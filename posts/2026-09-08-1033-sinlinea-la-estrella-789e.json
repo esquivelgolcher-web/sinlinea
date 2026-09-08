@@ -1,0 +1,47 @@
+{
+  "id": "2026-09-08-1033-sinlinea-la-estrella-789e",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/economia/moody-s-apertura-o-no-de-cobre-panama-sera-decisivo-para-definir-el-grado-de-inversion-del-pais-ID25516178",
+    "titulo": "Moody’s: Apertura o no de Cobre Panamá será decisivo para definir el grado de inversión del país",
+    "publicado": "2026-09-08T15:27:00.000Z"
+  },
+  "categoria": "ECONOMÍA",
+  "titular": "Moody's: futuro de Cobre Panamá definirá calificación del país",
+  "bajada": "La decisión sobre reabrir la mina será clave para el grado de inversión, según analista de Moody's.",
+  "caption": "Para Moody's, no hay medias tintas: la decisión sobre Cobre Panamá puede ser muy positiva o muy negativa para las finanzas del país. Si la mina no reabre, un arbitraje internacional podría costarle al Estado hasta 19 puntos del PIB. Si reabre, los ingresos fiscales podrían crecer con fuerza. El Gobierno ya avisó que no habrá decisión antes de fines de 2026. ¿Qué debería pesar más al decidir el futuro de la mina?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Economía",
+    "#CobrePanamá",
+    "#Moody's",
+    "#GradoDeInversión"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-09-08-1033-sinlinea-la-estrella-789e.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-08-1033-sinlinea-la-estrella-789e.jpg",
+    "hash": "43306eec327035da",
+    "version": 7,
+    "estilo": "c7a9fb44614ef1f6",
+    "renderizada": "2026-09-08T15:34:03.321Z"
+  },
+  "ilustracion": {
+    "descripcion": "Vista aérea de una mina a cielo abierto con maquinaria pesada detenida, cielo despejado, la excavadora principal ubicada en el tercio superior derecho, zona izquierda y central despejadas.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-08-1033-sinlinea-la-estrella-789e.jpg",
+    "hashDescripcion": "06536f27daaeb7a1",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-08T15:33:38.643Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-08T15:33:38.643Z",
+  "actualizado": "2026-09-08T15:33:38.643Z"
+}
