@@ -11,6 +11,7 @@ import { acortarTextos, escribirEscena } from "./lib/redactor.mjs";
 import { renderizarConAjuste } from "./lib/texto.mjs";
 import Anthropic from "@anthropic-ai/sdk";
 import { todasFallaron, anotarFallos, resumirResultados } from "./lib/corrida.mjs";
+import { ocultarSecretos } from "./lib/secretos.mjs";
 
 export async function ejecutarRegenerar({ config, raiz = process.cwd(), ahora = new Date(), render, log = console, version, ilustrador = null, guardar = guardarIlustracion, acortar = null, redactarEscena = null }) {
   const dir = path.join(raiz, "posts");
@@ -100,8 +101,8 @@ export async function ejecutarRegenerar({ config, raiz = process.cwd(), ahora = 
 export async function regenerarCuentas({ configuracion, raiz = process.cwd(), ahora = new Date(), render, log = console, version, ilustrador = null, guardar = guardarIlustracion, acortar = null, redactarEscena = null, ilustradorDe = null, acortarDe = null, redactarEscenaDe = null }) {
   const resultados = {};
   for (const e of configuracion.errores || []) {
-    resultados[e.cuenta] = { error: e.mensaje };
-    (log.error || log.warn)(`Cuenta ${e.cuenta}: configuración inválida, se omite (${e.mensaje}).`);
+    resultados[e.cuenta] = { error: ocultarSecretos(e.mensaje) };
+    (log.error || log.warn)(`Cuenta ${e.cuenta}: configuración inválida, se omite (${ocultarSecretos(e.mensaje)}).`);
   }
   for (const config of configuracion.cuentas) {
     try {
@@ -112,8 +113,9 @@ export async function regenerarCuentas({ configuracion, raiz = process.cwd(), ah
         redactarEscena: redactarEscenaDe ? redactarEscenaDe(config) : redactarEscena,
       });
     } catch (err) {
-      resultados[config.cuenta] = { error: err.message };
-      (log.error || log.warn)(`Cuenta ${config.cuenta}: falló REGENERAR (${err.message}); se continúa con las demás.`);
+      const mensaje = ocultarSecretos(err.message);
+      resultados[config.cuenta] = { error: mensaje };
+      (log.error || log.warn)(`Cuenta ${config.cuenta}: falló REGENERAR (${mensaje}); se continúa con las demás.`);
     }
   }
   return { resultados };
