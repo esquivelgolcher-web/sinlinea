@@ -1,6 +1,6 @@
 {
   "id": "2026-09-08-0306-la-estrella-ba79",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "La Estrella de Panamá",
     "url": "https://www.laestrella.com.pa/panama/nacional/me-prepare-por-41-anos-para-esta-responsabilidad-ilya-toma-el-mando-del-canal-DC25507253",
@@ -27,11 +27,11 @@
     "version": 7,
     "renderizada": "2026-09-08T10:58:04.122Z"
   },
-  "programado": null,
+  "programado": "2026-09-08T07:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-08T08:06:02.846Z",
-  "actualizado": "2026-09-08T10:57:54.296Z",
+  "actualizado": "2026-09-08T11:01:56.179Z",
   "ilustracion": {
     "descripcion": "Vista aérea de las esclusas del Canal de Panamá con un buque portacontenedores cruzando al amanecer, cielo despejado, sin personas",
     "usar": true,
