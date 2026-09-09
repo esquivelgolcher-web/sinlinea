@@ -151,6 +151,7 @@ export function configDesdeFormulario(d, base = null) {
       rotulo: String(d.rotulo ?? base?.ilustraciones?.rotulo ?? ""),
     },
     instagram: {
+      origen: d.origen === "entorno" || d.origen === "repositorio" ? d.origen : (base?.instagram?.origen === "entorno" ? "entorno" : "repositorio"),
       tokenSecreto: String(d.tokenSecreto || "").trim() || base?.instagram?.tokenSecreto || nombresSecretosSugeridos(id).tokenSecreto,
       usuarioIdSecreto: String(d.usuarioIdSecreto || "").trim() || base?.instagram?.usuarioIdSecreto || nombresSecretosSugeridos(id).usuarioIdSecreto,
     },
@@ -177,6 +178,7 @@ export function formularioDesdeConfig(id, c, editorialMd = "") {
     ilustracionesActivo: c.ilustraciones?.activo !== false,
     estiloIlustracion: c.ilustraciones?.estilo || "",
     rotulo: c.ilustraciones?.rotulo ?? "",
+    origen: origenDe(c),
     tokenSecreto: c.instagram?.tokenSecreto || nombresSecretosSugeridos(id).tokenSecreto,
     usuarioIdSecreto: c.instagram?.usuarioIdSecreto || nombresSecretosSugeridos(id).usuarioIdSecreto,
     editorialMd,
@@ -201,13 +203,28 @@ export function cuentasActivas(cuentas) {
 export const ESTADOS_CONEXION_PANEL = ["sin-verificar", "pendiente-configuracion", "credenciales-pendientes", "pendiente", "verificada", "error"];
 export const DIAS_VERIFICACION_ANTIGUA = 7;
 
-// Nombres de secretos efectivos de una cuenta: los declarados o, si no, los sugeridos a partir del id.
+export const ORIGENES_CREDENCIALES = ["repositorio", "entorno"];
+export const NOMBRES_FIJOS = Object.freeze({ tokenSecreto: "IG_ACCESS_TOKEN", usuarioIdSecreto: "IG_USER_ID" });
+export const nombreEntorno = (id) => `cuenta-${id}`;
+export const origenDe = (config) => (config?.instagram?.origen === "entorno" ? "entorno" : "repositorio");
+
+// Nombres de secretos efectivos de una cuenta y su origen. Modo Environment: nombres fijos en el entorno cuenta-<id>.
+// Modo actual (repositorio): los declarados o, si no, los sugeridos a partir del id.
 export function nombresSecretosDe(config, id = "") {
+  if (origenDe(config) === "entorno") return { ...NOMBRES_FIJOS, origen: "entorno", entorno: nombreEntorno(id || "cuenta") };
   const sugeridos = nombresSecretosSugeridos(id || "cuenta");
   return {
     tokenSecreto: config?.instagram?.tokenSecreto || sugeridos.tokenSecreto,
     usuarioIdSecreto: config?.instagram?.usuarioIdSecreto || sugeridos.usuarioIdSecreto,
+    origen: "repositorio",
   };
+}
+
+// Texto explícito del modo de credenciales de una cuenta (solo nombres).
+export function describirOrigen(config, id = "") {
+  const n = nombresSecretosDe(config, id);
+  if (n.origen === "entorno") return `Environment ${n.entorno} (${n.tokenSecreto}, ${n.usuarioIdSecreto})`;
+  return `modo actual: secretos del repositorio ${n.tokenSecreto} / ${n.usuarioIdSecreto}`;
 }
 
 // "2026-09-08T20:20:00.000Z" → "2026-09-08 20:20" (UTC). Devuelve "" si no hay fecha válida.
@@ -273,8 +290,12 @@ export function estadoConexion({ conexion = null, tokenInfo = null, config = nul
   // Metadatos de los secretos en GitHub (fecha de actualización, nunca valores). Un valor nuevo con el mismo nombre
   // invalida la comprobación anterior; un secreto inexistente es una credencial pendiente comprobada con la API.
   const act = secretosActualizados && typeof secretosActualizados === "object" ? secretosActualizados : null;
+  const enEntorno = nombres.origen === "entorno";
   if (act) {
     const inexistentes = [nombres.tokenSecreto, nombres.usuarioIdSecreto].filter((n) => n in act && act[n] === null);
+    if (inexistentes.length && enEntorno) {
+      return { clave: "pendiente-configuracion", texto: `Conexión pendiente de configuración: al Environment ${nombres.entorno} le falta ${inexistentes.join(" y ")} (comprobado ahora con la API)`, detalle: `Crea el Environment ${nombres.entorno} en GitHub (Settings → Environments) con los secretos IG_ACCESS_TOKEN e IG_USER_ID y verifica la identidad. Sin ellos el job de esta cuenta falla sin usar credenciales de otro origen.`, fecha: null, antigua: false };
+    }
     if (inexistentes.length) {
       return { clave: "credenciales-pendientes", texto: `Credenciales pendientes: ${inexistentes.join(" y ")} no existe${inexistentes.length > 1 ? "n" : ""} en GitHub (comprobado ahora con la API)`, detalle: "Guarda el secreto en GitHub (Settings → Secrets and variables → Actions) y verifica la identidad.", fecha: null, antigua: false };
     }
@@ -285,7 +306,14 @@ export function estadoConexion({ conexion = null, tokenInfo = null, config = nul
       }
     }
   }
-  const sinMetadatos = act ? "" : " No se pudo comprobar si los secretos cambiaron después de la verificación: el token del panel necesita el permiso Secrets (lectura) para consultar sus fechas de actualización.";
+  const sinMetadatos = act ? "" : (enEntorno
+    ? ` No se pudo comprobar el Environment ${nombres.entorno} ni si sus secretos cambiaron: el token del panel necesita el permiso Environments (lectura).`
+    : " No se pudo comprobar si los secretos cambiaron después de la verificación: el token del panel necesita el permiso Secrets (lectura) para consultar sus fechas de actualización.");
+  // Cambiar el origen de las credenciales (modo actual ↔ Environment) invalida la verificación anterior.
+  if (c.estado === "verificada" && c.secretos && (c.secretos.origen || "repositorio") !== nombres.origen) {
+    const cuandoV = c.comprobado ? ` el ${fechaCortaUtc(c.comprobado)} UTC` : "";
+    return { clave: "pendiente", texto: `Pendiente de verificación: el origen de las credenciales cambió (${c.secretos.origen || "repositorio"} → ${nombres.origen}); la verificación${cuandoV} ya no vale`, detalle: "Verifica de nuevo la identidad con las credenciales del origen actual.", fecha: c.comprobado || null, antigua: true };
+  }
   const fecha = c.comprobado || c.cambiado || c.solicitada || null;
   const cuando = fecha ? ` el ${fechaCortaUtc(fecha)} UTC` : "";
   if (c.estado === "verificada") {
@@ -293,7 +321,7 @@ export function estadoConexion({ conexion = null, tokenInfo = null, config = nul
     if (usuarioConfig && usuarioVerificado && usuarioVerificado !== usuarioConfig) {
       return { clave: "pendiente", texto: `Pendiente de verificación: el usuario cambió (@${usuarioVerificado} → @${usuarioConfig}); la verificación${cuando} ya no vale`, detalle: "Verifica de nuevo la identidad antes de activar la publicación.", fecha, antigua: true };
     }
-    if (c.secretos && (c.secretos.tokenSecreto !== nombres.tokenSecreto || c.secretos.usuarioIdSecreto !== nombres.usuarioIdSecreto)) {
+    if (c.secretos && nombres.origen === "repositorio" && (c.secretos.tokenSecreto !== nombres.tokenSecreto || c.secretos.usuarioIdSecreto !== nombres.usuarioIdSecreto)) {
       return { clave: "pendiente", texto: `Pendiente de verificación: los nombres de los secretos cambiaron; la verificación${cuando} ya no vale`, detalle: "Verifica de nuevo la identidad con los secretos nuevos.", fecha, antigua: true };
     }
     const dias = diasDesde(fecha, ahora);
@@ -321,5 +349,12 @@ export function estadoConexion({ conexion = null, tokenInfo = null, config = nul
   if (!conexion && tokenInfo && (tokenInfo.vence || tokenInfo.comprobado)) {
     return { clave: "pendiente", texto: "Pendiente de verificación: hay datos del token, pero la identidad no se ha comprobado", detalle: null, fecha: null, antigua: false };
   }
-  return { clave: "sin-verificar", texto: "Conexión sin verificar: no se ha comprobado la identidad (se desconoce si los secretos existen)", detalle: "Guarda los secretos en GitHub si aún no están y pulsa Verificar identidad.", fecha: null, antigua: false };
+  return {
+    clave: "sin-verificar",
+    texto: "Conexión sin verificar: no se ha comprobado la identidad (se desconoce si los secretos existen)",
+    detalle: enEntorno
+      ? `Guarda IG_ACCESS_TOKEN e IG_USER_ID en el Environment ${nombres.entorno} si aún no están y pulsa Verificar identidad.${act ? "" : " (El panel no pudo comprobar el Environment: el token necesita el permiso Environments (lectura).)"}`
+      : "Guarda los secretos en GitHub si aún no están y pulsa Verificar identidad.",
+    fecha: null, antigua: false,
+  };
 }

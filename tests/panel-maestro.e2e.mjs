@@ -64,18 +64,18 @@ test("(maestro) la vista Todas las cuentas muestra tarjetas con identidad, conta
     assert.match(await sl.textContent(), /Publicación automática: apagada/);
     assert.match(await sl.textContent(), /Borradores 1 · Programados 1/);
     assert.match(await sl.textContent(), /Pendiente de verificación/, "hay token-info pero ninguna verificación de identidad");
-    assert.match(await sl.textContent(), /IG_ACCESS_TOKEN · IG_USER_ID/, "nombres exactos de los secretos");
+    assert.match(await sl.textContent(), /modo actual: secretos del repositorio IG_ACCESS_TOKEN \/ IG_USER_ID/, "modo de credenciales explícito con los nombres exactos");
     const luis = page.locator('.cuenta-tarjeta[data-cuenta="luiseskivelgolcher"]');
     assert.match(await luis.textContent(), /Identidad verificada \(@luiseskivelgolcher\) el 2026-09-08 20:20 UTC/);
     assert.match(await luis.textContent(), /Última comprobación: 2026-09-08 20:20 UTC/);
     assert.match(await luis.textContent(), /no garantiza/i, "un resultado pasado no garantiza que la conexión siga válida");
     assert.match(await luis.textContent(), /Generación automática: apagada/);
-    assert.match(await luis.textContent(), /IG_ACCESSTOKEN_LUISESKIVELGOLCHER · IG_USER_ID_LUISESKIVELGOLCHER/);
+    assert.match(await luis.textContent(), /modo actual: secretos del repositorio IG_ACCESSTOKEN_LUISESKIVELGOLCHER \/ IG_USER_ID_LUISESKIVELGOLCHER/);
     const prueba = page.locator('.cuenta-tarjeta[data-cuenta="prueba"]');
-    assert.match(await prueba.textContent(), /Conexión pendiente de configuración/, "sus secretos no llegan a los workflows");
+    assert.match(await prueba.textContent(), /Conexión sin verificar/, "con un job por cuenta cualquier cuenta declarada llega a las corridas; sin verificación no se afirma nada más");
     assert.doesNotMatch(await prueba.textContent(), /Credenciales pendientes/, "no se afirma que falten credenciales sin haberlo comprobado");
-    assert.match(await prueba.textContent(), /IG_ACCESS_TOKEN_PRUEBA · IG_USER_ID_PRUEBA/, "nombres sugeridos cuando la cuenta no los declara");
-    assert.equal(await prueba.locator('button:has-text("Verificar identidad")').isDisabled(), true, "no se puede verificar lo que no llega a los workflows");
+    assert.match(await prueba.textContent(), /IG_ACCESS_TOKEN_PRUEBA \/ IG_USER_ID_PRUEBA/, "nombres sugeridos cuando la cuenta no los declara");
+    assert.equal(await prueba.locator('button:has-text("Verificar identidad")').isDisabled(), false, "se puede pedir la verificación: su job existe por construcción");
     assert.equal((await page.textContent("#maestro")).includes("IGAA"), false, "ningún valor de secreto en la vista");
     // Abrir panel de la cuenta personal → vista de posts filtrada
     await luis.locator("text=Abrir panel").click();
@@ -115,8 +115,13 @@ test("(maestro) Añadir cuenta crea config, editorial y la lista global; empieza
     await page.fill("#fc-franjas", "09:00, 18:00");
     await page.selectOption("#fc-logo-forma", "cuadrado");
     assert.equal(await page.inputValue("#fc-token-secreto"), "IG_ACCESS_TOKEN_NUEVO_MEDIO", "nombres de secretos sugeridos y editables");
-    assert.match(await page.textContent("#fc-secretos"), /IG_ACCESS_TOKEN_NUEVO_MEDIO/);
-    assert.match(await page.textContent("#fc-secretos"), /pendiente de configuración/i);
+    assert.match(await page.textContent("#fc-secretos"), /Modo actual.*IG_ACCESS_TOKEN_NUEVO_MEDIO/);
+    // Fase 2: la cuenta nueva elige el Environment cuenta-<id>; los nombres fijos sustituyen a los propios
+    await page.selectOption("#fc-origen", "entorno");
+    await page.waitForFunction(() => document.getElementById("fc-nombres-secretos").hidden === true);
+    assert.match(await page.textContent("#fc-secretos"), /Environment cuenta-nuevo-medio/);
+    assert.match(await page.textContent("#fc-secretos"), /IG_ACCESS_TOKEN.*IG_USER_ID/);
+    assert.match(await page.textContent("#fc-secretos"), /sin usar credenciales de otro origen/);
     // Un error de validación se muestra y conserva lo escrito
     await page.fill("#fc-franjas", "25:00");
     await page.click("#fc-guardar");
@@ -134,7 +139,7 @@ test("(maestro) Añadir cuenta crea config, editorial y la lista global; empieza
     assert.deepEqual(cfg.editorial, { temas: ["Economía local", "Transparencia"], tono: "Claro y directo" });
     assert.deepEqual(cfg.franjas, ["09:00", "18:00"]);
     assert.equal(cfg.fuentes.length, 1);
-    assert.deepEqual(cfg.instagram, { tokenSecreto: "IG_ACCESS_TOKEN_NUEVO_MEDIO", usuarioIdSecreto: "IG_USER_ID_NUEVO_MEDIO" });
+    assert.deepEqual(cfg.instagram, { origen: "entorno", tokenSecreto: "IG_ACCESS_TOKEN_NUEVO_MEDIO", usuarioIdSecreto: "IG_USER_ID_NUEVO_MEDIO" }, "origen explícito: Environment");
     assert.equal(cfg.archivada, undefined);
     const editorial = fs.readFileSync(path.join(raiz, "cuentas/nuevo-medio/editorial.md"), "utf8");
     assert.match(editorial, /Línea editorial de @Nuevo\.Medio/);
@@ -144,7 +149,8 @@ test("(maestro) Añadir cuenta crea config, editorial y la lista global; empieza
     const tarjeta = await page.textContent('.cuenta-tarjeta[data-cuenta="nuevo-medio"]');
     assert.match(tarjeta, /Generación automática: apagada/);
     assert.match(tarjeta, /Publicación automática: apagada/);
-    assert.match(tarjeta, /Conexión pendiente de configuración/);
+    assert.match(tarjeta, /Conexión sin verificar/);
+    assert.match(tarjeta, /Environment cuenta-nuevo-medio \(IG_ACCESS_TOKEN, IG_USER_ID\)/, "la tarjeta dice qué modo usa la cuenta");
     assert.match(tarjeta, /Borradores 0 · Programados 0/);
     await page.click("#boton-cuentas");
     await page.waitForSelector("#vista-posts:not([hidden])");
@@ -260,6 +266,7 @@ test("(maestro) cambiar el usuario de Instagram invalida la verificación anteri
     await page.locator('.cuenta-tarjeta[data-cuenta="luiseskivelgolcher"] >> text=Editar').click();
     await page.waitForSelector("#formulario-cuenta:not([hidden])");
     assert.equal(await page.inputValue("#fc-token-secreto"), "IG_ACCESSTOKEN_LUISESKIVELGOLCHER", "muestra los nombres declarados");
+    assert.equal(await page.inputValue("#fc-origen"), "repositorio", "la cuenta real sigue en modo actual hasta que se migre");
     // Guardar sin tocar usuario ni secretos conserva la verificación
     await page.fill("#fc-tono", "Tono revisado");
     await page.click("#fc-guardar");
@@ -277,6 +284,33 @@ test("(maestro) cambiar el usuario de Instagram invalida la verificación anteri
     assert.equal(c.anterior.estado, "verificada");
     assert.equal(c.anterior.comprobado, "2026-09-08T20:20:00.000Z");
     assert.equal(leerJson(path.join(raiz, "cuentas/luiseskivelgolcher/config.json")).marca.usuario, "@otro.usuario");
+    const tarjeta = await page.textContent('.cuenta-tarjeta[data-cuenta="luiseskivelgolcher"]');
+    assert.match(tarjeta, /Pendiente de verificación/);
+    assert.doesNotMatch(tarjeta, /Identidad verificada/);
+  } finally {
+    await page.close();
+    servidor.close();
+  }
+});
+
+test("(fase 2) cambiar el origen de las credenciales a Environment invalida la verificación anterior y la tarjeta muestra el modo nuevo", async () => {
+  const { raiz, servidor, base } = await montar("fase2-origen-");
+  const page = await navegador.newPage();
+  try {
+    await abrirMaestro(page, base);
+    await page.locator('.cuenta-tarjeta[data-cuenta="luiseskivelgolcher"] >> text=Editar').click();
+    await page.waitForSelector("#formulario-cuenta:not([hidden])");
+    await page.selectOption("#fc-origen", "entorno");
+    await page.click("#fc-guardar");
+    await page.waitForFunction(() => /Environment cuenta-luiseskivelgolcher/.test(document.querySelector('.cuenta-tarjeta[data-cuenta="luiseskivelgolcher"]')?.textContent || ""));
+    const cfg = leerJson(path.join(raiz, "cuentas/luiseskivelgolcher/config.json"));
+    assert.equal(cfg.instagram.origen, "entorno");
+    assert.equal(cfg.instagram.tokenSecreto, "IG_ACCESSTOKEN_LUISESKIVELGOLCHER", "los nombres antiguos se conservan por si se vuelve al modo actual");
+    assert.deepEqual(cfg.automatico, { generar: false, publicar: false }, "las pausas no cambian");
+    const c = leerJson(path.join(raiz, "data/luiseskivelgolcher/conexion.json"));
+    assert.equal(c.estado, "pendiente");
+    assert.equal(c.motivo, "cambio");
+    assert.match(c.detalle, /Environment cuenta-luiseskivelgolcher/);
     const tarjeta = await page.textContent('.cuenta-tarjeta[data-cuenta="luiseskivelgolcher"]');
     assert.match(tarjeta, /Pendiente de verificación/);
     assert.doesNotMatch(tarjeta, /Identidad verificada/);

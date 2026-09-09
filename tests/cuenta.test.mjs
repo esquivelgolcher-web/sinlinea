@@ -62,7 +62,7 @@ test("(maestro) configDesdeFormulario crea una cuenta apagada y sin conexión, c
   const c = configDesdeFormulario(datos);
   assert.deepEqual(c.automatico, { generar: false, publicar: false });
   assert.equal(c.archivada, undefined);
-  assert.deepEqual(c.instagram, { tokenSecreto: "IG_ACCESS_TOKEN_NUEVO_MEDIO", usuarioIdSecreto: "IG_USER_ID_NUEVO_MEDIO" });
+  assert.deepEqual(c.instagram, { origen: "repositorio", tokenSecreto: "IG_ACCESS_TOKEN_NUEVO_MEDIO", usuarioIdSecreto: "IG_USER_ID_NUEVO_MEDIO" }, "modo actual por defecto, con los nombres sugeridos");
   assert.equal(c.marca.usuario, "@nuevomedio");
   assert.equal(c.marca.logoForma, "cuadrado");
   assert.equal(c.marca.logoTamano, 100);
@@ -79,7 +79,7 @@ test("(maestro) configDesdeFormulario crea una cuenta apagada y sin conexión, c
   assert.equal(editada.nombre, "Otro nombre");
   assert.deepEqual(editada.automatico, base.automatico);
   assert.equal(editada.generar.maxPorCorrida, 3);
-  assert.deepEqual(editada.instagram, base.instagram);
+  assert.deepEqual(editada.instagram, { origen: "repositorio", ...base.instagram });
   assert.doesNotThrow(() => validarCuenta(editada, "nuevo-medio"));
 });
 
@@ -96,7 +96,7 @@ test("(maestro) formularioDesdeConfig y configDesdeFormulario van y vuelven para
     assert.deepEqual(vuelta.fuentes, crudo.fuentes);
     assert.deepEqual(vuelta.franjas, crudo.franjas);
     assert.deepEqual(vuelta.automatico, crudo.automatico);
-    assert.deepEqual(vuelta.instagram, crudo.instagram);
+    assert.deepEqual(vuelta.instagram, { origen: "repositorio", ...crudo.instagram }, "las cuentas actuales siguen en modo actual salvo que declaren otro origen");
     assert.equal(vuelta.marca.usuario, crudo.marca.usuario);
     assert.equal(vuelta.ilustraciones.estilo, crudo.ilustraciones.estilo);
     assert.equal(vuelta.ilustraciones.rotulo, crudo.ilustraciones.rotulo);

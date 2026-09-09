@@ -8,6 +8,7 @@ import {
   IDIOMAS, IDIOMA_POR_DEFECTO, ZONA_POR_DEFECTO, COLORES_POR_DEFECTO, LOGO_TAMANO, FRANJAS_POR_DEFECTO, ESTILO_ILUSTRACION_POR_DEFECTO,
   idSugerido, normalizarUsuario, nombresSecretosSugeridos, erroresDeCuenta, plantillaEditorial, configDesdeFormulario, formularioDesdeConfig,
   archivarCuenta, reactivarCuenta, estadoConexion, secretosExpuestos, secretosExpuestosComunes, workflowsPorCuenta, fechaCortaUtc,
+  describirOrigen, nombreEntorno,
 } from "./lib/cuenta.mjs";
 import { crearAlmacenLocal, crearAlmacenGitHub, deducirRepo, ErrorConflicto, ErrorConflictoArchivo } from "./almacen.mjs";
 
@@ -427,7 +428,6 @@ function tarjetaCuenta(c) {
   const conexion = estadoConexion({ conexion: c.conexion, tokenInfo: c.tokenInfo, config: cfg, id: c.id, expuestos: secretosExpuestosActuales(), secretosActualizados: c.secretosActualizados ?? null, ahora: new Date() });
   const posts = estado.items.map((x) => x.post).filter((p) => cuentaDe(p) === c.id);
   const cuenta = (e) => posts.filter((p) => p.estado === e).length;
-  const secretos = { ...nombresSecretosSugeridos(c.id), ...(cfg.instagram || {}) };
   const bloqueado = soloLectura();
   const acciones = el("div", { class: "acciones" }, [
     el("button", { type: "button", class: "boton primario", text: "Abrir panel", onclick: () => { seleccionarCuenta(c.id); mostrarVista("posts"); } }),
@@ -461,7 +461,7 @@ function tarjetaCuenta(c) {
       el("span", { class: `estado conexion-${conexion.clave}`, text: conexion.texto }),
     ]),
     el("p", { class: "cuenta-contadores", text: `Borradores ${cuenta("borrador")} · Programados ${cuenta("programado")}${cuenta("error") ? ` · Errores ${cuenta("error")}` : ""}` }),
-    el("p", { class: "cuenta-secretos", text: `Secretos de Instagram en GitHub: ${secretos.tokenSecreto} · ${secretos.usuarioIdSecreto}` }),
+    el("p", { class: "cuenta-secretos", text: `Credenciales de Instagram: ${describirOrigen(cfg, c.id)}` }),
     conexion.fecha ? el("p", { class: "cuenta-fecha", text: `Última comprobación: ${fechaCortaUtc(conexion.fecha)} UTC` }) : "",
     conexion.detalle && !archivada ? el("p", { class: `cuenta-detalle${conexion.antigua ? " antigua" : ""}`, text: conexion.detalle }) : "",
     acciones,
@@ -591,6 +591,7 @@ function leerFormulario() {
     ilustracionesActivo: $("fc-ilus-activo").checked,
     estiloIlustracion: $("fc-ilus-estilo").value.trim(),
     rotulo: $("fc-rotulo").value,
+    origen: $("fc-origen").value === "entorno" ? "entorno" : "repositorio",
     tokenSecreto: $("fc-token-secreto").value.trim(),
     usuarioIdSecreto: $("fc-id-secreto").value.trim(),
   };
@@ -615,6 +616,7 @@ function rellenarFormulario(d) {
   $("fc-ilus-estilo").value = d.estiloIlustracion || "";
   $("fc-rotulo").value = d.rotulo || "";
   $("fc-zona").value = d.zonaHoraria || ZONA_POR_DEFECTO;
+  $("fc-origen").value = d.origen === "entorno" ? "entorno" : "repositorio";
   $("fc-token-secreto").value = d.tokenSecreto || "";
   $("fc-id-secreto").value = d.usuarioIdSecreto || "";
   $("fc-logo").value = "";
@@ -632,16 +634,24 @@ function actualizarSecretosFormulario() {
     $("fc-token-secreto").value = s.tokenSecreto;
     $("fc-id-secreto").value = s.usuarioIdSecreto;
   }
+  const enEntorno = $("fc-origen").value === "entorno";
+  $("fc-nombres-secretos").hidden = enEntorno;
+  const cambio = f.modo === "editar" ? " Si cambias el usuario de Instagram, el origen o estos nombres, la verificación anterior deja de valer y habrá que verificar de nuevo." : "";
+  if (enEntorno) {
+    const entorno = nombreEntorno(id || "nueva-cuenta");
+    $("fc-secretos").textContent = `Crea en GitHub el Environment ${entorno} (Settings → Environments → New environment; hace falta ser administrador del repositorio) y añade en él dos secretos con estos nombres exactos: IG_ACCESS_TOKEN (token de acceso) e IG_USER_ID (id numérico). Los jobs de esta cuenta solo verán esos dos secretos; si faltan, fallan sin usar credenciales de otro origen. Aquí no se guardan valores.${cambio}`;
+    return;
+  }
   const token = $("fc-token-secreto").value.trim() || "(sin nombre)";
   const numero = $("fc-id-secreto").value.trim() || "(sin nombre)";
   const expuestos = secretosExpuestosActuales();
   const llegan = Array.isArray(expuestos) ? expuestos.includes(token) && expuestos.includes(numero) : null;
   const aviso = llegan === false
-    ? " Estos nombres todavía no llegan a los workflows: la cuenta quedará como «Conexión pendiente de configuración» hasta la fase 2 (entornos por cuenta)."
+    ? " Estos nombres todavía no llegan a los workflows: la cuenta quedará como «Conexión pendiente de configuración»."
     : "";
-  const cambio = f.modo === "editar" ? " Si cambias el usuario de Instagram o estos nombres, la verificación anterior deja de valer y habrá que verificar de nuevo." : "";
-  $("fc-secretos").textContent = `Guarda en GitHub (Settings → Secrets and variables → Actions) dos secretos con estos nombres exactos: ${token} (token de acceso) y ${numero} (id numérico). Aquí solo se guardan los nombres, nunca los valores.${aviso}${cambio}`;
+  $("fc-secretos").textContent = `Modo actual: guarda en GitHub (Settings → Secrets and variables → Actions) dos secretos con estos nombres exactos: ${token} (token de acceso) y ${numero} (id numérico). Aquí solo se guardan los nombres, nunca los valores.${aviso}${cambio}`;
 }
+$("fc-origen").addEventListener("change", actualizarSecretosFormulario);
 for (const id of ["fc-token-secreto", "fc-id-secreto"]) $(id).addEventListener("input", () => { if (estado.formulario) estado.formulario.secretosManuales = true; actualizarSecretosFormulario(); });
 
 // La editorial se genera sola mientras el operador no la haya tocado (solo al crear).
@@ -754,10 +764,13 @@ async function guardarFormulario(d) {
     const antes = f.base || {};
     const usuarioCambio = normalizarUsuario(antes.marca?.usuario || "").toLowerCase() !== normalizarUsuario(config.marca.usuario).toLowerCase();
     const nombresAntes = { ...nombresSecretosSugeridos(id), ...(antes.instagram || {}) };
-    const secretosCambio = nombresAntes.tokenSecreto !== config.instagram.tokenSecreto || nombresAntes.usuarioIdSecreto !== config.instagram.usuarioIdSecreto;
-    if ((usuarioCambio || secretosCambio) && f.conexion?.estado !== "sin-verificar") {
+    const origenAntes = antes.instagram?.origen === "entorno" ? "entorno" : "repositorio";
+    const origenCambio = origenAntes !== config.instagram.origen;
+    const secretosCambio = config.instagram.origen === "repositorio" && (nombresAntes.tokenSecreto !== config.instagram.tokenSecreto || nombresAntes.usuarioIdSecreto !== config.instagram.usuarioIdSecreto);
+    if ((usuarioCambio || secretosCambio || origenCambio) && f.conexion?.estado !== "sin-verificar") {
       const anterior = f.conexion ? { estado: f.conexion.estado, comprobado: f.conexion.comprobado || null, usuario: f.conexion.usuario || null } : null;
-      const conexion = { estado: "pendiente", motivo: "cambio", cambiado: ahoraIso(), detalle: usuarioCambio ? `el usuario de Instagram cambió a ${config.marca.usuario}` : "cambiaron los nombres de los secretos", anterior };
+      const detalle = usuarioCambio ? `el usuario de Instagram cambió a ${config.marca.usuario}` : (origenCambio ? `el origen de las credenciales cambió a ${config.instagram.origen === "entorno" ? `Environment ${nombreEntorno(id)}` : "modo actual (repositorio)"}` : "cambiaron los nombres de los secretos");
+      const conexion = { estado: "pendiente", motivo: "cambio", cambiado: ahoraIso(), detalle, anterior };
       archivos.push({ clave: "conexion", ruta: `data/${id}/conexion.json`, texto: JSON.stringify(conexion, null, 2) + "\n", sha: f.shas.conexion ?? null });
     }
   }

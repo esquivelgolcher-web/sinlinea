@@ -137,11 +137,25 @@ export function crearAlmacenGitHub({ token, owner, repo, rama = "main", fetchImp
     }
     return { disponible: true, actualizados };
   }
+  // Secretos de un Environment (fase 2): mismos metadatos, endpoint de entornos. Permiso: Environments (lectura).
+  async function leerSecretosDeEntorno(entorno, nombres) {
+    if (!token) return { disponible: false, actualizados: null };
+    const actualizados = {};
+    for (const n of nombres) {
+      const res = await fetchImpl(`${api}/environments/${entorno}/secrets/${n}`, { headers: cabeceras() });
+      if (res.status === 404) { actualizados[n] = null; continue; }
+      if (!res.ok) return { disponible: false, actualizados: null };
+      actualizados[n] = (await res.json()).updated_at || null;
+    }
+    return { disponible: true, actualizados };
+  }
   const sufijo = (id) => String(id).toUpperCase().replace(/[^A-Z0-9]+/g, "_").replace(/^_+|_+$/g, "");
-  const nombresDe = (id, config) => ({
-    tokenSecreto: config?.instagram?.tokenSecreto || `IG_ACCESS_TOKEN_${sufijo(id)}`,
-    usuarioIdSecreto: config?.instagram?.usuarioIdSecreto || `IG_USER_ID_${sufijo(id)}`,
-  });
+  const nombresDe = (id, config) => (config?.instagram?.origen === "entorno"
+    ? { tokenSecreto: "IG_ACCESS_TOKEN", usuarioIdSecreto: "IG_USER_ID", entorno: `cuenta-${id}` }
+    : {
+      tokenSecreto: config?.instagram?.tokenSecreto || `IG_ACCESS_TOKEN_${sufijo(id)}`,
+      usuarioIdSecreto: config?.instagram?.usuarioIdSecreto || `IG_USER_ID_${sufijo(id)}`,
+    });
   // Varios archivos en UN solo commit (API de git: blobs → árbol → commit → ref), para que un alta no quede a medias.
   // `sha`: null = debe ser nuevo; texto = versión que se espera encontrar; undefined = sin comprobación (p. ej. el logo).
   // Si la rama avanzó entre la lectura y el commit (la ref no avanza en línea recta), se rehace todo sobre la punta nueva.
@@ -214,6 +228,7 @@ export function crearAlmacenGitHub({ token, owner, repo, rama = "main", fetchImp
     leerArchivo,
     escribirArchivos,
     leerSecretosActualizados,
+    leerSecretosDeEntorno,
     async escribirArchivo(ruta, texto, { sha = null, mensaje } = {}) {
       return subir(ruta, base64Utf8(texto), { sha, mensaje });
     },
@@ -242,12 +257,19 @@ export function crearAlmacenGitHub({ token, owner, repo, rama = "main", fetchImp
       }));
       // Workflows de Instagram: el panel deduce de su `env` qué nombres de secretos ya llegan a las corridas.
       const workflows = await Promise.all(WORKFLOWS_INSTAGRAM.map((r) => leerArchivo(r).catch(() => null)));
-      // Fechas de actualización de los secretos de cada cuenta (si el token puede leerlas).
-      const nombres = [...new Set(cuentas.filter((c) => c.config).flatMap((c) => Object.values(nombresDe(c.id, c.config))))];
+      // Fechas de actualización de los secretos de cada cuenta (si el token puede leerlas), según su origen.
+      const deRepo = cuentas.filter((c) => c.config && c.config.instagram?.origen !== "entorno");
+      const nombres = [...new Set(deRepo.flatMap((c) => { const n = nombresDe(c.id, c.config); return [n.tokenSecreto, n.usuarioIdSecreto]; }))];
       const meta = nombres.length ? await leerSecretosActualizados(nombres).catch(() => ({ disponible: false, actualizados: null })) : { disponible: false, actualizados: null };
       for (const c of cuentas) {
+        if (!c.config) { c.secretosActualizados = null; continue; }
         const n = nombresDe(c.id, c.config);
-        c.secretosActualizados = meta.disponible ? { [n.tokenSecreto]: meta.actualizados[n.tokenSecreto] ?? null, [n.usuarioIdSecreto]: meta.actualizados[n.usuarioIdSecreto] ?? null } : null;
+        if (n.entorno) {
+          const m = await leerSecretosDeEntorno(n.entorno, [n.tokenSecreto, n.usuarioIdSecreto]).catch(() => ({ disponible: false, actualizados: null }));
+          c.secretosActualizados = m.disponible ? m.actualizados : null;
+        } else {
+          c.secretosActualizados = meta.disponible ? { [n.tokenSecreto]: meta.actualizados[n.tokenSecreto] ?? null, [n.usuarioIdSecreto]: meta.actualizados[n.usuarioIdSecreto] ?? null } : null;
+        }
       }
       return { global, globalSha: g.sha, cuentas, secretosLegibles: meta.disponible, workflows: { archivos: WORKFLOWS_INSTAGRAM.filter((_, i) => workflows[i]), textos: workflows.filter(Boolean).map((a) => a.texto) } };
     },
