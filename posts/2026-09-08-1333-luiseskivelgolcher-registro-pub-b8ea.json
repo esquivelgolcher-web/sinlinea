@@ -1,7 +1,7 @@
 {
   "id": "2026-09-08-1333-luiseskivelgolcher-registro-pub-b8ea",
   "cuenta": "luiseskivelgolcher",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "Registro Público de Panamá",
     "url": "https://www.registro-publico.gob.pa/",
@@ -37,9 +37,9 @@
     "generada": "2026-09-08T18:48:28.110Z",
     "error": null
   },
-  "programado": null,
+  "programado": "2026-09-09T14:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-08T18:33:04.708Z",
-  "actualizado": "2026-09-09T16:07:57.011Z"
+  "actualizado": "2026-09-09T16:21:47.655Z"
 }
