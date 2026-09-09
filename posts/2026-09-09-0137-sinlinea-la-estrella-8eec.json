@@ -1,0 +1,47 @@
+{
+  "id": "2026-09-09-0137-sinlinea-la-estrella-8eec",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/gobierno-destina-122-millones-para-subsidiar-la-luz-IB25536394",
+    "titulo": "Gobierno destina $122 millones para subsidiar la luz",
+    "publicado": "2026-09-09T03:00:00.000Z"
+  },
+  "categoria": "ECONOMÍA",
+  "titular": "Gobierno destina $122 millones para subsidiar la luz",
+  "bajada": "La medida evitará aumentos en las facturas eléctricas de septiembre a diciembre de 2026.",
+  "caption": "El ajuste en las tarifas eléctricas no se sentirá en el bolsillo de los panameños, gracias a un subsidio del Gobierno que cubrirá la diferencia hasta fin de año. La medida busca proteger a los consumidores mientras la Asep actualiza las tarifas según la normativa vigente. ¿Sientes que estas medidas realmente alivian el costo de vida?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Electricidad",
+    "#Economía",
+    "#SubsidioLuz",
+    "#CostoDeVida"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-09-09-0137-sinlinea-la-estrella-8eec.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-09-0137-sinlinea-la-estrella-8eec.jpg",
+    "hash": "e3cb0c9b91abeb51",
+    "version": 10,
+    "estilo": "a92ceb586a180aae",
+    "renderizada": "2026-09-09T06:38:06.457Z"
+  },
+  "ilustracion": {
+    "descripcion": "Poste de luz y cableado eléctrico urbano bajo un cielo despejado, con un medidor eléctrico en el tercio superior derecho; calle y edificios desenfocados a la izquierda y al centro.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-09-0137-sinlinea-la-estrella-8eec.jpg",
+    "hashDescripcion": "cb0c43987a26ff0a",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-09T06:37:30.947Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-09T06:37:30.947Z",
+  "actualizado": "2026-09-09T06:37:30.947Z"
+}
