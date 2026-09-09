@@ -9,7 +9,9 @@ export const GRUPOS = Object.freeze({
   cuentaDocumentadas: Object.freeze(["reach", "views", "accounts_engaged", "total_interactions", "likes", "comments", "shares", "saves", "reposts", "replies", "profile_links_taps"]),
   cuentaSeguidores: Object.freeze(["follows_and_unfollows"]),
   cuentaPorConfirmar: Object.freeze(["follower_count", "profile_views", "website_clicks"]),
-  medioFeed: Object.freeze(["reach", "views", "likes", "comments", "saved", "shares", "reposts", "total_interactions", "profile_visits", "profile_activity", "follows"]),
+  // Hallazgo real (2026-09-09): la API rechaza `reposts` en publicaciones; en reels tampoco existen profile_visits,
+  // profile_activity ni follows (la recogida aprende por tipo lo que la API rechaza y deja de pedirlo).
+  medioFeed: Object.freeze(["reach", "views", "likes", "comments", "saved", "shares", "total_interactions", "profile_visits", "profile_activity", "follows"]),
   medioReel: Object.freeze(["ig_reels_avg_watch_time", "ig_reels_video_view_total_time", "reels_skip_rate"]),
 });
 

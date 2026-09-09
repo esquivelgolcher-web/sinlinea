@@ -5,11 +5,14 @@
 //   metricas.recoger = true, que es independiente de automatico.generar y automatico.publicar.
 // Nunca imprime ni guarda valores de secretos. No usa Claude ni Gemini.
 // Uso: node src/metricas.mjs --cuenta <id> --por-cuenta [--sin-guardar] [--dia AAAA-MM-DD]
+import fs from "node:fs";
+import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { cargarConfiguracion } from "./lib/config.mjs";
-import { crearClienteInstagram } from "./lib/instagram.mjs";
+import { crearClienteInstagram, ErrorLimiteInstagram } from "./lib/instagram.mjs";
 import { ocultarSecretos, leerSecretos, origenDeSecretos, describirCredenciales } from "./lib/secretos.mjs";
-import { GRUPOS, textoValor } from "./lib/metricas.mjs";
+import { leerPosts, CUENTA_LEGADO } from "./lib/posts.mjs";
+import { GRUPOS, textoValor, archivoDeMes, registrarConsultaCuenta, registrarPorDia, registrarConsultaMedio, seleccionarPendientes, enlazarConPosts, ENLACE_INSTAGRAM } from "./lib/metricas.mjs";
 
 const diaAnterior = (dia) => new Date(Date.parse(`${dia}T00:00:00Z`) - 86400000).toISOString().slice(0, 10);
 const entrada = (r, m) => ({ valor: r.valores[m] ?? null, motivo: r.faltantes[m] ?? null });
@@ -61,9 +64,129 @@ export function lineasDeSonda(informe) {
   return l;
 }
 
+// --- Recogida con guardado --------------------------------------------------------------------------------------
+const LIMITES_POR_DEFECTO = Object.freeze({ ventanaDias: 90, maxLlamadas: 150, maxPaginas: 4, maxPublicaciones: 40 });
+const leerJson = (ruta) => { try { return JSON.parse(fs.readFileSync(ruta, "utf8")); } catch { return null; } };
+const escribirJson = (ruta, datos) => { fs.mkdirSync(path.dirname(ruta), { recursive: true }); fs.writeFileSync(ruta, JSON.stringify(datos, null, 2) + "\n"); };
+const diasAtras = (ahora, n) => new Date(ahora.getTime() - n * 86400000).toISOString().slice(0, 10);
+
+// Guarda en data/<cuenta>/metricas/ una instantánea con fecha de consulta: perfil (acumulados), métricas de cuenta de los
+// tres últimos días (por período, se corrigen hasta 48 h después) y los totales acumulados de las publicaciones de la
+// ventana, dentro de un presupuesto de llamadas. Lo que no cabe queda pendiente en estado.json para la corrida siguiente.
+// Ante un límite de la API se detiene sin lanzar y guarda lo obtenido. Solo lecturas en Instagram; nunca toca posts/.
+export async function recogerMetricas({ config, ig, raiz = process.cwd(), ahora = new Date(), log = console }) {
+  const cuenta = config.cuenta;
+  const limites = { ...LIMITES_POR_DEFECTO, ...(config.metricas || {}) };
+  const carpeta = path.join(raiz, config.rutas?.datos || `data/${cuenta}`, "metricas");
+  const consultadoEn = ahora.toISOString();
+  const inicio = ig.llamadasHechas();
+  const usadas = () => ig.llamadasHechas() - inicio;
+  const quedan = () => limites.maxLlamadas - usadas();
+  const estadoPrevio = leerJson(path.join(carpeta, "estado.json")) || {};
+  const ultimaConsulta = { ...(estadoPrevio.ultimaConsulta || {}) };
+  const noSoportadas = { ...(estadoPrevio.noSoportadas || {}) };
+  let completo = true; let motivoIncompleto = null;
+  const incompleto = (motivo) => { if (completo) { completo = false; motivoIncompleto = motivo; } };
+  const registros = [];
+
+  // 1. Perfil (acumulados). Si esto falla (token inválido, permiso básico ausente), no hay nada que guardar: se lanza.
+  const perfil = await ig.perfilResumen();
+
+  // 2. Métricas de cuenta por período: D-3, D-2, D-1 (una llamada por día; la API corrige hasta 48 h después).
+  const metricasCuenta = [...GRUPOS.cuentaDocumentadas, ...GRUPOS.cuentaSeguidores, ...GRUPOS.cuentaPorConfirmar];
+  const porDia = [];
+  let permiso = "basico+insights";
+  let limiteApi = null;
+  for (const n of [3, 2, 1]) {
+    const dia = diasAtras(ahora, n);
+    if (quedan() < 2) { incompleto("presupuesto-agotado"); break; }
+    try {
+      const r = await ig.insightsCuenta({ metricas: metricasCuenta, desde: dia, hasta: diasAtras(ahora, n - 1) });
+      porDia.push({ dia, valores: r.valores, faltantes: r.faltantes });
+      if (metricasCuenta.every((m) => r.faltantes[m] === "sin-permiso-insights")) permiso = "basico";
+    } catch (err) {
+      if (!(err instanceof ErrorLimiteInstagram)) throw err;
+      limiteApi = err; incompleto("limite-llamadas"); break;
+    }
+  }
+
+  // 3. Lista de publicaciones (paginación limitada) dentro de la ventana, más las del sistema (posts/) aunque sean antiguas.
+  const posts = leerPosts(path.join(raiz, "posts"), { cuentaPorDefecto: config.cuentaPrincipal || CUENTA_LEGADO });
+  const enlaces = enlazarConPosts(posts, cuenta);
+  const desdeVentana = diasAtras(ahora, limites.ventanaDias);
+  const candidatos = [];
+  let cursor = null; let listadoCompleto = true;
+  if (!limiteApi) {
+    for (let pagina = 0; pagina < limites.maxPaginas; pagina++) {
+      if (quedan() < 2) { listadoCompleto = false; incompleto("presupuesto-agotado"); break; }
+      let r;
+      try { r = await ig.listarMedios({ limite: 50, despues: cursor }); }
+      catch (err) { if (!(err instanceof ErrorLimiteInstagram)) throw err; limiteApi = err; listadoCompleto = false; incompleto("limite-llamadas"); break; }
+      let fueraDeVentana = false;
+      for (const m of r.medios) {
+        if ((m.fecha || "") >= desdeVentana || enlaces.has(m.id)) candidatos.push(m);
+        else fueraDeVentana = true;
+      }
+      cursor = r.siguiente;
+      if (!cursor || fueraDeVentana) break;
+      if (pagina === limites.maxPaginas - 1) listadoCompleto = false;
+    }
+  }
+
+  // 4. Publicaciones a consultar en esta corrida: pendientes de la anterior, nunca consultadas (recientes primero), más antiguas.
+  // Una llamada por publicación. Los reintentos que excluyen métricas rechazadas (como máximo dos) solo ocurren la primera
+  // vez que se ve un tipo de publicación (después se recuerdan en estado.noSoportadas): el exceso posible es mínimo.
+  const presupuestoPublicaciones = limiteApi ? 0 : Math.max(0, Math.min(limites.maxPublicaciones, quedan()));
+  const seleccion = seleccionarPendientes({ medios: candidatos, pendientes: estadoPrevio.pendientes || [], ultimaConsulta, presupuesto: presupuestoPublicaciones });
+  const publicacionesPorMes = new Map();
+  const archivoPublicaciones = (fechaIso) => {
+    const nombre = archivoDeMes("publicaciones", fechaIso || consultadoEn);
+    if (!publicacionesPorMes.has(nombre)) publicacionesPorMes.set(nombre, leerJson(path.join(carpeta, nombre)));
+    return nombre;
+  };
+  let consultadas = 0;
+  const pendientes = [...seleccion.restantes];
+  for (let i = 0; i < seleccion.ahora.length; i++) {
+    const m = seleccion.ahora[i];
+    if (quedan() < 1) { incompleto("presupuesto-agotado"); pendientes.unshift(...seleccion.ahora.slice(i).map((x) => x.id)); break; }
+    const tipo = m.tipo || "DESCONOCIDO";
+    const excluidas = new Set(noSoportadas[tipo] || []);
+    const metricas = [...GRUPOS.medioFeed, ...(tipo === "VIDEO" ? GRUPOS.medioReel : [])].filter((x) => !excluidas.has(x));
+    let r;
+    try { r = await ig.insightsMedio(m.id, { metricas }); }
+    catch (err) {
+      if (!(err instanceof ErrorLimiteInstagram)) throw err;
+      limiteApi = err; incompleto("limite-llamadas"); pendientes.unshift(...seleccion.ahora.slice(i).map((x) => x.id)); break;
+    }
+    if (r.noSoportadas?.length) noSoportadas[tipo] = [...new Set([...(noSoportadas[tipo] || []), ...r.noSoportadas])];
+    const acumulados = { meGusta: m.meGusta ?? null, comentarios: m.comentarios ?? null, ...r.valores };
+    const faltantes = { ...r.faltantes };
+    if (m.meGusta === null || m.meGusta === undefined) faltantes.meGusta = "conjunto-vacio";
+    if (m.comentarios === null || m.comentarios === undefined) faltantes.comentarios = "conjunto-vacio";
+    for (const x of excluidas) { acumulados[x] = null; faltantes[x] = "metrica-no-soportada"; }
+    const nombre = archivoPublicaciones(m.fecha);
+    publicacionesPorMes.set(nombre, registrarConsultaMedio(publicacionesPorMes.get(nombre), { cuenta, medio: m, consultadoEn, acumulados, faltantes, enlace: enlaces.get(m.id) || ENLACE_INSTAGRAM }));
+    ultimaConsulta[m.id] = consultadoEn;
+    consultadas++;
+  }
+  if (pendientes.length && completo) incompleto("presupuesto-agotado");
+  if (limiteApi) registros.push(`Cuenta ${cuenta}: la API de Instagram devolvió un límite de llamadas (code ${limiteApi.codigo}); se guarda lo obtenido y el resto queda pendiente para otra corrida.`);
+
+  // 5. Escritura: archivo de cuenta del mes de la consulta, archivos de publicaciones por mes y estado para continuar.
+  const nombreCuenta = archivoDeMes("cuenta", consultadoEn);
+  let archivoCuenta = registrarConsultaCuenta(leerJson(path.join(carpeta, nombreCuenta)), { cuenta, consultadoEn, perfil, permiso, llamadas: usadas(), completo, motivoIncompleto });
+  for (const d of porDia) archivoCuenta = registrarPorDia(archivoCuenta, { cuenta, dia: d.dia, consultadoEn, valores: d.valores, faltantes: d.faltantes });
+  escribirJson(path.join(carpeta, nombreCuenta), archivoCuenta);
+  for (const [nombre, datos] of publicacionesPorMes) if (datos) escribirJson(path.join(carpeta, nombre), datos);
+  escribirJson(path.join(carpeta, "estado.json"), { version: 1, cuenta, ultimaCorrida: consultadoEn, llamadas: usadas(), completo, motivoIncompleto, listadoCompleto, pendientes: [...new Set(pendientes)], noSoportadas, ultimaConsulta });
+  for (const m of registros) log.warn(m);
+  log.info(`Cuenta ${cuenta}: métricas guardadas (${consultadoEn}) · permiso ${permiso === "basico" ? "básico" : "básico + estadísticas"} · ${porDia.length} día(s) de cuenta · ${consultadas} publicación(es) consultada(s), ${pendientes.length} pendiente(s) · ${usadas()} llamada(s)${completo ? "" : ` · incompleta: ${motivoIncompleto}`}`);
+  return { guardado: true, permiso, llamadas: usadas(), diasDeCuenta: porDia.length, publicacionesConsultadas: consultadas, pendientes: pendientes.length, listadoCompleto, completo, motivoIncompleto, archivos: [nombreCuenta, ...publicacionesPorMes.keys(), "estado.json"] };
+}
+
 // Ejecuta la sonda o la recogida para las cuentas seleccionadas, con el mismo aislamiento de credenciales que PUBLICAR:
 // en modo Environment solo con --por-cuenta; los secretos se leen con leerSecretos (sin fallback entre orígenes).
-export async function metricasCuentas({ configuracion, raiz = process.cwd(), ahora = new Date(), log = console, igDe, soloCuenta = null, porCuenta = false, env = null, sinGuardar = false, dia = null, recoger = null }) {
+export async function metricasCuentas({ configuracion, raiz = process.cwd(), ahora = new Date(), log = console, igDe, soloCuenta = null, porCuenta = false, env = null, sinGuardar = false, dia = null, recoger = recogerMetricas }) {
   const resultados = {};
   for (const e of configuracion.errores || []) {
     if (soloCuenta && e.cuenta !== soloCuenta) continue;
@@ -93,7 +216,6 @@ export async function metricasCuentas({ configuracion, raiz = process.cwd(), aho
         for (const l of lineasDeSonda(informe)) log.info(l);
         resultados[config.cuenta] = { informe, credenciales };
       } else {
-        if (typeof recoger !== "function") throw new Error("la recogida con guardado todavía no está disponible; usa --sin-guardar");
         resultados[config.cuenta] = { ...(await recoger({ config, ig, raiz, ahora, log })), credenciales };
       }
     } catch (err) {

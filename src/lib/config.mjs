@@ -92,6 +92,16 @@ function validarSecretosInstagram(ig, archivo) {
   }
 }
 
+// Métricas (fase 1): recogida diaria opcional, apagada por defecto e independiente de automatico.*.
+function validarMetricas(m, archivo) {
+  if (m === undefined) return;
+  exigir(m && typeof m === "object" && !Array.isArray(m), "metricas debe ser un objeto", archivo);
+  if (m.recoger !== undefined) exigir(typeof m.recoger === "boolean", "metricas.recoger debe ser true o false", archivo);
+  for (const k of ["maxLlamadas", "maxPaginas", "maxPublicaciones", "ventanaDias"]) {
+    if (m[k] !== undefined) exigir(Number.isInteger(m[k]) && m[k] > 0, `metricas.${k} debe ser un entero positivo`, archivo);
+  }
+}
+
 function validarIlustracionesGlobal(il, archivo) {
   exigir(il && typeof il === "object", "ilustraciones es obligatorio", archivo);
   exigir(typeof il.activo === "boolean", "ilustraciones.activo debe ser true o false", archivo);
@@ -132,7 +142,7 @@ export function validarGlobal(g) {
   return g;
 }
 
-export const CLAVES_DE_CUENTA = ["nombre", "idioma", "zonaHoraria", "automatico", "marca", "fuentes", "generar", "franjas", "ilustraciones", "instagram", "editorial", "archivada", "archivadaEn"];
+export const CLAVES_DE_CUENTA = ["nombre", "idioma", "zonaHoraria", "automatico", "marca", "fuentes", "generar", "franjas", "ilustraciones", "instagram", "editorial", "archivada", "archivadaEn", "metricas"];
 const CLAVES_SOLO_GLOBALES = ["pages", "claude", "archivarDespuesDeDias", "cuentas"];
 
 // Configuración de una cuenta (cuentas/<id>/config.json).
@@ -153,6 +163,7 @@ export function validarCuenta(c, id) {
   validarFranjas(c.franjas, archivo);
   validarIlustracionesCuenta(c.ilustraciones, archivo);
   validarSecretosInstagram(c.instagram, archivo);
+  validarMetricas(c.metricas, archivo);
   return c;
 }
 
@@ -168,6 +179,7 @@ export function validarConfig(cfg) {
   validarSecretosInstagram(cfg.instagram, "config.json");
   validarIlustracionesGlobal(cfg.ilustraciones, "config.json");
   validarIlustracionesCuenta(cfg.ilustraciones, "config.json");
+  validarMetricas(cfg.metricas, "config.json");
   if (cfg.cuenta !== undefined) exigir(RE_ID_CUENTA.test(String(cfg.cuenta)), `cuenta "${cfg.cuenta}" no es un id válido`);
   if (cfg.idioma !== undefined) exigir(RE_IDIOMA.test(String(cfg.idioma)), `idioma "${cfg.idioma}" debe tener la forma xx o xx-XX`);
   return cfg;
@@ -197,6 +209,7 @@ export function configDeCuenta(global, cuenta, id) {
     zonaHoraria: cuenta.zonaHoraria || global.zonaHoraria,
     instagram: { apiVersion: global.instagram.apiVersion, origen: "repositorio", ...cuenta.instagram },
     ilustraciones: { ...global.ilustraciones, ...cuenta.ilustraciones },
+    metricas: { recoger: false, ...(cuenta.metricas || {}) },
     rutas: rutasDeCuenta(id),
   };
   return validarConfig(efectiva);
