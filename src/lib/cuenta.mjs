@@ -362,3 +362,122 @@ export function estadoConexion({ conexion = null, tokenInfo = null, config = nul
     fecha: null, antigua: false,
   };
 }
+
+// --- Cierre del Panel Maestro: reglas para gestionar cuentas de principio a fin -------------------------------------
+import { CATEGORIAS, VARIANTES, hashTexto } from "./estados.mjs";
+import { claveMinuto } from "./fechas.mjs";
+import { normalizarHashtags, recortarCaption } from "./caption.mjs";
+import { validarTextos } from "./texto.mjs";
+
+// Activación segura de la generación: hace falta línea editorial (editorial.md con contenido) y al menos una fuente.
+export function requisitosGeneracion({ config, editorialMd = "" }) {
+  const faltan = [];
+  if (config?.archivada === true) faltan.push("la cuenta está archivada: reactívala antes de encender la generación");
+  if (String(editorialMd || "").trim().length < 20) faltan.push("editorial.md está vacía o casi vacía: escribe la línea editorial que Claude debe seguir");
+  const fuentes = Array.isArray(config?.fuentes) ? config.fuentes.filter((f) => f && RE_URL.test(String(f.url || ""))) : [];
+  if (!fuentes.length) faltan.push("no hay ninguna fuente válida: añade al menos una (RSS o portada) con URL http(s)");
+  return faltan;
+}
+
+// Activación segura de la publicación: identidad verificada para el usuario configurado (estadoConexion), sin error.
+export function requisitosPublicacion({ config, id = "", conexion = null, tokenInfo = null, ahora = new Date() }) {
+  const faltan = [];
+  if (config?.archivada === true) faltan.push("la cuenta está archivada: reactívala antes de encender la publicación");
+  const estado = estadoConexion({ conexion, tokenInfo, config, id, ahora });
+  if (estado.clave === "verificada") return faltan;
+  if (estado.clave === "error") faltan.push(`la conexión está en error (${estado.texto}); corrige el secreto en GitHub y vuelve a verificar la identidad`);
+  else if (estado.clave === "pendiente" && /usuario cambió/.test(estado.texto)) faltan.push(`el usuario configurado no coincide con la identidad verificada (${estado.texto}); verifica de nuevo`);
+  else faltan.push(`hace falta verificar la identidad de ${config?.marca?.usuario || "la cuenta"} con Probar Instagram (${estado.texto})`);
+  return faltan;
+}
+
+// Programados de la cuenta cuya hora ya pasó: saldrían en la siguiente corrida al reactivar la publicación.
+export function postsVencidos(posts, cuenta, ahoraIso) {
+  const limite = Date.parse(ahoraIso);
+  return (posts || [])
+    .filter((p) => (p.cuenta || "sinlinea") === cuenta && p.estado === "programado" && Number.isFinite(Date.parse(p.programado)) && Date.parse(p.programado) <= limite)
+    .sort((a, b) => Date.parse(a.programado) - Date.parse(b.programado));
+}
+
+// Guía de conexión: qué crear en GitHub y en Meta, con los nombres exactos y enlaces directos. Solo nombres.
+export function guiaConexion({ config, id, owner = null, repo = null }) {
+  const origen = origenDe(config);
+  const nombres = nombresSecretosDe(config, id);
+  const base = owner && repo ? `https://github.com/${owner}/${repo}` : null;
+  const enlaces = {
+    entornos: base ? `${base}/settings/environments` : null,
+    nuevoEntorno: base ? `${base}/settings/environments/new` : null,
+    secretosRepositorio: base ? `${base}/settings/secrets/actions/new` : null,
+    probar: base ? `${base}/actions/workflows/probar-instagram.yml` : null,
+    meta: "https://developers.facebook.com/apps/",
+  };
+  const usuario = config?.marca?.usuario || "@usuario";
+  const pasos = [
+    `En Meta for Developers (${enlaces.meta}): abre la app de Instagram, en Use cases → API setup with Instagram login añade ${usuario} como Instagram Tester (pestaña Roles) y pulsa Generate token en su fila. Copia el token: se muestra una sola vez.`,
+  ];
+  if (origen === "entorno") {
+    pasos.push(`En GitHub → Settings → Environments → New environment, crea exactamente ${nombreEntorno(id)}.`);
+    pasos.push(`Dentro de ${nombreEntorno(id)} → Add environment secret: ${NOMBRES_FIJOS.tokenSecreto} (pega el token) e ${NOMBRES_FIJOS.usuarioIdSecreto} (el id numérico de la cuenta profesional; si no lo conoces, Probar Instagram lo indica).`);
+    pasos.push("Comprueba que el secreto GH_PAT existe en el repositorio (los jobs lo usan para confirmar por metadatos que el Environment está completo).");
+  } else {
+    pasos.push(`En GitHub → Settings → Secrets and variables → Actions → New repository secret, crea ${nombres.tokenSecreto} (pega el token) y ${nombres.usuarioIdSecreto} (el id numérico de la cuenta profesional).`);
+  }
+  pasos.push("Vuelve al panel y pulsa Verificar identidad: el workflow Probar Instagram comprueba usuario e id numérico y guarda el resultado aquí.");
+  return { origen, entorno: origen === "entorno" ? nombreEntorno(id) : null, secretos: [nombres.tokenSecreto, nombres.usuarioIdSecreto], enlaces, pasos };
+}
+
+// Actividad por cuenta a partir de lo que ya se guarda (posts, conexión, estado de métricas). Sin datos: null, nunca fechas inventadas.
+export function resumenActividad({ posts = [], cuenta, conexion = null, metricasEstado = null }) {
+  const propios = (posts || []).filter((p) => (p.cuenta || "sinlinea") === cuenta);
+  const max = (valores) => valores.filter((v) => typeof v === "string" && Number.isFinite(Date.parse(v))).sort().pop() || null;
+  const errores = [];
+  for (const p of propios.filter((x) => x.estado === "error").sort((a, b) => String(b.error?.cuando || b.actualizado || "").localeCompare(String(a.error?.cuando || a.actualizado || "")))) {
+    errores.push({ tipo: "post", id: p.id, cuando: p.error?.cuando || p.actualizado || null, texto: `${p.error?.paso ? `${p.error.paso}: ` : ""}${p.error?.mensaje || "error sin detalle"}` });
+  }
+  if (conexion?.estado === "error") errores.push({ tipo: "conexion", id: null, cuando: conexion.comprobado || null, texto: `conexión: ${conexion.detalle || "error"}` });
+  return {
+    ultimoBorrador: max(propios.map((p) => p.creado)),
+    ultimaPublicacion: max(propios.map((p) => p.publicacion?.fecha)),
+    ultimaRecogida: metricasEstado?.ultimaCorrida || null,
+    errores,
+  };
+}
+
+// Borrador manual desde el panel: el mismo post que crea src/borrador.mjs, construido sin Node (id con hora local,
+// cuenta y medio; sin imagen: REGENERAR la dibuja en la siguiente corrida).
+const slugSimple = (texto, max = 12) => String(texto || "").toLowerCase().normalize("NFD").replace(/\p{M}/gu, "").replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "").slice(0, max).replace(/-+$/g, "") || "medio";
+export function borradorDesdeFormulario(entrada, { cuenta, zona = ZONA_POR_DEFECTO, ahora = new Date(), variante = null, ilustracionesActivas = false, postsExistentes = [] }) {
+  if (!CATEGORIAS.includes(entrada.categoria)) throw new Error(`categoría "${entrada.categoria}" no permitida (${CATEGORIAS.join(", ")})`);
+  const v = validarTextos({ titular: entrada.titular, bajada: entrada.bajada });
+  if (!v.ok) throw new Error(v.errores.join(" "));
+  const f = entrada.fuente || {};
+  if (!String(f.medio || "").trim() || !RE_URL.test(String(f.url || "")) || !Number.isFinite(Date.parse(f.publicado))) throw new Error("fuente: indica medio, URL http(s) y fecha de publicación");
+  const propios = (postsExistentes || []).filter((p) => (p.cuenta || "sinlinea") === cuenta);
+  let elegida = VARIANTES.includes(variante) ? variante : VARIANTES[0];
+  if (!VARIANTES.includes(variante) && propios.length) {
+    const ultimo = propios.reduce((a, b) => (String(b.creado) >= String(a.creado) ? b : a));
+    elegida = VARIANTES[(VARIANTES.indexOf(ultimo.variante) + 1) % VARIANTES.length];
+  }
+  const r = recortarCaption({ caption: String(entrada.caption || ""), medio: f.medio, hashtags: entrada.hashtags || [] });
+  const iso = ahora.toISOString();
+  const escena = String(entrada.escena || "").trim();
+  return {
+    id: `${claveMinuto(ahora, zona)}-${cuenta}-${slugSimple(f.medio)}-${hashTexto(f.url).slice(0, 4)}`,
+    cuenta,
+    estado: "borrador",
+    fuente: { medio: String(f.medio).trim(), url: String(f.url).trim(), titulo: String(f.titulo || entrada.titular).trim(), publicado: new Date(Date.parse(f.publicado)).toISOString() },
+    categoria: entrada.categoria,
+    titular: String(entrada.titular).trim(),
+    bajada: String(entrada.bajada).trim(),
+    caption: r.caption,
+    hashtags: normalizarHashtags(r.hashtags),
+    variante: elegida,
+    imagen: null,
+    ilustracion: escena ? { descripcion: escena, usar: Boolean(ilustracionesActivas), ruta: null, hashDescripcion: null, proveedor: null, modelo: null, generada: null, error: null } : null,
+    programado: null,
+    publicacion: null,
+    error: null,
+    creado: iso,
+    actualizado: iso,
+  };
+}
