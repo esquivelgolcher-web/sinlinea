@@ -1,0 +1,26 @@
+{
+  "id": "2026-09-09-1146-luiseskivelgolcher-panel-1a22",
+  "cuenta": "luiseskivelgolcher",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Panel",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/panel/",
+    "titulo": "Prueba del panel: borrador manual",
+    "publicado": "2026-09-09T16:46:00.000Z"
+  },
+  "categoria": "INTERNACIONAL",
+  "titular": "Prueba del panel: borrador manual",
+  "bajada": "Se elimina tras comprobar el flujo de creación",
+  "caption": "Borrador de prueba del Panel Maestro creado desde el panel. Se elimina después de la comprobación.",
+  "hashtags": [
+    "#Prueba"
+  ],
+  "variante": "rojo",
+  "imagen": null,
+  "ilustracion": null,
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-09T16:46:25.430Z",
+  "actualizado": "2026-09-09T16:46:25.430Z"
+}
