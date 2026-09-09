@@ -37,100 +37,111 @@ hasta que alguien edite cuatro workflows. Eso es lo que esta fase elimina.
 - Las claves compartidas (`ANTHROPIC_API_KEY`, `GEMINI_API_KEY`, `GH_PAT`)
   siguen siendo secretos de repositorio.
 
-### 2.2 Un job por cuenta en los workflows de Instagram
+### 2.2 Origen explícito por cuenta
 
-Afecta a PUBLICAR, RENOVAR TOKEN, Probar Instagram y Verificar. GENERAR y
-REGENERAR no usan credenciales de Instagram y no cambian.
+`cuentas/<id>/config.json` → `instagram.origen`:
+
+- `repositorio` (**modo actual**, valor por defecto): secretos de repositorio con
+  el nombre que declara la cuenta (`tokenSecreto` / `usuarioIdSecreto`, o
+  `IG_ACCESS_TOKEN` / `IG_USER_ID` si no declara ninguno).
+- `entorno` (**Environment**): secretos `IG_ACCESS_TOKEN` e `IG_USER_ID` del
+  Environment `cuenta-<id>`.
+
+No hay fallback entre orígenes ni detección automática: cada cuenta usa solo
+su origen y, si le faltan secretos, su job falla nombrando el entorno o el
+secreto. `lib/secretos.mjs` lo hace explícito (`origenDeSecretos`,
+`nombreEntorno`, `describirCredenciales`) y el modo se anota en cada registro,
+en el resumen de la corrida y en `data/<id>/conexion.json` (`secretos.origen`).
+
+### 2.3 Un job por cuenta en los workflows de Instagram (implementado)
+
+PUBLICAR, RENOVAR TOKEN, Probar Instagram y Verificar tienen la misma forma;
+GENERAR y REGENERAR no usan credenciales de Instagram y no cambian.
 
 ```yaml
 jobs:
-  cuentas:                       # lee config.json y decide qué cuentas procesar
-    runs-on: ubuntu-latest
+  cuentas:                          # lee config.json; sin nombres de cuenta en el YAML
     outputs:
-      lista: ${{ steps.lista.outputs.lista }}
+      entorno: ${{ steps.lista.outputs.entorno }}          # [{cuenta, entorno}]
+      repositorio: ${{ steps.lista.outputs.repositorio }}  # [{cuenta, tokenSecreto, usuarioIdSecreto}]
+      huella-token: ${{ steps.huellas.outputs.token }}     # sha256 del secreto de repositorio IG_ACCESS_TOKEN
     steps:
-      - uses: actions/checkout@v4
-      - id: lista
-        run: node src/cuentas-activas.mjs --salida lista   # JSON: ids no archivados, o el input `cuenta`
-  publicar:
+      - run: node src/cuentas-activas.mjs >> "$GITHUB_OUTPUT"
+  publicar-entorno:
     needs: cuentas
-    if: ${{ needs.cuentas.outputs.lista != '[]' }}
-    strategy:
-      matrix:
-        cuenta: ${{ fromJSON(needs.cuentas.outputs.lista) }}
-      max-parallel: 1            # los commits del bot siguen siendo secuenciales
-      fail-fast: false           # una cuenta con error no cancela a las demás
-    environment: cuenta-${{ matrix.cuenta }}
+    if: ${{ needs.cuentas.outputs.entorno != '[]' }}
+    strategy: { fail-fast: false, max-parallel: 1, matrix: { include: ${{ fromJSON(needs.cuentas.outputs.entorno) }} } }
+    environment: ${{ matrix.entorno }}
     env:
-      IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}   # los del ENTORNO de esa cuenta
+      IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}     # del Environment de la cuenta
       IG_USER_ID: ${{ secrets.IG_USER_ID }}
     steps:
-      - run: node src/publicar.mjs --cuenta "${{ matrix.cuenta }}"
-```
-
-- El job solo ve los dos secretos de su entorno (más los de repositorio que
-  el `env` exponga explícitamente, que en estos workflows son ninguno de
-  Instagram). Los logs muestran, como mucho, dos nombres por job.
-- Los orquestadores aceptan `--cuenta <id>`: procesan una sola cuenta y leen
-  los nombres fijos `IG_ACCESS_TOKEN` / `IG_USER_ID`. Sin `--cuenta` se
-  comportan como hoy (compatibilidad con local y pruebas).
-- `src/cuentas-activas.mjs` (nuevo, 20 líneas): imprime la lista de cuentas no
-  archivadas; con `--cuenta x` devuelve `["x"]` si existe.
-- La política de salida no cambia: rojo solo si fallan todas; `::error::` por
-  cuenta se conserva (cada job anota la suya).
-- Concurrencia: el grupo `sinlinea` se mantiene a nivel de workflow; el
-  `max-parallel: 1` evita que dos jobs empujen a la vez.
-
-### 2.3 Panel
-
-- `estadoConexion` deja de leer el `env` de los workflows. Pasa a comprobar,
-  con la API de GitHub, que el entorno `cuenta-<id>` existe y tiene los dos
-  secretos: `GET /repos/{o}/{r}/environments/cuenta-<id>/secrets` (solo
-  nombres y fechas). "Conexión pendiente de configuración" pasa a significar
-  "falta el entorno o alguno de sus dos secretos", y la tarjeta enumera qué
-  falta con el nombre exacto.
-- La detección de "secreto actualizado después de la comprobación" (fase 1)
-  se conserva, leyendo `updated_at` del secreto de entorno.
-- Nuevo en la tarjeta: interruptores **"Generación automática"** y
-  **"Publicación automática"** con confirmación, que escriben `automatico` en
-  `cuentas/<id>/config.json` con sha. Publicar solo se puede encender si el
-  estado es *identidad verificada* y no antigua; si no, el interruptor explica
-  qué falta. Así "habilitar expresamente" se hace desde el panel y queda
-  registrado en un commit.
-- El formulario de alta muestra el nombre del entorno a crear y los dos
-  nombres fijos, y enlaza a la página de entornos del repositorio.
-
-### 2.4 Modo de transición (solo durante la migración)
-
-Mientras convivan cuentas migradas y sin migrar, el job usa el secreto de
-entorno si existe y, si no, el secreto de repositorio con el nombre declarado
-en la configuración de la cuenta:
-
-```yaml
+      - run: bash .github/scripts/comprobar-entorno.sh    # rechaza secretos ausentes o el de repositorio
+      - run: node src/publicar.mjs --cuenta "$CUENTA" --por-cuenta
+  publicar-repositorio:
+    needs: [cuentas, publicar-entorno]
+    if: ${{ always() && needs.cuentas.result == 'success' && needs.cuentas.outputs.repositorio != '[]' }}
+    strategy: { fail-fast: false, max-parallel: 1, matrix: { include: ${{ fromJSON(needs.cuentas.outputs.repositorio) }} } }
     env:
-      IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
-      IG_USER_ID: ${{ secrets.IG_USER_ID }}
-      # transición: nombres históricos como respaldo (se retiran en el paso 6 de la migración)
-      IG_ACCESS_TOKEN_RESPALDO: ${{ secrets[matrix.tokenSecreto] }}
-      IG_USER_ID_RESPALDO: ${{ secrets[matrix.usuarioIdSecreto] }}
+      IG_ACCESS_TOKEN: ${{ secrets[matrix.tokenSecreto] }}   # solo el secreto declarado por esta cuenta
+      IG_USER_ID: ${{ secrets[matrix.usuarioIdSecreto] }}
+    steps:
+      - run: node src/publicar.mjs --cuenta "$CUENTA" --por-cuenta
 ```
 
-`cuentas-activas.mjs` emite, además del id, los nombres declarados de cada
-cuenta (`matrix.include`), y los orquestadores usan el respaldo solo cuando el
-secreto de entorno está vacío, registrando en el resumen "credenciales de
-repositorio (transición)". El respaldo desaparece al terminar la migración.
+- Cada job expone **solo** dos credenciales, con los nombres fijos, y el
+  orquestador las lee con `--por-cuenta`. En los logs de un job aparecen como
+  mucho dos nombres de secretos.
+- `fail-fast: false`: un fallo de una cuenta no cancela a las demás.
+  `max-parallel: 1` y el job de modo actual espera al de entorno
+  (`always()`): los commits del bot se hacen de uno en uno y el bucle
+  `pull --rebase` sigue como red de seguridad. Un post solo lo procesa el job
+  de su cuenta, así que no hay publicaciones duplicadas entre jobs.
+- **Guardia contra el fallback de GitHub**: cuando un job con `environment:`
+  pide `secrets.IG_ACCESS_TOKEN` y el entorno no lo define, GitHub aplica el
+  secreto de repositorio con ese nombre (hoy, el de Sin Línea). El job
+  `cuentas` (sin entorno) calcula la huella sha256 del secreto de repositorio;
+  `comprobar-entorno.sh` la compara con la del token recibido y, si coincide o
+  si falta algún secreto, falla con un mensaje que nombra el entorno. Nunca
+  imprime valores. Consecuencia documentada: el token de un Environment no
+  puede ser idéntico al secreto de repositorio `IG_ACCESS_TOKEN` (para Sin
+  Línea, el token nuevo va directo al entorno).
+- Sin `--por-cuenta` (ejecución conjunta en local o `npm run publicar`), las
+  cuentas en modo Environment se omiten con motivo explícito
+  (`entorno-requiere-job-por-cuenta`) y su cola se conserva; las de modo actual
+  funcionan como siempre.
+- La verificación de identidad (usuario e id numérico) no cambia y PUBLICAR la
+  repite antes de publicar. Cuando el entorno tiene token pero no `IG_USER_ID`,
+  GitHub aplicaría el id de repositorio: la comparación del id numérico lo
+  detecta y no se publica.
+
+### 2.4 Panel (implementado)
+
+- Selector "Origen de las credenciales" en el formulario de alta y edición. En
+  modo Environment se ocultan los nombres propios y la nota explica el entorno
+  `cuenta-<id>`, sus dos secretos y que no hay fallback.
+- La tarjeta muestra "Credenciales de Instagram: modo actual: secretos del
+  repositorio A / B" o "Environment cuenta-<id> (IG_ACCESS_TOKEN, IG_USER_ID)".
+- `estadoConexion` en modo Environment: si la API dice que faltan el entorno o
+  alguno de sus secretos → "Conexión pendiente de configuración" con la
+  instrucción exacta; si no se puede consultar (token del panel sin permiso
+  *Environments: lectura*) lo dice en vez de afirmar nada. Cambiar el origen
+  invalida la verificación anterior en la misma escritura atómica.
+- No se implementaron interruptores de automatización en el panel:
+  `automatico` se sigue habilitando expresamente en `config.json` (queda como
+  mejora posterior).
 
 ## 3. Quién hace qué
 
 | Paso | Desde el panel | En GitHub (operador) | Permisos necesarios |
 |---|---|---|---|
-| Crear la cuenta (editorial, fuentes, logo, horarios) | Sí: "Añadir cuenta" (escritura atómica) | — | Token del panel: Contents lectura/escritura |
+| Crear la cuenta (editorial, fuentes, logo, horarios) y elegir su origen de credenciales | Sí: "Añadir cuenta" (escritura atómica) | — | Token del panel: Contents lectura/escritura |
 | Crear el entorno `cuenta-<id>` | No (el panel muestra el nombre y el enlace) | Settings → Environments → New environment | Ser administrador del repositorio |
 | Guardar `IG_ACCESS_TOKEN` e `IG_USER_ID` en el entorno | No: el panel nunca toca valores | Environment → Add secret (pegar el token y el id) | Administrador del repositorio |
-| Ver si el entorno y sus secretos existen, y cuándo se actualizaron | Sí (nombres y fechas, nunca valores) | — | Token del panel: Secrets lectura (+ Environments lectura) |
+| Ver si el entorno y sus secretos existen, y cuándo se actualizaron | Sí (nombres y fechas, nunca valores) | — | Token del panel: Environments lectura (modo Environment) y Secrets lectura (modo actual) |
 | Verificar identidad | Sí: lanza Probar Instagram para esa cuenta | O a mano: Actions → Probar Instagram → Run workflow | Token del panel: Actions lectura/escritura |
-| Encender generación o publicación | Sí: interruptores con confirmación (publicar exige identidad verificada) | — | Token del panel: Contents lectura/escritura |
-| Renovar el token de Instagram cada lunes | Automático (RENOVAR TOKEN escribe el secreto del entorno) | Crear `GH_PAT` una vez | `GH_PAT`: Secrets lectura/escritura y Environments lectura |
+| Encender generación o publicación | Todavía no desde el panel: `automatico` en `cuentas/<id>/config.json` (mejora posterior: interruptores con confirmación que exijan identidad verificada) | — | Contents lectura/escritura (commit) |
+| Renovar el token de Instagram cada lunes | Automático (RENOVAR TOKEN escribe el secreto donde vive: Environment o repositorio) | Crear `GH_PAT` una vez | `GH_PAT`: Environments lectura/escritura (secretos de Environment) y Secrets lectura/escritura (secretos de repositorio), según la documentación oficial |
 | Archivar / reactivar | Sí | — | Contents lectura/escritura |
 
 Regla que no cambia: **ningún valor de secreto pasa por el panel, por el chat
@@ -139,40 +150,18 @@ nombres, fechas y estados.
 
 ## 4. Migración de las dos cuentas existentes
 
-Objetivo: cero interrupciones y **sin tocar `automatico`**. Sin Línea sigue con
-la publicación pausada y sus programados en cola; @luiseskivelgolcher sigue con
-todo apagado. Orden:
-
-1. **Código primero, sin efecto**: desplegar `cuentas-activas.mjs`, `--cuenta`
-   en los orquestadores y los workflows por cuenta **con el modo de
-   transición**. Al no existir entornos, cada job usa el respaldo (los
-   secretos de repositorio actuales): el comportamiento es idéntico al de hoy.
-   Comprobación: Probar Instagram para `luiseskivelgolcher` desde el panel
-   sigue dando "identidad verificada" y anota "credenciales de repositorio
-   (transición)".
-2. **Entorno de @luiseskivelgolcher**: crear `cuenta-luiseskivelgolcher` y
-   copiar en él `IG_ACCESS_TOKEN` (el valor que hoy vive en
-   `IG_ACCESSTOKEN_LUISESKIVELGOLCHER`) e `IG_USER_ID` (el de
-   `IG_USER_ID_LUISESKIVELGOLCHER`). Los pega el operador desde su gestor de
-   contraseñas o regenerando el token en Meta; el asistente no los ve.
-   Verificar desde el panel: la tarjeta debe decir "identidad verificada" y
-   "credenciales del entorno".
-3. **Entorno de Sin Línea**: crear `cuenta-sinlinea` con `IG_USER_ID`
-   (17841458054414779) y, **cuando se regenere el token en Meta**,
-   `IG_ACCESS_TOKEN`. Hasta entonces el job usa el respaldo, que sigue roto
-   (code 190), y la cuenta sigue pausada: nada cambia respecto a hoy. Al
-   pegar el token nuevo en el entorno, verificar desde el panel; solo después
-   el operador decide reprogramar y encender la publicación.
-4. **Comprobación de aislamiento**: en el log de un job de PUBLICAR de una
-   cuenta no aparecen los nombres de secretos de la otra; `verificar` lo
-   informa por cuenta.
-5. **Ventana de convivencia**: al menos una semana con ambos mecanismos, para
-   ver una renovación de token (lunes) escribiendo en el entorno.
-6. **Retirada**: borrar los secretos de repositorio con sufijo
-   (`IG_ACCESSTOKEN_LUISESKIVELGOLCHER`, `IG_USER_ID_LUISESKIVELGOLCHER`) y los
-   históricos de Sin Línea, quitar el modo de transición de los workflows y
-   la referencia a `tokenSecreto`/`usuarioIdSecreto` de las dos
-   configuraciones. Un solo commit, con `verificar` en verde antes y después.
+Los pasos exactos, con marcha atrás, están en docs/CONFIGURACION.md §6d.
+Resumen: (1) desplegar el código con ambas cuentas en modo actual y comprobar
+con Probar Instagram que nada cambió; (2) crear `cuenta-luiseskivelgolcher`
+con `IG_ACCESS_TOKEN` e `IG_USER_ID` (los pega el operador); (3) en el panel,
+Editar → Origen = Environment → Guardar (la verificación anterior queda
+invalidada); (4) Verificar identidad: el job `probar-entorno` debe pasar la
+comprobación de origen y verificar usuario e id; (5) comprobar en el registro
+de PUBLICAR que el job de la cuenta solo ve dos secretos (sin publicar:
+`automatico.publicar` sigue en `false`); (6) tras una renovación semanal
+correcta, borrar los secretos de repositorio con sufijo. Sin Línea se migra
+después, con un token **nuevo** directo al Environment `cuenta-sinlinea`.
+`automatico` no se toca en ningún paso y las colas se conservan.
 
 ## 5. Recuperación ante fallos
 
