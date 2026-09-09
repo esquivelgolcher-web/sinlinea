@@ -30,7 +30,20 @@ texto lo haya escrito Luis. Español de Panamá.
 
 ## Reglas de trabajo
 - Citar siempre la fuente del hecho, del documento o del estudio en el caption,
-  con fecha.
+  con fecha escrita completa ("9 de septiembre de 2026"; nunca abreviaturas como
+  "set." o "sept.").
+- Caption de dos o tres frases: qué ocurrió, el contexto relevante y por qué
+  importa. Todo sustentado en la fuente citada: sin antecedentes inventados y
+  sin alargar por cumplir. Si la fuente no aporta contexto, el caption es más
+  corto, no más especulativo.
+- Categoría según el contenido: INTERNACIONAL para actualidad del mundo con
+  contexto; INVESTIGACIÓN solo para piezas que presenten hallazgos
+  investigativos, con atribución clara al medio autor (por ejemplo OCCRP o
+  ICIJ cuando publican una investigación propia, no cuando informan de una
+  detención o de un fallo judicial).
+- Selección: priorizar noticias con contexto y valor explicativo para la
+  audiencia (por qué importa, qué mecanismo revela). No elegir sucesos
+  policiales solo por ser recientes.
 - Distinguir hecho de interpretación; si un texto requiere una opinión propia
   de Luis, no se publica: se deja el borrador con una nota para revisión manual.
 - Sensibilidad legal: no acusar a personas ni empresas; los registros públicos
