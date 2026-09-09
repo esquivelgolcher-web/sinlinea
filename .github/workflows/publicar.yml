@@ -62,6 +62,8 @@ jobs:
       ENTORNO: ${{ matrix.entorno }}
       IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
       IG_USER_ID: ${{ secrets.IG_USER_ID }}
+      # Multicanal (F1): secreto de la página de Facebook de la cuenta (vacío si la conexión no existe).
+      FB_PAGE_TOKEN: ${{ secrets.FB_PAGE_TOKEN }}
     steps:
       - name: Descargar el repositorio
         uses: actions/checkout@v4
@@ -76,8 +78,9 @@ jobs:
         run: npm ci
 
       # Comprobado en el job anterior con la API de GitHub (solo metadatos): el Environment exacto cuenta-<id> debe tener
-      # IG_ACCESS_TOKEN e IG_USER_ID. Si falta alguno o no hubo permiso para comprobarlo, se falla aquí, antes de
-      # contactar con Instagram, y no se usa ningún secreto de otro origen.
+      # los secretos de los destinos encendidos (IG_ACCESS_TOKEN e IG_USER_ID para Instagram; FB_PAGE_TOKEN para
+      # Facebook). Si falta alguno o no hubo permiso para comprobarlo, se falla aquí, antes de contactar con ninguna red,
+      # y no se usa ningún secreto de otro origen.
       - name: Comprobar que el Environment de la cuenta está completo
         env:
           COMPLETO: ${{ matrix.completo }}
@@ -87,12 +90,20 @@ jobs:
             echo "::error::Cuenta $CUENTA (Environment $ENTORNO): $MOTIVO"
             exit 1
           fi
-          echo "Cuenta $CUENTA: Environment $ENTORNO completo (IG_ACCESS_TOKEN, IG_USER_ID)."
+          echo "Cuenta $CUENTA: $MOTIVO"
+
+      # El publicador sube al remoto el registro de cada intento ANTES de enviar (multicanal §3.4): necesita identidad git.
+      - name: Preparar la identidad de git para los registros de entrega
+        run: |
+          git config user.name "sinlinea-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
       - name: Publicar los programados de la cuenta
         run: node src/publicar.mjs --cuenta "$CUENTA" --por-cuenta
 
+      # Lo que el publicador no llegó a subir (p. ej. tras un fallo) se guarda aquí, también si el paso anterior falló.
       - name: Guardar cambios en el repositorio
+        if: always()
         run: |
           git config user.name "sinlinea-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -136,10 +147,16 @@ jobs:
       - name: Instalar dependencias
         run: npm ci
 
+      - name: Preparar la identidad de git para los registros de entrega
+        run: |
+          git config user.name "sinlinea-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
       - name: Publicar los programados de la cuenta
         run: node src/publicar.mjs --cuenta "$CUENTA" --por-cuenta
 
       - name: Guardar cambios en el repositorio
+        if: always()
         run: |
           git config user.name "sinlinea-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"

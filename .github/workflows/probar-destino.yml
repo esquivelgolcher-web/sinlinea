@@ -1,0 +1,117 @@
+name: Probar destino
+
+# Manual (multicanal, F1). Comprueba que la credencial de una red nueva (Facebook) pertenece a la página configurada
+# y registra el estado de conexión de esa red en data/<cuenta>/conexion-<red>.json. No publica nada.
+# Las conexiones nuevas solo existen en modo Environment: el job recibe únicamente el secreto de esa red desde el
+# Environment cuenta-<id> (FB_PAGE_TOKEN). Nunca se imprimen valores de secretos.
+on:
+  workflow_dispatch:
+    inputs:
+      cuenta:
+        description: "Id de la cuenta editorial (p. ej. luiseskivelgolcher)"
+        required: true
+        type: string
+      red:
+        description: "Red a probar"
+        required: true
+        default: facebook
+        type: choice
+        options:
+          - facebook
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sinlinea
+  cancel-in-progress: false
+
+jobs:
+  cuentas:
+    name: Cuenta y Environment
+    runs-on: ubuntu-latest
+    outputs:
+      entorno: ${{ steps.lista.outputs.entorno }}
+    steps:
+      - name: Descargar el repositorio
+        uses: actions/checkout@v4
+
+      - name: Preparar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      # Con --red se exigen los secretos de esa red aunque la conexión esté apagada. --comprobar-entornos consulta la API
+      # de GitHub (solo metadatos, con GH_PAT: permiso Environments: lectura).
+      - name: Comprobar el Environment de la cuenta para esa red
+        id: lista
+        env:
+          CUENTA: ${{ inputs.cuenta }}
+          RED: ${{ inputs.red }}
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+        run: node src/cuentas-activas.mjs --cuenta "$CUENTA" --red "$RED" --comprobar-entornos >> "$GITHUB_OUTPUT"
+
+  probar-entorno:
+    name: Probar (Environment)
+    needs: cuentas
+    if: ${{ needs.cuentas.outputs.entorno != '[]' }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        include: ${{ fromJSON(needs.cuentas.outputs.entorno) }}
+    environment: ${{ matrix.entorno }}
+    env:
+      CUENTA: ${{ matrix.cuenta }}
+      ENTORNO: ${{ matrix.entorno }}
+      RED: ${{ inputs.red }}
+      FB_PAGE_TOKEN: ${{ secrets.FB_PAGE_TOKEN }}
+    steps:
+      - name: Descargar el repositorio
+        uses: actions/checkout@v4
+
+      - name: Preparar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Comprobar que el Environment de la cuenta tiene el secreto de la red
+        env:
+          COMPLETO: ${{ matrix.completo }}
+          MOTIVO: ${{ matrix.motivo }}
+        run: |
+          if [ "$COMPLETO" != "true" ]; then
+            echo "::error::Cuenta $CUENTA (Environment $ENTORNO): $MOTIVO"
+            exit 1
+          fi
+          echo "Cuenta $CUENTA: $MOTIVO"
+
+      - name: Comprobar la identidad de la credencial de la red
+        run: node src/probar-destino.mjs --cuenta "$CUENTA" --red "$RED" --por-cuenta
+
+      # Se guarda también cuando la prueba falla: data/<cuenta>/conexion-<red>.json deja el estado que muestra el panel.
+      - name: Guardar el estado de conexión de la red
+        if: always()
+        run: |
+          git config user.name "sinlinea-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data
+          if git diff --cached --quiet; then
+            echo "Sin cambios."
+          else
+            git commit -m "conexión $RED ($CUENTA): comprobada $(date -u '+%Y-%m-%d %H:%M UTC') [skip ci]"
+            for i in 1 2 3; do
+              if git pull --rebase && git push; then break; fi
+              if [ "$i" = 3 ]; then echo "No se pudo hacer push tras 3 intentos"; exit 1; fi
+              sleep 5
+            done
+          fi

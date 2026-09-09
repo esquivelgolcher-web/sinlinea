@@ -9,6 +9,7 @@ import { leerPosts, escribirPost, validarPost, CUENTA_LEGADO } from "./lib/posts
 import { construirHtml, RUTA_PLANTILLA, RUTA_LOGO } from "./lib/render.mjs";
 import { VARIANTES } from "./lib/estados.mjs";
 import { secretosExpuestos, secretosExpuestosComunes, workflowsPorCuenta } from "./lib/cuenta.mjs";
+import { REDES_CONEXION } from "./lib/conexiones.mjs";
 
 // Workflows que exponen los secretos de Instagram: el panel deduce de ellos si una cuenta nueva ya puede verificarse.
 export const WORKFLOWS_INSTAGRAM = [".github/workflows/publicar.yml", ".github/workflows/probar-instagram.yml"];
@@ -30,7 +31,7 @@ const TIPOS = {
 
 // Archivos que el panel maestro puede leer y escribir en local (misma lista que las rutas que edita en GitHub).
 const RE_ARCHIVO_CUENTA = /^cuentas\/([a-z0-9][a-z0-9-]*)\/(config\.json|editorial\.md|logo\.png)$/;
-const RE_CONEXION = /^data\/([a-z0-9][a-z0-9-]*)\/conexion\.json$/;
+const RE_CONEXION = /^data\/([a-z0-9][a-z0-9-]*)\/conexion(-[a-z]+)?\.json$/; // conexion.json (Instagram) y conexion-<red>.json
 export function rutaPermitida(ruta) {
   return ruta === "config.json" || RE_ARCHIVO_CUENTA.test(ruta) || RE_CONEXION.test(ruta);
 }
@@ -192,6 +193,11 @@ export function crearServidor({ raiz = process.cwd(), log = console } = {}) {
             conexionSha: fs.existsSync(path.join(raiz, "data", id, "conexion.json")) ? shaDeBlob(fs.readFileSync(path.join(raiz, "data", id, "conexion.json"))) : null,
             tokenInfo: leerJsonSiExiste(path.join(raiz, "data", id, "token-info.json")),
             metricasEstado: leerJsonSiExiste(path.join(raiz, "data", id, "metricas", "estado.json")),
+            // Multicanal (F1): estado de conexión de cada red nueva (data/<id>/conexion-<red>.json), con su sha.
+            conexiones: Object.fromEntries(REDES_CONEXION.map((red) => {
+              const ruta = path.join(raiz, "data", id, `conexion-${red}.json`);
+              return [red, { conexion: leerJsonSiExiste(ruta), sha: fs.existsSync(ruta) ? shaDeBlob(fs.readFileSync(ruta)) : null }];
+            })),
             secretosActualizados: null, // en local no hay GitHub: no se afirma nada sobre los secretos
             error,
           };
@@ -285,12 +291,15 @@ export function crearServidor({ raiz = process.cwd(), log = console } = {}) {
       }
       if (req.method === "POST" && p === "/api/verificar-conexion") {
         const cuenta = url.searchParams.get("cuenta") || "";
+        const red = url.searchParams.get("red") || "instagram";
         const global = cargarGlobal(path.join(raiz, "config.json"));
         if (!global.cuentas.includes(cuenta)) return responderJson(res, 404, { error: `Cuenta desconocida: ${cuenta}` });
+        if (red !== "instagram" && !REDES_CONEXION.includes(red)) return responderJson(res, 400, { error: `Red desconocida: ${red}` });
         const carpeta = path.join(raiz, "data", cuenta);
         fs.mkdirSync(carpeta, { recursive: true });
-        fs.writeFileSync(path.join(carpeta, "conexion.json"), JSON.stringify({ estado: "pendiente", solicitada: new Date().toISOString() }, null, 2) + "\n");
-        return responderJson(res, 200, { ok: true, nota: "En local se marca como pendiente; el workflow Probar Instagram solo corre en GitHub." });
+        const archivo = red === "instagram" ? "conexion.json" : `conexion-${red}.json`;
+        fs.writeFileSync(path.join(carpeta, archivo), JSON.stringify({ ...(red === "instagram" ? {} : { red }), estado: "pendiente", solicitada: new Date().toISOString() }, null, 2) + "\n");
+        return responderJson(res, 200, { ok: true, nota: `En local se marca como pendiente; el workflow ${red === "instagram" ? "Probar Instagram" : "Probar destino"} solo corre en GitHub.` });
       }
       return responder(res, 404, "No encontrado");
     } catch (err) {

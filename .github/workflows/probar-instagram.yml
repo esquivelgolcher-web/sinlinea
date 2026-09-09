@@ -49,9 +49,9 @@ jobs:
           GH_TOKEN: ${{ secrets.GH_PAT }}
         run: |
           if [ -n "$CUENTA" ]; then
-            node src/cuentas-activas.mjs --cuenta "$CUENTA" --comprobar-entornos >> "$GITHUB_OUTPUT"
+            node src/cuentas-activas.mjs --cuenta "$CUENTA" --instagram --comprobar-entornos >> "$GITHUB_OUTPUT"
           else
-            node src/cuentas-activas.mjs --comprobar-entornos >> "$GITHUB_OUTPUT"
+            node src/cuentas-activas.mjs --instagram --comprobar-entornos >> "$GITHUB_OUTPUT"
           fi
 
   probar-entorno:

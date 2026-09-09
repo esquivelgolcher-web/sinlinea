@@ -53,7 +53,7 @@ jobs:
         id: lista
         env:
           GH_TOKEN: ${{ secrets.GH_PAT }}
-        run: node src/cuentas-activas.mjs --comprobar-entornos >> "$GITHUB_OUTPUT"
+        run: node src/cuentas-activas.mjs --instagram --comprobar-entornos >> "$GITHUB_OUTPUT"
 
   renovar-entorno:
     name: Renovar (Environment)

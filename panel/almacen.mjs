@@ -1,5 +1,8 @@
 // Acceso a los posts y a los archivos de cuenta: modo local (serve.mjs) o GitHub (API de contenidos).
 // Todo lo que se escribe pasa por bloqueo optimista (sha): si el archivo cambió (bot u otro panel), se avisa y no se pisa.
+// Multicanal (F1): redes con conexión propia (misma lista que src/lib/conexiones.mjs; aquí sin import para que el
+// módulo siga cargando en Node y en el navegador sin la carpeta lib).
+const REDES_CONEXION = ["facebook"];
 export function base64Utf8(texto) {
   const bytes = new TextEncoder().encode(texto);
   let bin = "";
@@ -124,10 +127,10 @@ export function crearAlmacenLocal() {
       if (!res.ok) throw new Error(`No se pudieron leer las métricas de ${cuenta} (HTTP ${res.status})`);
       return res.json();
     },
-    async solicitarVerificacion(cuenta) {
-      const { res, j } = await json(await fetch(`/api/verificar-conexion?cuenta=${encodeURIComponent(cuenta)}`, { method: "POST" }));
+    async solicitarVerificacion(cuenta, red = "instagram") {
+      const { res, j } = await json(await fetch(`/api/verificar-conexion?cuenta=${encodeURIComponent(cuenta)}&red=${encodeURIComponent(red)}`, { method: "POST" }));
       if (!res.ok) throw new Error(j.error || `No se pudo solicitar la verificación (HTTP ${res.status})`);
-      return { ok: true, nota: "En local se marca como pendiente; el workflow Probar Instagram solo corre en GitHub." };
+      return { ok: true, nota: j.nota || "En local se marca como pendiente; el workflow solo corre en GitHub." };
     },
   };
 }
@@ -335,13 +338,23 @@ export function crearAlmacenGitHub({ token, owner, repo, rama = "main", fetchImp
         const entradas = await dir.json();
         const nombres = new Set(entradas.map((e) => e.name));
         const cfg = await leerArchivo(`cuentas/${id}/config.json`);
-        const [conexionArchivo, tokenInfo, metricasEstado] = await Promise.all([leerArchivo(`data/${id}/conexion.json`).catch(() => null), leerJson(`data/${id}/token-info.json`), leerJson(`data/${id}/metricas/estado.json`)]);
+        const [conexionArchivo, tokenInfo, metricasEstado, ...archivosRedes] = await Promise.all([
+          leerArchivo(`data/${id}/conexion.json`).catch(() => null), leerJson(`data/${id}/token-info.json`), leerJson(`data/${id}/metricas/estado.json`),
+          ...REDES_CONEXION.map((red) => leerArchivo(`data/${id}/conexion-${red}.json`).catch(() => null)),
+        ]);
         let conexion = null;
         try { conexion = conexionArchivo ? JSON.parse(conexionArchivo.texto) : null; } catch { conexion = null; }
+        // Multicanal (F1): estado de conexión de cada red nueva, con su sha.
+        const conexiones = Object.fromEntries(REDES_CONEXION.map((red, i) => {
+          const a = archivosRedes[i];
+          let c = null;
+          try { c = a ? JSON.parse(a.texto) : null; } catch { c = null; }
+          return [red, { conexion: c, sha: a?.sha || null }];
+        }));
         let config = null; let error = null;
         try { config = cfg ? JSON.parse(cfg.texto) : null; } catch (err) { error = `cuentas/${id}/config.json no es JSON válido (${err.message})`; }
         if (!cfg) error = `falta cuentas/${id}/config.json`;
-        return { id, config, sha: cfg?.sha || null, editorialSha: entradas.find((e) => e.name === "editorial.md")?.sha || null, logo: nombres.has("logo.png"), conexion, conexionSha: conexionArchivo?.sha || null, tokenInfo, metricasEstado, error };
+        return { id, config, sha: cfg?.sha || null, editorialSha: entradas.find((e) => e.name === "editorial.md")?.sha || null, logo: nombres.has("logo.png"), conexion, conexionSha: conexionArchivo?.sha || null, conexiones, tokenInfo, metricasEstado, error };
       }));
       // Workflows de Instagram: el panel deduce de su `env` qué nombres de secretos ya llegan a las corridas.
       const workflows = await Promise.all(WORKFLOWS_INSTAGRAM.map((r) => leerArchivo(r).catch(() => null)));
@@ -367,19 +380,24 @@ export function crearAlmacenGitHub({ token, owner, repo, rama = "main", fetchImp
     // Marca la cuenta como pendiente y lanza el workflow "Probar Instagram" (workflow_dispatch) para esa cuenta.
     // Primero se lanza el workflow; solo si arranca se marca la cuenta como pendiente. Así un token sin permiso Actions
     // no deja la conexión "pendiente" sin que nada corra (hallazgo en producción, 2026-09-09).
-    async solicitarVerificacion(cuenta, ahoraIso = new Date().toISOString()) {
-      const res = await pedir(`${api}/actions/workflows/probar-instagram.yml/dispatches`, {
+    // Multicanal (F1): `red` distinta de instagram lanza "Probar destino" y marca data/<cuenta>/conexion-<red>.json.
+    async solicitarVerificacion(cuenta, red = "instagram", ahoraIso = new Date().toISOString()) {
+      const esIg = red === "instagram";
+      const workflow = esIg ? "probar-instagram.yml" : "probar-destino.yml";
+      const nombreWorkflow = esIg ? "Probar Instagram" : "Probar destino";
+      const res = await pedir(`${api}/actions/workflows/${workflow}/dispatches`, {
         method: "POST", headers: cabeceras({ "content-type": "application/json" }),
-        body: JSON.stringify({ ref: rama, inputs: { cuenta } }),
+        body: JSON.stringify({ ref: rama, inputs: esIg ? { cuenta } : { cuenta, red } }),
       });
       if (res.status === 403 || res.status === 404 || res.status === 401) {
-        throw new Error(`El token del panel no puede lanzar workflows (GitHub respondió ${res.status}): necesita el permiso Actions (lectura y escritura) además de Contents. Mientras tanto, lánzalo a mano: Actions → Probar Instagram → Run workflow con cuenta = ${cuenta}. La conexión no se ha tocado.`);
+        throw new Error(`El token del panel no puede lanzar workflows (GitHub respondió ${res.status}): necesita el permiso Actions (lectura y escritura) además de Contents. Mientras tanto, lánzalo a mano: Actions → ${nombreWorkflow} → Run workflow con cuenta = ${cuenta}${esIg ? "" : ` y red = ${red}`}. La conexión no se ha tocado.`);
       }
-      if (!res.ok) throw new Error(`GitHub respondió ${res.status} al lanzar Probar Instagram`);
-      const ruta = `data/${cuenta}/conexion.json`;
+      if (!res.ok) throw new Error(`GitHub respondió ${res.status} al lanzar ${nombreWorkflow}`);
+      const ruta = esIg ? `data/${cuenta}/conexion.json` : `data/${cuenta}/conexion-${red}.json`;
       const actual = await leerArchivo(ruta);
-      await subir(ruta, base64Utf8(PENDIENTE(ahoraIso)), { sha: actual?.sha || null, mensaje: `panel: verificación solicitada para ${cuenta}` });
-      return { ok: true, nota: "Probar Instagram está en marcha; el resultado aparece aquí en unos minutos." };
+      const pendiente = esIg ? PENDIENTE(ahoraIso) : JSON.stringify({ red, estado: "pendiente", solicitada: ahoraIso }, null, 2) + "\n";
+      await subir(ruta, base64Utf8(pendiente), { sha: actual?.sha || null, mensaje: `panel: verificación de ${red} solicitada para ${cuenta}` });
+      return { ok: true, nota: `${nombreWorkflow} está en marcha; el resultado aparece aquí en unos minutos.` };
     },
   };
 }
