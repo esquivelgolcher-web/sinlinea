@@ -125,6 +125,24 @@ test("(límites) un 429 con retry-after pausa las consultas ese tiempo; un 403 s
   await assert.rejects(() => b.listarCuentas(), (e) => !(e instanceof ErrorLimiteApi) && /403/.test(e.message));
 });
 
+test("(límites · sin token) el mensaje de límite distingue el modo anónimo (60 consultas por hora) y remite a Configurar; con token no menciona el modo anónimo", async () => {
+  const ahora = Date.parse("2026-09-09T16:00:00Z");
+  const reinicio = Math.floor(ahora / 1000) + 600;
+  const limitado = { status: 403, headers: { "x-ratelimit-remaining": "0", "x-ratelimit-reset": String(reinicio) }, json: { message: "API rate limit exceeded for 1.2.3.4." } };
+  const f = fetchPorRuta([{ re: /contents\/config\.json\?/, res: limitado }]);
+  const anonimo = crearAlmacenGitHub({ token: "", owner: "o", repo: "r", fetchImpl: f.impl, ahora: () => ahora });
+  await assert.rejects(() => anonimo.listarCuentas(), (e) => {
+    assert.ok(e instanceof ErrorLimiteApi);
+    assert.match(e.message, /sin token/i);
+    assert.match(e.message, /60 consultas por hora/);
+    assert.match(e.message, /Configurar/);
+    return true;
+  });
+  const g = fetchPorRuta([{ re: /contents\/config\.json\?/, res: limitado }]);
+  const conToken = crearAlmacenGitHub({ token: "github_pat_" + "x".repeat(30), owner: "o", repo: "r", fetchImpl: g.impl, ahora: () => ahora });
+  await assert.rejects(() => conToken.listarCuentas(), (e) => e instanceof ErrorLimiteApi && !/sin token/i.test(e.message) && /GitHub limitó/.test(e.message));
+});
+
 test("(límites) limiteDeRespuesta reconoce solo las respuestas de límite y calcula la hora de reinicio", () => {
   const ahora = Date.parse("2026-09-09T12:00:00Z");
   const res = (status, headers = {}) => ({ status, headers: { get: (k) => headers[k.toLowerCase()] ?? null } });

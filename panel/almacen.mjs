@@ -50,13 +50,17 @@ export function limiteDeRespuesta(res, ahora = Date.now()) {
   return ahora + 60_000;
 }
 const horaLocal = (ms) => new Date(ms).toLocaleTimeString("es-PA", { hour: "2-digit", minute: "2-digit", hour12: false });
-export function mensajeLimite(reiniciaMs) {
+export function mensajeLimite(reiniciaMs, { conToken = true } = {}) {
+  if (!conToken) {
+    return `Sin token, GitHub solo permite 60 consultas por hora desde esta conexión y ya se agotaron (cada carga del panel usa varias). Se reanudan a las ${horaLocal(reiniciaMs)}. `
+      + "Pulsa Configurar y pega tu token del panel: con token el límite es de 5000 por hora.";
+  }
   return `GitHub limitó las consultas de la API para este token (límite de peticiones). Se reanudan a las ${horaLocal(reiniciaMs)}; `
     + "hasta entonces el panel no vuelve a consultar. Evita recargar el panel muchas veces seguidas.";
 }
 export class ErrorLimiteApi extends Error {
-  constructor(reiniciaMs) {
-    super(mensajeLimite(reiniciaMs));
+  constructor(reiniciaMs, { conToken = true } = {}) {
+    super(mensajeLimite(reiniciaMs, { conToken }));
     this.name = "ErrorLimiteApi";
     this.reinicia = new Date(reiniciaMs).toISOString();
   }
@@ -137,12 +141,13 @@ export function crearAlmacenGitHub({ token, owner, repo, rama = "main", fetchImp
   // Todas las peticiones pasan por aquí: si GitHub devolvió un límite, no se vuelve a llamar a la API hasta la hora de
   // reinicio (se falla en el acto con ErrorLimiteApi, sin gastar más peticiones) y el panel puede explicarlo.
   let limiteHasta = 0;
-  const limiteActual = () => (limiteHasta > ahora() ? { reinicia: new Date(limiteHasta).toISOString(), mensaje: mensajeLimite(limiteHasta) } : null);
+  const conToken = Boolean(token);
+  const limiteActual = () => (limiteHasta > ahora() ? { reinicia: new Date(limiteHasta).toISOString(), mensaje: mensajeLimite(limiteHasta, { conToken }) } : null);
   async function pedir(url, opciones) {
-    if (limiteHasta > ahora()) throw new ErrorLimiteApi(limiteHasta);
+    if (limiteHasta > ahora()) throw new ErrorLimiteApi(limiteHasta, { conToken });
     const res = await fetchImpl(url, opciones);
     const l = limiteDeRespuesta(res, ahora());
-    if (l) { limiteHasta = l; throw new ErrorLimiteApi(l); }
+    if (l) { limiteHasta = l; throw new ErrorLimiteApi(l, { conToken }); }
     return res;
   }
   // Metadatos de secretos ya consultados (por nombres): las recargas del panel tras guardar, archivar o verificar no los
