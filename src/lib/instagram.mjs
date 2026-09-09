@@ -1,4 +1,5 @@
 // Cliente mínimo de la Instagram API with Instagram Login (graph.instagram.com).
+import { ErrorIncierto } from "./incierto.mjs";
 const HOST = "https://graph.instagram.com";
 
 // Códigos con los que la API señala un límite de llamadas (documentación de límites de Meta; 80002 = caso de uso de
@@ -36,24 +37,31 @@ export function crearClienteInstagram({
   const base = `${HOST}/${apiVersion}`;
   let llamadas = 0; // cada petición HTTP cuenta (también los reintentos): es el presupuesto de las métricas
 
-  async function llamar(metodo, url, params = {}) {
+  // `sinReintento`: la llamada que publica (media_publish). Un corte de red tras enviarla es ErrorIncierto: la publicación
+  // pudo crearse y no se repite a ciegas (diseño §4.2); un error claro de la API se propaga tal cual.
+  async function llamar(metodo, url, params = {}, { sinReintento = false } = {}) {
     const datos = new URLSearchParams({ ...params, access_token: token });
+    const maximo = sinReintento ? 0 : reintentos;
     let ultimo;
-    for (let intento = 0; intento <= reintentos; intento++) {
+    for (let intento = 0; intento <= maximo; intento++) {
       llamadas++;
+      let res;
       try {
-        const res = metodo === "GET"
+        res = metodo === "GET"
           ? await fetchImpl(`${url}?${datos}`)
           : await fetchImpl(url, { method: metodo, headers: { "content-type": "application/x-www-form-urlencoded" }, body: datos.toString() });
-        const json = await res.json().catch(() => ({}));
-        if (res.ok) return json;
-        if (res.status >= 500) { ultimo = errorDeApi(json, res.status); }
-        else throw errorDeApi(json, res.status);
       } catch (err) {
-        if (err.status && err.status < 500) throw err;
+        if (sinReintento) throw new ErrorIncierto(`sin respuesta de Instagram tras enviar la petición (${err.message})`, err);
         ultimo = err;
+        if (intento < maximo) await dormir(1000 * 2 ** intento);
+        continue;
       }
-      if (intento < reintentos) await dormir(1000 * 2 ** intento);
+      const json = await res.json().catch(() => ({}));
+      if (res.ok) return json;
+      const error = errorDeApi(json, res.status);
+      if (res.status < 500 || sinReintento) throw error;
+      ultimo = error;
+      if (intento < maximo) await dormir(1000 * 2 ** intento);
     }
     throw ultimo;
   }
@@ -77,9 +85,30 @@ export function crearClienteInstagram({
   }
 
   async function publicar(creationId) {
-    const r = await llamar("POST", `${base}/${usuarioId}/media_publish`, { creation_id: creationId });
+    const r = await llamar("POST", `${base}/${usuarioId}/media_publish`, { creation_id: creationId }, { sinReintento: true });
     if (!r.id) throw new Error("La API no devolvió el id del post publicado");
     return r.id;
+  }
+
+  // Estado del contenedor (documentado: EXPIRED, ERROR, FINISHED, IN_PROGRESS, PUBLISHED). Si la API ya no lo conoce
+  // (caducado hace tiempo, id inválido) se devuelve DESCONOCIDO con el mensaje: no es evidencia de nada.
+  async function estadoContenedor(creationId) {
+    try {
+      const r = await llamar("GET", `${base}/${creationId}`, { fields: "status_code,status" });
+      return { estado: String(r.status_code || "DESCONOCIDO"), detalle: String(r.status || "") };
+    } catch (err) {
+      if (err.status && err.status < 500 && !(err instanceof ErrorLimiteInstagram)) return { estado: "DESCONOCIDO", detalle: err.message };
+      throw err;
+    }
+  }
+
+  // Medio publicado a partir de un contenedor. La API de Instagram Login no expone el id del medio en el contenedor: si no
+  // viene, se devuelve null y el destino sigue incierto (nunca se adivina por texto).
+  async function medioPorContenedor(creationId) {
+    const r = await llamar("GET", `${base}/${creationId}`, { fields: "id,status_code" });
+    const idMedia = r.media_id || r.ig_id || null;
+    if (!idMedia) return null;
+    return { idMedia: String(idMedia), permalink: await permalink(String(idMedia)) };
   }
 
   async function permalink(mediaId) {
@@ -231,5 +260,5 @@ export function crearClienteInstagram({
 
   const llamadasHechas = () => llamadas;
 
-  return { crearContenedor, esperarContenedor, publicar, permalink, cuota, refrescarToken, imagenPublica, publicarImagen, perfil, vigencia, perfilResumen, listarMedios, insightsCuenta, insightsMedio, llamadasHechas };
+  return { crearContenedor, esperarContenedor, publicar, estadoContenedor, medioPorContenedor, permalink, cuota, refrescarToken, imagenPublica, publicarImagen, perfil, vigencia, perfilResumen, listarMedios, insightsCuenta, insightsMedio, llamadasHechas };
 }
