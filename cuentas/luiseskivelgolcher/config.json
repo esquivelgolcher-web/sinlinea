@@ -63,11 +63,16 @@
     "rotulo": ""
   },
   "instagram": {
+    "origen": "entorno",
     "tokenSecreto": "IG_ACCESSTOKEN_LUISESKIVELGOLCHER",
-    "usuarioIdSecreto": "IG_USER_ID_LUISESKIVELGOLCHER",
-    "origen": "entorno"
+    "usuarioIdSecreto": "IG_USER_ID_LUISESKIVELGOLCHER"
   },
   "metricas": {
     "recoger": true
+  },
+  "zonaHoraria": "America/Panama",
+  "editorial": {
+    "temas": [],
+    "tono": ""
   }
 }
