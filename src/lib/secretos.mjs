@@ -2,6 +2,8 @@
 // Aquí solo se manejan NOMBRES de secretos y patrones para ocultar valores; nunca se
 // registran ni se guardan valores. Los valores llegan por variables de entorno.
 
+import { REDES_CONEXION, SECRETOS_RED } from "./conexiones.mjs";
+
 // Patrones de valores que jamás deben quedar en logs ni en posts/*.json.
 const PATRONES_DE_VALORES = [
   /IGAA[A-Za-z0-9_-]{20,}/g,      // token de Instagram (Instagram Login)
@@ -80,18 +82,40 @@ export function leerSecretos(config, env = process.env, { porCuenta = false } = 
   return { token: valor(n.token), usuarioId: valor(n.usuarioId) };
 }
 
+// Multicanal (F1): secretos de las redes nuevas. Solo existen en modo Environment, con nombres fijos (conexiones.mjs), y un
+// cliente solo recibe los de su red: nunca se usan los de Instagram para Facebook ni al revés.
+export function leerSecretosDeRed(config, red, env = process.env) {
+  if (red === "instagram") throw new Error("Para Instagram usa leerSecretos (nombres declarados u origen Environment)");
+  const nombres = SECRETOS_RED[red];
+  if (!nombres) throw new Error(`Red desconocida: ${red}`);
+  const valor = (k) => String(env[k] ?? "").trim();
+  const faltan = nombres.filter((k) => !valor(k));
+  if (faltan.length) {
+    throw new Error(`Faltan los secretos ${faltan.join(", ")} en el Environment ${nombreEntorno(config?.cuenta)} (Settings → Environments → ${nombreEntorno(config?.cuenta)} → Environment secrets). No se usan credenciales de otra red ni de otro origen.`);
+  }
+  return { token: valor(nombres[0]) };
+}
+
 // Lista de secretos que necesita la configuración, con su uso, para verificar y documentar.
 export function secretosRequeridos(config, { porCuenta = false } = {}) {
   const n = nombresDeSecretos(config, { porCuenta });
   const publica = config?.automatico?.publicar !== false;
   const donde = origenDeSecretos(config) === "entorno" ? ` (Environment ${nombreEntorno(config?.cuenta)})` : "";
-  return [
+  const lista = [
     { nombre: "ANTHROPIC_API_KEY", obligatorio: true, uso: "Claude: redacción (GENERAR) y acortado de textos y escenas (REGENERAR)" },
     { nombre: "GEMINI_API_KEY", obligatorio: Boolean(config?.ilustraciones?.activo), uso: "Gemini: ilustraciones de los posts" },
     { nombre: n.token, obligatorio: publica, uso: (publica ? "Instagram: publicar y renovar el token" : "Instagram: publicar y renovar el token (publicación apagada: hace falta al activar automatico.publicar)") + donde },
     { nombre: n.usuarioId, obligatorio: publica, uso: (publica ? "Instagram: id de la cuenta profesional" : "Instagram: id numérico de la cuenta (publicación apagada: hace falta al activar automatico.publicar)") + donde },
     { nombre: "GH_PAT", obligatorio: false, uso: "renovación automática del token de Instagram (renovar-token.yml)" },
   ];
+  for (const red of REDES_CONEXION) {
+    const c = config?.conexiones?.[red];
+    if (!c) continue;
+    for (const nombre of SECRETOS_RED[red]) {
+      lista.push({ nombre, obligatorio: c.publicar === true, uso: `${red === "facebook" ? "Facebook" : red}: publicar en la página${c.publicar === true ? "" : " (conexión apagada: hace falta al encenderla)"} (Environment ${nombreEntorno(config?.cuenta)})` });
+    }
+  }
+  return lista;
 }
 
 export function verificarSecretos(env, requeridos) {

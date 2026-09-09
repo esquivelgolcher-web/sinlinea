@@ -83,9 +83,9 @@ test("(fase 2) cuentas-activas --comprobar-entornos anota en la matriz si cada E
   const ruta = path.join(raiz, "cuentas/prueba/config.json");
   fs.writeFileSync(ruta, JSON.stringify({ ...JSON.parse(fs.readFileSync(ruta, "utf8")), instagram: { origen: "entorno" } }, null, 2));
   const { entorno } = cuentasActivas(cargarConfiguracion(raiz));
-  assert.deepEqual(entorno, [{ cuenta: "prueba", entorno: "cuenta-prueba" }]);
+  assert.deepEqual(entorno, [{ cuenta: "prueba", entorno: "cuenta-prueba", nombres: ["IG_ACCESS_TOKEN", "IG_USER_ID"] }]);
   const completo = await anotarEntornos(entorno, { comprobar: async ({ entorno: e }) => ({ ok: true, presentes: NOMBRES_ENTORNO, faltan: [], motivo: `Environment ${e} completo`, permiso: true }) });
-  assert.deepEqual(completo, [{ cuenta: "prueba", entorno: "cuenta-prueba", completo: "true", motivo: "Environment cuenta-prueba completo" }]);
+  assert.deepEqual(completo, [{ cuenta: "prueba", entorno: "cuenta-prueba", nombres: ["IG_ACCESS_TOKEN", "IG_USER_ID"], completo: "true", motivo: "Environment cuenta-prueba completo" }]);
   const falta = await anotarEntornos(entorno, { comprobar: async () => ({ ok: false, presentes: ["IG_ACCESS_TOKEN"], faltan: ["IG_USER_ID"], motivo: "falta IG_USER_ID", permiso: true }) });
   assert.equal(falta[0].completo, "false");
   assert.match(falta[0].motivo, /IG_USER_ID/);

@@ -81,10 +81,10 @@ test("(fase 2) cuentas-activas separa las cuentas por origen, excluye archivadas
   const { raiz } = raizMixta();
   const configuracion = cargarConfiguracion(raiz);
   const activas = cuentasActivas(configuracion);
-  assert.deepEqual(activas.entorno, [{ cuenta: "prueba", entorno: "cuenta-prueba" }]);
+  assert.deepEqual(activas.entorno, [{ cuenta: "prueba", entorno: "cuenta-prueba", nombres: ["IG_ACCESS_TOKEN", "IG_USER_ID"] }]);
   assert.deepEqual(activas.repositorio, [{ cuenta: "sinlinea", tokenSecreto: "IG_ACCESS_TOKEN", usuarioIdSecreto: "IG_USER_ID" }]);
   assert.deepEqual(cuentasActivas(configuracion, { soloCuenta: "prueba" }).repositorio, []);
-  assert.deepEqual(cuentasActivas(configuracion, { soloCuenta: "prueba" }).entorno, [{ cuenta: "prueba", entorno: "cuenta-prueba" }]);
+  assert.deepEqual(cuentasActivas(configuracion, { soloCuenta: "prueba" }).entorno, [{ cuenta: "prueba", entorno: "cuenta-prueba", nombres: ["IG_ACCESS_TOKEN", "IG_USER_ID"] }]);
   assert.deepEqual(cuentasActivas(configuracion, { soloCuenta: "nadie" }), { entorno: [], repositorio: [] });
   // Archivada: fuera de ambas listas
   const ruta = path.join(raiz, "cuentas/prueba/config.json");

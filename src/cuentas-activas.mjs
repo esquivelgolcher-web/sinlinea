@@ -9,10 +9,11 @@
 import { pathToFileURL } from "node:url";
 import { cargarConfiguracion } from "./lib/config.mjs";
 import { origenDeSecretos, nombreEntorno, nombresDeSecretos } from "./lib/secretos.mjs";
-import { comprobarEntorno } from "./lib/entornos.mjs";
+import { comprobarEntorno, NOMBRES_ENTORNO } from "./lib/entornos.mjs";
+import { nombresSecretosEntorno } from "./lib/conexiones.mjs";
 
 // `soloMetricas`: solo las cuentas con metricas.recoger = true (recogida diaria de métricas); no mira automatico.*.
-export function cuentasActivas(configuracion, { soloCuenta = null, soloMetricas = false } = {}) {
+export function cuentasActivas(configuracion, { soloCuenta = null, soloMetricas = false, redes = null } = {}) {
   const entorno = [];
   const repositorio = [];
   for (const config of configuracion.cuentas) {
@@ -20,7 +21,10 @@ export function cuentasActivas(configuracion, { soloCuenta = null, soloMetricas 
     if (soloCuenta && config.cuenta !== soloCuenta) continue;
     if (soloMetricas && config.metricas?.recoger !== true) continue;
     if (origenDeSecretos(config) === "entorno") {
-      entorno.push({ cuenta: config.cuenta, entorno: nombreEntorno(config.cuenta) });
+      // Nombres que debe tener el Environment según lo encendido (Instagram y las redes de F1). Con --solo-metricas o al
+      // probar Instagram hacen falta los de Instagram aunque su publicación esté apagada.
+      const nombres = soloMetricas || redes ? nombresSecretosEntorno(config, { redes: redes || ["instagram"] }) : nombresSecretosEntorno(config);
+      entorno.push({ cuenta: config.cuenta, entorno: nombreEntorno(config.cuenta), nombres: nombres.length ? nombres : [...NOMBRES_ENTORNO] });
     } else {
       const n = nombresDeSecretos(config);
       repositorio.push({ cuenta: config.cuenta, tokenSecreto: n.token, usuarioIdSecreto: n.usuarioId });
@@ -33,7 +37,7 @@ export function cuentasActivas(configuracion, { soloCuenta = null, soloMetricas 
 export async function anotarEntornos(lista, { comprobar }) {
   const salida = [];
   for (const c of lista) {
-    const r = await comprobar({ entorno: c.entorno, cuenta: c.cuenta });
+    const r = await comprobar({ entorno: c.entorno, cuenta: c.cuenta, nombres: c.nombres });
     salida.push({ ...c, completo: r.ok ? "true" : "false", motivo: String(r.motivo || "").replace(/\s+/g, " ").trim() });
   }
   return salida;
@@ -46,12 +50,14 @@ if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) 
   const raiz = arg("--raiz") || process.cwd();
   const configuracion = cargarConfiguracion(raiz);
   for (const e of configuracion.errores) console.error(`::warning::Cuenta ${e.cuenta} con configuración inválida: se omite (${e.mensaje})`);
-  const { entorno, repositorio } = cuentasActivas(configuracion, { soloCuenta: arg("--cuenta"), soloMetricas: process.argv.includes("--solo-metricas") });
+  // --red <red>: la prueba de una conexión concreta exige los secretos de esa red aunque esté apagada.
+  const red = arg("--red");
+  const { entorno, repositorio } = cuentasActivas(configuracion, { soloCuenta: arg("--cuenta"), soloMetricas: process.argv.includes("--solo-metricas"), redes: red ? [red] : (process.argv.includes("--instagram") ? ["instagram"] : null) });
   const salida = async () => {
     if (!process.argv.includes("--comprobar-entornos")) return entorno;
     const repo = process.env.GITHUB_REPOSITORY || "";
     const token = process.env.GH_TOKEN || "";
-    return anotarEntornos(entorno, { comprobar: ({ entorno: e }) => comprobarEntorno({ repo, entorno: e, token }) });
+    return anotarEntornos(entorno, { comprobar: ({ entorno: e, nombres }) => comprobarEntorno({ repo, entorno: e, nombres, token }) });
   };
   salida().then((lista) => {
     for (const c of lista) console.error(`Cuenta ${c.cuenta}: Environment ${c.entorno} ${c.completo === undefined ? "(sin comprobar)" : c.completo === "true" ? "completo" : `INCOMPLETO: ${c.motivo}`}`);

@@ -4,6 +4,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { esNombreDeSecreto, ORIGENES } from "./secretos.mjs";
+import { erroresDeConexiones } from "./conexiones.mjs";
 import { RE_ID_CUENTA, RE_IDIOMA, RE_COLOR, TIPOS_FUENTE, LOGO_FORMAS, LOGO_TAMANO, COLORES_POR_DEFECTO, AUTOMATICO_POR_DEFECTO, IDIOMA_POR_DEFECTO } from "./cuenta.mjs";
 
 export { RE_ID_CUENTA, LOGO_FORMAS, COLORES_POR_DEFECTO, AUTOMATICO_POR_DEFECTO, IDIOMA_POR_DEFECTO };
@@ -68,9 +69,14 @@ function validarMarca(marca, archivo) {
 function validarAutomatico(a, archivo) {
   if (a === undefined) return;
   exigir(a && typeof a === "object", "automatico debe ser un objeto", archivo);
-  for (const k of Object.keys(AUTOMATICO_POR_DEFECTO)) {
+  for (const k of [...Object.keys(AUTOMATICO_POR_DEFECTO), "pausa"]) {
     if (a[k] !== undefined) exigir(typeof a[k] === "boolean", `automatico.${k} debe ser true o false`, archivo);
   }
+}
+
+// Multicanal (F1): conexiones por red, con interruptor propio que nace apagado.
+function validarConexiones(c, archivo) {
+  for (const m of erroresDeConexiones(c)) exigir(false, m, archivo);
 }
 
 // Panel maestro: una cuenta archivada conserva posts e historial pero no corre en ningún flujo.
@@ -144,7 +150,7 @@ export function validarGlobal(g) {
   return g;
 }
 
-export const CLAVES_DE_CUENTA = ["nombre", "idioma", "zonaHoraria", "automatico", "marca", "fuentes", "generar", "franjas", "ilustraciones", "instagram", "editorial", "archivada", "archivadaEn", "metricas"];
+export const CLAVES_DE_CUENTA = ["nombre", "idioma", "zonaHoraria", "automatico", "marca", "fuentes", "generar", "franjas", "ilustraciones", "instagram", "editorial", "archivada", "archivadaEn", "metricas", "conexiones"];
 const CLAVES_SOLO_GLOBALES = ["pages", "claude", "archivarDespuesDeDias", "cuentas"];
 
 // Configuración de una cuenta (cuentas/<id>/config.json).
@@ -166,6 +172,7 @@ export function validarCuenta(c, id) {
   validarIlustracionesCuenta(c.ilustraciones, archivo);
   validarSecretosInstagram(c.instagram, archivo);
   validarMetricas(c.metricas, archivo);
+  validarConexiones(c.conexiones, archivo);
   return c;
 }
 
@@ -182,6 +189,7 @@ export function validarConfig(cfg) {
   validarIlustracionesGlobal(cfg.ilustraciones, "config.json");
   validarIlustracionesCuenta(cfg.ilustraciones, "config.json");
   validarMetricas(cfg.metricas, "config.json");
+  validarConexiones(cfg.conexiones, "config.json");
   if (cfg.cuenta !== undefined) exigir(RE_ID_CUENTA.test(String(cfg.cuenta)), `cuenta "${cfg.cuenta}" no es un id válido`);
   if (cfg.idioma !== undefined) exigir(RE_IDIOMA.test(String(cfg.idioma)), `idioma "${cfg.idioma}" debe tener la forma xx o xx-XX`);
   return cfg;
@@ -206,7 +214,8 @@ export function configDeCuenta(global, cuenta, id) {
     archivada: cuenta.archivada === true,
     nombre: cuenta.nombre,
     idioma: cuenta.idioma || IDIOMA_POR_DEFECTO,
-    automatico: { ...AUTOMATICO_POR_DEFECTO, ...(cuenta.automatico || {}) },
+    automatico: { ...AUTOMATICO_POR_DEFECTO, ...(cuenta.automatico || {}) }, // pausa: solo si la cuenta la declara
+    conexiones: { ...(cuenta.conexiones || {}) }, // nunca se hereda de otra cuenta
     marca: { ...cuenta.marca, logoForma: cuenta.marca.logoForma || LOGO_FORMA_POR_DEFECTO, logoTamano: cuenta.marca.logoTamano || LOGO_TAMANO_POR_DEFECTO, colores: { ...COLORES_POR_DEFECTO, ...(cuenta.marca.colores || {}) } },
     zonaHoraria: cuenta.zonaHoraria || global.zonaHoraria,
     instagram: { apiVersion: global.instagram.apiVersion, origen: "repositorio", ...cuenta.instagram },
