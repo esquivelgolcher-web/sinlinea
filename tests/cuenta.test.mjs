@@ -254,3 +254,14 @@ test("(cierre) configDesdeFormulario aplica los interruptores del formulario cua
   const f = formularioDesdeConfig("x", base, "");
   assert.equal(f.generar, true); assert.equal(f.publicar, true);
 });
+
+test("(maestro) estadoConexion: «API access blocked» (code 200) es un bloqueo de Meta a la app, no un secreto malo; la guía manda confirmar la cuenta de desarrollador", () => {
+  const detalle = 'la API respondió con error: message "API access blocked." · code 200 · error_subcode - · type OAuthException';
+  const e = estadoConexion({ conexion: { estado: "error", detalle, comprobado: "2026-09-09T16:52:17Z" }, config: cfgX, ahora });
+  assert.equal(e.clave, "error");
+  assert.match(e.detalle, /Meta bloqueó/i);
+  assert.match(e.detalle, /developers\.facebook\.com/);
+  assert.doesNotMatch(e.detalle, /corrige el secreto/i, "no pide cambiar un secreto que no está mal");
+  const otro = estadoConexion({ conexion: { estado: "error", detalle: "code 190", comprobado: "2026-09-08T19:35:00Z" }, config: cfgX, ahora });
+  assert.match(otro.detalle, /corrige el secreto/i, "los demás errores conservan la guía del secreto");
+});

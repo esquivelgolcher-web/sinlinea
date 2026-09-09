@@ -343,7 +343,13 @@ export function estadoConexion({ conexion = null, tokenInfo = null, config = nul
     };
   }
   if (c.estado === "error") {
-    return { clave: "error", texto: `Error de conexión${cuando}${c.detalle ? `: ${c.detalle}` : ""}`, detalle: "Corrige el secreto en GitHub y vuelve a verificar la identidad; hasta entonces no actives la publicación.", fecha, antigua: false };
+    // "API access blocked." (code 200) no es un secreto malo: Meta bloqueó a la app hasta que quien la
+    // administra confirme su cuenta en developers.facebook.com. Pedir cambiar el secreto despistaría.
+    const bloqueoMeta = String(c.detalle || "").includes("API access blocked");
+    const detalle = bloqueoMeta
+      ? "Meta bloqueó el acceso de la app a la API (no es un problema del secreto): entra en developers.facebook.com con la cuenta que administra la app, atiende el aviso de confirmación de cuenta y vuelve a verificar la identidad; hasta entonces no actives la publicación."
+      : "Corrige el secreto en GitHub y vuelve a verificar la identidad; hasta entonces no actives la publicación.";
+    return { clave: "error", texto: `Error de conexión${cuando}${c.detalle ? `: ${c.detalle}` : ""}`, detalle, fecha, antigua: false };
   }
   if (c.estado === "pendiente") {
     if (c.motivo === "cambio") {
