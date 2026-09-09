@@ -148,15 +148,32 @@ configurable por cuenta (`idioma`, `es-PA` por defecto).
   confirmada: usuario e id numérico, repetida por PUBLICAR antes de publicar.
   Cuentas de prueba solo en `tests/fixtures/`, nunca en `cuentas/` ni en
   `config.json`. Suites: 273 unitarias, 18 de render + 1 de logo, 15 de panel.
-- **Fase 2 implementada en local (2026-09-09) — SIN push, sin migrar
-  credenciales**: commits `38c1d31` (origen por cuenta y ejecución por cuenta
-  en los orquestadores), `8577796` (un job por cuenta en los cuatro workflows
-  de Instagram, comprobación del Environment por la API con `GH_PAT`), el de panel (origen en el formulario y
-  las tarjetas, metadatos de Environment) y el de documentación. Ambas cuentas
-  siguen en modo actual (`repositorio`) con sus secretos de hoy; el modo
-  Environment queda disponible para migrar `luiseskivelgolcher` primero
-  (docs/CONFIGURACION.md §6d). Suites: 287 unitarias, 18 de render + 1 de logo,
-  16 de panel.
+- **Fase 2 DESPLEGADA (2026-09-09, push `4c90ada`)**: origen de credenciales
+  por cuenta (`instagram.origen` = `repositorio` | `entorno`), un job por cuenta
+  en PUBLICAR, RENOVAR TOKEN, Probar Instagram y Verificar, sin fallback entre
+  orígenes; la procedencia se comprueba con la API de GitHub (metadatos del
+  Environment exacto `cuenta-<id>`, con `GH_PAT`), nunca por igualdad de
+  valores. Ese mismo día el panel pasó a gestionar los límites de la API de
+  GitHub (`e5c82ca`: caché de metadatos 10 min, pausa hasta la hora de
+  reinicio, mensaje claro).
+- **Migración de `luiseskivelgolcher` HECHA (2026-09-09, resultado real)**:
+  `GH_PAT` creado por el operador; Environment `cuenta-luiseskivelgolcher` con
+  `IG_ACCESS_TOKEN` (token generado en la app de Meta "sin linea test", donde
+  vive esa cuenta) e `IG_USER_ID`; origen cambiado a `entorno` en `f95e23d`
+  con las automatizaciones apagadas. Probar Instagram (run 34346737880): el
+  job "Probar (Environment)" comprobó el Environment por la API y verificó
+  usuario e id numérico; `conexion.json` verificada 11:40 UTC con
+  `origen: "entorno"`. La corrida programada de PUBLICAR siguiente (run
+  34347060899, 11:43 UTC) omitió la publicación en ambas cuentas por sus pausas:
+  luiseskivelgolcher 0 publicados (job "Publicar (Environment)", solo
+  `IG_ACCESS_TOKEN` e `IG_USER_ID`), Sin Línea 0 publicados y 9 pospuestos
+  (job "Publicar (modo actual)"); la cola (10 programados) quedó intacta y no
+  hubo commits. Los secretos de repositorio `IG_ACCESSTOKEN_LUISESKIVELGOLCHER`
+  e `IG_USER_ID_LUISESKIVELGOLCHER` se conservan hasta la primera renovación
+  semanal correcta (§6d paso 6). **Sin Línea sigue en modo `repositorio`** con
+  el token inválido (código 190): su migración empieza al regenerar el token en
+  la app de Meta "sinlinea" y guardarlo en `cuenta-sinlinea`. Suites: 297
+  unitarias, 18 de render + 1 de logo, 16 de panel.
 - **Sin Línea sigue pausada** (`automatico.publicar = false`, 10 programados
   en cola) y **@luiseskivelgolcher con generación y publicación apagadas**
   (contenido: investigación y actualidad con contexto; sin ajedrez ni vida
@@ -373,7 +390,7 @@ archivo y verificación de identidad desde el panel; estado de conexión en
 `data/<id>/conexion.json`; persistencia con bloqueo por sha y conservación de
 lo escrito ante errores. Detalle en ARCHITECTURE.md 2.3b.
 
-**Fase 2 · Secretos por cuenta sin tocar workflows (1,5-2 días). Código hecho en local el 2026-09-09; migración pendiente del operador.**
+**Fase 2 · Secretos por cuenta sin tocar workflows (1,5-2 días). Desplegada el 2026-09-09; `luiseskivelgolcher` migrada ese día; Sin Línea pendiente de token nuevo.**
 Plan detallado, reparto de pasos (panel / GitHub / permisos), migración de las
 dos cuentas y recuperación ante fallos en
 [docs/superpowers/specs/2026-09-09-fase2-entornos-por-cuenta-design.md](docs/superpowers/specs/2026-09-09-fase2-entornos-por-cuenta-design.md).
@@ -408,25 +425,33 @@ publicar, sin editar código ni workflows por cada cuenta, y que cada job reciba
 4. **Documentación**: `docs/CONFIGURACION.md` §6b/§6c pasan de "secretos de
    repositorio con sufijo" a "entorno por cuenta con dos secretos".
 
-*Migración de las dos cuentas existentes (sin perder las pausas).*
-1. Crear en GitHub los entornos `cuenta-sinlinea` y `cuenta-luiseskivelgolcher`
-   y copiar en cada uno el token y el id numérico como `IG_ACCESS_TOKEN` e
-   `IG_USER_ID` (los pega el operador; el panel y el asistente solo indican
-   nombres). Para Sin Línea, el token nuevo cuando se regenere en Meta; hasta
-   entonces su entorno queda sin token y la cuenta sigue pausada.
-2. Desplegar los workflows por cuenta con un **modo de transición**: si el
-   entorno no tiene `IG_ACCESS_TOKEN`, el job usa el secreto de repositorio con
-   el nombre declarado en la configuración de la cuenta (`IG_ACCESS_TOKEN`,
-   `IG_ACCESSTOKEN_LUISESKIVELGOLCHER`…). Así nada deja de funcionar durante el
-   cambio.
-3. Ejecutar Probar Instagram para cada cuenta desde el panel y comprobar que
-   `conexion.json` queda como verificada con los secretos del entorno.
-4. Borrar los secretos de repositorio con sufijo y, después, el modo de
-   transición. `automatico.generar/publicar` no se tocan en ningún paso: Sin
-   Línea sigue con la publicación pausada y su cola intacta, y
-   @luiseskivelgolcher con todo apagado, hasta que el operador los encienda.
-5. Marcha atrás: volver a los workflows anteriores es un `git revert`; los
-   secretos de repositorio siguen existiendo hasta el paso 4.
+*Lo que se construyó (difiere del diseño inicial en dos puntos).* No hay
+modo de transición con fallback: cada cuenta declara su origen
+(`instagram.origen`, por defecto `repositorio`) y un job solo recibe las
+credenciales de ese origen. La procedencia no se comprueba por huellas ni por
+igualdad de valores, sino con la API de GitHub: el job `cuentas` consulta con
+`GH_PAT` (permiso Environments: lectura) que el Environment exacto
+`cuenta-<id>` tiene `IG_ACCESS_TOKEN` e `IG_USER_ID`, y el job de la cuenta
+falla antes de contactar con Instagram si falta alguno o no hay permiso.
+Detalle en ARCHITECTURE.md 2.7 y en docs/CONFIGURACION.md §6b-§6d.
+
+*Migración (sin perder las pausas), pasos reales.*
+1. `GH_PAT` (Secrets y Environments, lectura y escritura) creado por el
+   operador. Hecho el 2026-09-09.
+2. Environment `cuenta-luiseskivelgolcher` con sus dos secretos (el operador
+   pega el token; el asistente solo pone nombres). Hecho el 2026-09-09.
+3. Origen `entorno` para esa cuenta, `automatico` sin tocar; Probar Instagram
+   verifica usuario e id en el job del Environment. Hecho el 2026-09-09.
+4. La corrida programada de PUBLICAR muestra en el job de la cuenta solo los
+   dos nombres fijos y omite la publicación por la pausa. Comprobado el
+   2026-09-09 (run 34347060899).
+5. Sin Línea: regenerar el token en la app de Meta "sinlinea", guardarlo en
+   `cuenta-sinlinea` con `IG_USER_ID`, cambiar su origen y verificar. Pendiente;
+   su publicación sigue pausada hasta que el operador la encienda.
+6. Tras una renovación semanal correcta (RENOVAR TOKEN escribe en el
+   Environment), borrar los secretos de repositorio con sufijo. Pendiente.
+7. Marcha atrás en cualquier paso: origen `repositorio` en el panel; los
+   secretos de repositorio siguen intactos hasta el paso 6.
 
 *Criterio de aceptación.* Dar de alta una cuenta desde el panel, crear su
 entorno con los dos secretos en GitHub y verificar su identidad desde el panel
