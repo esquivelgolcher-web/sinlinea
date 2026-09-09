@@ -37,6 +37,7 @@
   },
   "instagram": {
     "tokenSecreto": "IG_ACCESSTOKEN_LUISESKIVELGOLCHER",
-    "usuarioIdSecreto": "IG_USER_ID_LUISESKIVELGOLCHER"
+    "usuarioIdSecreto": "IG_USER_ID_LUISESKIVELGOLCHER",
+    "origen": "entorno"
   }
 }

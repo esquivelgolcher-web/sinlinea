@@ -1,11 +1,11 @@
 {
-  "estado": "verificada",
-  "usuario": "luiseskivelgolcher",
-  "comprobado": "2026-09-09T07:52:46.869Z",
-  "detalle": null,
-  "secretos": {
-    "tokenSecreto": "IG_ACCESSTOKEN_LUISESKIVELGOLCHER",
-    "usuarioIdSecreto": "IG_USER_ID_LUISESKIVELGOLCHER",
-    "origen": "repositorio"
+  "estado": "pendiente",
+  "motivo": "cambio",
+  "cambiado": "2026-09-09T11:39:14.445Z",
+  "detalle": "el origen de las credenciales cambió a Environment cuenta-luiseskivelgolcher",
+  "anterior": {
+    "estado": "verificada",
+    "comprobado": "2026-09-09T07:52:46.869Z",
+    "usuario": "luiseskivelgolcher"
   }
 }
