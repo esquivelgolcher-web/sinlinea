@@ -4,8 +4,8 @@ name: Métricas de Instagram
 # origen (Environment cuenta-<id> o secretos de repositorio con el nombre declarado), como en PUBLICAR.
 # - Programado (00:30 de Panamá): solo las cuentas con metricas.recoger = true (independiente de automatico.*).
 #   Sin ninguna cuenta con recogida encendida, los jobs por cuenta se omiten.
-# - Manual: `cuenta` (opcional) y `guardar`. Con guardar = false (por defecto) corre la SONDA: informa qué campos y
-#   métricas devuelve la API para la cuenta, sin escribir nada y aunque su recogida esté apagada.
+# - Manual: `cuenta` (opcional) limita la corrida a esa cuenta; el orquestador sigue respetando metricas.recoger.
+#   La SONDA de solo lectura (qué devuelve la API para una cuenta, sin guardar nada) está en el workflow Verificar.
 # Escribe únicamente data/<cuenta>/metricas/. Nunca publica ni toca posts/. Sin Claude ni Gemini.
 on:
   schedule:
@@ -15,11 +15,6 @@ on:
       cuenta:
         description: "Id de la cuenta (vacío = todas las que tengan la recogida encendida)"
         required: false
-        type: string
-      guardar:
-        description: "true = recoger y guardar en data/<cuenta>/metricas; false = solo sonda (no escribe nada)"
-        required: false
-        default: "false"
         type: string
 
 permissions:
@@ -49,9 +44,9 @@ jobs:
       - name: Instalar dependencias
         run: npm ci
 
-      # Programado: solo cuentas con metricas.recoger = true. Manual con `cuenta`: esa cuenta aunque tenga la recogida
-      # apagada (sonda). Con --comprobar-entornos consulta la API de GitHub (solo metadatos, con GH_PAT: permiso
-      # Environments: lectura) y anota si el Environment de cada cuenta en modo Environment tiene sus dos secretos.
+      # Programado: solo cuentas con metricas.recoger = true. Manual con `cuenta`: esa cuenta (el orquestador la omite
+      # si su recogida está apagada). Con --comprobar-entornos consulta la API de GitHub (solo metadatos, con GH_PAT:
+      # permiso Environments: lectura) y anota si el Environment de cada cuenta en modo Environment tiene sus dos secretos.
       - name: Listar las cuentas por origen de credenciales y comprobar sus Environments
         id: lista
         env:
@@ -108,16 +103,8 @@ jobs:
           fi
           echo "Cuenta $CUENTA: Environment $ENTORNO completo (IG_ACCESS_TOKEN, IG_USER_ID)."
 
-      - name: Consultar las métricas de la cuenta (solo lectura en Instagram)
-        env:
-          GUARDAR: ${{ inputs.guardar }}
-          EVENTO: ${{ github.event_name }}
-        run: |
-          if [ "$EVENTO" = "schedule" ] || [ "$GUARDAR" = "true" ]; then
-            node src/metricas.mjs --cuenta "$CUENTA" --por-cuenta
-          else
-            node src/metricas.mjs --cuenta "$CUENTA" --por-cuenta --sin-guardar
-          fi
+      - name: Recoger las métricas de la cuenta (solo lectura en Instagram)
+        run: node src/metricas.mjs --cuenta "$CUENTA" --por-cuenta
 
       - name: Guardar las métricas de la cuenta en el repositorio
         run: |
@@ -165,16 +152,8 @@ jobs:
       - name: Instalar dependencias
         run: npm ci
 
-      - name: Consultar las métricas de la cuenta (solo lectura en Instagram)
-        env:
-          GUARDAR: ${{ inputs.guardar }}
-          EVENTO: ${{ github.event_name }}
-        run: |
-          if [ "$EVENTO" = "schedule" ] || [ "$GUARDAR" = "true" ]; then
-            node src/metricas.mjs --cuenta "$CUENTA" --por-cuenta
-          else
-            node src/metricas.mjs --cuenta "$CUENTA" --por-cuenta --sin-guardar
-          fi
+      - name: Recoger las métricas de la cuenta (solo lectura en Instagram)
+        run: node src/metricas.mjs --cuenta "$CUENTA" --por-cuenta
 
       - name: Guardar las métricas de la cuenta en el repositorio
         run: |
