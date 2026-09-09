@@ -87,6 +87,10 @@ export function erroresDeCuenta(d, { idsExistentes = [], editando = false } = {}
   for (const k of ["tokenSecreto", "usuarioIdSecreto"]) {
     if (d[k] !== undefined && d[k] !== "" && !/^[A-Z][A-Z0-9_]*$/.test(String(d[k]))) e.push(`${k}: el nombre del secreto va en mayúsculas (A-Z, 0-9 y _), p. ej. IG_ACCESS_TOKEN_NUEVO_MEDIO`);
   }
+  // Multicanal (F1): la página de Facebook se identifica por su id numérico; hace falta para encender esa conexión.
+  const pagina = String(d.facebookPagina ?? "").trim();
+  if (pagina && !/^\d+$/.test(pagina)) e.push("facebookPagina: el id de la página de Facebook es numérico");
+  else if (d.facebookPublicar === true && !pagina) e.push("facebookPagina: indica el id numérico de la página para encender Facebook");
   return e;
 }
 
@@ -162,6 +166,24 @@ export function configDesdeFormulario(d, base = null) {
     // los límites declarados (maxLlamadas, ventanaDias…) se conservan tal cual.
     metricas: { ...(base?.metricas || {}), recoger: d.recogerMetricas === true },
   };
+  // Multicanal (F1): pausa general explícita (solo se escribe cuando está activa) y conexiones por red. Instagram sigue
+  // en automatico.publicar; Facebook en conexiones.facebook.publicar. No se inventa el bloque si no hay nada que declarar.
+  if (config.automatico) {
+    const auto = { ...config.automatico };
+    if (d.pausa === true) auto.pausa = true;
+    else if (d.pausa === false) delete auto.pausa;
+    else if (base?.automatico?.pausa === true) auto.pausa = true;
+    config.automatico = auto;
+  }
+  const fbBase = base?.conexiones?.facebook || null;
+  const fbPagina = String(d.facebookPagina ?? fbBase?.pagina ?? "").trim();
+  const fbPublicar = typeof d.facebookPublicar === "boolean" ? d.facebookPublicar : fbBase?.publicar === true;
+  if (fbPagina || fbPublicar || fbBase) {
+    config.conexiones = { ...(base?.conexiones || {}), facebook: { ...(fbBase || {}), publicar: fbPublicar, ...(fbPagina ? { pagina: fbPagina } : {}) } };
+    if (!fbPagina) delete config.conexiones.facebook.pagina;
+  } else {
+    delete config.conexiones;
+  }
   return config;
 }
 
@@ -190,6 +212,9 @@ export function formularioDesdeConfig(id, c, editorialMd = "") {
     recogerMetricas: c.metricas?.recoger === true,
     generar: c.automatico?.generar !== false,
     publicar: c.automatico?.publicar !== false,
+    pausa: c.automatico?.pausa === true,
+    facebookPublicar: c.conexiones?.facebook?.publicar === true,
+    facebookPagina: String(c.conexiones?.facebook?.pagina ?? ""),
     editorialMd,
   };
 }
@@ -438,7 +463,7 @@ export function guiaConexion({ config, id, owner = null, repo = null }) {
 }
 
 // Actividad por cuenta a partir de lo que ya se guarda (posts, conexión, estado de métricas). Sin datos: null, nunca fechas inventadas.
-export function resumenActividad({ posts = [], cuenta, conexion = null, metricasEstado = null }) {
+export function resumenActividad({ posts = [], cuenta, conexion = null, conexiones = null, metricasEstado = null }) {
   const propios = (posts || []).filter((p) => (p.cuenta || "sinlinea") === cuenta);
   const max = (valores) => valores.filter((v) => typeof v === "string" && Number.isFinite(Date.parse(v))).sort().pop() || null;
   const errores = [];
@@ -446,6 +471,10 @@ export function resumenActividad({ posts = [], cuenta, conexion = null, metricas
     errores.push({ tipo: "post", id: p.id, cuando: p.error?.cuando || p.actualizado || null, texto: `${p.error?.paso ? `${p.error.paso}: ` : ""}${p.error?.mensaje || "error sin detalle"}` });
   }
   if (conexion?.estado === "error") errores.push({ tipo: "conexion", id: null, cuando: conexion.comprobado || null, texto: `conexión: ${conexion.detalle || "error"}` });
+  for (const red of REDES_CONEXION) {
+    const cx = conexiones?.[red]?.conexion || conexiones?.[red] || null;
+    if (cx?.estado === "error") errores.push({ tipo: "conexion", id: red, cuando: cx.comprobado || null, texto: `conexión con ${NOMBRES_RED[red]}: ${cx.detalle || "error"}` });
+  }
   return {
     ultimoBorrador: max(propios.map((p) => p.creado)),
     ultimaPublicacion: max(propios.map((p) => p.publicacion?.fecha)),
@@ -491,4 +520,84 @@ export function borradorDesdeFormulario(entrada, { cuenta, zona = ZONA_POR_DEFEC
     creado: iso,
     actualizado: iso,
   };
+}
+
+// --- Multicanal (F1): conexiones por red (Facebook) ------------------------------------------------------------------
+import { REDES_CONEXION, SECRETOS_RED, IDENTIFICADOR_RED, conexionDe, identificadorDe } from "./conexiones.mjs";
+import { NOMBRES_RED } from "./destinos.mjs";
+
+// Redes con conexión propia de una cuenta, con su interruptor e identificador público (para tarjetas y formulario).
+export function conexionesDeCuenta(config) {
+  return REDES_CONEXION.map((red) => ({ red, nombre: NOMBRES_RED[red], publicar: conexionDe(config, red).publicar, identificador: identificadorDe(config, red) }));
+}
+
+// Estado de conexión de una red nueva (data/<cuenta>/conexion-<red>.json, escrito por Probar destino). Mismas reglas que
+// Instagram: nunca se deduce "conectada" de tener secretos; toda verificación muestra su fecha; si cambia la página, la
+// verificación anterior deja de valer. Las redes nuevas solo existen en modo Environment.
+export function estadoConexionRed({ conexion = null, config = null, id = "", red, ahora = new Date() } = {}) {
+  const nombre = NOMBRES_RED[red] || red;
+  const secreto = (SECRETOS_RED[red] || [])[0] || "";
+  if (origenDe(config) !== "entorno") {
+    return { clave: "pendiente-configuracion", texto: `${nombre}: pendiente de configuración (las conexiones nuevas solo existen en modo Environment)`, detalle: `Cambia el origen de las credenciales de la cuenta a Environment ${nombreEntorno(id || "cuenta")} y verifica de nuevo Instagram; después podrás conectar ${nombre}.`, fecha: null, antigua: false };
+  }
+  const c = conexion || {};
+  const fecha = c.comprobado || c.solicitada || null;
+  const cuando = fecha ? ` el ${fechaCortaUtc(fecha)} UTC` : "";
+  const esperado = identificadorDe(config, red);
+  if (c.estado === "verificada") {
+    const idVerificado = c.identidad?.id ? String(c.identidad.id) : "";
+    if (esperado && idVerificado && idVerificado !== String(esperado)) {
+      return { clave: "pendiente", texto: `${nombre}: pendiente de verificación: la página cambió (${idVerificado} → ${esperado}); la verificación${cuando} ya no vale`, detalle: `Verifica de nuevo ${nombre} con la página actual.`, fecha, antigua: true };
+    }
+    const dias = diasDesde(fecha, ahora);
+    const antigua = dias !== null && dias > DIAS_VERIFICACION_ANTIGUA;
+    return {
+      clave: "verificada",
+      texto: `${nombre}: página «${c.identidad?.nombre || esperado || "?"}» (${idVerificado || esperado || "?"}) verificada${cuando}${dias !== null && dias >= 1 ? ` · hace ${dias} día${dias === 1 ? "" : "s"}` : ""}`,
+      detalle: `Una verificación pasada no garantiza que la conexión siga válida: vuelve a verificar antes de encender ${nombre} o si cambia el token.`,
+      fecha, antigua,
+    };
+  }
+  if (c.estado === "error") return { clave: "error", texto: `${nombre}: error de conexión${cuando}${c.detalle ? `: ${c.detalle}` : ""}`, detalle: `Revisa el secreto ${secreto} en el Environment ${nombreEntorno(id || "cuenta")} y vuelve a verificar; hasta entonces no enciendas ${nombre}.`, fecha, antigua: false };
+  if (c.estado === "credenciales-pendientes") return { clave: "credenciales-pendientes", texto: `${nombre}: credenciales pendientes${cuando}${c.detalle ? `: ${c.detalle}` : ""}`, detalle: c.detalle || null, fecha, antigua: false };
+  if (c.estado === "pendiente") return { clave: "pendiente", texto: `${nombre}: pendiente de verificación${c.solicitada ? ` (solicitada el ${fechaCortaUtc(c.solicitada)} UTC)` : ""}`, detalle: null, fecha, antigua: false };
+  return { clave: "sin-verificar", texto: `${nombre}: conexión sin verificar`, detalle: `Guarda ${secreto} en el Environment ${nombreEntorno(id || "cuenta")} y pulsa Verificar ${nombre}. Nace apagada: la enciendes cuando esté verificada.`, fecha: null, antigua: false };
+}
+
+// Activación segura de una red nueva: página declarada e identidad verificada para esa página.
+export function requisitosPublicacionRed({ config, id = "", red, conexion = null, ahora = new Date() }) {
+  const nombre = NOMBRES_RED[red] || red;
+  const faltan = [];
+  if (config?.archivada === true) faltan.push(`la cuenta está archivada: reactívala antes de encender ${nombre}`);
+  if (!identificadorDe(config, red)) faltan.push(`falta el identificador de la página (conexiones.${red}.${IDENTIFICADOR_RED[red] || "usuario"}): guárdalo en el formulario de la cuenta`);
+  const estado = estadoConexionRed({ conexion, config, id, red, ahora });
+  if (estado.clave !== "verificada") faltan.push(`hace falta verificar la conexión con ${nombre} con el workflow Probar destino (${estado.texto})`);
+  return faltan;
+}
+
+// Guía de conexión de una red nueva: pasos externos (Meta y GitHub) con nombres exactos y enlaces. Solo nombres; ningún
+// token pasa por el panel ni por inputs de workflows (diseño §6).
+export function guiaConexionRed({ config, id, red, owner = null, repo = null }) {
+  const base = owner && repo ? `https://github.com/${owner}/${repo}` : null;
+  const entorno = nombreEntorno(id);
+  const secretos = [...(SECRETOS_RED[red] || [])];
+  const enlaces = {
+    entorno: base ? `${base}/settings/environments` : null,
+    nuevoEntorno: base ? `${base}/settings/environments/new` : null,
+    probar: base ? `${base}/actions/workflows/probar-destino.yml` : null,
+    meta: "https://developers.facebook.com/apps/",
+    explorador: "https://developers.facebook.com/tools/explorer/",
+    depurador: "https://developers.facebook.com/tools/debug/accesstoken/",
+  };
+  const pagina = identificadorDe(config, red) || "(id de la página)";
+  const pasos = red === "facebook" ? [
+    "Ten una página de Facebook y sé su administrador (Meta Business Suite → Páginas). Si la marca no tiene página, créala.",
+    "En Meta for Developers, en la app de tipo empresa de esta cuenta: Casos de uso → añade «Facebook Login for Business» si no está y crea una configuración con tipo de token «Usuario» y permisos pages_show_list, pages_manage_posts y pages_read_engagement.",
+    "En el Explorador de la API Graph (herramienta oficial, con tu sesión de administrador): elige la app, marca esos tres permisos y pulsa Generar token de acceso.",
+    "En la Herramienta de depuración de tokens pega ese token y pulsa «Ampliar token de acceso» (Extend Access Token) para obtener el de larga duración.",
+    `De vuelta en el Explorador, con el token ampliado, consulta me/accounts: verás cada página con su id y su access_token (token de página, que no caduca). Copia el id de tu página (en el panel: ${pagina}) y su token.`,
+    `En GitHub → Settings → Environments → ${entorno} → Add environment secret: ${secretos[0]} (pega el token de página). Aquí no se guardan valores, solo el nombre.`,
+    `Guarda el id de la página en el formulario de la cuenta y lanza Actions → Probar destino → Run workflow con cuenta = ${id} y red = facebook (o pulsa Verificar Facebook en la tarjeta). Con la identidad verificada, enciende Facebook desde la tarjeta.`,
+  ] : [];
+  return { red, entorno, secretos, enlaces, pasos };
 }
