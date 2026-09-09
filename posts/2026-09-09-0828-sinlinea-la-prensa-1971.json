@@ -1,0 +1,47 @@
+{
+  "id": "2026-09-09-0828-sinlinea-la-prensa-1971",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/politica/china-reacciona-y-expresa-fuerte-rechazo-al-grupo-de-diputados-panama-taiwan/",
+    "titulo": "China reacciona y expresa ‘fuerte rechazo’ al grupo de diputados Panamá-Taiwán",
+    "publicado": "2026-09-09T13:02:15.000Z"
+  },
+  "categoria": "POLÍTICA",
+  "titular": "China rechaza grupo de diputados que promueve lazos con Taiwán",
+  "bajada": "La embajada china pidió a la Asamblea respetar la política de una sola China.",
+  "caption": "La Embajada de China en Panamá expresó su “fuerte rechazo” a la creación de un grupo de amistad parlamentaria con Taiwán, integrado por 43 diputados. El asunto toca directamente la política exterior del país, que corresponde manejar al Ejecutivo. Mulino ya dijo que la conducción de las relaciones internacionales es tarea del Gobierno, no de la Asamblea. ¿Debe la Asamblea meterse en temas de política exterior?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#China",
+    "#Taiwán",
+    "#AsambleaNacional",
+    "#PolíticaExterior"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-09-09-0828-sinlinea-la-prensa-1971.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-09-0828-sinlinea-la-prensa-1971.jpg",
+    "hash": "d1db3a08e0df6fc2",
+    "version": 10,
+    "estilo": "a92ceb586a180aae",
+    "renderizada": "2026-09-09T13:29:05.827Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada de la Asamblea Nacional de Panamá con banderas ondeando, cielo despejado, edificio ubicado en el tercio superior derecho, zona izquierda y central despejada.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-09-0828-sinlinea-la-prensa-1971.jpg",
+    "hashDescripcion": "19e842ff642ead61",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-09T13:28:40.521Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-09T13:28:40.521Z",
+  "actualizado": "2026-09-09T13:28:40.521Z"
+}
