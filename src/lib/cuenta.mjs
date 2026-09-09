@@ -234,6 +234,14 @@ export function secretosExpuestos(textoYml) {
   return [...nombres].sort();
 }
 
+// Fase 2: los workflows construyen un job por cuenta a partir de config.json; entonces cualquier cuenta declarada llega a
+// las corridas por construcción y el "env" ya no dice nada por cuenta (solo se leen los nombres fijos).
+export const MARCA_JOB_POR_CUENTA = "src/cuentas-activas.mjs";
+export function workflowsPorCuenta(textosYml) {
+  const lista = Array.isArray(textosYml) ? textosYml : [textosYml];
+  return lista.length > 0 && lista.every((t) => String(t || "").includes(MARCA_JOB_POR_CUENTA));
+}
+
 // Nombres presentes en TODOS los workflows leídos (null si no se leyó ninguno: no se afirma nada).
 export function secretosExpuestosComunes(listas) {
   if (!Array.isArray(listas) || !listas.length) return null;

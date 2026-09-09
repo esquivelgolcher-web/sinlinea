@@ -5,7 +5,7 @@ import fs from "node:fs";
 import {
   nombresSecretosSugeridos, idSugerido, normalizarUsuario, erroresDeCuenta, plantillaEditorial,
   configDesdeFormulario, formularioDesdeConfig, archivarCuenta, reactivarCuenta, estadoConexion, cuentasActivas,
-  secretosExpuestos, secretosExpuestosComunes,
+  secretosExpuestos, secretosExpuestosComunes, workflowsPorCuenta,
 } from "../src/lib/cuenta.mjs";
 import { nombreSecretoDeCuenta } from "../src/lib/secretos.mjs";
 import { validarCuenta, cargarConfiguracion } from "../src/lib/config.mjs";
@@ -220,4 +220,13 @@ test("(maestro) estadoConexion: un secreto actualizado después de la comprobaci
   const falta = estadoConexion({ conexion: verificada, config: cfgX, secretosActualizados: { IG_ACCESSTOKEN_LUISESKIVELGOLCHER: null, IG_USER_ID_LUISESKIVELGOLCHER: "2026-09-08T20:18:34Z" }, ahora });
   assert.equal(falta.clave, "credenciales-pendientes");
   assert.match(falta.texto, /IG_ACCESSTOKEN_LUISESKIVELGOLCHER no existe en GitHub/);
+});
+
+test("(fase 2) workflowsPorCuenta detecta los workflows que construyen un job por cuenta (entonces el env ya no limita qué cuentas llegan)", () => {
+  const viejo = "      env:\n          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}\n";
+  const nuevo = "      - run: node src/cuentas-activas.mjs >> \"$GITHUB_OUTPUT\"\n    environment: ${{ matrix.entorno }}\n";
+  assert.equal(workflowsPorCuenta([viejo]), false);
+  assert.equal(workflowsPorCuenta([nuevo]), true);
+  assert.equal(workflowsPorCuenta([nuevo, viejo]), false, "basta uno antiguo para no afirmar nada");
+  assert.equal(workflowsPorCuenta([]), false);
 });

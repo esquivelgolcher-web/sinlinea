@@ -14,9 +14,6 @@ on:
       - "public/ilus/**"
       - "docs/**"
       - "*.md"
-      - "README.md"
-      - "GUIA.md"
-      - "docs/**"
 
 permissions:
   contents: write

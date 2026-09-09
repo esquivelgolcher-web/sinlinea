@@ -8,13 +8,18 @@ import { cargarConfiguracion, cargarGlobal, resumenParaPanel, validarGlobal, val
 import { leerPosts, escribirPost, validarPost, CUENTA_LEGADO } from "./lib/posts.mjs";
 import { construirHtml, RUTA_PLANTILLA, RUTA_LOGO } from "./lib/render.mjs";
 import { VARIANTES } from "./lib/estados.mjs";
-import { secretosExpuestos, secretosExpuestosComunes } from "./lib/cuenta.mjs";
+import { secretosExpuestos, secretosExpuestosComunes, workflowsPorCuenta } from "./lib/cuenta.mjs";
 
 // Workflows que exponen los secretos de Instagram: el panel deduce de ellos si una cuenta nueva ya puede verificarse.
 export const WORKFLOWS_INSTAGRAM = [".github/workflows/publicar.yml", ".github/workflows/probar-instagram.yml"];
 export function leerWorkflows(raiz) {
   const textos = WORKFLOWS_INSTAGRAM.map((r) => path.join(raiz, ...r.split("/"))).filter((r) => fs.existsSync(r)).map((r) => fs.readFileSync(r, "utf8"));
-  return { archivos: WORKFLOWS_INSTAGRAM.filter((r) => fs.existsSync(path.join(raiz, ...r.split("/")))), expuestos: secretosExpuestosComunes(textos.map(secretosExpuestos)) };
+  const porCuenta = textos.length > 0 && workflowsPorCuenta(textos);
+  return {
+    archivos: WORKFLOWS_INSTAGRAM.filter((r) => fs.existsSync(path.join(raiz, ...r.split("/")))),
+    porCuenta, // fase 2: un job por cuenta desde config.json; el env ya no limita qué cuentas llegan
+    expuestos: porCuenta ? null : secretosExpuestosComunes(textos.map(secretosExpuestos)),
+  };
 }
 
 const TIPOS = {

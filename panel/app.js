@@ -7,7 +7,7 @@ import { claveDia, isoDesdeClave, horaMinutoDeIso, ZONA_PANAMA } from "./lib/fec
 import {
   IDIOMAS, IDIOMA_POR_DEFECTO, ZONA_POR_DEFECTO, COLORES_POR_DEFECTO, LOGO_TAMANO, FRANJAS_POR_DEFECTO, ESTILO_ILUSTRACION_POR_DEFECTO,
   idSugerido, normalizarUsuario, nombresSecretosSugeridos, erroresDeCuenta, plantillaEditorial, configDesdeFormulario, formularioDesdeConfig,
-  archivarCuenta, reactivarCuenta, estadoConexion, secretosExpuestos, secretosExpuestosComunes, fechaCortaUtc,
+  archivarCuenta, reactivarCuenta, estadoConexion, secretosExpuestos, secretosExpuestosComunes, workflowsPorCuenta, fechaCortaUtc,
 } from "./lib/cuenta.mjs";
 import { crearAlmacenLocal, crearAlmacenGitHub, deducirRepo, ErrorConflicto, ErrorConflictoArchivo } from "./almacen.mjs";
 
@@ -472,8 +472,9 @@ function tarjetaCuenta(c) {
 function secretosExpuestosActuales() {
   const w = estado.cuentasInfo?.workflows;
   if (!w) return null;
+  if (w.porCuenta === true) return null; // fase 2: cada cuenta declarada tiene su job; el env no limita nada
   if (Array.isArray(w.expuestos)) return w.expuestos;
-  if (Array.isArray(w.textos) && w.textos.length) return secretosExpuestosComunes(w.textos.map(secretosExpuestos));
+  if (Array.isArray(w.textos) && w.textos.length) return workflowsPorCuenta(w.textos) ? null : secretosExpuestosComunes(w.textos.map(secretosExpuestos));
   return null;
 }
 

@@ -1,22 +1,133 @@
 name: Probar Instagram
 
-# Manual. Comprueba que la credencial de una cuenta pertenece al usuario esperado
-# (usuario e id numérico) llamando a la API y registra la caducidad real del token (o "desconocida")
-# en data/<cuenta>/token-info.json. No publica nada.
+# Manual. Comprueba que la credencial de una cuenta pertenece al usuario esperado (usuario e id numérico)
+# llamando a la API y registra el estado de conexión (data/<cuenta>/conexion.json) y la caducidad real del
+# token (o "desconocida") en data/<cuenta>/token-info.json. No publica nada.
+# Fase 2: un job por cuenta; cada job recibe solo las credenciales de su cuenta (Environment cuenta-<id> o, en modo
+# actual, el secreto de repositorio con el nombre declarado). Con `cuenta` vacío se prueban todas las activas.
 on:
   workflow_dispatch:
     inputs:
       cuenta:
-        description: "Id de la cuenta a probar (vacío = todas las que tengan secretos)"
+        description: "Id de la cuenta a probar (vacío = todas las cuentas activas)"
         required: false
         default: ""
 
 permissions:
   contents: write
 
+concurrency:
+  group: sinlinea
+  cancel-in-progress: false
+
 jobs:
-  probar:
+  cuentas:
+    name: Cuentas activas
     runs-on: ubuntu-latest
+    outputs:
+      entorno: ${{ steps.lista.outputs.entorno }}
+      repositorio: ${{ steps.lista.outputs.repositorio }}
+      huella-token: ${{ steps.huellas.outputs.token }}
+    steps:
+      - name: Descargar el repositorio
+        uses: actions/checkout@v4
+
+      - name: Preparar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Listar las cuentas a probar por origen de credenciales
+        id: lista
+        env:
+          CUENTA: ${{ inputs.cuenta }}
+        run: |
+          if [ -n "$CUENTA" ]; then
+            node src/cuentas-activas.mjs --cuenta "$CUENTA" >> "$GITHUB_OUTPUT"
+          else
+            node src/cuentas-activas.mjs >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Calcular la huella del secreto de repositorio
+        id: huellas
+        env:
+          REPO_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+        run: echo "token=$(printf '%s' "$REPO_TOKEN" | sha256sum | cut -d' ' -f1)" >> "$GITHUB_OUTPUT"
+
+  probar-entorno:
+    name: Probar (Environment)
+    needs: cuentas
+    if: ${{ needs.cuentas.outputs.entorno != '[]' }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        include: ${{ fromJSON(needs.cuentas.outputs.entorno) }}
+    environment: ${{ matrix.entorno }}
+    env:
+      CUENTA: ${{ matrix.cuenta }}
+      ENTORNO: ${{ matrix.entorno }}
+      IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+      IG_USER_ID: ${{ secrets.IG_USER_ID }}
+    steps:
+      - name: Descargar el repositorio
+        uses: actions/checkout@v4
+
+      - name: Preparar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Comprobar que las credenciales vienen del Environment
+        env:
+          HUELLA_REPO_TOKEN: ${{ needs.cuentas.outputs.huella-token }}
+        run: bash .github/scripts/comprobar-entorno.sh
+
+      - name: Comprobar la identidad de la credencial
+        run: node src/probar-instagram.mjs --cuenta "$CUENTA" --por-cuenta
+
+      # Se guarda también cuando la prueba falla: data/<cuenta>/conexion.json deja el estado (error o credenciales
+      # pendientes) que muestra el panel maestro. Nunca contiene valores de secretos.
+      - name: Guardar el estado de conexión y la caducidad comprobada
+        if: always()
+        run: |
+          git config user.name "sinlinea-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data
+          if git diff --cached --quiet; then
+            echo "Sin cambios."
+          else
+            git commit -m "conexión ($CUENTA): comprobada $(date -u '+%Y-%m-%d %H:%M UTC') [skip ci]"
+            for i in 1 2 3; do
+              if git pull --rebase && git push; then break; fi
+              if [ "$i" = 3 ]; then echo "No se pudo hacer push tras 3 intentos"; exit 1; fi
+              sleep 5
+            done
+          fi
+
+  probar-repositorio:
+    name: Probar (modo actual)
+    needs: [cuentas, probar-entorno]
+    if: ${{ always() && needs.cuentas.result == 'success' && needs.cuentas.outputs.repositorio != '[]' }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        include: ${{ fromJSON(needs.cuentas.outputs.repositorio) }}
+    env:
+      CUENTA: ${{ matrix.cuenta }}
+      IG_ACCESS_TOKEN: ${{ secrets[matrix.tokenSecreto] }}
+      IG_USER_ID: ${{ secrets[matrix.usuarioIdSecreto] }}
     steps:
       - name: Descargar el repositorio
         uses: actions/checkout@v4
@@ -31,16 +142,8 @@ jobs:
         run: npm ci
 
       - name: Comprobar la identidad de la credencial
-        env:
-          CUENTA: ${{ inputs.cuenta }}
-          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
-          IG_USER_ID: ${{ secrets.IG_USER_ID }}
-          IG_ACCESSTOKEN_LUISESKIVELGOLCHER: ${{ secrets.IG_ACCESSTOKEN_LUISESKIVELGOLCHER }}
-          IG_USER_ID_LUISESKIVELGOLCHER: ${{ secrets.IG_USER_ID_LUISESKIVELGOLCHER }}
-        run: node src/probar-instagram.mjs --cuenta "$CUENTA"
+        run: node src/probar-instagram.mjs --cuenta "$CUENTA" --por-cuenta
 
-      # Se guarda también cuando la prueba falla: data/<cuenta>/conexion.json deja el estado (error o
-      # credenciales pendientes) que muestra el panel maestro. Nunca contiene valores de secretos.
       - name: Guardar el estado de conexión y la caducidad comprobada
         if: always()
         run: |
@@ -50,7 +153,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "Sin cambios."
           else
-            git commit -m "conexión: comprobada $(date -u '+%Y-%m-%d %H:%M UTC') [skip ci]"
+            git commit -m "conexión ($CUENTA): comprobada $(date -u '+%Y-%m-%d %H:%M UTC') [skip ci]"
             for i in 1 2 3; do
               if git pull --rebase && git push; then break; fi
               if [ "$i" = 3 ]; then echo "No se pudo hacer push tras 3 intentos"; exit 1; fi

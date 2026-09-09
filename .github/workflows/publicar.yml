@@ -1,6 +1,11 @@
 name: Publicar en Instagram
 
 # Cada 30 minutos revisa los posts programados cuya hora ya llegó.
+# Fase 2: un job por cuenta. Cada job recibe únicamente las credenciales de su cuenta, según el origen que
+# declara su configuración (instagram.origen):
+#   - "entorno": Environment cuenta-<id> con IG_ACCESS_TOKEN e IG_USER_ID (job publicar-entorno).
+#   - "repositorio" (modo actual): secretos de repositorio con el nombre declarado (job publicar-repositorio).
+# La lista de cuentas sale de config.json (src/cuentas-activas.mjs): añadir una cuenta no requiere editar este archivo.
 on:
   schedule:
     - cron: "*/30 * * * *"
@@ -14,8 +19,13 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  publicar:
+  cuentas:
+    name: Cuentas activas
     runs-on: ubuntu-latest
+    outputs:
+      entorno: ${{ steps.lista.outputs.entorno }}
+      repositorio: ${{ steps.lista.outputs.repositorio }}
+      huella-token: ${{ steps.huellas.outputs.token }}
     steps:
       - name: Descargar el repositorio
         uses: actions/checkout@v4
@@ -29,13 +39,55 @@ jobs:
       - name: Instalar dependencias
         run: npm ci
 
-      - name: Publicar los programados
+      - name: Listar las cuentas activas por origen de credenciales
+        id: lista
+        run: node src/cuentas-activas.mjs >> "$GITHUB_OUTPUT"
+
+      # Huella (sha256) del secreto de REPOSITORIO IG_ACCESS_TOKEN. Sirve para que un job en modo Environment detecte que
+      # recibió el secreto del repositorio en vez del de su entorno (GitHub aplica el de repositorio cuando el entorno no
+      # define el suyo). Nunca se imprime el valor; la huella no permite recuperarlo.
+      - name: Calcular la huella del secreto de repositorio
+        id: huellas
         env:
-          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
-          IG_USER_ID: ${{ secrets.IG_USER_ID }}
-          IG_ACCESSTOKEN_LUISESKIVELGOLCHER: ${{ secrets.IG_ACCESSTOKEN_LUISESKIVELGOLCHER }}
-          IG_USER_ID_LUISESKIVELGOLCHER: ${{ secrets.IG_USER_ID_LUISESKIVELGOLCHER }}
-        run: node src/publicar.mjs
+          REPO_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+        run: echo "token=$(printf '%s' "$REPO_TOKEN" | sha256sum | cut -d' ' -f1)" >> "$GITHUB_OUTPUT"
+
+  publicar-entorno:
+    name: Publicar (Environment)
+    needs: cuentas
+    if: ${{ needs.cuentas.outputs.entorno != '[]' }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        include: ${{ fromJSON(needs.cuentas.outputs.entorno) }}
+    environment: ${{ matrix.entorno }}
+    env:
+      CUENTA: ${{ matrix.cuenta }}
+      ENTORNO: ${{ matrix.entorno }}
+      IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+      IG_USER_ID: ${{ secrets.IG_USER_ID }}
+    steps:
+      - name: Descargar el repositorio
+        uses: actions/checkout@v4
+
+      - name: Preparar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Comprobar que las credenciales vienen del Environment
+        env:
+          HUELLA_REPO_TOKEN: ${{ needs.cuentas.outputs.huella-token }}
+        run: bash .github/scripts/comprobar-entorno.sh
+
+      - name: Publicar los programados de la cuenta
+        run: node src/publicar.mjs --cuenta "$CUENTA" --por-cuenta
 
       - name: Guardar cambios en el repositorio
         run: |
@@ -45,7 +97,54 @@ jobs:
           if git diff --cached --quiet; then
             echo "Sin cambios."
           else
-            git commit -m "publicar: $(date -u '+%Y-%m-%d %H:%M UTC')"
+            git commit -m "publicar ($CUENTA): $(date -u '+%Y-%m-%d %H:%M UTC')"
+            for i in 1 2 3; do
+              if git pull --rebase && git push; then break; fi
+              if [ "$i" = 3 ]; then echo "No se pudo hacer push tras 3 intentos"; exit 1; fi
+              sleep 5
+            done
+          fi
+
+  publicar-repositorio:
+    name: Publicar (modo actual)
+    needs: [cuentas, publicar-entorno]
+    if: ${{ always() && needs.cuentas.result == 'success' && needs.cuentas.outputs.repositorio != '[]' }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        include: ${{ fromJSON(needs.cuentas.outputs.repositorio) }}
+    env:
+      CUENTA: ${{ matrix.cuenta }}
+      # Solo los dos secretos de esta cuenta, con el nombre que declara su configuración, expuestos con los nombres fijos.
+      IG_ACCESS_TOKEN: ${{ secrets[matrix.tokenSecreto] }}
+      IG_USER_ID: ${{ secrets[matrix.usuarioIdSecreto] }}
+    steps:
+      - name: Descargar el repositorio
+        uses: actions/checkout@v4
+
+      - name: Preparar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Publicar los programados de la cuenta
+        run: node src/publicar.mjs --cuenta "$CUENTA" --por-cuenta
+
+      - name: Guardar cambios en el repositorio
+        run: |
+          git config user.name "sinlinea-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add posts
+          if git diff --cached --quiet; then
+            echo "Sin cambios."
+          else
+            git commit -m "publicar ($CUENTA): $(date -u '+%Y-%m-%d %H:%M UTC')"
             for i in 1 2 3; do
               if git pull --rebase && git push; then break; fi
               if [ "$i" = 3 ]; then echo "No se pudo hacer push tras 3 intentos"; exit 1; fi

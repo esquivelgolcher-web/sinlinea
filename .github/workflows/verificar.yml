@@ -2,6 +2,8 @@ name: Verificar configuración y secretos
 
 # Manual. Comprueba config.json, los archivos necesarios y qué secretos existen.
 # Solo imprime nombres y estados; nunca valores. No escribe en el repositorio.
+# Fase 2: el job "verificar" comprueba lo compartido (configuración, archivos, claves de Claude y Gemini, GH_PAT);
+# un job por cuenta comprueba las credenciales de Instagram de esa cuenta en su origen (Environment o repositorio).
 on:
   workflow_dispatch:
 
@@ -10,7 +12,12 @@ permissions:
 
 jobs:
   verificar:
+    name: Configuración y secretos compartidos
     runs-on: ubuntu-latest
+    outputs:
+      entorno: ${{ steps.lista.outputs.entorno }}
+      repositorio: ${{ steps.lista.outputs.repositorio }}
+      huella-token: ${{ steps.huellas.outputs.token }}
     steps:
       - name: Descargar el repositorio
         uses: actions/checkout@v4
@@ -24,13 +31,86 @@ jobs:
       - name: Instalar dependencias
         run: npm ci
 
-      - name: Verificar configuración, archivos y secretos
+      - name: Verificar configuración, archivos y secretos compartidos
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
-          IG_USER_ID: ${{ secrets.IG_USER_ID }}
-          IG_ACCESSTOKEN_LUISESKIVELGOLCHER: ${{ secrets.IG_ACCESSTOKEN_LUISESKIVELGOLCHER }}
-          IG_USER_ID_LUISESKIVELGOLCHER: ${{ secrets.IG_USER_ID_LUISESKIVELGOLCHER }}
           GH_PAT: ${{ secrets.GH_PAT }}
-        run: node src/verificar.mjs
+        run: node src/verificar.mjs --solo-compartido
+
+      - name: Listar las cuentas activas por origen de credenciales
+        id: lista
+        run: node src/cuentas-activas.mjs >> "$GITHUB_OUTPUT"
+
+      - name: Calcular la huella del secreto de repositorio
+        id: huellas
+        env:
+          REPO_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+        run: echo "token=$(printf '%s' "$REPO_TOKEN" | sha256sum | cut -d' ' -f1)" >> "$GITHUB_OUTPUT"
+
+  verificar-entorno:
+    name: Credenciales (Environment)
+    needs: verificar
+    if: ${{ always() && needs.verificar.outputs.entorno != '' && needs.verificar.outputs.entorno != '[]' }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        include: ${{ fromJSON(needs.verificar.outputs.entorno) }}
+    environment: ${{ matrix.entorno }}
+    env:
+      CUENTA: ${{ matrix.cuenta }}
+      ENTORNO: ${{ matrix.entorno }}
+      IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+      IG_USER_ID: ${{ secrets.IG_USER_ID }}
+    steps:
+      - name: Descargar el repositorio
+        uses: actions/checkout@v4
+
+      - name: Preparar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Comprobar que las credenciales vienen del Environment
+        env:
+          HUELLA_REPO_TOKEN: ${{ needs.verificar.outputs.huella-token }}
+        run: bash .github/scripts/comprobar-entorno.sh
+
+      - name: Verificar las credenciales de la cuenta
+        run: node src/verificar.mjs --cuenta "$CUENTA" --por-cuenta
+
+  verificar-repositorio:
+    name: Credenciales (modo actual)
+    needs: [verificar, verificar-entorno]
+    if: ${{ always() && needs.verificar.outputs.repositorio != '' && needs.verificar.outputs.repositorio != '[]' }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        include: ${{ fromJSON(needs.verificar.outputs.repositorio) }}
+    env:
+      CUENTA: ${{ matrix.cuenta }}
+      IG_ACCESS_TOKEN: ${{ secrets[matrix.tokenSecreto] }}
+      IG_USER_ID: ${{ secrets[matrix.usuarioIdSecreto] }}
+    steps:
+      - name: Descargar el repositorio
+        uses: actions/checkout@v4
+
+      - name: Preparar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Verificar las credenciales de la cuenta
+        run: node src/verificar.mjs --cuenta "$CUENTA" --por-cuenta

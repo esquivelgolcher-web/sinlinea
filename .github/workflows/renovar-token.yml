@@ -1,6 +1,10 @@
 name: Renovar token de Instagram
 
 # Cada lunes a las 9:00 de Panamá (14:00 UTC). El token dura 60 días.
+# Fase 2: un job por cuenta. El token renovado se guarda donde vive el actual: en el Environment cuenta-<id>
+# (modo "entorno") o en el secreto de repositorio con el nombre declarado (modo "repositorio"). Requiere GH_PAT:
+# permiso "Environments: write" para secretos de entorno y "Secrets: write" para secretos de repositorio
+# (documentación oficial de la API REST de secretos de Actions).
 on:
   schedule:
     - cron: "0 14 * * 1"
@@ -14,8 +18,13 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  renovar:
+  cuentas:
+    name: Cuentas activas
     runs-on: ubuntu-latest
+    outputs:
+      entorno: ${{ steps.lista.outputs.entorno }}
+      repositorio: ${{ steps.lista.outputs.repositorio }}
+      huella-token: ${{ steps.huellas.outputs.token }}
     steps:
       - name: Descargar el repositorio
         uses: actions/checkout@v4
@@ -34,30 +43,67 @@ jobs:
           GH_PAT: ${{ secrets.GH_PAT }}
         run: |
           if [ -z "$GH_PAT" ]; then
-            echo "::error::Falta el secreto GH_PAT (token fino con permiso Secrets: lectura y escritura). Sin él no se puede guardar el token renovado, así que no se pide uno nuevo. Ver docs/CONFIGURACION.md §5."
+            echo "::error::Falta el secreto GH_PAT (token fino con permiso Secrets: lectura y escritura para secretos de repositorio y Environments: lectura y escritura para secretos de entorno). Sin él no se puede guardar el token renovado, así que no se pide uno nuevo. Ver docs/CONFIGURACION.md §5."
             exit 1
           fi
           echo "GH_PAT presente."
 
-      - name: Pedir un token nuevo
-        env:
-          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
-          IG_USER_ID: ${{ secrets.IG_USER_ID }}
-          IG_ACCESSTOKEN_LUISESKIVELGOLCHER: ${{ secrets.IG_ACCESSTOKEN_LUISESKIVELGOLCHER }}
-          IG_USER_ID_LUISESKIVELGOLCHER: ${{ secrets.IG_USER_ID_LUISESKIVELGOLCHER }}
-        run: node src/renovar-token.mjs
+      - name: Listar las cuentas activas por origen de credenciales
+        id: lista
+        run: node src/cuentas-activas.mjs >> "$GITHUB_OUTPUT"
 
-      - name: Actualizar los secretos renovados (uno por cuenta)
+      - name: Calcular la huella del secreto de repositorio
+        id: huellas
+        env:
+          REPO_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+        run: echo "token=$(printf '%s' "$REPO_TOKEN" | sha256sum | cut -d' ' -f1)" >> "$GITHUB_OUTPUT"
+
+  renovar-entorno:
+    name: Renovar (Environment)
+    needs: cuentas
+    if: ${{ needs.cuentas.outputs.entorno != '[]' }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        include: ${{ fromJSON(needs.cuentas.outputs.entorno) }}
+    environment: ${{ matrix.entorno }}
+    env:
+      CUENTA: ${{ matrix.cuenta }}
+      ENTORNO: ${{ matrix.entorno }}
+      IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+      IG_USER_ID: ${{ secrets.IG_USER_ID }}
+    steps:
+      - name: Descargar el repositorio
+        uses: actions/checkout@v4
+
+      - name: Preparar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Comprobar que las credenciales vienen del Environment
+        env:
+          HUELLA_REPO_TOKEN: ${{ needs.cuentas.outputs.huella-token }}
+        run: bash .github/scripts/comprobar-entorno.sh
+
+      - name: Pedir un token nuevo
+        run: node src/renovar-token.mjs --cuenta "$CUENTA" --por-cuenta
+
+      - name: Guardar el token renovado en el Environment de la cuenta
         env:
           GH_TOKEN: ${{ secrets.GH_PAT }}
         run: |
-          shopt -s nullglob
-          for f in temp/nuevo-token-*.txt; do
-            nombre=$(basename "$f" .txt); nombre=${nombre#nuevo-token-}
-            gh secret set "$nombre" --repo "$GITHUB_REPOSITORY" < "$f"
-            rm -f "$f"
-            echo "Secreto $nombre actualizado."
-          done
+          f="temp/nuevo-token-IG_ACCESS_TOKEN.txt"
+          if [ ! -f "$f" ]; then echo "No hay token nuevo que guardar."; exit 0; fi
+          gh secret set IG_ACCESS_TOKEN --env "$ENTORNO" --repo "$GITHUB_REPOSITORY" < "$f"
+          rm -f "$f"
+          echo "Secreto IG_ACCESS_TOKEN del Environment $ENTORNO actualizado."
 
       - name: Guardar la fecha de vencimiento
         run: |
@@ -67,7 +113,65 @@ jobs:
           if git diff --cached --quiet; then
             echo "Sin cambios."
           else
-            git commit -m "token: renovado $(date -u '+%Y-%m-%d')"
+            git commit -m "token ($CUENTA): renovado $(date -u '+%Y-%m-%d')"
+            for i in 1 2 3; do
+              if git pull --rebase && git push; then break; fi
+              if [ "$i" = 3 ]; then echo "No se pudo hacer push tras 3 intentos"; exit 1; fi
+              sleep 5
+            done
+          fi
+
+  renovar-repositorio:
+    name: Renovar (modo actual)
+    needs: [cuentas, renovar-entorno]
+    if: ${{ always() && needs.cuentas.result == 'success' && needs.cuentas.outputs.repositorio != '[]' }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        include: ${{ fromJSON(needs.cuentas.outputs.repositorio) }}
+    env:
+      CUENTA: ${{ matrix.cuenta }}
+      NOMBRE_TOKEN: ${{ matrix.tokenSecreto }}
+      IG_ACCESS_TOKEN: ${{ secrets[matrix.tokenSecreto] }}
+      IG_USER_ID: ${{ secrets[matrix.usuarioIdSecreto] }}
+    steps:
+      - name: Descargar el repositorio
+        uses: actions/checkout@v4
+
+      - name: Preparar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Pedir un token nuevo
+        run: node src/renovar-token.mjs --cuenta "$CUENTA" --por-cuenta
+
+      - name: Guardar el token renovado en el secreto de repositorio de la cuenta
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+        run: |
+          f="temp/nuevo-token-IG_ACCESS_TOKEN.txt"
+          if [ ! -f "$f" ]; then echo "No hay token nuevo que guardar."; exit 0; fi
+          nombre="$NOMBRE_TOKEN"
+          gh secret set "$nombre" --repo "$GITHUB_REPOSITORY" < "$f"
+          rm -f "$f"
+          echo "Secreto $nombre actualizado."
+
+      - name: Guardar la fecha de vencimiento
+        run: |
+          git config user.name "sinlinea-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data
+          if git diff --cached --quiet; then
+            echo "Sin cambios."
+          else
+            git commit -m "token ($CUENTA): renovado $(date -u '+%Y-%m-%d')"
             for i in 1 2 3; do
               if git pull --rebase && git push; then break; fi
               if [ "$i" = 3 ]; then echo "No se pudo hacer push tras 3 intentos"; exit 1; fi

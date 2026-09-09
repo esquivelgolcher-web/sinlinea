@@ -15,7 +15,10 @@ const ARCHIVOS_COMPARTIDOS = [
   ["assets/fonts/Inter-Variable.ttf", "fuente Inter"],
 ];
 
-export function ejecutarVerificacion({ raiz = process.cwd(), env = process.env, ahora = new Date(), soloCuenta = null, porCuenta = false } = {}) {
+// `soloCompartido`: comprueba configuración, archivos y secretos compartidos, pero no las credenciales de Instagram de
+// cada cuenta (las comprueba el job por cuenta del workflow, en su origen). `soloCuenta` + `porCuenta`: una cuenta con
+// los nombres fijos que expone su job.
+export function ejecutarVerificacion({ raiz = process.cwd(), env = process.env, ahora = new Date(), soloCuenta = null, porCuenta = false, soloCompartido = false } = {}) {
   const lineas = [];
   const faltantes = [];
   let ok = true;
@@ -69,7 +72,9 @@ export function ejecutarVerificacion({ raiz = process.cwd(), env = process.env, 
     if (fs.existsSync(path.join(raiz, config.rutas.logo))) bien(`${config.rutas.logo} (logo de la marca)`);
     else aviso(`falta ${config.rutas.logo}: la imagen usará las iniciales de la marca (círculo o cuadrado según marca.logoForma)`);
     lineas.push(`INFO   cuenta ${config.cuenta}: credenciales · ${describirCredenciales(config, { porCuenta })}`);
-    if (!porCuenta && origenDeSecretos(config) === "entorno") {
+    if (soloCompartido) {
+      aviso(`cuenta ${config.cuenta}: sus credenciales de Instagram se comprueban en el job por cuenta del workflow Verificar`);
+    } else if (!porCuenta && origenDeSecretos(config) === "entorno") {
       aviso(`cuenta ${config.cuenta}: sus secretos viven en el Environment ${nombreEntorno(config.cuenta)} y solo se comprueban en el job por cuenta (workflow Verificar); aquí no se afirma nada sobre ellos`);
     } else {
       const propios = secretosRequeridos(config, { porCuenta }).filter((s) => !compartidos.some((c) => c.nombre === s.nombre));
@@ -101,7 +106,7 @@ if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) 
   const porCuenta = process.argv.includes("--por-cuenta");
   const i = process.argv.indexOf("--cuenta");
   const soloCuenta = i >= 0 ? String(process.argv[i + 1] || "").trim() || null : null;
-  const r = ejecutarVerificacion({ soloCuenta, porCuenta });
+  const r = ejecutarVerificacion({ soloCuenta, porCuenta, soloCompartido: process.argv.includes("--solo-compartido") });
   for (const l of r.lineas) console.log(l);
   if (r.ok) {
     console.log("Verificación completa: todo lo obligatorio está presente.");

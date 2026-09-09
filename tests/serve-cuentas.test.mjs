@@ -42,7 +42,8 @@ test("(maestro) /api/cuentas lista cada cuenta con su config cruda, editorial, s
   assert.equal(sinlinea.logo, true);
   assert.match(prueba.conexionSha, /^[0-9a-f]{40}$/);
   assert.equal(sinlinea.conexionSha, null);
-  assert.deepEqual(r.workflows.expuestos, ["IG_ACCESSTOKEN_LUISESKIVELGOLCHER", "IG_ACCESS_TOKEN", "IG_USER_ID", "IG_USER_ID_LUISESKIVELGOLCHER"], "nombres de secretos que llegan a los workflows de Instagram");
+  assert.equal(r.workflows.porCuenta, true, "fase 2: los workflows tienen un job por cuenta desde config.json");
+  assert.equal(r.workflows.expuestos, null, "con job por cuenta no se deduce nada del env: cualquier cuenta declarada llega a las corridas");
   assert.equal(JSON.stringify(r).includes("IGAA"), false);
 });
 
