@@ -2,7 +2,7 @@
   "nombre": "Sin Línea",
   "idioma": "es-PA",
   "automatico": {
-    "generar": true,
+    "generar": false,
     "publicar": false
   },
   "marca": {
