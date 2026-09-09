@@ -59,7 +59,10 @@ export function ejecutarVerificacion({ raiz = process.cwd(), env = process.env, 
     }
     faltantes.push(...r.faltantes);
   };
-  informar(compartidos);
+  // El job por cuenta (--cuenta --por-cuenta) solo recibe las dos credenciales de esa cuenta: los secretos compartidos
+  // los comprueba el job compartido (--solo-compartido) y aquí no se afirma nada sobre ellos.
+  if (soloCuenta && porCuenta) lineas.push("INFO   secretos compartidos (ANTHROPIC_API_KEY, GEMINI_API_KEY, GH_PAT): los comprueba el job compartido del workflow Verificar; este job solo ve las credenciales de su cuenta");
+  else informar(compartidos);
 
   for (const config of configuracion.cuentas) {
     if (soloCuenta && config.cuenta !== soloCuenta) continue;

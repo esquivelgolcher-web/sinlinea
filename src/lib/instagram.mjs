@@ -1,13 +1,32 @@
 // Cliente mínimo de la Instagram API with Instagram Login (graph.instagram.com).
 const HOST = "https://graph.instagram.com";
 
+// Códigos con los que la API señala un límite de llamadas (documentación de límites de Meta; 80002 = caso de uso de
+// Instagram). Ante ellos hay que dejar de llamar: la corrida de métricas se detiene y continúa otro día.
+export const CODIGOS_DE_LIMITE = Object.freeze([4, 17, 32, 613, 80002]);
+export class ErrorLimiteInstagram extends Error {
+  constructor(err) {
+    super(err.message);
+    this.name = "ErrorLimiteInstagram";
+    this.codigo = err.codigo; this.subcodigo = err.subcodigo ?? null; this.tipo = err.tipo ?? null; this.status = err.status;
+  }
+}
+// Motivo (para guardar y mostrar; nunca un 0) con el que una lectura de insights no devolvió una métrica.
+export function motivoDeErrorInsights(err) {
+  const c = Number(err?.codigo);
+  if (CODIGOS_DE_LIMITE.includes(c)) return "limite-llamadas";
+  if (c === 10) return "sin-permiso-insights";
+  if (c === 100) return "metrica-no-soportada";
+  return `error-api:${Number.isFinite(c) ? c : "?"}`;
+}
+
 function errorDeApi(json, status) {
   const e = new Error(json?.error?.message || `HTTP ${status}`);
   e.codigo = json?.error?.code ?? status;
   e.subcodigo = json?.error?.error_subcode ?? null; // p. ej. 463 = token caducado, 460 = contraseña cambiada
   e.tipo = json?.error?.type ?? null; // p. ej. OAuthException
   e.status = status;
-  return e;
+  return CODIGOS_DE_LIMITE.includes(Number(e.codigo)) ? new ErrorLimiteInstagram(e) : e;
 }
 
 export function crearClienteInstagram({
@@ -15,11 +34,13 @@ export function crearClienteInstagram({
   dormir = (ms) => new Promise((r) => setTimeout(r, ms)), reintentos = 3,
 }) {
   const base = `${HOST}/${apiVersion}`;
+  let llamadas = 0; // cada petición HTTP cuenta (también los reintentos): es el presupuesto de las métricas
 
   async function llamar(metodo, url, params = {}) {
     const datos = new URLSearchParams({ ...params, access_token: token });
     let ultimo;
     for (let intento = 0; intento <= reintentos; intento++) {
+      llamadas++;
       try {
         const res = metodo === "GET"
           ? await fetchImpl(`${url}?${datos}`)
@@ -117,5 +138,98 @@ export function crearClienteInstagram({
     return { idMedia, permalink: await permalink(idMedia) };
   }
 
-  return { crearContenedor, esperarContenedor, publicar, permalink, cuota, refrescarToken, imagenPublica, publicarImagen, perfil, vigencia };
+  // --- Métricas (fase 1): lecturas de solo consulta. Nunca escriben en Instagram. ---
+  const numeroONulo = (v) => (typeof v === "number" && Number.isFinite(v) ? v : (v === undefined || v === null || v === "" ? null : (Number.isFinite(Number(v)) ? Number(v) : null)));
+  const fechaIso = (t) => { const ms = Date.parse(String(t || "")); return Number.isFinite(ms) ? new Date(ms).toISOString() : null; };
+
+  // Totales del perfil en el momento de la consulta (permiso básico). Un campo ausente es null, no 0.
+  async function perfilResumen() {
+    const r = await llamar("GET", `${base}/me`, { fields: "followers_count,follows_count,media_count" });
+    return { seguidores: numeroONulo(r.followers_count), seguidos: numeroONulo(r.follows_count), publicaciones: numeroONulo(r.media_count) };
+  }
+
+  // Una página de medios de la cuenta (todos: publicados por la API o desde la app). `despues` = cursor de la página anterior.
+  async function listarMedios({ limite = 50, despues = null } = {}) {
+    const params = { fields: "id,media_type,timestamp,permalink,caption,like_count,comments_count,is_shared_to_feed", limit: String(limite) };
+    if (despues) params.after = despues;
+    const r = await llamar("GET", `${base}/${usuarioId}/media`, params);
+    const medios = (r.data || []).map((m) => ({
+      id: String(m.id), tipo: m.media_type || null, fecha: fechaIso(m.timestamp), permalink: m.permalink || "", caption: typeof m.caption === "string" ? m.caption : "",
+      meGusta: numeroONulo(m.like_count), comentarios: numeroONulo(m.comments_count), compartidoEnFeed: typeof m.is_shared_to_feed === "boolean" ? m.is_shared_to_feed : null,
+    }));
+    return { medios, siguiente: r.paging?.cursors?.after && r.paging?.next ? String(r.paging.cursors.after) : null };
+  }
+
+  // Valores de una respuesta de insights: total_value.value (metric_type=total_value) o values[0].value (acumulados de
+  // un medio). Una métrica sin valor queda null con motivo "conjunto-vacio": la API devuelve vacío, no 0, cuando no hay dato.
+  function extraerInsights(metricas, r) {
+    const valores = {}; const faltantes = {};
+    const porNombre = new Map((r.data || []).map((d) => [d.name, d]));
+    for (const m of metricas) {
+      const d = porNombre.get(m);
+      const v = d ? numeroONulo(d.total_value?.value ?? d.values?.[0]?.value) : null;
+      valores[m] = v;
+      if (v === null) faltantes[m] = "conjunto-vacio";
+    }
+    return { valores, faltantes, error: null };
+  }
+  function insightsFallidos(metricas, err) {
+    if (err instanceof ErrorLimiteInstagram || Number(err?.codigo) === 190 || !err?.codigo) throw err;
+    const motivo = motivoDeErrorInsights(err);
+    const valores = {}; const faltantes = {};
+    for (const m of metricas) { valores[m] = null; faltantes[m] = motivo; }
+    return { valores, faltantes, error: { codigo: err.codigo, subcodigo: err.subcodigo ?? null, mensaje: err.message } };
+  }
+  // Hallazgos reales (2026-09-09): la API rechaza TODA la llamada si una métrica no aplica, con dos formas de mensaje:
+  //   "... does not support the metrics: reposts."  y  "... does not support the a, b, c metric for this media product type."
+  // Se extraen los nombres citados para reintentar sin ellos (como máximo dos reintentos) y se devuelven en
+  // `noSoportadas` para que la recogida no vuelva a pedirlos a ese tipo de publicación.
+  function metricasRechazadas(err, metricas) {
+    if (Number(err?.codigo) !== 100) return [];
+    const texto = String(err?.message || "");
+    const m = /does not support the (?:metrics?:\s*)?([A-Za-z0-9_,\s]+?)(?:\s+metrics?\b|\.|$)/i.exec(texto);
+    if (!m) return [];
+    const citadas = m[1].split(",").map((x) => x.trim()).filter(Boolean);
+    return metricas.filter((x) => citadas.includes(x));
+  }
+  // `maxLlamadas`: presupuesto de esta lectura (llamada inicial incluida). Los reintentos por métricas rechazadas son como
+  // máximo dos y solo si caben en el presupuesto; los errores de autenticación (190) y de límite se lanzan sin reintentar.
+  async function pedirInsights(metricas, url, params, { maxLlamadas = 3 } = {}) {
+    const maxReintentos = Math.max(0, Math.min(2, Math.floor(maxLlamadas) - 1));
+    const noSoportadas = [];
+    let pendientes = [...metricas];
+    for (let intento = 0; intento <= maxReintentos; intento++) {
+      try {
+        const r = extraerInsights(pendientes, await llamar("GET", url, { ...params, metric: pendientes.join(",") }));
+        for (const m of noSoportadas) { r.valores[m] = null; r.faltantes[m] = "metrica-no-soportada"; }
+        return { ...r, noSoportadas };
+      } catch (err) {
+        const rechazadas = metricasRechazadas(err, pendientes);
+        const resto = pendientes.filter((m) => !rechazadas.includes(m));
+        if (!rechazadas.length || !resto.length || intento === maxReintentos) {
+          const r = insightsFallidos(pendientes, err); // lanza si es autenticación o límite
+          for (const m of noSoportadas) { r.valores[m] = null; r.faltantes[m] = "metrica-no-soportada"; }
+          return { ...r, noSoportadas: [...noSoportadas, ...rechazadas] };
+        }
+        noSoportadas.push(...rechazadas);
+        pendientes = resto;
+      }
+    }
+    return insightsFallidos(metricas, new Error("sin respuesta"));
+  }
+  const unix = (dia) => String(Math.floor(Date.parse(`${dia}T00:00:00Z`) / 1000));
+
+  // Métricas de cuenta por período (period=day, metric_type=total_value) entre dos fechas (AAAA-MM-DD, UTC).
+  async function insightsCuenta({ metricas, desde, hasta, maxLlamadas }) {
+    return pedirInsights(metricas, `${base}/${usuarioId}/insights`, { period: "day", metric_type: "total_value", since: unix(desde), until: unix(hasta) }, { maxLlamadas });
+  }
+
+  // Totales acumulados de un medio desde su publicación (la API no acepta period aquí).
+  async function insightsMedio(idMedia, { metricas, maxLlamadas }) {
+    return pedirInsights(metricas, `${base}/${idMedia}/insights`, {}, { maxLlamadas });
+  }
+
+  const llamadasHechas = () => llamadas;
+
+  return { crearContenedor, esperarContenedor, publicar, permalink, cuota, refrescarToken, imagenPublica, publicarImagen, perfil, vigencia, perfilResumen, listarMedios, insightsCuenta, insightsMedio, llamadasHechas };
 }

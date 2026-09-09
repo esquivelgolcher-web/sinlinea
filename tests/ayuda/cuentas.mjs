@@ -34,6 +34,11 @@ export function raizConCuentas({ cuentas = [CUENTA_PRINCIPAL], global = {}, pref
       cfg.automatico = { generar: true, publicar: true };
       fs.writeFileSync(rutaCfg, JSON.stringify(cfg, null, 2) + "\n");
     }
+    // Las cuentas reales pueden migrar a modo Environment; las pruebas ejercitan el modo repositorio (nombres declarados)
+    // salvo que una prueba fije otro origen explícitamente.
+    const rutaIg = path.join(raiz, "cuentas", id, "config.json");
+    const cfgIg = JSON.parse(fs.readFileSync(rutaIg, "utf8"));
+    if (cfgIg.instagram?.origen === "entorno") { delete cfgIg.instagram.origen; fs.writeFileSync(rutaIg, JSON.stringify(cfgIg, null, 2) + "\n"); }
     if (fs.existsSync(path.join(origen, "logo.png"))) fs.writeFileSync(path.join(raiz, "cuentas", id, "logo.png"), Buffer.from([0x89])); // marcador: solo se comprueba que exista
     fs.mkdirSync(path.join(raiz, "data", id), { recursive: true });
   }

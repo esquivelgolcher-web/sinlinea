@@ -11,6 +11,7 @@ import {
   describirOrigen, nombreEntorno,
 } from "./lib/cuenta.mjs";
 import { crearAlmacenLocal, crearAlmacenGitHub, deducirRepo, ErrorConflicto, ErrorConflictoArchivo } from "./almacen.mjs";
+import { seriesDeCuenta, rendimientoDePublicaciones, textoValor, textoMotivo } from "./lib/metricas.mjs";
 
 const configPanel = { franjas: ["07:00", "09:30", "12:00", "14:30", "17:00", "19:30"], zonaHoraria: ZONA_PANAMA, marca: {}, cuentas: [] };
 async function cargarConfigPanel() {
@@ -37,6 +38,7 @@ function seleccionarCuenta(id) {
   try { localStorage.setItem("sinlinea.cuenta", id); } catch { /* sin almacenamiento */ }
   if (estado.items.length) pintar(); // los posts ya cargados se filtran al instante; cargar() refresca después
   cargar();
+  if (estado.vista === "metricas") pintarMetricas();
 }
 const PESTANAS = [
   ["borrador", "Borradores"], ["programado", "Programados"], ["error", "Errores"], ["publicado", "Publicados"], ["descartado", "Descartados"],
@@ -102,12 +104,109 @@ function mostrarVista(vista) {
   $("vista-posts").hidden = vista !== "posts";
   $("maestro").hidden = vista !== "maestro";
   $("formulario-cuenta").hidden = vista !== "formulario";
-  $("boton-cuentas").textContent = vista === "posts" ? "Cuentas" : "Panel de posts";
-  try { localStorage.setItem("sinlinea.vista", vista === "formulario" ? "maestro" : vista); } catch { /* sin almacenamiento */ }
+  $("metricas").hidden = vista !== "metricas";
+  $("boton-cuentas").textContent = ["maestro", "formulario"].includes(vista) ? "Panel de posts" : "Cuentas";
+  $("boton-metricas").hidden = !["posts", "metricas"].includes(vista);
+  $("boton-metricas").textContent = vista === "metricas" ? "Posts" : "Métricas";
+  try { localStorage.setItem("sinlinea.vista", ["formulario", "metricas"].includes(vista) ? (vista === "formulario" ? "maestro" : "posts") : vista); } catch { /* sin almacenamiento */ }
   if (vista === "maestro") pintarMaestro();
+  if (vista === "metricas") pintarMetricas();
   window.scrollTo(0, 0);
 }
-$("boton-cuentas").addEventListener("click", () => mostrarVista(estado.vista === "posts" ? "maestro" : "posts"));
+$("boton-cuentas").addEventListener("click", () => mostrarVista(["maestro", "formulario"].includes(estado.vista) ? "posts" : "maestro"));
+$("boton-metricas").addEventListener("click", () => mostrarVista(estado.vista === "metricas" ? "posts" : "metricas"));
+$("metricas-actualizar").addEventListener("click", () => pintarMetricas({ frescos: true }));
+
+// --- Métricas (fase 1): solo lectura de data/<cuenta>/metricas -----------------------------------------------
+const CLAVES_POR_DIA = ["reach", "views", "total_interactions", "accounts_engaged", "profile_views", "follows_and_unfollows", "follower_count", "website_clicks"];
+const CLAVES_PUBLICACION = ["meGusta", "comentarios", "reach", "views", "saved", "profile_visits", "shares", "total_interactions"];
+const fechaConsulta = (iso) => (iso ? `${fechaCortaUtc(iso)} UTC` : "ninguna");
+const celda = (texto, props = {}) => el("td", { text: texto, ...props });
+// Valor de una métrica en la tabla: número real (incluido 0) o el motivo; nunca un 0 por un null.
+function celdaMetrica(valor, motivo, variacion = null) {
+  const td = el("td", { text: textoValor(valor, motivo) });
+  if (typeof valor !== "number") td.className = "no-disponible";
+  if (variacion) td.append(el("small", { text: ` ${variacion.diferencia >= 0 ? "+" : ""}${variacion.diferencia} en ${variacion.dias} día${variacion.dias === 1 ? "" : "s"} (aprox.)` }));
+  return td;
+}
+function graficoSeguidores(instantaneas) {
+  const puntos = instantaneas.filter((i) => typeof i.perfil?.seguidores === "number");
+  if (puntos.length < 2) return el("p", { class: "nota", text: "El gráfico de seguidores aparece con dos o más consultas con valor." });
+  const w = 640; const h = 120; const m = 24;
+  const xs = puntos.map((p) => Date.parse(p.consultadoEn)); const ys = puntos.map((p) => p.perfil.seguidores);
+  const x0 = Math.min(...xs); const x1 = Math.max(...xs) || x0 + 1; const y0 = Math.min(...ys); const y1 = Math.max(...ys);
+  const px = (x) => m + ((x - x0) / Math.max(1, x1 - x0)) * (w - 2 * m);
+  const py = (y) => h - m - ((y - y0) / Math.max(1, y1 - y0)) * (h - 2 * m);
+  const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  svg.setAttribute("viewBox", `0 0 ${w} ${h}`); svg.setAttribute("role", "img"); svg.setAttribute("aria-label", "Seguidores por fecha de consulta");
+  const linea = document.createElementNS("http://www.w3.org/2000/svg", "polyline");
+  linea.setAttribute("points", puntos.map((p, i) => `${px(xs[i])},${py(ys[i])}`).join(" "));
+  linea.setAttribute("fill", "none"); linea.setAttribute("stroke", "currentColor"); linea.setAttribute("stroke-width", "2");
+  svg.append(linea);
+  for (const [i, p] of puntos.entries()) {
+    const t = document.createElementNS("http://www.w3.org/2000/svg", "text");
+    t.setAttribute("x", px(xs[i])); t.setAttribute("y", py(ys[i]) - 6); t.setAttribute("font-size", "11"); t.setAttribute("text-anchor", "middle");
+    t.textContent = String(p.perfil.seguidores);
+    svg.append(t);
+  }
+  return svg;
+}
+async function pintarMetricas({ frescos = false } = {}) {
+  const cfg = configDeCuenta(estado.cuenta);
+  $("metricas-titulo").textContent = `Métricas · ${cfg.nombre}`;
+  const nota = $("metricas-nota");
+  nota.hidden = false; nota.textContent = "Cargando…";
+  let datos;
+  try { datos = await estado.almacen.leerMetricas(estado.cuenta, { frescos }); }
+  catch (err) { nota.textContent = `No se pudieron leer las métricas: ${err.message}`; return; }
+  const archivos = Object.values(datos.archivos || {}).filter(Boolean);
+  const series = seriesDeCuenta(archivos.filter((a) => a.consultas || a.porDia));
+  const publicaciones = rendimientoDePublicaciones(archivos.filter((a) => a.publicaciones));
+  const cruda = estado.cuentasInfo?.cuentas?.find((c) => c.id === estado.cuenta)?.config;
+  const recogida = cruda?.metricas?.recoger === true ? "encendida" : "apagada";
+  // El permiso se infiere de las respuestas de la API (Instagram Login no permite consultar los permisos de un token).
+  const permiso = series.permiso === "basico+insights" ? "básico + estadísticas (inferido: la API respondió a las consultas de estadísticas)" : (series.permiso === "basico" ? "básico (inferido: la API rechazó las estadísticas por falta de permiso)" : "sin comprobar");
+  const partes = [`Última consulta: ${fechaConsulta(series.ultimaConsulta)}`, `Permiso: ${permiso}`, `Recogida diaria: ${recogida} (metricas.recoger, independiente de la generación y la publicación)`];
+  const estadoCorrida = datos.estado;
+  // Período medido: consultas del perfil (instantáneas) y días con métricas por período. Sin datos no se afirma nada.
+  const dia = (iso) => String(iso || "").slice(0, 10);
+  if (series.instantaneas.length) {
+    const primera = series.instantaneas[0].consultadoEn; const ultima = series.instantaneas[series.instantaneas.length - 1].consultadoEn;
+    const dias = series.porDia.length ? `; métricas por día del ${series.porDia[0].dia} al ${series.porDia[series.porDia.length - 1].dia}` : "; sin métricas por día todavía";
+    partes.push(`Período medido: consultas del ${dia(primera)} al ${dia(ultima)} (${series.instantaneas.length})${dias}`);
+  }
+  // Cobertura: la lista que devuelve la API puede ser menor que lo que declara el perfil; no es el historial completo.
+  const cob = estadoCorrida?.cobertura;
+  if (cob) {
+    const declara = typeof cob.declaradas === "number" ? `; el perfil declara ${cob.declaradas}${cob.declaradas > cob.listadas ? " y la API no expone el resto" : ""}` : "";
+    partes.push(`Cobertura de publicaciones: ${cob.consultadas} consultadas de ${cob.listadas} que devuelve la API (${cob.enVentana} en la ventana)${declara}${cob.listadoCompleto === false ? "; listado incompleto: continúa en la próxima corrida" : ""}`);
+  }
+  if (estadoCorrida && estadoCorrida.completo === false) partes.push(`Última corrida incompleta: ${textoMotivo(estadoCorrida.motivoIncompleto)}${estadoCorrida.pendientes?.length ? `; publicaciones pendientes: ${estadoCorrida.pendientes.length}` : ""}`);
+  partes.push("Instagram puede tardar hasta 48 h en consolidar los datos de un día; las métricas por día se vuelven a consultar durante tres días.");
+  $("metricas-estado").textContent = partes.join(" · ");
+  const hayDatos = series.instantaneas.length || series.porDia.length || publicaciones.length;
+  if (!hayDatos) { nota.textContent = `Aún no hay ninguna recogida para ${cfg.nombre}. Enciende "Recoger métricas a diario" en la ficha de la cuenta o lanza el workflow Métricas de Instagram para esta cuenta.`; }
+  else nota.hidden = true;
+  $("metricas-evolucion").querySelector("tbody").replaceChildren(...series.instantaneas.map((i) => el("tr", {}, [
+    celda(fechaConsulta(i.consultadoEn)),
+    celdaMetrica(i.perfil?.seguidores ?? null, "conjunto-vacio"), celdaMetrica(i.perfil?.seguidos ?? null, "conjunto-vacio"), celdaMetrica(i.perfil?.publicaciones ?? null, "conjunto-vacio"),
+    celda(i.permiso === "basico+insights" ? "básico + estadísticas" : "básico"),
+  ])));
+  $("metricas-grafico").replaceChildren(graficoSeguidores(series.instantaneas));
+  $("metricas-por-dia").querySelector("tbody").replaceChildren(...series.porDia.map((d) => el("tr", {}, [
+    celda(d.dia),
+    ...CLAVES_POR_DIA.map((k) => celdaMetrica(d.valores?.[k] ?? null, d.faltantes?.[k] || (k in (d.valores || {}) ? "conjunto-vacio" : "no-solicitado"))),
+    celda(fechaConsulta(d.consultadoEn)),
+  ])));
+  $("metricas-publicaciones").querySelector("tbody").replaceChildren(...publicaciones.map((p) => el("tr", {}, [
+    celda(p.fecha ? fechaCortaUtc(p.fecha) : "—"),
+    el("td", {}, [el("a", { href: urlSegura(p.permalink), target: "_blank", rel: "noopener", text: p.titulo || p.id })]),
+    celda(p.origen === "sistema" ? `sistema · ${p.categoria || "—"} · ${p.franja || "—"}` : "instagram"),
+    celda(p.tipo || "—"),
+    ...CLAVES_PUBLICACION.map((k) => celdaMetrica(p.acumulados[k]?.valor ?? null, p.acumulados[k]?.motivo || "no-solicitado", p.variacion[k] || null)),
+    celda(fechaConsulta(p.ultimaConsulta)),
+  ])));
+}
 
 // --- Carga ------------------------------------------------------------------
 async function cargar() {
@@ -597,6 +696,7 @@ function leerFormulario() {
     origen: $("fc-origen").value === "entorno" ? "entorno" : "repositorio",
     tokenSecreto: $("fc-token-secreto").value.trim(),
     usuarioIdSecreto: $("fc-id-secreto").value.trim(),
+    recogerMetricas: $("fc-metricas").checked,
   };
 }
 
@@ -622,6 +722,7 @@ function rellenarFormulario(d) {
   $("fc-origen").value = d.origen === "entorno" ? "entorno" : "repositorio";
   $("fc-token-secreto").value = d.tokenSecreto || "";
   $("fc-id-secreto").value = d.usuarioIdSecreto || "";
+  $("fc-metricas").checked = d.recogerMetricas === true;
   $("fc-logo").value = "";
   $("fc-logo-previa").replaceChildren();
   $("fc-logo-nota").textContent = "";

@@ -1,6 +1,6 @@
 // CUENTAS ACTIVAS: lista las cuentas no archivadas separadas por origen de credenciales, para que los workflows
 // de Instagram construyan una matriz con un job por cuenta sin editar el YAML al añadir cuentas.
-// Uso: node src/cuentas-activas.mjs [--raiz <dir>] [--cuenta <id>] [--comprobar-entornos]
+// Uso: node src/cuentas-activas.mjs [--raiz <dir>] [--cuenta <id>] [--comprobar-entornos] [--solo-metricas]
 //   → imprime `entorno=[...]` y `repositorio=[...]` (una línea por salida, listas para `>> "$GITHUB_OUTPUT"`).
 // Con --comprobar-entornos consulta la API de GitHub (solo metadatos, con GH_TOKEN) y anota en cada cuenta de modo
 // Environment si su Environment cuenta-<id> tiene IG_ACCESS_TOKEN e IG_USER_ID (`completo`, `motivo`); el job de la
@@ -11,12 +11,14 @@ import { cargarConfiguracion } from "./lib/config.mjs";
 import { origenDeSecretos, nombreEntorno, nombresDeSecretos } from "./lib/secretos.mjs";
 import { comprobarEntorno } from "./lib/entornos.mjs";
 
-export function cuentasActivas(configuracion, { soloCuenta = null } = {}) {
+// `soloMetricas`: solo las cuentas con metricas.recoger = true (recogida diaria de métricas); no mira automatico.*.
+export function cuentasActivas(configuracion, { soloCuenta = null, soloMetricas = false } = {}) {
   const entorno = [];
   const repositorio = [];
   for (const config of configuracion.cuentas) {
     if (config.archivada) continue;
     if (soloCuenta && config.cuenta !== soloCuenta) continue;
+    if (soloMetricas && config.metricas?.recoger !== true) continue;
     if (origenDeSecretos(config) === "entorno") {
       entorno.push({ cuenta: config.cuenta, entorno: nombreEntorno(config.cuenta) });
     } else {
@@ -44,7 +46,7 @@ if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) 
   const raiz = arg("--raiz") || process.cwd();
   const configuracion = cargarConfiguracion(raiz);
   for (const e of configuracion.errores) console.error(`::warning::Cuenta ${e.cuenta} con configuración inválida: se omite (${e.mensaje})`);
-  const { entorno, repositorio } = cuentasActivas(configuracion, { soloCuenta: arg("--cuenta") });
+  const { entorno, repositorio } = cuentasActivas(configuracion, { soloCuenta: arg("--cuenta"), soloMetricas: process.argv.includes("--solo-metricas") });
   const salida = async () => {
     if (!process.argv.includes("--comprobar-entornos")) return entorno;
     const repo = process.env.GITHUB_REPOSITORY || "";

@@ -1,0 +1,173 @@
+name: Métricas de Instagram
+
+# Métricas (fase 1): consulta de solo lectura de la API de Instagram, un job por cuenta con las credenciales de su
+# origen (Environment cuenta-<id> o secretos de repositorio con el nombre declarado), como en PUBLICAR.
+# - Programado (00:30 de Panamá): solo las cuentas con metricas.recoger = true (independiente de automatico.*).
+#   Sin ninguna cuenta con recogida encendida, los jobs por cuenta se omiten.
+# - Manual: `cuenta` (opcional) limita la corrida a esa cuenta; el orquestador sigue respetando metricas.recoger.
+#   La SONDA de solo lectura (qué devuelve la API para una cuenta, sin guardar nada) está en el workflow Verificar.
+# Escribe únicamente data/<cuenta>/metricas/. Nunca publica ni toca posts/. Sin Claude ni Gemini.
+on:
+  schedule:
+    - cron: "30 5 * * *"
+  workflow_dispatch:
+    inputs:
+      cuenta:
+        description: "Id de la cuenta (vacío = todas las que tengan la recogida encendida)"
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sinlinea
+  cancel-in-progress: false
+
+jobs:
+  cuentas:
+    name: Cuentas activas
+    runs-on: ubuntu-latest
+    outputs:
+      entorno: ${{ steps.lista.outputs.entorno }}
+      repositorio: ${{ steps.lista.outputs.repositorio }}
+    steps:
+      - name: Descargar el repositorio
+        uses: actions/checkout@v4
+
+      - name: Preparar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      # Programado: solo cuentas con metricas.recoger = true. Manual con `cuenta`: esa cuenta (el orquestador la omite
+      # si su recogida está apagada). Con --comprobar-entornos consulta la API de GitHub (solo metadatos, con GH_PAT:
+      # permiso Environments: lectura) y anota si el Environment de cada cuenta en modo Environment tiene sus dos secretos.
+      - name: Listar las cuentas por origen de credenciales y comprobar sus Environments
+        id: lista
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+          CUENTA: ${{ inputs.cuenta }}
+        run: |
+          if [ -n "$CUENTA" ]; then
+            node src/cuentas-activas.mjs --cuenta "$CUENTA" --comprobar-entornos >> "$GITHUB_OUTPUT"
+          else
+            node src/cuentas-activas.mjs --solo-metricas --comprobar-entornos >> "$GITHUB_OUTPUT"
+          fi
+
+  metricas-entorno:
+    name: Métricas (Environment)
+    needs: cuentas
+    if: ${{ needs.cuentas.outputs.entorno != '[]' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        include: ${{ fromJSON(needs.cuentas.outputs.entorno) }}
+    environment: ${{ matrix.entorno }}
+    env:
+      CUENTA: ${{ matrix.cuenta }}
+      ENTORNO: ${{ matrix.entorno }}
+      IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+      IG_USER_ID: ${{ secrets.IG_USER_ID }}
+    steps:
+      - name: Descargar el repositorio
+        uses: actions/checkout@v4
+
+      - name: Preparar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      # Comprobado en el job anterior con la API de GitHub (solo metadatos): el Environment exacto cuenta-<id> debe tener
+      # IG_ACCESS_TOKEN e IG_USER_ID. Si falta alguno o no hubo permiso para comprobarlo, se falla aquí, antes de
+      # contactar con Instagram, y no se usa ningún secreto de otro origen.
+      - name: Comprobar que el Environment de la cuenta está completo
+        env:
+          COMPLETO: ${{ matrix.completo }}
+          MOTIVO: ${{ matrix.motivo }}
+        run: |
+          if [ "$COMPLETO" != "true" ]; then
+            echo "::error::Cuenta $CUENTA (Environment $ENTORNO): $MOTIVO"
+            exit 1
+          fi
+          echo "Cuenta $CUENTA: Environment $ENTORNO completo (IG_ACCESS_TOKEN, IG_USER_ID)."
+
+      - name: Recoger las métricas de la cuenta (solo lectura en Instagram)
+        run: node src/metricas.mjs --cuenta "$CUENTA" --por-cuenta
+
+      - name: Guardar las métricas de la cuenta en el repositorio
+        run: |
+          git config user.name "sinlinea-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if [ ! -d "data/$CUENTA/metricas" ]; then echo "Sin métricas que guardar."; exit 0; fi
+          git add "data/$CUENTA/metricas"
+          if git diff --cached --quiet; then
+            echo "Sin cambios."
+          else
+            git commit -m "metricas ($CUENTA): $(date -u '+%Y-%m-%d %H:%M UTC') [skip ci]"
+            for i in 1 2 3; do
+              if git pull --rebase && git push; then break; fi
+              if [ "$i" = 3 ]; then echo "No se pudo hacer push tras 3 intentos"; exit 1; fi
+              sleep 5
+            done
+          fi
+
+  metricas-repositorio:
+    name: Métricas (modo actual)
+    needs: [cuentas, metricas-entorno]
+    if: ${{ always() && needs.cuentas.result == 'success' && needs.cuentas.outputs.repositorio != '[]' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        include: ${{ fromJSON(needs.cuentas.outputs.repositorio) }}
+    env:
+      CUENTA: ${{ matrix.cuenta }}
+      # Solo los dos secretos de esta cuenta, con el nombre que declara su configuración, expuestos con los nombres fijos.
+      IG_ACCESS_TOKEN: ${{ secrets[matrix.tokenSecreto] }}
+      IG_USER_ID: ${{ secrets[matrix.usuarioIdSecreto] }}
+    steps:
+      - name: Descargar el repositorio
+        uses: actions/checkout@v4
+
+      - name: Preparar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Recoger las métricas de la cuenta (solo lectura en Instagram)
+        run: node src/metricas.mjs --cuenta "$CUENTA" --por-cuenta
+
+      - name: Guardar las métricas de la cuenta en el repositorio
+        run: |
+          git config user.name "sinlinea-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if [ ! -d "data/$CUENTA/metricas" ]; then echo "Sin métricas que guardar."; exit 0; fi
+          git add "data/$CUENTA/metricas"
+          if git diff --cached --quiet; then
+            echo "Sin cambios."
+          else
+            git commit -m "metricas ($CUENTA): $(date -u '+%Y-%m-%d %H:%M UTC') [skip ci]"
+            for i in 1 2 3; do
+              if git pull --rebase && git push; then break; fi
+              if [ "$i" = 3 ]; then echo "No se pudo hacer push tras 3 intentos"; exit 1; fi
+              sleep 5
+            done
+          fi

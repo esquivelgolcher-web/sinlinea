@@ -354,3 +354,66 @@ ilustración (con el fondo de color de la variante).
 7. `npm run generar -- --dry-run` sí llama a Gemini y gasta cuota igual que una
    corrida normal (solo evita escribir en `posts/`, `data/<cuenta>/seen.json` y hacer
    commit); no lo uses para probar en bucle si la cuota es justa.
+
+## 11. Métricas (fase 1): recogida diaria de solo lectura y vista en el panel
+
+Qué es. Cada cuenta puede recoger a diario, en solo lectura, lo que la API de
+Instagram devuelve sobre ella: totales del perfil (seguidores, seguidos,
+publicaciones), métricas de cuenta por día (alcance, vistas, interacciones,
+visitas al perfil…) y totales acumulados de cada publicación (me gusta,
+comentarios, alcance, vistas, guardados, compartidos, métricas de reel). Se
+guardan como instantáneas con la fecha exacta de consulta en
+`data/<id>/metricas/` y se ven en el panel (botón **Métricas** del panel de la
+cuenta). No usa Claude ni Gemini y nunca publica.
+
+Interruptor. `metricas.recoger` en `cuentas/<id>/config.json` (casilla
+"Recoger métricas a diario" en la ficha de la cuenta). Está **apagado por
+defecto** y es **independiente** de `automatico.generar` y
+`automatico.publicar`: se puede medir una cuenta con ambas apagadas. Límites
+opcionales: `maxLlamadas` (150), `maxPaginas` (4 páginas de 50
+publicaciones), `maxPublicaciones` (40 por corrida) y `ventanaDias` (90).
+
+Permisos. Con `instagram_business_basic` (el permiso con el que ya se publica)
+llegan el perfil y la lista de publicaciones con me gusta y comentarios. Las
+estadísticas (alcance, vistas, guardados, compartidos…) requieren
+`instagram_business_manage_insights`. Comprobado el 2026-09-09 con la sonda
+real: el token de @luiseskivelgolcher ya lo tiene. Si un token no lo tiene, la
+recogida sigue con lo básico y cada estadística aparece como "No disponible:
+requiere permiso de estadísticas (instagram_business_manage_insights)".
+
+Cómo probar sin guardar nada (sonda). Actions → **Verificar configuración y
+secretos** → Run workflow → `sonda_metricas` = id de la cuenta. En el job de
+esa cuenta aparece qué campos y métricas devuelve la API (nombres y valores;
+nunca secretos). Las demás cuentas no contactan con Instagram.
+
+Cómo funciona la recogida. El workflow **Métricas de Instagram** corre a las
+00:30 de Panamá con un job por cuenta y las credenciales de su origen (igual
+que PUBLICAR). Por corrida: 1 llamada al perfil, 3 a las métricas de cuenta
+(los días D-3, D-2 y D-1, porque Instagram corrige los datos hasta 48 h) y
+una por publicación de la ventana, dentro de `maxLlamadas`. Lo que no cabe
+queda en `estado.json` como pendiente y se consulta al día siguiente
+(primero las pendientes, luego las nunca consultadas, luego las de consulta
+más antigua). Ante un error de límite de la API (códigos 4, 17, 32, 613,
+80002) la corrida se detiene, guarda lo obtenido y continúa otro día. Solo se
+hace `git add data/<cuenta>/metricas`; `posts/` no se toca.
+
+Cómo se guardan los datos. `cuenta-AAAA-MM.json` (por mes de consulta) con
+`consultas` (instantáneas del perfil con fecha de consulta, una por día) y
+`porDia` (métricas por período bajo el día al que se refieren, con la fecha
+en que se consultaron); `publicaciones-AAAA-MM.json` (por mes de publicación)
+con los totales acumulados de cada publicación en cada consulta y su origen
+(`sistema`, enlazada con el post y su categoría y franja, o `instagram`, si se
+publicó a mano); `estado.json` (pendientes, métricas que la API rechaza por
+tipo de publicación, última corrida). Un dato ausente es `null` con su motivo
+y el panel lo muestra como "No disponible: …", nunca como 0. La diferencia
+entre dos instantáneas es una **variación aproximada entre consultas**, no la
+actividad exacta de un día, y así se etiqueta.
+
+Coste. Sin coste monetario adicional mientras se mantenga dentro de las
+cuotas: los minutos de Actions no se cobran en un repositorio público (unos 2
+minutos por cuenta y día; en privado serían ~60 min/mes por cuenta, dentro de
+los 2000 gratuitos) y la API de Instagram no cobra por llamada, pero limita
+según las impresiones de las últimas 24 h (error 80002). Con `maxLlamadas`
+150 y dos cuentas, el consumo diario queda muy por debajo de ese cupo salvo
+en cuentas casi sin impresiones, donde la recogida se completa en varias
+corridas.

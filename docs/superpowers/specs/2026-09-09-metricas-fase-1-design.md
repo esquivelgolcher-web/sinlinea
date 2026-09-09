@@ -1,6 +1,6 @@
 # Métricas del Panel Maestro · fase 1 (recogida diaria y vista por cuenta) — diseño
 
-Fecha: 2026-09-09. Estado: **propuesta, sin implementar**. Sustituye a la "Fase 3 ·
+Fecha: 2026-09-09. Estado: **implementada en la rama `metricas` (local, sin push a main)**; ver "Resultado real" al final. Sustituye a la "Fase 3 ·
 Recogida y almacenamiento de métricas" de ROADMAP.md (M3b) y adelanta la vista
 mínima que allí se dejaba para la fase 4. Las recomendaciones editoriales
 (fase 5) quedan para cuando haya datos reales acumulados.
@@ -181,8 +181,13 @@ disponible" con motivo, no como cero; retraso de hasta 48 h también aquí.
    indica la fecha de la última recogida, el retraso de 48 h y el nivel de
    permiso vigente. Sin comparativas entre cuentas ni informes con Claude
    (fase siguiente).
-6. **Nada de Claude ni Gemini.** Coste en dinero: 0 $. Solo llamadas a
-   Instagram y minutos de Actions (gratuitos: el repositorio es público).
+6. **Nada de Claude ni Gemini.** Coste: sin gasto monetario adicional
+   mientras se mantenga dentro de las cuotas disponibles. Los minutos de
+   Actions no se cobran en un repositorio público (≈ 2 min por cuenta y día;
+   en uno privado serían ≈ 60 min/mes por cuenta, dentro de los 2000
+   gratuitos); la API de Instagram no cobra por llamada, pero limita según
+   las impresiones de las últimas 24 h, así que el consumo depende del uso y
+   de ese cupo (§1.4).
 
 ---
 
@@ -441,3 +446,40 @@ cualquier acción automática a partir de las métricas.
 - Permisos (`instagram_business_manage_insights`): https://developers.facebook.com/docs/permissions/
 - Límites de la API y tokens: https://developers.facebook.com/docs/instagram-platform/overview/ y https://developers.facebook.com/docs/graph-api/overview/rate-limiting/
 - Instagram API with Instagram Login (alcance y permisos): https://developers.facebook.com/docs/instagram-platform/instagram-api-with-instagram-login/
+
+---
+
+## Resultado real (2026-09-09)
+
+Sonda de solo lectura ejecutada tres veces con las credenciales vigentes de
+@luiseskivelgolcher (workflow Verificar, entrada `sonda_metricas`, desde la
+rama `metricas`), sin cambiar permisos ni tokens y sin tocar Sin Línea:
+
+- **Permiso**: el token ya incluye `instagram_business_manage_insights`
+  (las estadísticas de cuenta y de publicación respondieron). La suposición
+  del §1.1 de que faltaba no se cumplió; el código sigue tratando el caso sin
+  permiso como "No disponible: requiere permiso de estadísticas".
+- **Perfil**: 81 089 seguidores, 378 seguidos, 27 publicaciones.
+- **Lista de publicaciones**: la API devolvió 4 (todas VIDEO, entre julio y
+  agosto de 2026) sin página siguiente, aunque el perfil declara 27. Queda
+  registrado como observación: la recogida solo puede medir lo que la API
+  expone.
+- **Métricas de cuenta por día (2026-09-08)**: reach 334, views 465,
+  profile_views 42, website_clicks 0, likes/comments/shares/saves/reposts/
+  replies/profile_links_taps/accounts_engaged/total_interactions 0 (ceros
+  reales devueltos por la API); `follows_and_unfollows` y `follower_count`
+  devolvieron conjunto vacío (se guardan como null con ese motivo).
+- **Métricas de una publicación (reel del 2026-08-22)**: reach 3 624, views
+  4 710, likes 110, comments 2, saved 13, shares 85, total_interactions 229,
+  ig_reels_avg_watch_time 19 109 ms, ig_reels_video_view_total_time
+  70 533 654 ms, reels_skip_rate 45,7. Rechazadas por la API: `reposts`
+  ("does not support the metrics: reposts") y, para reels, `profile_visits`,
+  `profile_activity` y `follows` ("does not support the … metric for this
+  media product type"). El cliente reintenta sin las métricas citadas (máximo
+  dos veces) y la recogida recuerda por tipo de publicación lo rechazado.
+- **Coste de la sonda**: 10 llamadas.
+
+Lo comprobado solo con pruebas simuladas (sin API real): recogida con
+guardado, presupuesto y paginación limitada, pendientes entre corridas,
+parada ante un límite (80002), permiso ausente, idempotencia por día, origen
+`sistema`/`instagram` y la vista del panel.

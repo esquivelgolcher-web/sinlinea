@@ -97,7 +97,8 @@ test("(M2 fix) una cuenta apagada sin secretos ni logo produce avisos, no errore
   const texto = r.lineas.join("\n");
   assert.equal(r.ok, true, texto);
   assert.deepEqual(r.faltantes, []);
-  assert.match(texto, /AVISO.*IG_ACCESSTOKEN_LUISESKIVELGOLCHER/);
+  // La cuenta real puede estar en modo repositorio (nombra su secreto) o en modo Environment (nombra su Environment).
+  assert.match(texto, /AVISO.*(IG_ACCESSTOKEN_LUISESKIVELGOLCHER|Environment cuenta-luiseskivelgolcher)/);
   assert.match(texto, /AVISO.*cuentas\/luiseskivelgolcher\/logo\.png.*iniciales/i);
 });
 
@@ -109,4 +110,15 @@ test("(M2) la verificación avisa cuando una cuenta tiene la generación o la pu
   assert.match(texto, /AVISO.*luiseskivelgolcher.*generación automática apagada/i);
   assert.match(texto, /AVISO.*luiseskivelgolcher.*publicación automática apagada/i);
   assert.doesNotMatch(texto, /AVISO.*sinlinea.*apagada/i);
+});
+
+test("(fase 2 fix) el job por cuenta (--cuenta --por-cuenta) solo recibe las dos credenciales de esa cuenta: no debe fallar por los secretos compartidos, que comprueba el job compartido", () => {
+  const raiz = raizTemporal({ cuentas: ["sinlinea", "luiseskivelgolcher"], tokenInfo: null });
+  const r = ejecutarVerificacion({ raiz, env: { IG_ACCESS_TOKEN: tokenIG, IG_USER_ID: "1784" }, ahora, soloCuenta: "sinlinea", porCuenta: true });
+  const texto = r.lineas.join("\n");
+  assert.equal(r.ok, true, texto);
+  assert.equal(/ANTHROPIC_API_KEY: FALTA|GEMINI_API_KEY: FALTA/.test(texto), false, "los secretos compartidos no se evalúan en el job por cuenta");
+  assert.match(texto, /secretos compartidos.*job compartido/i);
+  assert.match(texto, /IG_ACCESS_TOKEN: OK/);
+  assert.equal(/Cuenta luiseskivelgolcher/.test(texto), false, "solo la cuenta pedida");
 });

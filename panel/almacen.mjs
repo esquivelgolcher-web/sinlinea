@@ -114,6 +114,12 @@ export function crearAlmacenLocal() {
       if (!res.ok) throw new Error(j.error || `No se pudieron guardar los archivos (HTTP ${res.status})`);
       return { commit: null, shas: j.shas };
     },
+    // Métricas (fase 1): archivos mensuales y estado de data/<cuenta>/metricas.
+    async leerMetricas(cuenta) {
+      const res = await fetch(`/api/metricas?cuenta=${encodeURIComponent(cuenta)}`, { cache: "no-store" });
+      if (!res.ok) throw new Error(`No se pudieron leer las métricas de ${cuenta} (HTTP ${res.status})`);
+      return res.json();
+    },
     async solicitarVerificacion(cuenta) {
       const { res, j } = await json(await fetch(`/api/verificar-conexion?cuenta=${encodeURIComponent(cuenta)}`, { method: "POST" }));
       if (!res.ok) throw new Error(j.error || `No se pudo solicitar la verificación (HTTP ${res.status})`);
@@ -283,6 +289,25 @@ export function crearAlmacenGitHub({ token, owner, repo, rama = "main", fetchImp
     leerSecretosActualizados,
     leerSecretosDeEntorno,
     limiteActual,
+    // Métricas (fase 1): una lista de la carpeta y solo los archivos de los dos últimos meses más estado.json (pocas
+    // peticiones, con la misma caché y el mismo manejo de límites). Carpeta ausente = sin recogida, no un error.
+    async leerMetricas(cuenta, { frescos = false } = {}) {
+      return recordar(`metricas|${cuenta}`, frescos, async () => {
+        const dir = await pedir(`${api}/contents/data/${cuenta}/metricas?ref=${rama}`, { headers: cabeceras() });
+        if (dir.status === 404) return { archivos: {}, estado: null };
+        if (!dir.ok) throw new Error(`GitHub respondió ${dir.status} al leer data/${cuenta}/metricas`);
+        const entradas = (await dir.json()).filter((e) => e.type === "file");
+        const meses = [...new Set(entradas.map((e) => (/^(?:cuenta|publicaciones)-(\d{4}-\d{2})\.json$/.exec(e.name) || [])[1]).filter(Boolean))].sort().slice(-2);
+        const nombres = entradas.map((e) => e.name).filter((n) => meses.some((m) => n === `cuenta-${m}.json` || n === `publicaciones-${m}.json`));
+        const archivos = {};
+        for (const n of nombres) {
+          const a = await leerArchivo(`data/${cuenta}/metricas/${n}`);
+          if (a) { try { archivos[n] = JSON.parse(a.texto); } catch { /* archivo ilegible: se omite */ } }
+        }
+        const estado = entradas.some((e) => e.name === "estado.json") ? await leerJson(`data/${cuenta}/metricas/estado.json`) : null;
+        return { archivos, estado };
+      });
+    },
     async escribirArchivo(ruta, texto, { sha = null, mensaje } = {}) {
       return subir(ruta, base64Utf8(texto), { sha, mensaje });
     },

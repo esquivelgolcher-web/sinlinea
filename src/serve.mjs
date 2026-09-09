@@ -197,6 +197,21 @@ export function crearServidor({ raiz = process.cwd(), log = console } = {}) {
         });
         return responderJson(res, 200, { global, globalSha: shaDeBlob(textoGlobal), cuentas, workflows: leerWorkflows(raiz) });
       }
+      // Métricas (fase 1): archivos mensuales y estado de data/<cuenta>/metricas para la vista del panel. Solo lectura.
+      if (req.method === "GET" && p === "/api/metricas") {
+        const cuenta = url.searchParams.get("cuenta") || "";
+        if (!configuracion().cuentas.some((c) => c.cuenta === cuenta)) return responder(res, 404, "Cuenta desconocida");
+        const carpeta = path.join(raiz, "data", cuenta, "metricas");
+        const archivos = {};
+        let estado = null;
+        if (fs.existsSync(carpeta)) {
+          for (const nombre of fs.readdirSync(carpeta)) {
+            if (/^(cuenta|publicaciones)-\d{4}-\d{2}\.json$/.test(nombre)) archivos[nombre] = leerJsonSiExiste(path.join(carpeta, nombre));
+          }
+          estado = leerJsonSiExiste(path.join(carpeta, "estado.json"));
+        }
+        return responderJson(res, 200, { archivos, estado });
+      }
       if ((req.method === "GET" || req.method === "PUT") && p === "/api/archivo") {
         const ruta = url.searchParams.get("ruta") || "";
         if (!rutaPermitida(ruta)) return responderJson(res, 403, { error: `Ruta no permitida: ${ruta}` });
