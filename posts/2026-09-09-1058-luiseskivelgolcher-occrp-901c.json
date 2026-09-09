@@ -1,0 +1,45 @@
+{
+  "id": "2026-09-09-1058-luiseskivelgolcher-occrp-901c",
+  "cuenta": "luiseskivelgolcher",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "OCCRP",
+    "url": "https://www.occrp.org/en/news/turkey-detains-24-in-belgium-linked-drug-trafficking-probe",
+    "titulo": "Turkey Detains 24 in Belgium-Linked Drug Trafficking Probe",
+    "publicado": "2026-09-09T14:25:00.000Z"
+  },
+  "categoria": "INVESTIGACIÓN",
+  "titular": "Turquía detiene a 24 por narcotráfico ligado a Bélgica",
+  "bajada": "Incautan activos por $20.6 millones en operación contra red internacional de drogas",
+  "caption": "Según OCCRP (9 set. 2026), autoridades turcas detuvieron a 24 personas y buscan a otras 11 en el exterior, dentro de una investigación sobre una red de narcotráfico dirigida presuntamente desde Bélgica.",
+  "hashtags": [
+    "#Investigación",
+    "#Narcotráfico",
+    "#OCCRP",
+    "#CrimenOrganizado"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-09-09-1058-luiseskivelgolcher-occrp-901c.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-09-1058-luiseskivelgolcher-occrp-901c.jpg",
+    "hash": "933b0a13fee3a34d",
+    "version": 10,
+    "estilo": "ce835c6d040d39e3",
+    "renderizada": "2026-09-09T15:58:50.435Z"
+  },
+  "ilustracion": {
+    "descripcion": "Contenedores de carga apilados en un puerto marítimo al atardecer, con una grúa portuaria visible en el tercio superior derecho; la zona izquierda y central del encuadre despejada, sin personas ni texto.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-09-1058-luiseskivelgolcher-occrp-901c.jpg",
+    "hashDescripcion": "0d12e9fc707a40c6",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-09T15:58:23.658Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-09T15:58:23.658Z",
+  "actualizado": "2026-09-09T15:58:23.658Z"
+}

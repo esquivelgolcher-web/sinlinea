@@ -1,1 +1,14 @@
-{ "urls": {} }
+{
+  "urls": {
+    "https://www.icij.org/donate/": "2026-09-09",
+    "https://www.bbc.com/mundo/articles/c1mvpng28epo?at_medium=RSS&at_campaign=rss": "2026-09-09",
+    "https://www.bbc.com/mundo/articles/cy0zq18n2k1o?at_medium=RSS&at_campaign=rss": "2026-09-09",
+    "https://www.occrp.org/en/news/turkey-detains-24-in-belgium-linked-drug-trafficking-probe": "2026-09-09",
+    "https://www.bbc.com/mundo/articles/clykvmlvv3ko?at_medium=RSS&at_campaign=rss": "2026-09-09",
+    "https://www.bbc.com/mundo/articles/ckgwdekl698o?at_medium=RSS&at_campaign=rss": "2026-09-09",
+    "https://www.bbc.com/mundo/articles/c4g7987x2reo?at_medium=RSS&at_campaign=rss": "2026-09-09",
+    "https://www.bbc.com/mundo/articles/cn8m1erdd5do?at_medium=RSS&at_campaign=rss": "2026-09-09",
+    "https://www.bbc.com/mundo/articles/c07ld7zd092o?at_medium=RSS&at_campaign=rss": "2026-09-09",
+    "https://www.bbc.com/mundo/articles/ce873v599v1o?at_medium=RSS&at_campaign=rss": "2026-09-09"
+  }
+}
