@@ -1,7 +1,7 @@
 {
   "id": "2026-09-09-1111-luiseskivelgolcher-occrp-c751",
   "cuenta": "luiseskivelgolcher",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "OCCRP",
     "url": "https://www.occrp.org/en/news/spanish-police-dismantle-dubai-bank-narco-network-arrest-21",
@@ -37,9 +37,9 @@
     "generada": "2026-09-09T16:11:22.815Z",
     "error": null
   },
-  "programado": null,
+  "programado": "2026-09-09T11:30:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-09T16:11:22.815Z",
-  "actualizado": "2026-09-09T16:11:22.815Z"
+  "actualizado": "2026-09-09T16:21:19.690Z"
 }
