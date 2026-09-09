@@ -1,12 +1,4 @@
 {
-  "estado": "verificada",
-  "usuario": "luiseskivelgolcher",
-  "comprobado": "2026-09-09T11:40:13.236Z",
-  "detalle": null,
-  "secretos": {
-    "tokenSecreto": "IG_ACCESS_TOKEN",
-    "usuarioIdSecreto": "IG_USER_ID",
-    "origen": "entorno",
-    "entorno": "cuenta-luiseskivelgolcher"
-  }
+  "estado": "pendiente",
+  "solicitada": "2026-09-09T16:45:00.578Z"
 }
