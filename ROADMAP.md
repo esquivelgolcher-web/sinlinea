@@ -464,7 +464,14 @@ transición y del nuevo `secretosExpuestos`; e2e del panel con el entorno
 simulado; despliegue controlado con Sin Línea pausada.
 
 **Fase 3 · Métricas, fase 1: recogida diaria por cuenta y vista mínima (2-3
-días). Diseño propuesto el 2026-09-09, sin implementar:**
+días). Implementada el 2026-09-09 en la rama `metricas` (local, sin push a
+main; recogida diaria apagada en las dos cuentas). Sonda real con
+@luiseskivelgolcher: el token ya tiene el permiso de estadísticas; la API
+devuelve seguidores (81 089), alcance, vistas y visitas al perfil por día, y
+por publicación alcance, vistas, guardados, compartidos y métricas de reel;
+rechaza `reposts` en publicaciones y, en reels, `profile_visits`,
+`profile_activity` y `follows`; `follows_and_unfollows` y `follower_count`
+vuelven vacías; la lista expone 4 de las 27 publicaciones del perfil. Diseño:**
 [docs/superpowers/specs/2026-09-09-metricas-fase-1-design.md](docs/superpowers/specs/2026-09-09-metricas-fase-1-design.md).
 Resumen: interruptor propio `metricas.recoger` (independiente de
 `automatico.generar/publicar`: se puede medir una cuenta con ambas apagadas);
@@ -481,9 +488,12 @@ me gusta, comentarios); alcance, vistas e interacciones requieren añadir
 días (por eso la recogida es diaria), las de publicación son totales
 acumulados, hay hasta 48 h de retraso e `impressions` está retirada (se usa
 `views`). Todo dato ausente se guarda como `null` y se muestra como "no
-disponible", nunca como 0. Coste: 0 $ (sin Claude ni Gemini; Actions gratis
-en repositorio público); ≤ 150 llamadas a Instagram por cuenta y día, con
-parada al primer error de límite (80002).
+disponible", nunca como 0. Coste: sin gasto monetario
+adicional mientras se mantenga dentro de las cuotas (Actions no se cobra en un
+repositorio público; la API de Instagram no cobra por llamada pero limita
+según las impresiones de las últimas 24 h); ≤ 150 llamadas a Instagram por
+cuenta y día, con parada al primer error de límite (80002) y continuación en
+la corrida siguiente.
 
 **Fase 4 · Dashboard comparativo e informes semanales (2-3 días).** Sobre la
 vista por cuenta de la fase 3: comparativa entre cuentas (alcance, crecimiento,

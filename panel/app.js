@@ -105,7 +105,7 @@ function mostrarVista(vista) {
   $("maestro").hidden = vista !== "maestro";
   $("formulario-cuenta").hidden = vista !== "formulario";
   $("metricas").hidden = vista !== "metricas";
-  $("boton-cuentas").textContent = vista === "posts" ? "Cuentas" : "Panel de posts";
+  $("boton-cuentas").textContent = ["maestro", "formulario"].includes(vista) ? "Panel de posts" : "Cuentas";
   $("boton-metricas").hidden = !["posts", "metricas"].includes(vista);
   $("boton-metricas").textContent = vista === "metricas" ? "Posts" : "Métricas";
   try { localStorage.setItem("sinlinea.vista", ["formulario", "metricas"].includes(vista) ? (vista === "formulario" ? "maestro" : "posts") : vista); } catch { /* sin almacenamiento */ }
@@ -113,7 +113,7 @@ function mostrarVista(vista) {
   if (vista === "metricas") pintarMetricas();
   window.scrollTo(0, 0);
 }
-$("boton-cuentas").addEventListener("click", () => mostrarVista(estado.vista === "posts" ? "maestro" : "posts"));
+$("boton-cuentas").addEventListener("click", () => mostrarVista(["maestro", "formulario"].includes(estado.vista) ? "posts" : "maestro"));
 $("boton-metricas").addEventListener("click", () => mostrarVista(estado.vista === "metricas" ? "posts" : "metricas"));
 $("metricas-actualizar").addEventListener("click", () => pintarMetricas({ frescos: true }));
 

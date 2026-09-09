@@ -312,6 +312,55 @@ tras `archivarDespuesDeDias`.
   cada cuenta; el formulario permite elegirlo y cambiarlo invalida la
   verificación anterior.
 
+### 2.8 Métricas (fase 1)
+
+Consulta de solo lectura de la API de Instagram por cuenta, separada de la
+generación y la publicación (`metricas.recoger`, apagado por defecto).
+
+- **Cliente** (`lib/instagram.mjs`): `perfilResumen`, `listarMedios`
+  (paginación por cursor), `insightsCuenta` (period=day, metric_type=
+  total_value, since/until) e `insightsMedio` (totales acumulados). Cada
+  respuesta es `{ valores, faltantes, error, noSoportadas }`: un dato que la
+  API no devuelve es `null` con motivo (`conjunto-vacio`,
+  `sin-permiso-insights`, `metrica-no-soportada`, `error-api:<código>`),
+  nunca 0. Hallazgo real: la API rechaza toda la llamada si una métrica no
+  aplica; el cliente reconoce las dos formas del mensaje, reintenta como
+  máximo dos veces sin las métricas citadas y las devuelve en `noSoportadas`.
+  Los códigos de límite (4, 17, 32, 613, 80002) se lanzan como
+  `ErrorLimiteInstagram`. `llamadasHechas()` cuenta cada petición.
+- **Biblioteca isomorfa** (`lib/metricas.mjs`): grupos de métricas,
+  etiquetas, motivos y su texto ("No disponible: …"), y el modelo de
+  almacenamiento: instantáneas con fecha de consulta (`registrarConsultaCuenta`,
+  `registrarConsultaMedio`, una por día) separadas de las métricas por período
+  (`registrarPorDia`, bajo el día al que se refieren, con `consultadoEn`);
+  lecturas (`seriesDeCuenta`, `rendimientoDePublicaciones`) y
+  `variacionEntreConsultas`, que siempre se etiqueta como aproximada;
+  `seleccionarPendientes` (pendientes → nunca consultadas, recientes primero →
+  consulta más antigua, con presupuesto) y `enlazarConPosts`
+  (`publicacion.idMedia` → origen `sistema` con categoría y franja; el resto,
+  `instagram`).
+- **Orquestador** (`src/metricas.mjs`): `sondearMetricas` (informe por
+  nombres, sin escribir; corre aunque la recogida esté apagada) y
+  `recogerMetricas` (perfil → tres días de métricas de cuenta → lista de
+  publicaciones con `maxPaginas` → publicaciones seleccionadas dentro de
+  `maxLlamadas`/`maxPublicaciones` → escritura de `cuenta-AAAA-MM.json`,
+  `publicaciones-AAAA-MM.json` y `estado.json`). Ante un límite de la API se
+  detiene sin lanzar y deja pendientes; repetir el día sobrescribe la
+  instantánea de ese día. `metricasCuentas` aplica el mismo aislamiento de
+  credenciales que PUBLICAR (`leerSecretos`, `--por-cuenta` en modo
+  Environment).
+- **Workflows**: `metricas.yml` (cron 30 5 * * *, un job por cuenta como en
+  fase 2, `timeout-minutes: 10`, `git add "data/$CUENTA/metricas"` y nada
+  más; el job `cuentas` usa `--solo-metricas`, así que sin cuentas con la
+  recogida encendida no corre ningún job de cuenta). La sonda vive en
+  `verificar.yml` (entrada `sonda_metricas`, solo en el job de esa cuenta).
+- **Panel**: vista Métricas (`/api/metricas` en local; en GitHub,
+  `leerMetricas` lee la carpeta una vez y solo los archivos de los dos últimos
+  meses, con la caché y el manejo de límites de 2.3b). Evolución
+  (instantáneas), métricas por día y rendimiento de publicaciones; cada `null`
+  se pinta con su motivo. Casilla "Recoger métricas a diario" en la ficha de
+  la cuenta.
+
 ### 2.8 Convenciones
 Node 20+ ESM en español; dependencias inyectables en todos los orquestadores
 (`fetchText`, `client`, `render`, `ilustrador`, `guardar`, `acortar`,
