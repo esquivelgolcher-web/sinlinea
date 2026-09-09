@@ -11,6 +11,7 @@
 <header class="cabecera">
   <div class="marca"><span class="marca-sin">SIN</span><span class="marca-linea">LÍNEA</span> <span class="marca-sub">panel</span></div>
   <div class="estado-token" id="estado-token" hidden></div>
+  <button class="boton-texto" id="boton-metricas" type="button">Métricas</button>
   <button class="boton-texto" id="boton-cuentas" type="button">Cuentas</button>
   <button class="boton-texto" id="boton-config" type="button">Configurar</button>
 </header>
@@ -36,6 +37,24 @@
   <nav class="pestanas" id="pestanas"></nav>
   <main class="lista" id="lista"><p class="vacio">Cargando…</p></main>
 </div>
+
+<!-- Métricas (fase 1) de la cuenta seleccionada: solo lectura de data/<cuenta>/metricas -->
+<section class="metricas" id="metricas" hidden>
+  <div class="maestro-cabecera">
+    <h2 id="metricas-titulo">Métricas</h2>
+    <button class="boton" id="metricas-actualizar" type="button">Actualizar</button>
+  </div>
+  <p class="nota-cuenta" id="metricas-nota" hidden></p>
+  <p class="nota" id="metricas-estado"></p>
+  <h3>Evolución de la cuenta (totales en cada consulta)</h3>
+  <div class="tabla-scroll"><table class="tabla" id="metricas-evolucion"><thead><tr><th>Fecha de consulta</th><th>Seguidores</th><th>Seguidos</th><th>Publicaciones</th><th>Permiso</th></tr></thead><tbody></tbody></table></div>
+  <div class="grafico" id="metricas-grafico"></div>
+  <h3>Métricas de cuenta por día (según Instagram)</h3>
+  <div class="tabla-scroll"><table class="tabla" id="metricas-por-dia"><thead><tr><th>Día</th><th>Alcance</th><th>Vistas</th><th>Interacciones</th><th>Cuentas que interactuaron</th><th>Visitas al perfil</th><th>Altas y bajas de seguidores</th><th>Seguidores nuevos</th><th>Clics en el sitio web</th><th>Consultado</th></tr></thead><tbody></tbody></table></div>
+  <h3>Rendimiento de las publicaciones (totales acumulados en la última consulta)</h3>
+  <p class="nota">La variación entre consultas es aproximada: depende de cuándo se consultó, no es la actividad exacta de un día.</p>
+  <div class="tabla-scroll"><table class="tabla" id="metricas-publicaciones"><thead><tr><th>Fecha</th><th>Publicación</th><th>Origen</th><th>Tipo</th><th>Me gusta</th><th>Comentarios</th><th>Alcance</th><th>Vistas</th><th>Guardados</th><th>Visitas al perfil</th><th>Compartidos</th><th>Interacciones</th><th>Última consulta</th></tr></thead><tbody></tbody></table></div>
+</section>
 
 <!-- Panel maestro: todas las cuentas -->
 <section class="maestro" id="maestro" hidden>
@@ -121,6 +140,11 @@
         <label>Nombre del secreto del id numérico (en GitHub) <input id="fc-id-secreto" autocomplete="off" spellcheck="false"></label>
       </div>
       <p class="nota" id="fc-secretos"></p>
+    </fieldset>
+    <fieldset>
+      <legend>Métricas</legend>
+      <label class="casilla"><input id="fc-metricas" type="checkbox"> <span>Recoger métricas a diario (solo lectura de Instagram)</span></label>
+      <small>Interruptor independiente de la generación y la publicación: se puede medir una cuenta con ambas apagadas. Los datos se guardan en <code>data/&lt;id&gt;/metricas/</code> y se ven en la vista Métricas; lo que Instagram no devuelve se muestra como "No disponible", nunca como 0.</small>
     </fieldset>
     <p class="error-texto" id="form-errores" hidden></p>
     <div class="acciones">

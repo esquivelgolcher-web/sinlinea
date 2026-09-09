@@ -230,3 +230,17 @@ test("(fase 2) workflowsPorCuenta detecta los workflows que construyen un job po
   assert.equal(workflowsPorCuenta([nuevo, viejo]), false, "basta uno antiguo para no afirmar nada");
   assert.equal(workflowsPorCuenta([]), false);
 });
+
+test("(métricas) el formulario lleva el interruptor recogerMetricas: apagado por defecto al crear, conservado al editar, separado de las automatizaciones", () => {
+  const nueva = configDesdeFormulario(datos);
+  assert.deepEqual(nueva.metricas, { recoger: false });
+  assert.deepEqual(nueva.automatico, { generar: false, publicar: false });
+  const base = { ...nueva, automatico: { generar: true, publicar: false }, metricas: { recoger: false, maxLlamadas: 80 } };
+  const encendida = configDesdeFormulario({ ...datos, recogerMetricas: true }, base);
+  assert.deepEqual(encendida.metricas, { recoger: true, maxLlamadas: 80 }, "conserva los límites declarados y solo cambia recoger");
+  assert.deepEqual(encendida.automatico, { generar: true, publicar: false }, "no toca generación ni publicación");
+  const f = formularioDesdeConfig("x", encendida, "");
+  assert.equal(f.recogerMetricas, true);
+  assert.equal(formularioDesdeConfig("x", { ...encendida, metricas: undefined }, "").recogerMetricas, false);
+  validarCuenta(encendida, "x");
+});

@@ -155,6 +155,9 @@ export function configDesdeFormulario(d, base = null) {
       tokenSecreto: String(d.tokenSecreto || "").trim() || base?.instagram?.tokenSecreto || nombresSecretosSugeridos(id).tokenSecreto,
       usuarioIdSecreto: String(d.usuarioIdSecreto || "").trim() || base?.instagram?.usuarioIdSecreto || nombresSecretosSugeridos(id).usuarioIdSecreto,
     },
+    // Recogida diaria de métricas: interruptor propio, apagado por defecto e independiente de automatico.*;
+    // los límites declarados (maxLlamadas, ventanaDias…) se conservan tal cual.
+    metricas: { ...(base?.metricas || {}), recoger: d.recogerMetricas === true },
   };
   return config;
 }
@@ -181,6 +184,7 @@ export function formularioDesdeConfig(id, c, editorialMd = "") {
     origen: origenDe(c),
     tokenSecreto: c.instagram?.tokenSecreto || nombresSecretosSugeridos(id).tokenSecreto,
     usuarioIdSecreto: c.instagram?.usuarioIdSecreto || nombresSecretosSugeridos(id).usuarioIdSecreto,
+    recogerMetricas: c.metricas?.recoger === true,
     editorialMd,
   };
 }
