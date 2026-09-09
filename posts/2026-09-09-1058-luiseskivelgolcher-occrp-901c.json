@@ -1,7 +1,7 @@
 {
   "id": "2026-09-09-1058-luiseskivelgolcher-occrp-901c",
   "cuenta": "luiseskivelgolcher",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "OCCRP",
     "url": "https://www.occrp.org/en/news/turkey-detains-24-in-belgium-linked-drug-trafficking-probe",
@@ -41,5 +41,5 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-09T15:58:23.658Z",
-  "actualizado": "2026-09-09T16:34:23.456Z"
+  "actualizado": "2026-09-09T18:17:29.372Z"
 }
