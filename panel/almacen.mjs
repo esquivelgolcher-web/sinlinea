@@ -33,6 +33,34 @@ export class ErrorConflictoArchivo extends Error {
 }
 
 export const WORKFLOWS_INSTAGRAM = [".github/workflows/publicar.yml", ".github/workflows/probar-instagram.yml"];
+
+// --- Límites de la API de GitHub (también con token: 5000 peticiones/hora por usuario y límites secundarios) ---
+// Una respuesta 403 con x-ratelimit-remaining: 0 (límite primario) o 429 (límite secundario) indica que hay que esperar.
+// Devuelve el instante (ms) en que se puede volver a consultar, o null si la respuesta no es un límite (un 403 sin esas
+// cabeceras es un error de permiso normal). Solo se leen cabeceras; nunca cuerpos con valores.
+export function limiteDeRespuesta(res, ahora = Date.now()) {
+  if (!res || (res.status !== 403 && res.status !== 429)) return null;
+  const cabecera = (k) => (typeof res.headers?.get === "function" ? res.headers.get(k) : null);
+  const restantes = cabecera("x-ratelimit-remaining");
+  const reinicio = Number(cabecera("x-ratelimit-reset"));
+  const espera = Number(cabecera("retry-after"));
+  if (res.status === 403 && restantes !== "0") return null;
+  if (espera > 0) return ahora + espera * 1000;
+  if (reinicio > 0) return reinicio * 1000;
+  return ahora + 60_000;
+}
+const horaLocal = (ms) => new Date(ms).toLocaleTimeString("es-PA", { hour: "2-digit", minute: "2-digit", hour12: false });
+export function mensajeLimite(reiniciaMs) {
+  return `GitHub limitó las consultas de la API para este token (límite de peticiones). Se reanudan a las ${horaLocal(reiniciaMs)}; `
+    + "hasta entonces el panel no vuelve a consultar. Evita recargar el panel muchas veces seguidas.";
+}
+export class ErrorLimiteApi extends Error {
+  constructor(reiniciaMs) {
+    super(mensajeLimite(reiniciaMs));
+    this.name = "ErrorLimiteApi";
+    this.reinicia = new Date(reiniciaMs).toISOString();
+  }
+}
 const PENDIENTE = (ahoraIso) => JSON.stringify({ estado: "pendiente", solicitada: ahoraIso }, null, 2) + "\n";
 
 export function crearAlmacenLocal() {
@@ -94,14 +122,35 @@ export function crearAlmacenLocal() {
   };
 }
 
-export function crearAlmacenGitHub({ token, owner, repo, rama = "main", fetchImpl = (...a) => fetch(...a) }) {
+export function crearAlmacenGitHub({ token, owner, repo, rama = "main", fetchImpl = (...a) => fetch(...a), ahora = () => Date.now(), vidaMetadatosMs = 10 * 60 * 1000 }) {
   const api = `https://api.github.com/repos/${owner}/${repo}`;
   const cabeceras = (extra = {}) => ({
     Accept: "application/vnd.github+json", "X-GitHub-Api-Version": "2022-11-28",
     ...(token ? { Authorization: `Bearer ${token}` } : {}), ...extra,
   });
+  // Todas las peticiones pasan por aquí: si GitHub devolvió un límite, no se vuelve a llamar a la API hasta la hora de
+  // reinicio (se falla en el acto con ErrorLimiteApi, sin gastar más peticiones) y el panel puede explicarlo.
+  let limiteHasta = 0;
+  const limiteActual = () => (limiteHasta > ahora() ? { reinicia: new Date(limiteHasta).toISOString(), mensaje: mensajeLimite(limiteHasta) } : null);
+  async function pedir(url, opciones) {
+    if (limiteHasta > ahora()) throw new ErrorLimiteApi(limiteHasta);
+    const res = await fetchImpl(url, opciones);
+    const l = limiteDeRespuesta(res, ahora());
+    if (l) { limiteHasta = l; throw new ErrorLimiteApi(l); }
+    return res;
+  }
+  // Metadatos de secretos ya consultados (por nombres): las recargas del panel tras guardar, archivar o verificar no los
+  // vuelven a pedir hasta que caducan (vidaMetadatosMs) o se piden frescos. Un límite de la API no se guarda.
+  const metadatos = new Map();
+  async function recordar(clave, frescos, consultar) {
+    const guardado = metadatos.get(clave);
+    if (!frescos && guardado && guardado.hasta > ahora()) return guardado.valor;
+    const valor = await consultar();
+    metadatos.set(clave, { valor, hasta: ahora() + vidaMetadatosMs });
+    return valor;
+  }
   async function leerArchivo(ruta) {
-    const res = await fetchImpl(`${api}/contents/${ruta}?ref=${rama}`, { headers: cabeceras() });
+    const res = await pedir(`${api}/contents/${ruta}?ref=${rama}`, { headers: cabeceras() });
     if (res.status === 404) return null;
     if (!res.ok) throw new Error(`GitHub respondió ${res.status} al leer ${ruta}`);
     const j = await res.json();
@@ -111,7 +160,7 @@ export function crearAlmacenGitHub({ token, owner, repo, rama = "main", fetchImp
     try { const a = await leerArchivo(ruta); return a ? JSON.parse(a.texto) : null; } catch { return null; }
   }
   async function subir(ruta, contentBase64, { sha = null, mensaje }) {
-    const res = await fetchImpl(`${api}/contents/${ruta}`, {
+    const res = await pedir(`${api}/contents/${ruta}`, {
       method: "PUT", headers: cabeceras({ "content-type": "application/json" }),
       body: JSON.stringify({ message: mensaje || `panel: ${ruta}`, content: contentBase64, ...(sha ? { sha } : {}), branch: rama }),
     });
@@ -123,31 +172,35 @@ export function crearAlmacenGitHub({ token, owner, repo, rama = "main", fetchImp
     if (!res.ok) throw new Error(`GitHub respondió ${res.status} al guardar ${ruta} (¿el token tiene permiso de escritura en Contents?)`);
     return (await res.json()).content.sha;
   }
-  const enviar = (ruta, metodo, cuerpo) => fetchImpl(`${api}/${ruta}`, { method: metodo, headers: cabeceras({ "content-type": "application/json" }), body: JSON.stringify(cuerpo) });
+  const enviar = (ruta, metodo, cuerpo) => pedir(`${api}/${ruta}`, { method: metodo, headers: cabeceras({ "content-type": "application/json" }), body: JSON.stringify(cuerpo) });
   // Metadatos de secretos (nombre y fecha de actualización; nunca valores): permiten saber si un secreto cambió después
   // de la última verificación. Necesita el permiso Secrets (lectura) en el token; sin él no se afirma nada.
-  async function leerSecretosActualizados(nombres) {
+  async function leerSecretosActualizados(nombres, { frescos = false } = {}) {
     if (!token) return { disponible: false, actualizados: null };
-    const actualizados = {};
-    for (const n of nombres) {
-      const res = await fetchImpl(`${api}/actions/secrets/${n}`, { headers: cabeceras() });
-      if (res.status === 404) { actualizados[n] = null; continue; }
-      if (!res.ok) return { disponible: false, actualizados: null };
-      actualizados[n] = (await res.json()).updated_at || null;
-    }
-    return { disponible: true, actualizados };
+    return recordar(`repo|${[...nombres].sort().join(",")}`, frescos, async () => {
+      const actualizados = {};
+      for (const n of nombres) {
+        const res = await pedir(`${api}/actions/secrets/${n}`, { headers: cabeceras() });
+        if (res.status === 404) { actualizados[n] = null; continue; }
+        if (!res.ok) return { disponible: false, actualizados: null };
+        actualizados[n] = (await res.json()).updated_at || null;
+      }
+      return { disponible: true, actualizados };
+    });
   }
   // Secretos de un Environment (fase 2): mismos metadatos, endpoint de entornos. Permiso: Environments (lectura).
-  async function leerSecretosDeEntorno(entorno, nombres) {
+  async function leerSecretosDeEntorno(entorno, nombres, { frescos = false } = {}) {
     if (!token) return { disponible: false, actualizados: null };
-    const actualizados = {};
-    for (const n of nombres) {
-      const res = await fetchImpl(`${api}/environments/${entorno}/secrets/${n}`, { headers: cabeceras() });
-      if (res.status === 404) { actualizados[n] = null; continue; }
-      if (!res.ok) return { disponible: false, actualizados: null };
-      actualizados[n] = (await res.json()).updated_at || null;
-    }
-    return { disponible: true, actualizados };
+    return recordar(`entorno|${entorno}|${[...nombres].sort().join(",")}`, frescos, async () => {
+      const actualizados = {};
+      for (const n of nombres) {
+        const res = await pedir(`${api}/environments/${entorno}/secrets/${n}`, { headers: cabeceras() });
+        if (res.status === 404) { actualizados[n] = null; continue; }
+        if (!res.ok) return { disponible: false, actualizados: null };
+        actualizados[n] = (await res.json()).updated_at || null;
+      }
+      return { disponible: true, actualizados };
+    });
   }
   const sufijo = (id) => String(id).toUpperCase().replace(/[^A-Z0-9]+/g, "_").replace(/^_+|_+$/g, "");
   const nombresDe = (id, config) => (config?.instagram?.origen === "entorno"
@@ -161,15 +214,15 @@ export function crearAlmacenGitHub({ token, owner, repo, rama = "main", fetchImp
   // Si la rama avanzó entre la lectura y el commit (la ref no avanza en línea recta), se rehace todo sobre la punta nueva.
   async function escribirArchivos(archivos, { mensaje = "panel: cambios de cuenta" } = {}) {
     for (let intento = 0; intento < 3; intento++) {
-      const ref = await fetchImpl(`${api}/git/ref/heads/${rama}`, { headers: cabeceras() });
+      const ref = await pedir(`${api}/git/ref/heads/${rama}`, { headers: cabeceras() });
       if (!ref.ok) throw new Error(`GitHub respondió ${ref.status} al leer la rama ${rama}`);
       const head = (await ref.json()).object.sha;
-      const commitBase = await fetchImpl(`${api}/git/commits/${head}`, { headers: cabeceras() });
+      const commitBase = await pedir(`${api}/git/commits/${head}`, { headers: cabeceras() });
       if (!commitBase.ok) throw new Error(`GitHub respondió ${commitBase.status} al leer el commit ${head}`);
       const arbolBase = (await commitBase.json()).tree.sha;
       for (const a of archivos) {
         if (a.sha === undefined) continue;
-        const res = await fetchImpl(`${api}/contents/${a.ruta}?ref=${head}`, { headers: cabeceras() });
+        const res = await pedir(`${api}/contents/${a.ruta}?ref=${head}`, { headers: cabeceras() });
         if (!res.ok && res.status !== 404) throw new Error(`GitHub respondió ${res.status} al leer ${a.ruta}`);
         const actual = res.status === 404 ? null : await res.json();
         const version = actual ? { texto: actual.content ? desdeBase64Utf8(actual.content) : null, sha: actual.sha } : null;
@@ -199,11 +252,11 @@ export function crearAlmacenGitHub({ token, owner, repo, rama = "main", fetchImp
   return {
     modo: "github",
     async listar() {
-      const res = await fetchImpl(`${api}/contents/posts?ref=${rama}`, { headers: cabeceras() });
+      const res = await pedir(`${api}/contents/posts?ref=${rama}`, { headers: cabeceras() });
       if (!res.ok) throw new Error(`GitHub respondió ${res.status} al listar posts (¿token válido?)`);
       const entradas = (await res.json()).filter((e) => e.type === "file" && e.name.endsWith(".json"));
       return Promise.all(entradas.map(async (e) => {
-        const r = await fetchImpl(`${api}/contents/posts/${e.name}?ref=${rama}`, { headers: cabeceras({ Accept: "application/vnd.github.raw+json" }) });
+        const r = await pedir(`${api}/contents/posts/${e.name}?ref=${rama}`, { headers: cabeceras({ Accept: "application/vnd.github.raw+json" }) });
         if (!r.ok) throw new Error(`GitHub respondió ${r.status} al leer ${e.name}`);
         return { post: await r.json(), sha: e.sha };
       }));
@@ -213,7 +266,7 @@ export function crearAlmacenGitHub({ token, owner, repo, rama = "main", fetchImp
       return a ? { post: JSON.parse(a.texto), sha: a.sha } : null;
     },
     async guardar(post, sha) {
-      const res = await fetchImpl(`${api}/contents/posts/${post.id}.json`, {
+      const res = await pedir(`${api}/contents/posts/${post.id}.json`, {
         method: "PUT", headers: cabeceras({ "content-type": "application/json" }),
         body: JSON.stringify({ message: `panel: ${post.estado} ${post.id}`, content: base64Utf8(JSON.stringify(post, null, 2) + "\n"), sha, branch: rama }),
       });
@@ -229,6 +282,7 @@ export function crearAlmacenGitHub({ token, owner, repo, rama = "main", fetchImp
     escribirArchivos,
     leerSecretosActualizados,
     leerSecretosDeEntorno,
+    limiteActual,
     async escribirArchivo(ruta, texto, { sha = null, mensaje } = {}) {
       return subir(ruta, base64Utf8(texto), { sha, mensaje });
     },
@@ -237,12 +291,13 @@ export function crearAlmacenGitHub({ token, owner, repo, rama = "main", fetchImp
     },
     // Lista de cuentas leída en vivo del repositorio (config global + config de cada cuenta + estado de conexión).
     // La editorial se lee aparte, al abrir el formulario.
-    async listarCuentas() {
+    // `frescos: true` vuelve a consultar los metadatos de secretos aunque estén guardados (p. ej. tras guardar un secreto).
+    async listarCuentas({ frescos = false } = {}) {
       const g = await leerArchivo("config.json");
       if (!g) throw new Error("No se encontró config.json en el repositorio");
       const global = JSON.parse(g.texto);
       const cuentas = await Promise.all((global.cuentas || []).map(async (id) => {
-        const dir = await fetchImpl(`${api}/contents/cuentas/${id}?ref=${rama}`, { headers: cabeceras() });
+        const dir = await pedir(`${api}/contents/cuentas/${id}?ref=${rama}`, { headers: cabeceras() });
         if (!dir.ok) return { id, config: null, sha: null, editorialSha: null, logo: false, conexion: null, tokenInfo: null, error: `GitHub respondió ${dir.status} al leer cuentas/${id}` };
         const entradas = await dir.json();
         const nombres = new Set(entradas.map((e) => e.name));
@@ -260,25 +315,28 @@ export function crearAlmacenGitHub({ token, owner, repo, rama = "main", fetchImp
       // Fechas de actualización de los secretos de cada cuenta (si el token puede leerlas), según su origen.
       const deRepo = cuentas.filter((c) => c.config && c.config.instagram?.origen !== "entorno");
       const nombres = [...new Set(deRepo.flatMap((c) => { const n = nombresDe(c.id, c.config); return [n.tokenSecreto, n.usuarioIdSecreto]; }))];
-      const meta = nombres.length ? await leerSecretosActualizados(nombres).catch(() => ({ disponible: false, actualizados: null })) : { disponible: false, actualizados: null };
+      // Lecturas opcionales: si fallan (sin permiso, o límite de la API) no se afirma nada sobre los secretos y la lista
+      // se devuelve igual. Con límite, pedir() deja de llamar a la API en el acto, así que no se gastan más peticiones.
+      const sinMetadatos = { disponible: false, actualizados: null };
+      const meta = nombres.length ? await leerSecretosActualizados(nombres, { frescos }).catch(() => sinMetadatos) : sinMetadatos;
       for (const c of cuentas) {
         if (!c.config) { c.secretosActualizados = null; continue; }
         const n = nombresDe(c.id, c.config);
         if (n.entorno) {
-          const m = await leerSecretosDeEntorno(n.entorno, [n.tokenSecreto, n.usuarioIdSecreto]).catch(() => ({ disponible: false, actualizados: null }));
+          const m = limiteActual() ? sinMetadatos : await leerSecretosDeEntorno(n.entorno, [n.tokenSecreto, n.usuarioIdSecreto], { frescos }).catch(() => sinMetadatos);
           c.secretosActualizados = m.disponible ? m.actualizados : null;
         } else {
           c.secretosActualizados = meta.disponible ? { [n.tokenSecreto]: meta.actualizados[n.tokenSecreto] ?? null, [n.usuarioIdSecreto]: meta.actualizados[n.usuarioIdSecreto] ?? null } : null;
         }
       }
-      return { global, globalSha: g.sha, cuentas, secretosLegibles: meta.disponible, workflows: { archivos: WORKFLOWS_INSTAGRAM.filter((_, i) => workflows[i]), textos: workflows.filter(Boolean).map((a) => a.texto) } };
+      return { global, globalSha: g.sha, cuentas, secretosLegibles: meta.disponible, limite: limiteActual(), workflows: { archivos: WORKFLOWS_INSTAGRAM.filter((_, i) => workflows[i]), textos: workflows.filter(Boolean).map((a) => a.texto) } };
     },
     // Marca la cuenta como pendiente y lanza el workflow "Probar Instagram" (workflow_dispatch) para esa cuenta.
     async solicitarVerificacion(cuenta, ahoraIso = new Date().toISOString()) {
       const ruta = `data/${cuenta}/conexion.json`;
       const actual = await leerArchivo(ruta);
       await subir(ruta, base64Utf8(PENDIENTE(ahoraIso)), { sha: actual?.sha || null, mensaje: `panel: verificación solicitada para ${cuenta}` });
-      const res = await fetchImpl(`${api}/actions/workflows/probar-instagram.yml/dispatches`, {
+      const res = await pedir(`${api}/actions/workflows/probar-instagram.yml/dispatches`, {
         method: "POST", headers: cabeceras({ "content-type": "application/json" }),
         body: JSON.stringify({ ref: rama, inputs: { cuenta } }),
       });

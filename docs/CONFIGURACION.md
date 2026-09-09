@@ -86,6 +86,15 @@ no requiere revisión de Meta.
 2. En el celular abre `https://<tu-usuario>.github.io/sinlinea/panel/` →
    **Configurar** → pega el token → **Guardar y conectar**. Queda guardado solo en ese
    navegador. Repite en cada dispositivo desde el que quieras aprobar.
+3. **Límites de la API de GitHub.** También con token hay un tope (5000
+   peticiones por hora por usuario, más límites secundarios). El panel los
+   gestiona solo: guarda en memoria los metadatos de secretos ya consultados
+   (10 minutos; recargar la página los vuelve a pedir), no repite consultas al
+   guardar, archivar o verificar, y si GitHub responde con un límite (403 con
+   `x-ratelimit-remaining: 0` o 429) deja de consultar hasta la hora de
+   reinicio y lo dice en pantalla ("GitHub limitó las consultas… se reanudan a
+   las HH:MM"). Sin token el tope es de 60 peticiones por hora por IP, así que
+   el panel en modo solo lectura se agota rápido: conecta el token.
 
 ## 6b. Variables y secretos: resumen y verificación
 

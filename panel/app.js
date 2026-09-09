@@ -136,9 +136,9 @@ function cuentaParaPanel(c) {
     archivada: cfg.archivada === true,
   };
 }
-async function cargarCuentas() {
+async function cargarCuentas({ frescos = false } = {}) {
   try {
-    const info = await estado.almacen.listarCuentas();
+    const info = await estado.almacen.listarCuentas({ frescos });
     estado.cuentasInfo = info;
     const validas = info.cuentas.filter((c) => c.config);
     if (validas.length) {
@@ -484,6 +484,9 @@ function pintarMaestro() {
   const nota = $("nota-maestro");
   if (!info) { grid.replaceChildren(el("p", { class: "vacio", text: "Cargando…" })); return; }
   if (info.error) { nota.hidden = false; nota.textContent = `No se pudo leer la configuración de las cuentas: ${info.error}`; }
+  // Límite de la API de GitHub a mitad de la carga: las cuentas se muestran, pero el estado de los secretos puede no
+  // estar al día y el panel no vuelve a consultar hasta la hora indicada.
+  else if (info.limite) { nota.hidden = false; nota.textContent = `${info.limite.mensaje} Los estados de conexión pueden no estar al día.`; }
   else if (soloLectura()) { nota.hidden = false; nota.textContent = "Sin token: puedes ver las cuentas pero no crear, editar ni archivar. Pulsa Configurar."; }
   else if (esLocal()) { nota.hidden = false; nota.textContent = "Modo local: los cambios se escriben en la carpeta del proyecto. Verificar identidad solo marca la cuenta como pendiente; el workflow corre en GitHub."; }
   else nota.hidden = true;
@@ -496,8 +499,8 @@ function pintarMaestro() {
   $("cuentas-archivadas").replaceChildren(...archivadas.map(tarjetaCuenta));
 }
 
-async function refrescarCuentas() {
-  await cargarCuentas();
+async function refrescarCuentas({ frescos = false } = {}) {
+  await cargarCuentas({ frescos });
   if (!configPanel.cuentas.some((c) => c.id === estado.cuenta)) elegirCuentaInicial();
   pintar();
   pintarMaestro();
@@ -811,5 +814,6 @@ cargarConfigPanel().then(async () => {
 setInterval(() => {
   const hayRegenerando = estado.items.some((x) => ["borrador", "programado", "error"].includes(x.post.estado)
     && (imagenDesactualizada(x.post) || generandoIlustracion(x.post.ilustracion) || regenerandoIlustracion(x.post.ilustracion)));
+  if (estado.almacen.limiteActual?.()) return; // límite de la API de GitHub: no insistir hasta la hora de reinicio
   if (hayRegenerando && !document.querySelector("dialog[open]") && estado.borradores.size === 0 && estado.vista === "posts") cargar();
 }, 30000);

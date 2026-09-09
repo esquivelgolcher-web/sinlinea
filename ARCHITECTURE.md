@@ -95,6 +95,14 @@ cabecera alterna entre la primera y la segunda; la elección se recuerda.
   `data/<id>/token-info.json`. `panel/config.json` (generado por `build.mjs`)
   queda solo como reserva si esa lectura falla. La editorial se lee al abrir el
   formulario.
+  Toda petición a GitHub pasa por `pedir()` en `panel/almacen.mjs`: si una
+  respuesta es un límite de la API (403 con `x-ratelimit-remaining: 0` o 429,
+  `limiteDeRespuesta`), se anota la hora de reinicio, no se vuelve a llamar a
+  la API hasta entonces (`ErrorLimiteApi` inmediato, sin gastar peticiones) y
+  `listarCuentas()` devuelve `limite` para que la vista lo explique. Los
+  metadatos de secretos (nombres y fechas, nunca valores) se guardan en
+  memoria 10 minutos y se reutilizan en las recargas tras guardar, archivar o
+  verificar; `listarCuentas({ frescos: true })` los vuelve a pedir.
 - **Tarjeta por cuenta.** Logo (o iniciales con los colores de la marca),
   nombre, @, id, idioma; estado de generación y de publicación automáticas por
   separado; estado de conexión; contadores de borradores y programados (de los
