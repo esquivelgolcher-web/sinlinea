@@ -1,8 +1,8 @@
 {
-  "estado": "error",
-  "usuario": null,
-  "comprobado": "2026-09-09T17:52:08.943Z",
-  "detalle": "la API respondió con error: message \"API access blocked.\" · code 200 · error_subcode - · type OAuthException",
+  "estado": "verificada",
+  "usuario": "luiseskivelgolcher",
+  "comprobado": "2026-09-09T18:11:12.891Z",
+  "detalle": null,
   "secretos": {
     "tokenSecreto": "IG_ACCESS_TOKEN",
     "usuarioIdSecreto": "IG_USER_ID",
