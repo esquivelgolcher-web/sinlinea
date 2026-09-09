@@ -99,6 +99,8 @@ test("(sonda) metricasCuentas --sin-guardar corre aunque metricas.recoger sea fa
   const raiz = raizConCuentas({ cuentas: ["sinlinea", "luiseskivelgolcher"], prefijo: "sonda-" });
   const rutaCfg = path.join(raiz, "cuentas/luiseskivelgolcher/config.json");
   const cfg = JSON.parse(fs.readFileSync(rutaCfg, "utf8"));
+  cfg.instagram = { ...(cfg.instagram || {}), origen: "entorno" }; // esta prueba ejercita el modo Environment
+  fs.writeFileSync(rutaCfg, JSON.stringify(cfg, null, 2) + "\n");
   assert.equal(cfg.automatico.generar, false); assert.equal(cfg.automatico.publicar, false);
   assert.notEqual(cfg.metricas?.recoger, true);
   const configuracion = cargarConfiguracion(raiz);

@@ -58,6 +58,7 @@ function raizMetricas({ metricas = { recoger: true }, posts = [] } = {}) {
   const cfg = JSON.parse(fs.readFileSync(rutaCfg, "utf8"));
   cfg.automatico = { generar: false, publicar: false };
   cfg.metricas = metricas;
+  cfg.instagram = { ...(cfg.instagram || {}), origen: "entorno" }; // estas pruebas ejercitan el modo Environment
   fs.writeFileSync(rutaCfg, JSON.stringify(cfg, null, 2) + "\n");
   fs.writeFileSync(path.join(raiz, "data/luiseskivelgolcher/seen.json"), "{}\n");
   for (const p of posts) fs.writeFileSync(path.join(raiz, "posts", `${p.id}.json`), JSON.stringify(p, null, 2) + "\n");

@@ -6,7 +6,8 @@ import fs from "node:fs";
 import path from "node:path";
 import { raizConCuentas } from "./ayuda/cuentas.mjs";
 
-const configuracion = cargarConfiguracion(".");
+// Raíz de pruebas: las cuentas reales pueden migrar de origen (Environment); el ayudante las deja en modo repositorio.
+const configuracion = cargarConfiguracion(raizConCuentas({ cuentas: ["sinlinea", "luiseskivelgolcher"], prefijo: "probar-ig-" }));
 const token = "IGAAR" + "x".repeat(60);
 const env = { IG_ACCESS_TOKEN: token, IG_USER_ID: "1784", IG_ACCESSTOKEN_LUISESKIVELGOLCHER: token + "L", IG_USER_ID_LUISESKIVELGOLCHER: "9999" };
 
