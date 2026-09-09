@@ -34,6 +34,7 @@
 <div id="vista-posts">
   <nav class="cuentas" id="cuentas" hidden></nav>
   <p class="nota-cuenta" id="nota-cuenta" hidden></p>
+  <div class="barra-acciones"><button class="boton" id="boton-nuevo-borrador" type="button">Nuevo borrador</button></div>
   <nav class="pestanas" id="pestanas"></nav>
   <main class="lista" id="lista"><p class="vacio">Cargando…</p></main>
 </div>
@@ -141,10 +142,15 @@
       </div>
       <p class="nota" id="fc-secretos"></p>
     </fieldset>
-    <fieldset>
-      <legend>Métricas</legend>
+    <fieldset id="fc-automatizaciones">
+      <legend>Automatizaciones (independientes entre sí)</legend>
+      <label class="casilla"><input id="fc-generar" type="checkbox"> <span>Generación automática de borradores</span></label>
+      <small>Cada 3 horas Claude redacta borradores a partir de las fuentes y la línea editorial de esta cuenta (coste por corrida en Claude y, si están activas, en Gemini). Requiere <code>editorial.md</code> con contenido y al menos una fuente. Nada se publica solo: los borradores esperan tu aprobación.</small>
+      <label class="casilla"><input id="fc-publicar" type="checkbox"> <span>Publicación automática en Instagram</span></label>
+      <small>Cada 30 minutos publica los posts programados cuya hora llegó. Requiere identidad verificada (Probar Instagram) para el usuario configurado. Apagada, los programados esperan en cola; al encenderla se te preguntará qué hacer con los vencidos.</small>
       <label class="casilla"><input id="fc-metricas" type="checkbox"> <span>Recoger métricas a diario (solo lectura de Instagram)</span></label>
-      <small>Interruptor independiente de la generación y la publicación: se puede medir una cuenta con ambas apagadas. Los datos se guardan en <code>data/&lt;id&gt;/metricas/</code> y se ven en la vista Métricas; lo que Instagram no devuelve se muestra como "No disponible", nunca como 0.</small>
+      <small>Se puede medir una cuenta con la generación y la publicación apagadas. Los datos se guardan en <code>data/&lt;id&gt;/metricas/</code> y se ven en la vista Métricas; lo que Instagram no devuelve se muestra como "No disponible", nunca como 0.</small>
+      <p class="nota" id="fc-requisitos" hidden></p>
     </fieldset>
     <p class="error-texto" id="form-errores" hidden></p>
     <div class="acciones">
@@ -153,6 +159,48 @@
     </div>
   </form>
 </section>
+
+<!-- Borrador manual: mismo post que crea src/borrador.mjs, sin imagen (REGENERAR la dibuja) -->
+<dialog id="dialogo-borrador">
+  <form id="form-borrador" method="dialog" novalidate>
+    <h3 id="nb-titulo-dialogo">Nuevo borrador</h3>
+    <p class="nota">Crea un borrador para la cuenta seleccionada con tu propio texto. No usa Claude. La imagen se dibuja en la siguiente corrida de REGENERAR; lo apruebas y programas como cualquier otro.</p>
+    <div class="fila">
+      <label>Categoría <select id="nb-categoria"></select></label>
+      <label>Variante <select id="nb-variante"><option value="">Automática</option><option value="negro">Negro</option><option value="amarillo">Amarillo</option><option value="rojo">Rojo</option></select></label>
+    </div>
+    <label>Titular <input id="nb-titular" autocomplete="off" maxlength="65"></label>
+    <label>Bajada <input id="nb-bajada" autocomplete="off" maxlength="110"></label>
+    <label>Caption <textarea id="nb-caption" rows="4"></textarea></label>
+    <label>Hashtags (separados por espacios o comas) <input id="nb-hashtags" autocomplete="off" placeholder="#Panamá #Economía"></label>
+    <div class="fila">
+      <label>Medio de la fuente <input id="nb-medio" autocomplete="off" placeholder="La Prensa"></label>
+      <label>Fecha de la noticia <input id="nb-publicado" type="datetime-local"></label>
+    </div>
+    <label>URL de la fuente <input id="nb-url" autocomplete="off" placeholder="https://…"></label>
+    <label>Título de la noticia (opcional) <input id="nb-titulo-fuente" autocomplete="off"></label>
+    <label>Escena para la ilustración (opcional) <textarea id="nb-escena" rows="2"></textarea></label>
+    <p class="error-texto" id="nb-errores" hidden></p>
+    <div class="acciones">
+      <button class="boton" value="cancelar" type="button" id="nb-cancelar">Cancelar</button>
+      <button class="boton primario" type="submit" id="nb-crear">Crear borrador</button>
+    </div>
+  </form>
+</dialog>
+
+<!-- Programados vencidos que saldrían al reactivar la publicación: el operador decide antes -->
+<dialog id="dialogo-vencidos">
+  <form method="dialog">
+    <h3>Programados vencidos</h3>
+    <p class="nota" id="dv-texto"></p>
+    <ul class="lista-simple" id="dv-lista"></ul>
+    <div class="acciones">
+      <button class="boton" value="cancelar" type="submit">Cancelar (no activar)</button>
+      <button class="boton" value="quitar" type="submit" id="dv-quitar">Quitar de la cola y activar</button>
+      <button class="boton primario" value="publicar" type="submit" id="dv-publicar">Mantener: se publican en la próxima corrida</button>
+    </div>
+  </form>
+</dialog>
 
 <dialog id="dialogo-hora">
   <form method="dialog">

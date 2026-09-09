@@ -159,6 +159,13 @@ letras, dígitos y guion bajo (por ejemplo, la cuenta `otro-medio` usa
 
 ## 6c. Cuentas: cómo funciona y cómo añadir otra
 
+Desde el cierre del Panel Maestro (2026-09-09), **Añadir cuenta** en el panel
+crea la cuenta en modo Environment (`instagram.origen: "entorno"`) con
+generación, publicación y métricas apagadas, y su tarjeta muestra la guía de
+conexión con el nombre exacto del Environment, los dos secretos y los enlaces
+a GitHub y Meta. Los interruptores de la tarjeta aplican la activación segura
+descrita en GUIA.md.
+
 Cada cuenta de Instagram vive en `cuentas/<id>/` (id en minúsculas, dígitos y
 guiones) con tres archivos:
 

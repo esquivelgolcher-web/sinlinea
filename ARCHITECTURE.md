@@ -203,6 +203,22 @@ cabecera alterna entre la primera y la segunda; la elección se recuerda.
   expresamente, y la cola sigue sin publicarse (PUBLICAR la deja en espera). El
   panel lo recuerda al reactivar, con el número de programados en cola.
 
+- **Cierre del producto (2026-09-09).** `src/lib/cuenta.mjs` suma las
+  reglas de gestión de principio a fin: `requisitosGeneracion` (editorial.md
+  con contenido y una fuente válida), `requisitosPublicacion` (identidad
+  verificada para el usuario configurado, vía `estadoConexion`),
+  `postsVencidos` (programados con la hora pasada que saldrían al reactivar),
+  `guiaConexion` (Environment y secretos exactos, enlaces a GitHub y pasos en
+  Meta; solo nombres), `resumenActividad` (último borrador, última
+  publicación, última recogida y último error a partir de posts, conexión y
+  `metricas/estado.json`) y `borradorDesdeFormulario` (el mismo post que crea
+  `src/borrador.mjs`, sin Node). El panel las usa en la tarjeta (interruptores
+  rápidos con activación segura y diálogo de vencidos, guía desplegable,
+  actividad), en el formulario (casillas de generación, publicación y
+  métricas) y en el diálogo "Nuevo borrador". Las cuentas nuevas nacen en
+  modo Environment. `/api/cuentas` y `listarCuentas` incluyen
+  `metricasEstado`.
+
 ### 2.4 PUBLICAR (`src/publicar.mjs`)
 Cada 30 minutos toma los posts `programado` cuya hora ya pasó y los publica con
 `lib/instagram.mjs` (contenedor → sondeo → publicación → permalink), usando la

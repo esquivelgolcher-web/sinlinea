@@ -191,6 +191,7 @@ export function crearServidor({ raiz = process.cwd(), log = console } = {}) {
             conexion: leerJsonSiExiste(path.join(raiz, "data", id, "conexion.json")),
             conexionSha: fs.existsSync(path.join(raiz, "data", id, "conexion.json")) ? shaDeBlob(fs.readFileSync(path.join(raiz, "data", id, "conexion.json"))) : null,
             tokenInfo: leerJsonSiExiste(path.join(raiz, "data", id, "token-info.json")),
+            metricasEstado: leerJsonSiExiste(path.join(raiz, "data", id, "metricas", "estado.json")),
             secretosActualizados: null, // en local no hay GitHub: no se afirma nada sobre los secretos
             error,
           };

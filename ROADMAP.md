@@ -379,7 +379,7 @@ cuenta.
 
 ---
 
-## M3b · Panel maestro (fase 1 hecha; fases 2-5 pendientes)
+## M3b · Panel maestro (producto cerrado el 2026-09-09: fases 1, 2 y 3 hechas; fases 4-5 pendientes)
 
 **Objetivo.** Administrar y añadir cuentas desde la interfaz, y sentar la base
 de las métricas por cuenta, sin backend ni servicios de pago mientras el
@@ -389,6 +389,16 @@ repositorio y GitHub Actions basten.
 archivo y verificación de identidad desde el panel; estado de conexión en
 `data/<id>/conexion.json`; persistencia con bloqueo por sha y conservación de
 lo escrito ante errores. Detalle en ARCHITECTURE.md 2.3b.
+
+**Cierre como producto (2026-09-09).** Gestión de cuentas de principio a fin
+desde el panel: alta sin herencia (modo Environment, todo apagado), guía de
+conexión con nombres exactos y enlaces (los valores solo en GitHub),
+interruptores de generación, publicación y métricas independientes con
+activación segura (requisitos editoriales; identidad verificada; decisión
+sobre programados vencidos), borrador manual, actividad y último error por
+cuenta, archivado y reactivación. Recorrido completo probado con cuentas sin
+credenciales en escritorio y móvil (`tests/panel-cierre.e2e.mjs`). Sigue en
+Meta y GitHub: generar el token y pegar los dos secretos.
 
 **Fase 2 · Secretos por cuenta sin tocar workflows (1,5-2 días). Desplegada el 2026-09-09; `luiseskivelgolcher` migrada ese día; Sin Línea pendiente de token nuevo.**
 Plan detallado, reparto de pasos (panel / GitHub / permisos), migración de las

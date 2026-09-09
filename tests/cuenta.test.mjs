@@ -244,3 +244,13 @@ test("(métricas) el formulario lleva el interruptor recogerMetricas: apagado po
   assert.equal(formularioDesdeConfig("x", { ...encendida, metricas: undefined }, "").recogerMetricas, false);
   validarCuenta(encendida, "x");
 });
+
+test("(cierre) configDesdeFormulario aplica los interruptores del formulario cuando vienen como booleanos; sin ellos conserva lo de la cuenta (o apagado al crear)", () => {
+  assert.deepEqual(configDesdeFormulario(datos).automatico, { generar: false, publicar: false });
+  assert.deepEqual(configDesdeFormulario({ ...datos, generar: true, publicar: false }).automatico, { generar: true, publicar: false });
+  const base = { ...configDesdeFormulario(datos), automatico: { generar: true, publicar: true } };
+  assert.deepEqual(configDesdeFormulario(datos, base).automatico, { generar: true, publicar: true }, "sin casillas se conserva");
+  assert.deepEqual(configDesdeFormulario({ ...datos, generar: false, publicar: true }, base).automatico, { generar: false, publicar: true });
+  const f = formularioDesdeConfig("x", base, "");
+  assert.equal(f.generar, true); assert.equal(f.publicar, true);
+});

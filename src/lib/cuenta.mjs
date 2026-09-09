@@ -133,8 +133,11 @@ export function configDesdeFormulario(d, base = null) {
     nombre: String(d.nombre || "").trim(),
     idioma: d.idioma || base?.idioma || IDIOMA_POR_DEFECTO,
     zonaHoraria: d.zonaHoraria || base?.zonaHoraria || ZONA_POR_DEFECTO,
-    // Al crear, todo apagado; al editar se conserva exactamente lo que la cuenta declaraba (incluso nada).
-    automatico: base ? base.automatico : { generar: false, publicar: false },
+    // Interruptores: si el formulario los trae como booleanos, mandan; si no, al crear todo apagado y al editar se
+    // conserva exactamente lo que la cuenta declaraba (incluso nada).
+    automatico: typeof d.generar === "boolean" || typeof d.publicar === "boolean"
+      ? { generar: d.generar === true, publicar: d.publicar === true }
+      : (base ? base.automatico : { generar: false, publicar: false }),
     marca,
     editorial: { temas, tono: String(d.tono || "").trim() },
     fuentes: (d.fuentes || []).map((f) => ({
@@ -185,6 +188,8 @@ export function formularioDesdeConfig(id, c, editorialMd = "") {
     tokenSecreto: c.instagram?.tokenSecreto || nombresSecretosSugeridos(id).tokenSecreto,
     usuarioIdSecreto: c.instagram?.usuarioIdSecreto || nombresSecretosSugeridos(id).usuarioIdSecreto,
     recogerMetricas: c.metricas?.recoger === true,
+    generar: c.automatico?.generar !== false,
+    publicar: c.automatico?.publicar !== false,
     editorialMd,
   };
 }

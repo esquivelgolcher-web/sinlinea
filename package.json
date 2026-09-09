@@ -8,7 +8,7 @@
   "scripts": {
     "test": "node --test",
     "test:render": "node --test tests/render.integration.mjs tests/logo.integration.mjs",
-    "test:e2e": "node --test tests/panel.e2e.mjs tests/panel-maestro.e2e.mjs tests/panel-metricas.e2e.mjs",
+    "test:e2e": "node --test tests/panel.e2e.mjs tests/panel-maestro.e2e.mjs tests/panel-metricas.e2e.mjs tests/panel-cierre.e2e.mjs",
     "generar": "node src/generar.mjs",
     "regenerar": "node src/regenerar.mjs",
     "publicar": "node src/publicar.mjs",

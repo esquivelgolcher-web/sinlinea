@@ -39,6 +39,47 @@ En cada tarjeta puedes:
 - **Quitar de la cola**: vuelve a Borradores un post programado.
 - **Reintentar**: en un post con error de Instagram, lo vuelve a poner en cola.
 
+## Gestionar cuentas desde el panel (Panel Maestro)
+
+Pulsa **Cuentas** en la cabecera. Cada tarjeta muestra la conexión con
+Instagram, si la generación y la publicación están activas, los borradores y
+programados, el último borrador generado, la última publicación, la última
+recogida de métricas y el último error, con botones para abrir su panel de
+posts y sus métricas.
+
+Todo esto se hace enteramente desde el panel:
+
+- **Añadir cuenta**: nombre, usuario de Instagram, identificador, idioma,
+  línea editorial (temas, tono y el texto completo de `editorial.md`),
+  fuentes, horarios, colores, logo, ilustraciones y origen de las
+  credenciales. Nada se hereda de otra cuenta; la nueva nace con generación,
+  publicación y métricas apagadas y en modo Environment `cuenta-<id>`.
+- **Editar** cualquiera de esos datos, con las tres casillas de
+  automatizaciones (independientes entre sí y explicadas en el formulario).
+- **Encender o pausar** la generación y la publicación desde la tarjeta.
+  Encender la generación exige `editorial.md` con contenido y al menos una
+  fuente; encender la publicación exige la identidad verificada del usuario
+  configurado y, si hay programados vencidos, decidir antes si se mantienen
+  (saldrán en la próxima corrida) o vuelven a borradores.
+- **Nuevo borrador** en el panel de posts: tu propio titular, bajada, caption,
+  hashtags y fuente; la imagen se dibuja en la siguiente corrida de REGENERAR
+  y lo apruebas y programas como cualquier otro. No usa Claude.
+- **Aprobar, programar, quitar de la cola, descartar**, y **archivar** o
+  **reactivar** una cuenta (siempre reactivada con todo apagado y su cola
+  intacta).
+- **Verificar identidad**: lanza el workflow Probar Instagram y muestra el
+  resultado (usuario e id numérico) en la tarjeta.
+
+Lo que sigue necesitando Meta o GitHub (la tarjeta lo guía con los nombres
+exactos y enlaces; los valores de los secretos nunca pasan por el panel):
+
+- En **Meta for Developers**: añadir la cuenta como Instagram Tester en la
+  app y pulsar Generate token para obtener su token.
+- En **GitHub**: crear el Environment `cuenta-<id>` y pegar en él los
+  secretos `IG_ACCESS_TOKEN` e `IG_USER_ID` (o, en modo actual, los dos
+  secretos de repositorio con el nombre que declara la cuenta). Hace falta
+  ser administrador del repositorio. `GH_PAT` debe existir una vez.
+
 ## Ilustraciones
 Cada post puede llevar una ilustración generada con IA (Gemini) en vez de la
 variante de color de fondo. Es opcional y se controla desde la propia tarjeta:

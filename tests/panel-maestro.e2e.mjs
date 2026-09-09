@@ -115,7 +115,10 @@ test("(maestro) Añadir cuenta crea config, editorial y la lista global; empieza
     await page.fill("#fc-franjas", "09:00, 18:00");
     await page.selectOption("#fc-logo-forma", "cuadrado");
     assert.equal(await page.inputValue("#fc-token-secreto"), "IG_ACCESS_TOKEN_NUEVO_MEDIO", "nombres de secretos sugeridos y editables");
-    assert.match(await page.textContent("#fc-secretos"), /Modo actual.*IG_ACCESS_TOKEN_NUEVO_MEDIO/);
+    assert.equal(await page.inputValue("#fc-origen"), "entorno", "(cierre) las cuentas nuevas nacen en modo Environment");
+    assert.match(await page.textContent("#fc-secretos"), /cuenta-nuevo-medio/);
+    await page.selectOption("#fc-origen", "repositorio");
+    assert.match(await page.textContent("#fc-secretos"), /Modo actual.*IG_ACCESS_TOKEN_NUEVO_MEDIO/, "el modo actual sigue disponible con los nombres sugeridos");
     // Fase 2: la cuenta nueva elige el Environment cuenta-<id>; los nombres fijos sustituyen a los propios
     await page.selectOption("#fc-origen", "entorno");
     await page.waitForFunction(() => document.getElementById("fc-nombres-secretos").hidden === true);

@@ -8,7 +8,7 @@ import {
   IDIOMAS, IDIOMA_POR_DEFECTO, ZONA_POR_DEFECTO, COLORES_POR_DEFECTO, LOGO_TAMANO, FRANJAS_POR_DEFECTO, ESTILO_ILUSTRACION_POR_DEFECTO,
   idSugerido, normalizarUsuario, nombresSecretosSugeridos, erroresDeCuenta, plantillaEditorial, configDesdeFormulario, formularioDesdeConfig,
   archivarCuenta, reactivarCuenta, estadoConexion, secretosExpuestos, secretosExpuestosComunes, workflowsPorCuenta, fechaCortaUtc,
-  describirOrigen, nombreEntorno,
+  describirOrigen, nombreEntorno, requisitosGeneracion, requisitosPublicacion, postsVencidos, guiaConexion, resumenActividad, borradorDesdeFormulario,
 } from "./lib/cuenta.mjs";
 import { crearAlmacenLocal, crearAlmacenGitHub, deducirRepo, ErrorConflicto, ErrorConflictoArchivo } from "./almacen.mjs";
 import { seriesDeCuenta, rendimientoDePublicaciones, textoValor, textoMotivo } from "./lib/metricas.mjs";
@@ -539,11 +539,31 @@ function tarjetaCuenta(c) {
         disabled: conexion.clave === "pendiente-configuracion" ? "" : null,
         title: conexion.clave === "pendiente-configuracion" ? "Sus secretos todavía no llegan a los workflows: la verificación no puede pasar" : "Marca la cuenta como pendiente y lanza el workflow Probar Instagram",
       }));
+      acciones.append(el("button", { type: "button", class: "boton", "data-accion": "generar", text: auto.generar ? "Pausar generación" : "Encender generación", title: auto.generar ? "Claude deja de redactar borradores para esta cuenta; los existentes se conservan" : "Cada 3 horas Claude redacta borradores; exige editorial.md y fuentes", onclick: () => cambiarAutomatico(c.id, "generar", !auto.generar) }));
+      acciones.append(el("button", { type: "button", class: "boton", "data-accion": "publicar", text: auto.publicar ? "Pausar publicación" : "Encender publicación", title: auto.publicar ? "Los programados quedan en cola sin publicarse" : "Publica los programados cuya hora llegó; exige identidad verificada y decidir sobre los vencidos", onclick: () => cambiarAutomatico(c.id, "publicar", !auto.publicar) }));
+      acciones.append(el("button", { type: "button", class: "boton", text: "Métricas", onclick: () => { seleccionarCuenta(c.id); mostrarVista("metricas"); } }));
       acciones.append(el("button", { type: "button", class: "boton peligro", text: "Archivar", onclick: () => archivar(c.id) }));
     } else {
       acciones.append(el("button", { type: "button", class: "boton", text: "Reactivar", onclick: () => reactivar(c.id) }));
     }
   }
+  // Actividad (de lo ya guardado: posts, conexión, estado de métricas) y guía de conexión (solo nombres y enlaces).
+  const actividad = resumenActividad({ posts, cuenta: c.id, conexion: c.conexion, metricasEstado: c.metricasEstado || null });
+  const fechaO = (iso, vacio) => (iso ? `${fechaCortaUtc(iso)} UTC` : vacio);
+  const repo = repoActual();
+  const guia = guiaConexion({ config: cfg, id: c.id, owner: repo?.owner || null, repo: repo?.repo || null });
+  const enlace = (href, texto) => (href ? el("a", { href, target: "_blank", rel: "noopener", text: texto }) : el("span", { text: `${texto} (repositorio no configurado)` }));
+  const guiaDetalles = el("details", { class: "guia-conexion" }, [
+    el("summary", { text: `Guía de conexión: ${guia.origen === "entorno" ? `Environment ${guia.entorno}` : "secretos del repositorio"} · ${guia.secretos.join(" e ")}` }),
+    el("p", { class: "nota", text: "Los valores de los secretos nunca pasan por el panel: se pegan en GitHub. Aquí solo van los nombres exactos y los enlaces." }),
+    el("ol", {}, guia.pasos.map((p) => el("li", { text: p }))),
+    el("p", { class: "enlaces" }, [
+      enlace(guia.enlaces.meta, "Meta for Developers"),
+      guia.origen === "entorno" ? enlace(guia.enlaces.nuevoEntorno, `Crear Environment ${guia.entorno}`) : enlace(guia.enlaces.secretosRepositorio, "Nuevo secreto del repositorio"),
+      guia.origen === "entorno" ? enlace(guia.enlaces.entornos, "Environments del repositorio") : "",
+      enlace(guia.enlaces.probar, "Workflow Probar Instagram"),
+    ]),
+  ]);
   return el("article", { class: `cuenta-tarjeta${archivada ? " archivada" : ""}`, "data-cuenta": c.id }, [
     el("div", { class: "cuenta-encabezado" }, [
       logoMini(c),
@@ -563,6 +583,9 @@ function tarjetaCuenta(c) {
     el("p", { class: "cuenta-secretos", text: `Credenciales de Instagram: ${describirOrigen(cfg, c.id)}` }),
     conexion.fecha ? el("p", { class: "cuenta-fecha", text: `Última comprobación: ${fechaCortaUtc(conexion.fecha)} UTC` }) : "",
     conexion.detalle && !archivada ? el("p", { class: `cuenta-detalle${conexion.antigua ? " antigua" : ""}`, text: conexion.detalle }) : "",
+    el("p", { class: "cuenta-actividad", text: `Último borrador generado: ${fechaO(actividad.ultimoBorrador, "ninguno")} · Última publicación: ${fechaO(actividad.ultimaPublicacion, "ninguna")} · Última recogida de métricas: ${fechaO(actividad.ultimaRecogida, cfg.metricas?.recoger === true ? "pendiente" : "recogida apagada")}` }),
+    actividad.errores.length ? el("p", { class: "cuenta-errores", text: `Último error: ${actividad.errores[0].texto}${actividad.errores[0].cuando ? ` (${fechaCortaUtc(actividad.errores[0].cuando)} UTC)` : ""}${actividad.errores.length > 1 ? ` · ${actividad.errores.length - 1} más` : ""}` }) : "",
+    conexion.clave === "verificada" || archivada ? "" : guiaDetalles,
     acciones,
   ]);
 }
@@ -650,6 +673,103 @@ async function guardarConfigCuenta(id, transformar, mensaje) {
   return false;
 }
 
+// --- Cierre del panel maestro: interruptores seguros, vencidos, guía y borrador manual ------------------------------
+// Repositorio de GitHub para los enlaces de la guía: el configurado en el panel o el deducido de pages.baseUrl.
+function repoActual() {
+  const owner = (!esLocal() && localStorage.getItem("sinlinea.owner")) || null;
+  const repo = (!esLocal() && localStorage.getItem("sinlinea.repo")) || null;
+  if (owner && repo) return { owner, repo };
+  try { const u = new URL(estado.cuentasInfo?.global?.pages?.baseUrl || configPanel.baseUrl || ""); return deducirRepo(u) || deducirRepo(location); } catch { return deducirRepo(location); }
+}
+
+// Programados vencidos de la cuenta: se muestran y se pide una decisión antes de encender la publicación.
+// Devuelve "publicar" (se mantienen y saldrán en la próxima corrida), "quitar" (vuelven a borradores) o null (cancelar).
+function decidirVencidos(id) {
+  const vencidos = postsVencidos(estado.items.map((x) => x.post), id, ahoraIso());
+  if (!vencidos.length) return Promise.resolve("ninguno");
+  const dialogo = $("dialogo-vencidos");
+  $("dv-texto").textContent = `${vencidos.length} programado${vencidos.length === 1 ? "" : "s"} de esta cuenta ya pasaron de hora y se publicarían en la próxima corrida (cada 30 minutos) al encender la publicación. Decide qué hacer con ellos antes de activarla.`;
+  $("dv-lista").replaceChildren(...vencidos.map((p) => el("li", { text: `${claveDia(p.programado)} ${horaMinutoDeIso(p.programado)} · ${p.titular}` })));
+  dialogo.returnValue = "cancelar";
+  dialogo.showModal();
+  return new Promise((resolve) => {
+    dialogo.addEventListener("close", async () => {
+      const r = dialogo.returnValue;
+      if (r === "quitar") {
+        for (const p of vencidos) {
+          const item = estado.items.find((x) => x.post.id === p.id);
+          await ejecutar(p.id, item?.sha ?? null, (post) => quitarDeCola(post, ahoraIso()));
+        }
+        resolve("quitar");
+      } else if (r === "publicar") resolve("publicar");
+      else resolve(null);
+    }, { once: true });
+  });
+}
+
+// Interruptor rápido desde la tarjeta: misma activación segura que el formulario. Nunca toca el otro interruptor.
+async function cambiarAutomatico(id, clave, valor) {
+  const c = estado.cuentasInfo?.cuentas.find((x) => x.id === id);
+  if (!c?.config) return;
+  if (valor) {
+    let faltan = [];
+    if (clave === "generar") {
+      let editorialMd = c.editorial;
+      if (editorialMd === undefined || editorialMd === null) { try { editorialMd = (await estado.almacen.leerArchivo(`cuentas/${id}/editorial.md`))?.texto || ""; } catch { editorialMd = ""; } }
+      faltan = requisitosGeneracion({ config: c.config, editorialMd });
+    } else {
+      faltan = requisitosPublicacion({ config: c.config, id, conexion: c.conexion, tokenInfo: c.tokenInfo, ahora: new Date() });
+    }
+    if (faltan.length) { avisar(`No se puede encender la ${clave === "generar" ? "generación" : "publicación"} de ${c.config.nombre}: ${faltan.join(" · ")}`, 15000); return; }
+    if (clave === "publicar") {
+      const decision = await decidirVencidos(id);
+      if (decision === null) { avisar("Publicación no activada: cancelaste la decisión sobre los programados vencidos.", 8000); return; }
+    }
+  }
+  const ok = await guardarConfigCuenta(id, (cfg) => ({ ...cfg, automatico: { generar: cfg.automatico?.generar !== false, publicar: cfg.automatico?.publicar !== false, ...(cfg.automatico || {}), [clave]: valor } }), `panel: ${clave} ${valor ? "encendida" : "pausada"} en ${id}`);
+  if (ok) avisar(`${clave === "generar" ? "Generación" : "Publicación"} de ${c.config.nombre}: ${valor ? "encendida" : "pausada"}.`, 6000);
+}
+
+// Borrador manual desde el panel para la cuenta seleccionada.
+$("nb-categoria").replaceChildren(...CATEGORIAS.map((k) => el("option", { value: k, text: k })));
+$("boton-nuevo-borrador").addEventListener("click", () => {
+  const cfg = configDeCuenta(estado.cuenta);
+  if (soloLectura()) { avisar("Sin token: el panel está en modo solo lectura.", 6000); return; }
+  if (cfg.archivada) { avisar(`${cfg.nombre} está archivada: reactívala antes de crear borradores.`, 8000); return; }
+  $("nb-titulo-dialogo").textContent = `Nuevo borrador · ${cfg.nombre}`;
+  for (const k of ["nb-titular", "nb-bajada", "nb-caption", "nb-hashtags", "nb-medio", "nb-url", "nb-titulo-fuente", "nb-escena"]) $(k).value = "";
+  $("nb-variante").value = "";
+  $("nb-publicado").value = new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().slice(0, 16);
+  $("nb-errores").hidden = true;
+  $("dialogo-borrador").showModal();
+});
+$("nb-cancelar").addEventListener("click", () => $("dialogo-borrador").close("cancelar"));
+$("form-borrador").addEventListener("submit", async (ev) => {
+  ev.preventDefault();
+  const cfg = configDeCuenta(estado.cuenta);
+  const entrada = {
+    categoria: $("nb-categoria").value, titular: $("nb-titular").value.trim(), bajada: $("nb-bajada").value.trim(), caption: $("nb-caption").value.trim(),
+    hashtags: $("nb-hashtags").value.split(/[\s,]+/).map((h) => h.trim()).filter(Boolean),
+    fuente: { medio: $("nb-medio").value.trim(), url: $("nb-url").value.trim(), titulo: $("nb-titulo-fuente").value.trim(), publicado: $("nb-publicado").value ? new Date($("nb-publicado").value).toISOString() : "" },
+    escena: $("nb-escena").value.trim(),
+  };
+  let post;
+  try {
+    post = borradorDesdeFormulario(entrada, { cuenta: estado.cuenta, zona: cfg.zonaHoraria, ahora: new Date(), variante: $("nb-variante").value || null, ilustracionesActivas: cfg.ilustraciones?.activo !== false, postsExistentes: estado.items.map((x) => x.post) });
+  } catch (err) { $("nb-errores").hidden = false; $("nb-errores").textContent = err.message; return; }
+  $("nb-crear").disabled = true;
+  try {
+    const sha = await estado.almacen.guardar(post);
+    estado.items.unshift({ post, sha });
+    estado.pestana = "borrador";
+    $("dialogo-borrador").close("creado");
+    pintar();
+    avisar(`Borrador creado: ${post.titular}. La imagen se dibuja en la próxima corrida de REGENERAR.`, 8000);
+  } catch (err) {
+    $("nb-errores").hidden = false; $("nb-errores").textContent = `No se pudo guardar: ${err.message}`;
+  } finally { $("nb-crear").disabled = false; }
+});
+
 // --- Formulario de cuenta -------------------------------------------------------
 const ZONAS = ["America/Panama", "America/Bogota", "America/Mexico_City", "America/Lima", "America/Santiago", "America/Argentina/Buenos_Aires", "America/Costa_Rica", "America/Guatemala", "America/Caracas", "America/Santo_Domingo", "America/New_York", "Europe/Madrid", "UTC"];
 $("fc-idioma").replaceChildren(...IDIOMAS.map(([codigo, nombre]) => el("option", { value: codigo, text: `${nombre} (${codigo})` })));
@@ -697,6 +817,8 @@ function leerFormulario() {
     tokenSecreto: $("fc-token-secreto").value.trim(),
     usuarioIdSecreto: $("fc-id-secreto").value.trim(),
     recogerMetricas: $("fc-metricas").checked,
+    generar: $("fc-generar").checked,
+    publicar: $("fc-publicar").checked,
   };
 }
 
@@ -723,6 +845,9 @@ function rellenarFormulario(d) {
   $("fc-token-secreto").value = d.tokenSecreto || "";
   $("fc-id-secreto").value = d.usuarioIdSecreto || "";
   $("fc-metricas").checked = d.recogerMetricas === true;
+  $("fc-generar").checked = d.generar === true;
+  $("fc-publicar").checked = d.publicar === true;
+  $("fc-requisitos").hidden = true;
   $("fc-logo").value = "";
   $("fc-logo-previa").replaceChildren();
   $("fc-logo-nota").textContent = "";
@@ -795,7 +920,8 @@ async function abrirFormulario(modo, id = null) {
     estado.formulario = { modo, id: null, base: null, shas: {}, editorialManual: false, idManual: false, secretosManuales: false, logoBase64: null };
     $("fc-titulo").textContent = "Añadir cuenta";
     $("fc-id").readOnly = false;
-    rellenarFormulario({ idioma: IDIOMA_POR_DEFECTO, zonaHoraria: estado.cuentasInfo?.global?.zonaHoraria || ZONA_POR_DEFECTO, franjas: FRANJAS_POR_DEFECTO, colores: COLORES_POR_DEFECTO, logoForma: "circulo", logoTamano: LOGO_TAMANO.porDefecto, ilustracionesActivo: true, estiloIlustracion: ESTILO_ILUSTRACION_POR_DEFECTO, rotulo: "", fuentes: [] });
+    // Cuenta nueva: valores por defecto (nada se hereda de otra cuenta), origen Environment cuenta-<id> (fase 2) y todo apagado.
+    rellenarFormulario({ idioma: IDIOMA_POR_DEFECTO, zonaHoraria: estado.cuentasInfo?.global?.zonaHoraria || ZONA_POR_DEFECTO, franjas: FRANJAS_POR_DEFECTO, colores: COLORES_POR_DEFECTO, logoForma: "circulo", logoTamano: LOGO_TAMANO.porDefecto, ilustracionesActivo: true, estiloIlustracion: ESTILO_ILUSTRACION_POR_DEFECTO, rotulo: "", fuentes: [], origen: "entorno", generar: false, publicar: false, recogerMetricas: false });
     $("fc-editorial-nota").textContent = "Se redacta solo a partir de los temas y el tono hasta que lo edites a mano.";
     regenerarEditorialSiAuto();
   } else {
@@ -855,9 +981,24 @@ async function guardarFormulario(d) {
   const f = estado.formulario;
   const id = d.id;
   const config = configDesdeFormulario(d, f.base);
+  // Al editar una cuenta que no declaraba `automatico`, si las casillas siguen en su valor efectivo (encendidas) no se
+  // inventa el bloque; en cuanto el operador cambia algo, se escribe explícito.
+  if (f.modo === "editar" && f.base && f.base.automatico === undefined && d.generar === true && d.publicar === true) delete config.automatico;
   const textoConfig = JSON.stringify(config, null, 2) + "\n";
   const editorial = d.editorialMd.trim() ? d.editorialMd.replace(/\r\n/g, "\n").replace(/\n*$/, "\n") : plantillaEditorial(d);
   const accion = f.modo === "crear" ? "alta" : "edición";
+  // Activación segura: encender la generación exige requisitos editoriales; encender la publicación, identidad verificada
+  // y una decisión sobre los programados vencidos que saldrían en la próxima corrida.
+  const antesAuto = { generar: f.base?.automatico?.generar !== false && f.modo === "editar", publicar: f.base?.automatico?.publicar !== false && f.modo === "editar" };
+  const faltan = [];
+  const enciende = (k) => (config.automatico ? config.automatico[k] === true : d[k] === true) && !antesAuto[k];
+  if (enciende("generar")) faltan.push(...requisitosGeneracion({ config, editorialMd: editorial }).map((m) => `generación: ${m}`));
+  if (enciende("publicar")) faltan.push(...requisitosPublicacion({ config, id, conexion: f.conexion, ahora: new Date() }).map((m) => `publicación: ${m}`));
+  if (faltan.length) throw new Error(`No se puede activar: ${faltan.join(" · ")}`);
+  if (enciende("publicar")) {
+    const decision = await decidirVencidos(id);
+    if (decision === null) throw new Error("Publicación no activada: cancelaste la decisión sobre los programados vencidos.");
+  }
   const archivos = [
     { clave: "config", ruta: `cuentas/${id}/config.json`, texto: textoConfig, sha: f.shas.config ?? null },
     { clave: "editorial", ruta: `cuentas/${id}/editorial.md`, texto: editorial, sha: f.shas.editorial ?? null },
