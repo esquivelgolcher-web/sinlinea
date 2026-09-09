@@ -12,6 +12,8 @@ on:
       - "data/**"
       - "public/img/**"
       - "public/ilus/**"
+      - "docs/**"
+      - "*.md"
       - "README.md"
       - "GUIA.md"
       - "docs/**"

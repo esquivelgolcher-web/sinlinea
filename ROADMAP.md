@@ -138,6 +138,16 @@ configurable por cuenta (`idioma`, `es-PA` por defecto).
   credenciales pendientes; "Conexión pendiente de configuración" para cuentas
   cuyos secretos no llegan a los workflows. Suites: 270 unitarias, 18 de render
   + 1 de logo, 15 de panel.
+- **Fase 1 DESPLEGADA (2026-09-09, push `d035139` rebasado sobre los commits del
+  bot)**: GENERAR corrió con el código nuevo (2 borradores para Sin Línea; la
+  cuenta personal omitida por `generar-desactivado`) y desplegó el panel en
+  Pages. Cierre de fase 1: recuperación de escrituras interrumpidas en local
+  (diario + reejecución; garantía documentada en ARCHITECTURE 2.3b) y detección
+  de secretos actualizados después de la última comprobación (metadatos de
+  GitHub, permiso opcional Secrets: lectura). Verificación de identidad
+  confirmada: usuario e id numérico, repetida por PUBLICAR antes de publicar.
+  Cuentas de prueba solo en `tests/fixtures/`, nunca en `cuentas/` ni en
+  `config.json`. Suites: 273 unitarias, 18 de render + 1 de logo, 15 de panel.
 - **Sin Línea sigue pausada** (`automatico.publicar = false`, 10 programados
   en cola) y **@luiseskivelgolcher con generación y publicación apagadas**
   (contenido: investigación y actualidad con contexto; sin ajedrez ni vida
@@ -354,7 +364,10 @@ archivo y verificación de identidad desde el panel; estado de conexión en
 `data/<id>/conexion.json`; persistencia con bloqueo por sha y conservación de
 lo escrito ante errores. Detalle en ARCHITECTURE.md 2.3b.
 
-**Fase 2 · Secretos por cuenta sin tocar workflows (1-2 días). Siguiente.**
+**Fase 2 · Secretos por cuenta sin tocar workflows (1,5-2 días). Siguiente.**
+Plan detallado, reparto de pasos (panel / GitHub / permisos), migración de las
+dos cuentas y recuperación ante fallos en
+[docs/superpowers/specs/2026-09-09-fase2-entornos-por-cuenta-design.md](docs/superpowers/specs/2026-09-09-fase2-entornos-por-cuenta-design.md).
 
 *Objetivo.* Que dar de alta una cuenta desde el panel baste para verificarla y
 publicar, sin editar código ni workflows por cada cuenta, y que cada job reciba
