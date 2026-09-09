@@ -164,8 +164,9 @@ async function pintarMetricas({ frescos = false } = {}) {
   const publicaciones = rendimientoDePublicaciones(archivos.filter((a) => a.publicaciones));
   const cruda = estado.cuentasInfo?.cuentas?.find((c) => c.id === estado.cuenta)?.config;
   const recogida = cruda?.metricas?.recoger === true ? "encendida" : "apagada";
-  const permiso = series.permiso === "basico+insights" ? "básico + estadísticas" : (series.permiso === "basico" ? "básico (sin estadísticas)" : "sin comprobar");
-  const partes = [`Última consulta: ${fechaConsulta(series.ultimaConsulta)}`, `Permiso vigente: ${permiso}`, `Recogida diaria: ${recogida} (metricas.recoger, independiente de la generación y la publicación)`];
+  // El permiso se infiere de las respuestas de la API (Instagram Login no permite consultar los permisos de un token).
+  const permiso = series.permiso === "basico+insights" ? "básico + estadísticas (inferido: la API respondió a las consultas de estadísticas)" : (series.permiso === "basico" ? "básico (inferido: la API rechazó las estadísticas por falta de permiso)" : "sin comprobar");
+  const partes = [`Última consulta: ${fechaConsulta(series.ultimaConsulta)}`, `Permiso: ${permiso}`, `Recogida diaria: ${recogida} (metricas.recoger, independiente de la generación y la publicación)`];
   const estadoCorrida = datos.estado;
   if (estadoCorrida && estadoCorrida.completo === false) partes.push(`Última corrida incompleta: ${textoMotivo(estadoCorrida.motivoIncompleto)}${estadoCorrida.pendientes?.length ? `; publicaciones pendientes: ${estadoCorrida.pendientes.length}` : ""}`);
   partes.push("Instagram puede tardar hasta 48 h en consolidar los datos de un día; las métricas por día se vuelven a consultar durante tres días.");

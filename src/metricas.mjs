@@ -49,7 +49,9 @@ export async function sondearMetricas({ cuenta, ig, dia = null, ahora = new Date
 export function lineasDeSonda(informe) {
   const l = [];
   const v = (e) => textoValor(e?.valor ?? null, e?.motivo ?? "no-solicitado");
-  l.push(`--- sonda de métricas · cuenta ${informe.cuentaId} · métricas de cuenta del día ${informe.dia} (UTC) · permiso vigente: ${informe.permiso === "basico" ? "básico" : "básico + estadísticas"} · llamadas: ${informe.llamadas}`);
+  // El permiso no se consulta a la API (Instagram Login no expone los permisos del token): se infiere de si las
+  // consultas de estadísticas respondieron con datos o con el error de permiso (código 10).
+  l.push(`--- sonda de métricas · cuenta ${informe.cuentaId} · métricas de cuenta del día ${informe.dia} (UTC) · permiso vigente (inferido por las respuestas, no consultado): ${informe.permiso === "basico" ? "básico" : "básico + estadísticas"} · llamadas: ${informe.llamadas}`);
   const p = informe.perfil || {};
   l.push(`perfil (permiso básico) · seguidores: ${textoValor(p.seguidores)} · seguidos: ${textoValor(p.seguidos)} · publicaciones: ${textoValor(p.publicaciones)}`);
   l.push(`publicaciones en la primera página: ${informe.medios.total}${informe.medios.haySiguiente ? " (hay más páginas)" : ""}`);
@@ -101,7 +103,7 @@ export async function recogerMetricas({ config, ig, raiz = process.cwd(), ahora 
     const dia = diasAtras(ahora, n);
     if (quedan() < 2) { incompleto("presupuesto-agotado"); break; }
     try {
-      const r = await ig.insightsCuenta({ metricas: metricasCuenta, desde: dia, hasta: diasAtras(ahora, n - 1) });
+      const r = await ig.insightsCuenta({ metricas: metricasCuenta, desde: dia, hasta: diasAtras(ahora, n - 1), maxLlamadas: quedan() });
       porDia.push({ dia, valores: r.valores, faltantes: r.faltantes });
       if (metricasCuenta.every((m) => r.faltantes[m] === "sin-permiso-insights")) permiso = "basico";
     } catch (err) {
@@ -153,7 +155,7 @@ export async function recogerMetricas({ config, ig, raiz = process.cwd(), ahora 
     const excluidas = new Set(noSoportadas[tipo] || []);
     const metricas = [...GRUPOS.medioFeed, ...(tipo === "VIDEO" ? GRUPOS.medioReel : [])].filter((x) => !excluidas.has(x));
     let r;
-    try { r = await ig.insightsMedio(m.id, { metricas }); }
+    try { r = await ig.insightsMedio(m.id, { metricas, maxLlamadas: quedan() }); } // los reintentos caben o no en lo que queda
     catch (err) {
       if (!(err instanceof ErrorLimiteInstagram)) throw err;
       limiteApi = err; incompleto("limite-llamadas"); pendientes.unshift(...seleccion.ahora.slice(i).map((x) => x.id)); break;

@@ -58,7 +58,7 @@ test("(sonda) sin permiso de estadísticas: el perfil y la lista de medios sí l
   assert.match(texto, /publicaciones en la primera página: 2/);
   assert.ok(texto.includes(`reach: ${textoMotivo("sin-permiso-insights")}`), "la línea de reach lleva el motivo completo");
   assert.match(texto, /cuenta luiseskivelgolcher ·/);
-  assert.match(texto, /permiso vigente: básico/);
+  assert.match(texto, /permiso vigente \(inferido por las respuestas, no consultado\): básico/, "el permiso se infiere de las respuestas; Instagram Login no permite consultarlo");
   assert.doesNotMatch(texto, /TOKEN|access_token/);
 });
 

@@ -192,10 +192,13 @@ export function crearClienteInstagram({
     const citadas = m[1].split(",").map((x) => x.trim()).filter(Boolean);
     return metricas.filter((x) => citadas.includes(x));
   }
-  async function pedirInsights(metricas, url, params) {
+  // `maxLlamadas`: presupuesto de esta lectura (llamada inicial incluida). Los reintentos por métricas rechazadas son como
+  // máximo dos y solo si caben en el presupuesto; los errores de autenticación (190) y de límite se lanzan sin reintentar.
+  async function pedirInsights(metricas, url, params, { maxLlamadas = 3 } = {}) {
+    const maxReintentos = Math.max(0, Math.min(2, Math.floor(maxLlamadas) - 1));
     const noSoportadas = [];
     let pendientes = [...metricas];
-    for (let intento = 0; intento <= 2; intento++) {
+    for (let intento = 0; intento <= maxReintentos; intento++) {
       try {
         const r = extraerInsights(pendientes, await llamar("GET", url, { ...params, metric: pendientes.join(",") }));
         for (const m of noSoportadas) { r.valores[m] = null; r.faltantes[m] = "metrica-no-soportada"; }
@@ -203,10 +206,10 @@ export function crearClienteInstagram({
       } catch (err) {
         const rechazadas = metricasRechazadas(err, pendientes);
         const resto = pendientes.filter((m) => !rechazadas.includes(m));
-        if (!rechazadas.length || !resto.length || intento === 2) {
-          const r = insightsFallidos(pendientes, err);
+        if (!rechazadas.length || !resto.length || intento === maxReintentos) {
+          const r = insightsFallidos(pendientes, err); // lanza si es autenticación o límite
           for (const m of noSoportadas) { r.valores[m] = null; r.faltantes[m] = "metrica-no-soportada"; }
-          return { ...r, noSoportadas: [...noSoportadas, ...(rechazadas.length ? rechazadas : [])] };
+          return { ...r, noSoportadas: [...noSoportadas, ...rechazadas] };
         }
         noSoportadas.push(...rechazadas);
         pendientes = resto;
@@ -217,13 +220,13 @@ export function crearClienteInstagram({
   const unix = (dia) => String(Math.floor(Date.parse(`${dia}T00:00:00Z`) / 1000));
 
   // Métricas de cuenta por período (period=day, metric_type=total_value) entre dos fechas (AAAA-MM-DD, UTC).
-  async function insightsCuenta({ metricas, desde, hasta }) {
-    return pedirInsights(metricas, `${base}/${usuarioId}/insights`, { period: "day", metric_type: "total_value", since: unix(desde), until: unix(hasta) });
+  async function insightsCuenta({ metricas, desde, hasta, maxLlamadas }) {
+    return pedirInsights(metricas, `${base}/${usuarioId}/insights`, { period: "day", metric_type: "total_value", since: unix(desde), until: unix(hasta) }, { maxLlamadas });
   }
 
   // Totales acumulados de un medio desde su publicación (la API no acepta period aquí).
-  async function insightsMedio(idMedia, { metricas }) {
-    return pedirInsights(metricas, `${base}/${idMedia}/insights`, {});
+  async function insightsMedio(idMedia, { metricas, maxLlamadas }) {
+    return pedirInsights(metricas, `${base}/${idMedia}/insights`, {}, { maxLlamadas });
   }
 
   const llamadasHechas = () => llamadas;

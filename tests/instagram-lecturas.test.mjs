@@ -167,3 +167,31 @@ test("(métricas · hallazgo real 2) la API también rechaza con 'does not suppo
   assert.equal(g.llamadas.length, 3);
   assert.deepEqual(r2.faltantes, { a: "metrica-no-soportada", b: "metrica-no-soportada", c: "metrica-no-soportada", d: "metrica-no-soportada" });
 });
+
+test("(métricas · presupuesto) los reintentos por métricas rechazadas cuentan dentro del presupuesto (maxLlamadas) y nunca se aplican a errores de autenticación ni de límite", async () => {
+  const rechazo = errorApi(100, "Instagram Insights Media API endpoint does not support the metrics: reposts.");
+  const ok = { json: { data: [{ name: "reach", period: "lifetime", values: [{ value: 400 }] }] } };
+  // Presupuesto 1: no cabe ningún reintento → todo lo pedido queda no soportado y solo hay una llamada.
+  const a = fetchFalso([rechazo, ok]);
+  const ig1 = crearClienteInstagram({ ...opciones, fetchImpl: a.impl });
+  const r1 = await ig1.insightsMedio("18001", { metricas: ["reach", "reposts"], maxLlamadas: 1 });
+  assert.equal(a.llamadas.length, 1);
+  assert.deepEqual(r1.faltantes, { reach: "metrica-no-soportada", reposts: "metrica-no-soportada" });
+  assert.deepEqual(r1.noSoportadas, ["reposts"], "lo citado por la API se recuerda aunque no haya reintento");
+  // Presupuesto 2: cabe exactamente un reintento.
+  const b = fetchFalso([rechazo, ok]);
+  const ig2 = crearClienteInstagram({ ...opciones, fetchImpl: b.impl });
+  const r2 = await ig2.insightsMedio("18001", { metricas: ["reach", "reposts"], maxLlamadas: 2 });
+  assert.equal(b.llamadas.length, 2);
+  assert.deepEqual(r2.valores, { reach: 400, reposts: null });
+  assert.equal(ig2.llamadasHechas(), 2);
+  // Un 190 (autenticación) en el reintento se lanza tal cual, sin más intentos; un límite también.
+  const c = fetchFalso([rechazo, errorApi(190, "Invalid OAuth access token.", { error_subcode: 463 }), ok]);
+  const ig3 = crearClienteInstagram({ ...opciones, fetchImpl: c.impl });
+  await assert.rejects(() => ig3.insightsMedio("18001", { metricas: ["reach", "reposts"] }), (e) => e.codigo === 190);
+  assert.equal(c.llamadas.length, 2);
+  const d = fetchFalso([rechazo, errorApi(80002, "(#80002) There have been too many calls to this Instagram account."), ok]);
+  const ig4 = crearClienteInstagram({ ...opciones, fetchImpl: d.impl });
+  await assert.rejects(() => ig4.insightsCuenta({ metricas: ["reach", "reposts"], desde: "2026-09-09", hasta: "2026-09-10" }), (e) => e instanceof ErrorLimiteInstagram);
+  assert.equal(d.llamadas.length, 2);
+});
