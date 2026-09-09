@@ -1,0 +1,47 @@
+{
+  "id": "2026-09-09-0738-sinlinea-la-estrella-6c52",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/deportes/futbol/thomas-christiansen-seguira-con-la-seleccion-de-panama-hasta-el-2030-NB25534988",
+    "titulo": "Thomas Christiansen seguirá con la selección de Panamá hasta el 2030",
+    "publicado": "2026-09-08T21:26:00.000Z"
+  },
+  "categoria": "DEPORTES",
+  "titular": "Christiansen sigue con la Selección de Panamá hasta 2030",
+  "bajada": "La Fepafut renovó al técnico con miras al Mundial 2030 y a la Copa Oro 2027.",
+  "caption": "La Federación Panameña de Fútbol confirmó la continuidad de Thomas Christiansen al frente de la Selección hasta el 2030. El entrenador, que llegó en 2020, buscará ahora clasificar a la Copa Oro 2027 y ya se acerca a los 100 partidos dirigidos con Panamá. Los próximos retos llegan con la gira asiática ante India, Nueva Zelanda y Japón o Ecuador. ¿Qué esperas de este nuevo ciclo de la Selección?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#SelecciónDePanamá",
+    "#Christiansen",
+    "#Fepafut",
+    "#Mundial2030"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-09-09-0738-sinlinea-la-estrella-6c52.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-09-0738-sinlinea-la-estrella-6c52.jpg",
+    "hash": "548efedfa1caacf9",
+    "version": 10,
+    "estilo": "a92ceb586a180aae",
+    "renderizada": "2026-09-09T12:38:24.817Z"
+  },
+  "ilustracion": {
+    "descripcion": "Balón de fútbol y una camiseta de la Selección de Panamá sobre el césped de un estadio vacío, elementos ubicados en el tercio superior derecho, con la cancha despejada al centro e izquierda.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-09-0738-sinlinea-la-estrella-6c52.jpg",
+    "hashDescripcion": "8805fd0c43f4a0f2",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-09T12:38:06.802Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-09T12:38:06.802Z",
+  "actualizado": "2026-09-09T12:38:06.802Z"
+}
