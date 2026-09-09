@@ -1,7 +1,7 @@
 {
   "estado": "error",
   "usuario": null,
-  "comprobado": "2026-09-09T17:42:42.049Z",
+  "comprobado": "2026-09-09T17:52:08.943Z",
   "detalle": "la API respondió con error: message \"API access blocked.\" · code 200 · error_subcode - · type OAuthException",
   "secretos": {
     "tokenSecreto": "IG_ACCESS_TOKEN",
