@@ -49,13 +49,13 @@ test("(maestro) leerArchivo y escribirArchivo usan la API de contenidos con sha;
 });
 
 test("(maestro) escribirBinario sube el logo en base64 y solicitarVerificacion lanza el workflow Probar Instagram con la cuenta; sin permiso Actions explica qué falta", async () => {
+  // Hallazgo en producción (2026-09-09): si el token del panel no puede lanzar workflows, la cuenta no debe quedar marcada
+  // como pendiente sin que nada corra. Orden: primero lanzar el workflow; solo si arranca se escribe conexion.json.
   const f = fetchGitHub([
     { status: 201, json: { content: { sha: "logo1" } } },
+    { status: 204, json: {} },
     { status: 200, json: { content: Buffer.from("{}").toString("base64"), sha: "c1" } },
     { status: 200, json: { content: { sha: "c2" } } },
-    { status: 204, json: {} },
-    { status: 200, json: { content: Buffer.from("{}").toString("base64"), sha: "c3" } },
-    { status: 200, json: { content: { sha: "c4" } } },
     { status: 403, json: { message: "Resource not accessible by personal access token" } },
   ]);
   const a = crearAlmacenGitHub({ token: "t", owner: "o", repo: "r", fetchImpl: f.impl });
@@ -63,14 +63,16 @@ test("(maestro) escribirBinario sube el logo en base64 y solicitarVerificacion l
   assert.equal(f.llamadas[0].cuerpo.content, "iVBORw0KGgo=");
   const r = await a.solicitarVerificacion("x");
   assert.equal(r.ok, true);
-  const conexion = f.llamadas[2];
-  assert.match(conexion.url, /contents\/data\/x\/conexion.json$/);
-  assert.equal(JSON.parse(Buffer.from(conexion.cuerpo.content, "base64").toString("utf8")).estado, "pendiente");
-  const dispatch = f.llamadas[3];
+  const dispatch = f.llamadas[1];
   assert.equal(dispatch.metodo, "POST");
   assert.match(dispatch.url, /actions\/workflows\/probar-instagram.yml\/dispatches$/);
   assert.deepEqual(dispatch.cuerpo, { ref: "main", inputs: { cuenta: "x" } });
+  const conexion = f.llamadas[3];
+  assert.match(conexion.url, /contents\/data\/x\/conexion.json$/);
+  assert.equal(conexion.metodo, "PUT");
+  assert.equal(JSON.parse(Buffer.from(conexion.cuerpo.content, "base64").toString("utf8")).estado, "pendiente");
   await assert.rejects(() => a.solicitarVerificacion("x"), /Actions/);
+  assert.equal(f.llamadas.length, 5, "sin permiso Actions no se escribe conexion.json: la cuenta no queda pendiente en falso");
 });
 
 test("(maestro) leerSecretosActualizados consulta solo metadatos de los secretos (fecha de actualización) y distingue inexistente de sin permiso", async () => {

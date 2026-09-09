@@ -80,6 +80,62 @@ exactos y enlaces; los valores de los secretos nunca pasan por el panel):
   secretos de repositorio con el nombre que declara la cuenta). Hace falta
   ser administrador del repositorio. `GH_PAT` debe existir una vez.
 
+## Paso a paso: añadir y operar una cuenta
+
+Panel: https://esquivelgolcher-web.github.io/sinlinea/panel/ (en cada
+navegador o celular hay que pegar una vez el token del panel en **Configurar**;
+sin token, GitHub solo permite 60 consultas por hora y el panel queda en solo
+lectura).
+
+1. **Crear la cuenta.** Cabecera → **Cuentas** → **Añadir cuenta**. Rellena
+   Nombre visible, Usuario de Instagram (con @), Identificador (se sugiere a
+   partir del usuario; puedes cambiarlo antes de guardar; después no cambia) e
+   Idioma. Pulsa **Guardar**. La cuenta aparece como tarjeta, en modo
+   Environment `cuenta-<id>`, con generación, publicación y métricas apagadas.
+2. **Editorial y marca.** En la tarjeta → **Editar**. Línea editorial: Temas
+   (uno por línea), Tono y el texto completo de `editorial.md` (se redacta
+   solo a partir de temas y tono hasta que lo edites). Fuentes → **Añadir
+   fuente** (nombre, RSS o Portada, URL). Horarios: zona horaria y horas de
+   publicación. Identidad visual: logo PNG, forma y tamaño del logo, colores,
+   ilustraciones con IA y su estilo, rótulo sobre la imagen (vacío = sin
+   rótulo). **Guardar**.
+3. **Conectar credenciales (Meta y GitHub, con la guía de la tarjeta).** En la
+   tarjeta, despliega **Guía de conexión**: muestra el Environment exacto, los
+   dos secretos y los enlaces.
+   - En **Meta for Developers**: abre la app de Instagram → Use cases → API
+     setup with Instagram login → añade la cuenta como Instagram Tester
+     (pestaña Roles) → **Generate token** en su fila → copia el token (se
+     muestra una sola vez).
+   - En **GitHub** (enlace "Crear Environment"): Settings → Environments →
+     New environment → nombre exacto `cuenta-<id>` → Configure environment →
+     Add environment secret: `IG_ACCESS_TOKEN` (pega el token) y `IG_USER_ID`
+     (id numérico de la cuenta profesional; si no lo sabes, Probar Instagram
+     lo indica en su registro). Los valores nunca pasan por el panel.
+4. **Verificar identidad.** En la tarjeta → **Verificar identidad**. Si el
+   token del panel tiene el permiso Actions (lectura y escritura), lanza el
+   workflow Probar Instagram; si no, el aviso te lo dice y lo lanzas a mano en
+   GitHub: Actions → **Probar Instagram** → Run workflow → cuenta = `<id>`.
+   En unos minutos la tarjeta muestra "Identidad verificada (@usuario)".
+5. **Preparar un borrador.** Tarjeta → **Abrir panel** → **Nuevo borrador**:
+   categoría, titular, bajada, caption, hashtags, medio, URL y fecha de la
+   noticia, escena opcional → **Crear borrador**. La imagen se dibuja en la
+   siguiente corrida de REGENERAR (cada hora). O deja que Claude redacte:
+   tarjeta → **Encender generación** (exige `editorial.md` con contenido y
+   una fuente).
+6. **Aprobar y programar.** En el panel de la cuenta, pestaña **Borradores**:
+   edita titular, bajada, caption o escena si hace falta → **Aprobar** →
+   elige fecha y hora → el post pasa a **Programados**. **Quitar de la cola**
+   lo devuelve a borradores; **Descartar** lo retira.
+7. **Publicar.** Nada sale hasta que en la tarjeta pulses **Encender
+   publicación** (exige identidad verificada; si hay programados vencidos te
+   pregunta si se mantienen o vuelven a borradores). **Pausar publicación**
+   deja la cola en espera.
+8. **Métricas.** Tarjeta → **Editar** → casilla "Recoger métricas a diario"
+   → Guardar. Se ven en tarjeta → **Métricas** (o botón Métricas del panel de
+   la cuenta). Lo que Instagram no devuelve aparece como "No disponible".
+9. **Archivar / Reactivar.** Tarjeta → **Archivar** (apaga todo, conserva
+   posts e historial) y **Reactivar** (vuelve apagada).
+
 ## Ilustraciones
 Cada post puede llevar una ilustración generada con IA (Gemini) en vez de la
 variante de color de fondo. Es opcional y se controla desde la propia tarjeta:

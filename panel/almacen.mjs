@@ -365,18 +365,20 @@ export function crearAlmacenGitHub({ token, owner, repo, rama = "main", fetchImp
       return { global, globalSha: g.sha, cuentas, secretosLegibles: meta.disponible, limite: limiteActual(), workflows: { archivos: WORKFLOWS_INSTAGRAM.filter((_, i) => workflows[i]), textos: workflows.filter(Boolean).map((a) => a.texto) } };
     },
     // Marca la cuenta como pendiente y lanza el workflow "Probar Instagram" (workflow_dispatch) para esa cuenta.
+    // Primero se lanza el workflow; solo si arranca se marca la cuenta como pendiente. Así un token sin permiso Actions
+    // no deja la conexión "pendiente" sin que nada corra (hallazgo en producción, 2026-09-09).
     async solicitarVerificacion(cuenta, ahoraIso = new Date().toISOString()) {
-      const ruta = `data/${cuenta}/conexion.json`;
-      const actual = await leerArchivo(ruta);
-      await subir(ruta, base64Utf8(PENDIENTE(ahoraIso)), { sha: actual?.sha || null, mensaje: `panel: verificación solicitada para ${cuenta}` });
       const res = await pedir(`${api}/actions/workflows/probar-instagram.yml/dispatches`, {
         method: "POST", headers: cabeceras({ "content-type": "application/json" }),
         body: JSON.stringify({ ref: rama, inputs: { cuenta } }),
       });
       if (res.status === 403 || res.status === 404 || res.status === 401) {
-        throw new Error(`El token del panel no puede lanzar workflows (GitHub respondió ${res.status}): necesita el permiso Actions (lectura y escritura) además de Contents. Mientras tanto, lánzalo a mano: Actions → Probar Instagram → Run workflow con cuenta = ${cuenta}.`);
+        throw new Error(`El token del panel no puede lanzar workflows (GitHub respondió ${res.status}): necesita el permiso Actions (lectura y escritura) además de Contents. Mientras tanto, lánzalo a mano: Actions → Probar Instagram → Run workflow con cuenta = ${cuenta}. La conexión no se ha tocado.`);
       }
       if (!res.ok) throw new Error(`GitHub respondió ${res.status} al lanzar Probar Instagram`);
+      const ruta = `data/${cuenta}/conexion.json`;
+      const actual = await leerArchivo(ruta);
+      await subir(ruta, base64Utf8(PENDIENTE(ahoraIso)), { sha: actual?.sha || null, mensaje: `panel: verificación solicitada para ${cuenta}` });
       return { ok: true, nota: "Probar Instagram está en marcha; el resultado aparece aquí en unos minutos." };
     },
   };
