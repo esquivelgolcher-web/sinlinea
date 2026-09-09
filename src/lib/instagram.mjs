@@ -180,27 +180,39 @@ export function crearClienteInstagram({
     for (const m of metricas) { valores[m] = null; faltantes[m] = motivo; }
     return { valores, faltantes, error: { codigo: err.codigo, subcodigo: err.subcodigo ?? null, mensaje: err.message } };
   }
-  // Hallazgo real (2026-09-09): la API rechaza TODA la llamada si una métrica no aplica ("... does not support the
-  // metrics: reposts."). Se extraen los nombres que cita para reintentar una sola vez sin ellos.
+  // Hallazgos reales (2026-09-09): la API rechaza TODA la llamada si una métrica no aplica, con dos formas de mensaje:
+  //   "... does not support the metrics: reposts."  y  "... does not support the a, b, c metric for this media product type."
+  // Se extraen los nombres citados para reintentar sin ellos (como máximo dos reintentos) y se devuelven en
+  // `noSoportadas` para que la recogida no vuelva a pedirlos a ese tipo de publicación.
   function metricasRechazadas(err, metricas) {
-    const m = /does not support the metrics?:\s*([A-Za-z0-9_,\s]+)/i.exec(String(err?.message || ""));
-    if (Number(err?.codigo) !== 100 || !m) return [];
-    const citadas = m[1].split(",").map((x) => x.trim().replace(/\.$/, "")).filter(Boolean);
+    if (Number(err?.codigo) !== 100) return [];
+    const texto = String(err?.message || "");
+    const m = /does not support the (?:metrics?:\s*)?([A-Za-z0-9_,\s]+?)(?:\s+metrics?\b|\.|$)/i.exec(texto);
+    if (!m) return [];
+    const citadas = m[1].split(",").map((x) => x.trim()).filter(Boolean);
     return metricas.filter((x) => citadas.includes(x));
   }
   async function pedirInsights(metricas, url, params) {
-    try {
-      return extraerInsights(metricas, await llamar("GET", url, { ...params, metric: metricas.join(",") }));
-    } catch (err) {
-      const rechazadas = metricasRechazadas(err, metricas);
-      const resto = metricas.filter((m) => !rechazadas.includes(m));
-      if (!rechazadas.length || !resto.length) return insightsFallidos(metricas, err);
-      let r;
-      try { r = extraerInsights(resto, await llamar("GET", url, { ...params, metric: resto.join(",") })); }
-      catch (err2) { r = insightsFallidos(resto, err2); }
-      for (const m of rechazadas) { r.valores[m] = null; r.faltantes[m] = "metrica-no-soportada"; }
-      return r;
+    const noSoportadas = [];
+    let pendientes = [...metricas];
+    for (let intento = 0; intento <= 2; intento++) {
+      try {
+        const r = extraerInsights(pendientes, await llamar("GET", url, { ...params, metric: pendientes.join(",") }));
+        for (const m of noSoportadas) { r.valores[m] = null; r.faltantes[m] = "metrica-no-soportada"; }
+        return { ...r, noSoportadas };
+      } catch (err) {
+        const rechazadas = metricasRechazadas(err, pendientes);
+        const resto = pendientes.filter((m) => !rechazadas.includes(m));
+        if (!rechazadas.length || !resto.length || intento === 2) {
+          const r = insightsFallidos(pendientes, err);
+          for (const m of noSoportadas) { r.valores[m] = null; r.faltantes[m] = "metrica-no-soportada"; }
+          return { ...r, noSoportadas: [...noSoportadas, ...(rechazadas.length ? rechazadas : [])] };
+        }
+        noSoportadas.push(...rechazadas);
+        pendientes = resto;
+      }
     }
+    return insightsFallidos(metricas, new Error("sin respuesta"));
   }
   const unix = (dia) => String(Math.floor(Date.parse(`${dia}T00:00:00Z`) / 1000));
 

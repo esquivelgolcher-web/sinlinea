@@ -142,3 +142,28 @@ test("(métricas · hallazgo real) si la API rechaza la llamada nombrando métri
   assert.equal(h.llamadas.length, 1);
   assert.deepEqual(r3.faltantes, { reposts: "metrica-no-soportada" });
 });
+
+test("(métricas · hallazgo real 2) la API también rechaza con 'does not support the a, b metric for this media product type': se reconoce esa forma y se admite un segundo reintento (máximo dos)", async () => {
+  const f = fetchFalso([
+    errorApi(100, "Instagram Insights Media API endpoint does not support the metrics: reposts. Please refer to https://developers.facebook.com/docs/instagram/reference/media#insights for more details."),
+    errorApi(100, "The Media Insights API does not support the profile_visits, profile_activity, follows metric for this media product type."),
+    { json: { data: [{ name: "reach", period: "lifetime", values: [{ value: 400 }] }, { name: "views", period: "lifetime", values: [{ value: 900 }] }] } },
+  ]);
+  const ig = crearClienteInstagram({ ...opciones, fetchImpl: f.impl });
+  const r = await ig.insightsMedio("18001", { metricas: ["reach", "views", "reposts", "profile_visits", "profile_activity", "follows"] });
+  assert.equal(f.llamadas.length, 3);
+  assert.match(f.llamadas[2].url, /metric=reach%2Cviews(&|$)/);
+  assert.deepEqual(r.valores, { reach: 400, views: 900, reposts: null, profile_visits: null, profile_activity: null, follows: null });
+  assert.deepEqual(r.faltantes, { reposts: "metrica-no-soportada", profile_visits: "metrica-no-soportada", profile_activity: "metrica-no-soportada", follows: "metrica-no-soportada" });
+  assert.deepEqual(r.noSoportadas, ["reposts", "profile_visits", "profile_activity", "follows"], "las rechazadas se devuelven para no volver a pedirlas");
+  // Un tercer rechazo ya no se reintenta.
+  const g = fetchFalso([
+    errorApi(100, "does not support the metrics: a."),
+    errorApi(100, "does not support the b metric for this media product type."),
+    errorApi(100, "does not support the c metric for this media product type."),
+  ]);
+  const ig2 = crearClienteInstagram({ ...opciones, fetchImpl: g.impl });
+  const r2 = await ig2.insightsMedio("18001", { metricas: ["a", "b", "c", "d"] });
+  assert.equal(g.llamadas.length, 3);
+  assert.deepEqual(r2.faltantes, { a: "metrica-no-soportada", b: "metrica-no-soportada", c: "metrica-no-soportada", d: "metrica-no-soportada" });
+});
