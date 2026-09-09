@@ -1,4 +1,12 @@
 {
-  "estado": "pendiente",
-  "solicitada": "2026-09-09T16:45:00.578Z"
+  "estado": "error",
+  "usuario": null,
+  "comprobado": "2026-09-09T16:48:53.385Z",
+  "detalle": "la API respondió con error: message \"API access blocked.\" · code 200 · error_subcode - · type OAuthException",
+  "secretos": {
+    "tokenSecreto": "IG_ACCESS_TOKEN",
+    "usuarioIdSecreto": "IG_USER_ID",
+    "origen": "entorno",
+    "entorno": "cuenta-luiseskivelgolcher"
+  }
 }
