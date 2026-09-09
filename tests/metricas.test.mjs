@@ -93,6 +93,9 @@ test("(recogida) con las automatizaciones apagadas y metricas.recoger = true se 
   const estado = leer(raiz, "luiseskivelgolcher", "estado.json");
   assert.deepEqual(estado.pendientes, []);
   assert.deepEqual(Object.keys(estado.ultimaConsulta).sort(), ["18003", "18004"]);
+  // Cobertura: cuántas publicaciones devolvió la API, cuántas entran en la ventana y cuántas declara el perfil.
+  assert.deepEqual(estado.cobertura, { declaradas: 27, listadas: 3, enVentana: 2, consultadas: 2, listadoCompleto: true });
+  assert.deepEqual(r.cobertura, estado.cobertura);
   assert.equal(fs.readFileSync(path.join(raiz, "posts", "2026-09-07-1336-prueba-4fe9.json"), "utf8"), antesPosts, "posts/ intacto");
   assert.equal(fs.readFileSync(path.join(raiz, "data/luiseskivelgolcher/seen.json"), "utf8"), "{}\n");
   assert.ok(ig.llamadas.every((l) => !/publicar|crear|refrescar/.test(l)));

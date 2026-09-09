@@ -168,6 +168,19 @@ async function pintarMetricas({ frescos = false } = {}) {
   const permiso = series.permiso === "basico+insights" ? "básico + estadísticas (inferido: la API respondió a las consultas de estadísticas)" : (series.permiso === "basico" ? "básico (inferido: la API rechazó las estadísticas por falta de permiso)" : "sin comprobar");
   const partes = [`Última consulta: ${fechaConsulta(series.ultimaConsulta)}`, `Permiso: ${permiso}`, `Recogida diaria: ${recogida} (metricas.recoger, independiente de la generación y la publicación)`];
   const estadoCorrida = datos.estado;
+  // Período medido: consultas del perfil (instantáneas) y días con métricas por período. Sin datos no se afirma nada.
+  const dia = (iso) => String(iso || "").slice(0, 10);
+  if (series.instantaneas.length) {
+    const primera = series.instantaneas[0].consultadoEn; const ultima = series.instantaneas[series.instantaneas.length - 1].consultadoEn;
+    const dias = series.porDia.length ? `; métricas por día del ${series.porDia[0].dia} al ${series.porDia[series.porDia.length - 1].dia}` : "; sin métricas por día todavía";
+    partes.push(`Período medido: consultas del ${dia(primera)} al ${dia(ultima)} (${series.instantaneas.length})${dias}`);
+  }
+  // Cobertura: la lista que devuelve la API puede ser menor que lo que declara el perfil; no es el historial completo.
+  const cob = estadoCorrida?.cobertura;
+  if (cob) {
+    const declara = typeof cob.declaradas === "number" ? `; el perfil declara ${cob.declaradas}${cob.declaradas > cob.listadas ? " y la API no expone el resto" : ""}` : "";
+    partes.push(`Cobertura de publicaciones: ${cob.consultadas} consultadas de ${cob.listadas} que devuelve la API (${cob.enVentana} en la ventana)${declara}${cob.listadoCompleto === false ? "; listado incompleto: continúa en la próxima corrida" : ""}`);
+  }
   if (estadoCorrida && estadoCorrida.completo === false) partes.push(`Última corrida incompleta: ${textoMotivo(estadoCorrida.motivoIncompleto)}${estadoCorrida.pendientes?.length ? `; publicaciones pendientes: ${estadoCorrida.pendientes.length}` : ""}`);
   partes.push("Instagram puede tardar hasta 48 h en consolidar los datos de un día; las métricas por día se vuelven a consultar durante tres días.");
   $("metricas-estado").textContent = partes.join(" · ");

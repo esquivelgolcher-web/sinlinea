@@ -117,13 +117,14 @@ export async function recogerMetricas({ config, ig, raiz = process.cwd(), ahora 
   const enlaces = enlazarConPosts(posts, cuenta);
   const desdeVentana = diasAtras(ahora, limites.ventanaDias);
   const candidatos = [];
-  let cursor = null; let listadoCompleto = true;
+  let cursor = null; let listadoCompleto = true; let listadas = 0;
   if (!limiteApi) {
     for (let pagina = 0; pagina < limites.maxPaginas; pagina++) {
       if (quedan() < 2) { listadoCompleto = false; incompleto("presupuesto-agotado"); break; }
       let r;
       try { r = await ig.listarMedios({ limite: 50, despues: cursor }); }
       catch (err) { if (!(err instanceof ErrorLimiteInstagram)) throw err; limiteApi = err; listadoCompleto = false; incompleto("limite-llamadas"); break; }
+      listadas += r.medios.length;
       let fueraDeVentana = false;
       for (const m of r.medios) {
         if ((m.fecha || "") >= desdeVentana || enlaces.has(m.id)) candidatos.push(m);
@@ -180,10 +181,13 @@ export async function recogerMetricas({ config, ig, raiz = process.cwd(), ahora 
   for (const d of porDia) archivoCuenta = registrarPorDia(archivoCuenta, { cuenta, dia: d.dia, consultadoEn, valores: d.valores, faltantes: d.faltantes });
   escribirJson(path.join(carpeta, nombreCuenta), archivoCuenta);
   for (const [nombre, datos] of publicacionesPorMes) if (datos) escribirJson(path.join(carpeta, nombre), datos);
-  escribirJson(path.join(carpeta, "estado.json"), { version: 1, cuenta, ultimaCorrida: consultadoEn, llamadas: usadas(), completo, motivoIncompleto, listadoCompleto, pendientes: [...new Set(pendientes)], noSoportadas, ultimaConsulta });
+  // Cobertura: lo que declara el perfil, lo que la API devolvió al listar, lo que entra en la ventana y lo consultado.
+  // La muestra que expone la API no es necesariamente el historial completo de la cuenta.
+  const cobertura = { declaradas: perfil.publicaciones ?? null, listadas, enVentana: candidatos.length, consultadas, listadoCompleto };
+  escribirJson(path.join(carpeta, "estado.json"), { version: 1, cuenta, ultimaCorrida: consultadoEn, llamadas: usadas(), completo, motivoIncompleto, listadoCompleto, cobertura, pendientes: [...new Set(pendientes)], noSoportadas, ultimaConsulta });
   for (const m of registros) log.warn(m);
-  log.info(`Cuenta ${cuenta}: métricas guardadas (${consultadoEn}) · permiso ${permiso === "basico" ? "básico" : "básico + estadísticas"} · ${porDia.length} día(s) de cuenta · ${consultadas} publicación(es) consultada(s), ${pendientes.length} pendiente(s) · ${usadas()} llamada(s)${completo ? "" : ` · incompleta: ${motivoIncompleto}`}`);
-  return { guardado: true, permiso, llamadas: usadas(), diasDeCuenta: porDia.length, publicacionesConsultadas: consultadas, pendientes: pendientes.length, listadoCompleto, completo, motivoIncompleto, archivos: [nombreCuenta, ...publicacionesPorMes.keys(), "estado.json"] };
+  log.info(`Cuenta ${cuenta}: métricas guardadas (${consultadoEn}) · permiso (inferido) ${permiso === "basico" ? "básico" : "básico + estadísticas"} · ${porDia.length} día(s) de cuenta · publicaciones: ${consultadas} consultada(s) de ${listadas} que devolvió la API (${candidatos.length} en la ventana; el perfil declara ${textoValor(perfil.publicaciones, "conjunto-vacio")}; listado ${listadoCompleto ? "completo" : "incompleto"}), ${pendientes.length} pendiente(s) · ${usadas()} llamada(s)${completo ? "" : ` · incompleta: ${motivoIncompleto}`}`);
+  return { guardado: true, permiso, llamadas: usadas(), diasDeCuenta: porDia.length, publicacionesConsultadas: consultadas, pendientes: pendientes.length, listadoCompleto, cobertura, completo, motivoIncompleto, archivos: [nombreCuenta, ...publicacionesPorMes.keys(), "estado.json"] };
 }
 
 // Ejecuta la sonda o la recogida para las cuentas seleccionadas, con el mismo aislamiento de credenciales que PUBLICAR:

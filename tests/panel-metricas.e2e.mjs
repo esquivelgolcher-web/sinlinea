@@ -40,7 +40,7 @@ async function montar(prefijo, { conMetricas = true } = {}) {
     pubs = registrarConsultaMedio(pubs, { cuenta: "prueba", medio: { id: "18386876893200089", tipo: "VIDEO", fecha: "2026-08-22T07:39:24.000Z", permalink: "https://www.instagram.com/reel/BBB/", caption: "Reel publicado desde la app de Instagram" }, consultadoEn: "2026-09-10T05:31:02.000Z", acumulados: { meGusta: 110, comentarios: 2, reach: 3624, views: 4710, saved: 13, shares: 85, total_interactions: 229, profile_visits: null }, faltantes: { profile_visits: "metrica-no-soportada" }, enlace: { origen: "instagram", post: null, categoria: null, franja: null } });
     fs.writeFileSync(path.join(carpeta, "publicaciones-2026-08.json"), JSON.stringify({ ...pubs, publicaciones: { 18386876893200089: pubs.publicaciones["18386876893200089"] } }, null, 2));
     fs.writeFileSync(path.join(carpeta, "publicaciones-2026-09.json"), JSON.stringify({ ...pubs, publicaciones: { 18003: pubs.publicaciones["18003"] } }, null, 2));
-    fs.writeFileSync(path.join(carpeta, "estado.json"), JSON.stringify({ version: 1, cuenta: "prueba", ultimaCorrida: "2026-09-10T05:31:02.000Z", completo: false, motivoIncompleto: "presupuesto-agotado", pendientes: ["18400665205094430"], ultimaConsulta: {} }));
+    fs.writeFileSync(path.join(carpeta, "estado.json"), JSON.stringify({ version: 1, cuenta: "prueba", ultimaCorrida: "2026-09-10T05:31:02.000Z", completo: false, motivoIncompleto: "presupuesto-agotado", pendientes: ["18400665205094430"], ultimaConsulta: {}, cobertura: { declaradas: 27, listadas: 4, enVentana: 3, consultadas: 2, listadoCompleto: true } }));
   }
   const servidor = crearServidor({ raiz });
   await new Promise((r) => servidor.listen(0, "127.0.0.1", r));
@@ -67,6 +67,8 @@ test("(métricas) la vista muestra la evolución con fecha de consulta, las mét
     await abrirMetricas(page, base);
     const texto = await page.locator("#metricas").textContent();
     assert.match(texto, /Última consulta: 2026-09-10 05:31 UTC/);
+    assert.match(texto, /Período medido: consultas del 2026-09-09 al 2026-09-10 \(2\); métricas por día del 2026-09-08 al 2026-09-09/);
+    assert.match(texto, /Cobertura de publicaciones: 2 consultadas de 4 que devuelve la API \(3 en la ventana\); el perfil declara 27 y la API no expone el resto/, "la muestra no se presenta como historial completo");
     assert.match(texto, /básico \+ estadísticas/);
     assert.match(texto, /incompleta/i, "la última corrida se quedó sin presupuesto y se dice");
     assert.match(texto, /Recogida diaria: apagada/, "el interruptor está apagado por defecto y se muestra tal cual");
