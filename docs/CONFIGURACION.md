@@ -74,7 +74,11 @@ no requiere revisión de Meta.
 
 ## 6. Token para el panel (celular)
 1. Igual que arriba, nombre `sinlinea-panel`, solo el repo `sinlinea`,
-   **Permissions → Repository → Contents: Read and write**.
+   **Permissions → Repository → Contents: Read and write**. Opcionales para el
+   panel maestro: **Actions: Read and write** (lanzar "Verificar identidad"
+   desde el panel) y **Secrets: Read** (el panel lee solo nombres y fechas de
+   actualización de los secretos para avisar cuando un secreto cambió después
+   de la última verificación; nunca valores).
 2. En el celular abre `https://<tu-usuario>.github.io/sinlinea/panel/` →
    **Configurar** → pega el token → **Guardar y conectar**. Queda guardado solo en ese
    navegador. Repite en cada dispositivo desde el que quieras aprobar.

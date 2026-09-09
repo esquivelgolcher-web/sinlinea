@@ -3,8 +3,54 @@ import { test, before, after } from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
 import path from "node:path";
-import { crearServidor, shaDeBlob } from "../src/serve.mjs";
+import { crearServidor, shaDeBlob, recuperarEscrituraPendiente, RUTA_DIARIO } from "../src/serve.mjs";
 import { raizConCuentas } from "./ayuda/cuentas.mjs";
+
+const listarTmp = (dir) => (fs.existsSync(dir) ? fs.readdirSync(dir, { recursive: true }).filter((f) => String(f).endsWith(".tmp")) : []);
+
+test("(maestro) una escritura interrumpida se completa con el diario: al arrancar o en la siguiente petición se aplican los archivos que faltaban", async () => {
+  const raiz2 = raizConCuentas({ cuentas: ["sinlinea", "prueba"], prefijo: "serve-diario-" });
+  const cfg = JSON.parse(fs.readFileSync(path.join(raiz2, "cuentas/prueba/config.json"), "utf8"));
+  const nueva = { ...cfg, nombre: "Recuperada", automatico: { generar: false, publicar: false }, marca: { nombre: "R", usuario: "@recuperada", lema: "" } };
+  const global = JSON.parse(fs.readFileSync(path.join(raiz2, "config.json"), "utf8"));
+  const b64 = (t) => Buffer.from(t).toString("base64");
+  const diario = { creado: "2026-09-09T10:00:00.000Z", mensaje: "alta de cuenta recuperada", archivos: [
+    { ruta: "cuentas/recuperada/config.json", base64: b64(JSON.stringify(nueva, null, 2)) },
+    { ruta: "cuentas/recuperada/editorial.md", base64: b64("# Recuperada\n") },
+    { ruta: "config.json", base64: b64(JSON.stringify({ ...global, cuentas: [...global.cuentas, "recuperada"] }, null, 2)) },
+  ] };
+  // Simulación: el diario quedó escrito, solo el primer archivo llegó al disco y el proceso murió.
+  fs.mkdirSync(path.join(raiz2, "temp"), { recursive: true });
+  fs.writeFileSync(path.join(raiz2, RUTA_DIARIO), JSON.stringify(diario));
+  fs.mkdirSync(path.join(raiz2, "cuentas/recuperada"), { recursive: true });
+  fs.writeFileSync(path.join(raiz2, "cuentas/recuperada/config.json"), JSON.stringify(nueva, null, 2));
+  const r = recuperarEscrituraPendiente(raiz2, { warn: () => {} });
+  assert.deepEqual([...r.aplicados].sort(), ["config.json", "cuentas/recuperada/config.json", "cuentas/recuperada/editorial.md"]);
+  assert.equal(fs.readFileSync(path.join(raiz2, "cuentas/recuperada/editorial.md"), "utf8"), "# Recuperada\n");
+  assert.ok(JSON.parse(fs.readFileSync(path.join(raiz2, "config.json"), "utf8")).cuentas.includes("recuperada"));
+  assert.equal(fs.existsSync(path.join(raiz2, RUTA_DIARIO)), false, "el diario se borra al terminar");
+  assert.equal(recuperarEscrituraPendiente(raiz2, { warn: () => {} }), null, "sin diario no hay nada que recuperar");
+  // Al arrancar el servidor con un diario pendiente, se recupera antes de atender la primera petición.
+  fs.writeFileSync(path.join(raiz2, RUTA_DIARIO), JSON.stringify({ ...diario, archivos: [{ ruta: "cuentas/recuperada/editorial.md", base64: b64("# Otra vez\n") }] }));
+  const s2 = crearServidor({ raiz: raiz2, log: { warn: () => {} } });
+  await new Promise((resolve) => s2.listen(0, "127.0.0.1", resolve));
+  try {
+    const lista = await (await fetch(`http://127.0.0.1:${s2.address().port}/api/cuentas`)).json();
+    assert.equal(lista.cuentas.find((c) => c.id === "recuperada").editorial, "# Otra vez\n");
+    assert.equal(fs.existsSync(path.join(raiz2, RUTA_DIARIO)), false);
+  } finally {
+    s2.close();
+  }
+  // Un diario ilegible no bloquea el arranque: se aparta como .corrupto y se informa.
+  fs.writeFileSync(path.join(raiz2, RUTA_DIARIO), "{ esto no es json");
+  const avisos = [];
+  const c = recuperarEscrituraPendiente(raiz2, { warn: (m) => avisos.push(m) });
+  assert.deepEqual(c.aplicados, []);
+  assert.match(c.error, /diario/i);
+  assert.equal(fs.existsSync(path.join(raiz2, RUTA_DIARIO)), false);
+  assert.equal(fs.existsSync(path.join(raiz2, RUTA_DIARIO + ".corrupto")), true);
+  assert.ok(avisos.some((m) => /corrupto/i.test(m)));
+});
 
 let servidor, base, raiz;
 before(async () => {
@@ -56,4 +102,8 @@ test("(maestro) /api/archivos escribe varios archivos de una vez o ninguno", asy
   // Ruta fuera de la lista blanca en el lote: 403 y nada escrito
   const prohibido = await json("/api/archivos", { archivos: [{ ruta: "posts/x.json", texto: "{}", sha: null }] });
   assert.equal(prohibido.status, 403);
+  // Tras un lote correcto no queda diario ni archivos temporales: se escribe en .tmp y se renombra.
+  assert.equal(fs.existsSync(path.join(raiz, RUTA_DIARIO)), false);
+  assert.deepEqual(listarTmp(path.join(raiz, "cuentas")), []);
+  assert.deepEqual(listarTmp(raiz).filter((f) => !String(f).startsWith("node_modules")), []);
 });

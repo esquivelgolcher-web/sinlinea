@@ -247,7 +247,7 @@ export function secretosExpuestosComunes(listas) {
 // - Una verificación deja de valer si cambió el usuario de Instagram o el nombre de los secretos.
 // - Toda verificación muestra su fecha: un resultado pasado no garantiza que la conexión siga válida.
 // - Sin ninguna verificación no se afirma que falten credenciales: solo que la conexión está sin verificar.
-export function estadoConexion({ conexion = null, tokenInfo = null, config = null, id = "", expuestos = null, ahora = new Date() } = {}) {
+export function estadoConexion({ conexion = null, tokenInfo = null, config = null, id = "", expuestos = null, secretosActualizados = null, ahora = new Date() } = {}) {
   const nombres = nombresSecretosDe(config, id);
   const usuarioConfig = config?.marca?.usuario ? normalizarUsuario(config.marca.usuario).slice(1).toLowerCase() : null;
   if (Array.isArray(expuestos)) {
@@ -262,6 +262,22 @@ export function estadoConexion({ conexion = null, tokenInfo = null, config = nul
     }
   }
   const c = conexion || {};
+  // Metadatos de los secretos en GitHub (fecha de actualización, nunca valores). Un valor nuevo con el mismo nombre
+  // invalida la comprobación anterior; un secreto inexistente es una credencial pendiente comprobada con la API.
+  const act = secretosActualizados && typeof secretosActualizados === "object" ? secretosActualizados : null;
+  if (act) {
+    const inexistentes = [nombres.tokenSecreto, nombres.usuarioIdSecreto].filter((n) => n in act && act[n] === null);
+    if (inexistentes.length) {
+      return { clave: "credenciales-pendientes", texto: `Credenciales pendientes: ${inexistentes.join(" y ")} no existe${inexistentes.length > 1 ? "n" : ""} en GitHub (comprobado ahora con la API)`, detalle: "Guarda el secreto en GitHub (Settings → Secrets and variables → Actions) y verifica la identidad.", fecha: null, antigua: false };
+    }
+    if ((c.estado === "verificada" || c.estado === "error") && c.comprobado) {
+      const cambiados = [nombres.tokenSecreto, nombres.usuarioIdSecreto].filter((n) => act[n] && Date.parse(act[n]) > Date.parse(c.comprobado));
+      if (cambiados.length) {
+        return { clave: "pendiente", texto: `Pendiente de verificación: ${cambiados.map((n) => `${n} se actualizó el ${fechaCortaUtc(act[n])} UTC`).join(" y ")}, después de la comprobación del ${fechaCortaUtc(c.comprobado)} UTC; esa comprobación ya no vale para el valor nuevo`, detalle: "Verifica de nuevo la identidad con el secreto actualizado.", fecha: c.comprobado, antigua: true };
+      }
+    }
+  }
+  const sinMetadatos = act ? "" : " No se pudo comprobar si los secretos cambiaron después de la verificación: el token del panel necesita el permiso Secrets (lectura) para consultar sus fechas de actualización.";
   const fecha = c.comprobado || c.cambiado || c.solicitada || null;
   const cuando = fecha ? ` el ${fechaCortaUtc(fecha)} UTC` : "";
   if (c.estado === "verificada") {
@@ -277,7 +293,7 @@ export function estadoConexion({ conexion = null, tokenInfo = null, config = nul
     return {
       clave: "verificada",
       texto: `Identidad verificada${c.usuario ? ` (@${String(c.usuario).replace(/^@/, "")})` : ""}${cuando}${dias !== null && dias >= 1 ? ` · hace ${dias} día${dias === 1 ? "" : "s"}` : ""}`,
-      detalle: "Una verificación pasada no garantiza que la conexión siga válida: vuelve a verificar antes de activar la publicación o si cambian las credenciales.",
+      detalle: `Una verificación pasada no garantiza que la conexión siga válida: vuelve a verificar antes de activar la publicación o si cambian las credenciales.${sinMetadatos}`,
       fecha, antigua,
     };
   }

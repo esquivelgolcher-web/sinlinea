@@ -72,3 +72,21 @@ test("(maestro) escribirBinario sube el logo en base64 y solicitarVerificacion l
   assert.deepEqual(dispatch.cuerpo, { ref: "main", inputs: { cuenta: "x" } });
   await assert.rejects(() => a.solicitarVerificacion("x"), /Actions/);
 });
+
+test("(maestro) leerSecretosActualizados consulta solo metadatos de los secretos (fecha de actualización) y distingue inexistente de sin permiso", async () => {
+  const f = fetchGitHub([
+    { status: 200, json: { name: "IG_ACCESS_TOKEN", updated_at: "2026-09-08T16:43:18Z" } },
+    { status: 404, json: {} },
+  ]);
+  const a = crearAlmacenGitHub({ token: "t", owner: "o", repo: "r", fetchImpl: f.impl });
+  assert.deepEqual(await a.leerSecretosActualizados(["IG_ACCESS_TOKEN", "IG_USER_ID"]), { disponible: true, actualizados: { IG_ACCESS_TOKEN: "2026-09-08T16:43:18Z", IG_USER_ID: null } });
+  assert.match(f.llamadas[0].url, /actions\/secrets\/IG_ACCESS_TOKEN$/);
+  assert.equal(f.llamadas.every((l) => l.metodo === "GET"), true);
+  const sinPermiso = fetchGitHub([{ status: 403, json: {} }]);
+  const b = crearAlmacenGitHub({ token: "t", owner: "o", repo: "r", fetchImpl: sinPermiso.impl });
+  assert.deepEqual(await b.leerSecretosActualizados(["IG_ACCESS_TOKEN", "IG_USER_ID"]), { disponible: false, actualizados: null });
+  const sinToken = fetchGitHub([]);
+  const c = crearAlmacenGitHub({ token: "", owner: "o", repo: "r", fetchImpl: sinToken.impl });
+  assert.deepEqual(await c.leerSecretosActualizados(["IG_ACCESS_TOKEN"]), { disponible: false, actualizados: null });
+  assert.equal(sinToken.llamadas.length, 0, "sin token ni siquiera se consulta");
+});

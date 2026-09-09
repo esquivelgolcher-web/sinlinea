@@ -139,7 +139,16 @@ cabecera alterna entre la primera y la segunda; la elección se recuerda.
   con una lista blanca de rutas (`config.json`,
   `cuentas/<id>/{config.json,editorial.md,logo.png}`, `data/<id>/conexion.json`),
   el sha de blob de git como versión y la misma validación (`validarGlobal`,
-  `validarCuenta`) antes de escribir.
+  `validarCuenta`) antes de escribir. **Garantía real en local**: no hay
+  atomicidad del sistema de archivos; hay recuperación garantizada. El lote
+  completo se escribe primero en un diario (`temp/escritura-pendiente.json`),
+  luego se aplica archivo a archivo escribiendo en `.tmp` y renombrando (nunca
+  queda un archivo truncado) y al final se borra el diario. Si el proceso muere
+  entre medias, la siguiente arrancada de `serve.mjs` (o la siguiente petición
+  de `/api/cuentas` o `/api/archivos`) vuelve a aplicar el lote entero, que es
+  idempotente. Un diario ilegible se aparta como `.corrupto` y se avisa. Entre
+  la interrupción y la recuperación el disco puede estar a medias; nunca lo
+  está después. En GitHub el lote es un único commit: ahí sí es atómico.
 - **Conexión con Instagram.** Seis estados, calculados en `estadoConexion` a
   partir de `data/<id>/conexion.json`, de la configuración de la cuenta y de los
   nombres de secretos que llegan a los workflows (leídos del `env` de
@@ -159,8 +168,18 @@ cabecera alterna entre la primera y la segunda; la elección se recuerda.
      misma escritura atómica que la edición; además `estadoConexion` compara el
      `usuario` y los `secretos` guardados en la verificación con la configuración
      actual, así que un cambio hecho fuera del panel también la invalida), o
-     hay `token-info` sin identidad comprobada.
-  5. *Identidad verificada*: usuario, fecha y hora UTC de la última comprobación
+     un secreto se actualizó en GitHub **después** de la última comprobación
+     (mismo nombre, valor nuevo: el panel lee la fecha `updated_at` de cada
+     secreto con la API, solo nombres y fechas; requiere el permiso *Secrets:
+     lectura* en el token del panel, y si no puede consultarlo la tarjeta lo
+     dice en vez de dar la verificación por buena), o hay `token-info` sin
+     identidad comprobada. Un secreto que la API dice que no existe se muestra
+     como credencial pendiente comprobada.
+  5. *Identidad verificada*: la prueba compara el usuario devuelto por la API
+     con `marca.usuario` **y** el `user_id` con el secreto del id numérico
+     (falla cerrado si la API no devuelve `user_id`); PUBLICAR repite la misma
+     comprobación antes de publicar y no publica si algo no coincide. La
+     tarjeta muestra usuario, fecha y hora UTC de la última comprobación
      y antigüedad; siempre acompañada del aviso de que un resultado pasado no
      garantiza que la conexión siga válida (más de 7 días se marca como antigua).
   6. *Error de conexión*: mensaje, `code` y `error_subcode` de la API, con fecha,

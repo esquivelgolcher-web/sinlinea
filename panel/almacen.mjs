@@ -124,6 +124,24 @@ export function crearAlmacenGitHub({ token, owner, repo, rama = "main", fetchImp
     return (await res.json()).content.sha;
   }
   const enviar = (ruta, metodo, cuerpo) => fetchImpl(`${api}/${ruta}`, { method: metodo, headers: cabeceras({ "content-type": "application/json" }), body: JSON.stringify(cuerpo) });
+  // Metadatos de secretos (nombre y fecha de actualización; nunca valores): permiten saber si un secreto cambió después
+  // de la última verificación. Necesita el permiso Secrets (lectura) en el token; sin él no se afirma nada.
+  async function leerSecretosActualizados(nombres) {
+    if (!token) return { disponible: false, actualizados: null };
+    const actualizados = {};
+    for (const n of nombres) {
+      const res = await fetchImpl(`${api}/actions/secrets/${n}`, { headers: cabeceras() });
+      if (res.status === 404) { actualizados[n] = null; continue; }
+      if (!res.ok) return { disponible: false, actualizados: null };
+      actualizados[n] = (await res.json()).updated_at || null;
+    }
+    return { disponible: true, actualizados };
+  }
+  const sufijo = (id) => String(id).toUpperCase().replace(/[^A-Z0-9]+/g, "_").replace(/^_+|_+$/g, "");
+  const nombresDe = (id, config) => ({
+    tokenSecreto: config?.instagram?.tokenSecreto || `IG_ACCESS_TOKEN_${sufijo(id)}`,
+    usuarioIdSecreto: config?.instagram?.usuarioIdSecreto || `IG_USER_ID_${sufijo(id)}`,
+  });
   // Varios archivos en UN solo commit (API de git: blobs → árbol → commit → ref), para que un alta no quede a medias.
   // `sha`: null = debe ser nuevo; texto = versión que se espera encontrar; undefined = sin comprobación (p. ej. el logo).
   // Si la rama avanzó entre la lectura y el commit (la ref no avanza en línea recta), se rehace todo sobre la punta nueva.
@@ -195,6 +213,7 @@ export function crearAlmacenGitHub({ token, owner, repo, rama = "main", fetchImp
     // --- Panel maestro ---
     leerArchivo,
     escribirArchivos,
+    leerSecretosActualizados,
     async escribirArchivo(ruta, texto, { sha = null, mensaje } = {}) {
       return subir(ruta, base64Utf8(texto), { sha, mensaje });
     },
@@ -223,7 +242,14 @@ export function crearAlmacenGitHub({ token, owner, repo, rama = "main", fetchImp
       }));
       // Workflows de Instagram: el panel deduce de su `env` qué nombres de secretos ya llegan a las corridas.
       const workflows = await Promise.all(WORKFLOWS_INSTAGRAM.map((r) => leerArchivo(r).catch(() => null)));
-      return { global, globalSha: g.sha, cuentas, workflows: { archivos: WORKFLOWS_INSTAGRAM.filter((_, i) => workflows[i]), textos: workflows.filter(Boolean).map((a) => a.texto) } };
+      // Fechas de actualización de los secretos de cada cuenta (si el token puede leerlas).
+      const nombres = [...new Set(cuentas.filter((c) => c.config).flatMap((c) => Object.values(nombresDe(c.id, c.config))))];
+      const meta = nombres.length ? await leerSecretosActualizados(nombres).catch(() => ({ disponible: false, actualizados: null })) : { disponible: false, actualizados: null };
+      for (const c of cuentas) {
+        const n = nombresDe(c.id, c.config);
+        c.secretosActualizados = meta.disponible ? { [n.tokenSecreto]: meta.actualizados[n.tokenSecreto] ?? null, [n.usuarioIdSecreto]: meta.actualizados[n.usuarioIdSecreto] ?? null } : null;
+      }
+      return { global, globalSha: g.sha, cuentas, secretosLegibles: meta.disponible, workflows: { archivos: WORKFLOWS_INSTAGRAM.filter((_, i) => workflows[i]), textos: workflows.filter(Boolean).map((a) => a.texto) } };
     },
     // Marca la cuenta como pendiente y lanza el workflow "Probar Instagram" (workflow_dispatch) para esa cuenta.
     async solicitarVerificacion(cuenta, ahoraIso = new Date().toISOString()) {

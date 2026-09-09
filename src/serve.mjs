@@ -36,6 +36,41 @@ export function shaDeBlob(contenido) {
   return crypto.createHash("sha1").update(`blob ${buf.length}\0`).update(buf).digest("hex");
 }
 
+// Diario de escritura del lote local. Garantía real en local: NO hay atomicidad del sistema de archivos, hay recuperación
+// garantizada. El lote completo se escribe primero en el diario (temp/escritura-pendiente.json) y luego se aplica archivo
+// a archivo (escritura en .tmp + renombrado, así nunca queda un archivo truncado). Si el proceso muere entre medias, la
+// siguiente arrancada del servidor (o la siguiente petición de cuentas/lote) vuelve a aplicar el lote entero, que es
+// idempotente, y borra el diario. En GitHub el lote es un único commit: ahí sí es atómico.
+export const RUTA_DIARIO = "temp/escritura-pendiente.json";
+const rutaAbsoluta = (raiz, ruta) => path.join(raiz, ...ruta.split("/"));
+function escribirAtomico(absoluta, contenido) {
+  fs.mkdirSync(path.dirname(absoluta), { recursive: true });
+  const tmp = `${absoluta}.tmp`;
+  fs.writeFileSync(tmp, contenido);
+  fs.renameSync(tmp, absoluta);
+}
+export function aplicarLote(raiz, archivos) {
+  for (const a of archivos) escribirAtomico(rutaAbsoluta(raiz, a.ruta), Buffer.from(a.base64, "base64"));
+}
+export function recuperarEscrituraPendiente(raiz, log = console) {
+  const ruta = rutaAbsoluta(raiz, RUTA_DIARIO);
+  if (!fs.existsSync(ruta)) return null;
+  let diario;
+  try {
+    diario = JSON.parse(fs.readFileSync(ruta, "utf8"));
+  } catch (err) {
+    fs.renameSync(ruta, `${ruta}.corrupto`);
+    const error = `El diario de escritura estaba corrupto (${err.message}); se apartó como ${RUTA_DIARIO}.corrupto y no se aplicó nada`;
+    log.warn(error);
+    return { aplicados: [], error };
+  }
+  const archivos = (Array.isArray(diario.archivos) ? diario.archivos : []).filter((a) => typeof a?.ruta === "string" && rutaPermitida(a.ruta) && typeof a.base64 === "string");
+  aplicarLote(raiz, archivos);
+  fs.rmSync(ruta, { force: true });
+  log.warn(`Escritura interrumpida recuperada (${diario.mensaje || "sin mensaje"}): ${archivos.length} archivo(s) aplicados.`);
+  return { aplicados: archivos.map((a) => a.ruta), mensaje: diario.mensaje || "" };
+}
+
 function responder(res, codigo, cuerpo, tipo = "text/plain; charset=utf-8") {
   res.writeHead(codigo, { "content-type": tipo, "cache-control": "no-store" });
   res.end(cuerpo);
@@ -68,7 +103,8 @@ function validarContenido(ruta, texto) {
   if (RE_CONEXION.test(ruta)) JSON.parse(texto);
 }
 
-export function crearServidor({ raiz = process.cwd() } = {}) {
+export function crearServidor({ raiz = process.cwd(), log = console } = {}) {
+  recuperarEscrituraPendiente(raiz, log); // un lote interrumpido se completa antes de atender a nadie
   const inicial = cargarConfiguracion(raiz);
   if (!inicial.cuentas.length) throw new Error(`Ninguna cuenta válida: ${inicial.errores.map((e) => e.mensaje).join("; ")}`);
   // Se relee en cada petición: el panel maestro puede dar de alta o archivar cuentas mientras el servidor corre.
@@ -131,6 +167,7 @@ export function crearServidor({ raiz = process.cwd() } = {}) {
 
       // --- Panel maestro -------------------------------------------------------
       if (req.method === "GET" && p === "/api/cuentas") {
+        recuperarEscrituraPendiente(raiz, log);
         const textoGlobal = fs.readFileSync(path.join(raiz, "config.json"), "utf8");
         const global = JSON.parse(textoGlobal);
         const cuentas = (global.cuentas || []).map((id) => {
@@ -149,6 +186,7 @@ export function crearServidor({ raiz = process.cwd() } = {}) {
             conexion: leerJsonSiExiste(path.join(raiz, "data", id, "conexion.json")),
             conexionSha: fs.existsSync(path.join(raiz, "data", id, "conexion.json")) ? shaDeBlob(fs.readFileSync(path.join(raiz, "data", id, "conexion.json"))) : null,
             tokenInfo: leerJsonSiExiste(path.join(raiz, "data", id, "token-info.json")),
+            secretosActualizados: null, // en local no hay GitHub: no se afirma nada sobre los secretos
             error,
           };
         });
@@ -183,12 +221,13 @@ export function crearServidor({ raiz = process.cwd() } = {}) {
           try { validarContenido(ruta, cuerpo.texto); } catch (err) { return responderJson(res, 400, { error: err.message }); }
           contenido = Buffer.from(cuerpo.texto, "utf8");
         }
-        fs.mkdirSync(path.dirname(absoluta), { recursive: true });
-        fs.writeFileSync(absoluta, contenido);
+        escribirAtomico(absoluta, contenido);
         return responderJson(res, 200, { ok: true, sha: shaDeBlob(contenido) });
       }
       if (req.method === "PUT" && p === "/api/archivos") {
         // Lote: se valida y se comprueban todos los sha ANTES de escribir; si algo falla, no se toca ningún archivo.
+        // Después, diario + aplicación + borrado del diario (ver RUTA_DIARIO).
+        recuperarEscrituraPendiente(raiz, log);
         let cuerpo;
         try { cuerpo = JSON.parse(await leerCuerpo(req)); } catch { return responderJson(res, 400, { error: "Cuerpo JSON inválido" }); }
         const archivos = Array.isArray(cuerpo.archivos) ? cuerpo.archivos : null;
@@ -216,12 +255,11 @@ export function crearServidor({ raiz = process.cwd() } = {}) {
           }
           preparados.push({ ruta: a.ruta, absoluta, contenido });
         }
-        const shas = {};
-        for (const pr of preparados) {
-          fs.mkdirSync(path.dirname(pr.absoluta), { recursive: true });
-          fs.writeFileSync(pr.absoluta, pr.contenido);
-          shas[pr.ruta] = shaDeBlob(pr.contenido);
-        }
+        const diario = { creado: new Date().toISOString(), mensaje: String(cuerpo.mensaje || ""), archivos: preparados.map((pr) => ({ ruta: pr.ruta, base64: pr.contenido.toString("base64") })) };
+        escribirAtomico(rutaAbsoluta(raiz, RUTA_DIARIO), JSON.stringify(diario));
+        aplicarLote(raiz, diario.archivos);
+        fs.rmSync(rutaAbsoluta(raiz, RUTA_DIARIO), { force: true });
+        const shas = Object.fromEntries(preparados.map((pr) => [pr.ruta, shaDeBlob(pr.contenido)]));
         return responderJson(res, 200, { ok: true, shas });
       }
       if (req.method === "POST" && p === "/api/verificar-conexion") {

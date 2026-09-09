@@ -424,7 +424,7 @@ function tarjetaCuenta(c) {
   const cfg = c.config || {};
   const auto = { generar: true, publicar: true, ...(cfg.automatico || {}) };
   const archivada = cfg.archivada === true;
-  const conexion = estadoConexion({ conexion: c.conexion, tokenInfo: c.tokenInfo, config: cfg, id: c.id, expuestos: secretosExpuestosActuales(), ahora: new Date() });
+  const conexion = estadoConexion({ conexion: c.conexion, tokenInfo: c.tokenInfo, config: cfg, id: c.id, expuestos: secretosExpuestosActuales(), secretosActualizados: c.secretosActualizados ?? null, ahora: new Date() });
   const posts = estado.items.map((x) => x.post).filter((p) => cuentaDe(p) === c.id);
   const cuenta = (e) => posts.filter((p) => p.estado === e).length;
   const secretos = { ...nombresSecretosSugeridos(c.id), ...(cfg.instagram || {}) };

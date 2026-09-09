@@ -17,7 +17,7 @@
 
 <section class="config" id="config" hidden>
   <h2>Conexión con GitHub</h2>
-  <p>Pega un token fino de GitHub limitado al repositorio del panel, con permiso <strong>Contents: lectura y escritura</strong> (y <strong>Actions: lectura y escritura</strong> si quieres lanzar la verificación de identidad desde aquí). Se guarda solo en este navegador.</p>
+  <p>Pega un token fino de GitHub limitado al repositorio del panel, con permiso <strong>Contents: lectura y escritura</strong> (opcionales: <strong>Actions: lectura y escritura</strong> para lanzar la verificación de identidad desde aquí, y <strong>Secrets: lectura</strong> para que el panel sepa cuándo se actualizó un secreto después de la última verificación; solo lee nombres y fechas, nunca valores). Se guarda solo en este navegador.</p>
   <label>Usuario u organización <input id="campo-owner" autocomplete="off"></label>
   <label>Repositorio <input id="campo-repo" autocomplete="off"></label>
   <label>Token <input id="campo-token" type="password" autocomplete="off"></label>

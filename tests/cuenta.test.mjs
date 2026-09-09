@@ -199,3 +199,25 @@ test("(maestro) secretosExpuestos lee los nombres de secretos que un workflow pa
   assert.deepEqual(secretosExpuestosComunes([secretosExpuestos(yml), ["IG_ACCESS_TOKEN", "IG_USER_ID", "OTRO"]]), ["IG_ACCESS_TOKEN", "IG_USER_ID"]);
   assert.equal(secretosExpuestosComunes([]), null, "sin workflows leídos no se sabe nada");
 });
+
+test("(maestro) estadoConexion: un secreto actualizado después de la comprobación (mismo nombre, valor nuevo) invalida la comprobación; si no se puede saber, lo dice; si el secreto no existe en GitHub, credenciales pendientes", () => {
+  const verificada = { estado: "verificada", usuario: "luiseskivelgolcher", comprobado: "2026-09-08T20:20:00.000Z", secretos: secretosX };
+  const despues = { IG_ACCESSTOKEN_LUISESKIVELGOLCHER: "2026-09-09T08:00:00Z", IG_USER_ID_LUISESKIVELGOLCHER: "2026-09-08T20:18:34Z" };
+  const s = estadoConexion({ conexion: verificada, config: cfgX, secretosActualizados: despues, ahora });
+  assert.equal(s.clave, "pendiente");
+  assert.match(s.texto, /IG_ACCESSTOKEN_LUISESKIVELGOLCHER/);
+  assert.match(s.texto, /2026-09-09 08:00/);
+  assert.match(s.texto, /ya no vale/);
+  const error = estadoConexion({ conexion: { estado: "error", detalle: "code 190", comprobado: "2026-09-08T19:35:00Z" }, config: cfgX, secretosActualizados: despues, ahora });
+  assert.equal(error.clave, "pendiente", "tras un error, un secreto nuevo también exige verificar de nuevo");
+  const antes = { IG_ACCESSTOKEN_LUISESKIVELGOLCHER: "2026-09-08T20:03:05Z", IG_USER_ID_LUISESKIVELGOLCHER: "2026-09-08T20:18:34Z" };
+  const v = estadoConexion({ conexion: verificada, config: cfgX, secretosActualizados: antes, ahora });
+  assert.equal(v.clave, "verificada");
+  assert.doesNotMatch(v.detalle, /no se pudo comprobar/i);
+  const desconocido = estadoConexion({ conexion: verificada, config: cfgX, secretosActualizados: null, ahora });
+  assert.equal(desconocido.clave, "verificada");
+  assert.match(desconocido.detalle, /no se pudo comprobar si los secretos cambiaron/i);
+  const falta = estadoConexion({ conexion: verificada, config: cfgX, secretosActualizados: { IG_ACCESSTOKEN_LUISESKIVELGOLCHER: null, IG_USER_ID_LUISESKIVELGOLCHER: "2026-09-08T20:18:34Z" }, ahora });
+  assert.equal(falta.clave, "credenciales-pendientes");
+  assert.match(falta.texto, /IG_ACCESSTOKEN_LUISESKIVELGOLCHER no existe en GitHub/);
+});
