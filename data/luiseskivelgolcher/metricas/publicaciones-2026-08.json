@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "cuenta": "luiseskivelgolcher",
+  "publicaciones": {
+    "18386876893200089": {
+      "fecha": "2026-08-22T07:39:24.000Z",
+      "permalink": "https://www.instagram.com/reel/DcVYzlMswMp/",
+      "tipo": "VIDEO",
+      "origen": "instagram",
+      "post": null,
+      "categoria": null,
+      "franja": null,
+      "titulo": "🚨 JABAROOT AMENAZA CON EXPONER A MILES DE PRESUNTOS AGENTES DE LA INTELIGENCIA MARROQUÍ E",
+      "consultas": {
+        "2026-09-09T13:31:01.710Z": {
+          "acumulados": {
+            "meGusta": 110,
+            "comentarios": 2,
+            "reach": 3624,
+            "views": 4710,
+            "likes": 110,
+            "comments": 2,
+            "saved": 13,
+            "shares": 85,
+            "total_interactions": 229,
+            "ig_reels_avg_watch_time": 19106,
+            "ig_reels_video_view_total_time": 70542467,
+            "reels_skip_rate": 45.7,
+            "profile_visits": null,
+            "profile_activity": null,
+            "follows": null
+          },
+          "faltantes": {
+            "profile_visits": "metrica-no-soportada",
+            "profile_activity": "metrica-no-soportada",
+            "follows": "metrica-no-soportada"
+          }
+        }
+      },
+      "ultimaConsulta": "2026-09-09T13:31:01.710Z"
+    }
+  }
+}

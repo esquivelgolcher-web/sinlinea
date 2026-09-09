@@ -1,0 +1,91 @@
+{
+  "version": 1,
+  "cuenta": "luiseskivelgolcher",
+  "consultas": {
+    "2026-09-09T13:31:01.710Z": {
+      "perfil": {
+        "seguidores": 81088,
+        "seguidos": 378,
+        "publicaciones": 27
+      },
+      "permiso": "basico+insights",
+      "llamadas": 10,
+      "completo": true,
+      "motivoIncompleto": null
+    }
+  },
+  "porDia": {
+    "2026-09-06": {
+      "valores": {
+        "reach": 6,
+        "views": 13,
+        "accounts_engaged": 0,
+        "total_interactions": 0,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": 0,
+        "reposts": 0,
+        "replies": 0,
+        "profile_links_taps": 0,
+        "follows_and_unfollows": null,
+        "follower_count": null,
+        "profile_views": 3,
+        "website_clicks": 0
+      },
+      "faltantes": {
+        "follows_and_unfollows": "conjunto-vacio",
+        "follower_count": "conjunto-vacio"
+      },
+      "consultadoEn": "2026-09-09T13:31:01.710Z"
+    },
+    "2026-09-07": {
+      "valores": {
+        "reach": 44,
+        "views": 119,
+        "accounts_engaged": 0,
+        "total_interactions": 0,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": 0,
+        "reposts": 0,
+        "replies": 0,
+        "profile_links_taps": 0,
+        "follows_and_unfollows": null,
+        "follower_count": null,
+        "profile_views": 5,
+        "website_clicks": 0
+      },
+      "faltantes": {
+        "follows_and_unfollows": "conjunto-vacio",
+        "follower_count": "conjunto-vacio"
+      },
+      "consultadoEn": "2026-09-09T13:31:01.710Z"
+    },
+    "2026-09-08": {
+      "valores": {
+        "reach": 335,
+        "views": 466,
+        "accounts_engaged": 0,
+        "total_interactions": 0,
+        "likes": 0,
+        "comments": 0,
+        "shares": 0,
+        "saves": 0,
+        "reposts": 0,
+        "replies": 0,
+        "profile_links_taps": 0,
+        "follows_and_unfollows": null,
+        "follower_count": null,
+        "profile_views": 42,
+        "website_clicks": 0
+      },
+      "faltantes": {
+        "follows_and_unfollows": "conjunto-vacio",
+        "follower_count": "conjunto-vacio"
+      },
+      "consultadoEn": "2026-09-09T13:31:01.710Z"
+    }
+  }
+}

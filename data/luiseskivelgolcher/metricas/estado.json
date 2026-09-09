@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "cuenta": "luiseskivelgolcher",
+  "ultimaCorrida": "2026-09-09T13:31:01.710Z",
+  "llamadas": 10,
+  "completo": true,
+  "motivoIncompleto": null,
+  "listadoCompleto": true,
+  "cobertura": {
+    "declaradas": 27,
+    "listadas": 4,
+    "enVentana": 4,
+    "consultadas": 4,
+    "listadoCompleto": true
+  },
+  "pendientes": [],
+  "noSoportadas": {
+    "VIDEO": [
+      "profile_visits",
+      "profile_activity",
+      "follows"
+    ]
+  },
+  "ultimaConsulta": {
+    "18386876893200089": "2026-09-09T13:31:01.710Z",
+    "18400665205094430": "2026-09-09T13:31:01.710Z",
+    "18112160272984034": "2026-09-09T13:31:01.710Z",
+    "17923166007397714": "2026-09-09T13:31:01.710Z"
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "version": 1,
+  "cuenta": "luiseskivelgolcher",
+  "publicaciones": {
+    "18400665205094430": {
+      "fecha": "2026-07-24T09:52:57.000Z",
+      "permalink": "https://www.instagram.com/reel/DbK9TDOMwFs/",
+      "tipo": "VIDEO",
+      "origen": "instagram",
+      "post": null,
+      "categoria": null,
+      "franja": null,
+      "titulo": "Pegasus Project, la verdad no contada de cómo en el gobierno de Ricardo Martinelli se viol",
+      "consultas": {
+        "2026-09-09T13:31:01.710Z": {
+          "acumulados": {
+            "meGusta": 4,
+            "comentarios": 0,
+            "reach": 279,
+            "views": 347,
+            "likes": 4,
+            "comments": 0,
+            "saved": 1,
+            "shares": 0,
+            "total_interactions": 6,
+            "ig_reels_avg_watch_time": 8412,
+            "ig_reels_video_view_total_time": 2321870,
+            "reels_skip_rate": 59.5,
+            "profile_visits": null,
+            "profile_activity": null,
+            "follows": null
+          },
+          "faltantes": {
+            "profile_visits": "metrica-no-soportada",
+            "profile_activity": "metrica-no-soportada",
+            "follows": "metrica-no-soportada"
+          }
+        }
+      },
+      "ultimaConsulta": "2026-09-09T13:31:01.710Z"
+    },
+    "18112160272984034": {
+      "fecha": "2026-07-23T21:29:22.000Z",
+      "permalink": "https://www.instagram.com/reel/DbJoDQfsUPV/",
+      "tipo": "VIDEO",
+      "origen": "instagram",
+      "post": null,
+      "categoria": null,
+      "franja": null,
+      "titulo": "Landcruiser de más de 100 mil dólares, con una gigante exoneración para Shirley Castañeda ",
+      "consultas": {
+        "2026-09-09T13:31:01.710Z": {
+          "acumulados": {
+            "meGusta": 204,
+            "comentarios": 25,
+            "reach": 3054,
+            "views": 4151,
+            "likes": 204,
+            "comments": 25,
+            "saved": 11,
+            "shares": 117,
+            "total_interactions": 383,
+            "ig_reels_avg_watch_time": 23210,
+            "ig_reels_video_view_total_time": 72578358,
+            "reels_skip_rate": 39.7,
+            "profile_visits": null,
+            "profile_activity": null,
+            "follows": null
+          },
+          "faltantes": {
+            "profile_visits": "metrica-no-soportada",
+            "profile_activity": "metrica-no-soportada",
+            "follows": "metrica-no-soportada"
+          }
+        }
+      },
+      "ultimaConsulta": "2026-09-09T13:31:01.710Z"
+    },
+    "17923166007397714": {
+      "fecha": "2026-07-23T14:59:32.000Z",
+      "permalink": "https://www.instagram.com/reel/DbI7m3cseZv/",
+      "tipo": "VIDEO",
+      "origen": "instagram",
+      "post": null,
+      "categoria": null,
+      "franja": null,
+      "titulo": "Cuando no tienen argumentos contra la información real solo queda desacreditar a los medio",
+      "consultas": {
+        "2026-09-09T13:31:01.710Z": {
+          "acumulados": {
+            "meGusta": 5,
+            "comentarios": 0,
+            "reach": 255,
+            "views": 329,
+            "likes": 5,
+            "comments": 0,
+            "saved": 0,
+            "shares": 0,
+            "total_interactions": 6,
+            "ig_reels_avg_watch_time": 5195,
+            "ig_reels_video_view_total_time": 1335122,
+            "reels_skip_rate": 76,
+            "profile_visits": null,
+            "profile_activity": null,
+            "follows": null
+          },
+          "faltantes": {
+            "profile_visits": "metrica-no-soportada",
+            "profile_activity": "metrica-no-soportada",
+            "follows": "metrica-no-soportada"
+          }
+        }
+      },
+      "ultimaConsulta": "2026-09-09T13:31:01.710Z"
+    }
+  }
+}
