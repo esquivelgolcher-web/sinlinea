@@ -355,8 +355,9 @@ generación y la publicación (`metricas.recoger`, apagado por defecto).
   recogida encendida no corre ningún job de cuenta). La sonda vive en
   `verificar.yml` (entrada `sonda_metricas`, solo en el job de esa cuenta).
 - **Panel**: vista Métricas (`/api/metricas` en local; en GitHub,
-  `leerMetricas` lee la carpeta una vez y solo los archivos de los dos últimos
-  meses, con la caché y el manejo de límites de 2.3b). Evolución
+  `leerMetricas` lee la carpeta una vez y solo la cuenta de los dos últimos
+  meses y las publicaciones de los cuatro últimos, con la caché y el manejo de
+  límites de 2.3b). Evolución
   (instantáneas), métricas por día y rendimiento de publicaciones; cada `null`
   se pinta con su motivo. Casilla "Recoger métricas a diario" en la ficha de
   la cuenta.

@@ -297,8 +297,11 @@ export function crearAlmacenGitHub({ token, owner, repo, rama = "main", fetchImp
         if (dir.status === 404) return { archivos: {}, estado: null };
         if (!dir.ok) throw new Error(`GitHub respondió ${dir.status} al leer data/${cuenta}/metricas`);
         const entradas = (await dir.json()).filter((e) => e.type === "file");
-        const meses = [...new Set(entradas.map((e) => (/^(?:cuenta|publicaciones)-(\d{4}-\d{2})\.json$/.exec(e.name) || [])[1]).filter(Boolean))].sort().slice(-2);
-        const nombres = entradas.map((e) => e.name).filter((n) => meses.some((m) => n === `cuenta-${m}.json` || n === `publicaciones-${m}.json`));
+        // Por tipo y por meses de calendario contados desde hoy: la cuenta se archiva por mes de consulta (los dos últimos
+        // meses) y las publicaciones por mes de publicación (los cuatro últimos cubren la ventana de 90 días de la recogida).
+        const mesesDesdeHoy = (n) => { const d = new Date(ahora()); return Array.from({ length: n }, (_, i) => { const x = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth() - i, 1)); return x.toISOString().slice(0, 7); }); };
+        const existentes = new Set(entradas.map((e) => e.name));
+        const nombres = [...mesesDesdeHoy(2).map((m) => `cuenta-${m}.json`), ...mesesDesdeHoy(4).map((m) => `publicaciones-${m}.json`)].filter((n) => existentes.has(n));
         const archivos = {};
         for (const n of nombres) {
           const a = await leerArchivo(`data/${cuenta}/metricas/${n}`);
