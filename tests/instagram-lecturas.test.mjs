@@ -111,3 +111,34 @@ test("(métricas) un error de límite de la API (4, 17, 32, 613, 80002) se lanza
   const ig2 = crearClienteInstagram({ ...opciones, fetchImpl: g.impl });
   await assert.rejects(() => ig2.perfilResumen(), (e) => e.codigo === 190 && !(e instanceof ErrorLimiteInstagram));
 });
+
+test("(métricas · hallazgo real) si la API rechaza la llamada nombrando métricas no soportadas (código 100 'does not support the metrics: a, b'), se reintenta UNA vez sin ellas y solo esas quedan como no soportadas", async () => {
+  const f = fetchFalso([
+    errorApi(100, "Instagram Insights Media API endpoint does not support the metrics: reposts, profile_activity. Please refer to https://developers.facebook.com/docs/instagram/reference/media#insights for more details."),
+    { json: { data: [{ name: "reach", period: "lifetime", values: [{ value: 400 }] }, { name: "likes", period: "lifetime", values: [{ value: 110 }] }] } },
+  ]);
+  const ig = crearClienteInstagram({ ...opciones, fetchImpl: f.impl });
+  const r = await ig.insightsMedio("18001", { metricas: ["reach", "likes", "reposts", "profile_activity"] });
+  assert.equal(f.llamadas.length, 2, "una llamada más, no una por métrica");
+  assert.match(f.llamadas[1].url, /metric=reach%2Clikes(&|$)/, "el reintento excluye exactamente las métricas nombradas");
+  assert.deepEqual(r.valores, { reach: 400, likes: 110, reposts: null, profile_activity: null });
+  assert.deepEqual(r.faltantes, { reposts: "metrica-no-soportada", profile_activity: "metrica-no-soportada" });
+  assert.equal(r.error, null);
+  assert.equal(ig.llamadasHechas(), 2);
+  // Si la API vuelve a rechazar el reintento, no se insiste: todo lo pedido queda como no soportado.
+  const g = fetchFalso([
+    errorApi(100, "Instagram Insights Media API endpoint does not support the metrics: reposts."),
+    errorApi(100, "(#100) Invalid parameter"),
+  ]);
+  const ig2 = crearClienteInstagram({ ...opciones, fetchImpl: g.impl });
+  const r2 = await ig2.insightsMedio("18001", { metricas: ["reach", "reposts"] });
+  assert.equal(g.llamadas.length, 2);
+  assert.deepEqual(r2.faltantes, { reach: "metrica-no-soportada", reposts: "metrica-no-soportada" });
+  assert.equal(r2.error.codigo, 100);
+  // Si todas las métricas pedidas son las rechazadas, no hay reintento.
+  const h = fetchFalso([errorApi(100, "Instagram Insights Media API endpoint does not support the metrics: reposts.")]);
+  const ig3 = crearClienteInstagram({ ...opciones, fetchImpl: h.impl });
+  const r3 = await ig3.insightsMedio("18001", { metricas: ["reposts"] });
+  assert.equal(h.llamadas.length, 1);
+  assert.deepEqual(r3.faltantes, { reposts: "metrica-no-soportada" });
+});

@@ -180,22 +180,38 @@ export function crearClienteInstagram({
     for (const m of metricas) { valores[m] = null; faltantes[m] = motivo; }
     return { valores, faltantes, error: { codigo: err.codigo, subcodigo: err.subcodigo ?? null, mensaje: err.message } };
   }
+  // Hallazgo real (2026-09-09): la API rechaza TODA la llamada si una métrica no aplica ("... does not support the
+  // metrics: reposts."). Se extraen los nombres que cita para reintentar una sola vez sin ellos.
+  function metricasRechazadas(err, metricas) {
+    const m = /does not support the metrics?:\s*([A-Za-z0-9_,\s]+)/i.exec(String(err?.message || ""));
+    if (Number(err?.codigo) !== 100 || !m) return [];
+    const citadas = m[1].split(",").map((x) => x.trim().replace(/\.$/, "")).filter(Boolean);
+    return metricas.filter((x) => citadas.includes(x));
+  }
+  async function pedirInsights(metricas, url, params) {
+    try {
+      return extraerInsights(metricas, await llamar("GET", url, { ...params, metric: metricas.join(",") }));
+    } catch (err) {
+      const rechazadas = metricasRechazadas(err, metricas);
+      const resto = metricas.filter((m) => !rechazadas.includes(m));
+      if (!rechazadas.length || !resto.length) return insightsFallidos(metricas, err);
+      let r;
+      try { r = extraerInsights(resto, await llamar("GET", url, { ...params, metric: resto.join(",") })); }
+      catch (err2) { r = insightsFallidos(resto, err2); }
+      for (const m of rechazadas) { r.valores[m] = null; r.faltantes[m] = "metrica-no-soportada"; }
+      return r;
+    }
+  }
   const unix = (dia) => String(Math.floor(Date.parse(`${dia}T00:00:00Z`) / 1000));
 
   // Métricas de cuenta por período (period=day, metric_type=total_value) entre dos fechas (AAAA-MM-DD, UTC).
   async function insightsCuenta({ metricas, desde, hasta }) {
-    try {
-      const r = await llamar("GET", `${base}/${usuarioId}/insights`, { metric: metricas.join(","), period: "day", metric_type: "total_value", since: unix(desde), until: unix(hasta) });
-      return extraerInsights(metricas, r);
-    } catch (err) { return insightsFallidos(metricas, err); }
+    return pedirInsights(metricas, `${base}/${usuarioId}/insights`, { period: "day", metric_type: "total_value", since: unix(desde), until: unix(hasta) });
   }
 
   // Totales acumulados de un medio desde su publicación (la API no acepta period aquí).
   async function insightsMedio(idMedia, { metricas }) {
-    try {
-      const r = await llamar("GET", `${base}/${idMedia}/insights`, { metric: metricas.join(",") });
-      return extraerInsights(metricas, r);
-    } catch (err) { return insightsFallidos(metricas, err); }
+    return pedirInsights(metricas, `${base}/${idMedia}/insights`, {});
   }
 
   const llamadasHechas = () => llamadas;
