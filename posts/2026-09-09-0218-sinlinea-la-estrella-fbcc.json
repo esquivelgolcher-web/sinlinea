@@ -1,0 +1,47 @@
+{
+  "id": "2026-09-09-0218-sinlinea-la-estrella-fbcc",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/informacion-util/procuraduria-alerta-sobre-los-prestamos-gota-a-gota-como-funcionan-IA25529320",
+    "titulo": "Procuraduría alerta sobre los préstamos ‘gota a gota’: ¿cómo funcionan?",
+    "publicado": "2026-09-08T19:15:00.000Z"
+  },
+  "categoria": "SEGURIDAD",
+  "titular": "Procuraduría alerta sobre riesgos del préstamo 'gota a gota'",
+  "bajada": "La entidad explica cómo opera este sistema informal y sus vínculos con estructuras criminales.",
+  "caption": "El 'gota a gota' promete dinero rápido sin trámites, pero puede convertirse en una deuda imposible de pagar, con cobros diarios y hasta amenazas. La Procuraduría advierte que en algunos casos está ligado a bandas criminales y lavado de dinero. ¿Conoces a alguien que haya caído en este tipo de préstamo?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Seguridad",
+    "#GotaAGota",
+    "#Procuraduría",
+    "#Estafas"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-09-09-0218-sinlinea-la-estrella-fbcc.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-09-0218-sinlinea-la-estrella-fbcc.jpg",
+    "hash": "37fee9dae3e9082c",
+    "version": 10,
+    "estilo": "a92ceb586a180aae",
+    "renderizada": "2026-09-09T07:18:28.968Z"
+  },
+  "ilustracion": {
+    "descripcion": "Una mano entregando un sobre con dinero en efectivo sobre una mesa en un negocio pequeño, el sobre en el tercio superior derecho, zona izquierda y central despejadas, sin rostros visibles.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-09-0218-sinlinea-la-estrella-fbcc.jpg",
+    "hashDescripcion": "b3b0edbb318aece1",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-09T07:18:02.653Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-09T07:18:02.653Z",
+  "actualizado": "2026-09-09T07:18:02.653Z"
+}
