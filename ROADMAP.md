@@ -599,3 +599,7 @@ corriendo contra el nuevo almacén; e2e de inicio de sesión.
 3. Nombre del id de la cuenta actual: `sinlinea` (propuesto).
 4. ¿Idioma único (español de Panamá) o el redactor debe admitir otros países
    e idiomas por cuenta (afecta a `editorial.md`, categorías y zona horaria)?
+
+## M7 · Panel Maestro multicanal: Facebook, Threads y X (diseño escrito el 2026-09-09; sin implementar)
+
+Diseño: `docs/superpowers/specs/2026-09-09-multicanal-design.md`. Conexiones independientes por red en cada cuenta (Environment `cuenta-<id>`, interruptor por destino que nace apagado, identidad verificada por red), destinos por post con texto y estado propios (`destinos.<red>`), reintentos que nunca repiten donde ya se publicó y reconciliación de respuestas inciertas. Fases: F1 Facebook (página), F2 Threads, F3 X condicionada a confirmar acceso y coste (pay-per-usage: 0,015 USD por publicación, 0,200 USD si lleva URL). Métricas de las redes nuevas: fase posterior. Pendiente de aprobación del operador antes de planificar la implementación.
