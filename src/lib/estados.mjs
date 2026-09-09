@@ -7,6 +7,9 @@ export const CATEGORIAS = [
   "EDUCACIÓN", "INVESTIGACIÓN", "DEPORTES", "CULTURA", "INTERNACIONAL", "ÚLTIMA HORA",
 ];
 export const CAMPOS_IMAGEN = ["titular", "bajada", "categoria", "variante"];
+// Pasos en los que puede fallar un post: render (imagen), instagram (entrega antigua de un solo destino) y destino
+// (multicanal: uno o más destinos fallaron; el detalle vive en post.destinos).
+export const PASOS_ERROR = ["render", "instagram", "destino"];
 const CAMPOS_EDITABLES = ["titular", "bajada", "caption", "hashtags", "categoria", "variante", "ilustracion"];
 
 function fnv1a(texto, base) {
@@ -81,7 +84,7 @@ export function quitarDeCola(post, ahoraIso) {
 }
 
 export function reintentar(post, ahoraIso) {
-  if (post.estado !== "error" || post.error?.paso !== "instagram") throw invalida(post, "reintentar");
+  if (post.estado !== "error" || !["instagram", "destino"].includes(post.error?.paso)) throw invalida(post, "reintentar");
   return con(post, { estado: post.programado ? "programado" : "borrador", error: null }, ahoraIso);
 }
 
@@ -92,7 +95,7 @@ export function marcarPublicado(post, { idMedia, permalink }, ahoraIso) {
 
 export function marcarError(post, { paso, mensaje }, ahoraIso) {
   if (["publicado", "descartado"].includes(post.estado)) throw invalida(post, "marcarError");
-  if (!["render", "instagram"].includes(paso)) throw new Error(`Paso de error desconocido: ${paso}`);
+  if (!PASOS_ERROR.includes(paso)) throw new Error(`Paso de error desconocido: ${paso}`);
   return con(post, { estado: "error", error: { paso, mensaje: String(mensaje), fecha: ahoraIso } }, ahoraIso);
 }
 

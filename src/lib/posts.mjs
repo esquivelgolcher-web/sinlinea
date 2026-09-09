@@ -1,7 +1,8 @@
 // Posts como archivos JSON: validación, lectura, escritura, creación y archivo.
 import fs from "node:fs";
 import path from "node:path";
-import { ESTADOS, VARIANTES, CATEGORIAS } from "./estados.mjs";
+import { ESTADOS, VARIANTES, CATEGORIAS, PASOS_ERROR } from "./estados.mjs";
+import { validarDestinos } from "./destinos.mjs";
 import { claveDia, claveMinuto, ZONA_PANAMA } from "./fechas.mjs";
 import { slugify, sha1short } from "./util.mjs";
 import { normalizarHashtags } from "./caption.mjs";
@@ -46,10 +47,11 @@ export function validarPost(post) {
   if (post.error !== null) {
     const e = post.error;
     exigir(
-      e && typeof e === "object" && ["render", "instagram"].includes(e.paso) && typeof e.mensaje === "string" && !Number.isNaN(Date.parse(e.fecha)),
-      "error debe ser null o tener paso (render|instagram), mensaje y fecha"
+      e && typeof e === "object" && PASOS_ERROR.includes(e.paso) && typeof e.mensaje === "string" && !Number.isNaN(Date.parse(e.fecha)),
+      `error debe ser null o tener paso (${PASOS_ERROR.join("|")}), mensaje y fecha`
     );
   }
+  if (post.destinos !== undefined && post.destinos !== null) validarDestinos(post.destinos);
   exigir(post.programado === null || !Number.isNaN(Date.parse(post.programado)), "programado debe ser null o una fecha ISO");
   for (const k of ["creado", "actualizado"]) exigir(!Number.isNaN(Date.parse(post[k])), `${k} debe ser una fecha ISO`);
   if (post.ilustracion !== undefined && post.ilustracion !== null) {
