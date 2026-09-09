@@ -96,7 +96,7 @@ test("(M0) verificar es manual, solo lectura, expone los secretos compartidos en
   assert.equal(/git push/.test(texto), false);
 });
 
-const WORKFLOWS_IG = { publicar: "publicar", "renovar-token": "renovar", "probar-instagram": "probar", verificar: "verificar" };
+const WORKFLOWS_IG = { publicar: "publicar", "renovar-token": "renovar", "probar-instagram": "probar", verificar: "verificar", metricas: "metricas" };
 
 test("(fase 2) los workflows de Instagram no nombran cuentas: un job por cuenta a partir de config.json, con las credenciales de su origen y solo las suyas", () => {
   const { cuentas } = cargarConfiguracion(".");
@@ -171,4 +171,25 @@ test("(M2) probar-instagram es manual, acepta la cuenta como entrada y solo guar
   assert.equal(/run:.*\$\{\{\s*inputs\./.test(texto), false, "(M2 fix) la entrada va por env, no interpolada en run:");
   assert.match(texto, /CUENTA: \$\{\{ inputs\.cuenta \}\}/);
   assert.match(texto, /if: always\(\)/, "guarda conexion.json también cuando la prueba falla");
+});
+
+test("(métricas) metricas.yml: diario y manual (cuenta, guardar), solo lectura en Instagram, escribe únicamente data/<cuenta>/metricas y respeta metricas.recoger en las corridas programadas", () => {
+  const w = wf("metricas");
+  const texto = leer("metricas");
+  assert.equal(w.on.schedule[0].cron, "30 5 * * *", "una vez al día, 00:30 de Panamá");
+  assert.ok(w.on.workflow_dispatch.inputs.cuenta, "entrada cuenta");
+  assert.equal(w.on.workflow_dispatch.inputs.guardar.default, "false", "manual: por defecto solo sonda, sin guardar");
+  assert.equal(w.permissions.contents, "write");
+  assert.equal(w.concurrency.group, "sinlinea");
+  assert.equal(w.concurrency["cancel-in-progress"], false);
+  for (const j of ["metricas-entorno", "metricas-repositorio"]) assert.equal(w.jobs[j]["timeout-minutes"], 10, `${j}: una cuenta lenta no bloquea el día`);
+  const lista = w.jobs.cuentas.steps.find((st) => st.id === "lista");
+  assert.match(lista.run, /--solo-metricas/, "las corridas programadas solo incluyen cuentas con metricas.recoger = true");
+  assert.match(texto, /node src\/metricas\.mjs --cuenta "\$CUENTA" --por-cuenta/);
+  assert.match(texto, /--sin-guardar/, "guardar=false ejecuta la sonda");
+  assert.match(texto, /git add "data\/\$CUENTA\/metricas"/, "solo se guardan las métricas de esa cuenta");
+  assert.equal(/git add (posts|public|cuentas|src|data)/.test(texto), false, "nunca posts/ ni todo data/");
+  assert.equal(/run:.*\$\{\{\s*inputs\./.test(texto), false, "las entradas van por env, no interpoladas en run:");
+  assert.equal(/ANTHROPIC_API_KEY|GEMINI_API_KEY/.test(texto), false, "sin Claude ni Gemini");
+  assert.equal(/media_publish|publicar\.mjs/.test(texto), false, "no publica");
 });
