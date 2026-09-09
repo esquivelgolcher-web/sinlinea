@@ -46,12 +46,12 @@
     }
   ],
   "generar": {
-    "maxPorCorrida": 1,
-    "maxBorradoresPorDia": 1,
+    "maxPorCorrida": 2,
+    "maxBorradoresPorDia": 3,
     "candidatosMax": 10,
     "diasSinRepetir": 3,
     "maxHorasAntiguedad": 48,
-    "maxBorradoresPendientes": 3
+    "maxBorradoresPendientes": 6
   },
   "franjas": [
     "12:00",
