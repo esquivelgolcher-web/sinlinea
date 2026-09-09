@@ -220,9 +220,34 @@ cabecera alterna entre la primera y la segunda; la elección se recuerda.
   `metricasEstado`.
 
 ### 2.4 PUBLICAR (`src/publicar.mjs`)
-Cada 30 minutos toma los posts `programado` cuya hora ya pasó y los publica con
-`lib/instagram.mjs` (contenedor → sondeo → publicación → permalink), usando la
-URL pública de la imagen en GitHub Pages. Avisa cuando el token está por vencer.
+Cada 30 minutos toma los posts `programado` cuya hora ya pasó y publica cada uno de
+sus **destinos** (multicanal F1: Instagram con `lib/instagram.mjs`, contenedor → sondeo →
+publicación → permalink; páginas de Facebook con `lib/facebook.mjs`, foto sin publicar →
+publicación con la foto adjunta → permalink), usando la URL pública de la imagen en
+GitHub Pages. Reglas del diseño multicanal (`docs/superpowers/specs/2026-09-09-multicanal-design.md`):
+
+- **Reserva persistida antes de enviar.** Para cada destino: `git pull --rebase --autostash`,
+  relectura del post y de la configuración en disco, revalidación (sigue programado, destino
+  pendiente, misma versión e imagen aprobadas, interruptor encendido, sin pausa general),
+  escritura del intento (`destinos.<red>.intento`, fase `reservado`) y commit + push. Sin
+  reserva subida no hay envío. Los ids intermedios (foto de Facebook, contenedor de Instagram)
+  y la fase `enviando` también se suben antes de la llamada que publica (`lib/persistencia.mjs`).
+- **Independencia.** Un fallo en una red no bloquea a las demás; un publicado nunca se repite;
+  apagar una red deja su entrega en espera; omitir es una decisión del operador.
+- **Inciertos con evidencia.** Un corte tras enviar deja el destino `incierto` con su intento.
+  En la siguiente corrida se reconcilia solo con evidencia: en Facebook, una publicación del
+  muro posterior al intento con la foto adjunta (`attachments.target.id`); en Instagram, el
+  estado del contenedor (`PUBLISHED`, `FINISHED` se publica sin recrear, `ERROR`/`EXPIRED`
+  vuelve a pendiente). Nunca por coincidencia de texto. Sin evidencia sigue incierto hasta la
+  decisión manual en el panel.
+- **Texto e imagen aprobados.** Se publica exactamente la versión aprobada por destino
+  (`lib/versiones.mjs` solo propone, nunca recorta). Si la imagen cambió después de aprobar,
+  el destino espera hasta que el operador apruebe la imagen actual.
+
+Avisa cuando el token de Instagram está por vencer. El estado general de la pieza se deriva
+de sus destinos (`lib/destinos.mjs`): `programado` mientras quede algo pendiente o incierto,
+`publicado` si todos salieron, `error` si alguno falló y nada queda pendiente; `publicacion`
+y `error` del post siguen reflejando Instagram para el panel, las métricas y el archivo.
 
 ### 2.5 Módulos
 

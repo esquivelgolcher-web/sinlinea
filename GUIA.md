@@ -183,3 +183,23 @@ reactivarla, vuelve a marcar "Usar ilustración generada con IA" o pulsa
 - `cuentas/<id>/editorial.md`: tono, qué elegir, cómo escribir (una por cuenta).
 - `templates/post.html`: diseño. Al cambiarla, sube `data-version` en `<html>` para
   que se regeneren las imágenes de los posts activos.
+
+## Publicar también en Facebook (multicanal, fase 1)
+
+Cada cuenta puede conectar una página de Facebook. Es independiente de Instagram: tiene su propio botón, su propia verificación y nace apagada.
+
+**Conectar la página (una vez):**
+1. Cuentas → Editar → «Página de Facebook»: escribe el id numérico de la página y Guardar. El interruptor de Facebook sigue apagado.
+2. En las herramientas de Meta obtén el token de página (Explorador de la API Graph → Depurador de tokens → `me/accounts`; la guía de la tarjeta lo explica paso a paso) y pégalo en GitHub → Settings → Environments → `cuenta-<id>` → `FB_PAGE_TOKEN`. Nunca lo pegues en el panel.
+3. Pulsa **Verificar Facebook** en la tarjeta (o Actions → Probar destino → Run workflow con la cuenta y `facebook`). En unos minutos la tarjeta dirá «Facebook: página «…» verificada».
+4. Pulsa **Encender Facebook**. Si algo falta, el panel lo dice y no enciende nada.
+
+**Aprobar una pieza para varias redes:** en Borradores pulsa Aprobar. En el diálogo, además de la fecha y la hora, verás una casilla por red (Instagram y Facebook) y el texto que saldrá en cada una. Revísalo: el de Facebook va sin hashtags. Si un texto pasa del límite, no se recorta solo: edítalo antes de confirmar.
+
+**Después de aprobar:** en Programados cada pieza muestra una etiqueta por red (pendiente, en espera, publicado con enlace, error, incierto, omitido) y un desplegable «Versiones por red» para cambiar el texto aprobado a mano. «Omitir en Facebook» quita esa red de esa pieza (no se puede omitir la última). Si editas el caption o se regenera la imagen después de aprobar, la tarjeta lo avisa; nada cambia hasta que pulses «Guardar versión» o «Aprobar imagen actual».
+
+**Si una red falla o queda incierta:** con error, la pieza va a Errores; «Reintentar» solo vuelve a intentar la red fallida. Con «incierto» (hubo un corte tras enviar), el sistema busca evidencia en la siguiente corrida y, si no la encuentra, tú decides con el botón «Decidir Facebook»: pega el enlace si ves la publicación en la página, o «volver a pendiente» si no está.
+
+**Pausar todo / Reanudar todo:** en la tarjeta de la cuenta detiene todas las redes a la vez sin cambiar los interruptores. **Pausar Facebook** deja sus entregas en espera; no las omite.
+
+**Pasos que se hacen fuera del panel:** obtener el token de página (Meta), guardarlo en el Environment (GitHub) y, si el token del panel no tiene permiso Actions, lanzar Probar destino desde Actions.

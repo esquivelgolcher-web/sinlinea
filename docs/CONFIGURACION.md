@@ -424,3 +424,40 @@ según las impresiones de las últimas 24 h (error 80002). Con `maxLlamadas`
 150 y dos cuentas, el consumo diario queda muy por debajo de ese cupo salvo
 en cuentas casi sin impresiones, donde la recogida se completa en varias
 corridas.
+
+## 12. Multicanal (F1): página de Facebook por cuenta
+
+Cada cuenta editorial puede conectar, además de Instagram, **una página de Facebook**. La conexión es independiente: tiene su propio secreto, su propia verificación de identidad y su propio interruptor, que nace apagado. Instagram sigue mandando en `automatico.publicar`; Facebook en `conexiones.facebook.publicar`. Se puede publicar solo en Facebook con Instagram apagado. La **pausa general** (`automatico.pausa`) detiene todas las redes sin cambiar ningún interruptor.
+
+Requisitos: la cuenta debe estar en modo Environment (`instagram.origen: "entorno"`); las redes nuevas no existen en modo repositorio. Las páginas se publican con la Graph API (`POST /{page-id}/photos` con `published=false` y luego `POST /{page-id}/feed` con la foto adjunta): la misma imagen JPEG que Instagram, texto propio por red.
+
+### 12.1 Obtener el token de página (todo en herramientas de Meta y en GitHub; nada pasa por el panel)
+
+1. Ten una página de Facebook y sé su administrador (Meta Business Suite → Páginas).
+2. En Meta for Developers, en la app de tipo empresa de la cuenta: Casos de uso → «Facebook Login for Business» → configuración con tipo de token «Usuario» y permisos `pages_show_list`, `pages_manage_posts`, `pages_read_engagement`.
+3. Explorador de la API Graph (https://developers.facebook.com/tools/explorer/): elige la app, marca esos permisos y genera un token de usuario.
+4. Depurador de tokens (https://developers.facebook.com/tools/debug/accesstoken/): pega el token y pulsa «Ampliar token de acceso» para obtener el de larga duración.
+5. De vuelta en el Explorador, con el token ampliado, consulta `me/accounts`: cada página aparece con su `id` y su `access_token`. Ese token de página no caduca (Meta: solo se invalida si cambias la contraseña, pierdes el rol en la página, etc.).
+6. GitHub → Settings → Environments → `cuenta-<id>` → Add environment secret → nombre `FB_PAGE_TOKEN`, valor el token de página. Aquí y en el panel solo se usa el nombre.
+
+### 12.2 Declarar la página y verificar
+
+- Panel → Cuentas → Editar → «Página de Facebook»: escribe el **id numérico** de la página y guarda (el interruptor queda apagado). En `cuentas/<id>/config.json` queda `"conexiones": { "facebook": { "publicar": false, "pagina": "<id>" } }`.
+- Actions → **Probar destino** → Run workflow con `cuenta` y `red = facebook` (o el botón «Verificar Facebook» de la tarjeta, si el token del panel tiene permiso Actions). El job recibe solo `FB_PAGE_TOKEN` desde el Environment, llama a `GET /me` y guarda `data/<id>/conexion-facebook.json` (estado, id y nombre de la página, fecha; nunca valores).
+- Con «Facebook: página «…» (id) verificada» en la tarjeta, pulsa **Encender Facebook**. Si la página del token no coincide con la declarada, el estado es error y no se puede encender.
+
+### 12.3 Qué hace PUBLICAR con varias redes
+
+- Al aprobar una pieza en el panel eliges sus destinos y revisas la versión de texto de cada red. Se publica exactamente ese texto; si luego editas el caption o se regenera la imagen, el panel lo avisa y solo cambia lo aprobado cuando tú lo pides.
+- Cada destino se **reserva** antes de enviar: el publicador sincroniza con el remoto, relee el post y la configuración, escribe el intento y lo sube (commit + push). Sin reserva subida no hay envío. Los ids intermedios (foto de Facebook, contenedor de Instagram) también se suben antes de la llamada que publica.
+- Un fallo en una red no bloquea a las demás. Un publicado nunca se repite. Apagar una red deja su entrega en espera (no la omite); omitir es una acción explícita.
+- Un resultado incierto (corte tras enviar) se conserva hasta reconciliar con evidencia: en Facebook, una publicación del muro con la foto adjunta del intento; en Instagram, el estado del contenedor. Sin evidencia, el panel pide una decisión (marcar publicado con el enlace, volver a pendiente u omitir).
+- Registros: `data/<id>/conexion-facebook.json` (conexión) y `destinos.facebook` dentro de cada `posts/<id>.json` (texto aprobado, estado, ids, enlace, intento).
+
+### 12.4 Secretos y workflows
+
+| Secreto | Dónde | Uso |
+|---|---|---|
+| `FB_PAGE_TOKEN` | Environment `cuenta-<id>` | PUBLICAR (job por cuenta) y Probar destino |
+
+`publicar.yml` expone `FB_PAGE_TOKEN` solo en el job por Environment; el job de modo repositorio no conoce Facebook. Threads y X quedan para fases posteriores (diseño en `docs/superpowers/specs/2026-09-09-multicanal-design.md`).
