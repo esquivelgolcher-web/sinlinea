@@ -1,0 +1,45 @@
+{
+  "id": "2026-09-09-1111-luiseskivelgolcher-occrp-c04a",
+  "cuenta": "luiseskivelgolcher",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "OCCRP",
+    "url": "https://www.occrp.org/en/news/philippine-ex-speaker-arrested-in-118m-plunder-case",
+    "titulo": "Philippine Ex-Speaker Arrested in $118M Plunder Case",
+    "publicado": "2026-09-08T17:38:00.000Z"
+  },
+  "categoria": "INVESTIGACIÓN",
+  "titular": "Primo de Marcos Jr. detenido por corrupción de $118M",
+  "bajada": "El exjefe del Congreso filipino Martin Romualdez enfrenta cargos por sobornos en obras públicas",
+  "caption": "Según OCCRP (08/09/2026), el exspeaker de la Cámara de Representantes de Filipinas, Martin Romualdez, fue arrestado tras una orden de la corte anticorrupción Sandiganbayan, en un caso de 7,44 mil millones de pesos (118 millones de dólares) por presuntas comisiones en proyectos de infraestructura.",
+  "hashtags": [
+    "#Filipinas",
+    "#Corrupción",
+    "#OCCRP",
+    "#Investigación"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-09-09-1111-luiseskivelgolcher-occrp-c04a.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-09-1111-luiseskivelgolcher-occrp-c04a.jpg",
+    "hash": "22b36e0d39da00d3",
+    "version": 10,
+    "estilo": "8df8d9e92c3ad10f",
+    "renderizada": "2026-09-09T16:12:03.231Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada del Congreso de Filipinas en Manila al mediodía, con la bandera filipina ondeando en el tercio superior derecho; el resto de la imagen despejado.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-09-1111-luiseskivelgolcher-occrp-c04a.jpg",
+    "hashDescripcion": "809dece00294e33e",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-09T16:11:22.815Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-09T16:11:22.815Z",
+  "actualizado": "2026-09-09T16:11:22.815Z"
+}
