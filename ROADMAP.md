@@ -463,15 +463,31 @@ otra (comprobable en los logs: solo dos nombres de secretos por job).
 transición y del nuevo `secretosExpuestos`; e2e del panel con el entorno
 simulado; despliegue controlado con Sin Línea pausada.
 
-**Fase 3 · Recogida y almacenamiento de métricas (2 días).** Un workflow diario
-consulta la API de Instagram (insights de cuenta y de cada publicación propia:
-alcance, impresiones, me gusta, comentarios, guardados, seguidores) y guarda
-series por cuenta y por publicación en `data/<id>/metricas/AAAA-MM.json`
-(append, sin tokens). Sin panel todavía; solo datos verificables.
+**Fase 3 · Métricas, fase 1: recogida diaria por cuenta y vista mínima (2-3
+días). Diseño propuesto el 2026-09-09, sin implementar:**
+[docs/superpowers/specs/2026-09-09-metricas-fase-1-design.md](docs/superpowers/specs/2026-09-09-metricas-fase-1-design.md).
+Resumen: interruptor propio `metricas.recoger` (independiente de
+`automatico.generar/publicar`: se puede medir una cuenta con ambas apagadas);
+workflow diario `metricas.yml` con un job por cuenta y las credenciales
+aisladas de fase 2, solo lecturas; almacenamiento aparte en
+`data/<id>/metricas/cuenta-AAAA-MM.json` (instantánea del perfil y
+estadísticas de cuenta por día) y `publicaciones-AAAA-MM.json` (totales
+acumulados por publicación y día, incluidas las publicadas directamente desde
+Instagram, con origen `instagram`); vista "Métricas" por cuenta con evolución
+y rendimiento de publicaciones. Nivel básico con los tokens actuales (perfil,
+me gusta, comentarios); alcance, vistas e interacciones requieren añadir
+`instagram_business_manage_insights` a las apps de Meta y regenerar los tokens
+(sin App Review para cuentas propias). Meta guarda las métricas de cuenta 90
+días (por eso la recogida es diaria), las de publicación son totales
+acumulados, hay hasta 48 h de retraso e `impressions` está retirada (se usa
+`views`). Todo dato ausente se guarda como `null` y se muestra como "no
+disponible", nunca como 0. Coste: 0 $ (sin Claude ni Gemini; Actions gratis
+en repositorio público); ≤ 150 llamadas a Instagram por cuenta y día, con
+parada al primer error de límite (80002).
 
-**Fase 4 · Dashboard comparativo e informes semanales (2-3 días).** Vista de
-métricas en el panel (por cuenta y comparativa: alcance, crecimiento, mejores
-categorías y franjas), e informe semanal en `data/<id>/informes/` redactado
+**Fase 4 · Dashboard comparativo e informes semanales (2-3 días).** Sobre la
+vista por cuenta de la fase 3: comparativa entre cuentas (alcance, crecimiento,
+mejores categorías y franjas) e informe semanal en `data/<id>/informes/` redactado
 por Claude a partir de los datos guardados, con enlace desde la tarjeta de la
 cuenta. Nada se muestra si no hay datos reales.
 
