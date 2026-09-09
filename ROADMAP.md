@@ -148,6 +148,15 @@ configurable por cuenta (`idioma`, `es-PA` por defecto).
   confirmada: usuario e id numérico, repetida por PUBLICAR antes de publicar.
   Cuentas de prueba solo en `tests/fixtures/`, nunca en `cuentas/` ni en
   `config.json`. Suites: 273 unitarias, 18 de render + 1 de logo, 15 de panel.
+- **Fase 2 implementada en local (2026-09-09) — SIN push, sin migrar
+  credenciales**: commits `38c1d31` (origen por cuenta y ejecución por cuenta
+  en los orquestadores), `8577796` (un job por cuenta en los cuatro workflows
+  de Instagram, `comprobar-entorno.sh`), el de panel (origen en el formulario y
+  las tarjetas, metadatos de Environment) y el de documentación. Ambas cuentas
+  siguen en modo actual (`repositorio`) con sus secretos de hoy; el modo
+  Environment queda disponible para migrar `luiseskivelgolcher` primero
+  (docs/CONFIGURACION.md §6d). Suites: 287 unitarias, 18 de render + 1 de logo,
+  16 de panel.
 - **Sin Línea sigue pausada** (`automatico.publicar = false`, 10 programados
   en cola) y **@luiseskivelgolcher con generación y publicación apagadas**
   (contenido: investigación y actualidad con contexto; sin ajedrez ni vida
@@ -364,7 +373,7 @@ archivo y verificación de identidad desde el panel; estado de conexión en
 `data/<id>/conexion.json`; persistencia con bloqueo por sha y conservación de
 lo escrito ante errores. Detalle en ARCHITECTURE.md 2.3b.
 
-**Fase 2 · Secretos por cuenta sin tocar workflows (1,5-2 días). Siguiente.**
+**Fase 2 · Secretos por cuenta sin tocar workflows (1,5-2 días). Código hecho en local el 2026-09-09; migración pendiente del operador.**
 Plan detallado, reparto de pasos (panel / GitHub / permisos), migración de las
 dos cuentas y recuperación ante fallos en
 [docs/superpowers/specs/2026-09-09-fase2-entornos-por-cuenta-design.md](docs/superpowers/specs/2026-09-09-fase2-entornos-por-cuenta-design.md).

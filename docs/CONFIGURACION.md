@@ -65,7 +65,11 @@ no requiere revisión de Meta.
 1. github.com → tu avatar → **Settings → Developer settings → Personal access
    tokens → Fine-grained tokens → Generate new token**.
 2. Nombre `sinlinea-actions`, vencimiento 1 año, **Repository access: Only select
-   repositories → sinlinea**, **Permissions → Repository → Secrets: Read and write**.
+   repositories → sinlinea**, **Permissions → Repository → Secrets: Read and write**
+   (para secretos de repositorio, modo actual) **y Environments: Read and write**
+   (para secretos de Environment, fase 2). Son permisos distintos: según la
+   documentación oficial de la API REST, los secretos de entorno se leen y
+   escriben con el permiso *Environments*, no con *Secrets*.
 3. Guárdalo como secreto del repo con nombre `GH_PAT`.
 4. `renovar-token.yml` comprueba que `GH_PAT` exista **antes** de pedir un token nuevo;
    si falta, la corrida falla con un mensaje claro y no se toca el token actual.
@@ -106,6 +110,22 @@ así lo creó el operador el 2026-09-08; la configuración de la cuenta y los
 workflows usan ese nombre. La convención para cuentas nuevas sigue siendo
 `IG_ACCESS_TOKEN_<ID>`.
 | `GH_PAT` | no (pero sin él el token de Instagram no se renueva solo) | RENOVAR TOKEN | §5 |
+
+**Fase 2 (origen de credenciales por cuenta).** Cada cuenta declara en
+`cuentas/<id>/config.json` → `instagram.origen` de dónde salen sus credenciales:
+
+| `instagram.origen` | Dónde viven las credenciales | Nombres | Quién las lee |
+|---|---|---|---|
+| `repositorio` (modo actual, valor por defecto) | Settings → Secrets and variables → Actions | los declarados en `tokenSecreto` / `usuarioIdSecreto` (o `IG_ACCESS_TOKEN` / `IG_USER_ID`) | el job `*-repositorio` de cada workflow, que expone **solo** esos dos secretos con los nombres fijos `IG_ACCESS_TOKEN` / `IG_USER_ID` |
+| `entorno` (Environment) | Settings → Environments → `cuenta-<id>` → Environment secrets | siempre `IG_ACCESS_TOKEN` e `IG_USER_ID` | el job `*-entorno` de cada workflow, que corre con `environment: cuenta-<id>` y solo ve esos dos secretos |
+
+No hay fallback entre orígenes: si una cuenta en modo `entorno` no tiene sus dos
+secretos en el Environment, su job falla con un mensaje que nombra el entorno y
+el secreto que falta, y no se usa ninguna credencial de otro origen. Los
+workflows construyen un job por cuenta a partir de `config.json`
+(`src/cuentas-activas.mjs`): **añadir una cuenta no requiere editar los
+workflows**. El panel muestra el modo de cada cuenta en su tarjeta y el
+formulario permite elegirlo.
 
 Los nombres de los secretos de Instagram se declaran en la configuración de cada
 cuenta (`cuentas/<id>/config.json`); la versión de la API va en el `config.json` global:
@@ -203,10 +223,18 @@ comprobación sin publicar (entrada `cuenta`, vacío = todas).
    guarda primero solo el token (paso 6) y ejecuta **Probar Instagram** (paso 7):
    el informe indica el `user_id` que devuelve la API. Nunca pegues el token en una
    URL del navegador ni en el chat.
-6. **Secretos.** Repo → Settings → Secrets and variables → Actions → New repository
-   secret: `IG_ACCESSTOKEN_LUISESKIVELGOLCHER` (el token) e
-   `IG_USER_ID_LUISESKIVELGOLCHER` (el id numérico). Los workflows ya exponen esos
-   nombres. Hecho el 2026-09-08: ambos secretos creados por el operador.
+6. **Secretos.** Dos opciones, según `instagram.origen` de la cuenta:
+   - *Modo actual* (`repositorio`): Repo → Settings → Secrets and variables →
+     Actions → New repository secret, con los nombres que declara la cuenta
+     (`luiseskivelgolcher` usa `IG_ACCESSTOKEN_LUISESKIVELGOLCHER` e
+     `IG_USER_ID_LUISESKIVELGOLCHER`; hecho el 2026-09-08 por el operador).
+   - *Environment* (`entorno`, fase 2): Repo → Settings → Environments → New
+     environment con el nombre exacto `cuenta-<id>` (hace falta ser
+     administrador del repositorio) → Environment secrets → Add secret dos veces:
+     `IG_ACCESS_TOKEN` (el token) e `IG_USER_ID` (el id numérico). El panel
+     muestra el nombre del entorno en el formulario y en la tarjeta.
+   En ambos casos el valor lo pega el operador; ni el panel ni el asistente lo
+   ven.
 7. **Verificar identidad y caducidad.** Actions → **Probar Instagram** → Run
    workflow con `cuenta` = `luiseskivelgolcher`. Debe decir que la credencial
    pertenece a `@luiseskivelgolcher` y que el id numérico coincide. El workflow
@@ -220,9 +248,53 @@ comprobación sin publicar (entrada `cuenta`, vacío = todas).
    `franjas`, colores y logo definitivos, y pon `automatico.publicar` (y cuando
    toque `automatico.generar`) en `true`. Mientras estén en `false`, la cuenta
    puede editarse y aprobar posts en el panel sin que nada salga a Instagram.
+   Reactivar una cuenta archivada tampoco enciende nada.
 
 Si una cuenta tiene la configuración rota o le falta un secreto, esa cuenta se
-omite con un aviso en el registro y las demás siguen funcionando.
+omite con un aviso en el registro y las demás siguen funcionando (cada cuenta
+corre en su propio job; `fail-fast: false`).
+
+### 6d. Migrar una cuenta del modo actual al Environment (fase 2)
+
+Orden para `luiseskivelgolcher` (la primera en migrar); Sin Línea sigue igual
+mientras tanto y **`automatico` no se toca en ningún paso**:
+
+1. Con el código de fase 2 desplegado y la cuenta todavía en modo actual,
+   lanzar **Probar Instagram** con `cuenta` = `luiseskivelgolcher` y comprobar
+   que sigue verificada ("credenciales · modo actual: secretos del repositorio
+   IG_ACCESSTOKEN_LUISESKIVELGOLCHER / IG_USER_ID_LUISESKIVELGOLCHER").
+2. En GitHub: Settings → Environments → New environment →
+   `cuenta-luiseskivelgolcher`. En ese entorno, Add secret `IG_ACCESS_TOKEN`
+   (el token de @luiseskivelgolcher, regenerado en Meta o copiado del gestor
+   de contraseñas del operador) y Add secret `IG_USER_ID` (`17841401947366983`).
+   El asistente no pega ni lee valores.
+3. En el panel → Cuentas → Editar `Luis Esquivel Golcher` → Origen de las
+   credenciales = Environment → Guardar. La tarjeta pasa a "Pendiente de
+   verificación: el origen de las credenciales cambió" y muestra
+   "Environment cuenta-luiseskivelgolcher (IG_ACCESS_TOKEN, IG_USER_ID)".
+4. Pulsar **Verificar identidad** (o Actions → Probar Instagram con
+   `cuenta` = `luiseskivelgolcher`). El job `probar-entorno` debe pasar
+   "Comprobar que las credenciales vienen del Environment" y terminar en
+   "identidad verificada"; `conexion.json` guarda `origen: "entorno"`.
+5. Comprobar en el registro de PUBLICAR de esa cuenta (job "Publicar
+   (Environment)") que solo aparecen `IG_ACCESS_TOKEN` e `IG_USER_ID` y la
+   línea "credenciales · Environment cuenta-luiseskivelgolcher". Nada se
+   publica: `automatico.publicar` sigue en `false`.
+6. Tras al menos una renovación semanal correcta (RENOVAR TOKEN escribe el
+   token nuevo en el Environment; requiere `GH_PAT` con Environments: Read and
+   write), borrar los secretos de repositorio `IG_ACCESSTOKEN_LUISESKIVELGOLCHER`
+   e `IG_USER_ID_LUISESKIVELGOLCHER`. Hasta entonces no se borra nada.
+
+Marcha atrás en cualquier paso: en el panel, Origen de las credenciales =
+Modo actual → Guardar; los secretos de repositorio siguen intactos hasta el
+paso 6. La verificación anterior queda invalidada en ambos sentidos y hay que
+verificar de nuevo.
+
+Sin Línea se migra igual **después** de regenerar su token en Meta: el token
+nuevo va directamente al Environment `cuenta-sinlinea` (nunca copiar el valor
+del secreto de repositorio `IG_ACCESS_TOKEN`: el job rechaza un token de
+entorno idéntico al del repositorio, porque no puede distinguirlo de un
+fallback).
 
 ## 7. Primera corrida
 1. GitHub → **Actions → Generar borradores → Run workflow**. Tarda 3 a 5 minutos.

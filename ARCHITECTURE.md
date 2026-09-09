@@ -268,20 +268,37 @@ tras `archivarDespuesDeDias`.
   (`estado`, `usuario`, `comprobado`, `detalle`), escrito por Probar Instagram
   (verificada, error, credenciales pendientes) y por el panel (pendiente).
   Nunca contiene valores de secretos; `detalle` pasa por `ocultarSecretos`.
-- **Dependencia conocida (secretos de cuentas nuevas).** Los workflows exponen
-  los secretos de Instagram con nombres fijos por cuenta en su `env`
-  (`IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}`, …). GitHub Actions no
-  permite exponer "el secreto cuyo nombre diga la configuración" sin volcar
-  todos los secretos al proceso (`toJSON(secrets)`), lo que daría a cada tarea
-  credenciales que no necesita. Por eso el alta desde el panel deja la cuenta
-  completa en lo editorial, pero su verificación fallará con "falta el secreto
-  …" hasta que sus nombres entren en los workflows. La solución sin backend ni
-  servicio de pago es **GitHub Environments**: un entorno por cuenta
-  (`cuenta-<id>`) con `IG_ACCESS_TOKEN` e `IG_USER_ID`, y un job por cuenta
-  (`environment: cuenta-${{ matrix.cuenta }}`, matriz derivada de `cuentas` en
-  `config.json`, `max-parallel: 1`) que recibe solo sus credenciales. Añadir
-  una cuenta pasa a ser crear su entorno y sus dos secretos en GitHub, sin tocar
-  código ni workflows. Queda diseñado como fase 2 del panel maestro (ROADMAP).
+- **Origen de credenciales por cuenta (fase 2, implementada).**
+  `cuentas/<id>/config.json` → `instagram.origen` vale `repositorio` (modo
+  actual: secretos de repositorio con el nombre declarado) o `entorno`
+  (Environment de GitHub `cuenta-<id>` con `IG_ACCESS_TOKEN` e `IG_USER_ID`).
+  `lib/secretos.mjs` lo hace explícito: `origenDeSecretos`, `nombreEntorno`,
+  `nombresDeSecretos(config, { porCuenta })`, `describirCredenciales` (texto
+  que va a los registros y a `conexion.json`). Los workflows de Instagram
+  (PUBLICAR, RENOVAR TOKEN, Probar Instagram, Verificar) tienen un job
+  `cuentas` que lee `config.json` con `src/cuentas-activas.mjs` y emite dos
+  matrices, y dos jobs por matriz: `*-entorno` (`environment:
+  ${{ matrix.entorno }}`, secretos del Environment) y `*-repositorio`
+  (`secrets[matrix.tokenSecreto]` / `secrets[matrix.usuarioIdSecreto]`). Cada
+  job expone **solo** las dos credenciales de su cuenta con los nombres fijos y
+  ejecuta el orquestador con `--cuenta <id> --por-cuenta`; `fail-fast: false`
+  (un fallo no cancela a las demás), `max-parallel: 1` y el job de modo actual
+  espera al de entorno (`always()`), así los commits del bot no se pisan y un
+  post solo puede publicarlo el job de su cuenta. **Sin fallback entre
+  orígenes**: en modo entorno, si faltan los secretos el orquestador falla
+  nombrando el entorno; y como GitHub aplica el secreto de repositorio del mismo
+  nombre cuando el entorno no lo define, `.github/scripts/comprobar-entorno.sh`
+  compara la huella sha256 del `IG_ACCESS_TOKEN` recibido con la del secreto de
+  repositorio (calculada en el job `cuentas`, sin entorno) y rechaza la corrida
+  si coinciden. Sin `--por-cuenta` (ejecución conjunta, local), las cuentas en
+  modo entorno se omiten con motivo explícito y su cola se conserva. Añadir una
+  cuenta ya no requiere editar workflows. Permisos según la documentación
+  oficial de la API REST: leer/escribir secretos de Environment exige el permiso
+  de repositorio *Environments* (read/write); los de repositorio, *Secrets*.
+  El panel lee metadatos de ambos (`leerSecretosActualizados`,
+  `leerSecretosDeEntorno`) para los estados de conexión y muestra el modo de
+  cada cuenta; el formulario permite elegirlo y cambiarlo invalida la
+  verificación anterior.
 
 ### 2.8 Convenciones
 Node 20+ ESM en español; dependencias inyectables en todos los orquestadores

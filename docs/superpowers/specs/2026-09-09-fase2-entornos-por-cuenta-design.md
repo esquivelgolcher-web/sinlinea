@@ -1,7 +1,14 @@
 # Fase 2 del panel maestro: credenciales aisladas por cuenta con GitHub Environments
 
-Fecha: 2026-09-09. Estado: **plan aprobado para revisión; no se ha migrado
-ninguna credencial**. Complementa ARCHITECTURE.md (2.3b y 2.7) y ROADMAP.md
+Fecha: 2026-09-09. Estado: **código implementado en local (sin push); no se
+ha migrado ninguna credencial**. Diferencias respecto al plan, decididas al
+implementar: el origen es explícito por cuenta (`instagram.origen`, sin
+detección automática); no hay modo de transición con fallback (cada cuenta usa
+solo su origen y falla claro si le faltan secretos); los jobs de Environment
+comprueban con una huella sha256 que el token no es el secreto de repositorio
+del mismo nombre que GitHub aplica cuando el entorno no lo define; permisos
+comprobados en la documentación oficial: secretos de Environment → permiso
+*Environments* (read/write), secretos de repositorio → *Secrets*. Complementa ARCHITECTURE.md (2.3b y 2.7) y ROADMAP.md
 (M3b).
 
 ## 1. Objetivo
