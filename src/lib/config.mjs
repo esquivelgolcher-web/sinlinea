@@ -44,6 +44,8 @@ function validarGenerar(g, archivo) {
   for (const k of ["maxPorCorrida", "maxBorradoresPorDia", "candidatosMax", "diasSinRepetir", "maxHorasAntiguedad"]) {
     exigir(Number.isInteger(g?.[k]) && g[k] > 0, `generar.${k} debe ser un entero positivo`, archivo);
   }
+  // Opcional: con ese número de borradores sin revisar, GENERAR no llama a Claude (controla coste y acumulación).
+  if (g?.maxBorradoresPendientes !== undefined) exigir(Number.isInteger(g.maxBorradoresPendientes) && g.maxBorradoresPendientes > 0, "generar.maxBorradoresPendientes debe ser un entero positivo", archivo);
 }
 
 export const LOGO_FORMA_POR_DEFECTO = LOGO_FORMAS[0];

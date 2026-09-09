@@ -1,10 +1,22 @@
 name: Generar borradores
 
 # Cada 3 horas, a mano desde "Actions", y al subir cambios de código.
+# Manual: `cuenta` limita la corrida a una cuenta; `forzar` = true genera UNA vez para esa cuenta aunque su generación
+# automática esté apagada (borrador de prueba), sin cambiar su configuración ni tocar las demás cuentas.
 on:
   schedule:
     - cron: "20 */3 * * *"
   workflow_dispatch:
+    inputs:
+      cuenta:
+        description: "Id de la cuenta (vacío = todas las que tengan la generación encendida)"
+        required: false
+        type: string
+      forzar:
+        description: "true = una generación única para esa cuenta aunque automatico.generar esté apagado"
+        required: false
+        default: "false"
+        type: string
   push:
     branches: [main]
     paths-ignore:
@@ -58,7 +70,16 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        run: node src/generar.mjs
+          CUENTA: ${{ inputs.cuenta }}
+          FORZAR: ${{ inputs.forzar }}
+        run: |
+          if [ -n "$CUENTA" ] && [ "$FORZAR" = "true" ]; then
+            node src/generar.mjs --cuenta "$CUENTA" --forzar
+          elif [ -n "$CUENTA" ]; then
+            node src/generar.mjs --cuenta "$CUENTA"
+          else
+            node src/generar.mjs
+          fi
 
       - name: Guardar cambios en el repositorio
         run: |

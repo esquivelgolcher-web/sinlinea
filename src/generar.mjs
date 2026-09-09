@@ -46,6 +46,12 @@ export async function ejecutarGenerar({ config, raiz = process.cwd(), ahora = ne
     log.info(`Cupo diario agotado (${config.generar.maxBorradoresPorDia}); no se llama a Claude.`);
     return { creados: [], motivo: "cupo" };
   }
+  // Tope de borradores sin revisar (opcional): evita acumular borradores y coste mientras el operador no aprueba.
+  const pendientes = posts.filter((p) => p.estado === "borrador").length;
+  if (config.generar.maxBorradoresPendientes && pendientes >= config.generar.maxBorradoresPendientes) {
+    log.info(`Cuenta ${cuenta}: ${pendientes} borrador(es) sin revisar (tope ${config.generar.maxBorradoresPendientes}); no se llama a Claude hasta que se revisen.`);
+    return { creados: [], motivo: "pendientes" };
+  }
 
   const urlsEnPosts = new Set(posts.map((p) => p.fuente.url));
   const candidatos = await recolectar(config, {
@@ -115,14 +121,21 @@ export async function ejecutarGenerar({ config, raiz = process.cwd(), ahora = ne
 // Ejecuta GENERAR para cada cuenta activa. Un fallo en una cuenta se registra y no detiene a las demás.
 // `ilustradorDe(config)` y `acortarDe(config)` crean las dependencias que dependen de cada cuenta
 // (estilo de ilustración, idioma); si no se pasan, se usan `ilustrador` y `acortar` tal cual.
-export async function generarCuentas({ configuracion, raiz = process.cwd(), ahora = new Date(), fetchText, client, render, log = console, dryRun = false, ilustrador = null, guardar = guardarIlustracion, acortar = null, ilustradorDe = null, acortarDe = null }) {
+// `soloCuenta`: procesa una sola cuenta. `forzar` (solo con `soloCuenta`): una generación única aunque su
+// `automatico.generar` esté apagado; la configuración no cambia y las demás cuentas no se tocan.
+export async function generarCuentas({ configuracion, raiz = process.cwd(), ahora = new Date(), fetchText, client, render, log = console, dryRun = false, ilustrador = null, guardar = guardarIlustracion, acortar = null, ilustradorDe = null, acortarDe = null, soloCuenta = null, forzar = false }) {
+  if (forzar && !soloCuenta) throw new Error("--forzar exige --cuenta <id>: la generación forzada es siempre de una sola cuenta");
   const resultados = {};
   for (const e of configuracion.errores || []) {
+    if (soloCuenta && e.cuenta !== soloCuenta) continue;
     resultados[e.cuenta] = { error: ocultarSecretos(e.mensaje) };
     (log.error || log.warn)(`Cuenta ${e.cuenta}: configuración inválida, se omite (${ocultarSecretos(e.mensaje)}).`);
   }
-  for (const config of configuracion.cuentas) {
-    if (config.archivada) { resultados[config.cuenta] = { creados: [], motivo: "archivada" }; log.info(`Cuenta ${config.cuenta}: archivada, se omite.`); continue; }
+  for (const cuentaConfig of configuracion.cuentas) {
+    if (soloCuenta && cuentaConfig.cuenta !== soloCuenta) continue;
+    if (cuentaConfig.archivada) { resultados[cuentaConfig.cuenta] = { creados: [], motivo: "archivada" }; log.info(`Cuenta ${cuentaConfig.cuenta}: archivada, se omite.`); continue; }
+    const config = forzar ? { ...cuentaConfig, automatico: { ...(cuentaConfig.automatico || {}), generar: true } } : cuentaConfig;
+    if (forzar) log.info(`Cuenta ${config.cuenta}: generación única forzada (la generación automática sigue como estaba).`);
     try {
       log.info(`Cuenta ${config.cuenta}: generando…`);
       resultados[config.cuenta] = await ejecutarGenerar({
@@ -141,6 +154,9 @@ export async function generarCuentas({ configuracion, raiz = process.cwd(), ahor
 
 async function main() {
   const dryRun = process.argv.includes("--dry-run");
+  const forzar = process.argv.includes("--forzar");
+  const i = process.argv.indexOf("--cuenta");
+  const soloCuenta = i >= 0 ? String(process.argv[i + 1] || "").trim() || null : null;
   const configuracion = cargarConfiguracion();
   const global = configuracion.global;
   if (!process.env.ANTHROPIC_API_KEY) throw new Error("Falta la variable de entorno ANTHROPIC_API_KEY");
@@ -150,7 +166,7 @@ async function main() {
   const navegador = await abrirNavegador();
   try {
     const r = await generarCuentas({
-      configuracion, fetchText: fetchTextReal, client, dryRun,
+      configuracion, fetchText: fetchTextReal, client, dryRun, soloCuenta, forzar,
       render: (post, o) => renderizarPost(post, { ...o, navegador }),
       ilustradorDe: (config) => (conGemini ? crearIlustrador({ apiKey: process.env.GEMINI_API_KEY, config }) : null),
       acortarDe: (config) => (a) => acortarTextos({ client, config, ...a }),
