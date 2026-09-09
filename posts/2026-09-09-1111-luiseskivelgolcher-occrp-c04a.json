@@ -1,7 +1,7 @@
 {
   "id": "2026-09-09-1111-luiseskivelgolcher-occrp-c04a",
   "cuenta": "luiseskivelgolcher",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "OCCRP",
     "url": "https://www.occrp.org/en/news/philippine-ex-speaker-arrested-in-118m-plunder-case",
@@ -41,5 +41,5 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-09T16:11:22.815Z",
-  "actualizado": "2026-09-09T16:11:22.815Z"
+  "actualizado": "2026-09-09T18:17:21.864Z"
 }
