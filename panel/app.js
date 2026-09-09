@@ -490,6 +490,9 @@ function pedirHora(post) {
   catch { propuesta = isoDesdeClave(claveDia(new Date()), cfgCuenta.franjas[cfgCuenta.franjas.length - 1]); }
   const dialogo = $("dialogo-hora");
   $("hora-fecha").value = claveDia(propuesta); $("hora-hora").value = horaMinutoDeIso(propuesta); $("hora-nota").textContent = "";
+  // La hora se interpreta en la zona de la cuenta (hoy, Panamá, UTC−5, sin cambio de horario), no en la del navegador.
+  const zona = cfgCuenta.zonaHoraria || configPanel.zonaHoraria || ZONA_PANAMA;
+  $("hora-zona").textContent = zona === "America/Panama" ? "Hora de Panamá (UTC−5), sea cual sea el país desde el que abras el panel." : `Zona horaria de la cuenta: ${zona}.`;
   const revisar = () => {
     const iso = isoDesdeClave($("hora-fecha").value, $("hora-hora").value);
     if (Date.parse(iso) < Date.now()) $("hora-nota").textContent = "Esa hora ya pasó; se publicará en la próxima corrida.";

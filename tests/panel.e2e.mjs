@@ -32,6 +32,7 @@ test("el panel muestra el borrador, permite editar el titular y aprobar con la h
   await page.fill(".tarjeta textarea >> nth=0", "Titular editado desde el panel");
   await page.click("text=Aprobar");
   await page.waitForSelector("dialog[open]");
+  assert.match(await page.textContent("#hora-zona"), /hora de Panamá/i, "el diálogo dice en qué zona horaria se programa");
   await page.click("#hora-confirmar");
   await page.waitForSelector("text=Programados (1)");
   const guardado = JSON.parse(fs.readFileSync(path.join(raiz, "posts/2026-09-07-1420-la-prensa-a1b2.json"), "utf8"));
