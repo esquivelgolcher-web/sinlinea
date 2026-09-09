@@ -100,6 +100,7 @@ test("(sonda) metricasCuentas --sin-guardar corre aunque metricas.recoger sea fa
   const rutaCfg = path.join(raiz, "cuentas/luiseskivelgolcher/config.json");
   const cfg = JSON.parse(fs.readFileSync(rutaCfg, "utf8"));
   cfg.instagram = { ...(cfg.instagram || {}), origen: "entorno" }; // esta prueba ejercita el modo Environment
+  cfg.metricas = { recoger: false }; // y la sonda con la recogida apagada (la cuenta real puede tenerla encendida)
   fs.writeFileSync(rutaCfg, JSON.stringify(cfg, null, 2) + "\n");
   assert.equal(cfg.automatico.generar, false); assert.equal(cfg.automatico.publicar, false);
   assert.notEqual(cfg.metricas?.recoger, true);

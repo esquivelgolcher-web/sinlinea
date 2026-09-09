@@ -184,7 +184,7 @@ test("(métricas) metricas.yml: diario y manual (cuenta), solo lectura en Instag
   for (const j of ["metricas-entorno", "metricas-repositorio"]) assert.equal(w.jobs[j]["timeout-minutes"], 10, `${j}: una cuenta lenta no bloquea el día`);
   const lista = w.jobs.cuentas.steps.find((st) => st.id === "lista");
   assert.match(lista.run, /--solo-metricas/, "las corridas programadas solo incluyen cuentas con metricas.recoger = true");
-  assert.match(texto, /node src\/metricas\.mjs --cuenta "\$CUENTA" --por-cuenta\n/, "recogida por cuenta (el orquestador respeta metricas.recoger)");
+  assert.match(texto, /node src\/metricas\.mjs --cuenta "\$CUENTA" --por-cuenta\r?\n/, "recogida por cuenta (el orquestador respeta metricas.recoger)");
   assert.equal(/--sin-guardar/.test(texto), false, "la sonda vive en Verificar, no aquí");
   assert.match(texto, /git add "data\/\$CUENTA\/metricas"/, "solo se guardan las métricas de esa cuenta");
   assert.equal(/git add (posts|public|cuentas|src|data\b)/.test(texto), false, "nunca posts/ ni todo data/");
