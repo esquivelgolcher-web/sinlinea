@@ -1,0 +1,47 @@
+{
+  "id": "2026-09-09-0214-sinlinea-la-prensa-5a13",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/sociedad/mulino-sanciona-la-ley-del-olvido-oncologico/",
+    "titulo": "Mulino sanciona la Ley del Olvido Oncológico",
+    "publicado": "2026-09-09T00:15:16.000Z"
+  },
+  "categoria": "SALUD",
+  "titular": "Mulino sanciona ley que protege a sobrevivientes de cáncer",
+  "bajada": "La Ley 547 evita declarar antecedente oncológico al pedir créditos o seguros tras cinco años sin recaída",
+  "caption": "Superar el cáncer ya no será motivo para que un banco o una aseguradora te cierre la puerta. La nueva ley del olvido oncológico protege a quienes llevan cinco años libres de la enfermedad, evitando cláusulas o recargos por ese antecedente médico. Es un paso hacia la igualdad de trato para miles de pacientes que ya vencieron la enfermedad. ¿Conoces a alguien que esta ley pueda ayudar?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Salud",
+    "#Cáncer",
+    "#DerechosDelPaciente",
+    "#LeyDelOlvidoOncológico"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-09-09-0214-sinlinea-la-prensa-5a13.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-09-0214-sinlinea-la-prensa-5a13.jpg",
+    "hash": "8ffe77e0d0f535aa",
+    "version": 10,
+    "estilo": "a92ceb586a180aae",
+    "renderizada": "2026-09-09T07:15:00.271Z"
+  },
+  "ilustracion": {
+    "descripcion": "Sala de espera de un hospital panameño con sillas vacías y luz cálida, un pequeño símbolo de lazo en el tercio superior derecho, zona izquierda y central despejadas, sin personas ni rostros.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-09-0214-sinlinea-la-prensa-5a13.jpg",
+    "hashDescripcion": "57519352107f03a0",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-09T07:14:22.854Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-09T07:14:22.854Z",
+  "actualizado": "2026-09-09T07:14:22.854Z"
+}

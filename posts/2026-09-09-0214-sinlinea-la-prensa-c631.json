@@ -1,0 +1,47 @@
+{
+  "id": "2026-09-09-0214-sinlinea-la-prensa-c631",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/economia/superintendencia-limita-las-comisiones-bancarias-que-servicios-ya-no-podran-cobrar-los-bancos/",
+    "titulo": "Superintendencia limita las comisiones bancarias: qué servicios ya no podrán cobrar los bancos",
+    "publicado": "2026-09-09T01:01:59.000Z"
+  },
+  "categoria": "ECONOMÍA",
+  "titular": "Bancos ya no podrán cobrar varias comisiones desde 2027",
+  "bajada": "La Superintendencia de Bancos elimina cargos por retiros, depósitos y pagos anticipados de créditos.",
+  "caption": "Se acabaron algunos cobros que muchos pagaban sin saber bien por qué. La nueva norma bancaria elimina comisiones por retirar o depositar efectivo en ventanilla, cambiar beneficiarios de cuentas y cancelar créditos por adelantado, entre otros. Es un alivio directo para el bolsillo de miles de panameños que usan el sistema bancario a diario. ¿Sentías que te cobraban de más en el banco?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Bancos",
+    "#Economía",
+    "#Consumidores",
+    "#SuperintendenciaDeBancos"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-09-09-0214-sinlinea-la-prensa-c631.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-09-0214-sinlinea-la-prensa-c631.jpg",
+    "hash": "ef0d743203ef6370",
+    "version": 10,
+    "estilo": "a92ceb586a180aae",
+    "renderizada": "2026-09-09T07:14:54.104Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada de una sucursal bancaria en la ciudad de Panamá con un cajero automático visible, el letrero del banco ubicado en el tercio superior derecho, zona izquierda y central despejadas, sin personas ni texto legible.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-09-0214-sinlinea-la-prensa-c631.jpg",
+    "hashDescripcion": "6585dcfd681b25a3",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-09T07:14:22.854Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-09T07:14:22.854Z",
+  "actualizado": "2026-09-09T07:14:22.854Z"
+}
