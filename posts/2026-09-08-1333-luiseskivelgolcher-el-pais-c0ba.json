@@ -1,7 +1,7 @@
 {
   "id": "2026-09-08-1333-luiseskivelgolcher-el-pais-c0ba",
   "cuenta": "luiseskivelgolcher",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "El País",
     "url": "https://elpais.com/internacional/2026-09-08/once-paises-europeos-y-canada-anuncian-sanciones-contra-productos-de-los-asentamientos-israelies.html",
@@ -37,9 +37,9 @@
     "generada": "2026-09-08T18:48:28.110Z",
     "error": null
   },
-  "programado": null,
+  "programado": "2026-09-09T18:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-08T18:33:05.299Z",
-  "actualizado": "2026-09-09T16:07:57.011Z"
+  "actualizado": "2026-09-09T17:08:26.516Z"
 }
