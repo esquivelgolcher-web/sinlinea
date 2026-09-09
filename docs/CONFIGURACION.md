@@ -259,6 +259,12 @@ corre en su propio job; `fail-fast: false`).
 Orden para `luiseskivelgolcher` (la primera en migrar); Sin Línea sigue igual
 mientras tanto y **`automatico` no se toca en ningún paso**:
 
+0. **Requisito previo**: el secreto `GH_PAT` (§5) con los permisos
+   **Environments: Read and write** y **Secrets: Read and write**. Los jobs
+   comprueban con él, por la API de GitHub y solo metadatos, que el Environment
+   de cada cuenta tiene sus dos secretos antes de contactar con Instagram; sin
+   `GH_PAT` o sin ese permiso, las cuentas en modo Environment fallan con un
+   mensaje claro (las de modo actual no se ven afectadas).
 1. Con el código de fase 2 desplegado y la cuenta todavía en modo actual,
    lanzar **Probar Instagram** con `cuenta` = `luiseskivelgolcher` y comprobar
    que sigue verificada ("credenciales · modo actual: secretos del repositorio
@@ -291,10 +297,9 @@ paso 6. La verificación anterior queda invalidada en ambos sentidos y hay que
 verificar de nuevo.
 
 Sin Línea se migra igual **después** de regenerar su token en Meta: el token
-nuevo va directamente al Environment `cuenta-sinlinea` (nunca copiar el valor
-del secreto de repositorio `IG_ACCESS_TOKEN`: el job rechaza un token de
-entorno idéntico al del repositorio, porque no puede distinguirlo de un
-fallback).
+nuevo va al Environment `cuenta-sinlinea`. Un valor idéntico en el repositorio
+y en el Environment es válido: la procedencia se comprueba por la API
+(existencia de los dos secretos en el Environment exacto), no por el valor.
 
 ## 7. Primera corrida
 1. GitHub → **Actions → Generar borradores → Run workflow**. Tarda 3 a 5 minutos.

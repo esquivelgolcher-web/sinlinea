@@ -3,8 +3,6 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import { parse } from "yaml";
 import { cargarConfiguracion } from "../src/lib/config.mjs";
-import { execFileSync } from "node:child_process";
-import { createHash } from "node:crypto";
 import { nombresDeSecretos } from "../src/lib/secretos.mjs";
 
 const leer = (n) => fs.readFileSync(`.github/workflows/${n}.yml`, "utf8");
@@ -128,7 +126,7 @@ test("(fase 2) los workflows de Instagram no nombran cuentas: un job por cuenta 
     assert.equal(entorno.environment, "${{ matrix.entorno }}", `${archivo}: el job de entorno usa el Environment de la cuenta`);
     assert.equal(entorno.env.IG_ACCESS_TOKEN, "${{ secrets.IG_ACCESS_TOKEN }}");
     assert.equal(entorno.env.IG_USER_ID, "${{ secrets.IG_USER_ID }}");
-    assert.ok(entorno.steps.some((st) => /comprobar-entorno\.sh/.test(st.run || "")), `${archivo}: el job de entorno rechaza credenciales que no vengan del Environment`);
+    assert.ok(entorno.steps.some((st) => /Environment de la cuenta está completo/.test(st.name || "")), `${archivo}: el job de entorno falla si su Environment no está completo`);
     assert.equal(repositorio.env.IG_ACCESS_TOKEN, "${{ secrets[matrix.tokenSecreto] }}", `${archivo}: modo actual con el nombre declarado por la cuenta`);
     assert.equal(repositorio.env.IG_USER_ID, "${{ secrets[matrix.usuarioIdSecreto] }}");
     assert.equal(repositorio.environment, undefined, `${archivo}: el job de modo actual no usa entornos`);
@@ -137,28 +135,27 @@ test("(fase 2) los workflows de Instagram no nombran cuentas: un job por cuenta 
   }
 });
 
-test("(fase 2) comprobar-entorno.sh rechaza secretos ausentes y el secreto de repositorio aplicado por GitHub, y acepta credenciales propias del Environment", () => {
-  const script = ".github/scripts/comprobar-entorno.sh";
-  const correr = (env) => {
-    try { return { codigo: 0, salida: execFileSync("bash", [script], { env: { PATH: process.env.PATH, ...env }, encoding: "utf8", stdio: ["ignore", "pipe", "pipe"] }) }; }
-    catch (e) { return { codigo: e.status, salida: `${e.stdout || ""}${e.stderr || ""}` }; }
-  };
-  const huella = (t) => createHash("sha256").update(t).digest("hex");
-  const tokenRepo = "IGAAR" + "r".repeat(60);
-  const tokenEnv = "IGAAR" + "e".repeat(60);
-  const base = { CUENTA: "prueba", ENTORNO: "cuenta-prueba", HUELLA_REPO_TOKEN: huella(tokenRepo) };
-  const faltan = correr({ ...base, IG_ACCESS_TOKEN: "", IG_USER_ID: "" });
-  assert.equal(faltan.codigo, 1);
-  assert.match(faltan.salida, /faltan los secretos IG_ACCESS_TOKEN IG_USER_ID en el entorno/);
-  assert.match(faltan.salida, /cuenta-prueba/);
-  const repo = correr({ ...base, IG_ACCESS_TOKEN: tokenRepo, IG_USER_ID: "1784" });
-  assert.equal(repo.codigo, 1, "el valor del repositorio no se acepta como origen");
-  assert.match(repo.salida, /secreto del repositorio/);
-  assert.equal(repo.salida.includes(tokenRepo), false, "nunca imprime el valor");
-  const ok = correr({ ...base, IG_ACCESS_TOKEN: tokenEnv, IG_USER_ID: "1784" });
-  assert.equal(ok.codigo, 0, ok.salida);
-  assert.match(ok.salida, /credenciales del Environment cuenta-prueba/);
-  assert.equal(ok.salida.includes(tokenEnv), false);
+test("(fase 2) el job cuentas comprueba los Environments por la API con GH_PAT y el job de entorno falla antes de Instagram si su matriz no dice completo; ninguna huella de valores", () => {
+  for (const [archivo, prefijo] of Object.entries(WORKFLOWS_IG)) {
+    const texto = leer(archivo);
+    const w = wf(archivo);
+    assert.equal(/sha256sum|huella/.test(texto), false, `${archivo}: no se comparan huellas de secretos`);
+    assert.equal(/comprobar-entorno\.sh/.test(texto), false, `${archivo}: sin script de huellas`);
+    const lista = archivo === "verificar" ? "verificar" : "cuentas";
+    const pasoLista = w.jobs[lista].steps.find((st) => st.id === "lista");
+    assert.ok(pasoLista, `${archivo}: paso lista`);
+    assert.match(pasoLista.run, /--comprobar-entornos/, `${archivo}: comprueba los Environments por la API`);
+    assert.equal(pasoLista.env.GH_TOKEN, "${{ secrets.GH_PAT }}", `${archivo}: la comprobación usa GH_PAT (permiso Environments: lectura)`);
+    const entorno = w.jobs[`${prefijo}-entorno`];
+    const guardia = entorno.steps.find((st) => /Environment de la cuenta está completo/.test(st.name || ""));
+    assert.ok(guardia, `${archivo}: paso de comprobación en el job de entorno`);
+    assert.equal(guardia.env.COMPLETO, "${{ matrix.completo }}");
+    assert.match(guardia.run, /exit 1/);
+    const indiceGuardia = entorno.steps.indexOf(guardia);
+    const indiceNode = entorno.steps.findIndex((st) => /node src\//.test(st.run || ""));
+    assert.ok(indiceGuardia < indiceNode, `${archivo}: la comprobación va antes de contactar con Instagram`);
+    assert.deepEqual(Object.keys(entorno.env).filter((k) => !["CUENTA", "ENTORNO"].includes(k)), ["IG_ACCESS_TOKEN", "IG_USER_ID"], `${archivo}: el job de entorno no recibe GH_PAT ni credenciales de otras cuentas`);
+  }
 });
 
 test("(M2) probar-instagram es manual, acepta la cuenta como entrada y solo guarda data/<cuenta>/", () => {

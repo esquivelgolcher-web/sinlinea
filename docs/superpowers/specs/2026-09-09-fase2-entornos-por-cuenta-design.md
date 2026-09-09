@@ -4,9 +4,10 @@ Fecha: 2026-09-09. Estado: **código implementado en local (sin push); no se
 ha migrado ninguna credencial**. Diferencias respecto al plan, decididas al
 implementar: el origen es explícito por cuenta (`instagram.origen`, sin
 detección automática); no hay modo de transición con fallback (cada cuenta usa
-solo su origen y falla claro si le faltan secretos); los jobs de Environment
-comprueban con una huella sha256 que el token no es el secreto de repositorio
-del mismo nombre que GitHub aplica cuando el entorno no lo define; permisos
+solo su origen y falla claro si le faltan secretos); el job `cuentas` comprueba
+por la API de GitHub (solo metadatos, con `GH_PAT`) que el Environment exacto
+tiene sus dos secretos y el job de la cuenta falla antes de Instagram si no,
+porque GitHub aplicaría el secreto de repositorio del mismo nombre; permisos
 comprobados en la documentación oficial: secretos de Environment → permiso
 *Environments* (read/write), secretos de repositorio → *Secrets*. Complementa ARCHITECTURE.md (2.3b y 2.7) y ROADMAP.md
 (M3b).
@@ -64,9 +65,9 @@ jobs:
     outputs:
       entorno: ${{ steps.lista.outputs.entorno }}          # [{cuenta, entorno}]
       repositorio: ${{ steps.lista.outputs.repositorio }}  # [{cuenta, tokenSecreto, usuarioIdSecreto}]
-      huella-token: ${{ steps.huellas.outputs.token }}     # sha256 del secreto de repositorio IG_ACCESS_TOKEN
     steps:
-      - run: node src/cuentas-activas.mjs >> "$GITHUB_OUTPUT"
+      - env: { GH_TOKEN: ${{ secrets.GH_PAT }} }           # solo aquí; comprueba los Environments por la API (metadatos)
+        run: node src/cuentas-activas.mjs --comprobar-entornos >> "$GITHUB_OUTPUT"
   publicar-entorno:
     needs: cuentas
     if: ${{ needs.cuentas.outputs.entorno != '[]' }}
@@ -76,7 +77,7 @@ jobs:
       IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}     # del Environment de la cuenta
       IG_USER_ID: ${{ secrets.IG_USER_ID }}
     steps:
-      - run: bash .github/scripts/comprobar-entorno.sh    # rechaza secretos ausentes o el de repositorio
+      - run: '[ "$COMPLETO" = true ] || exit 1'            # matrix.completo: el Environment tiene ambos secretos
       - run: node src/publicar.mjs --cuenta "$CUENTA" --por-cuenta
   publicar-repositorio:
     needs: [cuentas, publicar-entorno]
@@ -99,13 +100,15 @@ jobs:
   de su cuenta, así que no hay publicaciones duplicadas entre jobs.
 - **Guardia contra el fallback de GitHub**: cuando un job con `environment:`
   pide `secrets.IG_ACCESS_TOKEN` y el entorno no lo define, GitHub aplica el
-  secreto de repositorio con ese nombre (hoy, el de Sin Línea). El job
-  `cuentas` (sin entorno) calcula la huella sha256 del secreto de repositorio;
-  `comprobar-entorno.sh` la compara con la del token recibido y, si coincide o
-  si falta algún secreto, falla con un mensaje que nombra el entorno. Nunca
-  imprime valores. Consecuencia documentada: el token de un Environment no
-  puede ser idéntico al secreto de repositorio `IG_ACCESS_TOKEN` (para Sin
-  Línea, el token nuevo va directo al entorno).
+  secreto de repositorio con ese nombre. Por eso el job `cuentas` consulta la
+  API (`GET /repos/{o}/{r}/environments/cuenta-<id>/secrets/<nombre>`, solo
+  metadatos, con `GH_PAT`) y anota en la matriz si el Environment exacto tiene
+  `IG_ACCESS_TOKEN` e `IG_USER_ID`; el job de la cuenta falla antes de tocar
+  Instagram si falta alguno o si no hubo permiso para comprobarlo (mensaje con
+  el nombre del entorno, del secreto y del permiso). No se comparan valores ni
+  huellas: un token idéntico en el repositorio y en el Environment es válido.
+  `GH_PAT` solo entra en el job `cuentas`; el job de cada cuenta recibe
+  únicamente sus dos secretos.
 - Sin `--por-cuenta` (ejecución conjunta en local o `npm run publicar`), las
   cuentas en modo Environment se omiten con motivo explícito
   (`entorno-requiere-job-por-cuenta`) y su cola se conserva; las de modo actual

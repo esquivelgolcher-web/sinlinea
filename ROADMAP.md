@@ -151,7 +151,7 @@ configurable por cuenta (`idioma`, `es-PA` por defecto).
 - **Fase 2 implementada en local (2026-09-09) — SIN push, sin migrar
   credenciales**: commits `38c1d31` (origen por cuenta y ejecución por cuenta
   en los orquestadores), `8577796` (un job por cuenta en los cuatro workflows
-  de Instagram, `comprobar-entorno.sh`), el de panel (origen en el formulario y
+  de Instagram, comprobación del Environment por la API con `GH_PAT`), el de panel (origen en el formulario y
   las tarjetas, metadatos de Environment) y el de documentación. Ambas cuentas
   siguen en modo actual (`repositorio`) con sus secretos de hoy; el modo
   Environment queda disponible para migrar `luiseskivelgolcher` primero

@@ -285,12 +285,16 @@ tras `archivarDespuesDeDias`.
   (un fallo no cancela a las demás), `max-parallel: 1` y el job de modo actual
   espera al de entorno (`always()`), así los commits del bot no se pisan y un
   post solo puede publicarlo el job de su cuenta. **Sin fallback entre
-  orígenes**: en modo entorno, si faltan los secretos el orquestador falla
-  nombrando el entorno; y como GitHub aplica el secreto de repositorio del mismo
-  nombre cuando el entorno no lo define, `.github/scripts/comprobar-entorno.sh`
-  compara la huella sha256 del `IG_ACCESS_TOKEN` recibido con la del secreto de
-  repositorio (calculada en el job `cuentas`, sin entorno) y rechaza la corrida
-  si coinciden. Sin `--por-cuenta` (ejecución conjunta, local), las cuentas en
+  orígenes**: como GitHub aplica el secreto de repositorio del mismo nombre
+  cuando el entorno no lo define, el job `cuentas` comprueba con la API de
+  GitHub (`lib/entornos.mjs`, solo metadatos, con `GH_PAT` y el permiso
+  *Environments: lectura*) que el Environment exacto `cuenta-<id>` contiene
+  `IG_ACCESS_TOKEN` e `IG_USER_ID`, y lo anota en la matriz; el job de la
+  cuenta falla antes de contactar con Instagram si falta alguno o si no hubo
+  permiso para comprobarlo. Un token idéntico en ambos sitios es válido: nunca
+  se comparan valores ni huellas. `GH_PAT` solo entra en el job `cuentas`; el
+  job de cada cuenta recibe únicamente sus dos secretos. Sin `--por-cuenta`
+  (ejecución conjunta, local), las cuentas en
   modo entorno se omiten con motivo explícito y su cola se conserva. Añadir una
   cuenta ya no requiere editar workflows. Permisos según la documentación
   oficial de la API REST: leer/escribir secretos de Environment exige el permiso

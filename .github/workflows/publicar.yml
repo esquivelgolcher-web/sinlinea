@@ -25,7 +25,6 @@ jobs:
     outputs:
       entorno: ${{ steps.lista.outputs.entorno }}
       repositorio: ${{ steps.lista.outputs.repositorio }}
-      huella-token: ${{ steps.huellas.outputs.token }}
     steps:
       - name: Descargar el repositorio
         uses: actions/checkout@v4
@@ -39,18 +38,13 @@ jobs:
       - name: Instalar dependencias
         run: npm ci
 
-      - name: Listar las cuentas activas por origen de credenciales
+      # Con --comprobar-entornos consulta la API de GitHub (solo metadatos, con GH_PAT: permiso Environments: lectura)
+      # y anota si el Environment de cada cuenta en modo Environment tiene sus dos secretos.
+      - name: Listar las cuentas activas por origen de credenciales y comprobar sus Environments
         id: lista
-        run: node src/cuentas-activas.mjs >> "$GITHUB_OUTPUT"
-
-      # Huella (sha256) del secreto de REPOSITORIO IG_ACCESS_TOKEN. Sirve para que un job en modo Environment detecte que
-      # recibió el secreto del repositorio en vez del de su entorno (GitHub aplica el de repositorio cuando el entorno no
-      # define el suyo). Nunca se imprime el valor; la huella no permite recuperarlo.
-      - name: Calcular la huella del secreto de repositorio
-        id: huellas
         env:
-          REPO_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
-        run: echo "token=$(printf '%s' "$REPO_TOKEN" | sha256sum | cut -d' ' -f1)" >> "$GITHUB_OUTPUT"
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+        run: node src/cuentas-activas.mjs --comprobar-entornos >> "$GITHUB_OUTPUT"
 
   publicar-entorno:
     name: Publicar (Environment)
@@ -81,10 +75,19 @@ jobs:
       - name: Instalar dependencias
         run: npm ci
 
-      - name: Comprobar que las credenciales vienen del Environment
+      # Comprobado en el job anterior con la API de GitHub (solo metadatos): el Environment exacto cuenta-<id> debe tener
+      # IG_ACCESS_TOKEN e IG_USER_ID. Si falta alguno o no hubo permiso para comprobarlo, se falla aquí, antes de
+      # contactar con Instagram, y no se usa ningún secreto de otro origen.
+      - name: Comprobar que el Environment de la cuenta está completo
         env:
-          HUELLA_REPO_TOKEN: ${{ needs.cuentas.outputs.huella-token }}
-        run: bash .github/scripts/comprobar-entorno.sh
+          COMPLETO: ${{ matrix.completo }}
+          MOTIVO: ${{ matrix.motivo }}
+        run: |
+          if [ "$COMPLETO" != "true" ]; then
+            echo "::error::Cuenta $CUENTA (Environment $ENTORNO): $MOTIVO"
+            exit 1
+          fi
+          echo "Cuenta $CUENTA: Environment $ENTORNO completo (IG_ACCESS_TOKEN, IG_USER_ID)."
 
       - name: Publicar los programados de la cuenta
         run: node src/publicar.mjs --cuenta "$CUENTA" --por-cuenta
