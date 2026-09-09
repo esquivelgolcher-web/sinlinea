@@ -150,7 +150,15 @@
       <small>Cada 30 minutos publica los posts programados cuya hora llegó. Requiere identidad verificada (Probar Instagram) para el usuario configurado. Apagada, los programados esperan en cola; al encenderla se te preguntará qué hacer con los vencidos.</small>
       <label class="casilla"><input id="fc-metricas" type="checkbox"> <span>Recoger métricas a diario (solo lectura de Instagram)</span></label>
       <small>Se puede medir una cuenta con la generación y la publicación apagadas. Los datos se guardan en <code>data/&lt;id&gt;/metricas/</code> y se ven en la vista Métricas; lo que Instagram no devuelve se muestra como "No disponible", nunca como 0.</small>
+      <label class="casilla"><input id="fc-pausa" type="checkbox"> <span>Pausa general: nada sale en ninguna red</span></label>
+      <small>Es un control aparte: los interruptores de Instagram y de las demás redes conservan su valor y las entregas quedan en espera hasta reanudar.</small>
       <p class="nota" id="fc-requisitos" hidden></p>
+    </fieldset>
+    <fieldset id="fc-facebook">
+      <legend>Página de Facebook (multicanal)</legend>
+      <label>Id numérico de la página <input id="fc-fb-pagina" autocomplete="off" inputmode="numeric" placeholder="p. ej. 123456789012345"><small>Se ve en la configuración de la página o en <code>me/accounts</code> del Explorador de la API Graph. Solo el id: el token de página se guarda en GitHub como <code>FB_PAGE_TOKEN</code> del Environment <code>cuenta-&lt;id&gt;</code>, nunca aquí.</small></label>
+      <label class="casilla"><input id="fc-fb-publicar" type="checkbox"> <span>Publicación automática en la página de Facebook</span></label>
+      <small>Nace apagada. Requiere identidad verificada de la página (workflow Probar destino). Es independiente del interruptor de Instagram: se puede publicar solo en Facebook. Al aprobar una pieza eliges sus destinos y revisas la versión de cada red.</small>
     </fieldset>
     <p class="error-texto" id="form-errores" hidden></p>
     <div class="acciones">
@@ -209,9 +217,25 @@
     <label>Fecha <input type="date" id="hora-fecha" required></label>
     <label>Hora <input type="time" id="hora-hora" required step="300"></label>
     <p class="nota" id="hora-nota"></p>
+    <div class="destinos-dialogo" id="hora-destinos"></div>
     <div class="acciones">
       <button class="boton" value="cancelar" type="submit">Cancelar</button>
       <button class="boton primario" value="ok" type="submit" id="hora-confirmar">Confirmar</button>
+    </div>
+  </form>
+</dialog>
+
+<!-- Multicanal (F1): decisión manual sobre un destino incierto. Nada se vuelve a publicar sin esta decisión. -->
+<dialog id="dialogo-incierto">
+  <form method="dialog">
+    <h3>Entrega incierta</h3>
+    <p class="nota" id="di-texto"></p>
+    <label>Enlace de la publicación (si existe en la red) <input id="di-enlace" autocomplete="off" placeholder="https://…"></label>
+    <div class="acciones">
+      <button class="boton" value="cancelar" type="submit">Cancelar</button>
+      <button class="boton" value="pendiente" type="submit" id="di-pendiente">No está publicada: volver a pendiente</button>
+      <button class="boton peligro" value="omitido" type="submit" id="di-omitido">Omitir en esta red</button>
+      <button class="boton primario" value="publicado" type="submit" id="di-publicado">Está publicada: marcar como publicada</button>
     </div>
   </form>
 </dialog>

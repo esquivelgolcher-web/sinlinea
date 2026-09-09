@@ -9,9 +9,17 @@ import {
   idSugerido, normalizarUsuario, nombresSecretosSugeridos, erroresDeCuenta, plantillaEditorial, configDesdeFormulario, formularioDesdeConfig,
   archivarCuenta, reactivarCuenta, estadoConexion, secretosExpuestos, secretosExpuestosComunes, workflowsPorCuenta, fechaCortaUtc,
   describirOrigen, nombreEntorno, requisitosGeneracion, requisitosPublicacion, postsVencidos, guiaConexion, resumenActividad, borradorDesdeFormulario,
+  estadoConexionRed, requisitosPublicacionRed, guiaConexionRed, conexionesDeCuenta,
 } from "./lib/cuenta.mjs";
 import { crearAlmacenLocal, crearAlmacenGitHub, deducirRepo, ErrorConflicto, ErrorConflictoArchivo } from "./almacen.mjs";
 import { seriesDeCuenta, rendimientoDePublicaciones, textoValor, textoMotivo } from "./lib/metricas.mjs";
+// Multicanal (F1): destinos por pieza, versiones por red y conexiones por red.
+import {
+  REDES, NOMBRES_RED, destinosDe, aprobarDestinos, omitirDestino, reintentarDestinos, decidirIncierto, piezaCambiada, imagenCambiada,
+  actualizarVersion, aprobarImagenActual,
+} from "./lib/destinos.mjs";
+import { proponerVersion, medirVersion } from "./lib/versiones.mjs";
+import { destinosEncendidos, pausaGeneral } from "./lib/conexiones.mjs";
 
 const configPanel = { franjas: ["07:00", "09:30", "12:00", "14:30", "17:00", "19:30"], zonaHoraria: ZONA_PANAMA, marca: {}, cuentas: [] };
 async function cargarConfigPanel() {
@@ -232,8 +240,17 @@ function cuentaParaPanel(c) {
     marca: { ...(cfg.marca || {}), colores: { ...COLORES_POR_DEFECTO, ...(cfg.marca?.colores || {}) } },
     franjas: cfg.franjas || FRANJAS_POR_DEFECTO,
     automatico: { generar: true, publicar: true, ...(cfg.automatico || {}) },
+    conexiones: cfg.conexiones || {},
+    instagram: cfg.instagram || {}, // solo origen y nombres de secretos (nunca valores): las redes nuevas exigen modo Environment
     archivada: cfg.archivada === true,
   };
+}
+// Estado de conexión de una red nueva de una cuenta, tal como lo dejó Probar destino (null si no hay lectura en vivo).
+const conexionRedDe = (id, red) => estado.cuentasInfo?.cuentas?.find((c) => c.id === id)?.conexiones?.[red]?.conexion || null;
+// Redes de una pieza que hoy pueden salir: interruptor encendido, sin pausa general (para mostrar "en espera").
+function redesEnEsperaDe(cfgCuenta) {
+  const encendidos = destinosEncendidos(cfgCuenta);
+  return (red) => (pausaGeneral(cfgCuenta) ? "pausa general" : (encendidos.includes(red) ? null : "conexión apagada"));
 }
 async function cargarCuentas({ frescos = false } = {}) {
   try {
@@ -274,6 +291,7 @@ function pintar() {
   const apagado = [];
   if (activa.automatico?.generar === false) apagado.push("la generación automática de borradores");
   if (activa.automatico?.publicar === false) apagado.push("la publicación automática en Instagram");
+  if (activa.automatico?.pausa === true) apagado.push("toda publicación (pausa general: nada sale en ninguna red hasta reanudar)");
   const nota = $("nota-cuenta");
   if (activa.archivada) {
     nota.hidden = false;
@@ -353,6 +371,8 @@ function tarjeta({ post, sha }) {
     el("label", { class: "casilla" }, [casillaUsar, el("span", { text: " Usar ilustración generada con IA" })]),
     ilus && ilus.error ? el("p", { class: "error-texto", text: `La ilustración falló: ${ilus.error.mensaje}` }) : "",
     contador,
+    // Multicanal: destinos de la pieza (chips, versiones aprobadas, omitir, decisión sobre inciertos), tras los campos.
+    bloqueDestinos({ post, sha, bloqueado }),
   ]);
   const cambios = () => {
     const escena = campos.escena.value.trim();
@@ -416,9 +436,14 @@ function tarjeta({ post, sha }) {
   const boton = (texto, clase, fn) => el("button", { type: "button", class: `boton ${clase}`, text: texto, onclick: () => ejecutar(post.id, sha, fn) });
 
   if (!bloqueado) {
+    // Aprobar = elegir hora, destinos y revisar la versión de cada red (multicanal): lo aprobado no cambia solo después.
     const aprobarConHora = async (p) => {
       const v = captionValido(); if (!v.ok) { avisarAqui(v.errores.join(" ")); return null; }
-      const h = await pedirHora(p); return h ? aprobar(conCambios(p), h, ahoraIso()) : null;
+      const pieza = conCambios(p);
+      const r = await pedirHora(pieza);
+      if (!r) return null;
+      try { return aprobarDestinos(pieza, r.iso, { versiones: r.versiones }, ahoraIso()); }
+      catch (err) { avisarAqui(err.message); return null; }
     };
     const regenerarIlustracion = (p) => {
       const descripcion = campos.escena.value.trim();
@@ -438,7 +463,8 @@ function tarjeta({ post, sha }) {
       acciones.append(boton("Regenerar ilustración", "", regenerarIlustracion));
       acciones.append(boton("Quitar de la cola", "peligro", (p) => quitarDeCola(p, ahoraIso())));
     } else if (post.estado === "error") {
-      if (post.error?.paso === "instagram") acciones.append(boton("Reintentar", "primario", (p) => reintentar(conCambios(p), ahoraIso())));
+      // Reintentar solo vuelve a poner en cola los destinos fallidos; los publicados no se repiten.
+      if (post.error?.paso === "instagram" || post.error?.paso === "destino") acciones.append(boton("Reintentar", "primario", (p) => (p.destinos ? reintentarDestinos(conCambios(p), ahoraIso()) : reintentar(conCambios(p), ahoraIso()))));
       acciones.append(boton("Guardar cambios", "", guardarSiCambio));
       acciones.append(boton("Regenerar ilustración", "", regenerarIlustracion));
       acciones.append(boton("Descartar", "peligro", (p) => descartar(p, ahoraIso())));
@@ -480,6 +506,8 @@ async function ejecutar(id, sha, fn) {
   }
 }
 
+// Diálogo de aprobación: hora, destinos y versión por red. Devuelve { iso, versiones } o null.
+// Las versiones se muestran para revisarlas: nunca se recortan; si una excede el límite, ese destino no se puede aprobar.
 function pedirHora(post) {
   // Franjas y horas ocupadas de la cuenta del post: dos cuentas pueden publicar a la misma hora.
   const cuenta = cuentaDe(post);
@@ -493,6 +521,54 @@ function pedirHora(post) {
   // La hora se interpreta en la zona de la cuenta (hoy, Panamá, UTC−5, sin cambio de horario), no en la del navegador.
   const zona = cfgCuenta.zonaHoraria || configPanel.zonaHoraria || ZONA_PANAMA;
   $("hora-zona").textContent = zona === "America/Panama" ? "Hora de Panamá (UTC−5), sea cual sea el país desde el que abras el panel." : `Zona horaria de la cuenta: ${zona}.`;
+
+  // Destinos: Instagram siempre; las redes nuevas solo si su conexión está verificada y encendida (si no, se explica).
+  const existentes = destinosDe(post);
+  const contenedor = $("hora-destinos");
+  const casillas = {}; const areas = {}; const contadores = {};
+  const disponibilidad = (red) => {
+    if (red === "instagram") return null;
+    const cx = conexionRedDe(cuenta, red);
+    const e = estadoConexionRed({ conexion: cx, config: cfgCuenta, id: cuenta, red, ahora: new Date() });
+    if (e.clave !== "verificada") return `identidad no verificada (${e.texto})`;
+    if (!destinosEncendidos(cfgCuenta).includes(red)) return "conexión apagada en la cuenta";
+    return null;
+  };
+  const filas = [];
+  for (const red of REDES) {
+    const d = existentes[red];
+    const nombre = NOMBRES_RED[red];
+    if (d && ["publicado", "omitido"].includes(d.estado)) { filas.push(el("p", { class: "nota-destino", text: `${nombre}: ${d.estado} (no cambia).` })); continue; }
+    const motivo = disponibilidad(red);
+    const casilla = el("input", { type: "checkbox", id: `destino-${red}` });
+    // Instagram va marcado por defecto (con su interruptor apagado la entrega queda en espera, no se omite); las redes
+    // nuevas solo si están disponibles.
+    casilla.checked = d ? true : (red === "instagram" ? true : !motivo);
+    if (motivo) { casilla.checked = false; casilla.disabled = true; }
+    casillas[red] = casilla;
+    const area = el("textarea", { id: `version-${red}`, rows: "4" });
+    area.value = d?.texto ?? proponerVersion(post, red).texto;
+    areas[red] = area;
+    const contador = el("p", { class: "contador" });
+    contadores[red] = contador;
+    const medir = () => {
+      const m = medirVersion(area.value, red);
+      contador.textContent = `${m.longitud}/${m.limite}${m.excede ? ` · ${m.errores.join(" ")}` : ""}`;
+      contador.className = "contador" + (m.excede ? " excede" : "");
+    };
+    area.addEventListener("input", medir); medir();
+    const proponer = el("button", { type: "button", class: "boton pequeno", text: "Proponer de nuevo", onclick: () => { area.value = proponerVersion(post, red).texto; medir(); } });
+    const bloque = el("div", { class: `destino-fila${motivo ? " no-disponible" : ""}` }, [
+      el("label", { class: "casilla" }, [casilla, el("span", { text: `${nombre}${motivo ? ` · no disponible: ${motivo}` : ""}` })]),
+      el("label", { text: `Versión para ${nombre}` }, [area]),
+      el("div", { class: "fila-compacta" }, [contador, proponer]),
+    ]);
+    const ajustar = () => { area.parentElement.hidden = !casilla.checked; contador.hidden = !casilla.checked; proponer.hidden = !casilla.checked; };
+    casilla.addEventListener("change", ajustar); ajustar();
+    filas.push(bloque);
+  }
+  contenedor.replaceChildren(el("p", { class: "nota-destinos", text: "Destinos de esta pieza. La versión de cada red se publica tal cual la apruebes aquí; si luego editas el caption, no cambiará sola." }), ...filas);
+
   const revisar = () => {
     const iso = isoDesdeClave($("hora-fecha").value, $("hora-hora").value);
     if (Date.parse(iso) < Date.now()) $("hora-nota").textContent = "Esa hora ya pasó; se publicará en la próxima corrida.";
@@ -500,10 +576,102 @@ function pedirHora(post) {
     else $("hora-nota").textContent = "";
   };
   $("hora-fecha").oninput = revisar; $("hora-hora").oninput = revisar;
+  const confirmar = $("hora-confirmar");
+  confirmar.onclick = (ev) => {
+    const marcados = Object.entries(casillas).filter(([, c]) => c.checked).map(([red]) => red);
+    const conservados = Object.entries(existentes).filter(([, d]) => ["publicado", "omitido"].includes(d.estado)).length;
+    if (!marcados.length && !conservados) { ev.preventDefault(); $("hora-nota").textContent = "Elige al menos un destino."; return; }
+    const excedidos = marcados.filter((red) => medirVersion(areas[red].value, red).excede);
+    if (excedidos.length) { ev.preventDefault(); $("hora-nota").textContent = `Revisa la versión de ${excedidos.map((r) => NOMBRES_RED[r]).join(" y ")}: excede el límite o está vacía (no se recorta sola).`; }
+  };
   return new Promise((resolve) => {
     dialogo.onclose = () => {
       if (dialogo.returnValue !== "ok" || !$("hora-fecha").value || !$("hora-hora").value) return resolve(null);
-      resolve(isoDesdeClave($("hora-fecha").value, $("hora-hora").value));
+      const versiones = {};
+      for (const [red, c] of Object.entries(casillas)) if (c.checked) versiones[red] = areas[red].value;
+      resolve({ iso: isoDesdeClave($("hora-fecha").value, $("hora-hora").value), versiones });
+    };
+    dialogo.showModal();
+  });
+}
+
+// Bloque de destinos de una pieza: chips con estado y enlace, versiones por red, omitir y decisión sobre inciertos.
+function bloqueDestinos({ post, sha, bloqueado }) {
+  const destinos = destinosDe(post);
+  const redes = Object.keys(destinos);
+  if (!redes.length) return "";
+  const cuenta = cuentaDe(post);
+  const cfgCuenta = configDeCuenta(cuenta);
+  const espera = redesEnEsperaDe(cfgCuenta);
+  const activos = redes.filter((r) => destinos[r].estado !== "omitido");
+  const accion = (texto, clase, fn) => el("button", { type: "button", class: `boton pequeno ${clase}`, text: texto, onclick: () => ejecutar(post.id, sha, fn) });
+  const chips = el("div", { class: "destinos" });
+  const acciones = el("div", { class: "acciones acciones-destinos" });
+  for (const red of redes) {
+    const d = destinos[red];
+    const nombre = NOMBRES_RED[red];
+    let etiqueta = d.estado; let clase = d.estado;
+    if (d.estado === "pendiente" && espera(red)) { etiqueta = `en espera (${espera(red)})`; clase = "espera"; }
+    else if (d.estado === "pendiente" && imagenCambiada(post, red)) { etiqueta = "en espera (la imagen cambió tras aprobar)"; clase = "espera"; }
+    else if (d.estado === "error") etiqueta = `error: ${d.error?.mensaje || "sin detalle"}`;
+    else if (d.estado === "incierto") etiqueta = `incierto: ${d.intento?.incierto?.motivo || "sin detalle"}`;
+    const chip = el("span", { class: `destino ${clase}`, text: `${nombre}: ${etiqueta}` });
+    if (d.estado === "publicado" && d.publicacion?.permalink) chip.append(" ", el("a", { href: urlSegura(d.publicacion.permalink), target: "_blank", rel: "noopener", text: `Ver en ${nombre}` }));
+    chips.append(chip);
+    if (bloqueado) continue;
+    if (d.estado === "incierto") acciones.append(accion(`Decidir ${nombre}`, "primario", (p) => decidirDestino(p, red)));
+    if (["pendiente", "error", "incierto"].includes(d.estado) && activos.length > 1) acciones.append(accion(`Omitir en ${nombre}`, "peligro", (p) => omitirDestino(p, red, ahoraIso(), { por: "operador" })));
+  }
+  const bloque = el("div", { class: "bloque-destinos" }, [chips]);
+  // Versiones aprobadas por red (solo piezas aprobadas con destinos y destinos que aún no salieron): editable, con aviso
+  // si la pieza o la imagen cambiaron. Un programado anterior al multicanal no tiene versiones: se compone al publicar.
+  const editables = post.destinos ? redes.filter((r) => !["publicado", "omitido"].includes(destinos[r].estado)) : [];
+  if (editables.length && !bloqueado) {
+    const detalles = el("details", { class: "versiones" }, [el("summary", { text: "Versiones por red (texto aprobado)" })]);
+    let imagenAvisada = false;
+    for (const red of editables) {
+      const d = destinos[red];
+      const nombre = NOMBRES_RED[red];
+      const area = el("textarea", { rows: "4" });
+      area.value = d.texto ?? proponerVersion(post, red).texto;
+      const contador = el("p", { class: "contador" });
+      const medir = () => { const m = medirVersion(area.value, red); contador.textContent = `${m.longitud}/${m.limite}${m.excede ? ` · ${m.errores.join(" ")}` : ""}`; contador.className = "contador" + (m.excede ? " excede" : ""); };
+      area.addEventListener("input", medir); medir();
+      const avisos = [];
+      if (piezaCambiada(post, red)) avisos.push(el("p", { class: "aviso aviso-tarjeta", text: `La pieza cambió después de aprobar la versión de ${nombre}: revísala y pulsa "Guardar versión" si quieres actualizarla. Mientras tanto se publicará el texto aprobado.` }));
+      detalles.append(el("div", { class: "version-red" }, [
+        el("label", { text: `${nombre}${d.texto === null ? " (sin versión aprobada: se propone la de siempre)" : ""}` }, [area]),
+        contador, ...avisos,
+        el("div", { class: "acciones" }, [
+          el("button", { type: "button", class: "boton pequeno", text: "Guardar versión", onclick: () => { const m = medirVersion(area.value, red); if (m.excede) { avisar(m.errores.join(" "), 8000); return; } ejecutar(post.id, sha, (p) => actualizarVersion(p, red, area.value, ahoraIso())); } }),
+          el("button", { type: "button", class: "boton pequeno", text: "Proponer de nuevo", onclick: () => { area.value = proponerVersion(post, red).texto; medir(); } }),
+        ]),
+      ]));
+      if (!imagenAvisada && imagenCambiada(post, red)) {
+        imagenAvisada = true;
+        detalles.append(el("p", { class: "aviso aviso-tarjeta", text: "La imagen se regeneró después de aprobar: no se publicará hasta que apruebes la imagen actual." }), el("div", { class: "acciones" }, [accion("Aprobar imagen actual", "primario", (p) => aprobarImagenActual(p, ahoraIso()))]));
+      }
+    }
+    bloque.append(detalles);
+  }
+  if (acciones.childElementCount) bloque.append(acciones);
+  return bloque;
+}
+
+// Decisión manual sobre un destino incierto: publicado (con el enlace que ves en la red), pendiente u omitido.
+function decidirDestino(post, red) {
+  const d = destinosDe(post)[red];
+  const dialogo = $("dialogo-incierto");
+  $("di-texto").textContent = `${NOMBRES_RED[red]}: ${d?.intento?.incierto?.motivo || "resultado incierto"}. Comprueba en ${NOMBRES_RED[red]} si la publicación existe y decide. No se volverá a publicar sin tu decisión.`;
+  $("di-enlace").value = "";
+  dialogo.returnValue = "cancelar";
+  return new Promise((resolve) => {
+    dialogo.onclose = () => {
+      const r = dialogo.returnValue;
+      if (r === "publicado") { const enlace = $("di-enlace").value.trim(); if (!/^https?:\/\//.test(enlace)) { avisar("Pega el enlace de la publicación para marcarla como publicada.", 8000); return resolve(null); } return resolve(decidirIncierto(post, red, "publicado", { permalink: enlace }, ahoraIso())); }
+      if (r === "pendiente") return resolve(decidirIncierto(post, red, "pendiente", {}, ahoraIso()));
+      if (r === "omitido") return resolve(decidirIncierto(post, red, "omitido", { por: "operador" }, ahoraIso()));
+      resolve(null);
     };
     dialogo.showModal();
   });
@@ -525,7 +693,9 @@ function logoMini(c) {
 
 function tarjetaCuenta(c) {
   const cfg = c.config || {};
-  const auto = { generar: true, publicar: true, ...(cfg.automatico || {}) };
+  const auto = { generar: true, publicar: true, pausa: false, ...(cfg.automatico || {}) };
+  const repo = repoActual();
+  const enlace = (href, texto) => (href ? el("a", { href, target: "_blank", rel: "noopener", text: texto }) : el("span", { text: `${texto} (repositorio no configurado)` }));
   const archivada = cfg.archivada === true;
   const conexion = estadoConexion({ conexion: c.conexion, tokenInfo: c.tokenInfo, config: cfg, id: c.id, expuestos: secretosExpuestosActuales(), secretosActualizados: c.secretosActualizados ?? null, ahora: new Date() });
   const posts = estado.items.map((x) => x.post).filter((p) => cuentaDe(p) === c.id);
@@ -544,6 +714,13 @@ function tarjetaCuenta(c) {
       }));
       acciones.append(el("button", { type: "button", class: "boton", "data-accion": "generar", text: auto.generar ? "Pausar generación" : "Encender generación", title: auto.generar ? "Claude deja de redactar borradores para esta cuenta; los existentes se conservan" : "Cada 3 horas Claude redacta borradores; exige editorial.md y fuentes", onclick: () => cambiarAutomatico(c.id, "generar", !auto.generar) }));
       acciones.append(el("button", { type: "button", class: "boton", "data-accion": "publicar", text: auto.publicar ? "Pausar publicación" : "Encender publicación", title: auto.publicar ? "Los programados quedan en cola sin publicarse" : "Publica los programados cuya hora llegó; exige identidad verificada y decidir sobre los vencidos", onclick: () => cambiarAutomatico(c.id, "publicar", !auto.publicar) }));
+      // Multicanal (F1): una conexión por red con su propio interruptor (nace apagado) y su verificación.
+      for (const cx of conexionesDeCuenta(cfg)) {
+        const estadoRed = estadoConexionRed({ conexion: c.conexiones?.[cx.red]?.conexion || null, config: cfg, id: c.id, red: cx.red, ahora: new Date() });
+        acciones.append(el("button", { type: "button", class: "boton", "data-accion": `verificar-${cx.red}`, text: `Verificar ${cx.nombre}`, disabled: estadoRed.clave === "pendiente-configuracion" ? "" : null, title: `Lanza el workflow Probar destino para ${cx.nombre}`, onclick: () => verificarIdentidad(c.id, cx.red) }));
+        acciones.append(el("button", { type: "button", class: "boton", "data-accion": `conexion-${cx.red}`, text: cx.publicar ? `Pausar ${cx.nombre}` : `Encender ${cx.nombre}`, title: cx.publicar ? `Las entregas para ${cx.nombre} quedan en espera; no se omiten` : `Exige identidad verificada de la página; el interruptor de Instagram no cambia`, onclick: () => cambiarConexionRed(c.id, cx.red, !cx.publicar) }));
+      }
+      acciones.append(el("button", { type: "button", class: "boton", "data-accion": "pausa", text: auto.pausa ? "Reanudar todo" : "Pausar todo", title: auto.pausa ? "Las entregas en espera salen en la próxima corrida" : "Pausa general: nada sale en ninguna red; los interruptores conservan su valor", onclick: () => cambiarPausa(c.id, !auto.pausa) }));
       acciones.append(el("button", { type: "button", class: "boton", text: "Métricas", onclick: () => { seleccionarCuenta(c.id); mostrarVista("metricas"); } }));
       acciones.append(el("button", { type: "button", class: "boton peligro", text: "Archivar", onclick: () => archivar(c.id) }));
     } else {
@@ -551,11 +728,26 @@ function tarjetaCuenta(c) {
     }
   }
   // Actividad (de lo ya guardado: posts, conexión, estado de métricas) y guía de conexión (solo nombres y enlaces).
-  const actividad = resumenActividad({ posts, cuenta: c.id, conexion: c.conexion, metricasEstado: c.metricasEstado || null });
+  const actividad = resumenActividad({ posts, cuenta: c.id, conexion: c.conexion, conexiones: c.conexiones || null, metricasEstado: c.metricasEstado || null });
+  // Multicanal (F1): estado y guía de cada red nueva.
+  const filasRedes = []; const guiasRedes = [];
+  for (const cx of conexionesDeCuenta(cfg)) {
+    const estadoRed = estadoConexionRed({ conexion: c.conexiones?.[cx.red]?.conexion || null, config: cfg, id: c.id, red: cx.red, ahora: new Date() });
+    filasRedes.push(el("span", { class: `estado ${cx.publicar ? "encendido" : "apagado"}`, text: `${cx.nombre}: ${cx.publicar ? "activa" : "apagada"}` }));
+    filasRedes.push(el("span", { class: `estado conexion-${estadoRed.clave}`, text: estadoRed.texto }));
+    if (estadoRed.clave !== "verificada" && !archivada) {
+      const g = guiaConexionRed({ config: cfg, id: c.id, red: cx.red, owner: repo?.owner || null, repo: repo?.repo || null });
+      guiasRedes.push(el("details", { class: "guia-red" }, [
+        el("summary", { text: `Guía de conexión con ${cx.nombre} · Environment ${g.entorno} · ${g.secretos.join(", ")}` }),
+        el("p", { class: "nota", text: "El token de página se obtiene en las herramientas de Meta y se pega en GitHub. Aquí solo van nombres y enlaces; ningún valor pasa por el panel ni por inputs de workflows." }),
+        estadoRed.detalle ? el("p", { class: "cuenta-detalle", text: estadoRed.detalle }) : "",
+        el("ol", {}, g.pasos.map((p) => el("li", { text: p }))),
+        el("p", { class: "enlaces" }, [enlace(g.enlaces.explorador, "Explorador de la API Graph"), enlace(g.enlaces.depurador, "Depurador de tokens"), enlace(g.enlaces.entorno, `Environments del repositorio`), enlace(g.enlaces.probar, "Workflow Probar destino")]),
+      ]));
+    }
+  }
   const fechaO = (iso, vacio) => (iso ? `${fechaCortaUtc(iso)} UTC` : vacio);
-  const repo = repoActual();
   const guia = guiaConexion({ config: cfg, id: c.id, owner: repo?.owner || null, repo: repo?.repo || null });
-  const enlace = (href, texto) => (href ? el("a", { href, target: "_blank", rel: "noopener", text: texto }) : el("span", { text: `${texto} (repositorio no configurado)` }));
   const guiaDetalles = el("details", { class: "guia-conexion" }, [
     el("summary", { text: `Guía de conexión: ${guia.origen === "entorno" ? `Environment ${guia.entorno}` : "secretos del repositorio"} · ${guia.secretos.join(" e ")}` }),
     el("p", { class: "nota", text: "Los valores de los secretos nunca pasan por el panel: se pegan en GitHub. Aquí solo van los nombres exactos y los enlaces." }),
@@ -581,6 +773,8 @@ function tarjetaCuenta(c) {
       el("span", { class: `estado ${auto.generar ? "encendido" : "apagado"}`, text: `Generación automática: ${auto.generar ? "activa" : "apagada"}` }),
       el("span", { class: `estado ${auto.publicar ? "encendido" : "apagado"}`, text: `Publicación automática: ${auto.publicar ? "activa" : "apagada"}` }),
       el("span", { class: `estado conexion-${conexion.clave}`, text: conexion.texto }),
+      ...filasRedes,
+      auto.pausa ? el("span", { class: "estado conexion-error", text: "Pausa general: activa (nada sale en ninguna red)" }) : "",
     ]),
     el("p", { class: "cuenta-contadores", text: `Borradores ${cuenta("borrador")} · Programados ${cuenta("programado")}${cuenta("error") ? ` · Errores ${cuenta("error")}` : ""}` }),
     el("p", { class: "cuenta-secretos", text: `Credenciales de Instagram: ${describirOrigen(cfg, c.id)}` }),
@@ -589,6 +783,7 @@ function tarjetaCuenta(c) {
     el("p", { class: "cuenta-actividad", text: `Último borrador generado: ${fechaO(actividad.ultimoBorrador, "ninguno")} · Última publicación: ${fechaO(actividad.ultimaPublicacion, "ninguna")} · Última recogida de métricas: ${fechaO(actividad.ultimaRecogida, cfg.metricas?.recoger === true ? "pendiente" : "recogida apagada")}` }),
     actividad.errores.length ? el("p", { class: "cuenta-errores", text: `Último error: ${actividad.errores[0].texto}${actividad.errores[0].cuando ? ` (${fechaCortaUtc(actividad.errores[0].cuando)} UTC)` : ""}${actividad.errores.length > 1 ? ` · ${actividad.errores.length - 1} más` : ""}` }) : "",
     conexion.clave === "verificada" || archivada ? "" : guiaDetalles,
+    ...guiasRedes,
     acciones,
   ]);
 }
@@ -631,11 +826,11 @@ async function refrescarCuentas({ frescos = false } = {}) {
   pintarMaestro();
 }
 
-async function verificarIdentidad(id) {
-  const boton = document.querySelector(`[data-cuenta="${id}"] button:nth-of-type(3)`);
+async function verificarIdentidad(id, red = "instagram") {
+  const boton = red === "instagram" ? document.querySelector(`[data-cuenta="${id}"] button:nth-of-type(3)`) : document.querySelector(`[data-cuenta="${id}"] button[data-accion="verificar-${red}"]`);
   if (boton) boton.disabled = true;
   try {
-    const r = await estado.almacen.solicitarVerificacion(id);
+    const r = await estado.almacen.solicitarVerificacion(id, red);
     avisar(r.nota || "Verificación solicitada.", 10000);
   } catch (err) {
     avisar(`No se pudo solicitar la verificación: ${err.message}`, 15000);
@@ -733,6 +928,32 @@ async function cambiarAutomatico(id, clave, valor) {
   if (ok) avisar(`${clave === "generar" ? "Generación" : "Publicación"} de ${c.config.nombre}: ${valor ? "encendida" : "pausada"}.`, 6000);
 }
 
+// Multicanal (F1): interruptor de una red nueva con activación segura (identidad verificada de la página). Nunca toca
+// el interruptor de Instagram ni la pausa general. Apagar deja las entregas en espera; no las omite.
+async function cambiarConexionRed(id, red, valor) {
+  const c = estado.cuentasInfo?.cuentas.find((x) => x.id === id);
+  if (!c?.config) return;
+  const nombre = NOMBRES_RED[red] || red;
+  if (valor) {
+    const faltan = requisitosPublicacionRed({ config: c.config, id, red, conexion: c.conexiones?.[red]?.conexion || null, ahora: new Date() });
+    if (faltan.length) { avisar(`No se puede encender ${nombre} de ${c.config.nombre}: ${faltan.join(" · ")}`, 15000); return; }
+  }
+  const ok = await guardarConfigCuenta(id, (cfg) => ({ ...cfg, conexiones: { ...(cfg.conexiones || {}), [red]: { ...(cfg.conexiones?.[red] || {}), publicar: valor } } }), `panel: ${red} ${valor ? "encendido" : "pausado"} en ${id}`);
+  if (ok) avisar(`${nombre} de ${c.config.nombre}: ${valor ? "encendida" : "pausada"}.${valor ? "" : " Sus entregas pendientes quedan en espera, no se omiten."}`, 8000);
+}
+
+// Pausa general explícita: nada sale en ninguna red; los interruptores conservan su valor.
+async function cambiarPausa(id, valor) {
+  const c = estado.cuentasInfo?.cuentas.find((x) => x.id === id);
+  if (!c?.config) return;
+  const ok = await guardarConfigCuenta(id, (cfg) => {
+    const auto = { generar: cfg.automatico?.generar !== false, publicar: cfg.automatico?.publicar !== false, ...(cfg.automatico || {}) };
+    if (valor) auto.pausa = true; else delete auto.pausa;
+    return { ...cfg, automatico: auto };
+  }, `panel: pausa general ${valor ? "activada" : "desactivada"} en ${id}`);
+  if (ok) avisar(`Pausa general ${valor ? "activada" : "desactivada"} en ${c.config.nombre}: ${valor ? "nada sale en ninguna red hasta reanudar; los interruptores no cambian" : "las entregas en espera salen en la próxima corrida"}.`, 8000);
+}
+
 // Borrador manual desde el panel para la cuenta seleccionada.
 $("nb-categoria").replaceChildren(...CATEGORIAS.map((k) => el("option", { value: k, text: k })));
 $("boton-nuevo-borrador").addEventListener("click", () => {
@@ -822,6 +1043,9 @@ function leerFormulario() {
     recogerMetricas: $("fc-metricas").checked,
     generar: $("fc-generar").checked,
     publicar: $("fc-publicar").checked,
+    pausa: $("fc-pausa").checked,
+    facebookPublicar: $("fc-fb-publicar").checked,
+    facebookPagina: $("fc-fb-pagina").value.trim(),
   };
 }
 
@@ -850,6 +1074,9 @@ function rellenarFormulario(d) {
   $("fc-metricas").checked = d.recogerMetricas === true;
   $("fc-generar").checked = d.generar === true;
   $("fc-publicar").checked = d.publicar === true;
+  $("fc-pausa").checked = d.pausa === true;
+  $("fc-fb-publicar").checked = d.facebookPublicar === true;
+  $("fc-fb-pagina").value = d.facebookPagina || "";
   $("fc-requisitos").hidden = true;
   $("fc-logo").value = "";
   $("fc-logo-previa").replaceChildren();
@@ -935,7 +1162,7 @@ async function abrirFormulario(modo, id = null) {
     if (editorial === undefined || editorial === null) {
       try { const a = await estado.almacen.leerArchivo(`cuentas/${id}/editorial.md`); editorial = a?.texto || ""; editorialSha = a?.sha || null; } catch { editorial = ""; }
     }
-    estado.formulario = { modo, id, base: c.config, shas: { config: c.sha, editorial: editorialSha, conexion: c.conexionSha || null }, conexion: c.conexion || null, editorialManual: true, idManual: true, secretosManuales: true, logoBase64: null };
+    estado.formulario = { modo, id, base: c.config, shas: { config: c.sha, editorial: editorialSha, conexion: c.conexionSha || null }, conexion: c.conexion || null, conexiones: c.conexiones || null, editorialManual: true, idManual: true, secretosManuales: true, logoBase64: null };
     $("fc-titulo").textContent = `Editar ${c.config.nombre}`;
     $("fc-id").readOnly = true;
     rellenarFormulario(formularioDesdeConfig(id, c.config, editorial));
@@ -986,7 +1213,7 @@ async function guardarFormulario(d) {
   const config = configDesdeFormulario(d, f.base);
   // Al editar una cuenta que no declaraba `automatico`, si las casillas siguen en su valor efectivo (encendidas) no se
   // inventa el bloque; en cuanto el operador cambia algo, se escribe explícito.
-  if (f.modo === "editar" && f.base && f.base.automatico === undefined && d.generar === true && d.publicar === true) delete config.automatico;
+  if (f.modo === "editar" && f.base && f.base.automatico === undefined && d.generar === true && d.publicar === true && d.pausa !== true) delete config.automatico;
   const textoConfig = JSON.stringify(config, null, 2) + "\n";
   const editorial = d.editorialMd.trim() ? d.editorialMd.replace(/\r\n/g, "\n").replace(/\n*$/, "\n") : plantillaEditorial(d);
   const accion = f.modo === "crear" ? "alta" : "edición";
@@ -997,6 +1224,11 @@ async function guardarFormulario(d) {
   const enciende = (k) => (config.automatico ? config.automatico[k] === true : d[k] === true) && !antesAuto[k];
   if (enciende("generar")) faltan.push(...requisitosGeneracion({ config, editorialMd: editorial }).map((m) => `generación: ${m}`));
   if (enciende("publicar")) faltan.push(...requisitosPublicacion({ config, id, conexion: f.conexion, ahora: new Date() }).map((m) => `publicación: ${m}`));
+  // Multicanal (F1): encender una red nueva desde el formulario exige la identidad verificada de esa red.
+  for (const cx of conexionesDeCuenta(config)) {
+    const antesRed = f.modo === "editar" && f.base?.conexiones?.[cx.red]?.publicar === true;
+    if (cx.publicar && !antesRed) faltan.push(...requisitosPublicacionRed({ config, id, red: cx.red, conexion: f.conexiones?.[cx.red]?.conexion || null, ahora: new Date() }).map((m) => `${cx.nombre}: ${m}`));
+  }
   if (faltan.length) throw new Error(`No se puede activar: ${faltan.join(" · ")}`);
   if (enciende("publicar")) {
     const decision = await decidirVencidos(id);

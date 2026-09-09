@@ -305,7 +305,8 @@ test("(fase 2) cambiar el origen de las credenciales a Environment invalida la v
     await page.waitForSelector("#formulario-cuenta:not([hidden])");
     await page.selectOption("#fc-origen", "entorno");
     await page.click("#fc-guardar");
-    await page.waitForFunction(() => /Environment cuenta-luiseskivelgolcher/.test(document.querySelector('.cuenta-tarjeta[data-cuenta="luiseskivelgolcher"]')?.textContent || ""));
+    // La guía de Facebook también menciona el Environment: se espera al texto de las credenciales de Instagram.
+    await page.waitForFunction(() => /Credenciales de Instagram: Environment cuenta-luiseskivelgolcher/.test(document.querySelector('.cuenta-tarjeta[data-cuenta="luiseskivelgolcher"]')?.textContent || ""));
     const cfg = leerJson(path.join(raiz, "cuentas/luiseskivelgolcher/config.json"));
     assert.equal(cfg.instagram.origen, "entorno");
     assert.equal(cfg.instagram.tokenSecreto, "IG_ACCESSTOKEN_LUISESKIVELGOLCHER", "los nombres antiguos se conservan por si se vuelve al modo actual");

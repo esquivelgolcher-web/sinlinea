@@ -133,3 +133,34 @@ dialog form .fila > label { flex: 1 1 200px; }
 #dialogo-borrador label { display: block; margin: 6px 0; }
 #dialogo-borrador input, #dialogo-borrador textarea, #dialogo-borrador select { width: 100%; box-sizing: border-box; }
 @media (max-width: 600px) { .acciones { flex-wrap: wrap; } .acciones .boton { flex: 1 1 45%; } }
+
+/* Multicanal (F1): destinos por pieza, versiones por red y conexiones por red */
+.destinos { display: flex; flex-wrap: wrap; gap: 6px; font-size: 12px; }
+.destino { padding: 3px 8px; border-radius: 999px; background: #eee; color: #374151; overflow-wrap: anywhere; }
+.destino.publicado { background: #dcfce7; color: #14532d; }
+.destino.pendiente { background: #dbeafe; color: #1e3a8a; }
+.destino.error { background: #fee2e2; color: #991b1b; }
+.destino.incierto { background: #fef3c7; color: #92400e; }
+.destino.omitido { background: #eee; color: #666; text-decoration: line-through; }
+.destino.espera { background: #f3f4f6; color: #374151; }
+.bloque-destinos { display: grid; gap: 8px; }
+.acciones-destinos { margin-top: 0; }
+.versiones { font-size: 13px; border: 1px solid var(--gris-2); border-radius: 8px; padding: 6px 10px; }
+.versiones summary { cursor: pointer; font-weight: 600; }
+.version-red { display: grid; gap: 6px; margin: 8px 0; }
+.version-red textarea { min-height: 80px; }
+#dialogo-hora { width: min(600px, 96vw); }
+.destinos-dialogo { display: grid; gap: 8px; margin: 10px 0; }
+.destinos-dialogo .nota-destinos { font-size: 12px; color: #555; margin: 0; }
+.destinos-dialogo .nota-destino { font-size: 13px; color: #555; margin: 0; }
+.destino-fila { display: grid; gap: 4px; padding: 8px; border: 1px solid var(--gris-2); border-radius: 8px; }
+.destino-fila.no-disponible { opacity: 0.7; }
+.destino-fila label.casilla { display: flex; align-items: center; gap: 8px; margin: 0; font-size: 14px; }
+.destino-fila textarea { display: block; width: 100%; min-height: 70px; margin-top: 4px; padding: 8px; font: inherit; font-size: 14px; border: 1px solid var(--gris-2); border-radius: 8px; resize: vertical; }
+.fila-compacta { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+#dialogo-incierto { width: min(520px, 96vw); }
+.guia-red { margin: 8px 0; font-size: 0.85rem; }
+.guia-red summary { cursor: pointer; font-weight: 600; }
+.guia-red ol { padding-left: 18px; margin: 6px 0; }
+.guia-red li { margin: 4px 0; }
+.guia-red .enlaces a { margin-right: 10px; }
