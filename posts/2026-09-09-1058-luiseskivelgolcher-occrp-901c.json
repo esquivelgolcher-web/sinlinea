@@ -22,10 +22,10 @@
   "imagen": {
     "ruta": "public/img/2026-09-09-1058-luiseskivelgolcher-occrp-901c.jpg",
     "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-09-1058-luiseskivelgolcher-occrp-901c.jpg",
-    "hash": "933b0a13fee3a34d",
+    "hash": "9f1b5705848c2363",
     "version": 10,
     "estilo": "8df8d9e92c3ad10f",
-    "renderizada": "2026-09-09T16:07:57.738Z"
+    "renderizada": "2026-09-09T16:28:04.539Z"
   },
   "ilustracion": {
     "descripcion": "Contenedores de carga apilados en un puerto marítimo al atardecer, con una grúa portuaria visible en el tercio superior derecho; la zona izquierda y central del encuadre despejada, sin personas ni texto.",
@@ -41,5 +41,5 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-09T15:58:23.658Z",
-  "actualizado": "2026-09-09T16:27:18.901Z"
+  "actualizado": "2026-09-09T16:28:03.848Z"
 }
