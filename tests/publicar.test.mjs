@@ -171,6 +171,10 @@ test("(M1) el aviso de vencimiento lee data/<cuenta>/token-info.json", async () 
 
 test("(M2) publicarCuentas no publica en una cuenta con automatico.publicar=false: sus programados quedan intactos y no se toca su cliente", async () => {
   const raiz = raizConCuentas({ cuentas: ["sinlinea", "luiseskivelgolcher"], prefijo: "pub-m2-" });
+  // La prueba fija ella misma el interruptor: no depende de cómo esté la cuenta real en cada momento.
+  const rutaCfg = path.join(raiz, "cuentas", "luiseskivelgolcher", "config.json");
+  const cfgLuis = JSON.parse(fs.readFileSync(rutaCfg, "utf8"));
+  fs.writeFileSync(rutaCfg, JSON.stringify({ ...cfgLuis, automatico: { ...cfgLuis.automatico, publicar: false } }, null, 2));
   const configuracion = cargarConfiguracion(raiz);
   for (const c of ["sinlinea", "luiseskivelgolcher"]) fs.writeFileSync(path.join(raiz, "data", c, "token-info.json"), JSON.stringify({ vence: "2026-11-01" }));
   const iso = "2026-09-07T20:00:00.000Z";

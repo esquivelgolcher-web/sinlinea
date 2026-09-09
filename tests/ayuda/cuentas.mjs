@@ -38,7 +38,12 @@ export function raizConCuentas({ cuentas = [CUENTA_PRINCIPAL], global = {}, pref
     // salvo que una prueba fije otro origen explícitamente.
     const rutaIg = path.join(raiz, "cuentas", id, "config.json");
     const cfgIg = JSON.parse(fs.readFileSync(rutaIg, "utf8"));
-    if (cfgIg.instagram?.origen === "entorno") { delete cfgIg.instagram.origen; fs.writeFileSync(rutaIg, JSON.stringify(cfgIg, null, 2) + "\n"); }
+    let cambiada = false;
+    if (cfgIg.instagram?.origen === "entorno") { delete cfgIg.instagram.origen; cambiada = true; }
+    // Las cuentas reales secundarias pueden estar encendidas en producción; las pruebas que las copian asumen la
+    // automatización apagada (la principal es la que ejercita los flujos completos). Una prueba puede encenderla después.
+    if (id !== CUENTA_PRINCIPAL && fs.existsSync(path.join("cuentas", id))) { cfgIg.automatico = { generar: false, publicar: false }; cambiada = true; }
+    if (cambiada) fs.writeFileSync(rutaIg, JSON.stringify(cfgIg, null, 2) + "\n");
     if (fs.existsSync(path.join(origen, "logo.png"))) fs.writeFileSync(path.join(raiz, "cuentas", id, "logo.png"), Buffer.from([0x89])); // marcador: solo se comprueba que exista
     fs.mkdirSync(path.join(raiz, "data", id), { recursive: true });
   }

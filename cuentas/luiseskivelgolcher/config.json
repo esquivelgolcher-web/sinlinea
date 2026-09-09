@@ -2,8 +2,8 @@
   "nombre": "Luis Esquivel Golcher",
   "idioma": "es-PA",
   "automatico": {
-    "generar": false,
-    "publicar": false
+    "generar": true,
+    "publicar": true
   },
   "marca": {
     "nombre": "Luis Esquivel Golcher",
