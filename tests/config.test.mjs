@@ -208,7 +208,8 @@ test("(M2) automatico es opcional (true por defecto) y colores es opcional con l
 
 test("(M2) fuentes puede estar vacía solo si la generación automática está apagada", () => {
   const c = cargarCuenta(".", "sinlinea");
-  assert.throws(() => validarCuenta({ ...c, fuentes: [] }, "sinlinea"), /fuentes/);
+  // La cuenta real puede tener la generación pausada: la regla se prueba con el interruptor fijado explícitamente.
+  assert.throws(() => validarCuenta({ ...c, fuentes: [], automatico: { generar: true, publicar: false } }, "sinlinea"), /fuentes/);
   assert.doesNotThrow(() => validarCuenta({ ...c, fuentes: [], automatico: { generar: false, publicar: true } }, "sinlinea"));
 });
 
