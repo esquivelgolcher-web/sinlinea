@@ -6,20 +6,24 @@ import fs from "node:fs";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { cargarConfiguracion } from "./lib/config.mjs";
-import { nombresDeSecretos, ocultarSecretos } from "./lib/secretos.mjs";
+import { nombresDeSecretos, ocultarSecretos, origenDeSecretos, nombreEntorno, describirCredenciales } from "./lib/secretos.mjs";
 import { crearClienteInstagram } from "./lib/instagram.mjs";
 import { claveDia } from "./lib/fechas.mjs";
 
 // Estado de conexión que lee el panel maestro (data/<cuenta>/conexion.json). Nunca lleva valores de secretos.
-export function escribirConexion(raiz, config, { estado, usuario = null, detalle = null, ahora = new Date() }) {
+export function escribirConexion(raiz, config, { estado, usuario = null, detalle = null, ahora = new Date(), porCuenta = false }) {
   if (!raiz) return;
   const carpeta = path.join(raiz, config.rutas?.datos || `data/${config.cuenta}`);
   fs.mkdirSync(carpeta, { recursive: true });
-  const datos = { estado, usuario, comprobado: ahora.toISOString(), detalle: detalle ? ocultarSecretos(detalle) : null, secretos: { tokenSecreto: nombresDeSecretos(config).token, usuarioIdSecreto: nombresDeSecretos(config).usuarioId } };
+  const origen = origenDeSecretos(config);
+  const n = origen === "entorno" ? nombresDeSecretos(config) : nombresDeSecretos(config); // nombres que identifican el origen (no los del job)
+  const secretos = { tokenSecreto: n.token, usuarioIdSecreto: n.usuarioId, origen, ...(origen === "entorno" ? { entorno: nombreEntorno(config.cuenta) } : {}) };
+  void porCuenta;
+  const datos = { estado, usuario, comprobado: ahora.toISOString(), detalle: detalle ? ocultarSecretos(detalle) : null, secretos };
   fs.writeFileSync(path.join(carpeta, "conexion.json"), JSON.stringify(datos, null, 2) + "\n");
 }
 
-export async function ejecutarPruebaInstagram({ configuracion, cuenta = null, env = process.env, igDe, raiz = null, ahora = new Date() }) {
+export async function ejecutarPruebaInstagram({ configuracion, cuenta = null, env = process.env, igDe, raiz = null, ahora = new Date(), porCuenta = false }) {
   const lineas = [];
   let ok = true;
   const error = (m) => { ok = false; lineas.push(`ERROR  ${m}`); };
@@ -34,13 +38,19 @@ export async function ejecutarPruebaInstagram({ configuracion, cuenta = null, en
     if (!objetivo.length) { error(`la cuenta "${cuenta}" no está declarada o su configuración es inválida`); return { ok, lineas }; }
   }
   for (const config of objetivo) {
-    const nombres = nombresDeSecretos(config);
+    if (!porCuenta && origenDeSecretos(config) === "entorno") {
+      aviso(`cuenta ${config.cuenta}: sus credenciales viven en el Environment ${nombreEntorno(config.cuenta)}; solo se prueban en el job por cuenta (workflow Probar Instagram). Se omite aquí`);
+      continue;
+    }
+    const nombres = nombresDeSecretos(config, { porCuenta });
+    const donde = origenDeSecretos(config) === "entorno" ? ` en el Environment ${nombreEntorno(config.cuenta)} (Settings → Environments)` : " (Settings → Secrets and variables → Actions)";
+    lineas.push(`--- cuenta ${config.cuenta}: credenciales · ${describirCredenciales(config, { porCuenta })}`);
     const token = valor(nombres.token);
     const usuarioId = valor(nombres.usuarioId);
     if (!token) {
       if (cuenta) {
-        error(`cuenta ${config.cuenta}: falta el secreto ${nombres.token} (Settings → Secrets and variables → Actions)`);
-        conexion(config, "credenciales-pendientes", null, `falta el secreto ${nombres.token}`);
+        error(`cuenta ${config.cuenta}: falta el secreto ${nombres.token}${donde}`);
+        conexion(config, "credenciales-pendientes", null, `falta el secreto ${nombres.token}${donde}`);
       } else aviso(`cuenta ${config.cuenta}: sin secretos en el entorno (${nombres.token}, ${nombres.usuarioId}); se omite`);
       continue;
     }
@@ -94,9 +104,10 @@ export async function ejecutarPruebaInstagram({ configuracion, cuenta = null, en
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const i = process.argv.indexOf("--cuenta");
   const cuenta = i >= 0 ? String(process.argv[i + 1] || "").trim() || null : null;
+  const porCuenta = process.argv.includes("--por-cuenta");
   const configuracion = cargarConfiguracion();
   const igDe = (config, { token, usuarioId }) => crearClienteInstagram({ token, usuarioId, apiVersion: config.instagram.apiVersion });
-  ejecutarPruebaInstagram({ configuracion, cuenta, igDe, raiz: process.cwd() }).then((r) => {
+  ejecutarPruebaInstagram({ configuracion, cuenta, igDe, raiz: process.cwd(), porCuenta }).then((r) => {
     for (const l of r.lineas) console.log(l);
     if (!r.ok) { console.error("La prueba de Instagram falló: no actives la publicación de esa cuenta hasta corregirlo."); process.exit(1); }
     console.log("Prueba de Instagram completa: las credenciales presentes corresponden a los usuarios esperados.");

@@ -8,7 +8,7 @@ import { marcarPublicado, marcarError, imagenDesactualizada } from "./lib/estado
 import { componerCaption, validarCaption } from "./lib/caption.mjs";
 import { crearClienteInstagram } from "./lib/instagram.mjs";
 import { claveDia } from "./lib/fechas.mjs";
-import { ocultarSecretos, leerSecretos, nombresDeSecretos } from "./lib/secretos.mjs";
+import { ocultarSecretos, leerSecretos, nombresDeSecretos, origenDeSecretos, describirCredenciales } from "./lib/secretos.mjs";
 import { todasFallaron, anotarFallos, resumirResultados } from "./lib/corrida.mjs";
 
 const MAX_ESPERAS_IMAGEN = 3;
@@ -104,21 +104,34 @@ export async function ejecutarPublicar({ config, raiz = process.cwd(), ahora = n
 
 // Ejecuta PUBLICAR para cada cuenta activa. `igDe(config)` crea el cliente de Instagram de la cuenta
 // (lanza si faltan sus secretos). Un fallo en una cuenta se registra y no detiene a las demás.
-export async function publicarCuentas({ configuracion, raiz = process.cwd(), ahora = new Date(), log = console, dryRun = false, igDe }) {
+// `soloCuenta`: procesa una sola cuenta (job por cuenta de los workflows). `porCuenta`: el job ya expuso las credenciales
+// de esa cuenta con los nombres fijos IG_ACCESS_TOKEN / IG_USER_ID. Si se pasa `env`, los secretos se leen aquí (sin
+// fallback entre orígenes) y llegan a `igDe(config, secretos)`; sin `env`, `igDe` sigue siendo responsable (compatibilidad).
+export async function publicarCuentas({ configuracion, raiz = process.cwd(), ahora = new Date(), log = console, dryRun = false, igDe, soloCuenta = null, porCuenta = false, env = null }) {
   const resultados = {};
   for (const e of configuracion.errores || []) {
+    if (soloCuenta && e.cuenta !== soloCuenta) continue;
     resultados[e.cuenta] = { error: e.mensaje };
     (log.error || log.warn)(`Cuenta ${e.cuenta}: configuración inválida, se omite (${e.mensaje}).`);
   }
   for (const config of configuracion.cuentas) {
+    if (soloCuenta && config.cuenta !== soloCuenta) continue;
     if (config.archivada) { resultados[config.cuenta] = { publicados: [], errores: [], pospuestos: [], motivo: "archivada" }; log.info(`Cuenta ${config.cuenta}: archivada, se omite (su cola se conserva).`); continue; }
+    if (!porCuenta && origenDeSecretos(config) === "entorno") {
+      resultados[config.cuenta] = { publicados: [], errores: [], pospuestos: [], motivo: "entorno-requiere-job-por-cuenta" };
+      log.warn(`Cuenta ${config.cuenta}: sus credenciales viven en el Environment cuenta-${config.cuenta}; solo se procesa en el job por cuenta (--cuenta ${config.cuenta} --por-cuenta). Se omite aquí y su cola se conserva.`);
+      continue;
+    }
+    const credenciales = describirCredenciales(config, { porCuenta });
+    log.info(`Cuenta ${config.cuenta}: credenciales · ${credenciales}`);
     try {
       if (config.automatico?.publicar === false) {
-        resultados[config.cuenta] = await ejecutarPublicar({ config, raiz, ahora, ig: null, log, dryRun });
+        resultados[config.cuenta] = { ...(await ejecutarPublicar({ config, raiz, ahora, ig: null, log, dryRun })), credenciales };
         continue;
       }
-      const ig = await igDe(config);
-      resultados[config.cuenta] = await ejecutarPublicar({ config, raiz, ahora, ig, log, dryRun });
+      const secretos = env ? leerSecretos(config, env, { porCuenta }) : null;
+      const ig = await igDe(config, secretos);
+      resultados[config.cuenta] = { ...(await ejecutarPublicar({ config, raiz, ahora, ig, log, dryRun })), credenciales };
     } catch (err) {
       const mensaje = ocultarSecretos(err.message);
       resultados[config.cuenta] = { error: mensaje };
@@ -130,15 +143,18 @@ export async function publicarCuentas({ configuracion, raiz = process.cwd(), aho
 
 async function main() {
   const dryRun = process.argv.includes("--dry-run");
+  const porCuenta = process.argv.includes("--por-cuenta");
+  const i = process.argv.indexOf("--cuenta");
+  const soloCuenta = i >= 0 ? String(process.argv[i + 1] || "").trim() || null : null;
   const configuracion = cargarConfiguracion();
-  const igDe = (config) => {
-    if (dryRun && !process.env[nombresDeSecretos(config).token]) {
+  const igDe = (config, secretos) => {
+    if (dryRun && !process.env[nombresDeSecretos(config, { porCuenta }).token]) {
       return { cuota: async () => ({ usados: 0, limite: 100 }), imagenPublica: async () => true, publicarImagen: async () => { throw new Error("no aplica en dry-run"); } };
     }
-    const { token, usuarioId } = leerSecretos(config, process.env);
+    const { token, usuarioId } = secretos || leerSecretos(config, process.env, { porCuenta });
     return crearClienteInstagram({ token, usuarioId, apiVersion: config.instagram.apiVersion });
   };
-  const r = await publicarCuentas({ configuracion, dryRun, igDe });
+  const r = await publicarCuentas({ configuracion, dryRun, igDe, soloCuenta, porCuenta, env: dryRun ? null : process.env });
   console.log(`Listo: ${resumirResultados(r.resultados, (x) => `${x.publicados.length} publicados, ${x.errores.length} con error, ${x.pospuestos.length} pospuestos`)}${dryRun ? " [dry-run]" : ""}.`);
   anotarFallos(r.resultados, "PUBLICAR");
   if (todasFallaron(r.resultados)) process.exitCode = 1;

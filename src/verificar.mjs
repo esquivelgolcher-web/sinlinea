@@ -4,7 +4,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { cargarConfiguracion } from "./lib/config.mjs";
-import { secretosRequeridos, verificarSecretos } from "./lib/secretos.mjs";
+import { secretosRequeridos, verificarSecretos, origenDeSecretos, nombreEntorno, describirCredenciales } from "./lib/secretos.mjs";
 import { leerTokenInfo } from "./publicar.mjs";
 import { claveDia } from "./lib/fechas.mjs";
 import { leerPosts } from "./lib/posts.mjs";
@@ -15,7 +15,7 @@ const ARCHIVOS_COMPARTIDOS = [
   ["assets/fonts/Inter-Variable.ttf", "fuente Inter"],
 ];
 
-export function ejecutarVerificacion({ raiz = process.cwd(), env = process.env, ahora = new Date() } = {}) {
+export function ejecutarVerificacion({ raiz = process.cwd(), env = process.env, ahora = new Date(), soloCuenta = null, porCuenta = false } = {}) {
   const lineas = [];
   const faltantes = [];
   let ok = true;
@@ -59,6 +59,7 @@ export function ejecutarVerificacion({ raiz = process.cwd(), env = process.env, 
   informar(compartidos);
 
   for (const config of configuracion.cuentas) {
+    if (soloCuenta && config.cuenta !== soloCuenta) continue;
     lineas.push(`--- Cuenta ${config.cuenta} (${config.nombre}) · idioma ${config.idioma} · ${config.marca.usuario}`);
     if (config.archivada) { aviso(`cuenta ${config.cuenta}: archivada${config.archivadaEn ? ` desde ${String(config.archivadaEn).slice(0, 10)}` : ""}; ningún flujo la procesa, sus posts e historial se conservan`); continue; }
     if (config.automatico?.generar === false) aviso(`cuenta ${config.cuenta}: generación automática apagada (automatico.generar=false); Claude no redacta posts para ella`);
@@ -67,8 +68,13 @@ export function ejecutarVerificacion({ raiz = process.cwd(), env = process.env, 
     else error(`falta ${config.rutas.editorial} (línea editorial)`);
     if (fs.existsSync(path.join(raiz, config.rutas.logo))) bien(`${config.rutas.logo} (logo de la marca)`);
     else aviso(`falta ${config.rutas.logo}: la imagen usará las iniciales de la marca (círculo o cuadrado según marca.logoForma)`);
-    const propios = secretosRequeridos(config).filter((s) => !compartidos.some((c) => c.nombre === s.nombre));
-    informar(propios);
+    lineas.push(`INFO   cuenta ${config.cuenta}: credenciales · ${describirCredenciales(config, { porCuenta })}`);
+    if (!porCuenta && origenDeSecretos(config) === "entorno") {
+      aviso(`cuenta ${config.cuenta}: sus secretos viven en el Environment ${nombreEntorno(config.cuenta)} y solo se comprueban en el job por cuenta (workflow Verificar); aquí no se afirma nada sobre ellos`);
+    } else {
+      const propios = secretosRequeridos(config, { porCuenta }).filter((s) => !compartidos.some((c) => c.nombre === s.nombre));
+      informar(propios);
+    }
     const info = leerTokenInfo(raiz, config.rutas.datos);
     if (!info.vence) {
       aviso(`${config.rutas.datos}/token-info.json: caducidad del token de Instagram desconocida (ejecuta "Probar Instagram" o la renovación para obtener la fecha real)`);
@@ -92,7 +98,10 @@ export function ejecutarVerificacion({ raiz = process.cwd(), env = process.env, 
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
-  const r = ejecutarVerificacion();
+  const porCuenta = process.argv.includes("--por-cuenta");
+  const i = process.argv.indexOf("--cuenta");
+  const soloCuenta = i >= 0 ? String(process.argv[i + 1] || "").trim() || null : null;
+  const r = ejecutarVerificacion({ soloCuenta, porCuenta });
   for (const l of r.lineas) console.log(l);
   if (r.ok) {
     console.log("Verificación completa: todo lo obligatorio está presente.");

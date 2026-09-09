@@ -103,8 +103,8 @@ test("(maestro) Probar Instagram deja el estado de conexión en data/<cuenta>/co
   await ejecutarPruebaInstagram({ configuracion, cuenta: "luiseskivelgolcher", env: envPersonal, igDe: ok, raiz, ahora });
   assert.deepEqual(leer("luiseskivelgolcher"), {
     estado: "verificada", usuario: "luiseskivelgolcher", comprobado: "2026-09-08T21:00:00.000Z", detalle: null,
-    secretos: { tokenSecreto: "IG_ACCESSTOKEN_LUISESKIVELGOLCHER", usuarioIdSecreto: "IG_USER_ID_LUISESKIVELGOLCHER" },
-  }, "guarda con qué usuario y con qué nombres de secretos se verificó, para invalidar si cambian");
+    secretos: { tokenSecreto: "IG_ACCESSTOKEN_LUISESKIVELGOLCHER", usuarioIdSecreto: "IG_USER_ID_LUISESKIVELGOLCHER", origen: "repositorio" },
+  }, "guarda con qué usuario, con qué nombres de secretos y de qué origen se verificó, para invalidar si cambian");
 
   const falla = () => ({ perfil: async () => { const e = new Error("Invalid OAuth access token - Cannot parse access token"); e.codigo = 190; e.subcodigo = null; e.tipo = "OAuthException"; throw e; } });
   await ejecutarPruebaInstagram({ configuracion, cuenta: "luiseskivelgolcher", env: envPersonal, igDe: falla, raiz, ahora });

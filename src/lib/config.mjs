@@ -3,7 +3,7 @@
 // solo existía una cuenta, así que el resto de módulos no necesita saber de cuentas.
 import fs from "node:fs";
 import path from "node:path";
-import { esNombreDeSecreto } from "./secretos.mjs";
+import { esNombreDeSecreto, ORIGENES } from "./secretos.mjs";
 import { RE_ID_CUENTA, RE_IDIOMA, RE_COLOR, TIPOS_FUENTE, LOGO_FORMAS, LOGO_TAMANO, COLORES_POR_DEFECTO, AUTOMATICO_POR_DEFECTO, IDIOMA_POR_DEFECTO } from "./cuenta.mjs";
 
 export { RE_ID_CUENTA, LOGO_FORMAS, COLORES_POR_DEFECTO, AUTOMATICO_POR_DEFECTO, IDIOMA_POR_DEFECTO };
@@ -86,6 +86,7 @@ function validarEditorial(e, archivo) {
 }
 
 function validarSecretosInstagram(ig, archivo) {
+  if (ig?.origen !== undefined) exigir(ORIGENES.includes(ig.origen), `instagram.origen debe ser ${ORIGENES.join(" o ")} (repositorio = secretos del repositorio con nombre; entorno = Environment cuenta-<id>)`, archivo);
   for (const k of ["tokenSecreto", "usuarioIdSecreto"]) {
     if (ig?.[k] !== undefined) exigir(esNombreDeSecreto(ig[k]), `instagram.${k} debe ser un nombre de secreto en mayúsculas (A-Z, 0-9 y _), p. ej. IG_ACCESS_TOKEN_OTRO_MEDIO`, archivo);
   }
@@ -194,7 +195,7 @@ export function configDeCuenta(global, cuenta, id) {
     automatico: { ...AUTOMATICO_POR_DEFECTO, ...(cuenta.automatico || {}) },
     marca: { ...cuenta.marca, logoForma: cuenta.marca.logoForma || LOGO_FORMA_POR_DEFECTO, logoTamano: cuenta.marca.logoTamano || LOGO_TAMANO_POR_DEFECTO, colores: { ...COLORES_POR_DEFECTO, ...(cuenta.marca.colores || {}) } },
     zonaHoraria: cuenta.zonaHoraria || global.zonaHoraria,
-    instagram: { apiVersion: global.instagram.apiVersion, ...cuenta.instagram },
+    instagram: { apiVersion: global.instagram.apiVersion, origen: "repositorio", ...cuenta.instagram },
     ilustraciones: { ...global.ilustraciones, ...cuenta.ilustraciones },
     rutas: rutasDeCuenta(id),
   };
