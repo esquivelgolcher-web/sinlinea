@@ -7,8 +7,9 @@ investigación.
 - Investigaciones y periodismo: cómo se investiga, métodos, casos ya publicados
   por medios u organismos, con su fuente citada.
 - Transparencia y herramientas de investigación: registros públicos, datos
-  abiertos, verificación de documentos, técnicas de fuentes abiertas (OSINT),
-  siempre con fines educativos y legales.
+  abiertos, verificación de documentos, técnicas de fuentes abiertas (OSINT) y
+  herramientas de verificación y fact-checking (cómo se comprueba un dato, un
+  vídeo o un documento), siempre con fines educativos y legales.
 - Actualidad de Panamá y del mundo con contexto y análisis: qué pasó, por qué
   importa, antecedentes y consecuencias, con fuentes verificables y fecha. El
   análisis se apoya en hechos y en voces citadas, nunca en opiniones atribuidas
@@ -35,12 +36,30 @@ texto lo haya escrito Luis. Español de Panamá.
 - Sensibilidad legal: no acusar a personas ni empresas; los registros públicos
   sirven para contrastar datos, no para afirmar irregularidades.
 
-## Pendiente de definir
-- Fuentes específicas (medios, portales oficiales, organismos) para la generación
-  automática: hasta entonces `fuentes` está vacío y `automatico.generar` en `false`.
-- Colores definitivos: el logo (cuadrado "LEG", negro `#161616` con letras
-  crema `#E9E4DA`, 90 px en la imagen; versión clara en `logo-claro.png`) quedó
-  definido el 2026-09-08; el acento azul y el resto de la paleta siguen siendo
-  provisionales.
-- `automatico.publicar` permanece en `false` hasta que la cuenta esté conectada,
-  verificada y esta línea editorial esté aprobada en producción.
+## Fuentes de la generación automática (aprobadas el 2026-09-09)
+- OCCRP (investigaciones sobre corrupción y crimen organizado; inglés).
+- ICIJ (investigaciones transnacionales; inglés).
+- EFE Verifica (verificación y desinformación; español).
+- BBC Mundo (actualidad mundial con contexto; español).
+- Bellingcat (métodos OSINT y verificación con fuentes abiertas; inglés).
+
+Reglas con estas fuentes:
+- Las piezas en inglés se resumen en español, citando el medio original, el
+  titular original y la fecha en el caption.
+- De OCCRP e ICIJ se toman hechos ya publicados por ellos; se atribuyen a ese
+  medio y no se presentan como investigación propia.
+- De EFE Verifica y Bellingcat interesa el método (qué se comprobó y cómo),
+  que es lo didáctico para esta cuenta.
+- De BBC Mundo solo actualidad con contexto verificable; se omiten piezas de
+  entretenimiento, estilo de vida o curiosidades.
+
+## Límites de generación
+- Un borrador por corrida y por día; con tres borradores sin revisar no se
+  genera nada más. Todo borrador espera la aprobación de Luis.
+
+## Identidad visual
+- Logo cuadrado "LEG", negro `#161616` con letras crema `#E9E4DA`, 90 px en la
+  imagen (versión clara en `logo-claro.png`). El acento azul y el resto de la
+  paleta siguen siendo provisionales.
+- `automatico.publicar` permanece en `false` hasta que Luis apruebe el primer
+  post y decida su horario.

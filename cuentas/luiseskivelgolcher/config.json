@@ -18,13 +18,40 @@
       "claro": "#FFFFFF"
     }
   },
-  "fuentes": [],
+  "fuentes": [
+    {
+      "nombre": "OCCRP",
+      "tipo": "rss",
+      "url": "https://www.occrp.org/en/feed"
+    },
+    {
+      "nombre": "ICIJ",
+      "tipo": "rss",
+      "url": "https://www.icij.org/feed/"
+    },
+    {
+      "nombre": "EFE Verifica",
+      "tipo": "rss",
+      "url": "https://verifica.efe.com/feed/"
+    },
+    {
+      "nombre": "BBC Mundo",
+      "tipo": "rss",
+      "url": "https://feeds.bbci.co.uk/mundo/rss.xml"
+    },
+    {
+      "nombre": "Bellingcat",
+      "tipo": "rss",
+      "url": "https://www.bellingcat.com/feed/"
+    }
+  ],
   "generar": {
     "maxPorCorrida": 1,
-    "maxBorradoresPorDia": 2,
+    "maxBorradoresPorDia": 1,
     "candidatosMax": 10,
     "diasSinRepetir": 3,
-    "maxHorasAntiguedad": 48
+    "maxHorasAntiguedad": 48,
+    "maxBorradoresPendientes": 3
   },
   "franjas": [
     "12:00",

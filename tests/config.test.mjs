@@ -179,14 +179,16 @@ test("(M1 fix) resumenParaPanel expone cuentaPrincipal = primera cuenta declarad
   assert.equal(g.cuentas[0], "sinlinea");
 });
 
-test("(M2) la cuenta luiseskivelgolcher carga con automatización apagada, colores propios, sin fuentes y con sus secretos", () => {
+test("(M2) la cuenta luiseskivelgolcher carga con automatización apagada, colores propios, fuentes propias (no las de Sin Línea) y con sus secretos", () => {
   const c = cargarConfiguracion(".");
   assert.deepEqual(c.global.cuentas, ["sinlinea", "luiseskivelgolcher"]);
   assert.deepEqual(c.errores, []);
   const e = c.cuentas.find((x) => x.cuenta === "luiseskivelgolcher");
   assert.deepEqual(e.automatico, { generar: false, publicar: false });
   assert.equal(e.marca.usuario, "@luiseskivelgolcher");
-  assert.deepEqual(e.fuentes, []);
+  // Fuentes aprobadas el 2026-09-09: ninguna coincide con las de Sin Línea.
+  assert.ok(e.fuentes.length >= 3);
+  for (const f of e.fuentes) assert.equal(c.cuentas[0].fuentes.some((s) => s.url === f.url), false, `${f.nombre} no se hereda de Sin Línea`);
   assert.equal(e.ilustraciones.activo, true, "ilustraciones activas con estilo provisional para las vistas previas");
   assert.equal(e.instagram.tokenSecreto, "IG_ACCESSTOKEN_LUISESKIVELGOLCHER");
   assert.equal(e.instagram.usuarioIdSecreto, "IG_USER_ID_LUISESKIVELGOLCHER");
