@@ -599,7 +599,8 @@ function pedirHora(post, { soloNuevos = false } = {}) {
       el("label", { text: `Versión para ${nombre}` }, [area]),
       el("div", { class: "fila-compacta" }, [contador, proponer]),
     ]);
-    const ajustar = () => { area.parentElement.hidden = !casilla.checked; contador.hidden = !casilla.checked; proponer.hidden = !casilla.checked; };
+    // `dialog label` es display:block en la hoja de estilos, así que el atributo hidden no bastaría: se oculta por estilo.
+    const ajustar = () => { const mostrar = casilla.checked ? "" : "none"; area.parentElement.style.display = mostrar; contador.style.display = mostrar; proponer.style.display = mostrar; };
     casilla.addEventListener("change", ajustar); ajustar();
     filas.push(bloque);
   }
