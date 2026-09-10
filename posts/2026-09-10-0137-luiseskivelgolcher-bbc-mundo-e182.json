@@ -1,0 +1,46 @@
+{
+  "id": "2026-09-10-0137-luiseskivelgolcher-bbc-mundo-e182",
+  "cuenta": "luiseskivelgolcher",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "BBC Mundo",
+    "url": "https://www.bbc.com/mundo/articles/cwyzpl5d7zno?at_medium=RSS&at_campaign=rss",
+    "titulo": "\"La gente enfermó porque les mintieron\": documentos muestran que las autoridades de Nueva York ocultaron información sobre la calidad del aire tras el 11-S",
+    "publicado": "2026-09-08T15:41:53.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "Documentos ligan a NY con ocultar riesgo del aire",
+  "bajada": "Informes desclasificados citan preocupaciones internas tras los ataques del 11 de septiembre de 2001",
+  "caption": "Documentos revisados por la BBC muestran que, tras los atentados del 11 de septiembre de 2001, autoridades de Nueva York aseguraron públicamente que el aire era seguro pese a contar con información que sugería lo contrario. El hallazgo, publicado por BBC Mundo el 8 de septiembre de 2026 bajo el titular \"'La gente enfermó porque les mintieron': documentos muestran que las autoridades de Nueva York ocultaron información sobre la calidad del aire tras el 11-S\", reabre el debate sobre la responsabilidad estatal en emergencias de salud pública.",
+  "hashtags": [
+    "#Transparencia",
+    "#SaludPública",
+    "#11S",
+    "#BBCMundo",
+    "#DocumentosPúblicos"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-09-10-0137-luiseskivelgolcher-bbc-mundo-e182.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-10-0137-luiseskivelgolcher-bbc-mundo-e182.jpg",
+    "hash": "d231ff5dd6bae453",
+    "version": 10,
+    "estilo": "8df8d9e92c3ad10f",
+    "renderizada": "2026-09-10T06:37:40.560Z"
+  },
+  "ilustracion": {
+    "descripcion": "Escritorio con una pila de documentos oficiales amarillentos y sellados, algunos entreabiertos, en el tercio superior derecho de la imagen; el resto del espacio, a la izquierda y al centro, permanece despejado y en penumbra.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-10-0137-luiseskivelgolcher-bbc-mundo-e182.jpg",
+    "hashDescripcion": "c578d8ee1e06582c",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-10T06:37:06.433Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-10T06:37:06.433Z",
+  "actualizado": "2026-09-10T06:37:06.433Z"
+}
