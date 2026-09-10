@@ -70,6 +70,12 @@
   "metricas": {
     "recoger": true
   },
+  "conexiones": {
+    "facebook": {
+      "publicar": false,
+      "pagina": "1365602693299887"
+    }
+  },
   "zonaHoraria": "America/Panama",
   "editorial": {
     "temas": [],
