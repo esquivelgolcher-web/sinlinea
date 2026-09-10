@@ -1,0 +1,14 @@
+{
+  "red": "facebook",
+  "estado": "error",
+  "identidad": null,
+  "comprobado": "2026-09-10T07:42:13.686Z",
+  "detalle": "la API respondió con error: message \"Invalid OAuth access token - Cannot parse access token\" · code 190 · error_subcode - · type OAuthException",
+  "secretos": {
+    "nombres": [
+      "FB_PAGE_TOKEN"
+    ],
+    "origen": "entorno",
+    "entorno": "cuenta-luiseskivelgolcher"
+  }
+}
