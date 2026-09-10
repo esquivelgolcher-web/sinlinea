@@ -41,7 +41,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-10T13:57:24.051Z",
-  "actualizado": "2026-09-10T14:03:30.987Z",
+  "actualizado": "2026-09-10T14:05:15.245Z",
   "destinos": {
     "threads": {
       "texto": "EFE Verifica comprobó que la afirmación viral sobre refugiados musulmanes no tiene respaldo en los datos de ACNUR. Solo siete de los veinte países con más refugiados tienen al Islam como religión mayoritaria, y la mayoría de desplazados se concentra en países vecinos a su lugar de origen.\n\nFuente: EFE Verifica, 10 de septiembre de 2026",
@@ -54,7 +54,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-09-10T14:05:15.245Z",
+        "actualizado": "2026-09-10T14:05:15.245Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
