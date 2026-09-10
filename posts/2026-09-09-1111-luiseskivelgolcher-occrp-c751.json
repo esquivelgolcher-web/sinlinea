@@ -38,7 +38,11 @@
     "error": null
   },
   "programado": "2026-09-10T14:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "18230106619323295",
+    "permalink": "https://www.instagram.com/p/DdHj--PlM7E/",
+    "fecha": "2026-09-10T19:14:09.730Z"
+  },
   "error": null,
   "creado": "2026-09-09T16:11:22.815Z",
   "actualizado": "2026-09-10T19:14:09.730Z",
@@ -51,16 +55,15 @@
         "imagenHash": "abd46362ddf895a4",
         "imagenSha": "e18c1fb104a89755bab9eab79ae73902ed981880"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-09-10T19:14:09.730Z",
-        "actualizado": "2026-09-10T19:14:09.730Z",
-        "contenedorId": "18590835052064913"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18230106619323295",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/DdHj--PlM7E/",
+        "fecha": "2026-09-10T19:14:09.730Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     },
