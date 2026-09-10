@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
-import { aprobarDestinos, destinosDe, imagenCambiada, aprobarImagenActual, avanzarIntento, reservarDestino, validarDestinos, esCarrusel, imagenesDe, LIMITES_CARRUSEL, CARRUSEL_POR_RED, REDES_CARRUSEL, validarCarruselPara } from "../src/lib/destinos.mjs";
+import { aprobarDestinos, destinosDe, imagenCambiada, aprobarImagenActual, avanzarIntento, reservarDestino, validarDestinos, esCarrusel, imagenesDe, LIMITES_CARRUSEL, CARRUSEL_POR_RED, REDES_CARRUSEL, validarCarruselPara, marcarDestinoPublicado } from "../src/lib/destinos.mjs";
 import { esPublicable, FORMATOS_PUBLICABLES } from "../src/lib/formatos.mjs";
 import { validarPost } from "../src/lib/posts.mjs";
 import { hashImagen } from "../src/lib/estados.mjs";
@@ -65,6 +65,27 @@ test("(carrusel) aprobar valida los límites de cada destino: Facebook se rechaz
   assert.throws(() => aprobarDestinos(sinRender, "2026-09-11T12:00:00-05:00", { versiones: { instagram: "IG" }, imagenSha: shas[0] }, iso), /renderizadas/);
   const ok = aprobarDestinos(p, "2026-09-11T12:00:00-05:00", { versiones: { instagram: "IG", threads: "TH" }, imagenSha: shas[0], imagenesSha: shas }, iso);
   assert.deepEqual(Object.keys(destinosDe(ok)), ["instagram", "threads"]);
+});
+
+test("(carrusel) una pieza ya publicada en Instagram admite añadir Threads como destino nuevo: Instagram queda intacto, Threads pendiente con las huellas, la pieza vuelve a programado y conserva su publicación; sin destinos nuevos se rechaza", () => {
+  const p = aprobarDestinos(carrusel(), "2026-09-10T13:00:00-05:00", { versiones: { instagram: "IG" }, imagenSha: shas[0], imagenesSha: shas }, iso);
+  const publicada = marcarDestinoPublicado(p, "instagram", { id: "18215615350355192", permalink: "https://www.instagram.com/p/DdHcfgLIFzl/" }, iso);
+  assert.equal(publicada.estado, "publicado");
+  const conThreads = aprobarDestinos(publicada, "2026-09-11T09:00:00-05:00", { versiones: { threads: "TH\n\nSegún WIRED" }, imagenSha: shas[0], imagenesSha: shas }, "2026-09-10T20:00:00.000Z");
+  const d = destinosDe(conThreads);
+  assert.deepEqual(d.instagram, destinosDe(publicada).instagram, "Instagram no cambia: mismo estado, id y enlace");
+  assert.equal(d.threads.estado, "pendiente");
+  assert.equal(d.threads.texto, "TH\n\nSegún WIRED");
+  assert.deepEqual(d.threads.aprobado.imagenesSha, shas);
+  assert.equal(conThreads.estado, "programado", "vuelve a la cola solo por la entrega nueva");
+  assert.equal(conThreads.programado, "2026-09-11T09:00:00-05:00");
+  assert.deepEqual(conThreads.publicacion, { idMedia: "18215615350355192", permalink: "https://www.instagram.com/p/DdHcfgLIFzl/", fecha: iso }, "la publicación de Instagram se conserva");
+  // Volver a incluir Instagram no lo reaprueba ni lo cambia; sin ningún destino nuevo, no hay nada que aprobar.
+  const otraVez = aprobarDestinos(publicada, "2026-09-11T09:00:00-05:00", { versiones: { instagram: "otro", threads: "TH" }, imagenSha: shas[0], imagenesSha: shas }, iso);
+  assert.equal(destinosDe(otraVez).instagram.texto, "IG");
+  assert.throws(() => aprobarDestinos(publicada, "2026-09-11T09:00:00-05:00", { versiones: { instagram: "otro" }, imagenSha: shas[0], imagenesSha: shas }, iso), /ningún destino nuevo/);
+  // Un carrusel publicado tampoco admite Facebook (sigue fuera).
+  assert.throws(() => aprobarDestinos(publicada, "2026-09-11T09:00:00-05:00", { versiones: { facebook: "FB" }, imagenSha: shas[0], imagenesSha: shas }, iso), /pendiente de validación real/);
 });
 
 test("(carrusel) aprobar guarda la huella de cada diapositiva en orden; el destino recuerda las huellas y el validador las exige como lista", () => {
