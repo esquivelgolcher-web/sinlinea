@@ -10,8 +10,8 @@ import { raizConCuentas } from "./ayuda/cuentas.mjs";
 
 const cuentaBase = () => JSON.parse(fs.readFileSync("tests/fixtures/cuentas/prueba/config.json", "utf8"));
 
-test("(conexiones) F1 solo conoce la conexión de Facebook, con su secreto fijo FB_PAGE_TOKEN en el Environment de la cuenta", () => {
-  assert.deepEqual(REDES_CONEXION, ["facebook"]);
+test("(conexiones) las conexiones conocidas son Facebook (F1) y Threads (F2), cada una con su secreto fijo en el Environment de la cuenta", () => {
+  assert.deepEqual(REDES_CONEXION, ["facebook", "threads"]);
   assert.deepEqual(SECRETOS_RED.facebook, ["FB_PAGE_TOKEN"]);
 });
 
@@ -87,4 +87,22 @@ test("(conexiones) cuentas-activas anota los nombres de secretos que debe tener 
   const prueba = entorno.find((e) => e.cuenta === "prueba");
   assert.deepEqual(prueba.nombres, ["FB_PAGE_TOKEN"]);
   assert.equal(prueba.entorno, "cuenta-prueba");
+});
+
+test("(conexiones F2) Threads es una conexión propia: secreto THREADS_ACCESS_TOKEN, id numérico de usuario y perfil esperado; nace apagada e independiente", () => {
+  assert.deepEqual(REDES_CONEXION, ["facebook", "threads"]);
+  assert.deepEqual(SECRETOS_RED.threads, ["THREADS_ACCESS_TOKEN"]);
+  const cfg = { automatico: { publicar: false }, conexiones: { facebook: { publicar: false, pagina: "1" }, threads: { publicar: true, usuario: "17841400000000000", perfil: "@luiseskivelgolcher" } } };
+  assert.deepEqual(destinosEncendidos(cfg), ["threads"], "se puede publicar solo en Threads con Instagram y Facebook apagados");
+  assert.deepEqual(conexionDe(cfg, "threads"), { publicar: true, usuario: "17841400000000000", perfil: "@luiseskivelgolcher" });
+  assert.deepEqual(conexionDe({}, "threads"), { publicar: false, usuario: "", perfil: "" });
+  assert.equal(identificadorDe(cfg, "threads"), "17841400000000000");
+  assert.deepEqual(nombresSecretosEntorno(cfg), ["THREADS_ACCESS_TOKEN"]);
+  assert.deepEqual(nombresSecretosEntorno({ automatico: { publicar: true }, conexiones: { threads: { publicar: true, usuario: "1" } } }), ["IG_ACCESS_TOKEN", "IG_USER_ID", "THREADS_ACCESS_TOKEN"]);
+  assert.deepEqual(erroresDeConexiones({ threads: { publicar: false } }), []);
+  assert.deepEqual(erroresDeConexiones({ threads: { publicar: true } }), ["conexiones.threads.usuario es obligatorio para encender la publicación en threads"]);
+  assert.deepEqual(erroresDeConexiones({ threads: { publicar: false, usuario: "abc" } }), ["conexiones.threads.usuario debe ser el id numérico del perfil de Threads"]);
+  assert.deepEqual(erroresDeConexiones({ threads: { publicar: false, usuario: "123", perfil: "usuario con espacios" } }), ["conexiones.threads.perfil debe ser el nombre de usuario de Threads (letras, números, puntos o guiones bajos)"]);
+  assert.throws(() => validarCuenta({ ...cuentaBase(), conexiones: { threads: { publicar: true } } }, "prueba"), /threads\.usuario/);
+  assert.doesNotThrow(() => validarCuenta({ ...cuentaBase(), conexiones: { threads: { publicar: false, usuario: "17841400000000000", perfil: "luis" } } }, "prueba"));
 });

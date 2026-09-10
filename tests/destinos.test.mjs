@@ -16,7 +16,7 @@ const versiones = { instagram: "Texto IG\n\nFuente: La Prensa", facebook: "Texto
 const aprobado = () => aprobarDestinos(conImagen(base), "2026-09-10T13:00:00-05:00", { versiones, imagenSha: "sha-aprobada" }, iso);
 
 test("(destinos) F1 opera con instagram y facebook; los estados de destino son los cinco del diseño", () => {
-  assert.deepEqual(REDES, ["instagram", "facebook"]);
+  assert.deepEqual(REDES, ["instagram", "facebook", "threads"]);
   assert.deepEqual(ESTADOS_DESTINO, ["pendiente", "publicado", "error", "incierto", "omitido"]);
 });
 

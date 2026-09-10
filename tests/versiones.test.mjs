@@ -41,3 +41,35 @@ test("(versiones) versionesPropuestas devuelve una propuesta por red pedida, en 
   assert.deepEqual(Object.keys(v), ["facebook", "instagram"]);
   assert.equal(v.facebook.texto, proponerVersion(base, "facebook").texto);
 });
+
+import { longitudRed } from "../src/lib/versiones.mjs";
+
+test("(versiones F2) Threads: 500 caracteres; las letras y acentos cuentan uno, los emojis por sus bytes UTF-8", () => {
+  assert.equal(LIMITES_RED.threads.caracteres, 500);
+  assert.equal(longitudRed("hola", "threads"), 4);
+  assert.equal(longitudRed("canción", "threads"), 7, "los acentos cuentan como un carácter");
+  assert.equal(longitudRed("hola 😀", "threads"), 9, "el emoji cuenta 4 bytes");
+  assert.equal(longitudRed("hola 😀", "facebook"), "hola 😀".length, "en las demás redes se mide como hasta ahora");
+  const m = medirVersion("a".repeat(497) + "😀", "threads");
+  assert.equal(m.longitud, 501);
+  assert.equal(m.excede, true);
+  assert.match(m.errores[0], /501.*500/);
+});
+
+test("(versiones F2) Threads propone caption + fuente si cabe; si no, titular, bajada y «Según <medio> (<fecha>)»; y si tampoco cabe, marca excede sin recortar", () => {
+  const corta = { ...base, caption: "Caption breve." };
+  const v = proponerVersion(corta, "threads");
+  assert.equal(v.texto, "Caption breve.\n\nFuente: La Prensa");
+  assert.equal(v.excede, false);
+  const larga = { ...base, caption: "x".repeat(520), fuente: { ...base.fuente, publicado: "2026-09-08T17:30:00.000Z" } };
+  const v2 = proponerVersion(larga, "threads");
+  assert.equal(v2.excede, false);
+  assert.ok(v2.texto.startsWith(base.titular), "empieza por el titular");
+  assert.match(v2.texto, /Según La Prensa \(8 de septiembre de 2026\)/);
+  assert.ok(v2.texto.includes(base.bajada), "incluye la bajada íntegra");
+  assert.equal(v2.texto.includes("…"), false, "sin puntos suspensivos de recorte");
+  const imposible = { ...larga, titular: "t".repeat(60), bajada: "b".repeat(100) + " " + "c".repeat(400) };
+  const v3 = proponerVersion(imposible, "threads");
+  assert.equal(v3.excede, true);
+  assert.match(v3.texto, /x{520}/, "la propuesta que excede conserva el caption íntegro para editarlo");
+});
