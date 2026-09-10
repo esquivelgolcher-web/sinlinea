@@ -1,7 +1,7 @@
 {
   "id": "2026-09-10-0137-luiseskivelgolcher-bbc-mundo-e182",
   "cuenta": "luiseskivelgolcher",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "BBC Mundo",
     "url": "https://www.bbc.com/mundo/articles/cwyzpl5d7zno?at_medium=RSS&at_campaign=rss",
@@ -52,16 +52,15 @@
         "imagenHash": "d231ff5dd6bae453",
         "imagenSha": "accee3f96e6e1cb623169a1c26f21b77ab88b5c1"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-09-10T09:17:42.364Z",
-        "actualizado": "2026-09-10T09:17:42.364Z",
-        "contenedorId": "122093183193483833"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "122093183193483833",
+        "idPublicacion": "1365602693299887_122093183235483833",
+        "permalink": "https://www.facebook.com/122093183247483833/posts/122093183235483833",
+        "fecha": "2026-09-10T09:17:42.364Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
