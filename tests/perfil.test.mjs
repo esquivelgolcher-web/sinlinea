@@ -106,3 +106,19 @@ test("(perfil) la configuración de cuenta valida el bloque perfil y los campos 
   assert.deepEqual(cfg.cuentas.find((c) => c.cuenta === "prueba").perfil.formatos, ["post", "carrusel", "reel"]);
   assert.equal(cfg.cuentas.find((c) => c.cuenta === "sinlinea").perfil, undefined);
 });
+
+test("(perfil) la cuenta real luiseskivelgolcher declara el perfil de periodismo tecnológico con WIRED, AJ+ y HugoDécrypte y valida sin errores", () => {
+  const c = JSON.parse(fs.readFileSync("cuentas/luiseskivelgolcher/config.json", "utf8"));
+  assert.doesNotThrow(() => validarCuenta(c, "luiseskivelgolcher"));
+  assert.equal(c.perfil.nombre, "periodismo-tecnologico");
+  assert.deepEqual(c.perfil.formatos, ["post", "carrusel", "reel"]);
+  assert.deepEqual(validarPesos(c.perfil.puntuacion.pesos), []);
+  const nombres = c.fuentes.map((f) => f.nombre);
+  assert.ok(nombres.includes("WIRED") && nombres.includes("AJ+") && nombres.includes("HugoDécrypte"));
+  assert.ok(c.fuentes.filter((f) => f.nombre === "WIRED").every((f) => f.prioridad === 1 && f.idioma === "en"));
+  assert.ok(c.fuentes.filter((f) => /youtube\.com\/feeds/.test(f.url)).every((f) => f.descargar === false), "los canales de YouTube no se descargan: solo título y descripción");
+  assert.equal(c.fuentes.find((f) => f.nombre === "HugoDécrypte").idioma, "fr");
+  assert.equal(c.ilustraciones.rotulo, "Ilustración generada con IA");
+  assert.doesNotMatch(c.ilustraciones.estilo, /sobria y neutra/);
+  assert.match(c.ilustraciones.estilo, /hacker con capucha/);
+});

@@ -11,6 +11,7 @@ import { marcarError, imagenDesactualizada } from "./lib/estados.mjs";
 import { crearClienteInstagram } from "./lib/instagram.mjs";
 import { crearClienteFacebook } from "./lib/facebook.mjs";
 import { crearClienteThreads } from "./lib/threads.mjs";
+import { esPublicable, formatoDe } from "./lib/formatos.mjs";
 import { claveDia } from "./lib/fechas.mjs";
 import { ocultarSecretos, leerSecretos, leerSecretosDeRed, nombresDeSecretos, origenDeSecretos, describirCredenciales } from "./lib/secretos.mjs";
 import { todasFallaron, anotarFallos, resumirResultados } from "./lib/corrida.mjs";
@@ -158,6 +159,13 @@ export async function ejecutarPublicar({ config, raiz = process.cwd(), ahora = n
     if (abortar) { resumen.pospuestos.push(inicial.id); continue; }
     let post = inicial;
     const ruta = `posts/${post.id}.json`;
+    // Perfil editorial: carrusel y reel no tienen adaptador de publicación; se revisan en el panel y esperan sin enviarse.
+    if (!esPublicable(formatoDe(post))) {
+      log.warn(`${post.id}: formato ${formatoDe(post)} sin adaptador de publicación; la pieza espera sin enviarse a ninguna red.`);
+      resumen.destinos[post.id] = { formato: "no-publicable" };
+      resumen.pospuestos.push(post.id);
+      continue;
+    }
     const redes = REDES.filter((red) => ["pendiente", "incierto"].includes(destinosDe(post)[red]?.estado));
     if (!redes.length) { resumen.pospuestos.push(post.id); continue; }
     const estadoDestinos = {};

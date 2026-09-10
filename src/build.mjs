@@ -4,7 +4,7 @@ import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { cargarConfiguracion, resumenParaPanel } from "./lib/config.mjs";
 
-export const MODULOS_ISOMORFOS = ["estados.mjs", "caption.mjs", "franjas.mjs", "fechas.mjs", "texto.mjs", "cuenta.mjs", "metricas.mjs", "destinos.mjs", "versiones.mjs", "conexiones.mjs"];
+export const MODULOS_ISOMORFOS = ["estados.mjs", "caption.mjs", "franjas.mjs", "fechas.mjs", "texto.mjs", "cuenta.mjs", "metricas.mjs", "destinos.mjs", "versiones.mjs", "conexiones.mjs", "formatos.mjs"];
 
 function copiarDir(origen, destino) {
   if (!fs.existsSync(origen)) return;

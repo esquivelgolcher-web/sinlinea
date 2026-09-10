@@ -154,6 +154,10 @@ export function configDesdeFormulario(d, base = null) {
       nombre: String(f.nombre || "").trim(), tipo: f.tipo, url: String(f.url || "").trim(),
       ...(f.tipo === "portada" ? { patronArticulo: String(f.patronArticulo || "").trim() } : {}),
       ...(Array.isArray(f.excluirSecciones) && f.excluirSecciones.length ? { excluirSecciones: f.excluirSecciones } : {}),
+      // Perfil editorial: idioma, prioridad y descarga del artículo se conservan tal cual (el formulario aún no los edita).
+      ...(f.idioma !== undefined ? { idioma: f.idioma } : {}),
+      ...(f.prioridad !== undefined ? { prioridad: f.prioridad } : {}),
+      ...(f.descargar !== undefined ? { descargar: f.descargar } : {}),
     })),
     generar: base?.generar ? { ...base.generar } : { ...GENERAR_POR_DEFECTO },
     franjas: [...(d.franjas || [])],

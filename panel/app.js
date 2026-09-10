@@ -20,6 +20,8 @@ import {
 } from "./lib/destinos.mjs";
 import { proponerVersion, medirVersion } from "./lib/versiones.mjs";
 import { destinosEncendidos, pausaGeneral } from "./lib/conexiones.mjs";
+// Perfil editorial: formatos (post, carrusel, reel), trazabilidad de fuentes y alertas de revisión.
+import { NOMBRES_FORMATO, esPublicable, formatoDe, DESCRIPCION_ALERTA } from "./lib/formatos.mjs";
 
 const configPanel = { franjas: ["07:00", "09:30", "12:00", "14:30", "17:00", "19:30"], zonaHoraria: ZONA_PANAMA, marca: {}, cuentas: [] };
 async function cargarConfigPanel() {
@@ -354,6 +356,7 @@ function tarjeta({ post, sha }) {
   const cuerpo = el("div", { class: "cuerpo" }, [
     el("div", { class: "meta" }, [
       el("span", { class: "chip", text: post.categoria }),
+      formatoDe(post) !== "post" ? el("span", { class: "chip formato", text: NOMBRES_FORMATO[formatoDe(post)] }) : "",
       el("span", { class: `badge ${post.estado}`, text: post.estado }),
       el("a", { href: urlSegura(post.fuente.url), target: "_blank", rel: "noopener", text: post.fuente.medio }),
       post.programado ? el("span", { text: `Programado: ${claveDia(post.programado)} ${horaMinutoDeIso(post.programado)}` }) : "",
@@ -371,6 +374,8 @@ function tarjeta({ post, sha }) {
     el("label", { class: "casilla" }, [casillaUsar, el("span", { text: " Usar ilustración generada con IA" })]),
     ilus && ilus.error ? el("p", { class: "error-texto", text: `La ilustración falló: ${ilus.error.mensaje}` }) : "",
     contador,
+    // Perfil editorial: alertas, trazabilidad (fuentes y afirmaciones), carrusel y guion del reel.
+    bloquePerfil(post),
     // Multicanal: destinos de la pieza (chips, versiones aprobadas, omitir, decisión sobre inciertos), tras los campos.
     bloqueDestinos({ post, sha, bloqueado }),
   ]);
@@ -438,6 +443,8 @@ function tarjeta({ post, sha }) {
   if (!bloqueado) {
     // Aprobar = elegir hora, destinos y revisar la versión de cada red (multicanal): lo aprobado no cambia solo después.
     const aprobarConHora = async (p) => {
+      // Carrusel y reel se revisan aquí, pero no se programan: aún no tienen adaptador de publicación.
+      if (!esPublicable(formatoDe(p))) { avisarAqui(`${NOMBRES_FORMATO[formatoDe(p)]}: ${DESCRIPCION_ALERTA["formato-no-publicable"]}`); return null; }
       const v = captionValido(); if (!v.ok) { avisarAqui(v.errores.join(" ")); return null; }
       const pieza = conCambios(p);
       const r = await pedirHora(pieza);
@@ -605,6 +612,66 @@ async function huellaSegura(id) {
 const textoEspera = (motivo) => ({ "imagen-cambiada": "la imagen cambió tras aprobar", "imagen-sin-aprobar": "imagen sin aprobar" })[motivo] || motivo;
 
 // Bloque de destinos de una pieza: chips con estado y enlace, versiones por red, omitir y decisión sobre inciertos.
+// Perfil editorial: lo que el operador revisa antes de aprobar (solo lectura): alertas con su explicación, puntuación,
+// ángulo y atribución, afirmaciones con tipo y fuente, fuentes con autor, idioma, fechas y alcance de acceso, diapositivas
+// del carrusel (con sus imágenes) y guion del reel. Nada de esto se inventa: lo desconocido se muestra como pendiente.
+function bloquePerfil(post) {
+  if (post.formato === undefined && !post.fuentes && !post.afirmaciones) return "";
+  const pendiente = (v) => (v === null || v === undefined || v === "" ? "pendiente" : String(v));
+  const hijos = [];
+  if (post.alertas?.length) {
+    hijos.push(el("ul", { class: "alertas" }, post.alertas.map((a) => el("li", { text: `${a}: ${DESCRIPCION_ALERTA[a] || ""}` }))));
+  }
+  const detalles = [];
+  if (post.puntuacion) {
+    const c = post.puntuacion.componentes || {};
+    detalles.push(el("p", { class: "nota", text: `Puntuación editorial ${post.puntuacion.total}/100 · afinidad ${c.afinidad ?? "-"} · interés ${c.interes ?? "-"} · evidencia ${c.evidencia ?? "-"} · actualidad ${c.actualidad ?? "-"} · visual ${c.visual ?? "-"} (heurística, no predicción de alcance)` }));
+  }
+  if (post.angulo || post.atribucion) detalles.push(el("p", { class: "nota", text: `Ángulo: ${pendiente(post.angulo)} · Atribución pública: ${pendiente(post.atribucion)}` }));
+  if (post.afirmaciones?.length) {
+    detalles.push(el("p", { class: "nota", text: "Afirmaciones y sus fuentes" }));
+    detalles.push(el("ul", { class: "afirmaciones" }, post.afirmaciones.map((a) => el("li", {}, [
+      el("span", { class: `chip tipo-${a.tipo}`, text: a.tipo }), el("span", { text: ` ${a.texto} ` }),
+      a.fuente ? el("a", { href: urlSegura(a.fuente), target: "_blank", rel: "noopener", text: "fuente" }) : el("span", { class: "error-texto", text: "(sin fuente)" }),
+      a.contrastada === false ? el("span", { class: "nota", text: " · sin contrastar" }) : "",
+    ]))));
+  }
+  if (post.fuentes?.length) {
+    detalles.push(el("p", { class: "nota", text: "Fuentes (medio · autor · idioma · publicado · actualizado · consultado · acceso; horas de Panamá)" }));
+    detalles.push(el("ul", { class: "fuentes" }, post.fuentes.map((f) => el("li", {}, [
+      el("span", { class: "chip", text: f.rol }),
+      el("span", { text: ` ${f.medio} · ${pendiente(f.autor)} · ${pendiente(f.idioma)} · ${f.publicado ? `${claveDia(f.publicado)} ${horaMinutoDeIso(f.publicado)}` : "pendiente"} · ${f.actualizado ? `${claveDia(f.actualizado)} ${horaMinutoDeIso(f.actualizado)}` : "sin dato"} · ${f.consultado ? claveDia(f.consultado) : "pendiente"} · ${pendiente(f.alcance)}${f.fechaHecho ? ` · hecho del ${f.fechaHecho}` : ""} ` }),
+      el("a", { href: urlSegura(f.canonica || f.url), target: "_blank", rel: "noopener", text: "abrir" }),
+      f.fuentesPrimarias?.length ? el("span", { class: "nota", text: ` · ${f.fuentesPrimarias.length} fuente(s) primaria(s) enlazada(s)` }) : "",
+      f.licenciaMedios ? el("span", { class: "nota", text: ` · licencia: ${f.licenciaMedios}` }) : el("span", { class: "nota", text: " · licencia de recursos: pendiente" }),
+    ]))));
+  }
+  if (post.carrusel?.diapositivas?.length) {
+    const imagenes = post.carrusel.imagenes || [];
+    detalles.push(el("p", { class: "nota", text: `Carrusel: ${post.carrusel.diapositivas.length} diapositivas${imagenes.length ? "" : " (imágenes pendientes de render)"}` }));
+    detalles.push(el("ol", { class: "diapositivas" }, post.carrusel.diapositivas.map((d, i) => el("li", {}, [
+      imagenes[i] ? el("img", { src: `${imagenes[i].url}?v=${imagenes[i].hash}`, alt: "", loading: "lazy", class: "diapositiva" }) : "",
+      el("strong", { text: d.titulo }), el("span", { text: ` ${d.texto}` }),
+    ]))));
+  }
+  if (post.reel) {
+    const r = post.reel;
+    detalles.push(el("p", { class: "nota", text: `Guion del reel${r.duracionObjetivo ? ` · ${r.duracionObjetivo}` : " · 35-60 s"} · narración de ${r.narracion.trim().split(/\s+/).length} palabras` }));
+    detalles.push(el("p", { class: "narracion", text: r.narracion }));
+    if (r.subtitulos?.length) detalles.push(el("ol", { class: "subtitulos" }, r.subtitulos.map((s) => el("li", { text: s }))));
+    if (r.escenas?.length) detalles.push(el("ol", { class: "escenas" }, r.escenas.map((e) => el("li", { text: `${e.segundos}s · ${e.descripcion} · recurso: ${e.recurso}` }))));
+    if (r.recursos?.length) detalles.push(el("p", { class: "nota", text: `Recursos: ${r.recursos.join("; ")}` }));
+  }
+  if (post.revision?.notas?.length) detalles.push(el("ul", { class: "alertas" }, post.revision.notas.map((n) => el("li", { text: n }))));
+  if (detalles.length) {
+    hijos.push(el("details", { class: "perfil" }, [
+      el("summary", { text: `Revisión editorial · ${NOMBRES_FORMATO[formatoDe(post)]}${post.revision ? ` · ${post.revision.estado}` : ""}` }),
+      ...detalles,
+    ]));
+  }
+  return hijos.length ? el("div", { class: "bloque-perfil" }, hijos) : "";
+}
+
 function bloqueDestinos({ post, sha, bloqueado }) {
   const destinos = destinosDe(post);
   const redes = Object.keys(destinos);

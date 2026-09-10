@@ -164,3 +164,17 @@ dialog form .fila > label { flex: 1 1 200px; }
 .guia-red ol { padding-left: 18px; margin: 6px 0; }
 .guia-red li { margin: 4px 0; }
 .guia-red .enlaces a { margin-right: 10px; }
+
+/* Perfil editorial: formato, alertas, trazabilidad, carrusel y reel en la tarjeta. */
+.chip.formato { background: #1F5FBF; }
+.bloque-perfil { display: grid; gap: 8px; }
+.bloque-perfil .alertas { margin: 0; padding: 8px 10px 8px 26px; border-radius: 8px; background: #fef3c7; color: #92400e; font-size: 13px; }
+.bloque-perfil .alertas li { margin: 2px 0; }
+.bloque-perfil details.perfil { font-size: 13px; }
+.bloque-perfil details.perfil summary { cursor: pointer; font-weight: 600; }
+.bloque-perfil .afirmaciones, .bloque-perfil .fuentes, .bloque-perfil .diapositivas, .bloque-perfil .subtitulos, .bloque-perfil .escenas { margin: 4px 0 8px; padding-left: 18px; }
+.bloque-perfil .afirmaciones li, .bloque-perfil .fuentes li, .bloque-perfil .diapositivas li { margin: 4px 0; overflow-wrap: anywhere; }
+.bloque-perfil .chip { font-size: 11px; padding: 2px 6px; }
+.bloque-perfil .chip.tipo-hecho { background: #166534; } .bloque-perfil .chip.tipo-denuncia { background: #b45309; } .bloque-perfil .chip.tipo-hipotesis { background: #1d4ed8; } .bloque-perfil .chip.tipo-opinion { background: #6b7280; }
+.bloque-perfil .diapositivas img.diapositiva { display: block; width: 160px; aspect-ratio: 4 / 5; object-fit: cover; margin: 4px 0; border-radius: 6px; }
+.bloque-perfil .narracion { white-space: pre-wrap; background: #f5f5f5; padding: 8px 10px; border-radius: 8px; }

@@ -8,17 +8,18 @@ import { fetchText as fetchTextReal } from "./lib/rss.mjs";
 import { recolectar } from "./lib/fuentes.mjs";
 import { cargarVistas, guardarVistas, estaVista, marcarVistas, purgarVistas } from "./lib/seen.mjs";
 import { leerPosts, escribirPost, crearPost, siguienteVariante, creadosHoy, archivar, rutaIlustracion, CUENTA_LEGADO } from "./lib/posts.mjs";
-import { redactar, acortarTextos } from "./lib/redactor.mjs";
+import { redactar, redactarPerfil, acortarTextos } from "./lib/redactor.mjs";
+import { agruparCandidatos } from "./lib/temas.mjs";
 import { renderizarConAjuste } from "./lib/texto.mjs";
 import { todasFallaron, anotarFallos, resumirResultados } from "./lib/corrida.mjs";
 import { ocultarSecretos } from "./lib/secretos.mjs";
 import { recortarCaption } from "./lib/caption.mjs";
 import { marcarError, renderOk, hashTexto } from "./lib/estados.mjs";
-import { abrirNavegador, renderizarPost } from "./lib/render.mjs";
+import { abrirNavegador, renderizarPost, renderizarCarrusel } from "./lib/render.mjs";
 import { claveDia } from "./lib/fechas.mjs";
 import { crearIlustrador, guardarIlustracion, sanearMensaje } from "./lib/ilustrador.mjs";
 
-export async function ejecutarGenerar({ config, raiz = process.cwd(), ahora = new Date(), fetchText, client, render, log = console, dryRun = false, ilustrador = null, guardar = guardarIlustracion, acortar = null }) {
+export async function ejecutarGenerar({ config, raiz = process.cwd(), ahora = new Date(), fetchText, client, render, renderCarrusel = null, log = console, dryRun = false, ilustrador = null, guardar = guardarIlustracion, acortar = null }) {
   if (/CAMBIAR/.test(config.pages.baseUrl)) throw new Error("config.json: pages.baseUrl todavía tiene el valor CAMBIAR");
   const zona = config.zonaHoraria;
   const cuenta = config.cuenta || CUENTA_LEGADO;
@@ -69,8 +70,25 @@ export async function ejecutarGenerar({ config, raiz = process.cwd(), ahora = ne
   const editorialMd = fs.readFileSync(rutaEditorial, "utf8");
   const max = Math.min(config.generar.maxPorCorrida, cupo);
 
-  const { seleccion, uso } = await redactar({ client, config, editorialMd, candidatos, recientes, max });
-  log.info(`Claude eligió ${seleccion.length} de ${candidatos.length} candidatos (tokens: ${uso?.input_tokens ?? "?"} entrada, ${uso?.output_tokens ?? "?"} salida).`);
+  let seleccion, uso;
+  if (config.perfil) {
+    // Perfil editorial: los candidatos se agrupan por acontecimiento y solo se redacta sobre grupos con texto legible
+    // (completo o parcial); un titular o fragmento (vídeos, resúmenes) es una pista, nunca la base de una pieza.
+    const grupos = agruparCandidatos(candidatos);
+    const aptos = grupos.filter((g) => g.apto);
+    for (const g of grupos.filter((x) => !x.apto)) log.info(`Solo pista (${g.motivo}): ${g.principal.medio} · ${g.principal.titulo}`);
+    if (!aptos.length) {
+      log.info("Sin candidatos con texto legible; no se llama a Claude.");
+      return { creados: [], motivo: "sin-candidatos-legibles" };
+    }
+    const r = await redactarPerfil({ client, config, editorialMd, grupos: aptos, recientes, max, ahora });
+    seleccion = r.seleccion; uso = r.uso;
+    for (const d of r.descartados) log.info(`Grupo ${d.indiceGrupo} descartado: ${d.motivo}`);
+    log.info(`Claude eligió ${seleccion.length} de ${aptos.length} grupos legibles (${grupos.length - aptos.length} solo pista; tokens: ${uso?.input_tokens ?? "?"} entrada, ${uso?.output_tokens ?? "?"} salida).`);
+  } else {
+    ({ seleccion, uso } = await redactar({ client, config, editorialMd, candidatos, recientes, max }));
+    log.info(`Claude eligió ${seleccion.length} de ${candidatos.length} candidatos (tokens: ${uso?.input_tokens ?? "?"} entrada, ${uso?.output_tokens ?? "?"} salida).`);
+  }
 
   const creados = [];
   const existentes = [...posts];
@@ -82,6 +100,7 @@ export async function ejecutarGenerar({ config, raiz = process.cwd(), ahora = ne
       redaccion: { ...s, caption: r.caption, hashtags: r.hashtags },
       variante: siguienteVariante(existentes),
       ahora, zona, cuenta,
+      referencias: s.referencias || [],
     });
     if (ilustrador && post.ilustracion) {
       const rutaIlus = dryRun ? path.join("temp", "dry-run", "ilus", `${post.id}.jpg`) : rutaIlustracion(post.id);
@@ -103,6 +122,18 @@ export async function ejecutarGenerar({ config, raiz = process.cwd(), ahora = ne
       log.warn(`Render falló para ${post.id}: ${err.message}`);
       post = marcarError(err.post ?? post, { paso: "render", mensaje: err.message }, iso);
     }
+    // Carrusel: una imagen por diapositiva. Si no cabe o falla, la pieza se conserva con una nota de revisión.
+    if (renderCarrusel && post.formato === "carrusel" && post.carrusel && post.estado !== "error") {
+      try {
+        const destinoDe = dryRun ? (n) => path.join("temp", "dry-run", "img", `${post.id}-${String(n).padStart(2, "0")}.jpg`) : undefined;
+        const c = await renderCarrusel(post, { config, raiz, destinoDe });
+        post = { ...post, carrusel: { ...post.carrusel, imagenes: c.imagenes, hash: c.hash, version: c.version } };
+        log.info(`Carrusel renderizado para ${post.id} (${c.imagenes.length} diapositivas).`);
+      } catch (err) {
+        log.warn(`Carrusel falló para ${post.id}: ${err.message}`);
+        post = { ...post, revision: { estado: "pendiente", notas: [...(post.revision?.notas || []), `Carrusel sin renderizar: ${err.message}`] } };
+      }
+    }
     escribirPost(dirSalida, post);
     existentes.push(post);
     creados.push(post);
@@ -123,7 +154,7 @@ export async function ejecutarGenerar({ config, raiz = process.cwd(), ahora = ne
 // (estilo de ilustración, idioma); si no se pasan, se usan `ilustrador` y `acortar` tal cual.
 // `soloCuenta`: procesa una sola cuenta. `forzar` (solo con `soloCuenta`): una generación única aunque su
 // `automatico.generar` esté apagado; la configuración no cambia y las demás cuentas no se tocan.
-export async function generarCuentas({ configuracion, raiz = process.cwd(), ahora = new Date(), fetchText, client, render, log = console, dryRun = false, ilustrador = null, guardar = guardarIlustracion, acortar = null, ilustradorDe = null, acortarDe = null, soloCuenta = null, forzar = false }) {
+export async function generarCuentas({ configuracion, raiz = process.cwd(), ahora = new Date(), fetchText, client, render, renderCarrusel = null, log = console, dryRun = false, ilustrador = null, guardar = guardarIlustracion, acortar = null, ilustradorDe = null, acortarDe = null, soloCuenta = null, forzar = false }) {
   if (forzar && !soloCuenta) throw new Error("--forzar exige --cuenta <id>: la generación forzada es siempre de una sola cuenta");
   const resultados = {};
   for (const e of configuracion.errores || []) {
@@ -139,7 +170,7 @@ export async function generarCuentas({ configuracion, raiz = process.cwd(), ahor
     try {
       log.info(`Cuenta ${config.cuenta}: generando…`);
       resultados[config.cuenta] = await ejecutarGenerar({
-        config, raiz, ahora, fetchText, client, render, log, dryRun, guardar,
+        config, raiz, ahora, fetchText, client, render, renderCarrusel, log, dryRun, guardar,
         ilustrador: config.ilustraciones?.activo === false ? null : (ilustradorDe ? ilustradorDe(config) : ilustrador),
         acortar: acortarDe ? acortarDe(config) : acortar,
       });
@@ -168,6 +199,7 @@ async function main() {
     const r = await generarCuentas({
       configuracion, fetchText: fetchTextReal, client, dryRun, soloCuenta, forzar,
       render: (post, o) => renderizarPost(post, { ...o, navegador }),
+      renderCarrusel: (post, o) => renderizarCarrusel(post, { ...o, navegador }),
       ilustradorDe: (config) => (conGemini ? crearIlustrador({ apiKey: process.env.GEMINI_API_KEY, config }) : null),
       acortarDe: (config) => (a) => acortarTextos({ client, config, ...a }),
     });

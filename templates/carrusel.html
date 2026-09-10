@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="es" data-version="1">
+<head>
+<meta charset="utf-8">
+<base href="__BASE__">
+<title>Sin Línea · diapositiva</title>
+<style>
+  @font-face { font-family: "Anton"; src: url("assets/fonts/Anton-Regular.ttf") format("truetype"); font-display: block; }
+  @font-face { font-family: "Inter"; src: url("assets/fonts/Inter-Variable.ttf") format("truetype"); font-weight: 100 900; font-display: block; }
+  :root { --principal: #FFD400; --acento: #E30613; --oscuro: #111111; --claro: #FFFFFF; --margen: 84px; --logo-tamano: 90px; }
+  html, body { margin: 0; padding: 0; }
+  body { width: 1080px; height: 1350px; overflow: hidden; font-family: "Inter", Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+  /* Identidad de periodismo tecnológico: fondo oscuro, alto contraste, un solo acento, tipografía contundente, poco texto. */
+  .dia { position: relative; width: 1080px; height: 1350px; box-sizing: border-box; overflow: hidden; background: var(--oscuro); color: var(--claro); }
+  .fondo { position: absolute; inset: 0; display: none; }
+  .fondo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .fondo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.85) 70%, rgba(0,0,0,0.97) 100%); }
+  .dia[data-tipo="portada"] .fondo { display: block; }
+  .cabecera, .cuerpo, .pie { position: absolute; left: var(--margen); right: var(--margen); z-index: 1; }
+  .cabecera { top: 72px; height: 100px; display: flex; justify-content: space-between; align-items: center; }
+  .marca { display: flex; align-items: center; gap: 20px; font-size: 26px; font-weight: 600; letter-spacing: 0.02em; opacity: 0.92; }
+  .logo { width: var(--logo-tamano); height: var(--logo-tamano); object-fit: cover; display: block; border-radius: 50%; }
+  .dia[data-logo-forma="cuadrado"] .logo, .dia[data-logo-forma="cuadrado"] .logo-fallback { border-radius: 0; }
+  .logo-fallback { width: var(--logo-tamano); height: var(--logo-tamano); border-radius: 50%; box-sizing: border-box; background: var(--principal); color: var(--oscuro); display: flex; align-items: center; justify-content: center; font-family: "Anton", Impact, sans-serif; font-size: calc(var(--logo-tamano) * 0.37); }
+  .contador { font-family: "Anton", Impact, sans-serif; font-size: 40px; letter-spacing: 0.06em; color: var(--principal); }
+  .chip { font-weight: 700; font-size: 24px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--oscuro); background: var(--acento); padding: 10px 18px; display: inline-block; margin-bottom: 36px; }
+  .dia[data-tipo="portada"] .chip { color: var(--claro); }
+  .cuerpo { top: 232px; bottom: 210px; display: flex; flex-direction: column; justify-content: flex-start; }
+  .dia[data-tipo="portada"] .cuerpo { justify-content: flex-end; }
+  .titulo { margin: 0; font-family: "Anton", Impact, sans-serif; font-weight: 400; text-transform: uppercase; line-height: 1.0; color: var(--principal); font-size: 84px; overflow-wrap: normal; word-break: normal; hyphens: none; }
+  .dia[data-tipo="contenido"] .titulo, .dia[data-tipo="cierre"] .titulo { font-size: 64px; color: var(--claro); }
+  .texto { margin: 40px 0 0; font-size: 44px; line-height: 1.35; font-weight: 500; overflow-wrap: normal; word-break: normal; hyphens: none; }
+  .dia[data-tipo="portada"] .texto { font-size: 36px; opacity: 0.95; }
+  .texto:empty { display: none; }
+  .barra-acento { width: 160px; height: 14px; background: var(--acento); margin-bottom: 36px; }
+  .fuentes { margin: 32px 0 0; padding: 0; list-style: none; font-size: 30px; line-height: 1.45; opacity: 0.92; }
+  .fuentes li { margin-bottom: 14px; padding-left: 36px; position: relative; overflow-wrap: anywhere; }
+  .fuentes li::before { content: ""; position: absolute; left: 0; top: 16px; width: 16px; height: 16px; background: var(--acento); }
+  .pie { bottom: 84px; height: 80px; display: flex; justify-content: space-between; align-items: center; font-size: 26px; font-weight: 600; border-top: 2px solid rgba(255,255,255,0.28); }
+  .pie .nota { opacity: 0.75; font-weight: 500; }
+</style>
+</head>
+<body>
+<div class="dia" id="dia" data-tipo="contenido">
+  <div class="fondo" id="fondo"></div>
+  <header class="cabecera">
+    <div class="marca"><div id="logo"></div><span id="usuario"></span></div>
+    <div class="contador" id="contador"></div>
+  </header>
+  <main class="cuerpo">
+    <div class="chip" id="chip"></div>
+    <div class="barra-acento" id="barra"></div>
+    <h1 class="titulo" id="titulo"></h1>
+    <p class="texto" id="texto"></p>
+    <ul class="fuentes" id="fuentes"></ul>
+  </main>
+  <footer class="pie">
+    <span id="atribucion"></span>
+    <span class="nota" id="nota"></span>
+  </footer>
+</div>
+<script id="datos" type="application/json">{}</script>
+<script>
+(async function () {
+  const d = JSON.parse(document.getElementById("datos").textContent || "{}");
+  const $ = (id) => document.getElementById(id);
+  for (const [variable, valor] of [["--principal", d.colores?.principal], ["--acento", d.colores?.acento], ["--oscuro", d.colores?.oscuro], ["--claro", d.colores?.claro]]) {
+    if (valor) document.documentElement.style.setProperty(variable, valor);
+  }
+  $("dia").dataset.tipo = d.tipo || "contenido";
+  $("dia").dataset.logoForma = d.logoForma || "circulo";
+  document.documentElement.style.setProperty("--logo-tamano", `${Number(d.logoTamano) || 90}px`);
+  $("usuario").textContent = d.usuario || "";
+  $("contador").textContent = d.numero && d.total ? `${d.numero}/${d.total}` : "";
+  $("chip").textContent = d.tipo === "portada" ? (d.categoria || "") : (d.tipo === "cierre" ? "FUENTES" : (d.etiqueta || ""));
+  if (!$("chip").textContent) $("chip").style.display = "none";
+  $("barra").style.display = d.tipo === "portada" ? "none" : "block";
+  $("titulo").textContent = d.titulo || "";
+  $("texto").textContent = d.texto || "";
+  $("atribucion").textContent = d.atribucion || "";
+  $("nota").textContent = d.nota || "";
+  const fuentes = Array.isArray(d.fuentes) ? d.fuentes : [];
+  if (d.tipo === "cierre" && fuentes.length) {
+    $("fuentes").replaceChildren(...fuentes.map((f) => { const li = document.createElement("li"); li.textContent = f; return li; }));
+  } else {
+    $("fuentes").style.display = "none";
+  }
+  if (d.ilustracionUrl && d.tipo === "portada") {
+    const fondo = new Image();
+    fondo.alt = "";
+    fondo.src = d.ilustracionUrl;
+    $("fondo").replaceChildren(fondo);
+    try { await fondo.decode(); } catch { $("fondo").style.display = "none"; }
+  }
+  if (d.logoUrl) {
+    const img = new Image();
+    img.className = "logo";
+    img.alt = "";
+    img.src = d.logoUrl;
+    $("logo").replaceWith(img);
+    await img.decode().catch(() => {});
+  } else {
+    $("logo").className = "logo-fallback";
+    $("logo").textContent = d.iniciales || "?";
+  }
+  await document.fonts.ready;
+  function ajustar(el, { max, min, paso, interlineado, lineas }) {
+    let size = max;
+    const cabe = () => Math.round(el.scrollHeight / (size * interlineado)) <= lineas && el.scrollWidth <= el.clientWidth + 1;
+    el.style.fontSize = size + "px";
+    while (!cabe() && size > min) { size -= paso; el.style.fontSize = size + "px"; }
+    return cabe();
+  }
+  const portada = d.tipo === "portada";
+  const tituloCabe = ajustar($("titulo"), portada ? { max: 84, min: 64, paso: 2, interlineado: 1.0, lineas: 4 } : { max: 64, min: 48, paso: 2, interlineado: 1.0, lineas: 3 });
+  const textoCabe = ajustar($("texto"), portada ? { max: 36, min: 30, paso: 2, interlineado: 1.35, lineas: 3 } : { max: 44, min: 34, paso: 2, interlineado: 1.35, lineas: 9 });
+  if (!tituloCabe) document.body.dataset.error = "titulo";
+  else if (!textoCabe) document.body.dataset.error = "texto";
+  document.body.dataset.listo = "1";
+})();
+</script>
+</body>
+</html>

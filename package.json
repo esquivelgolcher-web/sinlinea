@@ -4,11 +4,13 @@
   "private": true,
   "type": "module",
   "description": "Sistema de publicación automática en Instagram para Sin Línea (noticias de Panamá).",
-  "engines": { "node": ">=20" },
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "test": "node --test",
     "test:render": "node --test tests/render.integration.mjs tests/logo.integration.mjs",
-    "test:e2e": "node --test --test-concurrency=1 tests/panel.e2e.mjs tests/panel-maestro.e2e.mjs tests/panel-metricas.e2e.mjs tests/panel-cierre.e2e.mjs tests/panel-multicanal.e2e.mjs",
+    "test:e2e": "node --test --test-concurrency=1 tests/panel.e2e.mjs tests/panel-maestro.e2e.mjs tests/panel-metricas.e2e.mjs tests/panel-cierre.e2e.mjs tests/panel-multicanal.e2e.mjs tests/panel-perfil.e2e.mjs",
     "generar": "node src/generar.mjs",
     "regenerar": "node src/regenerar.mjs",
     "publicar": "node src/publicar.mjs",

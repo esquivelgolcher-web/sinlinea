@@ -547,3 +547,19 @@ test("(F2) identidad de Threads: si el id del perfil no coincide o el usuario es
   const r3 = await ejecutarPublicar({ config: sinPerfil, raiz: raiz3, ahora, clientes: tresClientes({ threads: thFalso({ perfil: { id: "555", username: "cualquiera", coincideId: true } }) }), persistencia: persistenciaSimulada(raiz3), log });
   assert.deepEqual(r3.publicados, [p3.id]);
 });
+
+// --- Perfil editorial: formatos sin adaptador de publicación ----------------------------------------------------------
+test("(perfil) una pieza programada en formato carrusel o reel no se envía a ninguna red: espera con aviso y sus destinos quedan intactos", async () => {
+  const carrusel = { ...piezaMulticanal("00e1", versiones3), formato: "carrusel", carrusel: { diapositivas: [{ titulo: "a", texto: "b" }], imagenes: [] } };
+  const reel = { ...piezaMulticanal("00e2", { instagram: versiones.instagram }), formato: "reel", reel: { narracion: "n", subtitulos: [], escenas: [], recursos: [] } };
+  const raiz = raizCon([carrusel, reel]);
+  const ig = igFalso(); const fb = fbFalso(); const th = thFalso();
+  const avisos = [];
+  const r = await ejecutarPublicar({ config: cfgTh, raiz, ahora, ig, clientes: { facebook: fb, threads: th }, persistencia: persistenciaSimulada(raiz), log: { ...log, warn: (m) => avisos.push(m) } });
+  assert.deepEqual(r.pospuestos.sort(), [carrusel.id, reel.id].sort());
+  assert.deepEqual(r.publicados, []);
+  assert.deepEqual([ig.llamadas, fb.llamadas, th.llamadas], [[], [], []], "ningún cliente recibe llamadas");
+  assert.ok(avisos.some((m) => /formato carrusel sin adaptador/.test(m)) && avisos.some((m) => /formato reel sin adaptador/.test(m)));
+  assert.equal(leer(raiz, carrusel.id).destinos.threads.estado, "pendiente");
+  assert.equal(leer(raiz, reel.id).destinos.instagram.estado, "pendiente");
+});
