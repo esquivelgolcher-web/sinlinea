@@ -72,7 +72,7 @@
   },
   "conexiones": {
     "facebook": {
-      "publicar": false,
+      "publicar": true,
       "pagina": "1365602693299887"
     }
   },
