@@ -223,8 +223,9 @@ cabecera alterna entre la primera y la segunda; la elección se recuerda.
 Cada 30 minutos toma los posts `programado` cuya hora ya pasó y publica cada uno de
 sus **destinos** (multicanal F1: Instagram con `lib/instagram.mjs`, contenedor → sondeo →
 publicación → permalink; páginas de Facebook con `lib/facebook.mjs`, foto sin publicar →
-publicación con la foto adjunta → permalink), usando la URL pública de la imagen en
-GitHub Pages. Reglas del diseño multicanal (`docs/superpowers/specs/2026-09-09-multicanal-design.md`):
+publicación con la foto adjunta → permalink; F2: perfiles de Threads con `lib/threads.mjs`,
+contenedor IMAGE → sondeo FINISHED → `threads_publish` → permalink), usando la URL pública
+de la imagen en GitHub Pages. Reglas del diseño multicanal (`docs/superpowers/specs/2026-09-09-multicanal-design.md`):
 
 - **Reserva persistida antes de enviar.** Para cada destino: `git pull --rebase --autostash`,
   relectura del post y de la configuración en disco, revalidación (sigue programado, destino
@@ -236,9 +237,9 @@ GitHub Pages. Reglas del diseño multicanal (`docs/superpowers/specs/2026-09-09-
   apagar una red deja su entrega en espera; omitir es una decisión del operador.
 - **Inciertos con evidencia.** Un corte tras enviar deja el destino `incierto` con su intento.
   En la siguiente corrida se reconcilia solo con evidencia: en Facebook, una publicación del
-  muro posterior al intento con la foto adjunta (`attachments.target.id`); en Instagram, el
-  estado del contenedor (`PUBLISHED`, `FINISHED` se publica sin recrear, `ERROR`/`EXPIRED`
-  vuelve a pendiente). Nunca por coincidencia de texto. Sin evidencia sigue incierto hasta la
+  muro posterior al intento con la foto adjunta (`attachments.target.id`); en Instagram y en
+  Threads, el estado del contenedor (`PUBLISHED` con enlace, `FINISHED` se publica sin recrear,
+  `ERROR`/`EXPIRED` vuelve a pendiente). Nunca por coincidencia de texto. Sin evidencia sigue incierto hasta la
   decisión manual en el panel.
 - **Texto e imagen aprobados.** Se publica exactamente la versión aprobada por destino
   (`lib/versiones.mjs` solo propone, nunca recorta). Si la imagen cambió después de aprobar,
@@ -266,7 +267,10 @@ y `error` del post siguen reflejando Instagram para el panel, las métricas y el
 | `lib/posts.mjs` | Validación, ids, rutas, lectura/escritura, archivo | no | `estados.mjs` |
 | `lib/ilustrador.mjs` | Cliente de Gemini (imágenes) y guardado JPEG | no | sharp |
 | `lib/render.mjs` | Datos de plantilla, HTML, captura con Chromium | no | Playwright, sharp |
-| `lib/instagram.mjs` | Cliente de la Instagram API (Instagram Login) | no | — |
+| `lib/instagram.mjs` | Cliente de la Instagram API (Instagram Login) | no | `incierto.mjs` |
+| `lib/facebook.mjs`, `threads.mjs` | Clientes de la Graph API (página: foto sin publicar → publicación) y de la Threads API (contenedor → publicación); fallo de red tras enviar = `ErrorIncierto` | no | `incierto.mjs` |
+| `lib/destinos.mjs`, `versiones.mjs`, `conexiones.mjs` | Destinos por post (texto e imagen aprobados, intentos, inciertos), versiones por red (límites: Threads 500 con emojis por bytes; solo proponen) y conexiones/interruptores por red (solo nombres de secretos) | **sí** | `estados.mjs`, `caption.mjs`, `fechas.mjs` |
+| `lib/huella.mjs`, `persistencia.mjs` | Huella (sha de blob) de la imagen servida; reserva persistida en git antes de enviar | no | — |
 | `generar/regenerar/publicar/renovar-token.mjs` | Orquestadores con dependencias inyectables | no | todo lo anterior |
 | `build.mjs`, `serve.mjs` | Construcción de `dist/` y servidor local | no | — |
 | `panel/app.js`, `almacen.mjs` | Interfaz y almacenes (local / GitHub) | navegador | módulos isomorfos |

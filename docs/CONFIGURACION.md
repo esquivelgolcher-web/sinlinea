@@ -461,6 +461,44 @@ Requisitos: la cuenta debe estar en modo Environment (`instagram.origen: "entorn
 |---|---|---|
 | `FB_PAGE_TOKEN` | Environment `cuenta-<id>` | PUBLICAR (job por cuenta) y Probar destino |
 
-`publicar.yml` expone `FB_PAGE_TOKEN` solo en el job por Environment; el job de modo repositorio no conoce Facebook. Threads y X quedan para fases posteriores (diseño en `docs/superpowers/specs/2026-09-09-multicanal-design.md`).
+`publicar.yml` expone `FB_PAGE_TOKEN` solo en el job por Environment; el job de modo repositorio no conoce Facebook. Threads: §13. X queda para una fase posterior (diseño en `docs/superpowers/specs/2026-09-09-multicanal-design.md`).
 
 **Estado de validación (2026-09-10):** la publicación en Facebook quedó validada con la API real el 2026-09-10 a las 09:17 UTC (primera pieza aprobada expresamente por el operador, corrida PUBLICAR 34459784427: reserva → foto sin publicar → publicación con la foto adjunta → enlace guardado, en cuatro commits del bot). La reconciliación de resultados inciertos sigue probada solo con simulaciones (no se ha producido ningún incierto real).
+
+## 13. Multicanal (F2): perfil de Threads por cuenta
+
+Cada cuenta puede conectar también **su perfil de Threads**. Misma base que Facebook (§12): secreto propio en el Environment de la cuenta, verificación de identidad propia e interruptor propio que nace apagado (`conexiones.threads.publicar`), independiente de Instagram y de Facebook. Se puede publicar solo en Threads. La pausa general (`automatico.pausa`) también lo detiene.
+
+Requisitos: cuenta en modo Environment (`instagram.origen: "entorno"`). Threads se publica con la Threads API (`graph.threads.net/v1.0`): `POST /{id-de-perfil}/threads` con `media_type=IMAGE`, `image_url` y `text` crea un contenedor; se espera a que esté `FINISHED` (Meta recomienda unos 30 s; un contenedor vale 24 h) y `POST /{id-de-perfil}/threads_publish` lo publica. La misma imagen JPEG que Instagram (JPEG/PNG de hasta 8 MB, ancho 320–1440, relación de aspecto hasta 10:1) y un texto propio de **500 caracteres como máximo, con los emojis contados por sus bytes UTF-8** (la regla oficial). El id del perfil de Threads es numérico y **distinto del id de Instagram**.
+
+### 13.1 Obtener el token (todo en la app de Meta y en GitHub; nada pasa por el panel)
+
+1. Meta for Developers → la app de la cuenta → Casos de uso → Añadir caso de uso → **Access the Threads API** (permisos `threads_basic` y `threads_content_publish`). Meta crea un «Threads App ID» propio dentro de la app.
+2. App roles → Roles → Add People → rol **Threads Tester**: invita al perfil de Threads de la cuenta. En Threads (Configuración → Cuenta → Permisos de sitios web / *Website permissions* → Invitaciones) acepta la invitación con la sesión de ese perfil.
+3. Casos de uso → Access the Threads API → Customize → Settings → **User Token Generator**: junto al perfil aceptado pulsa *Generate Token*, confirma con la sesión de Threads y copia el token. Dura 60 días.
+4. GitHub → Settings → Environments → `cuenta-<id>` → Add environment secret → nombre `THREADS_ACCESS_TOKEN`, valor el token. Aquí y en el panel solo se usa el nombre.
+
+Si Meta entregara un token de corta duración (una hora), la Threads API permite cambiarlo por uno de 60 días con `GET https://graph.threads.net/access_token?grant_type=th_exchange_token` y el *Threads App Secret* (App settings → Basic); el cliente `lib/threads.mjs` tiene `intercambiarToken` preparado, pero ese paso no está automatizado (exigiría otro secreto en el Environment). Con el token del generador basta con la renovación semanal.
+
+### 13.2 Declarar el perfil y verificar
+
+- Actions → **Probar destino** → Run workflow con `cuenta` y `red = threads` (o «Verificar Threads» en la tarjeta). El job recibe `THREADS_ACCESS_TOKEN` desde el Environment, llama a `GET /me?fields=id,username` y guarda `data/<id>/conexion-threads.json` (estado, id y @usuario, fecha; nunca valores). Si aún no está declarado el id del perfil, el resultado lo muestra para que lo guardes.
+- Panel → Cuentas → Editar → «Perfil de Threads»: id numérico del perfil y, opcional, el nombre de usuario esperado. Queda `"conexiones": { "threads": { "publicar": false, "usuario": "<id>", "perfil": "<usuario>" } }`. Con el nombre de usuario declarado, la verificación (y cada corrida de PUBLICAR) exige que el token pertenezca a ese usuario además de al id.
+- Con «Threads: perfil «@…» (id) verificado» en la tarjeta, pulsa **Encender Threads**. Facebook e Instagram no cambian.
+
+### 13.3 Qué hace PUBLICAR en Threads
+
+- Igual que en las demás redes: versión aprobada por destino (el contador del panel bloquea si excede 500 y nunca recorta), imagen vinculada a la huella del archivo servido, reserva subida al remoto antes de enviar. El id del contenedor y la fase «enviando» se suben antes de `threads_publish`.
+- Recuperación tras una interrupción: en la siguiente corrida se consulta el estado del contenedor guardado. `PUBLISHED` con enlace → publicado (sin volver a publicar); `FINISHED` → se publica ese mismo contenedor; `ERROR`/`EXPIRED` → vuelve a pendiente y se crea otro; `PUBLISHED` sin enlace o estado desconocido → sigue incierto hasta la decisión en el panel. Nunca se decide por el texto.
+- Cuota: `GET /{id}/threads_publishing_limit` (250 publicaciones por 24 h); agotada, la entrega de Threads espera sin afectar a las demás redes.
+- Registros: `data/<id>/conexion-threads.json`, `data/<id>/token-info-threads.json` (vencimiento del token) y `destinos.threads` en cada `posts/<id>.json`.
+
+### 13.4 Secretos y workflows
+
+| Secreto | Dónde | Uso |
+|---|---|---|
+| `THREADS_ACCESS_TOKEN` | Environment `cuenta-<id>` | PUBLICAR (job por cuenta), Probar destino y Renovar token |
+
+`publicar.yml` y `probar-destino.yml` reciben `THREADS_ACCESS_TOKEN` solo en el job por Environment. `renovar-token.yml` (cada lunes) refresca también el token de Threads de las cuentas con perfil declarado (`GET /refresh_access_token?grant_type=th_refresh_token`; el token debe tener al menos 24 h y no haber vencido: si acabas de guardarlo, la primera renovación avisa y la siguiente ya funciona) y lo guarda con `gh secret set THREADS_ACCESS_TOKEN --env cuenta-<id>`. Un fallo en Threads no afecta a la renovación de Instagram.
+
+**Estado (2026-09-10):** Threads está implementado y probado únicamente con clientes simulados y pruebas de extremo a extremo del panel; no se ha hecho ninguna publicación real. La primera será una pieza aprobada expresamente por el operador, con Threads verificado y encendido solo para esa cuenta.

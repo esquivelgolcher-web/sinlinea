@@ -207,3 +207,21 @@ Cada cuenta puede conectar una página de Facebook. Es independiente de Instagra
 **La imagen que sale es la que aprobaste:** al aprobar se guarda la huella del archivo de imagen. Si después se regenera (por una ilustración nueva o un cambio de plantilla), la pieza queda en espera y verás «Aprobar imagen actual» en Versiones por red; hasta que lo pulses no se publica.
 
 **Estado:** la publicación en Facebook está validada con una pieza real (10 de septiembre de 2026). La reconciliación de resultados inciertos sigue probada solo con simulaciones.
+
+## Publicar también en Threads (multicanal, fase 2)
+
+Cada cuenta puede conectar su perfil de Threads (el que va unido a su Instagram). Es independiente de Instagram y de Facebook: botón, verificación e interruptor propios, apagado al principio.
+
+**Conectar el perfil (una vez):**
+1. En la app de Meta añade el caso de uso «Access the Threads API», invita al perfil como *Threads Tester* y acepta la invitación desde Threads (Configuración → Cuenta → Permisos de sitios web). La guía de la tarjeta lo explica paso a paso.
+2. En la misma app, «User Token Generator» → *Generate Token*: copia el token y pégalo en GitHub → Settings → Environments → `cuenta-<id>` → `THREADS_ACCESS_TOKEN`. Nunca lo pegues en el panel.
+3. Pulsa **Verificar Threads** en la tarjeta (o Actions → Probar destino → Run workflow con la cuenta y `threads`). Si aún no has guardado el id del perfil, el resultado te lo dice: Cuentas → Editar → «Perfil de Threads», escribe el id numérico (y, si quieres, tu nombre de usuario) y verifica de nuevo. En unos minutos la tarjeta dirá «Threads: perfil «@…» verificado».
+4. Pulsa **Encender Threads**. Si algo falta, el panel lo dice y no enciende nada.
+
+**Al aprobar una pieza:** aparece la casilla de Threads con su texto. Threads admite 500 caracteres y cuenta cada emoji por sus bytes (un emoji suele valer 4): el contador lo muestra y, si te pasas, el panel no aprueba hasta que lo edites. Nada se recorta solo. Si el caption no cabe, la propuesta es más corta: titular, bajada y «Según <medio> (<fecha>)».
+
+**Después:** las mismas etiquetas por red, «Omitir en Threads», «Decidir Threads» si un envío queda incierto y «Reintentar» si falla. **Pausar Threads** deja sus entregas en espera; no las omite.
+
+**El token:** dura 60 días y el workflow «Renovar token» lo refresca cada lunes junto con el de Instagram (la primera renovación puede avisar si el token tiene menos de un día; la siguiente ya funciona).
+
+**Estado:** Threads está probado solo con simulaciones. La primera publicación real será una pieza que apruebes expresamente.
