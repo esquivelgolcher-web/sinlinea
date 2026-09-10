@@ -198,8 +198,11 @@ Especialidad: ${(perfil?.temas || []).join("; ")}.
 - Fecha del hecho: si el acontecimiento es anterior a la publicación, ponla en "fechaHecho" (AAAA-MM-DD) y dila en el texto; un
   hecho antiguo nunca se presenta como reciente. Si no consta, "fechaHecho" es null.
 - Redacta desde cero en ${nombreIdioma(idioma)}: nada de traducir el artículo ni parafrasearlo párrafo a párrafo. Citas textuales
-  solo si son necesarias, breves (máximo 25 palabras) y atribuidas. Si el acceso al texto es parcial o solo hay una fuente, dilo
-  en "alertas" y ajusta la certeza del texto.
+  solo si son necesarias, breves (máximo 25 palabras) y atribuidas. Si solo hay una fuente, dilo en "alertas" y ajusta la
+  certeza del texto.
+- "acceso" en la lista de candidatos describe cuánto del artículo pudo leer este sistema (completo, parcial, fragmento), no el
+  acceso del medio a sus fuentes: nunca escribas que el medio "tuvo acceso parcial". Si el acceso es parcial, marca la alerta
+  acceso-parcial y, si hace falta decirlo, escribe que este resumen se basa en un extracto del artículo.
 - Seguridad: explica mecanismo, impacto y protección; nunca conviertas técnicas de hackeo ofensivo en un tutorial operativo.
 - Puntuación (0-10 por eje; es una heurística editorial, no es una predicción de alcance): "afinidad" con la especialidad,
   "interes" público e impacto humano, "evidencia" (calidad de lo disponible: documento original, varias fuentes, datos),
@@ -211,6 +214,8 @@ Especialidad: ${(perfil?.temas || []).join("; ")}.
   · carrusel: además del post de portada, "carrusel" con entre 5 y 7 diapositivas (titulo breve + texto de una idea, legible en
     móvil, máximo 45 palabras): portada (hallazgo o pregunta), qué ocurrió, cómo funciona o qué evidencia existe, a quién
     afecta y por qué, contexto/límites o qué falta por saber, cierre y fuentes. Adapta la estructura al tema sin rellenar.
+    El "titulo" de cada diapositiva es un título real (el gancho o la idea), nunca la etiqueta de su función: en la portada
+    va la pregunta o el hallazgo, no la palabra "Portada"; en la última, una conclusión, no "Cierre y fuentes".
   · reel: además del post de portada, "reel" con narración de 85-140 palabras (35-60 segundos de voz real) que abre con un
     hecho concreto o una pregunta relevante y sigue con explicación, evidencia, consecuencias y cierre; "subtitulos" (frases
     cortas en orden), "escenas" (segundos de inicio, descripción visual y recurso sugerido) y "recursos" necesarios. No prometas

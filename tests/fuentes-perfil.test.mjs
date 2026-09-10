@@ -78,7 +78,11 @@ test("(fuentes) los candidatos conservan medio, autor, idioma, fechas, consulta 
   assert.equal(completado.autor, "Dhruv Mehrotra");
   assert.equal(completado.canonica, "https://www.wired.com/story/clearview/");
   assert.equal(completado.actualizado, "2026-09-10T12:30:00.000Z");
-  assert.deepEqual(completado.textoRecuperado, { parrafos: 7, caracteres: completado.texto.length });
+  const articulo = extraerArticulo(htmlArticulo);
+  assert.deepEqual(completado.textoRecuperado, { parrafos: 7, caracteres: articulo.parrafos.reduce((s, p) => s + p.length, 0), enviados: completado.texto.length }, "el alcance se mide sobre el artículo entero, no sobre el extracto enviado");
+  assert.ok(completado.texto.length <= 1500);
+  const largo = completarCandidato(c, articulo, { ahora, maxTexto: 4000 });
+  assert.ok(largo.texto.length > completado.texto.length, "con perfil se envía más texto");
   assert.equal(completado.fuentesPrimarias.length, 2);
 });
 

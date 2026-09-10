@@ -62,9 +62,12 @@ export function candidatosDesdePortada(urls, fuente, { ahora = new Date() } = {}
   }));
 }
 
-export function completarCandidato(cand, articulo, { ahora }) {
-  const texto = textoParaClaude(articulo.parrafos) || articulo.descripcion || "";
+// `maxTexto`: cuánto del artículo se envía a Claude. El alcance se mide sobre el artículo entero recuperado, no sobre
+// el extracto enviado: leer 39 párrafos y enviar 4000 caracteres sigue siendo acceso completo.
+export function completarCandidato(cand, articulo, { ahora, maxTexto = 1500 }) {
+  const texto = textoParaClaude(articulo.parrafos, maxTexto) || articulo.descripcion || "";
   const descripcion = articulo.descripcion || cand.descripcion;
+  const caracteresArticulo = articulo.parrafos.reduce((s, p) => s + p.length, 0);
   return {
     ...cand,
     titulo: articulo.titulo || cand.titulo,
@@ -75,11 +78,14 @@ export function completarCandidato(cand, articulo, { ahora }) {
     canonica: articulo.canonica || cand.canonica || urlCanonica(cand.url),
     actualizado: fechaIsoONull(articulo.actualizado) ?? cand.actualizado ?? null,
     consultado: ahora.toISOString(),
-    alcance: alcanceDe({ parrafos: articulo.parrafos.length, caracteres: texto.length, descripcion }),
-    textoRecuperado: { parrafos: articulo.parrafos.length, caracteres: texto.length },
+    alcance: alcanceDe({ parrafos: articulo.parrafos.length, caracteres: caracteresArticulo, descripcion }),
+    textoRecuperado: { parrafos: articulo.parrafos.length, caracteres: caracteresArticulo, enviados: texto.length },
     fuentesPrimarias: Array.isArray(articulo.enlaces) ? articulo.enlaces : [],
   };
 }
+
+// Con perfil editorial se envía más texto a Claude (solo de los grupos legibles): mejor evidencia y menos extractos.
+export const MAX_TEXTO_PERFIL = 4000;
 
 async function enParalelo(items, n, fn) {
   const resultados = new Array(items.length);
@@ -119,7 +125,7 @@ export async function recolectar(config, { fetchText, ahora = new Date(), log = 
           if (esYoutube(cand.url)) return cand;
           try {
             const art = await descargarArticulo(cand.url, { fetchText });
-            return completarCandidato(cand, art, { ahora });
+            return completarCandidato(cand, art, { ahora, maxTexto: MAX_TEXTO_PERFIL });
           } catch (err) {
             log.warn(`Artículo no accesible ${cand.url}: ${err.message}; se conserva como ${cand.alcance} (no se finge haberlo leído)`);
             return cand;

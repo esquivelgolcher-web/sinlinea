@@ -36,7 +36,7 @@ test("(redactor perfil) el esquema exige formato, ángulo, atribución, afirmaci
 test("(redactor perfil) el system lleva la línea editorial, las reglas de atribución y formatos, y el usuario lista grupos con metadatos, referencias y alcance", () => {
   const sys = construirSystemPerfil("# Línea\nVoz propia.", { idioma: "es-PA", perfil: cfg.perfil });
   assert.match(sys, /Voz propia\./);
-  for (const regla of [/descubrimos/, /revelamos/, /nadie te lo cuenta/, /hecho, denuncia, hipótesis u opinión/i, /primera vez que aparezcan/i, /tutorial/i, /fecha del hecho/i, /100.{1,3}180 palabras/, /5 y 7 diapositivas/, /85.{1,3}140 palabras/, /afinidad/i, /no es una predicción/i]) assert.match(sys, regla);
+  for (const regla of [/descubrimos/, /revelamos/, /nadie te lo cuenta/, /hecho, denuncia, hipótesis u opinión/i, /primera vez que aparezcan/i, /tutorial/i, /fecha del hecho/i, /100.{1,3}180 palabras/, /5 y 7 diapositivas/, /85.{1,3}140 palabras/, /afinidad/i, /no es una predicción/i, /no el\s+acceso del medio/, /nunca escribas que el medio "tuvo acceso parcial"/, /no la palabra "Portada"/]) assert.match(sys, regla);
   const usr = construirUsuarioPerfil({ grupos, recientes: ["Tema previo"], max: 3, formatos: ["post", "carrusel", "reel"] });
   assert.match(usr, /\[0\] WIRED · Dhruv Mehrotra · en · publicado 2026-09-10T10:00:00Z · actualizado 2026-09-10T12:30:00Z · acceso completo/);
   assert.match(usr, /Referencias del grupo:\n\s*- AJ\+ · fragmento · How Pegasus spyware works/);

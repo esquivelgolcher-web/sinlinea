@@ -11,7 +11,7 @@
   "categoria": "INVESTIGACIÓN",
   "titular": "WIRED halla fallas en informe del Censo sobre voto ilegal",
   "bajada": "Investigación liga autores del reporte a exfuncionarios de Trump y del DOGE",
-  "caption": "Un informe de la Oficina del Censo de Estados Unidos, publicado el mes pasado, fue usado por Donald Trump para respaldar su denuncia infundada de que el voto de personas no ciudadanas le costó la elección de 2020. Una investigación de WIRED encontró fallas graves en los datos usados y en el proceso de aprobación previo a la publicación. El medio también identificó que varios de los autores tienen vínculos con la administración Trump y el Partido Republicano, entre ellos un exafiliado al llamado Departamento de Eficiencia Gubernamental (DOGE) y dos investigadores del America First Policy Institute. WIRED tuvo acceso parcial a la documentación completa del proceso interno del Censo. La pieza es un ejemplo de cómo datos oficiales pueden usarse políticamente sin el rigor metodológico esperado.",
+  "caption": "Un informe de la Oficina del Censo de Estados Unidos, publicado el mes pasado, fue usado por Donald Trump para respaldar su denuncia infundada de que el voto de personas no ciudadanas le costó la elección de 2020. Una investigación de WIRED encontró fallas graves en los datos usados y en el proceso de aprobación previo a la publicación. El medio también identificó que varios de los autores tienen vínculos con la administración Trump y el Partido Republicano, entre ellos un exafiliado al llamado Departamento de Eficiencia Gubernamental (DOGE) y dos investigadores del America First Policy Institute. La pieza es un ejemplo de cómo datos oficiales pueden usarse políticamente sin el rigor metodológico esperado.",
   "hashtags": [
     "#Investigación",
     "#Censo",
@@ -113,12 +113,11 @@
     }
   },
   "alertas": [
-    "acceso-parcial",
     "fuente-unica"
   ],
   "carrusel": null,
   "reel": {
-    "narracion": "Un informe del Censo de Estados Unidos respaldó, según Trump, sus denuncias sin pruebas sobre voto de no ciudadanos en 2020. Pero una investigación de WIRED halló fallas graves en los datos usados y en cómo se aprobó el reporte antes de publicarse. El medio identificó a varios autores con vínculos directos con la administración Trump y el Partido Republicano, incluido un exafiliado al DOGE. El caso muestra cómo datos oficiales pueden manipularse para respaldar narrativas políticas. Trump celebró el informe en redes sociales como prueba de fraude electoral. WIRED tuvo acceso parcial a la documentación interna del proceso. La pregunta que queda: ¿cuántos otros reportes gubernamentales podrían tener el mismo problema?",
+    "narracion": "Un informe del Censo de Estados Unidos respaldó, según Trump, sus denuncias sin pruebas sobre voto de no ciudadanos en 2020. Pero una investigación de WIRED halló fallas graves en los datos usados y en cómo se aprobó el reporte antes de publicarse. El medio identificó a varios autores con vínculos directos con la administración Trump y el Partido Republicano, incluido un exafiliado al DOGE. El caso muestra cómo datos oficiales pueden manipularse para respaldar narrativas políticas. Trump celebró el informe en redes sociales como prueba de fraude electoral. La pregunta que queda: ¿cuántos otros reportes gubernamentales podrían tener el mismo problema?",
     "subtitulos": [
       "Un informe del Censo respaldó denuncias de Trump sobre voto ilegal",
       "WIRED halló fallas graves en los datos usados",
@@ -162,11 +161,13 @@
   },
   "revision": {
     "estado": "pendiente",
-    "notas": []
+    "notas": [
+      "Revisión automática: se retiró la frase «tuvo acceso parcial» (describía el acceso del sistema al extracto, no el del medio) y la alerta acceso-parcial; el artículo se leyó entero."
+    ]
   },
   "programado": null,
   "publicacion": null,
   "error": null,
   "creado": "2026-09-10T14:59:41.859Z",
-  "actualizado": "2026-09-10T14:59:41.859Z"
+  "actualizado": "2026-09-10T15:05:09.355Z"
 }
