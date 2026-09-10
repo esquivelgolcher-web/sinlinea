@@ -47,7 +47,7 @@
   ],
   "generar": {
     "maxPorCorrida": 1,
-    "maxBorradoresPorDia": 1,
+    "maxBorradoresPorDia": 2,
     "candidatosMax": 10,
     "diasSinRepetir": 3,
     "maxHorasAntiguedad": 48,
