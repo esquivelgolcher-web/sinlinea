@@ -79,6 +79,7 @@ test("(redactor perfil) redactarPerfil llama a Claude con el esquema del perfil 
   const client = { messages: { parse: async (p) => { params = p; return { parsed_output: { seleccion: [item()], descartados: [{ indiceGrupo: 1, motivo: "sin evidencia" }] }, stop_reason: "end_turn", usage: { input_tokens: 10, output_tokens: 5 } }; } } };
   const r = await redactarPerfil({ client, config: cfg, editorialMd: "Editorial.", grupos, recientes: [], max: 3, ahora });
   assert.equal(params.model, cfg.claude.modelo);
+  assert.ok(params.max_tokens >= 16000 && params.max_tokens <= 21000, "salida larga pero por debajo del límite que exige streaming en el SDK (~21 333 tokens)");
   assert.match(params.system[0].text, /Editorial\./);
   assert.match(params.messages[0].content, /\[0\] WIRED/);
   assert.equal(r.seleccion.length, 1);

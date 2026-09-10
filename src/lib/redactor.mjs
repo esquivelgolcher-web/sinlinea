@@ -283,7 +283,8 @@ export async function redactarPerfil({ client, config, editorialMd, grupos, reci
   const perfil = config.perfil || {};
   const res = await client.messages.parse({
     model: config.claude.modelo,
-    max_tokens: 24000,
+    // Tres piezas con carrusel y reel necesitan salida larga, pero el SDK exige streaming por encima de ~21 000 tokens.
+    max_tokens: 20000,
     thinking: { type: "adaptive" },
     output_config: { effort: config.claude.esfuerzo, format: zodOutputFormat(EsquemaRedaccionPerfil) },
     system: [{ type: "text", text: construirSystemPerfil(editorialMd, { idioma: config.idioma, perfil }), cache_control: { type: "ephemeral" } }],
