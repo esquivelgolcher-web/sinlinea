@@ -1,7 +1,7 @@
 {
   "id": "2026-09-09-1111-luiseskivelgolcher-occrp-c751",
   "cuenta": "luiseskivelgolcher",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "OCCRP",
     "url": "https://www.occrp.org/en/news/spanish-police-dismantle-dubai-bank-narco-network-arrest-21",
@@ -37,9 +37,56 @@
     "generada": "2026-09-09T16:11:22.815Z",
     "error": null
   },
-  "programado": null,
+  "programado": "2026-09-10T14:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-09T16:11:22.815Z",
-  "actualizado": "2026-09-10T16:28:46.455Z"
+  "actualizado": "2026-09-10T18:31:21.462Z",
+  "destinos": {
+    "instagram": {
+      "texto": "Según OCCRP (08/09/2026), la operación coordinada por la Fiscalía Antidroga de España desarticuló una red que usaba un sistema financiero paralelo con base en Dubái para mover fondos del narcotráfico. El caso se originó en 2021 con el hundimiento intencional de un barco cargado de cocaína frente a la costa española.\n\nFuente: OCCRP\n\n#Narcotráfico #España #OCCRP #Investigación",
+      "aprobado": {
+        "fecha": "2026-09-10T18:31:21.462Z",
+        "hashPieza": "f90d54c2ed46d1d0",
+        "imagenHash": "abd46362ddf895a4",
+        "imagenSha": "e18c1fb104a89755bab9eab79ae73902ed981880"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    },
+    "facebook": {
+      "texto": "Según OCCRP (08/09/2026), la operación coordinada por la Fiscalía Antidroga de España desarticuló una red que usaba un sistema financiero paralelo con base en Dubái para mover fondos del narcotráfico. El caso se originó en 2021 con el hundimiento intencional de un barco cargado de cocaína frente a la costa española.\n\nFuente: OCCRP",
+      "aprobado": {
+        "fecha": "2026-09-10T18:31:21.462Z",
+        "hashPieza": "f90d54c2ed46d1d0",
+        "imagenHash": "abd46362ddf895a4",
+        "imagenSha": "e18c1fb104a89755bab9eab79ae73902ed981880"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    },
+    "threads": {
+      "texto": "Según OCCRP (08/09/2026), la operación coordinada por la Fiscalía Antidroga de España desarticuló una red que usaba un sistema financiero paralelo con base en Dubái para mover fondos del narcotráfico. El caso se originó en 2021 con el hundimiento intencional de un barco cargado de cocaína frente a la costa española.\n\nFuente: OCCRP",
+      "aprobado": {
+        "fecha": "2026-09-10T18:31:21.462Z",
+        "hashPieza": "f90d54c2ed46d1d0",
+        "imagenHash": "abd46362ddf895a4",
+        "imagenSha": "e18c1fb104a89755bab9eab79ae73902ed981880"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
