@@ -1,0 +1,17 @@
+{
+  "red": "threads",
+  "estado": "credenciales-pendientes",
+  "identidad": {
+    "id": "38207637362217152",
+    "nombre": "@luisegolcher"
+  },
+  "comprobado": "2026-09-10T13:06:58.517Z",
+  "detalle": "falta el identificador de el perfil en la configuración (conexiones.threads.usuario). La credencial THREADS_ACCESS_TOKEN pertenece al perfil @luisegolcher con id 38207637362217152: guarda ese id en el formulario de la cuenta y repite la prueba",
+  "secretos": {
+    "nombres": [
+      "THREADS_ACCESS_TOKEN"
+    ],
+    "origen": "entorno",
+    "entorno": "cuenta-luiseskivelgolcher"
+  }
+}
