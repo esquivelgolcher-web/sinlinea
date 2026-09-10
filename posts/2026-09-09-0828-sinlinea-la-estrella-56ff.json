@@ -1,7 +1,7 @@
 {
   "id": "2026-09-09-0828-sinlinea-la-estrella-56ff",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "La Estrella de Panamá",
     "url": "https://www.laestrella.com.pa/videos/mas-de-5100-personas-siguen-desaparecidas-en-nepal-dos-semanas-despues-de-la-riada-DG25542760",
@@ -43,5 +43,5 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-09T13:28:40.521Z",
-  "actualizado": "2026-09-10T15:15:45.251Z"
+  "actualizado": "2026-09-10T18:32:07.411Z"
 }
