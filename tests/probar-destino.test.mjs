@@ -46,6 +46,9 @@ test("(probar destino) página distinta, secreto ausente, identificador ausente 
   const r3 = await ejecutarPruebaDestino({ configuracion: cargarConfiguracion(sinPagina), cuenta: "prueba", red: "facebook", env: { FB_PAGE_TOKEN: "EAAx" }, clienteDe: clienteFalso(), raiz: sinPagina, ahora, porCuenta: true });
   assert.equal(r3.ok, false);
   assert.match(leerConexion(sinPagina).detalle, /conexiones\.facebook\.pagina/);
+  assert.match(leerConexion(sinPagina).detalle, /"Mi página" con id 123/, "sin id configurado, la API dice qué página es para que el operador la guarde");
+  assert.equal(leerConexion(sinPagina).estado, "credenciales-pendientes");
+  assert.deepEqual(leerConexion(sinPagina).identidad, { id: "123", nombre: "Mi página" });
   const api = raizFb();
   const err = Object.assign(new Error("Invalid OAuth access token EAAsecreto"), { codigo: 190, tipo: "OAuthException" });
   const r4 = await ejecutarPruebaDestino({ configuracion: cargarConfiguracion(api), cuenta: "prueba", red: "facebook", env: { FB_PAGE_TOKEN: "EAAx" }, clienteDe: clienteFalso({ fallo: err }), raiz: api, ahora, porCuenta: true });

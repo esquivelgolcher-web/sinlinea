@@ -47,12 +47,6 @@ export async function ejecutarPruebaDestino({ configuracion, cuenta, red, env = 
   }
   lineas.push(`--- cuenta ${cuenta}: ${nombre} · Environment ${nombreEntorno(cuenta)} (${SECRETOS_RED[red].join(", ")})`);
   const identificador = identificadorDe(config, red);
-  if (!identificador) {
-    const m = `falta el identificador de la página en la configuración (conexiones.${red}.pagina); guárdalo desde el panel y repite la prueba`;
-    error(`cuenta ${cuenta}: ${m}`);
-    registrar("credenciales-pendientes", null, m);
-    return { ok, lineas };
-  }
   let secretos;
   try { secretos = leerSecretosDeRed(config, red, env); }
   catch (err) {
@@ -63,6 +57,13 @@ export async function ejecutarPruebaDestino({ configuracion, cuenta, red, env = 
   try {
     const cliente = await clienteDe(config, red, secretos);
     const perfil = await cliente.perfil();
+    if (!identificador) {
+      // El id de la página no es una credencial: se muestra el que devuelve la API para que el operador lo guarde en el panel.
+      const m = `falta el identificador de la página en la configuración (conexiones.${red}.pagina). La credencial ${SECRETOS_RED[red][0]} pertenece a la página "${perfil.nombre || "?"}" con id ${perfil.id || "(vacío)"}: guarda ese id en el formulario de la cuenta y repite la prueba`;
+      error(`cuenta ${cuenta}: ${m}`);
+      registrar("credenciales-pendientes", { id: perfil.id || null, nombre: perfil.nombre || null }, m);
+      return { ok, lineas };
+    }
     if (perfil.coincideId === false) {
       const m = `la credencial ${SECRETOS_RED[red][0]} pertenece a la página "${perfil.nombre || "?"}" (${perfil.id || "?"}); se esperaba la página ${identificador}`;
       error(`cuenta ${cuenta}: ${m}`);
