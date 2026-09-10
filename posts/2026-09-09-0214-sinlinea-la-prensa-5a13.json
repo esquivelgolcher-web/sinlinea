@@ -1,7 +1,7 @@
 {
   "id": "2026-09-09-0214-sinlinea-la-prensa-5a13",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "La Prensa",
     "url": "https://www.prensa.com/sociedad/mulino-sanciona-la-ley-del-olvido-oncologico/",
@@ -43,5 +43,5 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-09T07:14:22.854Z",
-  "actualizado": "2026-09-10T15:15:45.251Z"
+  "actualizado": "2026-09-10T18:32:17.193Z"
 }
