@@ -172,7 +172,7 @@ test("(maestro) Editar guarda con sha y conserva cupos y automatizaciones; si el
   const page = await navegador.newPage();
   try {
     await abrirMaestro(page, base);
-    await page.locator('.cuenta-tarjeta[data-cuenta="prueba"] >> text=Editar').click();
+    await page.locator('.cuenta-tarjeta[data-cuenta="prueba"] button:has-text("Editar")').click();
     await page.waitForSelector("#formulario-cuenta:not([hidden])");
     assert.equal(await page.inputValue("#fc-nombre"), "Cuenta de prueba");
     assert.equal(await page.$eval("#fc-id", (n) => n.readOnly), true, "el identificador no se cambia al editar");
@@ -266,7 +266,7 @@ test("(maestro) cambiar el usuario de Instagram invalida la verificación anteri
   const page = await navegador.newPage();
   try {
     await abrirMaestro(page, base);
-    await page.locator('.cuenta-tarjeta[data-cuenta="luiseskivelgolcher"] >> text=Editar').click();
+    await page.locator('.cuenta-tarjeta[data-cuenta="luiseskivelgolcher"] button:has-text("Editar")').click();
     await page.waitForSelector("#formulario-cuenta:not([hidden])");
     assert.equal(await page.inputValue("#fc-token-secreto"), "IG_ACCESSTOKEN_LUISESKIVELGOLCHER", "muestra los nombres declarados");
     assert.equal(await page.inputValue("#fc-origen"), "repositorio", "la cuenta real sigue en modo actual hasta que se migre");
@@ -276,7 +276,7 @@ test("(maestro) cambiar el usuario de Instagram invalida la verificación anteri
     await page.waitForSelector('#maestro:not([hidden]) .cuenta-tarjeta[data-cuenta="luiseskivelgolcher"]');
     assert.equal(leerJson(path.join(raiz, "data/luiseskivelgolcher/conexion.json")).estado, "verificada");
     // Cambiar el usuario → pendiente (motivo cambio) con la verificación anterior registrada
-    await page.locator('.cuenta-tarjeta[data-cuenta="luiseskivelgolcher"] >> text=Editar').click();
+    await page.locator('.cuenta-tarjeta[data-cuenta="luiseskivelgolcher"] button:has-text("Editar")').click();
     await page.waitForSelector("#formulario-cuenta:not([hidden])");
     await page.fill("#fc-usuario", "@otro.usuario");
     await page.click("#fc-guardar");
@@ -301,7 +301,7 @@ test("(fase 2) cambiar el origen de las credenciales a Environment invalida la v
   const page = await navegador.newPage();
   try {
     await abrirMaestro(page, base);
-    await page.locator('.cuenta-tarjeta[data-cuenta="luiseskivelgolcher"] >> text=Editar').click();
+    await page.locator('.cuenta-tarjeta[data-cuenta="luiseskivelgolcher"] button:has-text("Editar")').click();
     await page.waitForSelector("#formulario-cuenta:not([hidden])");
     await page.selectOption("#fc-origen", "entorno");
     await page.click("#fc-guardar");
