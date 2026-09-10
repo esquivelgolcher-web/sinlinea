@@ -224,4 +224,4 @@ Cada cuenta puede conectar su perfil de Threads (el que va unido a su Instagram)
 
 **El token:** dura 60 días y el workflow «Renovar token» lo refresca cada lunes junto con el de Instagram (la primera renovación puede avisar si el token tiene menos de un día; la siguiente ya funciona).
 
-**Estado:** Threads está probado solo con simulaciones. La primera publicación real será una pieza que apruebes expresamente.
+**Estado:** la publicación en Threads está validada con una pieza real (10 de septiembre de 2026). La recuperación de contenedores y los resultados inciertos siguen probados solo con simulaciones.

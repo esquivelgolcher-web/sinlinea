@@ -754,7 +754,7 @@ function tarjetaCuenta(c) {
     if (estadoRed.clave !== "verificada" && !archivada) {
       const g = guiaConexionRed({ config: cfg, id: c.id, red: cx.red, owner: repo?.owner || null, repo: repo?.repo || null });
       const notaRed = cx.red === "threads"
-        ? "El token se genera en el User Token Generator de la app de Meta (perfil invitado como Threads Tester) y se pega en GitHub. Aquí solo van nombres y enlaces; ningún valor pasa por el panel ni por inputs de workflows. Threads (F2) está probado solo con simulaciones: la primera publicación real será una pieza aprobada expresamente."
+        ? "El token se genera en el User Token Generator de la app de Meta (perfil invitado como Threads Tester) y se pega en GitHub. Aquí solo van nombres y enlaces; ningún valor pasa por el panel ni por inputs de workflows. La publicación en Threads está validada con la API real (10 de septiembre de 2026); la recuperación de contenedores y los resultados inciertos siguen probados solo con simulaciones."
         : "El token de página se obtiene en las herramientas de Meta y se pega en GitHub. Aquí solo van nombres y enlaces; ningún valor pasa por el panel ni por inputs de workflows. La publicación en Facebook está validada con la API real (10 de septiembre de 2026); la reconciliación de resultados inciertos sigue probada solo con simulaciones.";
       const enlacesRed = cx.red === "threads"
         ? [enlace(g.enlaces.meta, "Apps de Meta for Developers"), enlace(g.enlaces.threads, "Ajustes de Threads (Website permissions)"), enlace(g.enlaces.docsThreads, "Documentación de la Threads API")]
