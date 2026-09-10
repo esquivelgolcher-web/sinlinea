@@ -157,6 +157,14 @@ export function crearServidor({ raiz = process.cwd(), log = console } = {}) {
       if (req.method === "GET" && (p === "/panel" || p === "/panel/")) return servirArchivo(res, path.join(raiz, "panel"), "index.html");
       if (req.method === "GET" && p.startsWith("/panel/")) return servirArchivo(res, path.join(raiz, "panel"), p.slice("/panel/".length));
       if (req.method === "GET" && p === "/api/posts") return responderJson(res, 200, leerPosts(path.join(raiz, "posts"), { cuentaPorDefecto: principal() }));
+      // Multicanal: huella (sha de blob git) de la imagen renderizada de un post, para vincular la imagen aprobada a un archivo.
+      if (req.method === "GET" && p === "/api/imagen-sha") {
+        const id = url.searchParams.get("id") || "";
+        if (!/^[a-z0-9-]+$/.test(id)) return responderJson(res, 400, { error: "id inválido" });
+        const rutaImg = path.join(raiz, "public", "img", `${id}.jpg`);
+        if (!fs.existsSync(rutaImg)) return responderJson(res, 404, { error: "sin imagen", sha: null });
+        return responderJson(res, 200, { sha: shaDeBlob(fs.readFileSync(rutaImg)) });
+      }
       if (req.method === "GET" && p === "/api/token-info") {
         const cuenta = url.searchParams.get("cuenta") || principal();
         if (!configuracion().cuentas.some((c) => c.cuenta === cuenta)) return responder(res, 404, "Cuenta desconocida");

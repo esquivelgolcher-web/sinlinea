@@ -442,7 +442,10 @@ function tarjeta({ post, sha }) {
       const pieza = conCambios(p);
       const r = await pedirHora(pieza);
       if (!r) return null;
-      try { return aprobarDestinos(pieza, r.iso, { versiones: r.versiones }, ahoraIso()); }
+      // La imagen aprobada se vincula a la huella del archivo renderizado (null si aún no existe: se aprobará después).
+      const imagenSha = pieza.imagen ? await huellaSegura(pieza.id) : null;
+      if (pieza.imagen && !imagenSha) avisar("No se pudo leer la huella de la imagen: el destino esperará hasta que pulses «Aprobar imagen actual».", 10000);
+      try { return aprobarDestinos(pieza, r.iso, { versiones: r.versiones, imagenSha }, ahoraIso()); }
       catch (err) { avisarAqui(err.message); return null; }
     };
     const regenerarIlustracion = (p) => {
@@ -595,6 +598,12 @@ function pedirHora(post) {
   });
 }
 
+// Huella del archivo de imagen del post (null si no existe o no se pudo leer): vincula lo aprobado a un archivo estable.
+async function huellaSegura(id) {
+  try { return await estado.almacen.huellaImagen(id); } catch { return null; }
+}
+const textoEspera = (motivo) => ({ "imagen-cambiada": "la imagen cambió tras aprobar", "imagen-sin-aprobar": "imagen sin aprobar" })[motivo] || motivo;
+
 // Bloque de destinos de una pieza: chips con estado y enlace, versiones por red, omitir y decisión sobre inciertos.
 function bloqueDestinos({ post, sha, bloqueado }) {
   const destinos = destinosDe(post);
@@ -612,7 +621,7 @@ function bloqueDestinos({ post, sha, bloqueado }) {
     const nombre = NOMBRES_RED[red];
     let etiqueta = d.estado; let clase = d.estado;
     if (d.estado === "pendiente" && espera(red)) { etiqueta = `en espera (${espera(red)})`; clase = "espera"; }
-    else if (d.estado === "pendiente" && imagenCambiada(post, red)) { etiqueta = "en espera (la imagen cambió tras aprobar)"; clase = "espera"; }
+    else if (d.estado === "pendiente" && (d.espera || imagenCambiada(post, red))) { etiqueta = `en espera (${textoEspera(d.espera?.motivo || "imagen-cambiada")})`; clase = "espera"; }
     else if (d.estado === "error") etiqueta = `error: ${d.error?.mensaje || "sin detalle"}`;
     else if (d.estado === "incierto") etiqueta = `incierto: ${d.intento?.incierto?.motivo || "sin detalle"}`;
     const chip = el("span", { class: `destino ${clase}`, text: `${nombre}: ${etiqueta}` });
@@ -647,9 +656,16 @@ function bloqueDestinos({ post, sha, bloqueado }) {
           el("button", { type: "button", class: "boton pequeno", text: "Proponer de nuevo", onclick: () => { area.value = proponerVersion(post, red).texto; medir(); } }),
         ]),
       ]));
-      if (!imagenAvisada && imagenCambiada(post, red)) {
+      if (!imagenAvisada && (imagenCambiada(post, red) || /^imagen-/.test(d.espera?.motivo || ""))) {
         imagenAvisada = true;
-        detalles.append(el("p", { class: "aviso aviso-tarjeta", text: "La imagen se regeneró después de aprobar: no se publicará hasta que apruebes la imagen actual." }), el("div", { class: "acciones" }, [accion("Aprobar imagen actual", "primario", (p) => aprobarImagenActual(p, ahoraIso()))]));
+        detalles.append(
+          el("p", { class: "aviso aviso-tarjeta", text: d.espera?.motivo === "imagen-sin-aprobar" || !d.aprobado?.imagenSha ? "La imagen se renderizó después de aprobar: no se publicará hasta que apruebes la imagen actual." : "La imagen cambió después de aprobar: no se publicará hasta que apruebes la imagen actual." }),
+          el("div", { class: "acciones" }, [accion("Aprobar imagen actual", "primario", async (p) => {
+            const imagenSha = p.imagen ? await huellaSegura(p.id) : null;
+            if (p.imagen && !imagenSha) { avisar("No se pudo leer la huella de la imagen; inténtalo de nuevo.", 8000); return null; }
+            return aprobarImagenActual(p, ahoraIso(), { imagenSha });
+          })]),
+        );
       }
     }
     bloque.append(detalles);
@@ -739,7 +755,7 @@ function tarjetaCuenta(c) {
       const g = guiaConexionRed({ config: cfg, id: c.id, red: cx.red, owner: repo?.owner || null, repo: repo?.repo || null });
       guiasRedes.push(el("details", { class: "guia-red" }, [
         el("summary", { text: `Guía de conexión con ${cx.nombre} · Environment ${g.entorno} · ${g.secretos.join(", ")}` }),
-        el("p", { class: "nota", text: "El token de página se obtiene en las herramientas de Meta y se pega en GitHub. Aquí solo van nombres y enlaces; ningún valor pasa por el panel ni por inputs de workflows." }),
+        el("p", { class: "nota", text: "El token de página se obtiene en las herramientas de Meta y se pega en GitHub. Aquí solo van nombres y enlaces; ningún valor pasa por el panel ni por inputs de workflows. La publicación y la reconciliación en esta red están probadas con simulaciones, pendientes de validación real: la primera publicación será una pieza aprobada expresamente." }),
         estadoRed.detalle ? el("p", { class: "cuenta-detalle", text: estadoRed.detalle }) : "",
         el("ol", {}, g.pasos.map((p) => el("li", { text: p }))),
         el("p", { class: "enlaces" }, [enlace(g.enlaces.explorador, "Explorador de la API Graph"), enlace(g.enlaces.depurador, "Depurador de tokens"), enlace(g.enlaces.entorno, `Environments del repositorio`), enlace(g.enlaces.probar, "Workflow Probar destino")]),

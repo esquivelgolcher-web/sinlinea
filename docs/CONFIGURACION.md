@@ -448,7 +448,8 @@ Requisitos: la cuenta debe estar en modo Environment (`instagram.origen: "entorn
 
 ### 12.3 Qué hace PUBLICAR con varias redes
 
-- Al aprobar una pieza en el panel eliges sus destinos y revisas la versión de texto de cada red. Se publica exactamente ese texto; si luego editas el caption o se regenera la imagen, el panel lo avisa y solo cambia lo aprobado cuando tú lo pides.
+- Al aprobar una pieza en el panel eliges sus destinos y revisas la versión de texto de cada red. Se publica exactamente ese texto; si luego editas el caption, el panel lo avisa y solo cambia lo aprobado cuando tú lo pides.
+- La imagen aprobada queda vinculada a un archivo estable: al aprobar se guarda la huella (sha de blob git) del JPEG renderizado. Antes de enviar, el publicador descarga la imagen de la URL pública (la que van a leer las redes) y solo publica si su huella es la aprobada; si la imagen se regeneró o aún no se había aprobado, el destino queda en espera y el panel ofrece «Aprobar imagen actual».
 - Cada destino se **reserva** antes de enviar: el publicador sincroniza con el remoto, relee el post y la configuración, escribe el intento y lo sube (commit + push). Sin reserva subida no hay envío. Los ids intermedios (foto de Facebook, contenedor de Instagram) también se suben antes de la llamada que publica.
 - Un fallo en una red no bloquea a las demás. Un publicado nunca se repite. Apagar una red deja su entrega en espera (no la omite); omitir es una acción explícita.
 - Un resultado incierto (corte tras enviar) se conserva hasta reconciliar con evidencia: en Facebook, una publicación del muro con la foto adjunta del intento; en Instagram, el estado del contenedor. Sin evidencia, el panel pide una decisión (marcar publicado con el enlace, volver a pendiente u omitir).
@@ -461,3 +462,5 @@ Requisitos: la cuenta debe estar en modo Environment (`instagram.origen: "entorn
 | `FB_PAGE_TOKEN` | Environment `cuenta-<id>` | PUBLICAR (job por cuenta) y Probar destino |
 
 `publicar.yml` expone `FB_PAGE_TOKEN` solo en el job por Environment; el job de modo repositorio no conoce Facebook. Threads y X quedan para fases posteriores (diseño en `docs/superpowers/specs/2026-09-09-multicanal-design.md`).
+
+**Estado de validación (2026-09-10):** el flujo de publicación en Facebook y la reconciliación de resultados inciertos están probados con clientes simulados y pruebas de extremo a extremo; quedan pendientes de validación con la API real. La primera publicación real será una pieza concreta aprobada expresamente por el operador.

@@ -6,7 +6,7 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import path from "node:path";
 import { chromium } from "playwright";
-import { crearServidor } from "../src/serve.mjs";
+import { crearServidor, shaDeBlob } from "../src/serve.mjs";
 import { raizConCuentas } from "./ayuda/cuentas.mjs";
 import { hashImagen } from "../src/lib/estados.mjs";
 
@@ -39,6 +39,8 @@ async function montar(prefijo) {
     conImagen({ ...base0, id: id("a003"), cuenta: "prueba", estado: "error", programado: "2026-09-11T13:00:00-05:00", titular: "Pieza con Facebook en error", error: { paso: "destino", mensaje: "Facebook: (#200) Permissions error", fecha: iso }, destinos: { instagram: destino("IG", { estado: "publicado", publicacion: { id: "m2", idPublicacion: null, permalink: "https://www.instagram.com/p/m2/", fecha: iso } }), facebook: destino("FB", { estado: "error", error: { mensaje: "(#200) Permissions error", fecha: iso, intentos: 1 } }) }, publicacion: { idMedia: "m2", permalink: "https://www.instagram.com/p/m2/", fecha: iso } }),
   ];
   for (const p of posts) fs.writeFileSync(path.join(raiz, "posts", `${p.id}.json`), JSON.stringify(p, null, 2));
+  // La imagen renderizada del borrador existe: al aprobar se guarda su huella (sha de blob) y así queda vinculada al archivo.
+  fs.copyFileSync("tests/fixtures/ilustracion-ejemplo.jpg", path.join(raiz, "public/img", `${id("a001")}.jpg`));
   const servidor = crearServidor({ raiz });
   await new Promise((r) => servidor.listen(0, "127.0.0.1", r));
   return { raiz, servidor, base: `http://127.0.0.1:${servidor.address().port}`, ids: { borrador: id("a001"), incierto: id("a002"), error: id("a003") } };
@@ -113,6 +115,7 @@ test("(multicanal) escritorio: conexión de Facebook con guía y activación seg
     assert.deepEqual(Object.keys(aprobado.destinos), ["instagram", "facebook"]);
     assert.equal(aprobado.destinos.facebook.texto, "Versión FB revisada por el operador.\n\nFuente: La Prensa");
     assert.equal(aprobado.destinos.facebook.aprobado.imagenHash, aprobado.imagen.hash, "la imagen aprobada queda registrada");
+    assert.equal(aprobado.destinos.facebook.aprobado.imagenSha, shaDeBlob(fs.readFileSync(path.join(raiz, "public/img", `${ids.borrador}.jpg`))), "la imagen aprobada queda vinculada a la huella del archivo");
     assert.match(aprobado.destinos.instagram.texto, /Fuente: La Prensa/);
     // 5. Chips por destino, versiones por red y omitir explícito.
     await page.click('#pestanas button:has-text("Programados")');

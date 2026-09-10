@@ -13,7 +13,7 @@ const base = JSON.parse(fs.readFileSync("tests/fixtures/post-ejemplo.json", "utf
 const iso = "2026-09-10T12:00:00.000Z";
 const conImagen = (p) => ({ ...p, imagen: { ruta: `public/img/${p.id}.jpg`, url: `https://u.github.io/sinlinea/img/${p.id}.jpg`, hash: hashImagen(p, 1), version: 1, renderizada: iso } });
 const versiones = { instagram: "Texto IG\n\nFuente: La Prensa", facebook: "Texto FB\n\nFuente: La Prensa" };
-const aprobado = () => aprobarDestinos(conImagen(base), "2026-09-10T13:00:00-05:00", { versiones }, iso);
+const aprobado = () => aprobarDestinos(conImagen(base), "2026-09-10T13:00:00-05:00", { versiones, imagenSha: "sha-aprobada" }, iso);
 
 test("(destinos) F1 opera con instagram y facebook; los estados de destino son los cinco del diseño", () => {
   assert.deepEqual(REDES, ["instagram", "facebook"]);
@@ -142,9 +142,10 @@ test("(destinos) cambiar la pieza común o regenerar la imagen después de aprob
   assert.equal(piezaCambiada(actualizado, "facebook"), false);
   const regenerada = { ...p, imagen: { ...p.imagen, hash: "otrohash", version: 2 } };
   assert.equal(imagenCambiada(regenerada, "facebook"), true);
-  const aceptada = aprobarImagenActual(regenerada, iso);
+  const aceptada = aprobarImagenActual(regenerada, iso, { imagenSha: "sha-nueva" });
   assert.equal(imagenCambiada(aceptada, "facebook"), false);
   assert.equal(imagenCambiada(aceptada, "instagram"), false);
+  assert.equal(aceptada.destinos.facebook.aprobado.imagenSha, "sha-nueva", "la huella del archivo aprobado se actualiza");
   assert.throws(() => actualizarVersion(marcarDestinoPublicado(p, "facebook", { id: "f", permalink: "https://www.facebook.com/1" }, iso), "facebook", "x", iso), /publicado/);
 });
 

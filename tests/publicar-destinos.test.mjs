@@ -3,7 +3,12 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
-import { ejecutarPublicar, publicarCuentas } from "../src/publicar.mjs";
+import { ejecutarPublicar as ejecutarPublicarReal, publicarCuentas as publicarCuentasReal } from "../src/publicar.mjs";
+// La imagen aprobada va vinculada a la huella del archivo servido: aquí la URL pública "sirve" siempre la huella aprobada.
+const HUELLA = "huella-aprobada";
+const huellaImagenDe = async () => ({ ok: true, sha: HUELLA });
+const ejecutarPublicar = (args) => ejecutarPublicarReal({ huellaImagenDe, ...args });
+const publicarCuentas = (args) => publicarCuentasReal({ huellaImagenDe, ...args });
 import { cargarConfig, cargarConfiguracion } from "../src/lib/config.mjs";
 import { leerPosts, escribirPost } from "../src/lib/posts.mjs";
 import { hashImagen, aprobar } from "../src/lib/estados.mjs";
@@ -19,7 +24,7 @@ const cfgBase = { ...cargarConfig("config.json"), pages: { baseUrl: "https://u.g
 const cfgFb = { ...cfgBase, conexiones: { facebook: { publicar: true, pagina: "123" } } };
 const conImagen = (p) => ({ ...p, imagen: { ruta: `public/img/${p.id}.jpg`, url: `https://u.github.io/sinlinea/img/${p.id}.jpg`, hash: hashImagen(p, 1), version: 1, renderizada: iso } });
 const versiones = { instagram: "Texto IG\n\nFuente: La Prensa\n\n#SinLínea", facebook: "Texto FB\n\nFuente: La Prensa" };
-const piezaMulticanal = (sufijo = "00aa", redes = versiones) => aprobarDestinos(conImagen({ ...base, id: base.id.slice(0, -4) + sufijo }), "2026-09-10T14:00:00-05:00", { versiones: redes }, iso);
+const piezaMulticanal = (sufijo = "00aa", redes = versiones) => aprobarDestinos(conImagen({ ...base, id: base.id.slice(0, -4) + sufijo }), "2026-09-10T14:00:00-05:00", { versiones: redes, imagenSha: HUELLA }, iso);
 
 function raizCon(posts) {
   const raiz = fs.mkdtempSync(path.join(os.tmpdir(), "pubd-"));
@@ -304,7 +309,8 @@ test("(multicanal) apagar Facebook conserva su entrega en espera; un destino omi
   const p4 = { ...p4base, imagen: { ...p4base.imagen, hash: hashImagen(p4base, 2), version: 2 } };
   const raiz4 = raizCon([p4]);
   const fb4 = fbFalso();
-  const r4 = await ejecutarPublicar({ config: cfgFb, raiz: raiz4, ahora, ig: igFalso(), clientes: { facebook: fb4 }, persistencia: persistenciaSimulada(raiz4), log });
+  // La URL pública ya sirve el archivo regenerado (otra huella): el destino espera aunque la receta cambie o no.
+  const r4 = await ejecutarPublicar({ config: cfgFb, raiz: raiz4, ahora, ig: igFalso(), clientes: { facebook: fb4 }, persistencia: persistenciaSimulada(raiz4), huellaImagenDe: async () => ({ ok: true, sha: "huella-regenerada" }), log });
   assert.equal(fb4.llamadas.length, 0);
   assert.equal(r4.destinos[p4.id].facebook, "imagen-cambiada");
   assert.equal(leer(raiz4, p4.id).destinos.facebook.estado, "pendiente");

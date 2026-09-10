@@ -15,8 +15,9 @@ import { ocultarSecretos, leerSecretos, leerSecretosDeRed, nombresDeSecretos, or
 import { todasFallaron, anotarFallos, resumirResultados } from "./lib/corrida.mjs";
 import {
   REDES, NOMBRES_RED, destinosDe, reservarDestino, avanzarIntento, marcarDestinoPublicado, marcarDestinoError, marcarDestinoIncierto,
-  decidirIncierto, imagenCambiada,
+  decidirIncierto, marcarEspera,
 } from "./lib/destinos.mjs";
+import { descargarHuella } from "./lib/huella.mjs";
 import { proponerVersion, medirVersion } from "./lib/versiones.mjs";
 import { REDES_CONEXION, destinosEncendidos, pausaGeneral, identificadorDe } from "./lib/conexiones.mjs";
 import { esIncierto } from "./lib/incierto.mjs";
@@ -83,7 +84,7 @@ export async function reconciliarDestino({ red, cliente, destino, intento }) {
   return { resultado: "incierto", motivo: `red ${red} sin reconciliación automática` };
 }
 
-export async function ejecutarPublicar({ config, raiz = process.cwd(), ahora = new Date(), ig = null, clientes = {}, persistencia = null, leerConfigActual = null, log = console, dryRun = false }) {
+export async function ejecutarPublicar({ config, raiz = process.cwd(), ahora = new Date(), ig = null, clientes = {}, persistencia = null, leerConfigActual = null, huellaImagenDe = null, log = console, dryRun = false }) {
   if (/CAMBIAR/.test(config.pages.baseUrl)) throw new Error("config.json: pages.baseUrl todavía tiene el valor CAMBIAR");
   const dir = path.join(raiz, "posts");
   const iso = ahora.toISOString();
@@ -138,6 +139,10 @@ export async function ejecutarPublicar({ config, raiz = process.cwd(), ahora = n
     return cuotaIg.disponibles > 0;
   }
   const clienteImagen = () => Object.values(todosClientes).find((c) => c && typeof c.imagenPublica === "function") || null;
+  // Huella del archivo que se sirve en la URL pública (lo que van a leer las redes), una descarga por pieza y corrida.
+  const huellaDe = huellaImagenDe || ((url) => descargarHuella(url));
+  const huellas = new Map();
+  const huellaServida = async (url) => { if (!huellas.has(url)) huellas.set(url, await huellaDe(url)); return huellas.get(url); };
 
   let abortar = null;
   for (const inicial of listos) {
@@ -261,10 +266,29 @@ export async function ejecutarPublicar({ config, raiz = process.cwd(), ahora = n
         estadoDestinos[red] = "error";
         continue;
       }
-      if (imagenCambiada(post, red)) {
-        estadoDestinos[red] = "imagen-cambiada";
-        log.warn(`${post.id}: la imagen cambió después de aprobar ${NOMBRES_RED[red]}; aprueba la imagen actual en el panel antes de publicar.`);
-        continue;
+      // La imagen aprobada está vinculada a un archivo estable: se descarga la imagen de la URL pública y solo se envía si
+      // su huella es la aprobada. Sin huella aprobada (se aprobó antes de que existiera el archivo) hay que aprobarla.
+      if (dPend.aprobado) {
+        let motivoEspera = null;
+        if (!dPend.aprobado.imagenSha) motivoEspera = "imagen-sin-aprobar";
+        else {
+          const h = await huellaServida(post.imagen.url);
+          if (!h.ok) {
+            estadoDestinos[red] = "imagen-no-descargable";
+            log.warn(`${post.id}: no se pudo descargar la imagen pública para comprobar que es la aprobada (${h.motivo || "sin detalle"}); ${NOMBRES_RED[red]} espera.`);
+            continue;
+          }
+          if (h.sha !== dPend.aprobado.imagenSha) motivoEspera = "imagen-cambiada";
+        }
+        if (motivoEspera) {
+          if (dPend.espera?.motivo !== motivoEspera) {
+            post = marcarEspera(post, red, { motivo: motivoEspera }, iso);
+            await guardarPost(`publicar (${cuenta}): ${post.id} ${NOMBRES_RED[red]} en espera (${motivoEspera})`);
+          }
+          estadoDestinos[red] = motivoEspera;
+          log.warn(`${post.id}: ${motivoEspera === "imagen-cambiada" ? "la imagen servida ya no es la aprobada" : "la imagen no está aprobada"} para ${NOMBRES_RED[red]}; aprueba la imagen actual en el panel antes de publicar.`);
+          continue;
+        }
       }
       if (red === "instagram" && !(await hayCuotaIg())) {
         estadoDestinos[red] = "cuota";
@@ -286,7 +310,8 @@ export async function ejecutarPublicar({ config, raiz = process.cwd(), ahora = n
       const dr = releido ? destinosDe(releido)[red] : null;
       const sigueListo = releido && releido.estado === "programado" && Date.parse(releido.programado) <= ahora.getTime()
         && dr && dr.estado === "pendiente" && (dr.texto ?? null) === (dPend.texto ?? null)
-        && (dr.aprobado?.imagenHash ?? null) === (dPend.aprobado?.imagenHash ?? null) && (releido.imagen?.hash ?? null) === (post.imagen?.hash ?? null)
+        && (dr.aprobado?.imagenHash ?? null) === (dPend.aprobado?.imagenHash ?? null) && (dr.aprobado?.imagenSha ?? null) === (dPend.aprobado?.imagenSha ?? null)
+        && (releido.imagen?.hash ?? null) === (post.imagen?.hash ?? null) && (releido.imagen?.url ?? null) === (post.imagen?.url ?? null)
         && !pausaGeneral(configActual) && destinosEncendidos(configActual).includes(red);
       if (!sigueListo) {
         estadoDestinos[red] = "en-espera";
@@ -347,7 +372,7 @@ export async function ejecutarPublicar({ config, raiz = process.cwd(), ahora = n
 // Ejecuta PUBLICAR para cada cuenta activa. `igDe(config, secretos)` crea el cliente de Instagram; `clientesDe(config, red,
 // secretos)` el de cada red nueva, solo con los secretos de esa red; `persistenciaDe(config)` la persistencia remota.
 // Un fallo en una cuenta se registra y no detiene a las demás. `soloCuenta`/`porCuenta`: job por cuenta de los workflows.
-export async function publicarCuentas({ configuracion, raiz = process.cwd(), ahora = new Date(), log = console, dryRun = false, igDe, clientesDe = null, persistenciaDe = null, soloCuenta = null, porCuenta = false, env = null }) {
+export async function publicarCuentas({ configuracion, raiz = process.cwd(), ahora = new Date(), log = console, dryRun = false, igDe, clientesDe = null, persistenciaDe = null, huellaImagenDe = null, soloCuenta = null, porCuenta = false, env = null }) {
   const resultados = {};
   for (const e of configuracion.errores || []) {
     if (soloCuenta && e.cuenta !== soloCuenta) continue;
@@ -378,7 +403,7 @@ export async function publicarCuentas({ configuracion, raiz = process.cwd(), aho
         clientes[red] = await clientesDe(config, red, secretos);
       }
       const persistencia = persistenciaDe ? persistenciaDe(config) : null;
-      resultados[config.cuenta] = { ...(await ejecutarPublicar({ config, raiz, ahora, ig, clientes, persistencia, log, dryRun })), credenciales };
+      resultados[config.cuenta] = { ...(await ejecutarPublicar({ config, raiz, ahora, ig, clientes, persistencia, huellaImagenDe, log, dryRun })), credenciales };
     } catch (err) {
       const mensaje = ocultarSecretos(err.message);
       resultados[config.cuenta] = { error: mensaje };

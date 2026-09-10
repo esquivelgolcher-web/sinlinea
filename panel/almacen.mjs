@@ -127,6 +127,13 @@ export function crearAlmacenLocal() {
       if (!res.ok) throw new Error(`No se pudieron leer las métricas de ${cuenta} (HTTP ${res.status})`);
       return res.json();
     },
+    // Huella (sha de blob git) de la imagen renderizada de un post; null si aún no existe.
+    async huellaImagen(id) {
+      const res = await fetch(`/api/imagen-sha?id=${encodeURIComponent(id)}`, { cache: "no-store" });
+      if (res.status === 404) return null;
+      if (!res.ok) throw new Error(`No se pudo leer la huella de la imagen (HTTP ${res.status})`);
+      return (await res.json()).sha || null;
+    },
     async solicitarVerificacion(cuenta, red = "instagram") {
       const { res, j } = await json(await fetch(`/api/verificar-conexion?cuenta=${encodeURIComponent(cuenta)}&red=${encodeURIComponent(red)}`, { method: "POST" }));
       if (!res.ok) throw new Error(j.error || `No se pudo solicitar la verificación (HTTP ${res.status})`);
@@ -380,6 +387,13 @@ export function crearAlmacenGitHub({ token, owner, repo, rama = "main", fetchImp
     // Marca la cuenta como pendiente y lanza el workflow "Probar Instagram" (workflow_dispatch) para esa cuenta.
     // Primero se lanza el workflow; solo si arranca se marca la cuenta como pendiente. Así un token sin permiso Actions
     // no deja la conexión "pendiente" sin que nada corra (hallazgo en producción, 2026-09-09).
+    // Huella (sha de blob git) de public/img/<id>.jpg en el repositorio, sin descargar el archivo; null si no existe.
+    async huellaImagen(id) {
+      const res = await pedir(`${api}/contents/public/img/${encodeURIComponent(id)}.jpg?ref=${rama}`, { headers: cabeceras({ Accept: "application/vnd.github.object+json" }) });
+      if (res.status === 404) return null;
+      if (!res.ok) throw new Error(`GitHub respondió ${res.status} al leer la huella de la imagen`);
+      return (await res.json()).sha || null;
+    },
     // Multicanal (F1): `red` distinta de instagram lanza "Probar destino" y marca data/<cuenta>/conexion-<red>.json.
     async solicitarVerificacion(cuenta, red = "instagram", ahoraIso = new Date().toISOString()) {
       const esIg = red === "instagram";

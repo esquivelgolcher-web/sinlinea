@@ -203,3 +203,7 @@ Cada cuenta puede conectar una página de Facebook. Es independiente de Instagra
 **Pausar todo / Reanudar todo:** en la tarjeta de la cuenta detiene todas las redes a la vez sin cambiar los interruptores. **Pausar Facebook** deja sus entregas en espera; no las omite.
 
 **Pasos que se hacen fuera del panel:** obtener el token de página (Meta), guardarlo en el Environment (GitHub) y, si el token del panel no tiene permiso Actions, lanzar Probar destino desde Actions.
+
+**La imagen que sale es la que aprobaste:** al aprobar se guarda la huella del archivo de imagen. Si después se regenera (por una ilustración nueva o un cambio de plantilla), la pieza queda en espera y verás «Aprobar imagen actual» en Versiones por red; hasta que lo pulses no se publica.
+
+**Estado:** el flujo de publicación y reconciliación en Facebook está probado con simulaciones y pendiente de validación real. La primera publicación en Facebook será una pieza concreta aprobada expresamente.
