@@ -1,7 +1,7 @@
 {
   "id": "2026-09-10-0959-luiseskivelgolcher-wired-3cbb",
   "cuenta": "luiseskivelgolcher",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "WIRED",
     "url": "https://www.wired.com/story/clearview-ai-is-testing-an-ai-tool-that-lets-cops-instantly-unearth-your-online-activity/",
@@ -178,7 +178,11 @@
     ]
   },
   "programado": "2026-09-10T13:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "18215615350355192",
+    "permalink": "https://www.instagram.com/p/DdHcfgLIFzl/",
+    "fecha": "2026-09-10T18:08:12.437Z"
+  },
   "error": null,
   "creado": "2026-09-10T14:59:41.859Z",
   "actualizado": "2026-09-10T18:08:12.437Z",
@@ -199,24 +203,15 @@
           "ea846ffdd8f2e51866dc8a85739d2c1ff5417f1b"
         ]
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-09-10T18:08:12.437Z",
-        "actualizado": "2026-09-10T18:08:12.437Z",
-        "contenedorId": "18590822041064913",
-        "hijos": [
-          "18590821909064913",
-          "18590821933064913",
-          "18590821951064913",
-          "18590821975064913",
-          "18590821999064913",
-          "18590822020064913"
-        ]
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18215615350355192",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/DdHcfgLIFzl/",
+        "fecha": "2026-09-10T18:08:12.437Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
