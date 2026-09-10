@@ -1,6 +1,7 @@
 name: Renovar token de Instagram
 
-# Cada lunes a las 9:00 de Panamá (14:00 UTC). El token dura 60 días.
+# Cada lunes a las 9:00 de Panamá (14:00 UTC). El token dura 60 días. Multicanal (F2): en el job por Environment se
+# refresca también THREADS_ACCESS_TOKEN (token de Threads, 60 días) de las cuentas con perfil de Threads declarado.
 # Fase 2: un job por cuenta. El token renovado se guarda donde vive el actual: en el Environment cuenta-<id>
 # (modo "entorno") o en el secreto de repositorio con el nombre declarado (modo "repositorio"). Requiere GH_PAT:
 # permiso "Environments: write" para secretos de entorno y "Secrets: write" para secretos de repositorio
@@ -71,6 +72,7 @@ jobs:
       ENTORNO: ${{ matrix.entorno }}
       IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
       IG_USER_ID: ${{ secrets.IG_USER_ID }}
+      THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
     steps:
       - name: Descargar el repositorio
         uses: actions/checkout@v4
@@ -110,6 +112,17 @@ jobs:
           gh secret set IG_ACCESS_TOKEN --env "$ENTORNO" --repo "$GITHUB_REPOSITORY" < "$f"
           rm -f "$f"
           echo "Secreto IG_ACCESS_TOKEN del Environment $ENTORNO actualizado."
+
+      # Multicanal (F2): solo existe el archivo si la cuenta tiene perfil de Threads declarado y su token se refrescó.
+      - name: Guardar el token renovado de Threads en el Environment de la cuenta
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+        run: |
+          f="temp/nuevo-token-THREADS_ACCESS_TOKEN.txt"
+          if [ ! -f "$f" ]; then echo "No hay token de Threads que guardar."; exit 0; fi
+          gh secret set THREADS_ACCESS_TOKEN --env "$ENTORNO" --repo "$GITHUB_REPOSITORY" < "$f"
+          rm -f "$f"
+          echo "Secreto THREADS_ACCESS_TOKEN del Environment $ENTORNO actualizado."
 
       - name: Guardar la fecha de vencimiento
         run: |

@@ -91,6 +91,12 @@ export function erroresDeCuenta(d, { idsExistentes = [], editando = false } = {}
   const pagina = String(d.facebookPagina ?? "").trim();
   if (pagina && !/^\d+$/.test(pagina)) e.push("facebookPagina: el id de la página de Facebook es numérico");
   else if (d.facebookPublicar === true && !pagina) e.push("facebookPagina: indica el id numérico de la página para encender Facebook");
+  // Multicanal (F2): el perfil de Threads por su id numérico (distinto del de Instagram) y, opcional, su nombre de usuario.
+  const thUsuario = String(d.threadsUsuario ?? "").trim();
+  if (thUsuario && !/^\d+$/.test(thUsuario)) e.push("threadsUsuario: el id del perfil de Threads es numérico");
+  else if (d.threadsPublicar === true && !thUsuario) e.push("threadsUsuario: indica el id numérico del perfil de Threads para encender Threads");
+  const thPerfil = String(d.threadsPerfil ?? "").trim().replace(/^@/, "");
+  if (thPerfil && !/^[A-Za-z0-9._]{1,64}$/.test(thPerfil)) e.push("threadsPerfil: el nombre de usuario de Threads solo lleva letras, números, puntos o guiones bajos");
   return e;
 }
 
@@ -175,15 +181,30 @@ export function configDesdeFormulario(d, base = null) {
     else if (base?.automatico?.pausa === true) auto.pausa = true;
     config.automatico = auto;
   }
+  const conexiones = { ...(base?.conexiones || {}) };
   const fbBase = base?.conexiones?.facebook || null;
   const fbPagina = String(d.facebookPagina ?? fbBase?.pagina ?? "").trim();
   const fbPublicar = typeof d.facebookPublicar === "boolean" ? d.facebookPublicar : fbBase?.publicar === true;
   if (fbPagina || fbPublicar || fbBase) {
-    config.conexiones = { ...(base?.conexiones || {}), facebook: { ...(fbBase || {}), publicar: fbPublicar, ...(fbPagina ? { pagina: fbPagina } : {}) } };
-    if (!fbPagina) delete config.conexiones.facebook.pagina;
+    conexiones.facebook = { ...(fbBase || {}), publicar: fbPublicar, ...(fbPagina ? { pagina: fbPagina } : {}) };
+    if (!fbPagina) delete conexiones.facebook.pagina;
   } else {
-    delete config.conexiones;
+    delete conexiones.facebook;
   }
+  // F2: perfil de Threads (id numérico y nombre de usuario esperado, sin @). Vaciar un campo lo quita; nada se inventa.
+  const thBase = base?.conexiones?.threads || null;
+  const thUsuario = String(d.threadsUsuario ?? thBase?.usuario ?? "").trim();
+  const thPerfil = String(d.threadsPerfil ?? thBase?.perfil ?? "").trim().replace(/^@/, "");
+  const thPublicar = typeof d.threadsPublicar === "boolean" ? d.threadsPublicar : thBase?.publicar === true;
+  if (thUsuario || thPerfil || thPublicar || thBase) {
+    conexiones.threads = { ...(thBase || {}), publicar: thPublicar, ...(thUsuario ? { usuario: thUsuario } : {}), ...(thPerfil ? { perfil: thPerfil } : {}) };
+    if (!thUsuario) delete conexiones.threads.usuario;
+    if (!thPerfil) delete conexiones.threads.perfil;
+  } else {
+    delete conexiones.threads;
+  }
+  if (Object.keys(conexiones).length) config.conexiones = conexiones;
+  else delete config.conexiones;
   return config;
 }
 
@@ -215,6 +236,9 @@ export function formularioDesdeConfig(id, c, editorialMd = "") {
     pausa: c.automatico?.pausa === true,
     facebookPublicar: c.conexiones?.facebook?.publicar === true,
     facebookPagina: String(c.conexiones?.facebook?.pagina ?? ""),
+    threadsPublicar: c.conexiones?.threads?.publicar === true,
+    threadsUsuario: String(c.conexiones?.threads?.usuario ?? ""),
+    threadsPerfil: String(c.conexiones?.threads?.perfil ?? ""),
     editorialMd,
   };
 }
@@ -522,9 +546,16 @@ export function borradorDesdeFormulario(entrada, { cuenta, zona = ZONA_POR_DEFEC
   };
 }
 
-// --- Multicanal (F1): conexiones por red (Facebook) ------------------------------------------------------------------
+// --- Multicanal: conexiones por red (F1 Facebook, F2 Threads) ---------------------------------------------------------
 import { REDES_CONEXION, SECRETOS_RED, IDENTIFICADOR_RED, conexionDe, identificadorDe } from "./conexiones.mjs";
 import { NOMBRES_RED } from "./destinos.mjs";
+
+// Cómo se nombra lo que identifica cada red en los textos del panel.
+const SUJETO_RED = Object.freeze({
+  facebook: { que: "página", articulo: "la", del: "de la", verificado: "verificada" },
+  threads: { que: "perfil de Threads", corto: "perfil", articulo: "el", del: "del", verificado: "verificado" },
+});
+const sujetoDe = (red) => SUJETO_RED[red] || { que: "perfil", corto: "perfil", articulo: "el", del: "del", verificado: "verificado" };
 
 // Redes con conexión propia de una cuenta, con su interruptor e identificador público (para tarjetas y formulario).
 export function conexionesDeCuenta(config) {
@@ -540,20 +571,22 @@ export function estadoConexionRed({ conexion = null, config = null, id = "", red
   if (origenDe(config) !== "entorno") {
     return { clave: "pendiente-configuracion", texto: `${nombre}: pendiente de configuración (las conexiones nuevas solo existen en modo Environment)`, detalle: `Cambia el origen de las credenciales de la cuenta a Environment ${nombreEntorno(id || "cuenta")} y verifica de nuevo Instagram; después podrás conectar ${nombre}.`, fecha: null, antigua: false };
   }
-  const c = conexion || {};
+  // Un registro de otra red (p. ej. el de Facebook leído por error para Threads) no vale como verificación.
+  const c = conexion && (!conexion.red || conexion.red === red) ? conexion : {};
+  const s = sujetoDe(red);
   const fecha = c.comprobado || c.solicitada || null;
   const cuando = fecha ? ` el ${fechaCortaUtc(fecha)} UTC` : "";
   const esperado = identificadorDe(config, red);
   if (c.estado === "verificada") {
     const idVerificado = c.identidad?.id ? String(c.identidad.id) : "";
     if (esperado && idVerificado && idVerificado !== String(esperado)) {
-      return { clave: "pendiente", texto: `${nombre}: pendiente de verificación: la página cambió (${idVerificado} → ${esperado}); la verificación${cuando} ya no vale`, detalle: `Verifica de nuevo ${nombre} con la página actual.`, fecha, antigua: true };
+      return { clave: "pendiente", texto: `${nombre}: pendiente de verificación: ${s.articulo} ${s.corto || s.que} cambió (${idVerificado} → ${esperado}); la verificación${cuando} ya no vale`, detalle: `Verifica de nuevo ${nombre} con ${s.articulo} ${s.corto || s.que} actual.`, fecha, antigua: true };
     }
     const dias = diasDesde(fecha, ahora);
     const antigua = dias !== null && dias > DIAS_VERIFICACION_ANTIGUA;
     return {
       clave: "verificada",
-      texto: `${nombre}: página «${c.identidad?.nombre || esperado || "?"}» (${idVerificado || esperado || "?"}) verificada${cuando}${dias !== null && dias >= 1 ? ` · hace ${dias} día${dias === 1 ? "" : "s"}` : ""}`,
+      texto: `${nombre}: ${s.corto || s.que} «${c.identidad?.nombre || esperado || "?"}» (${idVerificado || esperado || "?"}) ${s.verificado}${cuando}${dias !== null && dias >= 1 ? ` · hace ${dias} día${dias === 1 ? "" : "s"}` : ""}`,
       detalle: `Una verificación pasada no garantiza que la conexión siga válida: vuelve a verificar antes de encender ${nombre} o si cambia el token.`,
       fecha, antigua,
     };
@@ -569,7 +602,8 @@ export function requisitosPublicacionRed({ config, id = "", red, conexion = null
   const nombre = NOMBRES_RED[red] || red;
   const faltan = [];
   if (config?.archivada === true) faltan.push(`la cuenta está archivada: reactívala antes de encender ${nombre}`);
-  if (!identificadorDe(config, red)) faltan.push(`falta el identificador de la página (conexiones.${red}.${IDENTIFICADOR_RED[red] || "usuario"}): guárdalo en el formulario de la cuenta`);
+  const s = sujetoDe(red);
+  if (!identificadorDe(config, red)) faltan.push(`falta el id ${s.del} ${s.que} (conexiones.${red}.${IDENTIFICADOR_RED[red] || "usuario"}): guárdalo en el formulario de la cuenta`);
   const estado = estadoConexionRed({ conexion, config, id, red, ahora });
   if (estado.clave !== "verificada") faltan.push(`hace falta verificar la conexión con ${nombre} con el workflow Probar destino (${estado.texto})`);
   return faltan;
@@ -588,9 +622,20 @@ export function guiaConexionRed({ config, id, red, owner = null, repo = null }) 
     meta: "https://developers.facebook.com/apps/",
     explorador: "https://developers.facebook.com/tools/explorer/",
     depurador: "https://developers.facebook.com/tools/debug/accesstoken/",
+    threads: "https://www.threads.com/settings/account",
+    docsThreads: "https://developers.facebook.com/docs/threads/get-started",
   };
   const pagina = identificadorDe(config, red) || "(id de la página)";
-  const pasos = red === "facebook" ? [
+  const perfilTh = conexionDe(config, "threads").perfil ? `@${String(conexionDe(config, "threads").perfil).replace(/^@/, "")}` : "de Threads de esta cuenta";
+  const pasos = red === "threads" ? [
+    "Ten el perfil de Threads de la cuenta (va unido a su cuenta de Instagram) y una sesión abierta con él en threads.com o en la app.",
+    "En Meta for Developers, en la app de esta cuenta: Casos de uso → Añadir caso de uso → «Access the Threads API». Meta crea un Threads App ID propio y pide los permisos threads_basic y threads_content_publish (Customize → añádelos si no están).",
+    `App roles → Roles → Add People → rol Threads Tester (lista Threads Testers): invita al perfil ${perfilTh}. Después, en Threads → Configuración → Cuenta → Permisos de sitios web (Website permissions) → Invitaciones, acepta la invitación.`,
+    "De vuelta en la app: Casos de uso → Access the Threads API → Customize → Settings → «User Token Generator»: junto al perfil aceptado pulsa Generate Token, confirma con la sesión de Threads y copia el token (dura 60 días; el workflow Renovar token lo refresca cada lunes).",
+    `En GitHub → Settings → Environments → ${entorno} → Add environment secret: ${secretos[0]} (pega ahí el token). Aquí no se guardan valores, solo el nombre.`,
+    `Lanza Actions → Probar destino → Run workflow con cuenta = ${id} y red = threads (o pulsa Verificar Threads en la tarjeta). Si aún no guardaste el id numérico del perfil (es distinto del id de Instagram), el resultado lo muestra: guárdalo con el nombre de usuario en el formulario de la cuenta (Editar → Perfil de Threads) y repite la verificación.`,
+    "Con la identidad verificada, enciende Threads desde la tarjeta. Es independiente de Instagram y Facebook: se puede publicar solo en Threads. El texto de Threads admite 500 caracteres (los emojis cuentan por sus bytes): si una versión excede, el panel la bloquea y nunca la recorta.",
+  ] : red === "facebook" ? [
     "Ten una página de Facebook y sé su administrador (Meta Business Suite → Páginas). Si la marca no tiene página, créala.",
     "En Meta for Developers, en la app de tipo empresa de esta cuenta: Casos de uso → añade «Facebook Login for Business» si no está y crea una configuración con tipo de token «Usuario» y permisos pages_show_list, pages_manage_posts y pages_read_engagement.",
     "En el Explorador de la API Graph (herramienta oficial, con tu sesión de administrador): elige la app, marca esos tres permisos y pulsa Generar token de acceso.",

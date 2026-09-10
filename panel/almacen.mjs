@@ -2,7 +2,7 @@
 // Todo lo que se escribe pasa por bloqueo optimista (sha): si el archivo cambió (bot u otro panel), se avisa y no se pisa.
 // Multicanal (F1): redes con conexión propia (misma lista que src/lib/conexiones.mjs; aquí sin import para que el
 // módulo siga cargando en Node y en el navegador sin la carpeta lib).
-const REDES_CONEXION = ["facebook"];
+const REDES_CONEXION = ["facebook", "threads"];
 export function base64Utf8(texto) {
   const bytes = new TextEncoder().encode(texto);
   let bin = "";

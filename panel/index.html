@@ -160,6 +160,13 @@
       <label class="casilla"><input id="fc-fb-publicar" type="checkbox"> <span>Publicación automática en la página de Facebook</span></label>
       <small>Nace apagada. Requiere identidad verificada de la página (workflow Probar destino). Es independiente del interruptor de Instagram: se puede publicar solo en Facebook. Al aprobar una pieza eliges sus destinos y revisas la versión de cada red.</small>
     </fieldset>
+    <fieldset id="fc-threads">
+      <legend>Perfil de Threads (multicanal)</legend>
+      <label>Id numérico del perfil de Threads <input id="fc-th-usuario" autocomplete="off" inputmode="numeric" placeholder="p. ej. 17841400000000000"><small>Es distinto del id de Instagram. Si aún no lo tienes, el workflow Probar destino (red <code>threads</code>) lo muestra. El token se guarda en GitHub como <code>THREADS_ACCESS_TOKEN</code> del Environment <code>cuenta-&lt;id&gt;</code>, nunca aquí.</small></label>
+      <label>Nombre de usuario esperado en Threads <input id="fc-th-perfil" autocomplete="off" spellcheck="false" placeholder="p. ej. luiseskivelgolcher"><small>Opcional. Si se indica, la verificación exige que el token pertenezca a ese usuario.</small></label>
+      <label class="casilla"><input id="fc-th-publicar" type="checkbox"> <span>Publicación automática en Threads</span></label>
+      <small>Nace apagada. Requiere identidad verificada del perfil (workflow Probar destino). Independiente de Instagram y de Facebook. El texto de Threads admite 500 caracteres (los emojis cuentan por sus bytes UTF-8); si una versión excede, el panel la bloquea y nunca la recorta.</small>
+    </fieldset>
     <p class="error-texto" id="form-errores" hidden></p>
     <div class="acciones">
       <button class="boton primario" id="fc-guardar" type="submit">Guardar</button>

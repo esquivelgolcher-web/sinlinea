@@ -734,7 +734,7 @@ function tarjetaCuenta(c) {
       for (const cx of conexionesDeCuenta(cfg)) {
         const estadoRed = estadoConexionRed({ conexion: c.conexiones?.[cx.red]?.conexion || null, config: cfg, id: c.id, red: cx.red, ahora: new Date() });
         acciones.append(el("button", { type: "button", class: "boton", "data-accion": `verificar-${cx.red}`, text: `Verificar ${cx.nombre}`, disabled: estadoRed.clave === "pendiente-configuracion" ? "" : null, title: `Lanza el workflow Probar destino para ${cx.nombre}`, onclick: () => verificarIdentidad(c.id, cx.red) }));
-        acciones.append(el("button", { type: "button", class: "boton", "data-accion": `conexion-${cx.red}`, text: cx.publicar ? `Pausar ${cx.nombre}` : `Encender ${cx.nombre}`, title: cx.publicar ? `Las entregas para ${cx.nombre} quedan en espera; no se omiten` : `Exige identidad verificada de la página; el interruptor de Instagram no cambia`, onclick: () => cambiarConexionRed(c.id, cx.red, !cx.publicar) }));
+        acciones.append(el("button", { type: "button", class: "boton", "data-accion": `conexion-${cx.red}`, text: cx.publicar ? `Pausar ${cx.nombre}` : `Encender ${cx.nombre}`, title: cx.publicar ? `Las entregas para ${cx.nombre} quedan en espera; no se omiten` : `Exige identidad verificada de ${cx.red === "threads" ? "l perfil" : " la página"}; los demás interruptores no cambian`, onclick: () => cambiarConexionRed(c.id, cx.red, !cx.publicar) }));
       }
       acciones.append(el("button", { type: "button", class: "boton", "data-accion": "pausa", text: auto.pausa ? "Reanudar todo" : "Pausar todo", title: auto.pausa ? "Las entregas en espera salen en la próxima corrida" : "Pausa general: nada sale en ninguna red; los interruptores conservan su valor", onclick: () => cambiarPausa(c.id, !auto.pausa) }));
       acciones.append(el("button", { type: "button", class: "boton", text: "Métricas", onclick: () => { seleccionarCuenta(c.id); mostrarVista("metricas"); } }));
@@ -753,12 +753,18 @@ function tarjetaCuenta(c) {
     filasRedes.push(el("span", { class: `estado conexion-${estadoRed.clave}`, text: estadoRed.texto }));
     if (estadoRed.clave !== "verificada" && !archivada) {
       const g = guiaConexionRed({ config: cfg, id: c.id, red: cx.red, owner: repo?.owner || null, repo: repo?.repo || null });
-      guiasRedes.push(el("details", { class: "guia-red" }, [
+      const notaRed = cx.red === "threads"
+        ? "El token se genera en el User Token Generator de la app de Meta (perfil invitado como Threads Tester) y se pega en GitHub. Aquí solo van nombres y enlaces; ningún valor pasa por el panel ni por inputs de workflows. Threads (F2) está probado solo con simulaciones: la primera publicación real será una pieza aprobada expresamente."
+        : "El token de página se obtiene en las herramientas de Meta y se pega en GitHub. Aquí solo van nombres y enlaces; ningún valor pasa por el panel ni por inputs de workflows. La publicación en Facebook está validada con la API real (10 de septiembre de 2026); la reconciliación de resultados inciertos sigue probada solo con simulaciones.";
+      const enlacesRed = cx.red === "threads"
+        ? [enlace(g.enlaces.meta, "Apps de Meta for Developers"), enlace(g.enlaces.threads, "Ajustes de Threads (Website permissions)"), enlace(g.enlaces.docsThreads, "Documentación de la Threads API")]
+        : [enlace(g.enlaces.explorador, "Explorador de la API Graph"), enlace(g.enlaces.depurador, "Depurador de tokens")];
+      guiasRedes.push(el("details", { class: "guia-red", "data-red": cx.red }, [
         el("summary", { text: `Guía de conexión con ${cx.nombre} · Environment ${g.entorno} · ${g.secretos.join(", ")}` }),
-        el("p", { class: "nota", text: "El token de página se obtiene en las herramientas de Meta y se pega en GitHub. Aquí solo van nombres y enlaces; ningún valor pasa por el panel ni por inputs de workflows. La publicación en Facebook está validada con la API real (10 de septiembre de 2026); la reconciliación de resultados inciertos sigue probada solo con simulaciones." }),
+        el("p", { class: "nota", text: notaRed }),
         estadoRed.detalle ? el("p", { class: "cuenta-detalle", text: estadoRed.detalle }) : "",
         el("ol", {}, g.pasos.map((p) => el("li", { text: p }))),
-        el("p", { class: "enlaces" }, [enlace(g.enlaces.explorador, "Explorador de la API Graph"), enlace(g.enlaces.depurador, "Depurador de tokens"), enlace(g.enlaces.entorno, `Environments del repositorio`), enlace(g.enlaces.probar, "Workflow Probar destino")]),
+        el("p", { class: "enlaces" }, [...enlacesRed, enlace(g.enlaces.entorno, `Environments del repositorio`), enlace(g.enlaces.probar, "Workflow Probar destino")]),
       ]));
     }
   }
@@ -1062,6 +1068,9 @@ function leerFormulario() {
     pausa: $("fc-pausa").checked,
     facebookPublicar: $("fc-fb-publicar").checked,
     facebookPagina: $("fc-fb-pagina").value.trim(),
+    threadsPublicar: $("fc-th-publicar").checked,
+    threadsUsuario: $("fc-th-usuario").value.trim(),
+    threadsPerfil: $("fc-th-perfil").value.trim(),
   };
 }
 
@@ -1093,6 +1102,9 @@ function rellenarFormulario(d) {
   $("fc-pausa").checked = d.pausa === true;
   $("fc-fb-publicar").checked = d.facebookPublicar === true;
   $("fc-fb-pagina").value = d.facebookPagina || "";
+  $("fc-th-publicar").checked = d.threadsPublicar === true;
+  $("fc-th-usuario").value = d.threadsUsuario || "";
+  $("fc-th-perfil").value = d.threadsPerfil || "";
   $("fc-requisitos").hidden = true;
   $("fc-logo").value = "";
   $("fc-logo-previa").replaceChildren();

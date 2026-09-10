@@ -1,4 +1,4 @@
-// PUBLICAR: posts programados con hora cumplida → sus destinos (Instagram y, en F1, páginas de Facebook).
+// PUBLICAR: posts programados con hora cumplida → sus destinos (Instagram; F1: páginas de Facebook; F2: perfiles de Threads).
 // Reglas (docs/superpowers/specs/2026-09-09-multicanal-design.md §3.4 y §4): cada destino se reserva y se SUBE al remoto
 // antes de enviar; un fallo en una red no bloquea a las demás; un publicado nunca se repite; un incierto se conserva
 // hasta reconciliar con evidencia (ids de contenedor) o decidirlo a mano; apagar una red no omite su entrega.
@@ -10,6 +10,7 @@ import { leerPosts, escribirPost, CUENTA_LEGADO } from "./lib/posts.mjs";
 import { marcarError, imagenDesactualizada } from "./lib/estados.mjs";
 import { crearClienteInstagram } from "./lib/instagram.mjs";
 import { crearClienteFacebook } from "./lib/facebook.mjs";
+import { crearClienteThreads } from "./lib/threads.mjs";
 import { claveDia } from "./lib/fechas.mjs";
 import { ocultarSecretos, leerSecretos, leerSecretosDeRed, nombresDeSecretos, origenDeSecretos, describirCredenciales } from "./lib/secretos.mjs";
 import { todasFallaron, anotarFallos, resumirResultados } from "./lib/corrida.mjs";
@@ -19,7 +20,7 @@ import {
 } from "./lib/destinos.mjs";
 import { descargarHuella } from "./lib/huella.mjs";
 import { proponerVersion, medirVersion } from "./lib/versiones.mjs";
-import { REDES_CONEXION, destinosEncendidos, pausaGeneral, identificadorDe } from "./lib/conexiones.mjs";
+import { REDES_CONEXION, destinosEncendidos, pausaGeneral, identificadorDe, conexionDe } from "./lib/conexiones.mjs";
 import { esIncierto } from "./lib/incierto.mjs";
 import { persistenciaLocal, crearPersistenciaGit } from "./lib/persistencia.mjs";
 
@@ -68,12 +69,13 @@ export async function reconciliarDestino({ red, cliente, destino, intento }) {
     }
     return { resultado: "pendiente", reanudarCon: existe ? cid : null };
   }
-  if (red === "instagram") {
+  if (red === "instagram" || red === "threads") {
+    // Misma forma en Instagram y Threads: el contenedor conserva su estado y, publicado, el mismo id da el medio y su enlace.
     const e = await cliente.estadoContenedor(cid);
     if (e.estado === "PUBLISHED") {
       const medio = typeof cliente.medioPorContenedor === "function" ? await cliente.medioPorContenedor(cid) : null;
       if (medio) return { resultado: "publicado", publicacion: { id: medio.idMedia, permalink: medio.permalink } };
-      return { resultado: "incierto", motivo: `Instagram confirma que el contenedor ${cid} se publicó (PUBLISHED) pero no expone el enlace: márcalo como publicado desde el panel con el enlace de la app` };
+      return { resultado: "incierto", motivo: `${NOMBRES_RED[red]} confirma que el contenedor ${cid} se publicó (PUBLISHED) pero no expone el enlace: márcalo como publicado desde el panel con el enlace de la app` };
     }
     if (e.estado === "FINISHED") return { resultado: "pendiente", reanudarCon: cid };
     if (e.estado === "IN_PROGRESS") return { resultado: "incierto", motivo: `el contenedor ${cid} sigue en proceso (IN_PROGRESS); se vuelve a comprobar en la próxima corrida` };
@@ -121,6 +123,13 @@ export async function ejecutarPublicar({ config, raiz = process.cwd(), ahora = n
       ok = usuario === esperado && perfil.coincideId !== false;
       detalle = `la credencial pertenece a @${perfil.username || "?"}${perfil.coincideId === false ? " (id numérico distinto al secreto)" : ""}; se esperaba ${config.marca.usuario}`;
       resumen.identidad = ok ? "ok" : detalle;
+    } else if (red === "threads") {
+      const cx = conexionDe(config, "threads");
+      const esperado = String(cx.perfil || "").replace(/^@/, "").toLowerCase();
+      const usuario = String(perfil.username || "").toLowerCase();
+      ok = perfil.coincideId !== false && (!esperado || usuario === esperado);
+      detalle = `la credencial pertenece al perfil @${perfil.username || "?"} (${perfil.id || "?"}); se esperaba ${perfil.coincideId === false ? `el perfil ${cx.usuario || "(sin id)"}` : `@${esperado}`}`;
+      resumen.identidadRedes = { ...(resumen.identidadRedes || {}), [red]: ok ? "ok" : detalle };
     } else {
       ok = perfil.coincideId !== false;
       detalle = `la credencial pertenece a la página ${perfil.nombre || "?"} (${perfil.id || "?"}); se esperaba la página ${identificadorDe(config, red) || "(sin id)"}`;
@@ -130,13 +139,13 @@ export async function ejecutarPublicar({ config, raiz = process.cwd(), ahora = n
     identidad[red] = ok;
     return ok;
   }
-  let cuotaIg = null;
-  async function hayCuotaIg() {
-    if (cuotaIg === null) {
-      const q = typeof todosClientes.instagram?.cuota === "function" ? await todosClientes.instagram.cuota() : { usados: 0, limite: 100 };
-      cuotaIg = { ...q, disponibles: q.limite - q.usados };
-    }
-    return cuotaIg.disponibles > 0;
+  // Cuota de publicación por red (Instagram y Threads la exponen), una consulta por corrida; agotada, la entrega espera.
+  const cuotas = {};
+  async function hayCuota(red) {
+    const cliente = todosClientes[red];
+    if (!cliente || typeof cliente.cuota !== "function") return true;
+    if (!cuotas[red]) { const q = await cliente.cuota(); cuotas[red] = { ...q, disponibles: q.limite - q.usados }; }
+    return cuotas[red].disponibles > 0;
   }
   const clienteImagen = () => Object.values(todosClientes).find((c) => c && typeof c.imagenPublica === "function") || null;
   // Huella del archivo que se sirve en la URL pública (lo que van a leer las redes), una descarga por pieza y corrida.
@@ -216,6 +225,18 @@ export async function ejecutarPublicar({ config, raiz = process.cwd(), ahora = n
         await persistirIntermedio(red, "enviando");
         return cliente.publicarContenedor({ contenedorId, texto });
       }
+      if (red === "threads") {
+        if (!contenedorId) {
+          contenedorId = await cliente.crearContenedor({ imageUrl, texto });
+          post = avanzarIntento(post, red, { fase: "contenedor", contenedorId }, iso);
+          await persistirIntermedio(red, "contenedor");
+          await cliente.esperarContenedor(contenedorId);
+        }
+        post = avanzarIntento(post, red, { fase: "enviando", contenedorId }, iso);
+        await persistirIntermedio(red, "enviando");
+        const r = await cliente.publicarContenedor(contenedorId);
+        return { id: String(r.idMedia), permalink: r.permalink || "" };
+      }
       throw new Error(`Red sin cliente de publicación: ${red}`);
     }
 
@@ -290,9 +311,9 @@ export async function ejecutarPublicar({ config, raiz = process.cwd(), ahora = n
           continue;
         }
       }
-      if (red === "instagram" && !(await hayCuotaIg())) {
+      if (!(await hayCuota(red))) {
         estadoDestinos[red] = "cuota";
-        log.warn(`Cuota de Instagram agotada (${cuotaIg.usados}/${cuotaIg.limite}); ${post.id} espera.`);
+        log.warn(`Cuota de ${NOMBRES_RED[red]} agotada (${cuotas[red].usados}/${cuotas[red].limite}); ${post.id} espera.`);
         continue;
       }
       if (dryRun) { log.info(`[dry-run] Publicaría ${post.id} en ${NOMBRES_RED[red]}: ${post.titular}`); estadoDestinos[red] = "dry-run"; continue; }
@@ -335,7 +356,7 @@ export async function ejecutarPublicar({ config, raiz = process.cwd(), ahora = n
         const publicado = await enviar(red, cliente, texto, reanudarCon);
         post = marcarDestinoPublicado(post, red, publicado, iso);
         estadoDestinos[red] = "publicado";
-        if (red === "instagram" && cuotaIg) cuotaIg.disponibles -= 1;
+        if (cuotas[red]) cuotas[red].disponibles -= 1;
         log.info(`Publicado ${post.id} en ${NOMBRES_RED[red]}: ${publicado.permalink || publicado.idPublicacion || publicado.id}`);
       } catch (err) {
         if (err.persistencia) {
@@ -427,9 +448,10 @@ async function main() {
     return crearClienteInstagram({ token, usuarioId, apiVersion: config.instagram.apiVersion });
   };
   const clientesDe = (config, red, secretos) => {
-    if (red !== "facebook") throw new Error(`Red sin cliente: ${red}`);
     if (dryRun && !secretos) return { imagenPublica: async () => true };
-    return crearClienteFacebook({ token: secretos.token, paginaId: identificadorDe(config, "facebook"), apiVersion: config.instagram.apiVersion });
+    if (red === "facebook") return crearClienteFacebook({ token: secretos.token, paginaId: identificadorDe(config, "facebook"), apiVersion: config.instagram.apiVersion });
+    if (red === "threads") return crearClienteThreads({ token: secretos.token, usuarioId: identificadorDe(config, "threads") });
+    throw new Error(`Red sin cliente: ${red}`);
   };
   const persistenciaDe = () => (dryRun ? persistenciaLocal() : crearPersistenciaGit({ raiz: process.cwd(), log: console }));
   const r = await publicarCuentas({ configuracion, dryRun, igDe, clientesDe, persistenciaDe, soloCuenta, porCuenta, env: dryRun ? null : process.env });

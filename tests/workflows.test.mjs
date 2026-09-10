@@ -155,7 +155,8 @@ test("(fase 2) el job cuentas comprueba los Environments por la API con GH_PAT y
     const indiceNode = entorno.steps.findIndex((st) => /node src\//.test(st.run || ""));
     assert.ok(indiceGuardia < indiceNode, `${archivo}: la comprobación va antes de contactar con Instagram`);
     // Multicanal (F1): el job de PUBLICAR recibe además el secreto de Facebook del MISMO Environment (misma cuenta, otra red).
-    const esperados = archivo === "publicar" ? ["IG_ACCESS_TOKEN", "IG_USER_ID", "FB_PAGE_TOKEN"] : ["IG_ACCESS_TOKEN", "IG_USER_ID"];
+    // F2: THREADS_ACCESS_TOKEN también en PUBLICAR y en la renovación semanal (mismo Environment, otra red).
+    const esperados = archivo === "publicar" ? ["IG_ACCESS_TOKEN", "IG_USER_ID", "FB_PAGE_TOKEN", "THREADS_ACCESS_TOKEN"] : archivo === "renovar-token" ? ["IG_ACCESS_TOKEN", "IG_USER_ID", "THREADS_ACCESS_TOKEN"] : ["IG_ACCESS_TOKEN", "IG_USER_ID"];
     assert.deepEqual(Object.keys(entorno.env).filter((k) => !["CUENTA", "ENTORNO"].includes(k)), esperados, `${archivo}: el job de entorno no recibe GH_PAT ni credenciales de otras cuentas`);
   }
 });

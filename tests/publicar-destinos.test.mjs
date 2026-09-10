@@ -353,3 +353,197 @@ test("(multicanal) aislamiento: el cliente de Facebook se crea solo con el secre
   const r2 = await publicarCuentas({ configuracion: cargarConfiguracion(raiz), raiz, ahora, log, soloCuenta: "prueba", porCuenta: true, env: { IG_ACCESS_TOKEN: env.IG_ACCESS_TOKEN, IG_USER_ID: "9" }, igDe: () => igFalso(), clientesDe: () => { throw new Error("no debe crearse"); }, persistenciaDe: () => persistenciaSimulada(raiz) });
   assert.equal(r2.resultados.prueba.error, undefined);
 });
+
+// --- F2 · Threads ---------------------------------------------------------------------------------------------------
+function thFalso({ fallo = null, estadoContenedor = "FINISHED", medio = null, cuota = { usados: 0, limite: 250 }, perfil = { id: "555", username: "prueba.diario", coincideId: true }, alPublicar = null } = {}) {
+  const llamadas = [];
+  return {
+    llamadas,
+    perfil: async () => perfil,
+    cuota: async () => cuota,
+    imagenPublica: async () => true,
+    crearContenedor: async ({ imageUrl, texto }) => { llamadas.push(["crearContenedor", imageUrl, texto]); return "t1"; },
+    esperarContenedor: async (id) => { llamadas.push(["esperar", id]); },
+    publicarContenedor: async (id) => { llamadas.push(["publicarContenedor", id]); if (alPublicar) alPublicar(); if (fallo) throw fallo; return { idMedia: "tm1", permalink: "https://www.threads.net/@prueba.diario/post/tm1" }; },
+    estadoContenedor: async (id) => { llamadas.push(["estadoContenedor", id]); return { estado: estadoContenedor, detalle: "" }; },
+    medioPorContenedor: async (id) => { llamadas.push(["medioPorContenedor", id]); return medio; },
+  };
+}
+const cfgTh = { ...cfgFb, conexiones: { ...cfgFb.conexiones, threads: { publicar: true, usuario: "555", perfil: "prueba.diario" } } };
+const versiones3 = { ...versiones, threads: "Texto TH\n\nFuente: La Prensa" };
+const tresClientes = (extra = {}) => ({ facebook: fbFalso(), threads: thFalso(), ...extra });
+
+test("(F2) una pieza con Instagram, Facebook y Threads sale en las tres redes; Threads persiste el contenedor y la fase enviando antes de publicar con creation_id y guarda id y enlace", async () => {
+  const p = piezaMulticanal("00d1", versiones3);
+  const raiz = raizCon([p]);
+  const th = thFalso();
+  const pers = persistenciaSimulada(raiz);
+  const r = await ejecutarPublicar({ config: cfgTh, raiz, ahora, ig: igFalso(), clientes: { facebook: fbFalso(), threads: th }, persistencia: pers, log });
+  assert.deepEqual(r.publicados, [p.id]);
+  assert.deepEqual(th.llamadas, [["crearContenedor", p.imagen.url, "Texto TH\n\nFuente: La Prensa"], ["esperar", "t1"], ["publicarContenedor", "t1"]]);
+  const g = leer(raiz, p.id);
+  assert.equal(g.estado, "publicado");
+  assert.equal(g.destinos.threads.estado, "publicado");
+  assert.equal(g.destinos.threads.publicacion.id, "tm1");
+  assert.equal(g.destinos.threads.publicacion.permalink, "https://www.threads.net/@prueba.diario/post/tm1");
+  assert.equal(g.destinos.threads.intento, null);
+  const fases = guardadosDe(pers, p.id).map((s) => s?.destinos?.threads?.intento?.fase).filter(Boolean);
+  assert.deepEqual(fases, ["reservado", "contenedor", "enviando"], "reserva, contenedor y enviando suben al remoto antes de la llamada que publica");
+  assert.ok(guardadosDe(pers, p.id).some((s) => s?.destinos?.threads?.intento?.fase === "contenedor" && s.destinos.threads.intento.contenedorId === "t1"));
+});
+
+test("(F2) aislamiento: solo Threads encendido (Instagram y Facebook apagados) publica con su cliente creado solo con THREADS_ACCESS_TOKEN; Threads apagado no crea cliente ni exige su secreto", async () => {
+  const raiz = raizConCuentas({ cuentas: ["sinlinea", "prueba"], prefijo: "aisl-th-" });
+  const rutaCfg = path.join(raiz, "cuentas/prueba/config.json");
+  const cfg = JSON.parse(fs.readFileSync(rutaCfg, "utf8"));
+  const escribir = (conexiones, automatico = { generar: false, publicar: false }) => fs.writeFileSync(rutaCfg, JSON.stringify({ ...cfg, instagram: { origen: "entorno" }, automatico, conexiones }, null, 2));
+  escribir({ facebook: { publicar: false, pagina: "123" }, threads: { publicar: true, usuario: "555" } });
+  for (const c of ["sinlinea", "prueba"]) fs.writeFileSync(path.join(raiz, "data", c, "token-info.json"), JSON.stringify({ vence: "2026-11-01" }));
+  const p = { ...piezaMulticanal("00d2", versiones3), cuenta: "prueba" };
+  escribirPost(path.join(raiz, "posts"), p);
+  const recibidos = {};
+  const th = thFalso();
+  const env = { THREADS_ACCESS_TOKEN: "TH" + "z".repeat(30), FB_PAGE_TOKEN: "EAA" + "y".repeat(30) };
+  const r = await publicarCuentas({
+    configuracion: cargarConfiguracion(raiz), raiz, ahora, log, soloCuenta: "prueba", porCuenta: true, env,
+    igDe: () => { throw new Error("Instagram apagado: no debe crearse"); },
+    clientesDe: (config, red, secretos) => { recibidos[red] = secretos; if (red !== "threads") throw new Error(`no debe crearse ${red}`); return th; },
+    persistenciaDe: () => persistenciaSimulada(raiz),
+  });
+  assert.equal(r.resultados.prueba.error, undefined);
+  assert.deepEqual(Object.keys(recibidos), ["threads"]);
+  assert.deepEqual(recibidos.threads, { token: env.THREADS_ACCESS_TOKEN }, "solo su secreto: ni FB_PAGE_TOKEN ni los de Instagram");
+  const g = leer(raiz, p.id);
+  assert.equal(g.destinos.threads.estado, "publicado");
+  assert.equal(g.destinos.instagram.estado, "pendiente", "apagado no es omitido: Instagram espera");
+  assert.equal(g.destinos.facebook.estado, "pendiente");
+  assert.equal(g.estado, "programado");
+  // Threads apagado y sin secreto: la cuenta sigue publicando en las demás redes.
+  escribir({ facebook: { publicar: false, pagina: "123" }, threads: { publicar: false, usuario: "555" } }, { generar: false, publicar: true });
+  const r2 = await publicarCuentas({ configuracion: cargarConfiguracion(raiz), raiz, ahora, log, soloCuenta: "prueba", porCuenta: true, env: { IG_ACCESS_TOKEN: "IGAA" + "x".repeat(30), IG_USER_ID: "9" }, igDe: () => igFalso(), clientesDe: () => { throw new Error("no debe crearse"); }, persistenciaDe: () => persistenciaSimulada(raiz) });
+  assert.equal(r2.resultados.prueba.error, undefined, "el secreto ausente de una red apagada no rompe la cuenta");
+  assert.equal(leer(raiz, p.id).destinos.threads.estado, "publicado", "lo ya publicado en Threads no se toca");
+});
+
+test("(F2) fallos parciales: un error claro en Threads no bloquea Instagram ni Facebook; la pieza queda en error de destino y Reintentar solo vuelve a llamar a Threads", async () => {
+  const p = piezaMulticanal("00d3", versiones3);
+  const raiz = raizCon([p]);
+  const ig = igFalso(); const fb = fbFalso();
+  const r = await ejecutarPublicar({ config: cfgTh, raiz, ahora, ig, clientes: { facebook: fb, threads: thFalso({ fallo: Object.assign(new Error("(#100) Invalid parameter"), { codigo: 100 }) }) }, persistencia: persistenciaSimulada(raiz), log });
+  assert.deepEqual(r.errores, [p.id]);
+  let g = leer(raiz, p.id);
+  assert.equal(g.estado, "error");
+  assert.equal(g.error.paso, "destino");
+  assert.equal(g.destinos.instagram.estado, "publicado");
+  assert.equal(g.destinos.facebook.estado, "publicado");
+  assert.equal(g.destinos.threads.estado, "error");
+  assert.match(g.destinos.threads.error.mensaje, /Invalid parameter/);
+  escribirPost(path.join(raiz, "posts"), reintentarDestinos(g, iso));
+  const ig2 = igFalso(); const fb2 = fbFalso(); const th2 = thFalso();
+  const r2 = await ejecutarPublicar({ config: cfgTh, raiz, ahora, ig: ig2, clientes: { facebook: fb2, threads: th2 }, persistencia: persistenciaSimulada(raiz), log });
+  assert.deepEqual(r2.publicados, [p.id]);
+  assert.deepEqual(ig2.llamadas, []);
+  assert.deepEqual(fb2.llamadas, []);
+  assert.equal(th2.llamadas.filter((l) => l[0] === "publicarContenedor").length, 1);
+  g = leer(raiz, p.id);
+  assert.equal(g.estado, "publicado");
+  assert.equal(g.destinos.threads.publicacion.id, "tm1");
+});
+
+test("(F2) incierto en Threads: un corte tras enviar deja el destino incierto con su contenedor; PUBLISHED con enlace reconcilia sin volver a publicar; FINISHED reanuda con el mismo contenedor; EXPIRED crea otro; PUBLISHED sin enlace sigue incierto", async () => {
+  const solo = { threads: versiones3.threads };
+  const p = piezaMulticanal("00d4", solo);
+  const raiz = raizCon([p]);
+  const r0 = await ejecutarPublicar({ config: cfgTh, raiz, ahora, clientes: tresClientes({ threads: thFalso({ fallo: new ErrorIncierto("sin respuesta de Threads tras enviar la petición") }) }), persistencia: persistenciaSimulada(raiz), log });
+  assert.deepEqual(r0.inciertos, [p.id]);
+  let g = leer(raiz, p.id);
+  assert.equal(g.destinos.threads.estado, "incierto");
+  assert.equal(g.destinos.threads.intento.fase, "enviando");
+  assert.equal(g.destinos.threads.intento.contenedorId, "t1");
+  assert.match(g.destinos.threads.intento.incierto.motivo, /sin respuesta de Threads/);
+  // Evidencia: el contenedor figura PUBLISHED y expone el permalink → publicado, sin llamar a publicar.
+  const thPub = thFalso({ estadoContenedor: "PUBLISHED", medio: { idMedia: "t1", permalink: "https://www.threads.net/@prueba.diario/post/t1" } });
+  const r1 = await ejecutarPublicar({ config: cfgTh, raiz, ahora, clientes: tresClientes({ threads: thPub }), persistencia: persistenciaSimulada(raiz), log });
+  assert.deepEqual(r1.publicados, [p.id]);
+  assert.equal(thPub.llamadas.filter((l) => l[0] === "publicarContenedor" || l[0] === "crearContenedor").length, 0, "nunca se vuelve a publicar");
+  g = leer(raiz, p.id);
+  assert.equal(g.destinos.threads.estado, "publicado");
+  assert.equal(g.destinos.threads.publicacion.id, "t1");
+  assert.equal(g.destinos.threads.publicacion.permalink, "https://www.threads.net/@prueba.diario/post/t1");
+  // FINISHED: el contenedor existe y no se publicó → se publica ese mismo, sin crear otro.
+  const p2 = piezaMulticanal("00d5", solo);
+  const raiz2 = raizCon([p2]);
+  await ejecutarPublicar({ config: cfgTh, raiz: raiz2, ahora, clientes: tresClientes({ threads: thFalso({ fallo: new ErrorIncierto("corte") }) }), persistencia: persistenciaSimulada(raiz2), log });
+  const thFin = thFalso({ estadoContenedor: "FINISHED" });
+  const r2 = await ejecutarPublicar({ config: cfgTh, raiz: raiz2, ahora, clientes: tresClientes({ threads: thFin }), persistencia: persistenciaSimulada(raiz2), log });
+  assert.deepEqual(r2.publicados, [p2.id]);
+  assert.equal(thFin.llamadas.filter((l) => l[0] === "crearContenedor").length, 0);
+  assert.deepEqual(thFin.llamadas.find((l) => l[0] === "publicarContenedor"), ["publicarContenedor", "t1"]);
+  // EXPIRED: vuelve a pendiente con evidencia y crea un contenedor nuevo.
+  const p3 = piezaMulticanal("00d6", solo);
+  const raiz3 = raizCon([p3]);
+  await ejecutarPublicar({ config: cfgTh, raiz: raiz3, ahora, clientes: tresClientes({ threads: thFalso({ fallo: new ErrorIncierto("corte") }) }), persistencia: persistenciaSimulada(raiz3), log });
+  const thExp = thFalso({ estadoContenedor: "EXPIRED" });
+  await ejecutarPublicar({ config: cfgTh, raiz: raiz3, ahora, clientes: tresClientes({ threads: thExp }), persistencia: persistenciaSimulada(raiz3), log });
+  assert.equal(thExp.llamadas.filter((l) => l[0] === "crearContenedor").length, 1);
+  assert.equal(leer(raiz3, p3.id).destinos.threads.estado, "publicado");
+  // PUBLISHED sin enlace: no se afirma nada; sigue incierto para decidir en el panel.
+  const p4 = piezaMulticanal("00d7", solo);
+  const raiz4 = raizCon([p4]);
+  await ejecutarPublicar({ config: cfgTh, raiz: raiz4, ahora, clientes: tresClientes({ threads: thFalso({ fallo: new ErrorIncierto("corte") }) }), persistencia: persistenciaSimulada(raiz4), log });
+  const thSin = thFalso({ estadoContenedor: "PUBLISHED", medio: null });
+  const r4 = await ejecutarPublicar({ config: cfgTh, raiz: raiz4, ahora, clientes: tresClientes({ threads: thSin }), persistencia: persistenciaSimulada(raiz4), log });
+  assert.deepEqual(r4.inciertos, [p4.id]);
+  assert.equal(thSin.llamadas.filter((l) => l[0] === "publicarContenedor").length, 0);
+  const g4 = leer(raiz4, p4.id);
+  assert.equal(g4.destinos.threads.estado, "incierto");
+  assert.match(g4.destinos.threads.intento.incierto.motivo, /PUBLISHED/);
+});
+
+test("(F2) límites: con la cuota de Threads agotada su entrega espera (Instagram y Facebook salen); una versión que excede 500 (emojis por bytes) queda en error de destino sin recortar y sin llamar a Threads", async () => {
+  const p = piezaMulticanal("00d8", versiones3);
+  const raiz = raizCon([p]);
+  const th = thFalso({ cuota: { usados: 250, limite: 250 } });
+  const r = await ejecutarPublicar({ config: cfgTh, raiz, ahora, ig: igFalso(), clientes: { facebook: fbFalso(), threads: th }, persistencia: persistenciaSimulada(raiz), log });
+  assert.deepEqual(r.pospuestos, [p.id]);
+  assert.equal(r.destinos[p.id].threads, "cuota");
+  assert.equal(th.llamadas.filter((l) => l[0] === "crearContenedor").length, 0);
+  const g = leer(raiz, p.id);
+  assert.equal(g.destinos.instagram.estado, "publicado");
+  assert.equal(g.destinos.facebook.estado, "publicado");
+  assert.equal(g.destinos.threads.estado, "pendiente");
+  assert.equal(g.estado, "programado");
+  const larga = "a".repeat(497) + "😀";
+  const p2 = piezaMulticanal("00d9", { threads: larga });
+  const raiz2 = raizCon([p2]);
+  const th2 = thFalso();
+  const r2 = await ejecutarPublicar({ config: cfgTh, raiz: raiz2, ahora, clientes: tresClientes({ threads: th2 }), persistencia: persistenciaSimulada(raiz2), log });
+  assert.deepEqual(r2.errores, [p2.id]);
+  assert.deepEqual(th2.llamadas, []);
+  const g2 = leer(raiz2, p2.id);
+  assert.equal(g2.destinos.threads.estado, "error");
+  assert.match(g2.destinos.threads.error.mensaje, /501 caracteres.*500/);
+  assert.equal(g2.destinos.threads.texto, larga, "no se recorta");
+});
+
+test("(F2) identidad de Threads: si el id del perfil no coincide o el usuario esperado es otro, no se publica en Threads (las demás redes sí); sin perfil esperado basta el id", async () => {
+  const p = piezaMulticanal("00da", versiones3);
+  const raiz = raizCon([p]);
+  const thOtroId = thFalso({ perfil: { id: "999", username: "prueba.diario", coincideId: false } });
+  const r = await ejecutarPublicar({ config: cfgTh, raiz, ahora, ig: igFalso(), clientes: { facebook: fbFalso(), threads: thOtroId }, persistencia: persistenciaSimulada(raiz), log });
+  assert.equal(r.destinos[p.id].threads, "identidad");
+  assert.match(r.identidadRedes.threads, /999.*se esperaba el perfil 555/);
+  assert.deepEqual(thOtroId.llamadas, []);
+  assert.equal(leer(raiz, p.id).destinos.facebook.estado, "publicado");
+  const p2 = piezaMulticanal("00db", { threads: versiones3.threads });
+  const raiz2 = raizCon([p2]);
+  const thOtroUsuario = thFalso({ perfil: { id: "555", username: "otra.persona", coincideId: true } });
+  const r2 = await ejecutarPublicar({ config: cfgTh, raiz: raiz2, ahora, clientes: tresClientes({ threads: thOtroUsuario }), persistencia: persistenciaSimulada(raiz2), log });
+  assert.equal(r2.destinos[p2.id].threads, "identidad");
+  assert.match(r2.identidadRedes.threads, /@otra\.persona.*se esperaba @prueba\.diario/);
+  const sinPerfil = { ...cfgTh, conexiones: { ...cfgTh.conexiones, threads: { publicar: true, usuario: "555" } } };
+  const p3 = piezaMulticanal("00dc", { threads: versiones3.threads });
+  const raiz3 = raizCon([p3]);
+  const r3 = await ejecutarPublicar({ config: sinPerfil, raiz: raiz3, ahora, clientes: tresClientes({ threads: thFalso({ perfil: { id: "555", username: "cualquiera", coincideId: true } }) }), persistencia: persistenciaSimulada(raiz3), log });
+  assert.deepEqual(r3.publicados, [p3.id]);
+});

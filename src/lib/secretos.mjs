@@ -112,7 +112,8 @@ export function secretosRequeridos(config, { porCuenta = false } = {}) {
     const c = config?.conexiones?.[red];
     if (!c) continue;
     for (const nombre of SECRETOS_RED[red]) {
-      lista.push({ nombre, obligatorio: c.publicar === true, uso: `${red === "facebook" ? "Facebook" : red}: publicar en la página${c.publicar === true ? "" : " (conexión apagada: hace falta al encenderla)"} (Environment ${nombreEntorno(config?.cuenta)})` });
+      const uso = red === "threads" ? "Threads: publicar en el perfil y renovar su token" : "Facebook: publicar en la página";
+      lista.push({ nombre, obligatorio: c.publicar === true, uso: `${uso}${c.publicar === true ? "" : " (conexión apagada: hace falta al encenderla)"} (Environment ${nombreEntorno(config?.cuenta)})` });
     }
   }
   return lista;
