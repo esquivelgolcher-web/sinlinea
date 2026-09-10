@@ -1,7 +1,7 @@
 {
   "id": "2026-09-09-0137-sinlinea-la-prensa-bef7",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "La Prensa",
     "url": "https://www.prensa.com/mundo/iran-ataca-dos-buques-y-bases-estadounidenses-en-jordania/",
@@ -43,5 +43,5 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-09T06:37:30.947Z",
-  "actualizado": "2026-09-10T15:15:45.251Z"
+  "actualizado": "2026-09-10T18:32:26.863Z"
 }
