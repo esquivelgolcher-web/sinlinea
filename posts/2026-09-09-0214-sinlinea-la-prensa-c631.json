@@ -1,7 +1,7 @@
 {
   "id": "2026-09-09-0214-sinlinea-la-prensa-c631",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "La Prensa",
     "url": "https://www.prensa.com/economia/superintendencia-limita-las-comisiones-bancarias-que-servicios-ya-no-podran-cobrar-los-bancos/",
@@ -43,5 +43,5 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-09T07:14:22.854Z",
-  "actualizado": "2026-09-10T15:15:45.251Z"
+  "actualizado": "2026-09-10T18:32:21.263Z"
 }
