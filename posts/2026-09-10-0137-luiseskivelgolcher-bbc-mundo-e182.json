@@ -42,7 +42,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-10T06:37:06.433Z",
-  "actualizado": "2026-09-10T08:58:38.519Z",
+  "actualizado": "2026-09-10T09:17:42.364Z",
   "destinos": {
     "facebook": {
       "texto": "Documentos revisados por la BBC muestran que, tras los atentados del 11 de septiembre de 2001, autoridades de Nueva York aseguraron públicamente que el aire era seguro pese a contar con información que sugería lo contrario. El hallazgo, publicado por BBC Mundo el 8 de septiembre de 2026 bajo el titular \"'La gente enfermó porque les mintieron': documentos muestran que las autoridades de Nueva York ocultaron información sobre la calidad del aire tras el 11-S\", reabre el debate sobre la responsabilidad estatal en emergencias de salud pública.\n\nFuente: BBC Mundo",
@@ -55,7 +55,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-09-10T09:17:42.364Z",
+        "actualizado": "2026-09-10T09:17:42.364Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
