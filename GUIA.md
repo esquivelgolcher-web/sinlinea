@@ -225,3 +225,15 @@ Cada cuenta puede conectar su perfil de Threads (el que va unido a su Instagram)
 **El token:** dura 60 días y el workflow «Renovar token» lo refresca cada lunes junto con el de Instagram (la primera renovación puede avisar si el token tiene menos de un día; la siguiente ya funciona).
 
 **Estado:** la publicación en Threads está validada con una pieza real (10 de septiembre de 2026). La recuperación de contenedores y los resultados inciertos siguen probados solo con simulaciones.
+
+## Perfil de periodismo tecnológico (cuenta personal)
+
+Tu cuenta personal tiene ahora un perfil editorial: fuentes prioritarias (WIRED, AJ+ y HugoDécrypte, más OCCRP, ICIJ, Bellingcat y EFE Verifica), temas prioritarios, voz propia y tres formatos.
+
+**Qué verás en cada borrador:** además del titular, la bajada y el caption, una etiqueta con el formato (Post, Carrusel o Reel), las **alertas** en amarillo con su explicación (fuente única, acceso parcial, denuncia sin fuente, hecho antiguo, evidencia insuficiente) y un desplegable «Revisión editorial» con la puntuación, el ángulo, la atribución, cada afirmación con su tipo (hecho, denuncia, hipótesis, opinión) y su enlace, y las fuentes con autor, idioma, fechas, fecha de consulta y hasta dónde se pudo leer.
+
+**Carrusel y reel:** el carrusel muestra sus diapositivas ya renderizadas; el reel, la narración, los subtítulos, las escenas y los recursos. Ninguno se puede programar todavía: al pulsar Aprobar el panel lo dice. Sirven para revisar, copiar y publicar a mano o para esperar al adaptador de publicación.
+
+**Qué no hace:** no traduce artículos, no reutiliza vídeos ni fotos de otros medios, no elude muros de pago y no inventa resúmenes de lo que no pudo leer. Si una noticia solo llega como titular o descripción (los canales de YouTube), queda como pista y no genera pieza.
+
+**Ajustes:** temas, pesos de la puntuación, mínimo, formatos y fuentes en `cuentas/luiseskivelgolcher/config.json` (bloque `perfil` y `fuentes`); voz y reglas en `editorial.md`; estilo de imagen en `ilustraciones.estilo`. Ver docs/CONFIGURACION.md §14.

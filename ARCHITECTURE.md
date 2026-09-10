@@ -52,6 +52,16 @@ flowchart LR
   T --> DATA
 ```
 
+### 2.0b Perfil editorial (periodismo tecnológico)
+Con `perfil` en la cuenta, GENERAR descarga el artículo de cada ítem RSS (no los vídeos) y
+registra por candidato autor, canónica, fechas, consulta y **alcance de acceso**; agrupa por
+acontecimiento (`lib/temas.mjs`); envía a Claude solo los grupos legibles con el esquema del
+perfil (`redactarPerfil`: formato, ángulo, atribución, afirmaciones con fuente, puntuación por
+ejes, carrusel o reel); pondera la puntuación (`lib/puntuacion.mjs`), descarta bajo el mínimo y
+añade alertas; guarda el post con `fuentes[]`, `afirmaciones[]`, `alertas[]`, `revision` y, si
+es carrusel, renderiza una imagen por diapositiva (`templates/carrusel.html`). El publicador y
+el panel bloquean carrusel y reel hasta que exista su adaptador (ver docs/CONFIGURACION.md §14).
+
 ### 2.1 GENERAR (`src/generar.mjs`)
 1. Por cada cuenta activa (`generarCuentas`): lee su configuración efectiva y
    sus posts; calcula el cupo diario restante de esa cuenta.
@@ -271,6 +281,7 @@ y `error` del post siguen reflejando Instagram para el panel, las métricas y el
 | `lib/facebook.mjs`, `threads.mjs` | Clientes de la Graph API (página: foto sin publicar → publicación) y de la Threads API (contenedor → publicación); fallo de red tras enviar = `ErrorIncierto` | no | `incierto.mjs` |
 | `lib/destinos.mjs`, `versiones.mjs`, `conexiones.mjs` | Destinos por post (texto e imagen aprobados, intentos, inciertos), versiones por red (límites: Threads 500 con emojis por bytes; solo proponen) y conexiones/interruptores por red (solo nombres de secretos) | **sí** | `estados.mjs`, `caption.mjs`, `fechas.mjs` |
 | `lib/huella.mjs`, `persistencia.mjs` | Huella (sha de blob) de la imagen servida; reserva persistida en git antes de enviar | no | — |
+| `lib/formatos.mjs`, `puntuacion.mjs`, `temas.mjs` | Perfil editorial: formatos (post/carrusel/reel; solo post publicable), alertas y tipos de afirmación; puntuación ponderada configurable; agrupación por acontecimiento y URL canónica | **sí** | — |
 | `generar/regenerar/publicar/renovar-token.mjs` | Orquestadores con dependencias inyectables | no | todo lo anterior |
 | `build.mjs`, `serve.mjs` | Construcción de `dist/` y servidor local | no | — |
 | `panel/app.js`, `almacen.mjs` | Interfaz y almacenes (local / GitHub) | navegador | módulos isomorfos |

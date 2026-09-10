@@ -20,35 +20,83 @@
   },
   "fuentes": [
     {
+      "nombre": "WIRED",
+      "tipo": "rss",
+      "url": "https://www.wired.com/feed/category/security/latest/rss",
+      "idioma": "en",
+      "prioridad": 1
+    },
+    {
+      "nombre": "WIRED",
+      "tipo": "rss",
+      "url": "https://www.wired.com/feed/category/politics/latest/rss",
+      "idioma": "en",
+      "prioridad": 1
+    },
+    {
+      "nombre": "WIRED",
+      "tipo": "rss",
+      "url": "https://www.wired.com/feed/category/backchannel/latest/rss",
+      "idioma": "en",
+      "prioridad": 1
+    },
+    {
+      "nombre": "AJ+",
+      "tipo": "rss",
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCV3Nm3T-XAgVhKH9jT0ViRg",
+      "idioma": "en",
+      "prioridad": 2,
+      "descargar": false
+    },
+    {
+      "nombre": "AJ+ Español",
+      "tipo": "rss",
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCS0lmlVIYVz2qeWlZ_ynIWg",
+      "idioma": "es",
+      "prioridad": 2,
+      "descargar": false
+    },
+    {
+      "nombre": "HugoDécrypte",
+      "tipo": "rss",
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCAcAnMF0OrCtUep3Y4M-ZPw",
+      "idioma": "fr",
+      "prioridad": 3,
+      "descargar": false
+    },
+    {
       "nombre": "OCCRP",
       "tipo": "rss",
-      "url": "https://www.occrp.org/en/feed"
+      "url": "https://www.occrp.org/en/feed",
+      "idioma": "en",
+      "prioridad": 2
     },
     {
       "nombre": "ICIJ",
       "tipo": "rss",
-      "url": "https://www.icij.org/feed/"
-    },
-    {
-      "nombre": "EFE Verifica",
-      "tipo": "rss",
-      "url": "https://verifica.efe.com/feed/"
-    },
-    {
-      "nombre": "BBC Mundo",
-      "tipo": "rss",
-      "url": "https://feeds.bbci.co.uk/mundo/rss.xml"
+      "url": "https://www.icij.org/feed/",
+      "idioma": "en",
+      "prioridad": 2
     },
     {
       "nombre": "Bellingcat",
       "tipo": "rss",
-      "url": "https://www.bellingcat.com/feed/"
+      "url": "https://www.bellingcat.com/feed/",
+      "idioma": "en",
+      "prioridad": 2
+    },
+    {
+      "nombre": "EFE Verifica",
+      "tipo": "rss",
+      "url": "https://verifica.efe.com/feed/",
+      "idioma": "es",
+      "prioridad": 3
     }
   ],
   "generar": {
-    "maxPorCorrida": 1,
-    "maxBorradoresPorDia": 2,
-    "candidatosMax": 10,
+    "maxPorCorrida": 3,
+    "maxBorradoresPorDia": 5,
+    "candidatosMax": 24,
     "diasSinRepetir": 3,
     "maxHorasAntiguedad": 48,
     "maxBorradoresPendientes": 3
@@ -59,8 +107,8 @@
   ],
   "ilustraciones": {
     "activo": true,
-    "estilo": "Fotografía editorial sobria y neutra, realista, formato vertical 4:5, luz natural, paleta contenida (grises, madera, azul apagado). El elemento principal ocupa el tercio superior derecho; la zona izquierda y central queda despejada para el titular. Margen visual seguro de unos 100 px. Sin personas identificables ni rostros, sin texto, sin logotipos, sin marcos ni degradados. Estilo provisional hasta definir la identidad visual de la cuenta.",
-    "rotulo": ""
+    "estilo": "Ilustración editorial de periodismo tecnológico, formato vertical 4:5. Alto contraste, fotografía estilizada o ilustración protagonista, composición limpia con luz dramática o lateral marcada; fondos oscuros o neutros con un solo color de acento, azul eléctrico (#1F5FBF). Objetos, lugares y metáforas visuales concretas (antenas, centros de datos, teléfonos, mapas, cables, edificios, satélites, engranajes, huellas), nunca abstracciones vacías. Prohibido: hacker con capucha, código verde, candados, calaveras, binario, texto, logotipos, rostros reales o personas identificables, documentos, capturas de pantalla o escenas que parezcan pruebas reales. El elemento principal ocupa el tercio superior derecho; la zona izquierda y central queda despejada para el titular; margen seguro de unos 100 px.",
+    "rotulo": "Ilustración generada con IA"
   },
   "instagram": {
     "origen": "entorno",
@@ -85,5 +133,61 @@
   "editorial": {
     "temas": [],
     "tono": ""
+  },
+  "perfil": {
+    "nombre": "periodismo-tecnologico",
+    "temas": [
+      "espionaje estatal y comercial",
+      "Pegasus y otras herramientas de vigilancia",
+      "filtraciones y exposición de datos",
+      "ciberataques con consecuencias públicas",
+      "uso político de tecnología e inteligencia artificial",
+      "contratos públicos tecnológicos",
+      "poder de las plataformas y grandes tecnológicas",
+      "fraudes digitales y privacidad",
+      "investigaciones documentales de interés público"
+    ],
+    "idiomas": [
+      "es",
+      "en",
+      "fr"
+    ],
+    "referencias": [
+      "WIRED: profundidad temática y relación entre tecnología, política y sociedad",
+      "AJ+: claridad audiovisual, contexto e impacto humano",
+      "HugoDécrypte: síntesis, jerarquía informativa y consistencia"
+    ],
+    "puntuacion": {
+      "pesos": {
+        "afinidad": 30,
+        "interes": 25,
+        "evidencia": 20,
+        "actualidad": 15,
+        "visual": 10
+      },
+      "minimo": 60
+    },
+    "formatos": [
+      "post",
+      "carrusel",
+      "reel"
+    ],
+    "revision": {
+      "alertas": [
+        "fuente-unica",
+        "acceso-parcial",
+        "acusacion-sin-fuente",
+        "hecho-antiguo",
+        "evidencia-insuficiente"
+      ],
+      "criterios": [
+        "Cada afirmación tiene fuente; las denuncias van atribuidas y contrastadas",
+        "Los términos técnicos se explican la primera vez que aparecen",
+        "La fecha del hecho consta si es anterior a la publicación",
+        "Nada de «descubrimos», «revelamos», «nuestra investigación» ni promesas vacías",
+        "La imagen es ilustración: no parece prueba documental ni muestra personas reales",
+        "Los enlaces a las fuentes se conservan hasta la publicación"
+      ]
+    }
   }
 }
