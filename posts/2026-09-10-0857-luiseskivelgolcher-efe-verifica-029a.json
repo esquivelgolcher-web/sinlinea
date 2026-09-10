@@ -1,7 +1,7 @@
 {
   "id": "2026-09-10-0857-luiseskivelgolcher-efe-verifica-029a",
   "cuenta": "luiseskivelgolcher",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "EFE Verifica",
     "url": "https://verifica.efe.com/85-refugiados-musulmanes-falsos/",
@@ -51,16 +51,15 @@
         "imagenHash": "7601ff3392495b31",
         "imagenSha": "41634344a5e56c398936b317e559ce449633df79"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-09-10T14:05:15.245Z",
-        "actualizado": "2026-09-10T14:05:15.245Z",
-        "contenedorId": "17988466140100604"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18114733286052177",
+        "idPublicacion": null,
+        "permalink": "https://www.threads.com/@luisegolcher/post/DdHAokqlr8f",
+        "fecha": "2026-09-10T14:05:15.245Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
