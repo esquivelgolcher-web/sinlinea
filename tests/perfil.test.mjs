@@ -111,7 +111,7 @@ test("(perfil) la cuenta real luiseskivelgolcher declara el perfil de periodismo
   const c = JSON.parse(fs.readFileSync("cuentas/luiseskivelgolcher/config.json", "utf8"));
   assert.doesNotThrow(() => validarCuenta(c, "luiseskivelgolcher"));
   assert.equal(c.perfil.nombre, "periodismo-tecnologico");
-  assert.deepEqual(c.perfil.formatos, ["post", "carrusel", "reel"]);
+  assert.deepEqual(c.perfil.formatos, ["post", "carrusel"], "sin reels por decisión del operador (2026-09-10)");
   assert.deepEqual(validarPesos(c.perfil.puntuacion.pesos), []);
   const nombres = c.fuentes.map((f) => f.nombre);
   assert.ok(nombres.includes("WIRED") && nombres.includes("AJ+") && nombres.includes("HugoDécrypte"));
