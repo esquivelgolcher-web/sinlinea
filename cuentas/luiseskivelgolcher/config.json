@@ -74,6 +74,11 @@
     "facebook": {
       "publicar": true,
       "pagina": "1365602693299887"
+    },
+    "threads": {
+      "publicar": false,
+      "usuario": "38207637362217152",
+      "perfil": "luisegolcher"
     }
   },
   "zonaHoraria": "America/Panama",

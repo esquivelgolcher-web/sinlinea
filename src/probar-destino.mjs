@@ -14,6 +14,7 @@ import { crearClienteThreads } from "./lib/threads.mjs";
 
 // Cómo se llama lo que identifica cada red y cómo se presenta lo que devuelve la API (sin valores de secretos).
 const SUJETO = Object.freeze({ facebook: "la página", threads: "el perfil" });
+const DE_SUJETO = Object.freeze({ facebook: "de la página", threads: "del perfil" });
 const etiquetaDe = (red, perfil) => (red === "threads" ? `al perfil @${perfil.username || "?"}` : `a la página "${perfil.nombre || "?"}"`);
 const identidadDe = (red, perfil) => ({ id: perfil.id || null, nombre: red === "threads" ? (perfil.username ? `@${perfil.username}` : null) : (perfil.nombre || null) });
 
@@ -75,7 +76,7 @@ export async function ejecutarPruebaDestino({ configuracion, cuenta, red, env = 
     const identidad = identidadDe(red, perfil);
     if (!identificador) {
       // El id no es una credencial: se muestra el que devuelve la API para que el operador lo guarde en el panel.
-      const m = `falta el identificador de ${SUJETO[red]} en la configuración (conexiones.${red}.${clave}). La credencial ${SECRETOS_RED[red][0]} pertenece ${etiqueta} con id ${perfil.id || "(vacío)"}: guarda ese id en el formulario de la cuenta y repite la prueba`;
+      const m = `falta el identificador ${DE_SUJETO[red]} en la configuración (conexiones.${red}.${clave}). La credencial ${SECRETOS_RED[red][0]} pertenece ${etiqueta} con id ${perfil.id || "(vacío)"}: guarda ese id en el formulario de la cuenta y repite la prueba`;
       error(`cuenta ${cuenta}: ${m}`);
       registrar("credenciales-pendientes", identidad, m);
       return { ok, lineas };
