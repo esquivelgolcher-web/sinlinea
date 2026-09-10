@@ -1,11 +1,12 @@
 // Perfil editorial en el panel: la tarjeta de un borrador muestra formato, alertas, afirmaciones, fuentes con alcance,
-// diapositivas del carrusel y guion del reel; carrusel y reel no se pueden programar (sin adaptador de publicación).
+// diapositivas del carrusel y guion del reel; el carrusel se programa con la huella de cada diapositiva aprobada en su
+// orden (y «Aprobar imágenes actuales» cuando cambian); el reel no se puede programar (sin adaptador de publicación).
 import { test, before, after } from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
 import path from "node:path";
 import { chromium } from "playwright";
-import { crearServidor } from "../src/serve.mjs";
+import { crearServidor, shaDeBlob } from "../src/serve.mjs";
 import { raizConCuentas } from "./ayuda/cuentas.mjs";
 import { hashImagen } from "../src/lib/estados.mjs";
 
@@ -35,19 +36,32 @@ async function montar(prefijo) {
   fs.mkdirSync(path.join(raiz, ".github/workflows"), { recursive: true });
   for (const w of ["publicar.yml", "probar-instagram.yml"]) fs.copyFileSync(path.join(".github/workflows", w), path.join(raiz, ".github/workflows", w));
   const id = (s) => base0.id.slice(0, -4) + s;
+  const diapositivas = [{ titulo: "¿Una foto basta para identificarte?", texto: "Una pregunta." }, { titulo: "Qué ocurrió", texto: "Los hechos." }, { titulo: "Qué falta por saber", texto: "Fuentes." }];
+  const imagenesDe = (pid) => diapositivas.map((_, i) => ({ numero: i + 1, ruta: `public/img/${pid}-0${i + 1}.jpg`, url: `https://prueba.github.io/sinlinea/img/${pid}-0${i + 1}.jpg`, hash: `${"abc"[i]}`.repeat(16) }));
   const posts = [
     conImagen({ ...base0, id: id("b001"), cuenta: "prueba", titular: "Post del perfil", formato: "post", ...perfilComun }),
-    conImagen({ ...base0, id: id("b002"), cuenta: "prueba", titular: "Carrusel del perfil", formato: "carrusel", ...perfilComun, alertas: ["fuente-unica"], carrusel: { diapositivas: [{ titulo: "Portada", texto: "Una pregunta." }, { titulo: "Qué ocurrió", texto: "Los hechos." }, { titulo: "Cierre", texto: "Fuentes." }], imagenes: [{ numero: 1, ruta: `public/img/${id("b002")}-01.jpg`, url: `https://prueba.github.io/sinlinea/img/${id("b002")}-01.jpg`, hash: "a".repeat(16) }] } }),
+    conImagen({ ...base0, id: id("b002"), cuenta: "prueba", titular: "Carrusel del perfil", formato: "carrusel", ...perfilComun, alertas: ["fuente-unica"], carrusel: { diapositivas, imagenes: imagenesDe(id("b002")), hash: "c".repeat(16), version: 1 } }),
     conImagen({ ...base0, id: id("b003"), cuenta: "prueba", titular: "Reel del perfil", formato: "reel", ...perfilComun, alertas: [], reel: { narracion: "Un hecho concreto abre el vídeo. " + "Palabra ".repeat(90).trim(), subtitulos: ["Frase uno", "Frase dos"], escenas: [{ segundos: 0, descripcion: "Apertura con la ilustración", recurso: "ilustración generada" }], recursos: ["voz en off", "ilustración"], duracionObjetivo: "35-60 s" } }),
+    // Carrusel ya programado cuyas diapositivas se volvieron a renderizar: el publicador lo dejó en espera (imagen-cambiada).
+    conImagen({ ...base0, id: id("b004"), cuenta: "prueba", titular: "Carrusel programado con diapositivas cambiadas", formato: "carrusel", ...perfilComun, alertas: [], estado: "programado", programado: "2026-09-12T14:00:00-05:00", carrusel: { diapositivas, imagenes: imagenesDe(id("b004")), hash: "d".repeat(16), version: 2 },
+      destinos: { instagram: { texto: "IG aprobado", aprobado: { fecha: iso, hashPieza: "x", imagenHash: null, imagenSha: "0".repeat(40), imagenesSha: ["1".repeat(40), "2".repeat(40), "3".repeat(40)] }, estado: "pendiente", publicacion: null, error: null, intento: null, omitido: null, espera: { motivo: "imagen-cambiada", fecha: iso } } } }),
   ];
   for (const p of posts) fs.writeFileSync(path.join(raiz, "posts", `${p.id}.json`), JSON.stringify(p, null, 2));
+  // Archivos renderizados: la imagen de cada carrusel y sus tres diapositivas, todas distintas (huellas distintas).
+  const ejemplo = fs.readFileSync("tests/fixtures/ilustracion-ejemplo.jpg");
+  for (const pid of [id("b002"), id("b004")]) {
+    fs.writeFileSync(path.join(raiz, "public/img", `${pid}.jpg`), ejemplo);
+    for (let n = 1; n <= 3; n++) fs.writeFileSync(path.join(raiz, "public/img", `${pid}-0${n}.jpg`), Buffer.concat([ejemplo, Buffer.from([n, pid === id("b004") ? 1 : 0])]));
+  }
   const servidor = crearServidor({ raiz });
   await new Promise((r) => servidor.listen(0, "127.0.0.1", r));
-  return { raiz, servidor, base: `http://127.0.0.1:${servidor.address().port}`, ids: { post: id("b001"), carrusel: id("b002"), reel: id("b003") } };
+  return { raiz, servidor, base: `http://127.0.0.1:${servidor.address().port}`, ids: { post: id("b001"), carrusel: id("b002"), reel: id("b003"), carruselEspera: id("b004") } };
 }
+const huellaDe = (raiz, ruta) => shaDeBlob(fs.readFileSync(path.join(raiz, ...ruta.split("/"))));
+const leerPost = (raiz, id) => JSON.parse(fs.readFileSync(path.join(raiz, "posts", `${id}.json`), "utf8"));
 const tarjeta = (page, id) => page.locator(`.tarjeta[data-id="${id}"]`);
 
-test("(perfil) la tarjeta muestra formato, alertas explicadas, puntuación, afirmaciones con tipo y fuente, fuentes con alcance, carrusel y guion del reel; carrusel y reel no se programan", async () => {
+test("(perfil) la tarjeta muestra formato, alertas explicadas, puntuación, afirmaciones con tipo y fuente, fuentes con alcance, carrusel y guion del reel; el carrusel se programa con la huella de cada diapositiva y el reel no", async () => {
   const { raiz, servidor, base, ids } = await montar("panel-perfil-");
   const page = await navegador.newPage();
   const errores = [];
@@ -76,19 +90,39 @@ test("(perfil) la tarjeta muestra formato, alertas explicadas, puntuación, afir
     assert.match(abierto, /referencia.*AJ\+ · AJ\+ · en .* fragmento/);
     assert.match(abierto, /licencia de recursos: pendiente/);
     assert.equal(await tp.locator('a[href="https://www.wired.com/story/clearview/"]').count(), 2, "afirmación y fuente enlazan a la URL canónica");
-    // Carrusel: chip de formato, diapositivas con imagen; Aprobar no programa.
+    // Carrusel: chip de formato, diapositivas con imagen; Aprobar abre el diálogo y programa con la huella de cada diapositiva.
     const tc = tarjeta(page, ids.carrusel);
     assert.match(await tc.locator(".chip.formato").textContent(), /Carrusel/);
     await tc.locator("details.perfil summary").click();
     const textoCarrusel = await tc.textContent();
     assert.match(textoCarrusel, /Carrusel: 3 diapositivas/);
-    assert.match(textoCarrusel, /Portada.*Una pregunta\./);
-    assert.equal(await tc.locator("img.diapositiva").count(), 1);
+    assert.match(textoCarrusel, /¿Una foto basta para identificarte\?.*Una pregunta\./);
+    assert.equal(await tc.locator("img.diapositiva").count(), 3);
     await tc.locator('button:has-text("Aprobar")').click();
-    await page.waitForFunction((id) => /Carrusel: Carrusel y reel no tienen todavía adaptador de publicación/.test(document.querySelector(`.tarjeta[data-id="${id}"] .aviso-tarjeta`)?.textContent || ""), ids.carrusel);
-    assert.equal(await page.locator("dialog[open]").count(), 0, "no se abre el diálogo de programación");
-    assert.equal(JSON.parse(fs.readFileSync(path.join(raiz, "posts", `${ids.carrusel}.json`), "utf8")).estado, "borrador");
-    // Reel: guion visible (narración, subtítulos, escenas, recursos); tampoco se programa.
+    await page.waitForSelector("dialog[open]");
+    await page.fill("#hora-fecha", "2026-09-12"); await page.fill("#hora-hora", "12:00");
+    await page.click("#hora-confirmar");
+    await page.waitForFunction((id) => !document.querySelector(`.tarjeta[data-id="${id}"]`), ids.carrusel);
+    const aprobado = leerPost(raiz, ids.carrusel);
+    assert.equal(aprobado.estado, "programado");
+    const esperadas = [1, 2, 3].map((n) => huellaDe(raiz, `public/img/${ids.carrusel}-0${n}.jpg`));
+    assert.equal(new Set(esperadas).size, 3, "las tres diapositivas son archivos distintos");
+    assert.deepEqual(aprobado.destinos.instagram.aprobado.imagenesSha, esperadas, "queda aprobada la huella de cada diapositiva, en su orden");
+    assert.equal(aprobado.destinos.instagram.aprobado.imagenSha, huellaDe(raiz, `public/img/${ids.carrusel}.jpg`), "y la de la imagen del post");
+    // Carrusel programado en espera porque las diapositivas cambiaron: aviso propio y «Aprobar imágenes actuales» fija las huellas nuevas.
+    await page.click('#pestanas button:has-text("Programados")');
+    const te = tarjeta(page, ids.carruselEspera);
+    assert.match(await te.textContent(), /Instagram: en espera \(las diapositivas cambiaron tras aprobar\)/);
+    await te.locator("details.versiones summary").click();
+    assert.match(await te.textContent(), /Alguna diapositiva cambió \(o cambió su orden\) después de aprobar: no se publicará hasta que apruebes las imágenes actuales/);
+    await te.locator('button:has-text("Aprobar imágenes actuales")').click();
+    await page.waitForFunction((id) => !/en espera/.test(document.querySelector(`.tarjeta[data-id="${id}"]`)?.textContent || ""), ids.carruselEspera);
+    const fijado = leerPost(raiz, ids.carruselEspera);
+    assert.deepEqual(fijado.destinos.instagram.aprobado.imagenesSha, [1, 2, 3].map((n) => huellaDe(raiz, `public/img/${ids.carruselEspera}-0${n}.jpg`)));
+    assert.equal(fijado.destinos.instagram.aprobado.imagenSha, huellaDe(raiz, `public/img/${ids.carruselEspera}.jpg`));
+    assert.equal(fijado.destinos.instagram.espera, null, "aprobar las imágenes actuales levanta la espera");
+    await page.click('#pestanas button:has-text("Borradores")');
+    // Reel: guion visible (narración, subtítulos, escenas, recursos); no se programa.
     const tr = tarjeta(page, ids.reel);
     await tr.locator("details.perfil summary").click();
     const textoReel = await tr.textContent();
@@ -97,7 +131,8 @@ test("(perfil) la tarjeta muestra formato, alertas explicadas, puntuación, afir
     assert.match(textoReel, /0s · Apertura con la ilustración · recurso: ilustración generada/);
     assert.match(textoReel, /Recursos: voz en off; ilustración/);
     await tr.locator('button:has-text("Aprobar")').click();
-    await page.waitForFunction((id) => /Reel: Carrusel y reel no tienen todavía/.test(document.querySelector(`.tarjeta[data-id="${id}"] .aviso-tarjeta`)?.textContent || ""), ids.reel);
+    await page.waitForFunction((id) => /Reel: El reel no tiene todavía adaptador de publicación/.test(document.querySelector(`.tarjeta[data-id="${id}"] .aviso-tarjeta`)?.textContent || ""), ids.reel);
+    assert.equal(await page.locator("dialog[open]").count(), 0, "no se abre el diálogo de programación");
     assert.equal(JSON.parse(fs.readFileSync(path.join(raiz, "posts", `${ids.reel}.json`), "utf8")).estado, "borrador");
     assert.deepEqual(errores, []);
   } finally {

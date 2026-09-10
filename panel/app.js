@@ -16,7 +16,7 @@ import { seriesDeCuenta, rendimientoDePublicaciones, textoValor, textoMotivo } f
 // Multicanal (F1): destinos por pieza, versiones por red y conexiones por red.
 import {
   REDES, NOMBRES_RED, destinosDe, aprobarDestinos, omitirDestino, reintentarDestinos, decidirIncierto, piezaCambiada, imagenCambiada,
-  actualizarVersion, aprobarImagenActual,
+  actualizarVersion, aprobarImagenActual, esCarrusel, imagenesDe, LIMITES_CARRUSEL,
 } from "./lib/destinos.mjs";
 import { proponerVersion, medirVersion } from "./lib/versiones.mjs";
 import { destinosEncendidos, pausaGeneral } from "./lib/conexiones.mjs";
@@ -443,16 +443,18 @@ function tarjeta({ post, sha }) {
   if (!bloqueado) {
     // Aprobar = elegir hora, destinos y revisar la versión de cada red (multicanal): lo aprobado no cambia solo después.
     const aprobarConHora = async (p) => {
-      // Carrusel y reel se revisan aquí, pero no se programan: aún no tienen adaptador de publicación.
+      // El reel se revisa aquí, pero no se programa: aún no tiene adaptador de publicación. El carrusel sí se programa.
       if (!esPublicable(formatoDe(p))) { avisarAqui(`${NOMBRES_FORMATO[formatoDe(p)]}: ${DESCRIPCION_ALERTA["formato-no-publicable"]}`); return null; }
       const v = captionValido(); if (!v.ok) { avisarAqui(v.errores.join(" ")); return null; }
       const pieza = conCambios(p);
       const r = await pedirHora(pieza);
       if (!r) return null;
-      // La imagen aprobada se vincula a la huella del archivo renderizado (null si aún no existe: se aprobará después).
-      const imagenSha = pieza.imagen ? await huellaSegura(pieza.id) : null;
-      if (pieza.imagen && !imagenSha) avisar("No se pudo leer la huella de la imagen: el destino esperará hasta que pulses «Aprobar imagen actual».", 10000);
-      try { return aprobarDestinos(pieza, r.iso, { versiones: r.versiones, imagenSha }, ahoraIso()); }
+      // Lo aprobado se vincula a la huella de cada archivo renderizado: la imagen del post y, en un carrusel, cada
+      // diapositiva en su orden (null si aún no existe: se aprobará después con «Aprobar imágenes actuales»).
+      const h = await huellasDe(pieza);
+      if (formatoDe(pieza) === "carrusel" && !esCarrusel(pieza)) avisar(`El carrusel aún no tiene sus diapositivas renderizadas (entre ${LIMITES_CARRUSEL.min} y ${LIMITES_CARRUSEL.max}): se programa, pero no se publicará hasta que existan y las apruebes.`, 10000);
+      else if (!h.completas) avisar(`No se pudo leer la huella de ${esCarrusel(pieza) ? "alguna imagen" : "la imagen"}: el destino esperará hasta que pulses «${esCarrusel(pieza) ? "Aprobar imágenes actuales" : "Aprobar imagen actual"}».`, 10000);
+      try { return aprobarDestinos(pieza, r.iso, { versiones: r.versiones, imagenSha: h.imagenSha, imagenesSha: h.imagenesSha }, ahoraIso()); }
       catch (err) { avisarAqui(err.message); return null; }
     };
     const regenerarIlustracion = (p) => {
@@ -609,7 +611,28 @@ function pedirHora(post) {
 async function huellaSegura(id) {
   try { return await estado.almacen.huellaImagen(id); } catch { return null; }
 }
-const textoEspera = (motivo) => ({ "imagen-cambiada": "la imagen cambió tras aprobar", "imagen-sin-aprobar": "imagen sin aprobar" })[motivo] || motivo;
+async function huellaArchivoSegura(ruta) {
+  try { return await estado.almacen.huellaArchivo(ruta); } catch { return null; }
+}
+// Huellas de lo que se publicaría: la imagen del post y, en un carrusel, cada diapositiva en su orden. `completas` indica
+// que se pudieron leer todas (si falta alguna, el destino esperará hasta aprobar las imágenes actuales).
+async function huellasDe(pieza) {
+  const imagenSha = pieza.imagen ? await huellaSegura(pieza.id) : null;
+  const imagenOk = !pieza.imagen || Boolean(imagenSha);
+  if (!esCarrusel(pieza)) return { imagenSha, imagenesSha: undefined, completas: imagenOk };
+  const imagenesSha = [];
+  for (const img of imagenesDe(pieza)) imagenesSha.push(await huellaArchivoSegura(img.ruta));
+  return { imagenSha, imagenesSha, completas: imagenOk && imagenesSha.every(Boolean) };
+}
+const textoEspera = (motivo) => ({ "imagen-cambiada": "la imagen cambió tras aprobar", "imagen-sin-aprobar": "imagen sin aprobar", "imagenes-cambiadas": "las diapositivas cambiaron tras aprobar", "imagenes-sin-aprobar": "diapositivas sin aprobar" })[motivo] || motivo;
+// Motivo de la espera por imagen: el registrado por el publicador o, si aún no corrió, el que el panel deduce de la pieza.
+function motivoImagen(post, d) {
+  const carrusel = post.formato === "carrusel";
+  const plural = { "imagen-cambiada": "imagenes-cambiadas", "imagen-sin-aprobar": "imagenes-sin-aprobar" };
+  if (/^imagen-/.test(d.espera?.motivo || "")) return carrusel ? (plural[d.espera.motivo] || d.espera.motivo) : d.espera.motivo;
+  if (carrusel) return Array.isArray(d.aprobado?.imagenesSha) && d.aprobado.imagenesSha.length === imagenesDe(post).length ? "imagenes-cambiadas" : "imagenes-sin-aprobar";
+  return d.aprobado?.imagenSha ? "imagen-cambiada" : "imagen-sin-aprobar";
+}
 
 // Bloque de destinos de una pieza: chips con estado y enlace, versiones por red, omitir y decisión sobre inciertos.
 // Perfil editorial: lo que el operador revisa antes de aprobar (solo lectura): alertas con su explicación, puntuación,
@@ -688,7 +711,7 @@ function bloqueDestinos({ post, sha, bloqueado }) {
     const nombre = NOMBRES_RED[red];
     let etiqueta = d.estado; let clase = d.estado;
     if (d.estado === "pendiente" && espera(red)) { etiqueta = `en espera (${espera(red)})`; clase = "espera"; }
-    else if (d.estado === "pendiente" && (d.espera || imagenCambiada(post, red))) { etiqueta = `en espera (${textoEspera(d.espera?.motivo || "imagen-cambiada")})`; clase = "espera"; }
+    else if (d.estado === "pendiente" && (d.espera || imagenCambiada(post, red))) { etiqueta = `en espera (${textoEspera(d.espera && !/^imagen-/.test(d.espera.motivo) ? d.espera.motivo : motivoImagen(post, d))})`; clase = "espera"; }
     else if (d.estado === "error") etiqueta = `error: ${d.error?.mensaje || "sin detalle"}`;
     else if (d.estado === "incierto") etiqueta = `incierto: ${d.intento?.incierto?.motivo || "sin detalle"}`;
     const chip = el("span", { class: `destino ${clase}`, text: `${nombre}: ${etiqueta}` });
@@ -725,14 +748,24 @@ function bloqueDestinos({ post, sha, bloqueado }) {
       ]));
       if (!imagenAvisada && (imagenCambiada(post, red) || /^imagen-/.test(d.espera?.motivo || ""))) {
         imagenAvisada = true;
-        detalles.append(
-          el("p", { class: "aviso aviso-tarjeta", text: d.espera?.motivo === "imagen-sin-aprobar" || !d.aprobado?.imagenSha ? "La imagen se renderizó después de aprobar: no se publicará hasta que apruebes la imagen actual." : "La imagen cambió después de aprobar: no se publicará hasta que apruebes la imagen actual." }),
-          el("div", { class: "acciones" }, [accion("Aprobar imagen actual", "primario", async (p) => {
-            const imagenSha = p.imagen ? await huellaSegura(p.id) : null;
-            if (p.imagen && !imagenSha) { avisar("No se pudo leer la huella de la imagen; inténtalo de nuevo.", 8000); return null; }
-            return aprobarImagenActual(p, ahoraIso(), { imagenSha });
-          })]),
-        );
+        const carrusel = post.formato === "carrusel";
+        const motivo = motivoImagen(post, d);
+        const textos = {
+          "imagen-sin-aprobar": "La imagen se renderizó después de aprobar: no se publicará hasta que apruebes la imagen actual.",
+          "imagen-cambiada": "La imagen cambió después de aprobar: no se publicará hasta que apruebes la imagen actual.",
+          "imagenes-sin-aprobar": "Las diapositivas se renderizaron después de aprobar: no se publicará hasta que apruebes las imágenes actuales (todas, en su orden).",
+          "imagenes-cambiadas": "Alguna diapositiva cambió (o cambió su orden) después de aprobar: no se publicará hasta que apruebes las imágenes actuales.",
+        };
+        detalles.append(el("p", { class: "aviso aviso-tarjeta", text: textos[motivo] || textos["imagen-cambiada"] }));
+        if (carrusel && !esCarrusel(post)) {
+          detalles.append(el("p", { class: "nota", text: `El carrusel aún no tiene sus diapositivas renderizadas (entre ${LIMITES_CARRUSEL.min} y ${LIMITES_CARRUSEL.max}); cuando existan podrás aprobarlas aquí.` }));
+        } else {
+          detalles.append(el("div", { class: "acciones" }, [accion(carrusel ? "Aprobar imágenes actuales" : "Aprobar imagen actual", "primario", async (p) => {
+            const h = await huellasDe(p);
+            if (!h.completas) { avisar(`No se pudo leer la huella de ${carrusel ? "alguna imagen" : "la imagen"}; inténtalo de nuevo.`, 8000); return null; }
+            return aprobarImagenActual(p, ahoraIso(), { imagenSha: h.imagenSha, imagenesSha: h.imagenesSha });
+          })]));
+        }
       }
     }
     bloque.append(detalles);

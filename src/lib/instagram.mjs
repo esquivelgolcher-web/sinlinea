@@ -72,6 +72,20 @@ export function crearClienteInstagram({
     return r.id;
   }
 
+  // Carrusel (documentación oficial): un contenedor por imagen con is_carousel_item=true, y después un contenedor
+  // CAROUSEL con children (ids en orden) y el caption; se publica como cualquier contenedor. Hasta 10 elementos.
+  async function crearContenedorHijo({ imageUrl }) {
+    const r = await llamar("POST", `${base}/${usuarioId}/media`, { image_url: imageUrl, is_carousel_item: "true" });
+    if (!r.id) throw new Error("La API no devolvió el id del contenedor hijo");
+    return String(r.id);
+  }
+
+  async function crearCarrusel({ hijos, caption }) {
+    const r = await llamar("POST", `${base}/${usuarioId}/media`, { media_type: "CAROUSEL", children: hijos.join(","), caption });
+    if (!r.id) throw new Error("La API no devolvió el id del contenedor del carrusel");
+    return String(r.id);
+  }
+
   async function esperarContenedor(creationId, { intentos = 24, esperaMs = 5000 } = {}) {
     for (let i = 0; i < intentos; i++) {
       const r = await llamar("GET", `${base}/${creationId}`, { fields: "status_code,status" });
@@ -260,5 +274,5 @@ export function crearClienteInstagram({
 
   const llamadasHechas = () => llamadas;
 
-  return { crearContenedor, esperarContenedor, publicar, estadoContenedor, medioPorContenedor, permalink, cuota, refrescarToken, imagenPublica, publicarImagen, perfil, vigencia, perfilResumen, listarMedios, insightsCuenta, insightsMedio, llamadasHechas };
+  return { crearContenedor, crearContenedorHijo, crearCarrusel, esperarContenedor, publicar, estadoContenedor, medioPorContenedor, permalink, cuota, refrescarToken, imagenPublica, publicarImagen, perfil, vigencia, perfilResumen, listarMedios, insightsCuenta, insightsMedio, llamadasHechas };
 }

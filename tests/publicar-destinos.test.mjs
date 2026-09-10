@@ -12,7 +12,7 @@ const publicarCuentas = (args) => publicarCuentasReal({ huellaImagenDe, ...args 
 import { cargarConfig, cargarConfiguracion } from "../src/lib/config.mjs";
 import { leerPosts, escribirPost } from "../src/lib/posts.mjs";
 import { hashImagen, aprobar } from "../src/lib/estados.mjs";
-import { aprobarDestinos, reintentarDestinos, decidirIncierto, omitirDestino } from "../src/lib/destinos.mjs";
+import { aprobarDestinos, reintentarDestinos, decidirIncierto, omitirDestino, reservarDestino, avanzarIntento } from "../src/lib/destinos.mjs";
 import { ErrorIncierto } from "../src/lib/incierto.mjs";
 import { raizConCuentas } from "./ayuda/cuentas.mjs";
 
@@ -37,7 +37,7 @@ const leer = (raiz, id) => leerPosts(path.join(raiz, "posts")).find((p) => p.id 
 const rutaDe = (id) => `posts/${id}.json`;
 
 // Persistencia simulada: registra el orden de sincronizar/guardar con una instantánea del post en cada guardado.
-function persistenciaSimulada(raiz, { fallarPush = 0, conflicto = false, alSincronizar = null } = {}) {
+function persistenciaSimulada(raiz, { fallarPush = 0, conflicto = false, alSincronizar = null, fallarSi = null } = {}) {
   const eventos = [];
   let fallos = fallarPush;
   const instantanea = (rutas) => rutas.map((r) => { try { return JSON.parse(fs.readFileSync(path.join(raiz, r), "utf8")); } catch { return null; } });
@@ -48,7 +48,7 @@ function persistenciaSimulada(raiz, { fallarPush = 0, conflicto = false, alSincr
     guardar: async (rutas, mensaje) => {
       const copia = instantanea(rutas);
       eventos.push(["guardar", rutas, mensaje, copia]);
-      if (fallos > 0) { fallos--; return { ok: false, motivo: "push rechazado (simulado)" }; }
+      if (fallos > 0 || (fallarSi && fallarSi(mensaje))) { if (fallos > 0) fallos--; return { ok: false, motivo: "push rechazado (simulado)" }; }
       rutas.forEach((r, i) => guardados.set(r, copia[i]));
       return { ok: true };
     },
@@ -548,18 +548,236 @@ test("(F2) identidad de Threads: si el id del perfil no coincide o el usuario es
   assert.deepEqual(r3.publicados, [p3.id]);
 });
 
-// --- Perfil editorial: formatos sin adaptador de publicación ----------------------------------------------------------
-test("(perfil) una pieza programada en formato carrusel o reel no se envía a ninguna red: espera con aviso y sus destinos quedan intactos", async () => {
-  const carrusel = { ...piezaMulticanal("00e1", versiones3), formato: "carrusel", carrusel: { diapositivas: [{ titulo: "a", texto: "b" }], imagenes: [] } };
-  const reel = { ...piezaMulticanal("00e2", { instagram: versiones.instagram }), formato: "reel", reel: { narracion: "n", subtitulos: [], escenas: [], recursos: [] } };
-  const raiz = raizCon([carrusel, reel]);
-  const ig = igFalso(); const fb = fbFalso(); const th = thFalso();
+// --- Carruseles: publicación en las tres redes, aprobación de todas las diapositivas y recuperación sin duplicados -------
+import { aprobarImagenActual } from "../src/lib/destinos.mjs";
+
+const HUELLAS = ["a".repeat(40), "b".repeat(40), "c".repeat(40)];
+const diapositivas = [{ titulo: "¿Una foto basta?", texto: "a" }, { titulo: "Qué ocurrió", texto: "b" }, { titulo: "Qué falta por saber", texto: "c" }];
+const urlDiap = (id, n) => `https://u.github.io/sinlinea/img/${id}-0${n}.jpg`;
+const huellaPorUrl = (cambios = {}) => async (url) => ({ ok: true, sha: cambios[url] ?? (/-0(\d)\.jpg$/.test(url) ? HUELLAS[Number(url.match(/-0(\d)\.jpg$/)[1]) - 1] : HUELLA) });
+function piezaCarrusel(sufijo, redes = versiones3, { imagenesSha = HUELLAS } = {}) {
+  const id = base.id.slice(0, -4) + sufijo;
+  const p = conImagen({ ...base, id, formato: "carrusel", carrusel: { diapositivas, imagenes: diapositivas.map((_, i) => ({ numero: i + 1, ruta: `public/img/${id}-0${i + 1}.jpg`, url: urlDiap(id, i + 1), hash: `h${i + 1}` })), hash: "hc" } });
+  return aprobarDestinos(p, "2026-09-10T14:00:00-05:00", { versiones: redes, imagenSha: imagenesSha[0], imagenesSha }, iso);
+}
+const ejecutarCarrusel = (args) => ejecutarPublicarReal({ huellaImagenDe: huellaPorUrl(), ...args });
+
+function igCarruselFalso({ fallo = null, falloCarrusel = null, estados = {}, medio = null } = {}) {
+  const llamadas = []; let hijos = 0;
+  return {
+    llamadas,
+    perfil: async () => ({ username: "sinlinea.pa", userId: "1784" }),
+    cuota: async () => ({ usados: 0, limite: 100 }),
+    imagenPublica: async () => true,
+    crearContenedor: async ({ imageUrl, caption }) => { llamadas.push(["crearContenedor", imageUrl, caption]); return "c1"; },
+    crearContenedorHijo: async ({ imageUrl }) => { llamadas.push(["crearContenedorHijo", imageUrl]); return `h${++hijos}`; },
+    crearCarrusel: async ({ hijos: h, caption }) => { llamadas.push(["crearCarrusel", [...h], caption]); if (falloCarrusel) throw falloCarrusel; return "padre"; },
+    esperarContenedor: async (id) => { llamadas.push(["esperar", id]); },
+    publicar: async (id) => { llamadas.push(["publicar", id]); if (fallo) throw fallo; return "m1"; },
+    permalink: async (id) => `https://www.instagram.com/p/${id}/`,
+    estadoContenedor: async (id) => { llamadas.push(["estadoContenedor", id]); return { estado: estados[id] || "FINISHED", detalle: "" }; },
+    medioPorContenedor: async (id) => { llamadas.push(["medioPorContenedor", id]); return medio; },
+  };
+}
+function thCarruselFalso({ fallo = null, estados = {}, medio = null } = {}) {
+  const llamadas = []; let hijos = 0;
+  return {
+    llamadas,
+    perfil: async () => ({ id: "555", username: "prueba.diario", coincideId: true }),
+    cuota: async () => ({ usados: 0, limite: 250 }),
+    imagenPublica: async () => true,
+    crearContenedor: async ({ imageUrl, texto }) => { llamadas.push(["crearContenedor", imageUrl, texto]); return "t1"; },
+    crearContenedorHijo: async ({ imageUrl }) => { llamadas.push(["crearContenedorHijo", imageUrl]); return `th${++hijos}`; },
+    crearCarrusel: async ({ hijos: h, texto }) => { llamadas.push(["crearCarrusel", [...h], texto]); return "tpadre"; },
+    esperarContenedor: async (id) => { llamadas.push(["esperar", id]); },
+    publicarContenedor: async (id) => { llamadas.push(["publicarContenedor", id]); if (fallo) throw fallo; return { idMedia: "tm1", permalink: "https://www.threads.net/@prueba.diario/post/tm1" }; },
+    estadoContenedor: async (id) => { llamadas.push(["estadoContenedor", id]); return { estado: estados[id] || "FINISHED", detalle: "" }; },
+    medioPorContenedor: async (id) => { llamadas.push(["medioPorContenedor", id]); return medio; },
+  };
+}
+function fbCarruselFalso({ fallo = null, existe = true, publicacionPrevia = null } = {}) {
+  const llamadas = []; let fotos = 0;
+  return {
+    llamadas,
+    perfil: async () => ({ id: "123", nombre: "Página", coincideId: true }),
+    imagenPublica: async () => true,
+    crearContenedor: async ({ imageUrl }) => { llamadas.push(["crearContenedor", imageUrl]); return `ph${++fotos}`; },
+    publicarContenedor: async ({ contenedorId = null, hijos = null, texto }) => { llamadas.push(["publicarContenedor", hijos || contenedorId, texto]); if (fallo) throw fallo; return { id: (hijos || [contenedorId])[0], idPublicacion: "123_456", permalink: "https://www.facebook.com/123/posts/456" }; },
+    existeContenedor: async (id) => { llamadas.push(["existeContenedor", id]); return existe; },
+    publicacionConContenedor: async (ids, { desde }) => { llamadas.push(["publicacionConContenedor", ids, desde]); return publicacionPrevia; },
+  };
+}
+
+test("(carrusel) una pieza carrusel sale en Instagram, Facebook y Threads: hijos creados en el orden de las diapositivas, contenedor padre con children y publicación; hijos, padre y fase enviando suben al remoto antes de publicar", async () => {
+  const p = piezaCarrusel("0f01");
+  const raiz = raizCon([p]);
+  const ig = igCarruselFalso(); const fb = fbCarruselFalso(); const th = thCarruselFalso();
+  const pers = persistenciaSimulada(raiz);
+  const r = await ejecutarCarrusel({ config: cfgTh, raiz, ahora, ig, clientes: { facebook: fb, threads: th }, persistencia: pers, log });
+  assert.deepEqual(r.publicados, [p.id]);
+  const u = [1, 2, 3].map((n) => urlDiap(p.id, n));
+  assert.deepEqual(ig.llamadas, [["crearContenedorHijo", u[0]], ["crearContenedorHijo", u[1]], ["crearContenedorHijo", u[2]], ["esperar", "h1"], ["esperar", "h2"], ["esperar", "h3"], ["crearCarrusel", ["h1", "h2", "h3"], versiones3.instagram], ["esperar", "padre"], ["publicar", "padre"]]);
+  assert.deepEqual(fb.llamadas, [["crearContenedor", u[0]], ["crearContenedor", u[1]], ["crearContenedor", u[2]], ["publicarContenedor", ["ph1", "ph2", "ph3"], versiones3.facebook]]);
+  assert.deepEqual(th.llamadas.filter((l) => l[0] !== "esperar"), [["crearContenedorHijo", u[0]], ["crearContenedorHijo", u[1]], ["crearContenedorHijo", u[2]], ["crearCarrusel", ["th1", "th2", "th3"], versiones3.threads], ["publicarContenedor", "tpadre"]]);
+  const g = leer(raiz, p.id);
+  assert.equal(g.estado, "publicado");
+  assert.equal(g.destinos.instagram.publicacion.id, "m1");
+  assert.equal(g.destinos.facebook.publicacion.idPublicacion, "123_456");
+  assert.equal(g.destinos.threads.publicacion.id, "tm1");
+  const fasesIg = guardadosDe(pers, p.id).map((s) => s?.destinos?.instagram?.intento).filter(Boolean).map((i) => `${i.fase}:${(i.hijos || []).length}:${i.contenedorId || "-"}`);
+  assert.deepEqual(fasesIg, ["reservado:0:-", "contenedor:3:-", "contenedor:3:padre", "enviando:3:padre"], "los hijos se suben antes del padre y el padre antes de publicar");
+  const fasesFb = guardadosDe(pers, p.id).map((s) => s?.destinos?.facebook?.intento).filter(Boolean).map((i) => `${i.fase}:${(i.hijos || []).length}`);
+  assert.deepEqual(fasesFb, ["reservado:0", "contenedor:3", "enviando:3"]);
+});
+
+test("(carrusel) aprobación de todas las imágenes en orden: si una diapositiva cambió o falta una huella, el destino espera sin tocar la red; aprobar las imágenes actuales desbloquea", async () => {
+  const p = piezaCarrusel("0f02", { threads: versiones3.threads });
+  const raiz = raizCon([p]);
+  const th = thCarruselFalso();
+  const cambiada = { [urlDiap(p.id, 3)]: "d".repeat(40) };
+  const r = await ejecutarPublicarReal({ huellaImagenDe: huellaPorUrl(cambiada), config: cfgTh, raiz, ahora, clientes: { facebook: fbCarruselFalso(), threads: th }, persistencia: persistenciaSimulada(raiz), log });
+  assert.deepEqual(r.pospuestos, [p.id]);
+  assert.equal(r.destinos[p.id].threads, "imagen-cambiada");
+  assert.deepEqual(th.llamadas, [], "ninguna llamada a Threads");
+  assert.equal(leer(raiz, p.id).destinos.threads.espera.motivo, "imagen-cambiada");
+  const sinLista = piezaCarrusel("0f03", { threads: versiones3.threads }, { imagenesSha: [HUELLAS[0], null, HUELLAS[2]] });
+  const raiz2 = raizCon([sinLista]);
+  const r2 = await ejecutarCarrusel({ config: cfgTh, raiz: raiz2, ahora, clientes: { facebook: fbCarruselFalso(), threads: thCarruselFalso() }, persistencia: persistenciaSimulada(raiz2), log });
+  assert.equal(r2.destinos[sinLista.id].threads, "imagen-sin-aprobar");
+  // El operador aprueba las imágenes actuales (huella nueva de la tercera): la siguiente corrida publica.
+  const nuevas = [HUELLAS[0], HUELLAS[1], "d".repeat(40)];
+  escribirPost(path.join(raiz, "posts"), aprobarImagenActual(leer(raiz, p.id), iso, { imagenSha: nuevas[0], imagenesSha: nuevas }));
+  const th2 = thCarruselFalso();
+  const r3 = await ejecutarPublicarReal({ huellaImagenDe: huellaPorUrl(cambiada), config: cfgTh, raiz, ahora, clientes: { facebook: fbCarruselFalso(), threads: th2 }, persistencia: persistenciaSimulada(raiz), log });
+  assert.deepEqual(r3.publicados, [p.id]);
+  assert.deepEqual(th2.llamadas.filter((l) => l[0] === "crearContenedorHijo").map((l) => l[1]), [1, 2, 3].map((n) => urlDiap(p.id, n)), "en el orden aprobado");
+});
+
+test("(carrusel) recuperación sin duplicados: los hijos subidos se reutilizan tras un push rechazado o un error al crear el padre; padre FINISHED se publica sin recrear; padre PUBLISHED se reconcilia; Facebook reutiliza las fotos existentes", async () => {
+  // Instagram: el push que guarda el padre es rechazado → la corrida se detiene; el remoto solo conoce los hijos.
+  const p = piezaCarrusel("0f04", { instagram: versiones3.instagram });
+  const raiz = raizCon([p]);
+  const pers0 = persistenciaSimulada(raiz, { fallarSi: (m) => / contenedor$/.test(m) });
+  const r0 = await ejecutarCarrusel({ config: cfgTh, raiz, ahora, ig: igCarruselFalso(), clientes: {}, persistencia: pers0, log });
+  assert.equal(r0.motivo, "persistencia");
+  await pers0.descartarLocal(); // la siguiente corrida parte de un checkout limpio: lo que llegó al remoto
+  let g = leer(raiz, p.id);
+  assert.equal(g.destinos.instagram.estado, "pendiente");
+  assert.deepEqual(g.destinos.instagram.intento, { ...g.destinos.instagram.intento, fase: "contenedor", contenedorId: null, hijos: ["h1", "h2", "h3"] });
+  const ig2 = igCarruselFalso();
+  const r1 = await ejecutarCarrusel({ config: cfgTh, raiz, ahora, ig: ig2, clientes: {}, persistencia: persistenciaSimulada(raiz), log });
+  assert.deepEqual(r1.publicados, [p.id]);
+  assert.equal(ig2.llamadas.filter((l) => l[0] === "crearContenedorHijo").length, 0, "los hijos no se vuelven a crear");
+  assert.deepEqual(ig2.llamadas.find((l) => l[0] === "crearCarrusel")[1], ["h1", "h2", "h3"]);
+  assert.equal(leer(raiz, p.id).destinos.instagram.intento, null);
+  // Instagram: la API rechaza el padre (error claro) → destino en error conservando los hijos; Reintentar los reutiliza.
+  const e = piezaCarrusel("0f05", { instagram: versiones3.instagram });
+  const raizE = raizCon([e]);
+  const rechazo = Object.assign(new Error("(#100) Invalid parameter: children"), { codigo: 100 });
+  const igE = igCarruselFalso({ falloCarrusel: rechazo });
+  const rE = await ejecutarCarrusel({ config: cfgTh, raiz: raizE, ahora, ig: igE, clientes: {}, persistencia: persistenciaSimulada(raizE), log });
+  assert.deepEqual(rE.errores, [e.id]);
+  g = leer(raizE, e.id);
+  assert.equal(g.destinos.instagram.estado, "error");
+  assert.deepEqual(g.destinos.instagram.ultimoIntento.hijos, ["h1", "h2", "h3"], "el error conserva el último intento (los hijos son evidencia reutilizable)");
+  escribirPost(path.join(raizE, "posts"), reintentarDestinos(g, iso));
+  const igE2 = igCarruselFalso();
+  const rE2 = await ejecutarCarrusel({ config: cfgTh, raiz: raizE, ahora, ig: igE2, clientes: {}, persistencia: persistenciaSimulada(raizE), log });
+  assert.deepEqual(rE2.publicados, [e.id]);
+  assert.equal(igE2.llamadas.filter((l) => l[0] === "crearContenedorHijo").length, 0);
+  assert.deepEqual(igE2.llamadas.find((l) => l[0] === "crearCarrusel")[1], ["h1", "h2", "h3"]);
+  // Threads: corte al publicar (incierto) con el padre creado; en la siguiente corrida figura PUBLISHED → reconciliado.
+  const q = piezaCarrusel("0f06", { threads: versiones3.threads });
+  const raiz2 = raizCon([q]);
+  await ejecutarCarrusel({ config: cfgTh, raiz: raiz2, ahora, clientes: { threads: thCarruselFalso({ fallo: new ErrorIncierto("corte") }) }, persistencia: persistenciaSimulada(raiz2), log });
+  g = leer(raiz2, q.id);
+  assert.equal(g.destinos.threads.estado, "incierto");
+  assert.deepEqual(g.destinos.threads.intento, { ...g.destinos.threads.intento, fase: "enviando", contenedorId: "tpadre", hijos: ["th1", "th2", "th3"] });
+  const thPub = thCarruselFalso({ estados: { tpadre: "PUBLISHED" }, medio: { idMedia: "tpadre", permalink: "https://www.threads.net/@prueba.diario/post/tpadre" } });
+  const r2 = await ejecutarCarrusel({ config: cfgTh, raiz: raiz2, ahora, clientes: { threads: thPub }, persistencia: persistenciaSimulada(raiz2), log });
+  assert.deepEqual(r2.publicados, [q.id]);
+  assert.deepEqual(thPub.llamadas.filter((l) => ["publicarContenedor", "crearContenedorHijo", "crearCarrusel"].includes(l[0])), [], "nunca se vuelve a publicar ni a crear");
+  assert.equal(leer(raiz2, q.id).destinos.threads.publicacion.permalink, "https://www.threads.net/@prueba.diario/post/tpadre");
+  // Threads: padre FINISHED tras el corte → se publica ese mismo padre, sin crear hijos ni padre nuevos.
+  const s = piezaCarrusel("0f07", { threads: versiones3.threads });
+  const raiz3 = raizCon([s]);
+  await ejecutarCarrusel({ config: cfgTh, raiz: raiz3, ahora, clientes: { threads: thCarruselFalso({ fallo: new ErrorIncierto("corte") }) }, persistencia: persistenciaSimulada(raiz3), log });
+  const thFin = thCarruselFalso({ estados: { tpadre: "FINISHED" } });
+  const r3 = await ejecutarCarrusel({ config: cfgTh, raiz: raiz3, ahora, clientes: { threads: thFin }, persistencia: persistenciaSimulada(raiz3), log });
+  assert.deepEqual(r3.publicados, [s.id]);
+  assert.deepEqual(thFin.llamadas.filter((l) => !["estadoContenedor", "esperar"].includes(l[0])), [["publicarContenedor", "tpadre"]]);
+  // Facebook: corte tras enviar; la evidencia del muro (una publicación con las fotos en subattachments) reconcilia.
+  const f = piezaCarrusel("0f08", { facebook: versiones3.facebook });
+  const raiz4 = raizCon([f]);
+  await ejecutarCarrusel({ config: cfgTh, raiz: raiz4, ahora, clientes: { facebook: fbCarruselFalso({ fallo: new ErrorIncierto("corte") }) }, persistencia: persistenciaSimulada(raiz4), log });
+  g = leer(raiz4, f.id);
+  assert.equal(g.destinos.facebook.estado, "incierto");
+  const fbEvidencia = fbCarruselFalso({ publicacionPrevia: { id: "ph1", idPublicacion: "123_777", permalink: "https://www.facebook.com/123/posts/777" } });
+  const r4 = await ejecutarCarrusel({ config: cfgTh, raiz: raiz4, ahora, clientes: { facebook: fbEvidencia }, persistencia: persistenciaSimulada(raiz4), log });
+  assert.deepEqual(r4.publicados, [f.id]);
+  assert.deepEqual(fbEvidencia.llamadas[0], ["publicacionConContenedor", ["ph1", "ph2", "ph3"], g.destinos.facebook.intento.inicio], "la evidencia se busca con las tres fotos");
+  assert.equal(fbEvidencia.llamadas.filter((l) => l[0] === "publicarContenedor").length, 0);
+  assert.equal(leer(raiz4, f.id).destinos.facebook.publicacion.idPublicacion, "123_777");
+  // Facebook: sin evidencia sigue incierto (motivo con las tres fotos); el operador decide «no salió» → se publica con las mismas fotos.
+  const f2 = piezaCarrusel("0f09", { facebook: versiones3.facebook });
+  const raiz5 = raizCon([f2]);
+  await ejecutarCarrusel({ config: cfgTh, raiz: raiz5, ahora, clientes: { facebook: fbCarruselFalso({ fallo: new ErrorIncierto("corte") }) }, persistencia: persistenciaSimulada(raiz5), log });
+  const rSin = await ejecutarCarrusel({ config: cfgTh, raiz: raiz5, ahora, clientes: { facebook: fbCarruselFalso() }, persistencia: persistenciaSimulada(raiz5), log });
+  assert.deepEqual(rSin.inciertos, [f2.id]);
+  assert.match(leer(raiz5, f2.id).destinos.facebook.intento.incierto.motivo, /las fotos ph1, ph2, ph3/);
+  escribirPost(path.join(raiz5, "posts"), decidirIncierto(leer(raiz5, f2.id), "facebook", "pendiente", {}, iso));
+  const fbMismas = fbCarruselFalso({ existe: true });
+  const r5 = await ejecutarCarrusel({ config: cfgTh, raiz: raiz5, ahora, clientes: { facebook: fbMismas }, persistencia: persistenciaSimulada(raiz5), log });
+  assert.deepEqual(r5.publicados, [f2.id]);
+  assert.equal(fbMismas.llamadas.filter((l) => l[0] === "crearContenedor").length, 0, "las fotos no se vuelven a subir");
+  assert.deepEqual(fbMismas.llamadas.find((l) => l[0] === "publicarContenedor")[1], ["ph1", "ph2", "ph3"]);
+});
+
+test("(carrusel) una corrida interrumpida sin registrar resultado no repite nada: en fase enviando el destino pasa a incierto y se reconcilia; en fase contenedor se reutiliza lo creado", async () => {
+  // El remoto quedó con la fase enviando persistida (la corrida murió antes de guardar el resultado): pudo publicarse.
+  const t = piezaCarrusel("0f10", { threads: versiones3.threads });
+  let conIntento = avanzarIntento(reservarDestino(t, "threads", { n: 1 }, iso), "threads", { fase: "contenedor", contenedorId: "tpadre", hijos: ["th1", "th2", "th3"] }, iso);
+  conIntento = avanzarIntento(conIntento, "threads", { fase: "enviando", contenedorId: "tpadre" }, iso);
+  assert.equal(conIntento.destinos.threads.estado, "pendiente");
+  const raiz = raizCon([conIntento]);
+  const thPub = thCarruselFalso({ estados: { tpadre: "PUBLISHED" }, medio: { idMedia: "tpadre", permalink: "https://www.threads.net/@prueba.diario/post/tpadre" } });
+  const r = await ejecutarCarrusel({ config: cfgTh, raiz, ahora, clientes: { threads: thPub }, persistencia: persistenciaSimulada(raiz), log });
+  assert.deepEqual(r.publicados, [t.id]);
+  assert.deepEqual(thPub.llamadas.filter((l) => ["publicarContenedor", "crearContenedorHijo", "crearCarrusel"].includes(l[0])), [], "no se vuelve a enviar");
+  // Facebook, misma situación y sin evidencia en el muro: incierto explicado, sin enviar.
+  const f = piezaCarrusel("0f11", { facebook: versiones3.facebook });
+  let fbIntento = avanzarIntento(reservarDestino(f, "facebook", { n: 1 }, iso), "facebook", { fase: "contenedor", hijos: ["ph1", "ph2", "ph3"] }, iso);
+  fbIntento = avanzarIntento(fbIntento, "facebook", { fase: "enviando", hijos: ["ph1", "ph2", "ph3"] }, iso);
+  const raiz2 = raizCon([fbIntento]);
+  const fb = fbCarruselFalso();
+  const pers2 = persistenciaSimulada(raiz2);
+  const r2 = await ejecutarCarrusel({ config: cfgTh, raiz: raiz2, ahora, clientes: { facebook: fb }, persistencia: pers2, log });
+  assert.deepEqual(r2.inciertos, [f.id]);
+  assert.equal(fb.llamadas.filter((l) => l[0] === "publicarContenedor").length, 0);
+  const d = leer(raiz2, f.id).destinos.facebook;
+  assert.equal(d.estado, "incierto");
+  const motivos = guardadosDe(pers2, f.id).map((s) => s?.destinos?.facebook?.intento?.incierto?.motivo || null);
+  assert.match(motivos[0], /se interrumpió tras enviar/, "primero se registra el incierto por la corrida interrumpida");
+  assert.match(d.intento.incierto.motivo, /sin evidencia: no aparece ninguna publicación con las fotos ph1, ph2, ph3/, "y después el resultado de buscar evidencia");
+  // Un post de una sola imagen en la misma situación también pasa a incierto (no es exclusivo de los carruseles).
+  const u = piezaMulticanal("0f12", { facebook: versiones.facebook });
+  const uIntento = avanzarIntento(avanzarIntento(reservarDestino(u, "facebook", { n: 1 }, iso), "facebook", { fase: "contenedor", contenedorId: "ph9" }, iso), "facebook", { fase: "enviando", contenedorId: "ph9" }, iso);
+  const raiz3 = raizCon([uIntento]);
+  const fb3 = fbFalso();
+  const r3 = await ejecutarPublicar({ config: cfgFb, raiz: raiz3, ahora, ig: igFalso(), clientes: { facebook: fb3 }, persistencia: persistenciaSimulada(raiz3), log });
+  assert.deepEqual(r3.inciertos, [u.id]);
+  assert.equal(fb3.llamadas.filter((l) => l[0] === "publicarContenedor").length, 0);
+});
+
+test("(carrusel) el reel sigue sin enviarse y un carrusel sin diapositivas renderizadas espera; ninguno toca la red", async () => {
+  const sinDiapositivas = { ...piezaMulticanal("0f09", versiones3), formato: "carrusel", carrusel: { diapositivas: [{ titulo: "a", texto: "b" }], imagenes: [] } };
+  const reel = { ...piezaMulticanal("0f10", { instagram: versiones.instagram }), formato: "reel", reel: { narracion: "n", subtitulos: [], escenas: [], recursos: [] } };
+  const raiz = raizCon([sinDiapositivas, reel]);
+  const ig = igCarruselFalso(); const fb = fbCarruselFalso(); const th = thCarruselFalso();
   const avisos = [];
-  const r = await ejecutarPublicar({ config: cfgTh, raiz, ahora, ig, clientes: { facebook: fb, threads: th }, persistencia: persistenciaSimulada(raiz), log: { ...log, warn: (m) => avisos.push(m) } });
-  assert.deepEqual(r.pospuestos.sort(), [carrusel.id, reel.id].sort());
-  assert.deepEqual(r.publicados, []);
-  assert.deepEqual([ig.llamadas, fb.llamadas, th.llamadas], [[], [], []], "ningún cliente recibe llamadas");
-  assert.ok(avisos.some((m) => /formato carrusel sin adaptador/.test(m)) && avisos.some((m) => /formato reel sin adaptador/.test(m)));
-  assert.equal(leer(raiz, carrusel.id).destinos.threads.estado, "pendiente");
-  assert.equal(leer(raiz, reel.id).destinos.instagram.estado, "pendiente");
+  const r = await ejecutarCarrusel({ config: cfgTh, raiz, ahora, ig, clientes: { facebook: fb, threads: th }, persistencia: persistenciaSimulada(raiz), log: { ...log, warn: (m) => avisos.push(m) } });
+  assert.deepEqual(r.pospuestos.sort(), [sinDiapositivas.id, reel.id].sort());
+  assert.deepEqual([ig.llamadas, fb.llamadas, th.llamadas], [[], [], []]);
+  assert.ok(avisos.some((m) => /no tiene sus diapositivas renderizadas/.test(m)) && avisos.some((m) => /formato reel sin adaptador/.test(m)));
+  assert.equal(leer(raiz, sinDiapositivas.id).destinos.threads.estado, "pendiente");
 });

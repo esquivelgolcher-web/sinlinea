@@ -3,7 +3,9 @@
 // se programan hasta que exista su adaptador de publicación (ver docs/CONFIGURACION.md §14).
 export const FORMATOS = ["post", "carrusel", "reel"];
 export const NOMBRES_FORMATO = Object.freeze({ post: "Post", carrusel: "Carrusel", reel: "Reel" });
-export const FORMATOS_PUBLICABLES = ["post"];
+// El carrusel se publica como contenedores hijos + contenedor CAROUSEL (Instagram, Threads) o varias fotos adjuntas (Facebook).
+// El reel sigue sin adaptador (no hay producción de vídeo).
+export const FORMATOS_PUBLICABLES = ["post", "carrusel"];
 export const formatoDe = (post) => post?.formato || "post";
 export const esPublicable = (formato) => FORMATOS_PUBLICABLES.includes(formato || "post");
 
@@ -20,6 +22,6 @@ export const DESCRIPCION_ALERTA = Object.freeze({
   "hecho-antiguo": "El hecho tiene más de 30 días: el texto debe decir la fecha y no presentarlo como reciente.",
   "evidencia-insuficiente": "La evidencia disponible es débil (puntuación de evidencia baja).",
   "solo-pista": "La fuente principal solo aporta titular o fragmento: sirve como pista, no como base de una pieza.",
-  "formato-no-publicable": "Carrusel y reel no tienen todavía adaptador de publicación: se revisan aquí, no se programan.",
+  "formato-no-publicable": "El reel no tiene todavía adaptador de publicación: se revisa aquí, no se programa.",
 });
 export const ESTADOS_REVISION = ["pendiente", "revisado"];

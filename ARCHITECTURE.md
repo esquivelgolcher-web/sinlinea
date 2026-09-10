@@ -59,8 +59,9 @@ acontecimiento (`lib/temas.mjs`); envía a Claude solo los grupos legibles con e
 perfil (`redactarPerfil`: formato, ángulo, atribución, afirmaciones con fuente, puntuación por
 ejes, carrusel o reel); pondera la puntuación (`lib/puntuacion.mjs`), descarta bajo el mínimo y
 añade alertas; guarda el post con `fuentes[]`, `afirmaciones[]`, `alertas[]`, `revision` y, si
-es carrusel, renderiza una imagen por diapositiva (`templates/carrusel.html`). El publicador y
-el panel bloquean carrusel y reel hasta que exista su adaptador (ver docs/CONFIGURACION.md §14).
+es carrusel, renderiza una imagen por diapositiva (`templates/carrusel.html`). El carrusel se
+publica como tal (§2.4); el publicador y el panel bloquean el reel hasta que exista su adaptador
+(ver docs/CONFIGURACION.md §14).
 
 ### 2.1 GENERAR (`src/generar.mjs`)
 1. Por cada cuenta activa (`generarCuentas`): lee su configuración efectiva y
@@ -254,6 +255,21 @@ de la imagen en GitHub Pages. Reglas del diseño multicanal (`docs/superpowers/s
 - **Texto e imagen aprobados.** Se publica exactamente la versión aprobada por destino
   (`lib/versiones.mjs` solo propone, nunca recorta). Si la imagen cambió después de aprobar,
   el destino espera hasta que el operador apruebe la imagen actual.
+- **Carruseles (2-10 diapositivas renderizadas).** En Instagram y Threads, un contenedor hijo
+  por diapositiva (`is_carousel_item`), sondeo hasta `FINISHED`, contenedor `CAROUSEL` con
+  `children` en el orden aprobado y publicación; en Facebook, una foto sin publicar por
+  diapositiva y una sola publicación con `attached_media` múltiple. Los ids de los hijos se
+  suben al remoto (`intento.hijos`, fase `contenedor`) antes de crear el padre y el padre antes
+  de publicar: un corte en cualquier punto reutiliza lo creado y nunca duplica. Se aprueba la
+  huella de cada diapositiva en su orden (`aprobado.imagenesSha`); si cambia una, su orden o su
+  número, el destino espera «Aprobar imágenes actuales». La evidencia de Facebook acepta la foto
+  en `attachments` o `subattachments` (la publicación con varias fotos no está confirmada en la
+  documentación oficial; validado solo con simulaciones). Un carrusel sin sus diapositivas
+  renderizadas espera; el reel sigue sin enviarse.
+- **Corridas interrumpidas.** Un intento que quedó en el remoto en fase `enviando` sin resultado
+  (la corrida murió antes de guardarlo) pasa a incierto y solo la evidencia lo resuelve; en fase
+  `contenedor` se reutiliza lo creado. Un destino en error recuerda su último intento
+  (`ultimoIntento`), de modo que Reintentar reutiliza contenedores o fotos en vez de recrearlos.
 
 Avisa cuando el token de Instagram está por vencer. El estado general de la pieza se deriva
 de sus destinos (`lib/destinos.mjs`): `programado` mientras quede algo pendiente o incierto,
@@ -281,7 +297,7 @@ y `error` del post siguen reflejando Instagram para el panel, las métricas y el
 | `lib/facebook.mjs`, `threads.mjs` | Clientes de la Graph API (página: foto sin publicar → publicación) y de la Threads API (contenedor → publicación); fallo de red tras enviar = `ErrorIncierto` | no | `incierto.mjs` |
 | `lib/destinos.mjs`, `versiones.mjs`, `conexiones.mjs` | Destinos por post (texto e imagen aprobados, intentos, inciertos), versiones por red (límites: Threads 500 con emojis por bytes; solo proponen) y conexiones/interruptores por red (solo nombres de secretos) | **sí** | `estados.mjs`, `caption.mjs`, `fechas.mjs` |
 | `lib/huella.mjs`, `persistencia.mjs` | Huella (sha de blob) de la imagen servida; reserva persistida en git antes de enviar | no | — |
-| `lib/formatos.mjs`, `puntuacion.mjs`, `temas.mjs` | Perfil editorial: formatos (post/carrusel/reel; solo post publicable), alertas y tipos de afirmación; puntuación ponderada configurable; agrupación por acontecimiento y URL canónica | **sí** | — |
+| `lib/formatos.mjs`, `puntuacion.mjs`, `temas.mjs` | Perfil editorial: formatos (post/carrusel/reel; post y carrusel publicables), alertas y tipos de afirmación; puntuación ponderada configurable; agrupación por acontecimiento y URL canónica | **sí** | — |
 | `generar/regenerar/publicar/renovar-token.mjs` | Orquestadores con dependencias inyectables | no | todo lo anterior |
 | `build.mjs`, `serve.mjs` | Construcción de `dist/` y servidor local | no | — |
 | `panel/app.js`, `almacen.mjs` | Interfaz y almacenes (local / GitHub) | navegador | módulos isomorfos |

@@ -196,7 +196,7 @@ Cada cuenta puede conectar una página de Facebook. Es independiente de Instagra
 
 **Aprobar una pieza para varias redes:** en Borradores pulsa Aprobar. En el diálogo, además de la fecha y la hora, verás una casilla por red (Instagram y Facebook) y el texto que saldrá en cada una. Revísalo: el de Facebook va sin hashtags. Si un texto pasa del límite, no se recorta solo: edítalo antes de confirmar.
 
-**Después de aprobar:** en Programados cada pieza muestra una etiqueta por red (pendiente, en espera, publicado con enlace, error, incierto, omitido) y un desplegable «Versiones por red» para cambiar el texto aprobado a mano. «Omitir en Facebook» quita esa red de esa pieza (no se puede omitir la última). Si editas el caption o se regenera la imagen después de aprobar, la tarjeta lo avisa; nada cambia hasta que pulses «Guardar versión» o «Aprobar imagen actual».
+**Después de aprobar:** en Programados cada pieza muestra una etiqueta por red (pendiente, en espera, publicado con enlace, error, incierto, omitido) y un desplegable «Versiones por red» para cambiar el texto aprobado a mano. «Omitir en Facebook» quita esa red de esa pieza (no se puede omitir la última). Si editas el caption o se regenera la imagen después de aprobar, la tarjeta lo avisa; nada cambia hasta que pulses «Guardar versión», «Aprobar imagen actual» o, en un carrusel, «Aprobar imágenes actuales».
 
 **Si una red falla o queda incierta:** con error, la pieza va a Errores; «Reintentar» solo vuelve a intentar la red fallida. Con «incierto» (hubo un corte tras enviar), el sistema busca evidencia en la siguiente corrida y, si no la encuentra, tú decides con el botón «Decidir Facebook»: pega el enlace si ves la publicación en la página, o «volver a pendiente» si no está.
 
@@ -204,7 +204,7 @@ Cada cuenta puede conectar una página de Facebook. Es independiente de Instagra
 
 **Pasos que se hacen fuera del panel:** obtener el token de página (Meta), guardarlo en el Environment (GitHub) y, si el token del panel no tiene permiso Actions, lanzar Probar destino desde Actions.
 
-**La imagen que sale es la que aprobaste:** al aprobar se guarda la huella del archivo de imagen. Si después se regenera (por una ilustración nueva o un cambio de plantilla), la pieza queda en espera y verás «Aprobar imagen actual» en Versiones por red; hasta que lo pulses no se publica.
+**La imagen que sale es la que aprobaste:** al aprobar se guarda la huella del archivo de imagen. Si después se regenera (por una ilustración nueva o un cambio de plantilla), la pieza queda en espera y verás «Aprobar imagen actual» en Versiones por red; hasta que lo pulses no se publica. En un carrusel pasa lo mismo con cada diapositiva: al aprobar se guarda la huella de todas en su orden y, si alguna cambia, verás «Aprobar imágenes actuales».
 
 **Estado:** la publicación en Facebook está validada con una pieza real (10 de septiembre de 2026). La reconciliación de resultados inciertos sigue probada solo con simulaciones.
 
@@ -232,7 +232,7 @@ Tu cuenta personal tiene ahora un perfil editorial: fuentes prioritarias (WIRED,
 
 **Qué verás en cada borrador:** además del titular, la bajada y el caption, una etiqueta con el formato (Post, Carrusel o Reel), las **alertas** en amarillo con su explicación (fuente única, acceso parcial, denuncia sin fuente, hecho antiguo, evidencia insuficiente) y un desplegable «Revisión editorial» con la puntuación, el ángulo, la atribución, cada afirmación con su tipo (hecho, denuncia, hipótesis, opinión) y su enlace, y las fuentes con autor, idioma, fechas, fecha de consulta y hasta dónde se pudo leer.
 
-**Carrusel y reel:** el carrusel muestra sus diapositivas ya renderizadas; el reel, la narración, los subtítulos, las escenas y los recursos. Ninguno se puede programar todavía: al pulsar Aprobar el panel lo dice. Sirven para revisar, copiar y publicar a mano o para esperar al adaptador de publicación.
+**Carrusel:** muestra sus diapositivas ya renderizadas y se aprueba como un post (hora, destinos y texto por red); al aprobar quedan registradas todas las diapositivas en su orden. Sale como carrusel en Instagram y Threads y como una publicación con varias fotos en Facebook. Si aún no tiene sus diapositivas renderizadas, se programa pero espera hasta que existan y las apruebes. **Reel:** muestra la narración, los subtítulos, las escenas y los recursos; no se puede programar todavía (al pulsar Aprobar el panel lo dice) y tu cuenta ya no genera reels.
 
 **Qué no hace:** no traduce artículos, no reutiliza vídeos ni fotos de otros medios, no elude muros de pago y no inventa resúmenes de lo que no pudo leer. Si una noticia solo llega como titular o descripción (los canales de YouTube), queda como pista y no genera pieza.
 

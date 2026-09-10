@@ -134,6 +134,13 @@ export function crearAlmacenLocal() {
       if (!res.ok) throw new Error(`No se pudo leer la huella de la imagen (HTTP ${res.status})`);
       return (await res.json()).sha || null;
     },
+    // Huella de un archivo renderizado por su ruta (las diapositivas de un carrusel: public/img/<id>-NN.jpg); null si no existe.
+    async huellaArchivo(ruta) {
+      const res = await fetch(`/api/archivo-sha?ruta=${encodeURIComponent(ruta)}`, { cache: "no-store" });
+      if (res.status === 404) return null;
+      if (!res.ok) throw new Error(`No se pudo leer la huella de ${ruta} (HTTP ${res.status})`);
+      return (await res.json()).sha || null;
+    },
     async solicitarVerificacion(cuenta, red = "instagram") {
       const { res, j } = await json(await fetch(`/api/verificar-conexion?cuenta=${encodeURIComponent(cuenta)}&red=${encodeURIComponent(red)}`, { method: "POST" }));
       if (!res.ok) throw new Error(j.error || `No se pudo solicitar la verificación (HTTP ${res.status})`);
@@ -392,6 +399,14 @@ export function crearAlmacenGitHub({ token, owner, repo, rama = "main", fetchImp
       const res = await pedir(`${api}/contents/public/img/${encodeURIComponent(id)}.jpg?ref=${rama}`, { headers: cabeceras({ Accept: "application/vnd.github.object+json" }) });
       if (res.status === 404) return null;
       if (!res.ok) throw new Error(`GitHub respondió ${res.status} al leer la huella de la imagen`);
+      return (await res.json()).sha || null;
+    },
+    // Huella (sha de blob git) de un archivo renderizado por su ruta en el repositorio (diapositivas de un carrusel); null si no existe.
+    async huellaArchivo(ruta) {
+      if (!/^public\/img\/[a-z0-9-]+(-\d{2})?\.jpg$/.test(ruta)) throw new Error(`Ruta de imagen no admitida: ${ruta}`);
+      const res = await pedir(`${api}/contents/${ruta}?ref=${rama}`, { headers: cabeceras({ Accept: "application/vnd.github.object+json" }) });
+      if (res.status === 404) return null;
+      if (!res.ok) throw new Error(`GitHub respondió ${res.status} al leer la huella de ${ruta}`);
       return (await res.json()).sha || null;
     },
     // Multicanal (F1): `red` distinta de instagram lanza "Probar destino" y marca data/<cuenta>/conexion-<red>.json.

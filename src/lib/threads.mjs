@@ -68,6 +68,20 @@ export function crearClienteThreads({ token, usuarioId, apiVersion = "v1.0", fet
     return String(r.id);
   }
 
+  // Carrusel (documentación oficial): un contenedor IMAGE por imagen con is_carousel_item=true y un contenedor CAROUSEL
+  // con children (ids en orden, entre 2 y 20) y el texto; se publica con threads_publish como cualquier contenedor.
+  async function crearContenedorHijo({ imageUrl }) {
+    const r = await llamar("POST", `${base}/${usuarioId}/threads`, { media_type: "IMAGE", image_url: imageUrl, is_carousel_item: "true" });
+    if (!r.id) throw new Error("La API no devolvió el id del contenedor hijo");
+    return String(r.id);
+  }
+
+  async function crearCarrusel({ hijos, texto }) {
+    const r = await llamar("POST", `${base}/${usuarioId}/threads`, { media_type: "CAROUSEL", children: hijos.join(","), text: texto });
+    if (!r.id) throw new Error("La API no devolvió el id del contenedor del carrusel");
+    return String(r.id);
+  }
+
   async function esperarContenedor(contenedorId, { intentos = 10, esperaMs = ESPERA_CONTENEDOR_THREADS_MS } = {}) {
     for (let i = 0; i < intentos; i++) {
       const r = await llamar("GET", `${base}/${contenedorId}`, { fields: "status,error_message" });
@@ -139,5 +153,5 @@ export function crearClienteThreads({ token, usuarioId, apiVersion = "v1.0", fet
     }
   }
 
-  return { perfil, crearContenedor, esperarContenedor, publicarContenedor, permalink, estadoContenedor, medioPorContenedor, cuota, refrescarToken, intercambiarToken, imagenPublica, llamadasHechas: () => llamadas };
+  return { perfil, crearContenedor, crearContenedorHijo, crearCarrusel, esperarContenedor, publicarContenedor, permalink, estadoContenedor, medioPorContenedor, cuota, refrescarToken, intercambiarToken, imagenPublica, llamadasHechas: () => llamadas };
 }

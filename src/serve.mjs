@@ -165,6 +165,14 @@ export function crearServidor({ raiz = process.cwd(), log = console } = {}) {
         if (!fs.existsSync(rutaImg)) return responderJson(res, 404, { error: "sin imagen", sha: null });
         return responderJson(res, 200, { sha: shaDeBlob(fs.readFileSync(rutaImg)) });
       }
+      // Carrusel: huella de una diapositiva renderizada (public/img/<id>-NN.jpg) o de la imagen del post, por su ruta.
+      if (req.method === "GET" && p === "/api/archivo-sha") {
+        const ruta = url.searchParams.get("ruta") || "";
+        if (!/^public\/img\/[a-z0-9-]+(-\d{2})?\.jpg$/.test(ruta)) return responderJson(res, 400, { error: "ruta inválida" });
+        const rutaArchivo = path.join(raiz, ...ruta.split("/"));
+        if (!fs.existsSync(rutaArchivo)) return responderJson(res, 404, { error: "sin archivo", sha: null });
+        return responderJson(res, 200, { sha: shaDeBlob(fs.readFileSync(rutaArchivo)) });
+      }
       if (req.method === "GET" && p === "/api/token-info") {
         const cuenta = url.searchParams.get("cuenta") || principal();
         if (!configuracion().cuentas.some((c) => c.cuenta === cuenta)) return responder(res, 404, "Cuenta desconocida");

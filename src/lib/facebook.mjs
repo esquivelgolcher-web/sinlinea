@@ -65,11 +65,12 @@ export function crearClienteFacebook({ token, paginaId, apiVersion, fetchImpl = 
     return String(r.id);
   }
 
-  // Fase 2: la publicación con la foto adjunta. Sin reintentos: un corte aquí es incierto.
-  async function publicarContenedor({ contenedorId, texto }) {
-    const r = await llamar("POST", `${base}/${paginaId}/feed`, { message: texto, attached_media: JSON.stringify([{ media_fbid: contenedorId }]) }, { sinReintento: true });
+  // Fase 2: la publicación con la foto adjunta (o varias, en orden, para un carrusel). Sin reintentos: un corte aquí es incierto.
+  async function publicarContenedor({ contenedorId = null, hijos = null, texto }) {
+    const ids = Array.isArray(hijos) && hijos.length ? hijos : [contenedorId];
+    const r = await llamar("POST", `${base}/${paginaId}/feed`, { message: texto, attached_media: JSON.stringify(ids.map((id) => ({ media_fbid: id }))) }, { sinReintento: true });
     if (!r.id) throw new Error("La API no devolvió el id de la publicación");
-    return { id: contenedorId, idPublicacion: String(r.id), permalink: await permalink(String(r.id)) };
+    return { id: String(ids[0]), idPublicacion: String(r.id), permalink: await permalink(String(r.id)) };
   }
 
   async function permalink(idPublicacion) {
@@ -92,14 +93,19 @@ export function crearClienteFacebook({ token, paginaId, apiVersion, fetchImpl = 
     }
   }
 
+  // `contenedorId` puede ser un id o una lista (carrusel): basta con que cualquiera de las fotos aparezca en attachments o,
+  // en una publicación con varias fotos, en subattachments.
   async function publicacionConContenedor(contenedorId, { desde, limite = 25 } = {}) {
-    const params = { fields: "id,created_time,permalink_url,attachments{target}", limit: String(limite) };
+    const ids = new Set((Array.isArray(contenedorId) ? contenedorId : [contenedorId]).map(String));
+    const params = { fields: "id,created_time,permalink_url,attachments{target,subattachments{target}}", limit: String(limite) };
     if (desde) params.since = String(Math.floor(Date.parse(desde) / 1000));
     const r = await llamar("GET", `${base}/${paginaId}/posts`, params);
     for (const p of r.data || []) {
       const adjuntos = p.attachments?.data || [];
-      if (adjuntos.some((a) => String(a?.target?.id || "") === String(contenedorId))) {
-        return { id: String(contenedorId), idPublicacion: String(p.id), permalink: String(p.permalink_url || "") };
+      const objetivos = adjuntos.flatMap((a) => [String(a?.target?.id || ""), ...((a?.subattachments?.data || []).map((s) => String(s?.target?.id || "")))]);
+      const encontrado = objetivos.find((id) => id && ids.has(id));
+      if (encontrado) {
+        return { id: Array.isArray(contenedorId) ? String(contenedorId[0]) : String(contenedorId), idPublicacion: String(p.id), permalink: String(p.permalink_url || "") };
       }
     }
     return null;
