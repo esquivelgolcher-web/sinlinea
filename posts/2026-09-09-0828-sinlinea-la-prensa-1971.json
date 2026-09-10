@@ -1,7 +1,7 @@
 {
   "id": "2026-09-09-0828-sinlinea-la-prensa-1971",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "La Prensa",
     "url": "https://www.prensa.com/politica/china-reacciona-y-expresa-fuerte-rechazo-al-grupo-de-diputados-panama-taiwan/",
@@ -43,5 +43,5 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-09T13:28:40.521Z",
-  "actualizado": "2026-09-10T15:15:45.251Z"
+  "actualizado": "2026-09-10T18:32:09.491Z"
 }
