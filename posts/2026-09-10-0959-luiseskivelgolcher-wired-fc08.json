@@ -1,0 +1,172 @@
+{
+  "id": "2026-09-10-0959-luiseskivelgolcher-wired-fc08",
+  "cuenta": "luiseskivelgolcher",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "WIRED",
+    "url": "https://www.wired.com/story/a-us-census-report-on-noncitizen-voting-used-bad-data-to-reach-faulty-conclusions/",
+    "titulo": "A US Census Report on Noncitizen Voting Used Bad Data to Reach Faulty Conclusions",
+    "publicado": "2026-09-09T10:00:00.000Z"
+  },
+  "categoria": "INVESTIGACIÓN",
+  "titular": "WIRED halla fallas en informe del Censo sobre voto ilegal",
+  "bajada": "Investigación liga autores del reporte a exfuncionarios de Trump y del DOGE",
+  "caption": "Un informe de la Oficina del Censo de Estados Unidos, publicado el mes pasado, fue usado por Donald Trump para respaldar su denuncia infundada de que el voto de personas no ciudadanas le costó la elección de 2020. Una investigación de WIRED encontró fallas graves en los datos usados y en el proceso de aprobación previo a la publicación. El medio también identificó que varios de los autores tienen vínculos con la administración Trump y el Partido Republicano, entre ellos un exafiliado al llamado Departamento de Eficiencia Gubernamental (DOGE) y dos investigadores del America First Policy Institute. WIRED tuvo acceso parcial a la documentación completa del proceso interno del Censo. La pieza es un ejemplo de cómo datos oficiales pueden usarse políticamente sin el rigor metodológico esperado.",
+  "hashtags": [
+    "#Investigación",
+    "#Censo",
+    "#Elecciones",
+    "#Desinformación",
+    "#DatosPúblicos"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-09-10-0959-luiseskivelgolcher-wired-fc08.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-10-0959-luiseskivelgolcher-wired-fc08.jpg",
+    "hash": "c6ca620eeb709674",
+    "version": 10,
+    "estilo": "ce835c6d040d39e3",
+    "renderizada": "2026-09-10T15:01:26.031Z"
+  },
+  "ilustracion": {
+    "descripcion": "Ilustración de una pila de documentos oficiales borrosos junto a un gráfico de barras distorsionado, sobre fondo azul oscuro sin texto legible; los documentos en el tercio superior derecho, con la zona izquierda y central despejadas.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-10-0959-luiseskivelgolcher-wired-fc08.jpg",
+    "hashDescripcion": "a671f8a01264899e",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-10T14:59:41.859Z",
+    "error": null,
+    "procedencia": "generada"
+  },
+  "formato": "reel",
+  "fuentes": [
+    {
+      "rol": "principal",
+      "medio": "WIRED",
+      "autor": "Vittoria Elliott",
+      "url": "https://www.wired.com/story/a-us-census-report-on-noncitizen-voting-used-bad-data-to-reach-faulty-conclusions/",
+      "canonica": "https://www.wired.com/story/a-us-census-report-on-noncitizen-voting-used-bad-data-to-reach-faulty-conclusions/",
+      "idioma": "en",
+      "publicado": "2026-09-09T10:00:00.000Z",
+      "actualizado": "2026-09-09T10:00:00.000Z",
+      "fechaHecho": null,
+      "consultado": "2026-09-10T14:59:41.859Z",
+      "alcance": "parcial",
+      "textoRecuperado": {
+        "parrafos": 29,
+        "caracteres": 991
+      },
+      "fuentesPrimarias": [
+        "https://www.census.gov/content/dam/Census/library/publications/2026/dir/noncitizen-voting-in-the-2020-election.pdf",
+        "https://truthsocial.com/@realDonaldTrump/posts/117118475271319244",
+        "https://www.politico.com/news/2026/03/23/trump-think-tanks-conservative-realignment-00839718",
+        "https://drive.google.com/file/d/102Ecq5lgqBzch6CNe-kkqrPt_BxZ7s8V/view",
+        "https://www.cato.org/blog/another-data-point-against-theory-non-citizens-are-voting-en-masse",
+        "https://idahocapitalsun.com/2024/10/18/idaho-secretary-of-state-removing-36-likely-noncitizens-as-registered-voters-says-some-voted/",
+        "https://www.census.gov/programs-surveys/ces.html",
+        "https://www.census.gov/newsroom/bios/michael-lachanski.html",
+        "https://lnkd.in/p/eWmQqAsh",
+        "https://www.americafirstpolicy.com/team/matthew-jensen",
+        "https://www.americafirstpolicy.com/team/jeff-mccrea",
+        "https://www.supremecourt.gov/DocketPDF/22/22O155/163550/20201211132250339_Texas%20v.%20Pennsylvania%20Amicus%20Brief%20of%20126%20Representatives%20--%20corrected.pdf",
+        "https://www.opm.gov/policy-data-oversight/hiring-information/intergovernment-personnel-act/",
+        "https://www.census.gov/library/publications/2026/dir/noncitizen-voting-in-the-2020-election.html",
+        "https://www.census.gov/about/adrm/linkage/technical-documentation/processing-de-identification.html",
+        "https://www.census.gov/library/working-papers/2026/adrm/CES-WP-26-06.html",
+        "https://www.lwv.org/blog/scotuss-final-blow-dismantling-voting-rights-act",
+        "http://www.aboutads.info"
+      ],
+      "licenciaMedios": null
+    }
+  ],
+  "afirmaciones": [
+    {
+      "texto": "El Censo de EE.UU. publicó un informe que Trump usó para respaldar denuncias infundadas de voto de no ciudadanos en 2020",
+      "tipo": "hecho",
+      "fuente": "https://www.census.gov/library/publications/2026/dir/noncitizen-voting-in-the-2020-election.html",
+      "contrastada": true
+    },
+    {
+      "texto": "WIRED encontró fallas graves en los datos y en el proceso de aprobación del informe",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/a-us-census-report-on-noncitizen-voting-used-bad-data-to-reach-faulty-conclusions/",
+      "contrastada": true
+    },
+    {
+      "texto": "Varios autores del informe tienen vínculos con la administración Trump y el Partido Republicano, incluido un exafiliado a DOGE",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/a-us-census-report-on-noncitizen-voting-used-bad-data-to-reach-faulty-conclusions/",
+      "contrastada": true
+    }
+  ],
+  "angulo": "Uso político de datos oficiales",
+  "atribucion": "WIRED (Vittoria Elliott)",
+  "puntuacion": {
+    "total": 78,
+    "componentes": {
+      "afinidad": 21,
+      "interes": 23,
+      "evidencia": 16,
+      "actualidad": 12,
+      "visual": 6
+    }
+  },
+  "alertas": [
+    "acceso-parcial",
+    "fuente-unica"
+  ],
+  "carrusel": null,
+  "reel": {
+    "narracion": "Un informe del Censo de Estados Unidos respaldó, según Trump, sus denuncias sin pruebas sobre voto de no ciudadanos en 2020. Pero una investigación de WIRED halló fallas graves en los datos usados y en cómo se aprobó el reporte antes de publicarse. El medio identificó a varios autores con vínculos directos con la administración Trump y el Partido Republicano, incluido un exafiliado al DOGE. El caso muestra cómo datos oficiales pueden manipularse para respaldar narrativas políticas. Trump celebró el informe en redes sociales como prueba de fraude electoral. WIRED tuvo acceso parcial a la documentación interna del proceso. La pregunta que queda: ¿cuántos otros reportes gubernamentales podrían tener el mismo problema?",
+    "subtitulos": [
+      "Un informe del Censo respaldó denuncias de Trump sobre voto ilegal",
+      "WIRED halló fallas graves en los datos usados",
+      "Varios autores tienen vínculos con Trump y el Partido Republicano",
+      "Uno de ellos fue afiliado al DOGE",
+      "Trump celebró el informe como prueba de fraude",
+      "¿Cuántos otros reportes tienen el mismo problema?"
+    ],
+    "escenas": [
+      {
+        "segundos": 0,
+        "descripcion": "Documentos oficiales borrosos apilados sobre un escritorio, sin texto legible",
+        "recurso": "ilustración generada"
+      },
+      {
+        "segundos": 10,
+        "descripcion": "Gráfico de barras distorsionado que se desarma en pantalla",
+        "recurso": "animación gráfica"
+      },
+      {
+        "segundos": 20,
+        "descripcion": "Silueta genérica de un edificio gubernamental al atardecer",
+        "recurso": "ilustración generada"
+      },
+      {
+        "segundos": 35,
+        "descripcion": "Red de conexiones abstractas entre nodos representando vínculos políticos",
+        "recurso": "animación gráfica"
+      },
+      {
+        "segundos": 50,
+        "descripcion": "Texto final con atribución a WIRED y fuentes",
+        "recurso": "placa de cierre"
+      }
+    ],
+    "recursos": [
+      "ilustraciones generadas con IA",
+      "animaciones gráficas simples",
+      "tipografía de marca"
+    ]
+  },
+  "revision": {
+    "estado": "pendiente",
+    "notas": []
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-10T14:59:41.859Z",
+  "actualizado": "2026-09-10T14:59:41.859Z"
+}

@@ -1,0 +1,184 @@
+{
+  "id": "2026-09-10-0959-luiseskivelgolcher-wired-3cbb",
+  "cuenta": "luiseskivelgolcher",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "WIRED",
+    "url": "https://www.wired.com/story/clearview-ai-is-testing-an-ai-tool-that-lets-cops-instantly-unearth-your-online-activity/",
+    "titulo": "Clearview AI Is Testing an AI Tool That Would Let Cops Unearth Your Life Online",
+    "publicado": "2026-09-10T10:00:00.000Z"
+  },
+  "categoria": "SEGURIDAD",
+  "titular": "Clearview probaría una IA que perfila a personas en la web",
+  "bajada": "Prototipo usaría un modelo de xAI para rastrear datos de gente investigada por policías",
+  "caption": "Clearview AI, la empresa que en 2020 se hizo conocida por extraer más de 3.000 millones de fotos de internet para identificar rostros, construyó y probó un prototipo llamado InquiryIQ, según reveló WIRED. La herramienta usaría un modelo de xAI —la empresa detrás del chatbot Grok— para navegar automáticamente la web a partir de un dato que un investigador obtiene con Clearview, y armar un perfil con posibles empleadores, alias, contactos y rasgos físicos de la persona buscada por la policía. WIRED tuvo acceso parcial al material y es, hasta ahora, la única fuente que documenta el prototipo, que no ha sido lanzado públicamente. Clearview ya enfrenta demandas y sanciones en varios países por su forma de recolectar rostros sin consentimiento. ¿Cuánto poder de vigilancia debería tener una empresa privada que trabaja con policías?",
+  "hashtags": [
+    "#Vigilancia",
+    "#Privacidad",
+    "#IA",
+    "#ClearviewAI",
+    "#Ciberseguridad"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-09-10-0959-luiseskivelgolcher-wired-3cbb.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-10-0959-luiseskivelgolcher-wired-3cbb.jpg",
+    "hash": "e65606ce322e2ecc",
+    "version": 10,
+    "estilo": "ce835c6d040d39e3",
+    "renderizada": "2026-09-10T15:01:19.826Z"
+  },
+  "ilustracion": {
+    "descripcion": "Ilustración de una red de puntos digitales formando un rostro abstracto sobre fondo oscuro, rodeado de íconos de perfil difusos sin rasgos reconocibles; el elemento principal en el tercio superior derecho, con la zona izquierda y central despejadas.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-10-0959-luiseskivelgolcher-wired-3cbb.jpg",
+    "hashDescripcion": "52a749b53859ff53",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-10T14:59:41.859Z",
+    "error": null,
+    "procedencia": "generada"
+  },
+  "formato": "carrusel",
+  "fuentes": [
+    {
+      "rol": "principal",
+      "medio": "WIRED",
+      "autor": "Dhruv Mehrotra",
+      "url": "https://www.wired.com/story/clearview-ai-is-testing-an-ai-tool-that-lets-cops-instantly-unearth-your-online-activity/",
+      "canonica": "https://www.wired.com/story/clearview-ai-is-testing-an-ai-tool-that-lets-cops-instantly-unearth-your-online-activity/",
+      "idioma": "en",
+      "publicado": "2026-09-10T10:00:00.000Z",
+      "actualizado": "2026-09-10T10:00:00.000Z",
+      "fechaHecho": null,
+      "consultado": "2026-09-10T14:59:41.859Z",
+      "alcance": "parcial",
+      "textoRecuperado": {
+        "parrafos": 39,
+        "caracteres": 900
+      },
+      "fuentesPrimarias": [
+        "https://www.huffpost.com/entry/clearview-ai-facial-recognition-alt-right_n_5e7d028bc5b6cb08a92a5c48",
+        "https://www.nytimes.com/2020/01/18/technology/clearview-privacy-facial-recognition.html",
+        "https://www.aclu.org/cases/aclu-v-clearview-ai",
+        "https://www.priv.gc.ca/en/opc-news/news-and-announcements/2020/an_200221/",
+        "http://www.aboutads.info"
+      ],
+      "licenciaMedios": null
+    }
+  ],
+  "afirmaciones": [
+    {
+      "texto": "Clearview AI construyó y probó un prototipo llamado InquiryIQ, una herramienta de análisis con IA",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/clearview-ai-is-testing-an-ai-tool-that-lets-cops-instantly-unearth-your-online-activity/",
+      "contrastada": false
+    },
+    {
+      "texto": "InquiryIQ usaría un modelo de xAI para rastrear la web y ensamblar perfiles de personas identificadas por Clearview",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/clearview-ai-is-testing-an-ai-tool-that-lets-cops-instantly-unearth-your-online-activity/",
+      "contrastada": false
+    },
+    {
+      "texto": "En 2020 Clearview se hizo conocida por extraer más de 3.000 millones de fotos de internet para identificar personas",
+      "tipo": "hecho",
+      "fuente": "https://www.nytimes.com/2020/01/18/technology/clearview-privacy-facial-recognition.html",
+      "contrastada": true
+    }
+  ],
+  "angulo": "Tecnológico/vigilancia estatal",
+  "atribucion": "WIRED (Dhruv Mehrotra)",
+  "puntuacion": {
+    "total": 79,
+    "componentes": {
+      "afinidad": 27,
+      "interes": 20,
+      "evidencia": 10,
+      "actualidad": 15,
+      "visual": 7
+    }
+  },
+  "alertas": [
+    "fuente-unica",
+    "acceso-parcial"
+  ],
+  "carrusel": {
+    "diapositivas": [
+      {
+        "titulo": "Portada",
+        "texto": "Clearview AI probó una herramienta de IA para armar perfiles completos de personas a partir de una foto, según WIRED."
+      },
+      {
+        "titulo": "Qué ocurrió",
+        "texto": "WIRED reveló que Clearview construyó InquiryIQ, un prototipo no lanzado públicamente, con acceso parcial a documentos internos."
+      },
+      {
+        "titulo": "Cómo funciona",
+        "texto": "La herramienta usaría un modelo de xAI para navegar la web, analizar imágenes y reunir alias, contactos y empleadores de una persona."
+      },
+      {
+        "titulo": "A quién afecta",
+        "texto": "Investigadores policiales podrían usarla contra cualquier persona identificada por Clearview, con riesgo de errores y vigilancia masiva."
+      },
+      {
+        "titulo": "Contexto y límites",
+        "texto": "Clearview ya enfrenta demandas por reconocimiento facial sin consentimiento. WIRED es hasta ahora la única fuente de este prototipo."
+      },
+      {
+        "titulo": "Cierre y fuentes",
+        "texto": "Según WIRED (Dhruv Mehrotra), 10 de septiembre de 2026. El prototipo no ha sido confirmado como lanzado al público."
+      }
+    ],
+    "imagenes": [
+      {
+        "numero": 1,
+        "ruta": "public/img/2026-09-10-0959-luiseskivelgolcher-wired-3cbb-01.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-10-0959-luiseskivelgolcher-wired-3cbb-01.jpg",
+        "hash": "bc31766a9a710e08"
+      },
+      {
+        "numero": 2,
+        "ruta": "public/img/2026-09-10-0959-luiseskivelgolcher-wired-3cbb-02.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-10-0959-luiseskivelgolcher-wired-3cbb-02.jpg",
+        "hash": "8791c4c16baf94d3"
+      },
+      {
+        "numero": 3,
+        "ruta": "public/img/2026-09-10-0959-luiseskivelgolcher-wired-3cbb-03.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-10-0959-luiseskivelgolcher-wired-3cbb-03.jpg",
+        "hash": "863c62ee2acc2d3c"
+      },
+      {
+        "numero": 4,
+        "ruta": "public/img/2026-09-10-0959-luiseskivelgolcher-wired-3cbb-04.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-10-0959-luiseskivelgolcher-wired-3cbb-04.jpg",
+        "hash": "72edb65d7bbeb6af"
+      },
+      {
+        "numero": 5,
+        "ruta": "public/img/2026-09-10-0959-luiseskivelgolcher-wired-3cbb-05.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-10-0959-luiseskivelgolcher-wired-3cbb-05.jpg",
+        "hash": "6a124970cda2d6ce"
+      },
+      {
+        "numero": 6,
+        "ruta": "public/img/2026-09-10-0959-luiseskivelgolcher-wired-3cbb-06.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-10-0959-luiseskivelgolcher-wired-3cbb-06.jpg",
+        "hash": "1bcd94a29c5a80a4"
+      }
+    ],
+    "hash": "5207fa4797d35201",
+    "version": 1
+  },
+  "reel": null,
+  "revision": {
+    "estado": "pendiente",
+    "notas": []
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-10T14:59:41.859Z",
+  "actualizado": "2026-09-10T14:59:41.859Z"
+}

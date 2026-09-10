@@ -1,0 +1,121 @@
+{
+  "id": "2026-09-10-0959-luiseskivelgolcher-wired-c5aa",
+  "cuenta": "luiseskivelgolcher",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "WIRED",
+    "url": "https://www.wired.com/story/san-francisco-orders-meta-to-stop-allowing-ai-child-abuse-ads/",
+    "titulo": "San Francisco Orders Meta to Stop ‘Allowing’ AI Child Abuse Ads",
+    "publicado": "2026-09-09T21:15:27.607Z"
+  },
+  "categoria": "SEGURIDAD",
+  "titular": "San Francisco ordena a Meta frenar anuncios de abuso infantil",
+  "bajada": "Ciudad exige explicaciones tras más de 350 anuncios con imágenes de menores manipuladas por IA",
+  "caption": "La oficina del fiscal de la ciudad de San Francisco envió una carta de cese y desista a Meta, exigiéndole detener anuncios pagados que incluyen contenido de abuso sexual infantil generado con inteligencia artificial, según reportó WIRED el 9 de septiembre de 2026. Investigadores del Tech Transparency Project detectaron más de 350 anuncios que transformaban fotos reales de menores —incluida una figura de la realeza europea— en videoclips con actos sexuales simulados. Al hacer clic, los anuncios dirigían a aplicaciones de generación de imágenes y video con IA, algunas capaces de \"desnudar\" digitalmente a personas sin su consentimiento. Los anuncios alcanzaron a más de 29.000 cuentas en la Unión Europea y también aparecieron en Facebook, Instagram y Threads en Estados Unidos, Australia e India. Meta sostiene que los anuncios no están bajo la jurisdicción de la ciudad. ¿Qué responsabilidad tienen las plataformas cuando su propio sistema de anuncios distribuye este tipo de contenido?",
+  "hashtags": [
+    "#Meta",
+    "#IA",
+    "#SeguridadDigital",
+    "#Privacidad",
+    "#MenoresEnLínea"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-09-10-0959-luiseskivelgolcher-wired-c5aa.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-10-0959-luiseskivelgolcher-wired-c5aa.jpg",
+    "hash": "a70e25fdf5995653",
+    "version": 10,
+    "estilo": "ce835c6d040d39e3",
+    "renderizada": "2026-09-10T15:01:15.718Z"
+  },
+  "ilustracion": {
+    "descripcion": "Ilustración de un teléfono inteligente con un ícono de alerta genérico y el contorno difuminado de una red social, sobre fondo azul oscuro; el teléfono en el tercio superior derecho, con la zona izquierda y central despejadas.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-10-0959-luiseskivelgolcher-wired-c5aa.jpg",
+    "hashDescripcion": "c9913b9e7cd12cac",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-10T14:59:41.859Z",
+    "error": null,
+    "procedencia": "generada"
+  },
+  "formato": "post",
+  "fuentes": [
+    {
+      "rol": "principal",
+      "medio": "WIRED",
+      "autor": "Matt Burgess",
+      "url": "https://www.wired.com/story/san-francisco-orders-meta-to-stop-allowing-ai-child-abuse-ads/",
+      "canonica": "https://www.wired.com/story/san-francisco-orders-meta-to-stop-allowing-ai-child-abuse-ads/",
+      "idioma": "en",
+      "publicado": "2026-09-09T21:15:27.607Z",
+      "actualizado": "2026-09-09T21:15:27.607Z",
+      "fechaHecho": null,
+      "consultado": "2026-09-10T14:59:41.859Z",
+      "alcance": "completo",
+      "textoRecuperado": {
+        "parrafos": 24,
+        "caracteres": 1267
+      },
+      "fuentesPrimarias": [
+        "https://www.techtransparencyproject.org/articles/meta-ran-hundreds-of-paid-ads-with-child-sexual-abuse-imagery",
+        "https://media.api.sf.gov/documents/Meta_AI-Gen_CSAM_Ads_Ltr_from_D_Chiu_2026-09-09_Signed.pdf",
+        "https://www.missingkids.org/gethelpnow/cybertipline/cybertiplinedata",
+        "https://transparency.meta.com/policies/ad-standards/objectionable-content/child-sexual-exploitation-abuse-nudity/",
+        "https://transparency.meta.com/policies/ad-standards/objectionable-content/adult-sexual-exploitation/",
+        "https://transparency.meta.com/policies/ad-standards/objectionable-content/adult-nudity-and-sexual-activity/",
+        "https://transparency.meta.com/policies/ad-standards/",
+        "https://about.fb.com/news/2025/06/taking-action-against-nudify-apps/",
+        "https://indicator.media/p/meta-ran-at-least-11-000-ads-for-ai-nudifiers-this-year-many-from-easily-detectable-repeat-offenders",
+        "http://www.aboutads.info"
+      ],
+      "licenciaMedios": null
+    }
+  ],
+  "afirmaciones": [
+    {
+      "texto": "San Francisco envió una carta de cese y desista a Meta por anuncios con contenido de abuso sexual infantil generado con IA",
+      "tipo": "hecho",
+      "fuente": "https://media.api.sf.gov/documents/Meta_AI-Gen_CSAM_Ads_Ltr_from_D_Chiu_2026-09-09_Signed.pdf",
+      "contrastada": true
+    },
+    {
+      "texto": "Meta publicó más de 350 anuncios que convertían fotos de menores en videos con actos sexuales simulados",
+      "tipo": "hecho",
+      "fuente": "https://www.techtransparencyproject.org/articles/meta-ran-hundreds-of-paid-ads-with-child-sexual-abuse-imagery",
+      "contrastada": true
+    },
+    {
+      "texto": "Los anuncios alcanzaron a más de 29.000 cuentas en países de la Unión Europea",
+      "tipo": "hecho",
+      "fuente": "https://www.techtransparencyproject.org/articles/meta-ran-hundreds-of-paid-ads-with-child-sexual-abuse-imagery",
+      "contrastada": false
+    }
+  ],
+  "angulo": "Poder de las plataformas y responsabilidad corporativa",
+  "atribucion": "WIRED (Matt Burgess) y Tech Transparency Project",
+  "puntuacion": {
+    "total": 84,
+    "componentes": {
+      "afinidad": 24,
+      "interes": 25,
+      "evidencia": 16,
+      "actualidad": 15,
+      "visual": 4
+    }
+  },
+  "alertas": [
+    "fuente-unica"
+  ],
+  "carrusel": null,
+  "reel": null,
+  "revision": {
+    "estado": "pendiente",
+    "notas": []
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-10T14:59:41.859Z",
+  "actualizado": "2026-09-10T14:59:41.859Z"
+}
