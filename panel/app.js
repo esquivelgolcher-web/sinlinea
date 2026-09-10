@@ -16,7 +16,7 @@ import { seriesDeCuenta, rendimientoDePublicaciones, textoValor, textoMotivo } f
 // Multicanal (F1): destinos por pieza, versiones por red y conexiones por red.
 import {
   REDES, NOMBRES_RED, destinosDe, aprobarDestinos, omitirDestino, reintentarDestinos, decidirIncierto, piezaCambiada, imagenCambiada,
-  actualizarVersion, aprobarImagenActual, esCarrusel, imagenesDe, LIMITES_CARRUSEL, validarCarruselPara, REDES_CARRUSEL,
+  actualizarVersion, aprobarImagenActual, esCarrusel, imagenesDe, LIMITES_CARRUSEL, validarCarruselPara, REDES_CARRUSEL, quitarDeColaDestinos,
 } from "./lib/destinos.mjs";
 import { proponerVersion, medirVersion } from "./lib/versiones.mjs";
 import { destinosEncendidos, pausaGeneral } from "./lib/conexiones.mjs";
@@ -478,7 +478,8 @@ function tarjeta({ post, sha }) {
       acciones.append(boton("Cambiar hora", "primario", aprobarConHora));
       acciones.append(boton("Guardar cambios", "", guardarSiCambio));
       acciones.append(boton("Regenerar ilustración", "", regenerarIlustracion));
-      acciones.append(boton("Quitar de la cola", "peligro", (p) => quitarDeCola(p, ahoraIso())));
+      // Con destinos: retira solo las entregas pendientes (lo publicado no cambia; una incierta hay que decidirla antes).
+      acciones.append(boton("Quitar de la cola", "peligro", (p) => { try { return p.destinos ? quitarDeColaDestinos(p, ahoraIso()) : quitarDeCola(p, ahoraIso()); } catch (err) { avisarAqui(err.message); return null; } }));
     } else if (post.estado === "error") {
       // Reintentar solo vuelve a poner en cola los destinos fallidos; los publicados no se repiten.
       if (post.error?.paso === "instagram" || post.error?.paso === "destino") acciones.append(boton("Reintentar", "primario", (p) => (p.destinos ? reintentarDestinos(conCambios(p), ahoraIso()) : reintentar(conCambios(p), ahoraIso()))));
@@ -486,6 +487,20 @@ function tarjeta({ post, sha }) {
       acciones.append(boton("Regenerar ilustración", "", regenerarIlustracion));
       acciones.append(boton("Descartar", "peligro", (p) => descartar(p, ahoraIso())));
     }
+  }
+  // Pieza ya publicada: se le pueden añadir destinos nuevos con el mismo diálogo de aprobación (texto, imagen y hora);
+  // las entregas publicadas u omitidas no cambian.
+  if (post.estado === "publicado" && !soloLectura() && esPublicable(formatoDe(post))) {
+    const cerradas = destinosDe(post);
+    const nuevas = REDES.filter((red) => !["publicado", "omitido"].includes(cerradas[red]?.estado));
+    if (nuevas.length) acciones.append(boton("Añadir destino", "primario", async (p) => {
+      const r = await pedirHora(p, { soloNuevos: true });
+      if (!r) return null;
+      const h = await huellasDe(p);
+      if (!h.completas) avisar(`No se pudo leer la huella de ${esCarrusel(p) ? "alguna imagen" : "la imagen"}: el destino esperará hasta que pulses «${esCarrusel(p) ? "Aprobar imágenes actuales" : "Aprobar imagen actual"}».`, 10000);
+      try { return aprobarDestinos(p, r.iso, { versiones: r.versiones, imagenSha: h.imagenSha, imagenesSha: h.imagenesSha }, ahoraIso()); }
+      catch (err) { avisarAqui(err.message); return null; }
+    }));
   }
   if (post.publicacion?.permalink) acciones.append(el("a", { class: "boton", href: urlSegura(post.publicacion.permalink), target: "_blank", rel: "noopener", text: "Ver en Instagram" }));
   cuerpo.append(acciones, avisoTarjeta);
@@ -525,7 +540,8 @@ async function ejecutar(id, sha, fn) {
 
 // Diálogo de aprobación: hora, destinos y versión por red. Devuelve { iso, versiones } o null.
 // Las versiones se muestran para revisarlas: nunca se recortan; si una excede el límite, ese destino no se puede aprobar.
-function pedirHora(post) {
+// `soloNuevos`: la pieza ya está publicada y solo se añaden redes nuevas (hace falta marcar al menos una).
+function pedirHora(post, { soloNuevos = false } = {}) {
   // Franjas y horas ocupadas de la cuenta del post: dos cuentas pueden publicar a la misma hora.
   const cuenta = cuentaDe(post);
   const cfgCuenta = configDeCuenta(cuenta);
@@ -587,7 +603,7 @@ function pedirHora(post) {
     casilla.addEventListener("change", ajustar); ajustar();
     filas.push(bloque);
   }
-  contenedor.replaceChildren(el("p", { class: "nota-destinos", text: "Destinos de esta pieza. La versión de cada red se publica tal cual la apruebes aquí; si luego editas el caption, no cambiará sola." }), ...filas);
+  contenedor.replaceChildren(el("p", { class: "nota-destinos", text: soloNuevos ? "Destinos nuevos para una pieza ya publicada: lo publicado no cambia. La versión de cada red nueva se publica tal cual la apruebes aquí." : "Destinos de esta pieza. La versión de cada red se publica tal cual la apruebes aquí; si luego editas el caption, no cambiará sola." }), ...filas);
 
   const revisar = () => {
     const iso = isoDesdeClave($("hora-fecha").value, $("hora-hora").value);
@@ -600,7 +616,7 @@ function pedirHora(post) {
   confirmar.onclick = (ev) => {
     const marcados = Object.entries(casillas).filter(([, c]) => c.checked).map(([red]) => red);
     const conservados = Object.entries(existentes).filter(([, d]) => ["publicado", "omitido"].includes(d.estado)).length;
-    if (!marcados.length && !conservados) { ev.preventDefault(); $("hora-nota").textContent = "Elige al menos un destino."; return; }
+    if (!marcados.length && (!conservados || soloNuevos)) { ev.preventDefault(); $("hora-nota").textContent = soloNuevos ? "Elige al menos un destino nuevo." : "Elige al menos un destino."; return; }
     const excedidos = marcados.filter((red) => medirVersion(areas[red].value, red).excede);
     if (excedidos.length) { ev.preventDefault(); $("hora-nota").textContent = `Revisa la versión de ${excedidos.map((r) => NOMBRES_RED[r]).join(" y ")}: excede el límite o está vacía (no se recorta sola).`; }
   };
@@ -1026,7 +1042,7 @@ function decidirVencidos(id) {
       if (r === "quitar") {
         for (const p of vencidos) {
           const item = estado.items.find((x) => x.post.id === p.id);
-          await ejecutar(p.id, item?.sha ?? null, (post) => quitarDeCola(post, ahoraIso()));
+          await ejecutar(p.id, item?.sha ?? null, (post) => (post.destinos ? quitarDeColaDestinos(post, ahoraIso()) : quitarDeCola(post, ahoraIso())));
         }
         resolve("quitar");
       } else if (r === "publicar") resolve("publicar");

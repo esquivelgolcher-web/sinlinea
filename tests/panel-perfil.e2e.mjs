@@ -50,6 +50,14 @@ async function montar(prefijo) {
     conImagen({ ...base0, id: id("b001"), cuenta: "prueba", titular: "Post del perfil", formato: "post", ...perfilComun }),
     conImagen({ ...base0, id: id("b002"), cuenta: "prueba", titular: "Carrusel del perfil", formato: "carrusel", ...perfilComun, alertas: ["fuente-unica"], carrusel: { diapositivas, imagenes: imagenesDe(id("b002")), hash: "c".repeat(16), version: 1 } }),
     conImagen({ ...base0, id: id("b003"), cuenta: "prueba", titular: "Reel del perfil", formato: "reel", ...perfilComun, alertas: [], reel: { narracion: "Un hecho concreto abre el vídeo. " + "Palabra ".repeat(90).trim(), subtitulos: ["Frase uno", "Frase dos"], escenas: [{ segundos: 0, descripcion: "Apertura con la ilustración", recurso: "ilustración generada" }], recursos: ["voz en off", "ilustración"], duracionObjetivo: "35-60 s" } }),
+    // Pieza ya publicada en Instagram (post): desde la interfaz se le añade Threads sin tocar lo publicado.
+    conImagen({ ...base0, id: id("b005"), cuenta: "prueba", titular: "Post publicado en Instagram al que se añade Threads", formato: "post", ...perfilComun, alertas: [], estado: "publicado", programado: "2026-09-10T08:00:00-05:00",
+      destinos: { instagram: { texto: "IG publicado", aprobado: { fecha: iso, hashPieza: "x", imagenHash: null, imagenSha: "9".repeat(40) }, estado: "publicado", publicacion: { id: "m5", idPublicacion: null, permalink: "https://www.instagram.com/p/m5/", fecha: iso }, error: null, intento: null, omitido: null } },
+      publicacion: { idMedia: "m5", permalink: "https://www.instagram.com/p/m5/", fecha: iso } }),
+    // Carrusel ya publicado en Instagram: al añadir destino, Threads se ofrece y Facebook no (carrusel).
+    conImagen({ ...base0, id: id("b006"), cuenta: "prueba", titular: "Carrusel publicado en Instagram", formato: "carrusel", ...perfilComun, alertas: [], estado: "publicado", programado: "2026-09-10T09:00:00-05:00", carrusel: { diapositivas, imagenes: imagenesDe(id("b006")), hash: "e".repeat(16), version: 1 },
+      destinos: { instagram: { texto: "IG carrusel", aprobado: { fecha: iso, hashPieza: "x", imagenHash: null, imagenSha: "8".repeat(40), imagenesSha: ["1".repeat(40), "2".repeat(40), "3".repeat(40)] }, estado: "publicado", publicacion: { id: "m6", idPublicacion: null, permalink: "https://www.instagram.com/p/m6/", fecha: iso }, error: null, intento: null, omitido: null } },
+      publicacion: { idMedia: "m6", permalink: "https://www.instagram.com/p/m6/", fecha: iso } }),
     // Carrusel ya programado cuyas diapositivas se volvieron a renderizar: el publicador lo dejó en espera (imagen-cambiada).
     conImagen({ ...base0, id: id("b004"), cuenta: "prueba", titular: "Carrusel programado con diapositivas cambiadas", formato: "carrusel", ...perfilComun, alertas: [], estado: "programado", programado: "2026-09-12T14:00:00-05:00", carrusel: { diapositivas, imagenes: imagenesDe(id("b004")), hash: "d".repeat(16), version: 2 },
       destinos: { instagram: { texto: "IG aprobado", aprobado: { fecha: iso, hashPieza: "x", imagenHash: null, imagenSha: "0".repeat(40), imagenesSha: ["1".repeat(40), "2".repeat(40), "3".repeat(40)] }, estado: "pendiente", publicacion: null, error: null, intento: null, omitido: null, espera: { motivo: "imagen-cambiada", fecha: iso } } } }),
@@ -57,13 +65,14 @@ async function montar(prefijo) {
   for (const p of posts) fs.writeFileSync(path.join(raiz, "posts", `${p.id}.json`), JSON.stringify(p, null, 2));
   // Archivos renderizados: la imagen de cada carrusel y sus tres diapositivas, todas distintas (huellas distintas).
   const ejemplo = fs.readFileSync("tests/fixtures/ilustracion-ejemplo.jpg");
-  for (const pid of [id("b002"), id("b004")]) {
+  for (const pid of [id("b002"), id("b004"), id("b006")]) {
     fs.writeFileSync(path.join(raiz, "public/img", `${pid}.jpg`), ejemplo);
-    for (let n = 1; n <= 3; n++) fs.writeFileSync(path.join(raiz, "public/img", `${pid}-0${n}.jpg`), Buffer.concat([ejemplo, Buffer.from([n, pid === id("b004") ? 1 : 0])]));
+    for (let n = 1; n <= 3; n++) fs.writeFileSync(path.join(raiz, "public/img", `${pid}-0${n}.jpg`), Buffer.concat([ejemplo, Buffer.from([n, pid === id("b004") ? 1 : pid === id("b006") ? 2 : 0])]));
   }
+  fs.writeFileSync(path.join(raiz, "public/img", `${id("b005")}.jpg`), Buffer.concat([ejemplo, Buffer.from([5, 5])]));
   const servidor = crearServidor({ raiz });
   await new Promise((r) => servidor.listen(0, "127.0.0.1", r));
-  return { raiz, servidor, base: `http://127.0.0.1:${servidor.address().port}`, ids: { post: id("b001"), carrusel: id("b002"), reel: id("b003"), carruselEspera: id("b004") } };
+  return { raiz, servidor, base: `http://127.0.0.1:${servidor.address().port}`, ids: { post: id("b001"), carrusel: id("b002"), reel: id("b003"), carruselEspera: id("b004"), publicado: id("b005"), carruselPublicado: id("b006") } };
 }
 const huellaDe = (raiz, ruta) => shaDeBlob(fs.readFileSync(path.join(raiz, ...ruta.split("/"))));
 const leerPost = (raiz, id) => JSON.parse(fs.readFileSync(path.join(raiz, "posts", `${id}.json`), "utf8"));
@@ -158,6 +167,75 @@ test("(perfil) la tarjeta muestra formato, alertas explicadas, puntuación, afir
     await page.keyboard.press("Escape");
     await page.waitForFunction(() => !document.querySelector("dialog[open]"));
     assert.equal(JSON.parse(fs.readFileSync(path.join(raiz, "posts", `${ids.reel}.json`), "utf8")).estado, "borrador");
+    assert.deepEqual(errores, []);
+  } finally {
+    await page.close();
+    servidor.close();
+  }
+});
+
+test("(destinos) añadir un destino a una pieza ya publicada desde la interfaz: solo destinos nuevos, texto e imagen revisados y hora aprobada; lo publicado queda intacto; «Quitar de la cola» retira solo lo pendiente", async () => {
+  const { raiz, servidor, base, ids } = await montar("panel-anadir-destino-");
+  const page = await navegador.newPage();
+  const errores = [];
+  page.on("pageerror", (e) => errores.push(String(e)));
+  try {
+    await page.goto(`${base}/panel/`);
+    await page.waitForFunction(() => document.querySelector("#cuentas-grid .cuenta-tarjeta") || (document.querySelector("#lista .tarjeta, #lista .vacio") && !/Cargando/.test(document.getElementById("lista").textContent)));
+    if (await page.locator("#maestro").isHidden()) await page.click("#boton-cuentas");
+    await page.waitForSelector("#cuentas-grid .cuenta-tarjeta");
+    await page.click('.cuenta-tarjeta[data-cuenta="prueba"] button:has-text("Abrir panel")');
+    await page.waitForSelector("#vista-posts:not([hidden])");
+    await page.click('#pestanas button:has-text("Publicados")');
+    await page.waitForSelector(".tarjeta");
+    const antes = leerPost(raiz, ids.publicado);
+    // 1. Post publicado en Instagram: «Añadir destino» abre el diálogo con Instagram fijo y las redes nuevas disponibles.
+    const tp = tarjeta(page, ids.publicado);
+    assert.equal(await tp.locator('button:has-text("Aprobar")').count(), 0, "una pieza publicada no se vuelve a aprobar");
+    await tp.locator('button:has-text("Añadir destino")').click();
+    await page.waitForSelector("dialog[open]");
+    const textoDialogo = await page.locator("#hora-destinos").textContent();
+    assert.match(textoDialogo, /Instagram: publicado \(no cambia\)/);
+    assert.equal(await page.locator("#destino-instagram").count(), 0, "Instagram no se ofrece de nuevo");
+    assert.equal(await page.isChecked("#destino-threads"), true);
+    assert.equal(await page.isChecked("#destino-facebook"), true);
+    assert.match(await page.inputValue("#version-threads"), /Según La Prensa|Fuente: La Prensa/);
+    await page.uncheck("#destino-facebook");
+    await page.fill("#version-threads", "Versión para Threads revisada por el operador.\n\nFuente: La Prensa");
+    await page.fill("#hora-fecha", "2026-09-12"); await page.fill("#hora-hora", "12:00");
+    await page.click("#hora-confirmar");
+    await page.waitForFunction((id) => !document.querySelector(`.tarjeta[data-id="${id}"]`), ids.publicado);
+    const despues = leerPost(raiz, ids.publicado);
+    assert.equal(despues.estado, "programado", "vuelve a la cola solo por la entrega nueva");
+    assert.equal(despues.programado, "2026-09-12T12:00:00-05:00");
+    assert.deepEqual(despues.destinos.instagram, antes.destinos.instagram, "la entrega publicada queda intacta");
+    assert.deepEqual(despues.publicacion, antes.publicacion);
+    assert.deepEqual(Object.keys(despues.destinos), ["instagram", "threads"]);
+    assert.equal(despues.destinos.threads.estado, "pendiente");
+    assert.equal(despues.destinos.threads.texto, "Versión para Threads revisada por el operador.\n\nFuente: La Prensa");
+    assert.equal(despues.destinos.threads.aprobado.imagenSha, huellaDe(raiz, `public/img/${ids.publicado}.jpg`), "la imagen revisada queda vinculada a su huella");
+    // 2. En Programados: chips de ambas redes; «Quitar de la cola» retira solo Threads y la pieza vuelve a Publicados intacta.
+    await page.click('#pestanas button:has-text("Programados")');
+    const tq = tarjeta(page, ids.publicado);
+    assert.match(await tq.textContent(), /Instagram: publicado/);
+    assert.match(await tq.textContent(), /Threads: pendiente/);
+    await tq.locator('button:has-text("Quitar de la cola")').click();
+    await page.waitForFunction((id) => !document.querySelector(`.tarjeta[data-id="${id}"]`), ids.publicado);
+    const fuera = leerPost(raiz, ids.publicado);
+    assert.equal(fuera.estado, "publicado");
+    assert.deepEqual(Object.keys(fuera.destinos), ["instagram"]);
+    assert.deepEqual(fuera.destinos.instagram, antes.destinos.instagram);
+    // 3. Carrusel publicado: Threads se ofrece; Facebook queda deshabilitado con su motivo (sigue fuera de los carruseles).
+    await page.click('#pestanas button:has-text("Publicados")');
+    const tc = tarjeta(page, ids.carruselPublicado);
+    await tc.locator('button:has-text("Añadir destino")').click();
+    await page.waitForSelector("dialog[open]");
+    assert.equal(await page.isChecked("#destino-threads"), true);
+    assert.equal(await page.isDisabled("#destino-facebook"), true);
+    assert.match(await page.locator("#hora-destinos").textContent(), /pendiente de validación real/);
+    await page.keyboard.press("Escape");
+    await page.waitForFunction(() => !document.querySelector("dialog[open]"));
+    assert.equal(leerPost(raiz, ids.carruselPublicado).estado, "publicado", "cancelar no cambia nada");
     assert.deepEqual(errores, []);
   } finally {
     await page.close();

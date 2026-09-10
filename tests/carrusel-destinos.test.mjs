@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
-import { aprobarDestinos, destinosDe, imagenCambiada, aprobarImagenActual, avanzarIntento, reservarDestino, validarDestinos, esCarrusel, imagenesDe, LIMITES_CARRUSEL, CARRUSEL_POR_RED, REDES_CARRUSEL, validarCarruselPara, marcarDestinoPublicado } from "../src/lib/destinos.mjs";
+import { aprobarDestinos, destinosDe, imagenCambiada, aprobarImagenActual, avanzarIntento, reservarDestino, validarDestinos, esCarrusel, imagenesDe, LIMITES_CARRUSEL, CARRUSEL_POR_RED, REDES_CARRUSEL, validarCarruselPara, marcarDestinoPublicado, marcarDestinoIncierto, quitarDeColaDestinos } from "../src/lib/destinos.mjs";
 import { esPublicable, FORMATOS_PUBLICABLES } from "../src/lib/formatos.mjs";
 import { validarPost } from "../src/lib/posts.mjs";
 import { hashImagen } from "../src/lib/estados.mjs";
@@ -86,6 +86,28 @@ test("(carrusel) una pieza ya publicada en Instagram admite añadir Threads como
   assert.throws(() => aprobarDestinos(publicada, "2026-09-11T09:00:00-05:00", { versiones: { instagram: "otro" }, imagenSha: shas[0], imagenesSha: shas }, iso), /ningún destino nuevo/);
   // Un carrusel publicado tampoco admite Facebook (sigue fuera).
   assert.throws(() => aprobarDestinos(publicada, "2026-09-11T09:00:00-05:00", { versiones: { facebook: "FB" }, imagenSha: shas[0], imagenesSha: shas }, iso), /pendiente de validación real/);
+});
+
+test("(destinos) quitar de la cola una pieza con destinos: retira solo las entregas pendientes, conserva las publicadas (la pieza vuelve a publicado) y se niega si hay una incierta; sin publicadas vuelve a borrador sin destinos", () => {
+  const p = aprobarDestinos(carrusel(), "2026-09-10T13:00:00-05:00", { versiones: { instagram: "IG" }, imagenSha: shas[0], imagenesSha: shas }, iso);
+  const publicada = marcarDestinoPublicado(p, "instagram", { id: "m1", permalink: "https://www.instagram.com/p/m1/" }, iso);
+  const conThreads = aprobarDestinos(publicada, "2026-09-11T09:00:00-05:00", { versiones: { threads: "TH" }, imagenSha: shas[0], imagenesSha: shas }, iso);
+  assert.equal(conThreads.estado, "programado");
+  const fuera = quitarDeColaDestinos(conThreads, "2026-09-10T21:00:00.000Z");
+  assert.equal(fuera.estado, "publicado", "sin entregas pendientes, la pieza vuelve a publicado");
+  assert.deepEqual(Object.keys(destinosDe(fuera)), ["instagram"]);
+  assert.deepEqual(destinosDe(fuera).instagram, destinosDe(publicada).instagram, "lo publicado no cambia");
+  assert.equal(fuera.publicacion.idMedia, "m1");
+  // Una entrega incierta pudo salir: hay que decidirla antes de quitar nada.
+  const incierta = marcarDestinoIncierto(reservarDestino(conThreads, "threads", { n: 1 }, iso), "threads", { motivo: "corte" }, iso);
+  assert.throws(() => quitarDeColaDestinos(incierta, iso), /incierta/);
+  // Sin nada publicado ni omitido: vuelve a borrador y sin destinos (como «Quitar de la cola» de siempre).
+  const soloPendiente = aprobarDestinos(carrusel(), "2026-09-11T09:00:00-05:00", { versiones: { instagram: "IG", threads: "TH" }, imagenSha: shas[0], imagenesSha: shas }, iso);
+  const borrador = quitarDeColaDestinos(soloPendiente, iso);
+  assert.equal(borrador.estado, "borrador");
+  assert.equal(borrador.programado, null);
+  assert.equal(borrador.destinos, undefined);
+  assert.throws(() => quitarDeColaDestinos(publicada, iso), /no está en la cola/);
 });
 
 test("(carrusel) aprobar guarda la huella de cada diapositiva en orden; el destino recuerda las huellas y el validador las exige como lista", () => {

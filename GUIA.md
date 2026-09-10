@@ -36,7 +36,11 @@ En cada tarjeta puedes:
 - **Aprobar**: propone la siguiente franja libre (7:00, 9:30, 12:00, 14:30, 17:00,
   19:30); puedes cambiarla. El post pasa a **Programados**.
 - **Descartar**: el post no se publica (queda en Descartados).
-- **Quitar de la cola**: vuelve a Borradores un post programado.
+- **Quitar de la cola**: vuelve a Borradores un post programado. Si la pieza ya tenía
+  alguna red publicada, solo retira las entregas pendientes y la pieza vuelve a
+  Publicados; si una entrega está incierta, primero hay que decidirla.
+- **Añadir destino** (en Publicados): añade una red nueva a una pieza ya publicada, con
+  su texto, su imagen y su hora; lo ya publicado no cambia.
 - **Reintentar**: en un post con error de Instagram, lo vuelve a poner en cola.
 
 ## Gestionar cuentas desde el panel (Panel Maestro)
@@ -176,6 +180,15 @@ reactivarla, vuelve a marcar "Usar ilustración generada con IA" o pulsa
 - Si nada se publica: Actions → "Publicar en Instagram". Un 190 suele ser token
   vencido; revisa `docs/CONFIGURACION.md` sección 8.
 
+## Qué sigue necesitando código o editar archivos (al cierre de esta versión, 10 de septiembre de 2026)
+Todo lo cotidiano se hace desde el panel: revisar y aprobar borradores, elegir destinos y horas, añadir una red a una pieza publicada, cambiar el texto por red, aprobar la imagen actual, omitir, decidir inciertos, reintentar, pausar, crear borradores a mano, gestionar cuentas, verificar conexiones y ver métricas. Queda fuera del panel:
+- **Editar las diapositivas de un carrusel o el guion de un reel.** El panel las muestra, pero no las edita: hay que cambiar `posts/<id>.json` y volver a dibujar las diapositivas con el render en un ordenador.
+- **Marcar la revisión editorial** de una pieza del perfil (`revision.estado`): no hay botón; se edita en el JSON.
+- **Ajustar el perfil editorial y los límites de generación**: el bloque `perfil` (temas, pesos, mínimo, formatos), `generar.maxPorCorrida`, `maxBorradoresPorDia`, `maxBorradoresPendientes`, `candidatosMax` y `marca.mostrarFecha` se cambian en `cuentas/<id>/config.json` desde GitHub. El formulario de la cuenta sí cubre nombre, usuario, idioma, zona, franjas, fuentes, temas, tono, colores, logo, ilustraciones y conexiones.
+- **Generar un logo nuevo**: `npm run logo` en un ordenador.
+- **Cambiar el diseño de la imagen** (`templates/*.html`).
+- **Tokens y secretos**: se crean o renuevan en Meta y en GitHub (Environment), sin código pero fuera del panel; «Probar destino» se lanza desde Actions si el token del panel no tiene permiso Actions.
+
 ## Ajustes sin tocar código
 - `cuentas/<id>/config.json`: franjas, máximos por corrida y por día, fuentes, marca, estilo de ilustración e idioma de cada cuenta
 - `config.json`: modelo de Claude, Gemini y la lista de cuentas (compartido)
@@ -197,6 +210,8 @@ Cada cuenta puede conectar una página de Facebook. Es independiente de Instagra
 **Aprobar una pieza para varias redes:** en Borradores pulsa Aprobar. En el diálogo, además de la fecha y la hora, verás una casilla por red (Instagram y Facebook) y el texto que saldrá en cada una. Revísalo: el de Facebook va sin hashtags. Si un texto pasa del límite, no se recorta solo: edítalo antes de confirmar.
 
 **Después de aprobar:** en Programados cada pieza muestra una etiqueta por red (pendiente, en espera, publicado con enlace, error, incierto, omitido) y un desplegable «Versiones por red» para cambiar el texto aprobado a mano. «Omitir en Facebook» quita esa red de esa pieza (no se puede omitir la última). Si editas el caption o se regenera la imagen después de aprobar, la tarjeta lo avisa; nada cambia hasta que pulses «Guardar versión», «Aprobar imagen actual» o, en un carrusel, «Aprobar imágenes actuales».
+
+**Añadir una red a una pieza ya publicada:** en Publicados pulsa «Añadir destino». El diálogo muestra las redes ya publicadas como fijas («no cambia») y solo deja marcar las nuevas, con su texto propuesto y su contador; revisa la imagen (o las diapositivas del carrusel, que quedan vinculadas por su huella) y elige la hora. La pieza vuelve a Programados solo por esa entrega y, cuando sale, vuelve a Publicados con las dos redes. Si te arrepientes antes de que salga, «Quitar de la cola» retira solo lo pendiente. Así se publicó el carrusel de Clearview primero en Instagram y después en Threads.
 
 **Si una red falla o queda incierta:** con error, la pieza va a Errores; «Reintentar» solo vuelve a intentar la red fallida. Con «incierto» (hubo un corte tras enviar), el sistema busca evidencia en la siguiente corrida y, si no la encuentra, tú decides con el botón «Decidir Facebook»: pega el enlace si ves la publicación en la página, o «volver a pendiente» si no está.
 

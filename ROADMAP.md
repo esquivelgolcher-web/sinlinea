@@ -22,6 +22,10 @@ configurable por cuenta (`idioma`, `es-PA` por defecto).
   la de M2, y ejecutar `npm test`.
 - **Pendiente del operador**: crear `GH_PAT`, activar `renovar-token.yml` y
   lanzarlo una vez (el token de Instagram vence el 2026-11-07).
+- **Panel Maestro, versión multicanal cerrada el 2026-09-10** (ver M3b, M7 y M8):
+  carruseles reales en Instagram y Threads, «Añadir destino» en piezas publicadas,
+  Facebook solo con imagen individual, reels y X fuera. Lo que aún requiere código o
+  editar archivos está listado en GUIA.md.
 - **M2 desplegado** (push `d59641e`, 2026-09-08): segunda cuenta
   `luiseskivelgolcher` (@luiseskivelgolcher, nombre visible "Luis Esquivel
   Golcher") con configuración propia, automatización apagada
@@ -379,7 +383,9 @@ cuenta.
 
 ---
 
-## M3b · Panel maestro (producto cerrado el 2026-09-09: fases 1, 2 y 3 hechas; fases 4-5 pendientes)
+## M3b · Panel maestro (producto cerrado el 2026-09-09: fases 1, 2 y 3 hechas; fases 4-5 pendientes; versión multicanal cerrada el 2026-09-10)
+
+**Cierre de la versión multicanal (2026-09-10).** Sin integraciones nuevas. Incluye Facebook (imagen individual) y Threads (imagen y carrusel) como destinos, carruseles en Instagram y Threads validados con piezas reales, aprobación de texto e imágenes por destino, inciertos con decisión manual, y «Añadir destino» para sumar una red a una pieza ya publicada desde la interfaz (solo redes nuevas, texto e imágenes revisados, hora aprobada; lo publicado no cambia; «Quitar de la cola» retira solo lo pendiente). Probado con datos simulados (e2e del panel). Fuera del alcance: Facebook como destino de carruseles, reels y X. Operaciones que aún requieren código o editar archivos: editar diapositivas o guion, marcar la revisión editorial, ajustar el bloque `perfil` y los límites de generación, generar logos y cambiar plantillas (lista en GUIA.md).
 
 **Objetivo.** Administrar y añadir cuentas desde la interfaz, y sentar la base
 de las métricas por cuenta, sin backend ni servicios de pago mientras el
