@@ -1,0 +1,45 @@
+{
+  "id": "2026-09-10-0857-luiseskivelgolcher-efe-verifica-029a",
+  "cuenta": "luiseskivelgolcher",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "EFE Verifica",
+    "url": "https://verifica.efe.com/85-refugiados-musulmanes-falsos/",
+    "titulo": "Nada prueba que más del 85 % de los refugiados del mundo sean musulmanes",
+    "publicado": "2026-09-10T08:45:52.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "Sin pruebas: 85% de refugiados musulmanes es falso",
+  "bajada": "ACNUR: solo 7 de 20 países con más refugiados tienen mayoría musulmana",
+  "caption": "EFE Verifica comprobó que la afirmación viral sobre refugiados musulmanes no tiene respaldo en los datos de ACNUR. Solo siete de los veinte países con más refugiados tienen al Islam como religión mayoritaria, y la mayoría de desplazados se concentra en países vecinos a su lugar de origen. Fuente: EFE Verifica, 10 de septiembre de 2026.",
+  "hashtags": [
+    "#FactChecking",
+    "#Refugiados",
+    "#EFEVerifica",
+    "#Desinformación"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-09-10-0857-luiseskivelgolcher-efe-verifica-029a.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-10-0857-luiseskivelgolcher-efe-verifica-029a.jpg",
+    "hash": "7601ff3392495b31",
+    "version": 10,
+    "estilo": "8df8d9e92c3ad10f",
+    "renderizada": "2026-09-10T13:57:54.667Z"
+  },
+  "ilustracion": {
+    "descripcion": "Mapa mundial desenfocado con pequeños marcadores de ubicación dispersos en varias regiones, sin banderas ni texto; los marcadores se concentran en el tercio superior derecho y la zona izquierda y central del encuadre queda despejada.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-10-0857-luiseskivelgolcher-efe-verifica-029a.jpg",
+    "hashDescripcion": "0c4eaff0cb96d432",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-10T13:57:24.051Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-10T13:57:24.051Z",
+  "actualizado": "2026-09-10T13:57:24.051Z"
+}
