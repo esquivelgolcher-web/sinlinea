@@ -154,6 +154,7 @@ export function crearServidor({ raiz = process.cwd(), log = console } = {}) {
         return responderJson(res, 200, resumenParaPanel(configuracion().cuentas));
       }
       if (req.method === "GET" && p.startsWith("/panel/lib/")) return servirArchivo(res, path.join(raiz, "src", "lib"), p.slice("/panel/lib/".length));
+      if (req.method === "GET" && p.startsWith("/panel/fonts/")) return servirArchivo(res, path.join(raiz, "assets", "fonts"), p.slice("/panel/fonts/".length));
       if (req.method === "GET" && (p === "/panel" || p === "/panel/")) return servirArchivo(res, path.join(raiz, "panel"), "index.html");
       if (req.method === "GET" && p.startsWith("/panel/")) return servirArchivo(res, path.join(raiz, "panel"), p.slice("/panel/".length));
       if (req.method === "GET" && p === "/api/posts") return responderJson(res, 200, leerPosts(path.join(raiz, "posts"), { cuentaPorDefecto: principal() }));

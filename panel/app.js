@@ -906,7 +906,11 @@ function tarjetaCuenta(c) {
       enlace(guia.enlaces.probar, "Workflow Probar Instagram"),
     ]),
   ]);
-  return el("article", { class: `cuenta-tarjeta${archivada ? " archivada" : ""}`, "data-cuenta": c.id }, [
+  // Franja con los dos colores de la cuenta (principal y oscuro), como en sus imágenes; solo colores #RRGGBB válidos.
+  const colores = { ...COLORES_POR_DEFECTO, ...(cfg.marca?.colores || {}) };
+  const hex = (v) => (/^#[0-9a-f]{6}$/i.test(v || "") ? v : null);
+  const franja = hex(colores.principal) && hex(colores.oscuro) ? `--color-cuenta: ${colores.principal}; --color-cuenta-2: ${colores.oscuro}` : null;
+  return el("article", { class: `cuenta-tarjeta${archivada ? " archivada" : ""}`, "data-cuenta": c.id, style: franja }, [
     el("div", { class: "cuenta-encabezado" }, [
       logoMini(c),
       el("div", {}, [

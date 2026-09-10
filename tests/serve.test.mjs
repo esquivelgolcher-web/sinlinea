@@ -16,12 +16,20 @@ before(async () => {
   fs.copyFileSync("tests/fixtures/post-ejemplo.json", path.join(raiz, "posts/2026-09-07-1420-la-prensa-a1b2.json"));
   fs.writeFileSync(path.join(raiz, "data/sinlinea/token-info.json"), '{ "vence": "2026-11-01" }');
   fs.writeFileSync(path.join(raiz, "panel/index.html"), "<p>panel</p>");
+  fs.writeFileSync(path.join(raiz, "assets/fonts/Anton-Regular.ttf"), "ttf");
   fs.copyFileSync("src/lib/estados.mjs", path.join(raiz, "src/lib/estados.mjs"));
   servidor = crearServidor({ raiz });
   await new Promise((r) => servidor.listen(0, "127.0.0.1", r));
   base = `http://127.0.0.1:${servidor.address().port}`;
 });
 after(() => servidor.close());
+
+test("sirve la fuente de titulares al panel en /panel/fonts/ (la misma que usan las piezas) y nada fuera de esa carpeta", async () => {
+  const res = await fetch(`${base}/panel/fonts/Anton-Regular.ttf`);
+  assert.equal(res.status, 200);
+  assert.equal(await res.text(), "ttf");
+  assert.equal((await fetch(`${base}/panel/fonts/../../config.json`)).status, 404);
+});
 
 test("sirve la vista de la plantilla con la variante pedida", async () => {
   const html = await (await fetch(`${base}/vista/rojo`)).text();

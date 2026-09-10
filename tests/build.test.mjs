@@ -14,6 +14,9 @@ test("construirDist copia imágenes, panel, módulos isomorfos e índice", () =>
   fs.writeFileSync(path.join(raiz, "public/ilus/x.jpg"), "jpg");
   fs.mkdirSync(path.join(raiz, "panel"), { recursive: true });
   fs.writeFileSync(path.join(raiz, "panel/index.html"), "<p>panel</p>");
+  fs.mkdirSync(path.join(raiz, "assets/fonts"), { recursive: true });
+  fs.writeFileSync(path.join(raiz, "assets/fonts/Anton-Regular.ttf"), "ttf");
+  fs.writeFileSync(path.join(raiz, "assets/fonts/LICENCIA.txt"), "licencia");
   fs.mkdirSync(path.join(raiz, "src/lib"), { recursive: true });
   for (const f of MODULOS_ISOMORFOS) fs.copyFileSync(`src/lib/${f}`, path.join(raiz, "src/lib", f));
   const dist = construirDist({ raiz });
@@ -23,6 +26,8 @@ test("construirDist copia imágenes, panel, módulos isomorfos e índice", () =>
   assert.ok(fs.existsSync(path.join(dist, "panel/index.html")));
   assert.ok(fs.existsSync(path.join(dist, "panel/lib/estados.mjs")));
   assert.ok(fs.existsSync(path.join(dist, "panel/lib/texto.mjs")), "el panel necesita texto.mjs para validar titular y bajada");
+  assert.ok(fs.existsSync(path.join(dist, "panel/fonts/Anton-Regular.ttf")), "la cabecera del panel usa la fuente de titulares de las piezas");
+  assert.ok(fs.existsSync(path.join(dist, "panel/fonts/LICENCIA.txt")), "la licencia de la fuente viaja con ella");
   assert.ok(fs.existsSync(path.join(dist, ".nojekyll")));
   assert.match(fs.readFileSync(path.join(dist, "index.html"), "utf8"), /url=panel\//);
   const cfgPanel = JSON.parse(fs.readFileSync(path.join(dist, "panel/config.json")));

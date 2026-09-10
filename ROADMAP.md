@@ -22,6 +22,11 @@ configurable por cuenta (`idioma`, `es-PA` por defecto).
   la de M2, y ejecutar `npm test`.
 - **Pendiente del operador**: crear `GH_PAT`, activar `renovar-token.yml` y
   lanzarlo una vez (el token de Instagram vence el 2026-11-07).
+- **Rediseño visual del panel (2026-09-10):** cabecera genérica «Redacción» con la fuente
+  de titulares de las piezas (Anton, servida en `panel/fonts/`), paleta neutra con un solo
+  acento, pestañas de sección subrayadas y fijas al desplazarse, tarjetas en dos columnas
+  en pantallas anchas, galería numerada de diapositivas, franja con los colores de cada
+  cuenta en su tarjeta. Solo estilos y cabecera; ids, clases y textos intactos (25 e2e).
 - **Panel Maestro, versión multicanal cerrada el 2026-09-10** (ver M3b, M7 y M8):
   carruseles reales en Instagram y Threads, «Añadir destino» en piezas publicadas,
   Facebook solo con imagen individual, reels y X fuera. Lo que aún requiere código o

@@ -26,6 +26,12 @@ export function construirDist({ raiz = process.cwd(), destino = "dist" } = {}) {
   copiarDir(path.join(raiz, "panel"), path.join(dist, "panel"));
   fs.mkdirSync(path.join(dist, "panel", "lib"), { recursive: true });
   for (const f of MODULOS_ISOMORFOS) fs.copyFileSync(path.join(raiz, "src", "lib", f), path.join(dist, "panel", "lib", f));
+  // La cabecera del panel usa la fuente de titulares de las piezas (Anton); viaja con su licencia.
+  fs.mkdirSync(path.join(dist, "panel", "fonts"), { recursive: true });
+  for (const f of ["Anton-Regular.ttf", "LICENCIA.txt"]) {
+    const origen = path.join(raiz, "assets", "fonts", f);
+    if (fs.existsSync(origen)) fs.copyFileSync(origen, path.join(dist, "panel", "fonts", f));
+  }
   const { cuentas, errores } = cargarConfiguracion(raiz);
   for (const e of errores) console.warn(`Cuenta ${e.cuenta} omitida en el panel: ${e.mensaje}`);
   fs.writeFileSync(path.join(dist, "panel", "config.json"), JSON.stringify(resumenParaPanel(cuentas), null, 2));

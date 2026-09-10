@@ -13,6 +13,8 @@
 ## El panel
 Abre `https://<tu-usuario>.github.io/sinlinea/panel/` en el celular. La primera vez
 pulsa **Configurar** y pega el token de GitHub (ver `docs/CONFIGURACION.md`, paso 6).
+La cabecera dice «Redacción» y no lleva la marca de ninguna cuenta: la identidad de cada
+cuenta (logo y colores) aparece en su tarjeta de la vista Cuentas y en sus imágenes.
 
 Si hay más de una cuenta configurada, arriba de las pestañas aparecen sus nombres:
 toca uno para ver y aprobar solo los posts de esa cuenta. El panel recuerda la
