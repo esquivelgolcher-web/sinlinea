@@ -5,6 +5,8 @@ import fs from "node:fs";
 import path from "node:path";
 import { esNombreDeSecreto, ORIGENES } from "./secretos.mjs";
 import { erroresDeConexiones } from "./conexiones.mjs";
+import { validarPesos } from "./puntuacion.mjs";
+import { FORMATOS, ALERTAS } from "./formatos.mjs";
 import { RE_ID_CUENTA, RE_IDIOMA, RE_COLOR, TIPOS_FUENTE, LOGO_FORMAS, LOGO_TAMANO, COLORES_POR_DEFECTO, AUTOMATICO_POR_DEFECTO, IDIOMA_POR_DEFECTO } from "./cuenta.mjs";
 
 export { RE_ID_CUENTA, LOGO_FORMAS, COLORES_POR_DEFECTO, AUTOMATICO_POR_DEFECTO, IDIOMA_POR_DEFECTO };
@@ -28,7 +30,30 @@ function validarFuentes(fuentes, archivo, { permitirVacio = false } = {}) {
     if (f.excluirSecciones !== undefined) {
       exigir(Array.isArray(f.excluirSecciones), `fuentes[${i}].excluirSecciones debe ser una lista`, archivo);
     }
+    // Perfil editorial: idioma de la fuente, prioridad (1 = máxima) y si se descarga el artículo de cada ítem RSS.
+    if (f.idioma !== undefined) exigir(typeof f.idioma === "string" && RE_IDIOMA.test(f.idioma), `fuentes[${i}].idioma debe tener la forma xx o xx-XX`, archivo);
+    if (f.prioridad !== undefined) exigir(Number.isInteger(f.prioridad) && f.prioridad >= 1, `fuentes[${i}].prioridad debe ser un entero desde 1`, archivo);
+    if (f.descargar !== undefined) exigir(typeof f.descargar === "boolean", `fuentes[${i}].descargar debe ser true o false`, archivo);
   });
+}
+
+// Perfil editorial configurable de una cuenta (temas, idiomas, puntuación, formatos, criterios de revisión). La voz y las
+// reglas de atribución detalladas viven en editorial.md; aquí van los datos que usa el código.
+function validarPerfil(p, archivo) {
+  if (p === undefined) return;
+  exigir(p && typeof p === "object" && !Array.isArray(p), "perfil debe ser un objeto", archivo);
+  exigir(typeof p.nombre === "string" && p.nombre.trim(), "perfil.nombre es obligatorio", archivo);
+  exigir(Array.isArray(p.temas) && p.temas.length > 0 && p.temas.every((t) => typeof t === "string" && t.trim()), "perfil.temas debe ser una lista de temas (texto) con al menos uno", archivo);
+  exigir(Array.isArray(p.idiomas) && p.idiomas.length > 0 && p.idiomas.every((i) => typeof i === "string" && RE_IDIOMA.test(i)), "perfil.idiomas debe ser una lista de códigos xx o xx-XX", archivo);
+  for (const m of validarPesos(p.puntuacion?.pesos)) exigir(false, m, archivo);
+  exigir(Number.isInteger(p.puntuacion?.minimo) && p.puntuacion.minimo >= 0 && p.puntuacion.minimo <= 100, "perfil.puntuacion.minimo debe ser un entero entre 0 y 100", archivo);
+  exigir(Array.isArray(p.formatos) && p.formatos.length > 0 && p.formatos.every((f) => FORMATOS.includes(f)) && new Set(p.formatos).size === p.formatos.length, `perfil.formatos debe ser una lista sin repetidos de ${FORMATOS.join(", ")}`, archivo);
+  if (p.revision !== undefined) {
+    exigir(p.revision && typeof p.revision === "object", "perfil.revision debe ser un objeto", archivo);
+    if (p.revision.alertas !== undefined) exigir(Array.isArray(p.revision.alertas) && p.revision.alertas.every((a) => ALERTAS.includes(a)), `perfil.revision.alertas solo admite ${ALERTAS.join(", ")}`, archivo);
+    if (p.revision.criterios !== undefined) exigir(Array.isArray(p.revision.criterios) && p.revision.criterios.every((c) => typeof c === "string"), "perfil.revision.criterios debe ser una lista de textos", archivo);
+  }
+  for (const k of ["voz", "referencias"]) if (p[k] !== undefined) exigir(typeof p[k] === "string" || (Array.isArray(p[k]) && p[k].every((s) => typeof s === "string")), `perfil.${k} debe ser texto o una lista de textos`, archivo);
 }
 
 function validarFranjas(franjas, archivo) {
@@ -150,7 +175,7 @@ export function validarGlobal(g) {
   return g;
 }
 
-export const CLAVES_DE_CUENTA = ["nombre", "idioma", "zonaHoraria", "automatico", "marca", "fuentes", "generar", "franjas", "ilustraciones", "instagram", "editorial", "archivada", "archivadaEn", "metricas", "conexiones"];
+export const CLAVES_DE_CUENTA = ["nombre", "idioma", "zonaHoraria", "automatico", "marca", "fuentes", "generar", "franjas", "ilustraciones", "instagram", "editorial", "archivada", "archivadaEn", "metricas", "conexiones", "perfil"];
 const CLAVES_SOLO_GLOBALES = ["pages", "claude", "archivarDespuesDeDias", "cuentas"];
 
 // Configuración de una cuenta (cuentas/<id>/config.json).
@@ -173,6 +198,7 @@ export function validarCuenta(c, id) {
   validarSecretosInstagram(c.instagram, archivo);
   validarMetricas(c.metricas, archivo);
   validarConexiones(c.conexiones, archivo);
+  validarPerfil(c.perfil, archivo);
   return c;
 }
 
@@ -190,6 +216,7 @@ export function validarConfig(cfg) {
   validarIlustracionesCuenta(cfg.ilustraciones, "config.json");
   validarMetricas(cfg.metricas, "config.json");
   validarConexiones(cfg.conexiones, "config.json");
+  validarPerfil(cfg.perfil, "config.json");
   if (cfg.cuenta !== undefined) exigir(RE_ID_CUENTA.test(String(cfg.cuenta)), `cuenta "${cfg.cuenta}" no es un id válido`);
   if (cfg.idioma !== undefined) exigir(RE_IDIOMA.test(String(cfg.idioma)), `idioma "${cfg.idioma}" debe tener la forma xx o xx-XX`);
   return cfg;

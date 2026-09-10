@@ -151,3 +151,146 @@ export async function escribirEscena({ client, config, titular, bajada }) {
   if (!escena) throw new Error("Claude devolvió una escena vacía");
   return escena;
 }
+
+// --- Perfil editorial (periodismo tecnológico): selección puntuada, afirmaciones con fuente, formatos post/carrusel/reel --
+import { FORMATOS, TIPOS_AFIRMACION, ALERTAS } from "./formatos.mjs";
+import { puntuar, PESOS_POR_DEFECTO } from "./puntuacion.mjs";
+
+export const EsquemaRedaccionPerfil = z.object({
+  seleccion: z.array(z.object({
+    indiceGrupo: z.number().int(),
+    formato: z.enum(FORMATOS),
+    categoria: z.enum(CATEGORIAS),
+    titular: z.string(),
+    bajada: z.string(),
+    caption: z.string(),
+    hashtags: z.array(z.string()),
+    escena: z.string(),
+    angulo: z.string(),
+    atribucion: z.string(),
+    fechaHecho: z.string().nullable(),
+    afirmaciones: z.array(z.object({ texto: z.string(), tipo: z.enum(TIPOS_AFIRMACION), fuente: z.string(), contrastada: z.boolean() })),
+    puntuacion: z.object({ afinidad: z.number(), interes: z.number(), evidencia: z.number(), visual: z.number() }),
+    alertas: z.array(z.string()),
+    carrusel: z.array(z.object({ titulo: z.string(), texto: z.string() })).nullable(),
+    reel: z.object({
+      narracion: z.string(),
+      subtitulos: z.array(z.string()),
+      escenas: z.array(z.object({ segundos: z.number(), descripcion: z.string(), recurso: z.string() })),
+      recursos: z.array(z.string()),
+    }).nullable(),
+    motivo: z.string(),
+  })),
+  descartados: z.array(z.object({ indiceGrupo: z.number().int(), motivo: z.string() })),
+});
+
+const reglasPerfil = (idioma, perfil) => `
+## Reglas del perfil editorial (periodismo tecnológico)
+Especialidad: ${(perfil?.temas || []).join("; ")}.
+- Voz: ${nombreIdioma(idioma)} natural para una audiencia latinoamericana; directa, curiosa, crítica y rigurosa. Explica cada término
+  técnico la primera vez que aparezcan (una frase, sin condescendencia). Ironía solo cuando aporta y no distorsiona los hechos.
+- Distingue siempre hecho, denuncia, hipótesis u opinión, y dilo en el texto. Cada afirmación va en "afirmaciones" con su tipo y la
+  URL de la fuente (del grupo o de sus fuentes primarias). Una denuncia o acusación sin fuente es una alerta, nunca un hecho.
+- Atribuye los hallazgos al medio o investigador que los publicó ("según WIRED", "documentos revisados por…"). Nunca uses
+  "descubrimos", "revelamos" ni "nuestra investigación": el material no es una investigación propia. No inventes experiencias
+  personales y no conectes el tema con Panamá o Latinoamérica salvo que la fuente lo pruebe.
+- Prohibidas las exageraciones: "nadie te lo cuenta", "la verdad que ocultan", "esto lo cambia todo" y similares.
+- Fecha del hecho: si el acontecimiento es anterior a la publicación, ponla en "fechaHecho" (AAAA-MM-DD) y dila en el texto; un
+  hecho antiguo nunca se presenta como reciente. Si no consta, "fechaHecho" es null.
+- Redacta desde cero en ${nombreIdioma(idioma)}: nada de traducir el artículo ni parafrasearlo párrafo a párrafo. Citas textuales
+  solo si son necesarias, breves (máximo 25 palabras) y atribuidas. Si el acceso al texto es parcial o solo hay una fuente, dilo
+  en "alertas" y ajusta la certeza del texto.
+- Seguridad: explica mecanismo, impacto y protección; nunca conviertas técnicas de hackeo ofensivo en un tutorial operativo.
+- Puntuación (0-10 por eje; es una heurística editorial, no es una predicción de alcance): "afinidad" con la especialidad,
+  "interes" público e impacto humano, "evidencia" (calidad de lo disponible: documento original, varias fuentes, datos),
+  "visual" (potencial de explicación visual). La actualidad la calcula el sistema con la fecha de publicación.
+- Formatos disponibles: ${(perfil?.formatos || FORMATOS).join(", ")}. Reglas por formato:
+  · post: una idea principal; titular de 6-12 palabras (y nunca más de 65 caracteres: la precisión manda sobre el límite);
+    bajada opcional de hasta 25 palabras; "caption" de 100-180 palabras con atribución visible y referencia a la fuente;
+    pregunta final solo si invita a una conversación concreta. "carrusel" y "reel" en null.
+  · carrusel: además del post de portada, "carrusel" con entre 5 y 7 diapositivas (titulo breve + texto de una idea, legible en
+    móvil, máximo 45 palabras): portada (hallazgo o pregunta), qué ocurrió, cómo funciona o qué evidencia existe, a quién
+    afecta y por qué, contexto/límites o qué falta por saber, cierre y fuentes. Adapta la estructura al tema sin rellenar.
+  · reel: además del post de portada, "reel" con narración de 85-140 palabras (35-60 segundos de voz real) que abre con un
+    hecho concreto o una pregunta relevante y sigue con explicación, evidencia, consecuencias y cierre; "subtitulos" (frases
+    cortas en orden), "escenas" (segundos de inicio, descripción visual y recurso sugerido) y "recursos" necesarios. No prometas
+    revelaciones que el vídeo no contiene.
+- Imagen ("escena"): ilustración o fotografía protagonista, alto contraste, sin el cliché del hacker con capucha, código verde
+  o candados; nunca documentos, capturas o escenas que parezcan pruebas reales; nunca una persona real cometiendo un delito.
+- "alertas" solo admite: ${ALERTAS.join(", ")}.
+`;
+
+export function construirSystemPerfil(editorialMd, { idioma = "es-PA", perfil = {} } = {}) {
+  return `${String(editorialMd || "").trim()}\n${reglasFijas(idioma)}\n${reglasPerfil(idioma, perfil)}`.trim();
+}
+
+function describirCandidato(c) {
+  return `${c.medio}${c.autor ? ` · ${c.autor}` : ""} · ${c.idioma || "idioma desconocido"} · publicado ${c.fecha || "?"} · actualizado ${c.actualizado || "sin dato"} · acceso ${c.alcance || "desconocido"}`;
+}
+
+export function construirUsuarioPerfil({ grupos, recientes, max, formatos = FORMATOS }) {
+  const lista = grupos.map((g, i) => {
+    const p = g.principal;
+    const refs = (g.referencias || []).map((r) => `  - ${r.medio} · ${r.alcance || "?"} · ${r.titulo} (${r.url})`).join("\n");
+    const primarias = (p.fuentesPrimarias || []).map((u) => `  - ${u}`).join("\n");
+    return `[${i}] ${describirCandidato(p)}\nURL: ${p.url}\nTítulo: ${p.titulo}\nDescripción: ${p.descripcion || "(sin descripción)"}\nTexto: ${p.texto || "(texto no disponible)"}`
+      + (primarias ? `\nFuentes primarias enlazadas:\n${primarias}` : "") + (refs ? `\nReferencias del grupo:\n${refs}` : "");
+  }).join("\n\n");
+  const rec = recientes.length ? recientes.map((t) => `- ${t}`).join("\n") : "- (ninguno)";
+  return `Elige hasta ${max} grupos de la lista y redacta una pieza por grupo. Si eliges varios, usa formatos distintos entre sí (disponibles: ${formatos.join(", ")}). Cada grupo reúne fuentes sobre el mismo acontecimiento: la principal es la que tiene más texto; las referencias solo sirven para contexto y contraste.
+
+## Publicado recientemente (no repetir)
+${rec}
+
+## Grupos de candidatos
+${lista}`;
+}
+
+const diasEntre = (a, b) => (b.getTime() - Date.parse(a)) / 86400000;
+
+// Valida la selección del perfil: índices, grupos aptos, formatos permitidos, puntuación mínima y alertas.
+export function validarSeleccionPerfil(salida, grupos, { max, perfil = {}, ahora = new Date() }) {
+  const pesos = perfil.puntuacion?.pesos || PESOS_POR_DEFECTO;
+  const minimo = perfil.puntuacion?.minimo ?? 0;
+  const formatos = perfil.formatos || FORMATOS;
+  const vistos = new Set();
+  const seleccion = [];
+  const descartados = [];
+  for (const s of salida.seleccion || []) {
+    const i = s.indiceGrupo;
+    if (!Number.isInteger(i) || i < 0 || i >= grupos.length || vistos.has(i)) { descartados.push({ indiceGrupo: i, motivo: "índice fuera de rango o repetido" }); continue; }
+    vistos.add(i);
+    const g = grupos[i];
+    if (!g.apto) { descartados.push({ indiceGrupo: i, motivo: g.motivo || "grupo no apto" }); continue; }
+    if (!formatos.includes(s.formato)) { descartados.push({ indiceGrupo: i, motivo: `formato ${s.formato} no habilitado en el perfil` }); continue; }
+    const p = g.principal;
+    const puntuacion = puntuar(s.puntuacion, { publicado: p.fecha, ahora, pesos });
+    if (puntuacion.total < minimo) { descartados.push({ indiceGrupo: i, motivo: `puntuación ${puntuacion.total} por debajo del mínimo ${minimo}` }); continue; }
+    const alertas = new Set((s.alertas || []).filter((a) => ALERTAS.includes(a)));
+    if (!(g.referencias || []).length) alertas.add("fuente-unica");
+    if (p.alcance === "parcial") alertas.add("acceso-parcial");
+    if ((s.afirmaciones || []).some((a) => a.tipo === "denuncia" && !String(a.fuente || "").trim())) alertas.add("acusacion-sin-fuente");
+    const fechaHecho = s.fechaHecho && !Number.isNaN(Date.parse(s.fechaHecho)) ? s.fechaHecho : null;
+    if ((fechaHecho && diasEntre(fechaHecho, ahora) > 30) || (!fechaHecho && p.fecha && diasEntre(p.fecha, ahora) > 30)) alertas.add("hecho-antiguo");
+    if (Number(s.puntuacion?.evidencia) < 4) alertas.add("evidencia-insuficiente");
+    seleccion.push({ ...s, fechaHecho, candidato: p, referencias: g.referencias || [], puntuacion: { total: puntuacion.total, componentes: puntuacion.componentes }, alertas: [...alertas] });
+  }
+  seleccion.sort((a, b) => b.puntuacion.total - a.puntuacion.total);
+  return { seleccion: seleccion.slice(0, max), descartados };
+}
+
+export async function redactarPerfil({ client, config, editorialMd, grupos, recientes, max, ahora = new Date() }) {
+  const perfil = config.perfil || {};
+  const res = await client.messages.parse({
+    model: config.claude.modelo,
+    max_tokens: 24000,
+    thinking: { type: "adaptive" },
+    output_config: { effort: config.claude.esfuerzo, format: zodOutputFormat(EsquemaRedaccionPerfil) },
+    system: [{ type: "text", text: construirSystemPerfil(editorialMd, { idioma: config.idioma, perfil }), cache_control: { type: "ephemeral" } }],
+    messages: [{ role: "user", content: construirUsuarioPerfil({ grupos, recientes, max, formatos: perfil.formatos || FORMATOS }) }],
+  });
+  if (res.stop_reason === "refusal") throw new Error(`Claude rechazó la solicitud: ${res.stop_details?.explanation || "sin explicación"}`);
+  if (!res.parsed_output) throw new Error("Claude no devolvió una salida válida según el esquema");
+  const v = validarSeleccionPerfil(res.parsed_output, grupos, { max, perfil, ahora });
+  return { seleccion: v.seleccion, descartados: [...(res.parsed_output.descartados || []), ...v.descartados], uso: res.usage };
+}

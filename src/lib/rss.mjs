@@ -86,7 +86,10 @@ export function parseFeed(xml) {
     );
     const description = cleanText(primeraEtiqueta(b, "description") || primeraEtiqueta(b, "summary"));
     const contenido = stripCdata(primeraEtiqueta(b, "encoded")).trim();
-    items.push({ title, link, guid: guid || link, pubDate, description, contenido, image: extraerImagen(b) });
+    // Autor: dc:creator (RSS) o <author><name> (Atom); en RSS <author> suele ser un correo y se conserva tal cual.
+    const autorBloque = primeraEtiqueta(b, "author");
+    const autor = cleanText(primeraEtiqueta(b, "creator") || primeraEtiqueta(autorBloque, "name") || (esAtom ? "" : autorBloque));
+    items.push({ title, link, guid: guid || link, pubDate, description, contenido, image: extraerImagen(b), autor });
   }
   return items;
 }

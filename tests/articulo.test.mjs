@@ -21,7 +21,7 @@ test("parrafosDesdeHtml sin clases p_N usa todos los <p> largos", () => {
 
 test("extraerArticulo sin metadatos devuelve cadenas vacías, no lanza", () => {
   assert.deepEqual(extraerArticulo("<html><body><p>Solo un párrafo que es suficientemente largo para contar.</p></body></html>"),
-    { titulo: "", descripcion: "", fecha: "", parrafos: ["Solo un párrafo que es suficientemente largo para contar."] });
+    { titulo: "", descripcion: "", fecha: "", parrafos: ["Solo un párrafo que es suficientemente largo para contar."], autor: "", canonica: "", actualizado: "", enlaces: [] });
 });
 
 test("textoParaClaude une párrafos completos hasta el máximo", () => {

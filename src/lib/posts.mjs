@@ -6,6 +6,52 @@ import { validarDestinos } from "./destinos.mjs";
 import { claveDia, claveMinuto, ZONA_PANAMA } from "./fechas.mjs";
 import { slugify, sha1short } from "./util.mjs";
 import { normalizarHashtags } from "./caption.mjs";
+import { FORMATOS, TIPOS_AFIRMACION, ALCANCES, ALERTAS, ESTADOS_REVISION } from "./formatos.mjs";
+
+const esTextoONull = (v) => v === null || v === undefined || typeof v === "string";
+const esListaDeTextos = (v) => Array.isArray(v) && v.every((s) => typeof s === "string");
+
+// Campos del perfil editorial (opcionales; los posts anteriores no los tienen).
+function validarPerfilDePost(post) {
+  if (post.formato !== undefined) exigir(FORMATOS.includes(post.formato), `formato "${post.formato}" desconocido (${FORMATOS.join(", ")})`);
+  if (post.fuentes !== undefined) {
+    exigir(Array.isArray(post.fuentes) && post.fuentes.every((f) => f && typeof f === "object" && typeof f.medio === "string" && /^https?:\/\//.test(f.url || "") && ["principal", "referencia"].includes(f.rol)
+      && (f.alcance === undefined || f.alcance === null || ALCANCES.includes(f.alcance)) && (f.fuentesPrimarias === undefined || esListaDeTextos(f.fuentesPrimarias))
+      && ["autor", "idioma", "publicado", "actualizado", "fechaHecho", "consultado", "canonica", "licenciaMedios"].every((k) => esTextoONull(f[k]))),
+    "fuentes debe ser una lista de { rol principal|referencia, medio, url, autor, idioma, fechas, alcance, fuentesPrimarias, licenciaMedios }");
+  }
+  if (post.afirmaciones !== undefined) {
+    exigir(Array.isArray(post.afirmaciones) && post.afirmaciones.every((a) => a && typeof a.texto === "string" && TIPOS_AFIRMACION.includes(a.tipo) && typeof a.fuente === "string" && (a.contrastada === undefined || typeof a.contrastada === "boolean")),
+      `afirmaciones debe ser una lista de { texto, tipo (${TIPOS_AFIRMACION.join("|")}), fuente, contrastada }`);
+  }
+  for (const k of ["angulo", "atribucion"]) if (post[k] !== undefined) exigir(esTextoONull(post[k]), `${k} debe ser texto`);
+  if (post.alertas !== undefined) exigir(Array.isArray(post.alertas) && post.alertas.every((a) => ALERTAS.includes(a)), `alertas solo admite ${ALERTAS.join(", ")}`);
+  if (post.revision !== undefined) exigir(post.revision && ESTADOS_REVISION.includes(post.revision.estado) && esListaDeTextos(post.revision.notas || []), `revision debe tener estado (${ESTADOS_REVISION.join("|")}) y notas`);
+  if (post.puntuacion !== undefined && post.puntuacion !== null) exigir(typeof post.puntuacion.total === "number" && post.puntuacion.componentes && typeof post.puntuacion.componentes === "object", "puntuacion debe tener total y componentes");
+  if (post.carrusel !== undefined && post.carrusel !== null) {
+    const c = post.carrusel;
+    exigir(c && Array.isArray(c.diapositivas) && c.diapositivas.length > 0 && c.diapositivas.every((d) => d && typeof d.titulo === "string" && typeof d.texto === "string")
+      && Array.isArray(c.imagenes || []) && (c.imagenes || []).every((i) => Number.isInteger(i.numero) && typeof i.ruta === "string" && typeof i.url === "string" && typeof i.hash === "string")
+      && (c.hash === undefined || typeof c.hash === "string"),
+    "carrusel debe tener diapositivas { titulo, texto } (al menos una) e imagenes { numero, ruta, url, hash }");
+  }
+  if (post.reel !== undefined && post.reel !== null) {
+    const r = post.reel;
+    exigir(r && typeof r.narracion === "string" && r.narracion.trim() && esListaDeTextos(r.subtitulos || []) && Array.isArray(r.escenas || [])
+      && (r.escenas || []).every((e) => e && typeof e.segundos === "number" && typeof e.descripcion === "string" && typeof e.recurso === "string") && esListaDeTextos(r.recursos || []),
+    "reel debe tener narracion, subtitulos, escenas { segundos, descripcion, recurso } y recursos");
+  }
+}
+
+// Fuente con trazabilidad a partir de un candidato (lo desconocido queda en null, nunca inventado).
+export function fuenteDeCandidato(c, rol, { fechaHecho = null } = {}) {
+  return {
+    rol, medio: c.medio, autor: c.autor ?? null, url: c.url, canonica: c.canonica ?? null, idioma: c.idioma ?? null,
+    publicado: c.fecha || null, actualizado: c.actualizado ?? null, fechaHecho, consultado: c.consultado ?? null,
+    alcance: c.alcance ?? null, textoRecuperado: c.textoRecuperado ?? null, fuentesPrimarias: Array.isArray(c.fuentesPrimarias) ? c.fuentesPrimarias : [],
+    licenciaMedios: c.licenciaMedios ?? null,
+  };
+}
 
 const RE_ID = /^\d{4}-\d{2}-\d{2}-\d{4}-[a-z0-9-]+-[0-9a-f]{4}$/;
 const RE_CUENTA = /^[a-z0-9][a-z0-9-]*$/;
@@ -64,7 +110,17 @@ export function validarPost(post) {
       "ilustracion debe tener descripcion, usar, ruta, hashDescripcion y error válidos"
     );
   }
+  validarPerfilDePost(post);
   return post;
+}
+
+// Diapositivas del carrusel: public/img/<id>-01.jpg, -02.jpg…
+export function rutaDiapositiva(id, numero) {
+  return `public/img/${id}-${String(numero).padStart(2, "0")}.jpg`;
+}
+
+export function urlDiapositiva(baseUrl, id, numero) {
+  return `${String(baseUrl).replace(/\/+$/, "")}/img/${id}-${String(numero).padStart(2, "0")}.jpg`;
 }
 
 export function rutaImagen(id) {
@@ -84,8 +140,26 @@ export function nuevoId({ medio, url, ahora, zona = ZONA_PANAMA, cuenta = null }
   return `${claveMinuto(ahora, zona)}-${parteCuenta}${slugify(medio, 12)}-${sha1short(url, 4)}`;
 }
 
-export function crearPost({ candidato, redaccion, variante, ahora, zona = ZONA_PANAMA, cuenta = null }) {
+export function crearPost({ candidato, redaccion, variante, ahora, zona = ZONA_PANAMA, cuenta = null, referencias = [] }) {
   const iso = ahora.toISOString();
+  const conPerfil = redaccion.formato !== undefined;
+  const ilustracion = typeof redaccion.escena === "string" && redaccion.escena.trim()
+    ? { descripcion: redaccion.escena.trim(), usar: false, ruta: null, hashDescripcion: null, proveedor: null, modelo: null, generada: null, error: null, ...(conPerfil ? { procedencia: "generada" } : {}) }
+    : null;
+  // Perfil editorial: formato, fuentes con trazabilidad (principal y referencias del mismo hecho), afirmaciones con su
+  // fuente, ángulo, atribución pública, puntuación, alertas, carrusel o reel, y revisión pendiente.
+  const extras = conPerfil ? {
+    formato: redaccion.formato,
+    fuentes: [fuenteDeCandidato(candidato, "principal", { fechaHecho: redaccion.fechaHecho ?? null }), ...referencias.map((r) => fuenteDeCandidato(r, "referencia"))],
+    afirmaciones: Array.isArray(redaccion.afirmaciones) ? redaccion.afirmaciones : [],
+    angulo: redaccion.angulo ?? null,
+    atribucion: redaccion.atribucion ?? null,
+    puntuacion: redaccion.puntuacion ?? null,
+    alertas: Array.isArray(redaccion.alertas) ? redaccion.alertas : [],
+    carrusel: Array.isArray(redaccion.carrusel) && redaccion.carrusel.length ? { diapositivas: redaccion.carrusel, imagenes: [] } : null,
+    reel: redaccion.reel ?? null,
+    revision: { estado: "pendiente", notas: [] },
+  } : {};
   return validarPost({
     id: nuevoId({ medio: candidato.medio, url: candidato.url, ahora, zona, cuenta }),
     ...(cuenta ? { cuenta } : {}),
@@ -98,9 +172,8 @@ export function crearPost({ candidato, redaccion, variante, ahora, zona = ZONA_P
     hashtags: normalizarHashtags(redaccion.hashtags),
     variante,
     imagen: null,
-    ilustracion: typeof redaccion.escena === "string" && redaccion.escena.trim()
-      ? { descripcion: redaccion.escena.trim(), usar: false, ruta: null, hashDescripcion: null, proveedor: null, modelo: null, generada: null, error: null }
-      : null,
+    ilustracion,
+    ...extras,
     programado: null,
     publicacion: null,
     error: null,

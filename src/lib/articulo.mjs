@@ -19,6 +19,40 @@ export function parrafosDesdeHtml(html, { minCaracteres = 40 } = {}) {
     .filter((p) => p.length >= minCaracteres);
 }
 
+// Autor: JSON-LD ("author": {"name"} o lista), o <meta name="author">.
+function autorDe(h) {
+  const ld = h.match(/"author"\s*:\s*(\[\s*)?\{[^}]*?"name"\s*:\s*"([^"]+)"/);
+  if (ld) return decodeEntities(ld[2]).trim();
+  return meta(h, "name", "author") || meta(h, "property", "article:author").replace(/^https?:\/\/\S+$/, "");
+}
+
+function canonicaDe(h) {
+  const a = h.match(/<link[^>]*\brel\s*=\s*["']canonical["'][^>]*\bhref\s*=\s*["']([^"']+)["']/i);
+  if (a) return decodeEntities(a[1]).trim();
+  const b = h.match(/<link[^>]*\bhref\s*=\s*["']([^"']+)["'][^>]*\brel\s*=\s*["']canonical["']/i);
+  return b ? decodeEntities(b[1]).trim() : meta(h, "property", "og:url");
+}
+
+const hostDe = (url) => { try { return new URL(url).hostname.replace(/^www\./, ""); } catch { return ""; } };
+
+// Enlaces a otros dominios dentro de los párrafos del cuerpo: candidatos a fuente primaria (documentos, informes,
+// declaraciones). Se excluyen redes sociales y compartir; sin repetir; como máximo 20.
+export function enlacesDelCuerpo(html, { hostPropio = "" } = {}) {
+  const h = String(html || "");
+  const salida = [];
+  for (const p of h.matchAll(/<p\b[^>]*>([\s\S]*?)<\/p>/gi)) {
+    for (const a of p[1].matchAll(/<a\b[^>]*\bhref\s*=\s*["'](https?:\/\/[^"'#\s]+)["']/gi)) {
+      const url = decodeEntities(a[1]).trim();
+      const host = hostDe(url);
+      if (!host || (hostPropio && (host === hostPropio || host.endsWith(`.${hostPropio}`)))) continue;
+      if (/(^|\.)(twitter|x|facebook|instagram|threads|bsky|tiktok|youtube|linkedin|reddit|t)\.(com|app|net|co|me)$/i.test(host)) continue;
+      if (!salida.includes(url)) salida.push(url);
+      if (salida.length >= 20) return salida;
+    }
+  }
+  return salida;
+}
+
 export function extraerArticulo(html) {
   const h = String(html || "");
   const tituloTag = h.match(/<title[^>]*>([\s\S]*?)<\/title>/i);
@@ -29,7 +63,13 @@ export function extraerArticulo(html) {
     const ld = h.match(/"datePublished"\s*:\s*"([^"]+)"/);
     fecha = ld ? ld[1] : "";
   }
-  return { titulo, descripcion, fecha, parrafos: parrafosDesdeHtml(h) };
+  let actualizado = meta(h, "property", "article:modified_time");
+  if (!actualizado) {
+    const ld = h.match(/"dateModified"\s*:\s*"([^"]+)"/);
+    actualizado = ld ? ld[1] : "";
+  }
+  const canonica = canonicaDe(h);
+  return { titulo, descripcion, fecha, parrafos: parrafosDesdeHtml(h), autor: autorDe(h), canonica, actualizado, enlaces: enlacesDelCuerpo(h, { hostPropio: hostDe(canonica) }) };
 }
 
 export function textoParaClaude(parrafos, max = 1500) {
