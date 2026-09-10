@@ -16,7 +16,7 @@ import { seriesDeCuenta, rendimientoDePublicaciones, textoValor, textoMotivo } f
 // Multicanal (F1): destinos por pieza, versiones por red y conexiones por red.
 import {
   REDES, NOMBRES_RED, destinosDe, aprobarDestinos, omitirDestino, reintentarDestinos, decidirIncierto, piezaCambiada, imagenCambiada,
-  actualizarVersion, aprobarImagenActual, esCarrusel, imagenesDe, LIMITES_CARRUSEL,
+  actualizarVersion, aprobarImagenActual, esCarrusel, imagenesDe, LIMITES_CARRUSEL, validarCarruselPara, REDES_CARRUSEL,
 } from "./lib/destinos.mjs";
 import { proponerVersion, medirVersion } from "./lib/versiones.mjs";
 import { destinosEncendidos, pausaGeneral } from "./lib/conexiones.mjs";
@@ -447,13 +447,18 @@ function tarjeta({ post, sha }) {
       if (!esPublicable(formatoDe(p))) { avisarAqui(`${NOMBRES_FORMATO[formatoDe(p)]}: ${DESCRIPCION_ALERTA["formato-no-publicable"]}`); return null; }
       const v = captionValido(); if (!v.ok) { avisarAqui(v.errores.join(" ")); return null; }
       const pieza = conCambios(p);
+      // Carrusel: antes de abrir el diálogo se comprueba que alguna red lo admite con sus diapositivas y límites (los
+      // motivos de las demás se muestran en el propio diálogo, con la casilla deshabilitada).
+      if (formatoDe(pieza) === "carrusel") {
+        const motivos = REDES.map((red) => validarCarruselPara(pieza, red)).filter((x) => !x.ok).map((x) => x.motivo);
+        if (motivos.length === REDES.length) { avisarAqui(motivos[0]); return null; }
+      }
       const r = await pedirHora(pieza);
       if (!r) return null;
       // Lo aprobado se vincula a la huella de cada archivo renderizado: la imagen del post y, en un carrusel, cada
       // diapositiva en su orden (null si aún no existe: se aprobará después con «Aprobar imágenes actuales»).
       const h = await huellasDe(pieza);
-      if (formatoDe(pieza) === "carrusel" && !esCarrusel(pieza)) avisar(`El carrusel aún no tiene sus diapositivas renderizadas (entre ${LIMITES_CARRUSEL.min} y ${LIMITES_CARRUSEL.max}): se programa, pero no se publicará hasta que existan y las apruebes.`, 10000);
-      else if (!h.completas) avisar(`No se pudo leer la huella de ${esCarrusel(pieza) ? "alguna imagen" : "la imagen"}: el destino esperará hasta que pulses «${esCarrusel(pieza) ? "Aprobar imágenes actuales" : "Aprobar imagen actual"}».`, 10000);
+      if (!h.completas) avisar(`No se pudo leer la huella de ${esCarrusel(pieza) ? "alguna imagen" : "la imagen"}: el destino esperará hasta que pulses «${esCarrusel(pieza) ? "Aprobar imágenes actuales" : "Aprobar imagen actual"}».`, 10000);
       try { return aprobarDestinos(pieza, r.iso, { versiones: r.versiones, imagenSha: h.imagenSha, imagenesSha: h.imagenesSha }, ahoraIso()); }
       catch (err) { avisarAqui(err.message); return null; }
     };
@@ -539,6 +544,9 @@ function pedirHora(post) {
   const contenedor = $("hora-destinos");
   const casillas = {}; const areas = {}; const contadores = {};
   const disponibilidad = (red) => {
+    // Carrusel: la red debe admitirlo (Facebook no, hasta validarlo con la API real) y la pieza debe cumplir sus límites.
+    const admision = validarCarruselPara(post, red);
+    if (!admision.ok) return admision.motivo;
     if (red === "instagram") return null;
     const cx = conexionRedDe(cuenta, red);
     const e = estadoConexionRed({ conexion: cx, config: cfgCuenta, id: cuenta, red, ahora: new Date() });

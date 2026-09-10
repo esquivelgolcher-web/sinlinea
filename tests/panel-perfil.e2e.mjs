@@ -35,6 +35,14 @@ async function montar(prefijo) {
   for (const f of fs.readdirSync("src/lib")) fs.copyFileSync(path.join("src/lib", f), path.join(raiz, "src/lib", f));
   fs.mkdirSync(path.join(raiz, ".github/workflows"), { recursive: true });
   for (const w of ["publicar.yml", "probar-instagram.yml"]) fs.copyFileSync(path.join(".github/workflows", w), path.join(raiz, ".github/workflows", w));
+  // Facebook y Threads verificados y encendidos en la cuenta de prueba: el diálogo debe ofrecerlos para un post y, para un
+  // carrusel, deshabilitar Facebook con el motivo de validación pendiente.
+  const rutaPr = path.join(raiz, "cuentas/prueba/config.json");
+  const cfgPr = JSON.parse(fs.readFileSync(rutaPr, "utf8"));
+  fs.writeFileSync(rutaPr, JSON.stringify({ ...cfgPr, instagram: { origen: "entorno" }, conexiones: { facebook: { publicar: true, pagina: "123" }, threads: { publicar: true, usuario: "555", perfil: "prueba.diario" } } }, null, 2) + "\n");
+  fs.writeFileSync(path.join(raiz, "data/prueba/conexion.json"), JSON.stringify({ estado: "verificada", usuario: "prueba.diario", comprobado: iso, secretos: { tokenSecreto: "IG_ACCESS_TOKEN", usuarioIdSecreto: "IG_USER_ID", origen: "entorno", entorno: "cuenta-prueba" } }, null, 2));
+  fs.writeFileSync(path.join(raiz, "data/prueba/conexion-facebook.json"), JSON.stringify({ red: "facebook", estado: "verificada", identidad: { id: "123", nombre: "Página" }, comprobado: iso, detalle: null, secretos: { nombres: ["FB_PAGE_TOKEN"], origen: "entorno", entorno: "cuenta-prueba" } }, null, 2));
+  fs.writeFileSync(path.join(raiz, "data/prueba/conexion-threads.json"), JSON.stringify({ red: "threads", estado: "verificada", identidad: { id: "555", nombre: "@prueba.diario" }, comprobado: iso, detalle: null, secretos: { nombres: ["THREADS_ACCESS_TOKEN"], origen: "entorno", entorno: "cuenta-prueba" } }, null, 2));
   const id = (s) => base0.id.slice(0, -4) + s;
   const diapositivas = [{ titulo: "¿Una foto basta para identificarte?", texto: "Una pregunta." }, { titulo: "Qué ocurrió", texto: "Los hechos." }, { titulo: "Qué falta por saber", texto: "Fuentes." }];
   const imagenesDe = (pid) => diapositivas.map((_, i) => ({ numero: i + 1, ruta: `public/img/${pid}-0${i + 1}.jpg`, url: `https://prueba.github.io/sinlinea/img/${pid}-0${i + 1}.jpg`, hash: `${"abc"[i]}`.repeat(16) }));
@@ -100,11 +108,19 @@ test("(perfil) la tarjeta muestra formato, alertas explicadas, puntuación, afir
     assert.equal(await tc.locator("img.diapositiva").count(), 3);
     await tc.locator('button:has-text("Aprobar")').click();
     await page.waitForSelector("dialog[open]");
+    // Instagram y Threads disponibles; Facebook deshabilitado con el motivo de validación pendiente (solo imágenes individuales).
+    assert.equal(await page.isChecked("#destino-instagram"), true);
+    assert.equal(await page.isChecked("#destino-threads"), true);
+    assert.equal(await page.isChecked("#destino-facebook"), false);
+    assert.equal(await page.isDisabled("#destino-facebook"), true);
+    assert.match(await page.locator("#hora-destinos").textContent(), /Facebook · no disponible: Facebook: la publicación de carruseles \(varias fotos en una entrada\) está pendiente de validación real; en Facebook solo se publican imágenes individuales\./);
+    await page.uncheck("#destino-threads");
     await page.fill("#hora-fecha", "2026-09-12"); await page.fill("#hora-hora", "12:00");
     await page.click("#hora-confirmar");
     await page.waitForFunction((id) => !document.querySelector(`.tarjeta[data-id="${id}"]`), ids.carrusel);
     const aprobado = leerPost(raiz, ids.carrusel);
     assert.equal(aprobado.estado, "programado");
+    assert.deepEqual(Object.keys(aprobado.destinos), ["instagram"], "solo Instagram: Threads se desmarcó y Facebook no se ofrece para carruseles");
     const esperadas = [1, 2, 3].map((n) => huellaDe(raiz, `public/img/${ids.carrusel}-0${n}.jpg`));
     assert.equal(new Set(esperadas).size, 3, "las tres diapositivas son archivos distintos");
     assert.deepEqual(aprobado.destinos.instagram.aprobado.imagenesSha, esperadas, "queda aprobada la huella de cada diapositiva, en su orden");
@@ -133,6 +149,14 @@ test("(perfil) la tarjeta muestra formato, alertas explicadas, puntuación, afir
     await tr.locator('button:has-text("Aprobar")').click();
     await page.waitForFunction((id) => /Reel: El reel no tiene todavía adaptador de publicación/.test(document.querySelector(`.tarjeta[data-id="${id}"] .aviso-tarjeta`)?.textContent || ""), ids.reel);
     assert.equal(await page.locator("dialog[open]").count(), 0, "no se abre el diálogo de programación");
+    // Un post normal sí ofrece Facebook (la restricción es solo para carruseles).
+    const tp2 = tarjeta(page, ids.post);
+    await tp2.locator('button:has-text("Aprobar")').click();
+    await page.waitForSelector("dialog[open]");
+    assert.equal(await page.isDisabled("#destino-facebook"), false);
+    assert.equal(await page.isChecked("#destino-facebook"), true);
+    await page.keyboard.press("Escape");
+    await page.waitForFunction(() => !document.querySelector("dialog[open]"));
     assert.equal(JSON.parse(fs.readFileSync(path.join(raiz, "posts", `${ids.reel}.json`), "utf8")).estado, "borrador");
     assert.deepEqual(errores, []);
   } finally {

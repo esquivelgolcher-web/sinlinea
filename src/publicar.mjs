@@ -12,7 +12,7 @@ import { crearClienteInstagram } from "./lib/instagram.mjs";
 import { crearClienteFacebook } from "./lib/facebook.mjs";
 import { crearClienteThreads } from "./lib/threads.mjs";
 import { esPublicable, formatoDe } from "./lib/formatos.mjs";
-import { esCarrusel, imagenesDe, LIMITES_CARRUSEL } from "./lib/destinos.mjs";
+import { esCarrusel, imagenesDe, LIMITES_CARRUSEL, validarCarruselPara } from "./lib/destinos.mjs";
 
 const mismaLista = (a, b) => JSON.stringify(a ?? null) === JSON.stringify(b ?? null);
 import { claveDia } from "./lib/fechas.mjs";
@@ -308,6 +308,13 @@ export async function ejecutarPublicar({ config, raiz = process.cwd(), ahora = n
       const cliente = todosClientes[red];
       if (!cliente) { estadoDestinos[red] = "sin-cliente"; log.warn(`${post.id}: ${NOMBRES_RED[red]} está encendido pero no hay cliente (faltan credenciales); la entrega espera.`); continue; }
       if (!(await identidadOk(red))) { estadoDestinos[red] = "identidad"; continue; }
+      // Carrusel: solo en las redes que lo admiten (Facebook queda fuera hasta validarlo con la API real) y dentro de sus límites.
+      const admision = validarCarruselPara(post, red);
+      if (!admision.ok) {
+        estadoDestinos[red] = "carrusel-no-admitido";
+        log.warn(`${post.id}: la entrega en ${NOMBRES_RED[red]} espera. ${admision.motivo}`);
+        continue;
+      }
 
       // Intento que dejó una corrida interrumpida sin registrar resultado (el remoto conserva la última fase subida):
       // en fase enviando pudo publicarse → incierto, y solo la evidencia decide; en fase contenedor se reutiliza lo creado.

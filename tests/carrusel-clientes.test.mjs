@@ -58,7 +58,9 @@ test("(carrusel · Threads) hijos IMAGE con is_carousel_item, contenedor CAROUSE
   await assert.rejects(th.publicarContenedor("padre"), (e) => e instanceof ErrorIncierto);
 });
 
-test("(carrusel · Facebook) varias fotos sin publicar y una publicación con todas adjuntas en orden; la evidencia acepta cualquiera de las fotos en attachments o subattachments", async () => {
+// El cliente de Facebook sabe adjuntar varias fotos, pero el publicador y el panel NO lo usan para carruseles hasta
+// validarlo con la API real (REDES_CARRUSEL excluye facebook). La prueba documenta la forma de las llamadas.
+test("(carrusel · Facebook, no habilitado) varias fotos sin publicar y una publicación con todas adjuntas en orden; la evidencia acepta cualquiera de las fotos en attachments o subattachments", async () => {
   let fotos = 0;
   const g = graphFalso({
     "POST /v23.0/123/photos": () => ({ ok: true, status: 200, json: async () => ({ id: `ph${++fotos}` }) }),

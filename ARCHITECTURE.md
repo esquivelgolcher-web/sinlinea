@@ -255,17 +255,21 @@ de la imagen en GitHub Pages. Reglas del diseño multicanal (`docs/superpowers/s
 - **Texto e imagen aprobados.** Se publica exactamente la versión aprobada por destino
   (`lib/versiones.mjs` solo propone, nunca recorta). Si la imagen cambió después de aprobar,
   el destino espera hasta que el operador apruebe la imagen actual.
-- **Carruseles (2-10 diapositivas renderizadas).** En Instagram y Threads, un contenedor hijo
+- **Carruseles (2-10 diapositivas renderizadas), solo Instagram y Threads.** Un contenedor hijo
   por diapositiva (`is_carousel_item`), sondeo hasta `FINISHED`, contenedor `CAROUSEL` con
-  `children` en el orden aprobado y publicación; en Facebook, una foto sin publicar por
-  diapositiva y una sola publicación con `attached_media` múltiple. Los ids de los hijos se
-  suben al remoto (`intento.hijos`, fase `contenedor`) antes de crear el padre y el padre antes
-  de publicar: un corte en cualquier punto reutiliza lo creado y nunca duplica. Se aprueba la
-  huella de cada diapositiva en su orden (`aprobado.imagenesSha`); si cambia una, su orden o su
-  número, el destino espera «Aprobar imágenes actuales». La evidencia de Facebook acepta la foto
-  en `attachments` o `subattachments` (la publicación con varias fotos no está confirmada en la
-  documentación oficial; validado solo con simulaciones). Un carrusel sin sus diapositivas
-  renderizadas espera; el reel sigue sin enviarse.
+  `children` en el orden aprobado y publicación. Límites por red en `CARRUSEL_POR_RED`
+  (`lib/destinos.mjs`) con su documentación oficial: Instagram hasta 10 elementos y solo JPEG
+  (todas las imágenes se recortan según la primera; las diapositivas son 1080×1350, 4:5);
+  Threads entre 2 y 20 (JPEG/PNG, 8 MB). `validarCarruselPara(post, red)` se aplica antes de
+  aprobar (`aprobarDestinos` y el diálogo del panel, que deshabilita la red con el motivo) y en
+  el publicador antes de reservar. **Facebook no es destino de carruseles** hasta validar con
+  la API real la publicación con varias fotos (`lib/facebook.mjs` sabe adjuntarlas, pero
+  `REDES_CARRUSEL` lo excluye y el mensaje lo explica); sigue publicando imágenes individuales.
+  Los ids de los hijos se suben al remoto (`intento.hijos`, fase `contenedor`) antes de crear el
+  padre y el padre antes de publicar: un corte en cualquier punto reutiliza lo creado y nunca
+  duplica. Se aprueba la huella de cada diapositiva en su orden (`aprobado.imagenesSha`); si
+  cambia una, su orden o su número, el destino espera «Aprobar imágenes actuales». Un carrusel
+  sin todas sus diapositivas renderizadas no se aprueba; el reel sigue sin enviarse.
 - **Corridas interrumpidas.** Un intento que quedó en el remoto en fase `enviando` sin resultado
   (la corrida murió antes de guardarlo) pasa a incierto y solo la evidencia lo resuelve; en fase
   `contenedor` se reutiliza lo creado. Un destino en error recuerda su último intento

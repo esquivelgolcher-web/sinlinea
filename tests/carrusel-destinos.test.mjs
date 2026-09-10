@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
-import { aprobarDestinos, destinosDe, imagenCambiada, aprobarImagenActual, avanzarIntento, reservarDestino, validarDestinos, esCarrusel, imagenesDe, LIMITES_CARRUSEL } from "../src/lib/destinos.mjs";
+import { aprobarDestinos, destinosDe, imagenCambiada, aprobarImagenActual, avanzarIntento, reservarDestino, validarDestinos, esCarrusel, imagenesDe, LIMITES_CARRUSEL, CARRUSEL_POR_RED, REDES_CARRUSEL, validarCarruselPara } from "../src/lib/destinos.mjs";
 import { esPublicable, FORMATOS_PUBLICABLES } from "../src/lib/formatos.mjs";
 import { validarPost } from "../src/lib/posts.mjs";
 import { hashImagen } from "../src/lib/estados.mjs";
@@ -24,6 +24,47 @@ test("(carrusel) el carrusel pasa a ser publicable; el reel no; esCarrusel exige
   assert.equal(esCarrusel({ ...carrusel(), formato: "post" }), false);
   assert.deepEqual(imagenesDe(carrusel()).map((i) => i.numero), [1, 2, 3], "en orden de diapositiva");
   assert.deepEqual(imagenesDe(conImagen(base)).map((i) => i.url), [conImagen(base).imagen.url], "un post normal expone su única imagen");
+});
+
+test("(carrusel) límites por red con su documentación oficial: Instagram hasta 10 y solo JPEG, Threads entre 2 y 20; Facebook no admite carruseles (validación real pendiente) y se explica", () => {
+  assert.deepEqual(REDES_CARRUSEL, ["instagram", "threads"]);
+  assert.equal(CARRUSEL_POR_RED.instagram.max, 10);
+  assert.equal(CARRUSEL_POR_RED.instagram.min, 2);
+  assert.deepEqual(CARRUSEL_POR_RED.instagram.formatos, ["jpg"]);
+  assert.match(CARRUSEL_POR_RED.instagram.doc, /^https:\/\/developers\.facebook\.com\/docs\/instagram-platform\//);
+  assert.equal(CARRUSEL_POR_RED.threads.max, 20);
+  assert.equal(CARRUSEL_POR_RED.threads.min, 2);
+  assert.match(CARRUSEL_POR_RED.threads.doc, /^https:\/\/developers\.facebook\.com\/docs\/threads\//);
+  assert.equal(CARRUSEL_POR_RED.facebook, null);
+  const p = carrusel();
+  assert.deepEqual(validarCarruselPara(p, "instagram"), { ok: true, motivo: null });
+  assert.deepEqual(validarCarruselPara(p, "threads"), { ok: true, motivo: null });
+  const fb = validarCarruselPara(p, "facebook");
+  assert.equal(fb.ok, false);
+  assert.match(fb.motivo, /Facebook.*pendiente de validación real.*imágenes individuales/);
+  // Sin diapositivas renderizadas (o con menos de las previstas) no se aprueba: espera al render.
+  const sinRender = { ...p, carrusel: { ...p.carrusel, imagenes: [] } };
+  assert.equal(validarCarruselPara(sinRender, "instagram").ok, false);
+  assert.match(validarCarruselPara(sinRender, "instagram").motivo, /3 diapositivas.*0 renderizadas/);
+  // Más de diez diapositivas: Instagram no; el sistema tampoco (límite común LIMITES_CARRUSEL), aunque Threads admita 20.
+  const once = Array.from({ length: 11 }, (_, i) => ({ titulo: `t${i}`, texto: "x" }));
+  const largo = { ...p, carrusel: { diapositivas: once, imagenes: once.map((_, i) => ({ numero: i + 1, ruta: `public/img/x-${String(i + 1).padStart(2, "0")}.jpg`, url: `https://u/x-${i + 1}.jpg`, hash: "h" })), hash: "x" } };
+  assert.match(validarCarruselPara(largo, "instagram").motivo, /11 diapositivas.*Instagram admite entre 2 y 10/);
+  assert.match(validarCarruselPara(largo, "threads").motivo, /máximo del sistema/);
+  // Un archivo que no sea JPEG no vale para Instagram.
+  const png = { ...p, carrusel: { ...p.carrusel, imagenes: p.carrusel.imagenes.map((i, k) => (k === 1 ? { ...i, ruta: i.ruta.replace(/\.jpg$/, ".png"), url: i.url.replace(/\.jpg$/, ".png") } : i)) } };
+  assert.match(validarCarruselPara(png, "instagram").motivo, /JPEG/);
+  // Un post normal no tiene nada que validar.
+  assert.deepEqual(validarCarruselPara(conImagen({ ...base }), "facebook"), { ok: true, motivo: null });
+});
+
+test("(carrusel) aprobar valida los límites de cada destino: Facebook se rechaza con el motivo de validación pendiente; sin diapositivas renderizadas no se aprueba; Instagram y Threads sí", () => {
+  const p = carrusel();
+  assert.throws(() => aprobarDestinos(p, "2026-09-11T12:00:00-05:00", { versiones: { instagram: "IG", facebook: "FB" }, imagenSha: shas[0], imagenesSha: shas }, iso), /Facebook.*pendiente de validación real/);
+  const sinRender = { ...p, carrusel: { ...p.carrusel, imagenes: [] } };
+  assert.throws(() => aprobarDestinos(sinRender, "2026-09-11T12:00:00-05:00", { versiones: { instagram: "IG" }, imagenSha: shas[0] }, iso), /renderizadas/);
+  const ok = aprobarDestinos(p, "2026-09-11T12:00:00-05:00", { versiones: { instagram: "IG", threads: "TH" }, imagenSha: shas[0], imagenesSha: shas }, iso);
+  assert.deepEqual(Object.keys(destinosDe(ok)), ["instagram", "threads"]);
 });
 
 test("(carrusel) aprobar guarda la huella de cada diapositiva en orden; el destino recuerda las huellas y el validador las exige como lista", () => {
