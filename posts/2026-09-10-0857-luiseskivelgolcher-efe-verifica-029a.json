@@ -1,7 +1,7 @@
 {
   "id": "2026-09-10-0857-luiseskivelgolcher-efe-verifica-029a",
   "cuenta": "luiseskivelgolcher",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "EFE Verifica",
     "url": "https://verifica.efe.com/85-refugiados-musulmanes-falsos/",
@@ -37,9 +37,26 @@
     "generada": "2026-09-10T13:57:24.051Z",
     "error": null
   },
-  "programado": null,
+  "programado": "2026-09-10T09:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-10T13:57:24.051Z",
-  "actualizado": "2026-09-10T13:57:24.051Z"
+  "actualizado": "2026-09-10T14:03:30.987Z",
+  "destinos": {
+    "threads": {
+      "texto": "EFE Verifica comprobó que la afirmación viral sobre refugiados musulmanes no tiene respaldo en los datos de ACNUR. Solo siete de los veinte países con más refugiados tienen al Islam como religión mayoritaria, y la mayoría de desplazados se concentra en países vecinos a su lugar de origen.\n\nFuente: EFE Verifica, 10 de septiembre de 2026",
+      "aprobado": {
+        "fecha": "2026-09-10T14:03:30.987Z",
+        "hashPieza": "e344d985d7fb16ab",
+        "imagenHash": "7601ff3392495b31",
+        "imagenSha": "41634344a5e56c398936b317e559ce449633df79"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
