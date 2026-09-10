@@ -1,7 +1,7 @@
 {
   "id": "2026-09-10-0959-luiseskivelgolcher-wired-3cbb",
   "cuenta": "luiseskivelgolcher",
-  "estado": "publicado",
+  "estado": "programado",
   "fuente": {
     "medio": "WIRED",
     "url": "https://www.wired.com/story/clearview-ai-is-testing-an-ai-tool-that-lets-cops-instantly-unearth-your-online-activity/",
@@ -177,7 +177,7 @@
       "Revisión automática: se retiró la frase «tuvo acceso parcial» (describía el acceso del sistema al extracto, no el del medio) y la alerta acceso-parcial; el artículo se leyó entero."
     ]
   },
-  "programado": "2026-09-10T13:00:00-05:00",
+  "programado": "2026-09-10T13:30:00-05:00",
   "publicacion": {
     "idMedia": "18215615350355192",
     "permalink": "https://www.instagram.com/p/DdHcfgLIFzl/",
@@ -185,7 +185,7 @@
   },
   "error": null,
   "creado": "2026-09-10T14:59:41.859Z",
-  "actualizado": "2026-09-10T18:08:12.437Z",
+  "actualizado": "2026-09-10T18:46:06.056Z",
   "destinos": {
     "instagram": {
       "texto": "Clearview AI, la empresa que en 2020 se hizo conocida por extraer más de 3.000 millones de fotos de internet para identificar rostros, construyó y probó un prototipo llamado InquiryIQ, según reveló WIRED. La herramienta usaría un modelo de xAI —la empresa detrás del chatbot Grok— para navegar automáticamente la web a partir de un dato que un investigador obtiene con Clearview, y armar un perfil con posibles empleadores, alias, contactos y rasgos físicos de la persona buscada por la policía. Hasta ahora, WIRED es la única fuente que documenta el prototipo, que no ha sido lanzado públicamente. Clearview ya enfrenta demandas y sanciones en varios países por su forma de recolectar rostros sin consentimiento. ¿Cuánto poder de vigilancia debería tener una empresa privada que trabaja con policías?\n\nFuente: WIRED\n\n#Vigilancia #Privacidad #IA #ClearviewAI #Ciberseguridad",
@@ -210,6 +210,29 @@
         "permalink": "https://www.instagram.com/p/DdHcfgLIFzl/",
         "fecha": "2026-09-10T18:08:12.437Z"
       },
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    },
+    "threads": {
+      "texto": "Clearview probaría una IA que perfila a personas en la web\n\nPrototipo usaría un modelo de xAI para rastrear datos de gente investigada por policías\n\nSegún WIRED (10 de septiembre de 2026)",
+      "aprobado": {
+        "fecha": "2026-09-10T18:46:06.056Z",
+        "hashPieza": "e7899dacc35f7312",
+        "imagenHash": "e65606ce322e2ecc",
+        "imagenSha": "aab63da4d7092b965050bd81e6b1c514ce07f2dd",
+        "imagenesSha": [
+          "82de922980467a1adcee91ed668977860c124990",
+          "f5744b4886205f9a90543ba9f943129a31943b3e",
+          "37955a5a4fe565ff468e877abd9676dc9c2e0d23",
+          "5bc3aae511cd47448ae357ac46330159ce2e1f9c",
+          "128fab86504ed1db08800403431110b1af49ed25",
+          "ea846ffdd8f2e51866dc8a85739d2c1ff5417f1b"
+        ]
+      },
+      "estado": "pendiente",
+      "publicacion": null,
       "error": null,
       "intento": null,
       "omitido": null,
