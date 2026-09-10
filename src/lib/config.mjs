@@ -83,6 +83,7 @@ function validarMarca(marca, archivo) {
   if (marca.logoTamano !== undefined) exigir(Number.isInteger(marca.logoTamano) && marca.logoTamano >= LOGO_TAMANO.min && marca.logoTamano <= LOGO_TAMANO.max, `marca.logoTamano debe ser un entero entre ${LOGO_TAMANO.min} y ${LOGO_TAMANO.max} (píxeles)`, archivo);
   exigir(typeof marca?.usuario === "string" && marca.usuario.startsWith("@"), "marca.usuario debe empezar con @", archivo);
   exigir(typeof marca?.lema === "string", "marca.lema es obligatorio", archivo);
+  if (marca.mostrarFecha !== undefined) exigir(typeof marca.mostrarFecha === "boolean", "marca.mostrarFecha debe ser true o false", archivo);
   if (marca.colores !== undefined) {
     exigir(marca.colores && typeof marca.colores === "object", "marca.colores debe ser un objeto", archivo);
     for (const k of Object.keys(COLORES_POR_DEFECTO)) {

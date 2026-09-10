@@ -118,7 +118,8 @@ test("(perfil) la cuenta real luiseskivelgolcher declara el perfil de periodismo
   assert.ok(c.fuentes.filter((f) => f.nombre === "WIRED").every((f) => f.prioridad === 1 && f.idioma === "en"));
   assert.ok(c.fuentes.filter((f) => /youtube\.com\/feeds/.test(f.url)).every((f) => f.descargar === false), "los canales de YouTube no se descargan: solo título y descripción");
   assert.equal(c.fuentes.find((f) => f.nombre === "HugoDécrypte").idioma, "fr");
-  assert.equal(c.ilustraciones.rotulo, "Ilustración generada con IA");
+  assert.equal(c.ilustraciones.rotulo, "", "el operador decidió no rotular las ilustraciones");
+  assert.equal(c.marca.mostrarFecha, false, "sin franja de fecha en el pie, como en los medios tecnológicos");
   assert.doesNotMatch(c.ilustraciones.estilo, /sobria y neutra/);
   assert.match(c.ilustraciones.estilo, /hacker con capucha/);
 });

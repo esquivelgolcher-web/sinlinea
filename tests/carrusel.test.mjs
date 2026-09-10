@@ -58,3 +58,10 @@ test("(carrusel) el HTML incrusta los datos en la plantilla versionada y la huel
   assert.notEqual(hashCarrusel({ ...post, atribucion: "Otra" }, 1), h);
   assert.notEqual(hashCarrusel(post, 2), h);
 });
+
+test("(carrusel) la nota de la diapositiva de cierre sale solo si la cuenta configura un rótulo de ilustración", () => {
+  const conRotulo = { ...cfg, ilustraciones: { ...cfg.ilustraciones, rotulo: "Ilustración generada con IA" } };
+  assert.equal(datosDeDiapositiva(post, conRotulo, 4, { logoUrl: null }).nota, "Ilustración generada con IA en la portada");
+  const sinRotulo = { ...cfg, ilustraciones: { ...cfg.ilustraciones, rotulo: "" } };
+  assert.equal(datosDeDiapositiva(post, sinRotulo, 4, { logoUrl: null }).nota, "");
+});

@@ -252,3 +252,9 @@ test("(logo) marca.logoTamano es opcional (120 px por defecto), debe ser un ente
   assert.equal(personal.marca.logoTamano, 90);
   assert.equal(personal.marca.colores.oscuro, "#161616", "el cuadro del logo LEG vuelve a ser negro");
 });
+
+test("(marca) marca.mostrarFecha es opcional y debe ser booleano", () => {
+  const base = JSON.parse(fs.readFileSync("tests/fixtures/cuentas/prueba/config.json", "utf8"));
+  assert.doesNotThrow(() => validarCuenta({ ...base, marca: { ...base.marca, mostrarFecha: false } }, "prueba"));
+  assert.throws(() => validarCuenta({ ...base, marca: { ...base.marca, mostrarFecha: "no" } }, "prueba"), /marca\.mostrarFecha/);
+});

@@ -27,7 +27,7 @@ export function iniciales(nombre) {
 // Sello de la identidad visual de la cuenta (colores + presencia y forma del logo + rótulo): si cambia, REGENERAR re-dibuja.
 export function estiloVisual(config, logoUrl) {
   const c = config.marca?.colores || {};
-  return hashTexto(JSON.stringify({ principal: c.principal, acento: c.acento, oscuro: c.oscuro, claro: c.claro, logo: Boolean(logoUrl), forma: config.marca?.logoForma || "circulo", tamano: config.marca?.logoTamano || 120, rotulo: config.ilustraciones?.rotulo || "" }));
+  return hashTexto(JSON.stringify({ principal: c.principal, acento: c.acento, oscuro: c.oscuro, claro: c.claro, logo: Boolean(logoUrl), forma: config.marca?.logoForma || "circulo", tamano: config.marca?.logoTamano || 120, rotulo: config.ilustraciones?.rotulo || "", fecha: config.marca?.mostrarFecha !== false }));
 }
 
 export function datosDeRender(post, config, { logoUrl, ilustracionUrl = null }) {
@@ -41,7 +41,8 @@ export function datosDeRender(post, config, { logoUrl, ilustracionUrl = null }) 
     categoria: post.categoria,
     variante: post.variante,
     medio: post.fuente.medio,
-    fecha: fechaCorta(post.creado, config.zonaHoraria),
+    // marca.mostrarFecha=false: el pie no lleva fecha (estilo de medio tecnológico); por defecto se muestra.
+    fecha: config.marca?.mostrarFecha === false ? "" : fechaCorta(post.creado, config.zonaHoraria),
     usuario: config.marca.usuario,
     lema: config.marca.lema,
     logoUrl,
@@ -138,7 +139,7 @@ export function datosDeDiapositiva(post, config, indice, { logoUrl, ilustracionU
     usuario: config.marca.usuario,
     categoria: post.categoria,
     atribucion: post.atribucion || post.fuente?.medio || "",
-    nota: d.tipo === "cierre" ? "Ilustración generada con IA en la portada" : (d.tipo === "portada" ? "Desliza →" : ""),
+    nota: d.tipo === "cierre" ? (config.ilustraciones?.rotulo ? `${config.ilustraciones.rotulo} en la portada` : "") : (d.tipo === "portada" ? "Desliza →" : ""),
     logoUrl,
     ilustracionUrl: d.tipo === "portada" ? ilustracionUrl : null,
     ...d,

@@ -98,3 +98,10 @@ test("(logo) datosDeRender lleva el tamaÃ±o del logo y estiloVisual cambia con Ã
   const chico = { ...cfg, marca: { ...cfg.marca, logoTamano: 90 } };
   assert.notEqual(estiloVisual(cfg, "x"), estiloVisual(chico, "x"));
 });
+
+test("(marca) marca.mostrarFecha=false deja el pie sin fecha y cambia el sello visual para que REGENERAR vuelva a dibujar", () => {
+  const sinFecha = { ...cfg, marca: { ...cfg.marca, mostrarFecha: false } };
+  assert.equal(datosDeRender(post, sinFecha, { logoUrl: null }).fecha, "");
+  assert.notEqual(datosDeRender(post, cfg, { logoUrl: null }).fecha, "", "por defecto la fecha se muestra");
+  assert.notEqual(estiloVisual(sinFecha, null), estiloVisual(cfg, null));
+});
