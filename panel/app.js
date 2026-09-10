@@ -755,7 +755,7 @@ function tarjetaCuenta(c) {
       const g = guiaConexionRed({ config: cfg, id: c.id, red: cx.red, owner: repo?.owner || null, repo: repo?.repo || null });
       guiasRedes.push(el("details", { class: "guia-red" }, [
         el("summary", { text: `Guía de conexión con ${cx.nombre} · Environment ${g.entorno} · ${g.secretos.join(", ")}` }),
-        el("p", { class: "nota", text: "El token de página se obtiene en las herramientas de Meta y se pega en GitHub. Aquí solo van nombres y enlaces; ningún valor pasa por el panel ni por inputs de workflows. La publicación y la reconciliación en esta red están probadas con simulaciones, pendientes de validación real: la primera publicación será una pieza aprobada expresamente." }),
+        el("p", { class: "nota", text: "El token de página se obtiene en las herramientas de Meta y se pega en GitHub. Aquí solo van nombres y enlaces; ningún valor pasa por el panel ni por inputs de workflows. La publicación en Facebook está validada con la API real (10 de septiembre de 2026); la reconciliación de resultados inciertos sigue probada solo con simulaciones." }),
         estadoRed.detalle ? el("p", { class: "cuenta-detalle", text: estadoRed.detalle }) : "",
         el("ol", {}, g.pasos.map((p) => el("li", { text: p }))),
         el("p", { class: "enlaces" }, [enlace(g.enlaces.explorador, "Explorador de la API Graph"), enlace(g.enlaces.depurador, "Depurador de tokens"), enlace(g.enlaces.entorno, `Environments del repositorio`), enlace(g.enlaces.probar, "Workflow Probar destino")]),

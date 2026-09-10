@@ -463,4 +463,4 @@ Requisitos: la cuenta debe estar en modo Environment (`instagram.origen: "entorn
 
 `publicar.yml` expone `FB_PAGE_TOKEN` solo en el job por Environment; el job de modo repositorio no conoce Facebook. Threads y X quedan para fases posteriores (diseño en `docs/superpowers/specs/2026-09-09-multicanal-design.md`).
 
-**Estado de validación (2026-09-10):** el flujo de publicación en Facebook y la reconciliación de resultados inciertos están probados con clientes simulados y pruebas de extremo a extremo; quedan pendientes de validación con la API real. La primera publicación real será una pieza concreta aprobada expresamente por el operador.
+**Estado de validación (2026-09-10):** la publicación en Facebook quedó validada con la API real el 2026-09-10 a las 09:17 UTC (primera pieza aprobada expresamente por el operador, corrida PUBLICAR 34459784427: reserva → foto sin publicar → publicación con la foto adjunta → enlace guardado, en cuatro commits del bot). La reconciliación de resultados inciertos sigue probada solo con simulaciones (no se ha producido ningún incierto real).

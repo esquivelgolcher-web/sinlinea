@@ -206,4 +206,4 @@ Cada cuenta puede conectar una página de Facebook. Es independiente de Instagra
 
 **La imagen que sale es la que aprobaste:** al aprobar se guarda la huella del archivo de imagen. Si después se regenera (por una ilustración nueva o un cambio de plantilla), la pieza queda en espera y verás «Aprobar imagen actual» en Versiones por red; hasta que lo pulses no se publica.
 
-**Estado:** el flujo de publicación y reconciliación en Facebook está probado con simulaciones y pendiente de validación real. La primera publicación en Facebook será una pieza concreta aprobada expresamente.
+**Estado:** la publicación en Facebook está validada con una pieza real (10 de septiembre de 2026). La reconciliación de resultados inciertos sigue probada solo con simulaciones.
