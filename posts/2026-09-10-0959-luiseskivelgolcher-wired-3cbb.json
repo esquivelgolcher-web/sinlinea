@@ -1,7 +1,7 @@
 {
   "id": "2026-09-10-0959-luiseskivelgolcher-wired-3cbb",
   "cuenta": "luiseskivelgolcher",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "WIRED",
     "url": "https://www.wired.com/story/clearview-ai-is-testing-an-ai-tool-that-lets-cops-instantly-unearth-your-online-activity/",
@@ -231,24 +231,15 @@
           "ea846ffdd8f2e51866dc8a85739d2c1ff5417f1b"
         ]
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-09-10T18:48:26.041Z",
-        "actualizado": "2026-09-10T18:48:26.041Z",
-        "contenedorId": "17988500067100604",
-        "hijos": [
-          "17988499770100604",
-          "17988499794100604",
-          "17988499815100604",
-          "17988499959100604",
-          "17988500022100604",
-          "17988500043100604"
-        ]
+      "estado": "publicado",
+      "publicacion": {
+        "id": "17941937640346752",
+        "idPublicacion": null,
+        "permalink": "https://www.threads.com/@luisegolcher/post/DdHhIhpiCZW",
+        "fecha": "2026-09-10T18:48:26.041Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
