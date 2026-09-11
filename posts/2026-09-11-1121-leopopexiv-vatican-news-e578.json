@@ -1,0 +1,46 @@
+{
+  "id": "2026-09-11-1121-leopopexiv-vatican-news-e578",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-09/popes-words-about-september-11-2001-attacks.html",
+    "titulo": "The Popes and 9/11: Christ’s light in history’s darkest hour",
+    "publicado": "2026-09-11T09:42:00.000Z"
+  },
+  "categoria": "INTERNACIONAL",
+  "titular": "25 years on: Popes recall hope after 9/11",
+  "bajada": "Vatican reflects on papal appeals for peace since the 2001 attacks",
+  "caption": "Twenty-five years after the September 11 attacks in the United States, Vatican News recalls how successive Popes have repeatedly called for peace and reconciliation, insisting that even amid tragedy, evil does not have the final word. Source: Vatican News, Sept. 11, 2026.",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Vatican",
+    "#911Anniversary",
+    "#Peace",
+    "#September11"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-09-11-1121-leopopexiv-vatican-news-e578.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-11-1121-leopopexiv-vatican-news-e578.jpg",
+    "hash": "9203ba31ddea88d7",
+    "version": 10,
+    "estilo": "28c21995920a45b7",
+    "renderizada": "2026-09-11T15:21:19.451Z"
+  },
+  "ilustracion": {
+    "descripcion": "A quiet memorial reflecting pool with two illuminated void markers at dusk, softly lit, empty of people, main memorial structure placed in the upper right third, left and center space open and calm.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-11-1121-leopopexiv-vatican-news-e578.jpg",
+    "hashDescripcion": "b7a64df006dc1baa",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-11T15:21:00.679Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-11T15:21:00.679Z",
+  "actualizado": "2026-09-11T15:21:00.679Z"
+}
