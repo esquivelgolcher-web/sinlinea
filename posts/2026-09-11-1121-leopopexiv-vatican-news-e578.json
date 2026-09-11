@@ -1,7 +1,7 @@
 {
   "id": "2026-09-11-1121-leopopexiv-vatican-news-e578",
   "cuenta": "leopopexiv",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/pope/news/2026-09/popes-words-about-september-11-2001-attacks.html",
@@ -38,9 +38,26 @@
     "generada": "2026-09-11T15:21:00.679Z",
     "error": null
   },
-  "programado": null,
+  "programado": "2026-09-11T13:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-11T15:21:00.679Z",
-  "actualizado": "2026-09-11T15:21:00.679Z"
+  "actualizado": "2026-09-11T16:34:49.521Z",
+  "destinos": {
+    "instagram": {
+      "texto": "Twenty-five years after the September 11 attacks in the United States, Vatican News recalls how successive Popes have repeatedly called for peace and reconciliation, insisting that even amid tragedy, evil does not have the final word. Source: Vatican News, Sept. 11, 2026.\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #911Anniversary #Peace #September11",
+      "aprobado": {
+        "fecha": "2026-09-11T16:34:49.521Z",
+        "hashPieza": "0bccb105e828a2ef",
+        "imagenHash": "9203ba31ddea88d7",
+        "imagenSha": "8c162fcb4789706cd325fed41288b028e2ce2e18"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
