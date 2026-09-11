@@ -1,0 +1,46 @@
+{
+  "id": "2026-09-11-1110-leopopexiv-vatican-news-57ed",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "vatican news",
+    "url": "https://www.vaticannews.va/en/church/news/2026-09/england-wales-assisted-dying-bill-sherrington-egan-wright.html",
+    "titulo": "Bishops of England and Wales condemn 'flawed and dangerous' assisted dying bill",
+    "publicado": "2026-09-10T16:01:00.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "UK bishops warn against assisted dying bill",
+  "bajada": "Catholic leaders say the proposed law fails to protect vulnerable people as debate resumes",
+  "caption": "As the UK House of Commons prepares to resume debate on an assisted suicide bill, Catholic bishops of England and Wales have called it 'flawed and dangerous,' warning it does not adequately protect vulnerable people. Source: Vatican News, Sept 10, 2026.",
+  "hashtags": [
+    "#AssistedDying",
+    "#UKBishops",
+    "#CatholicChurch",
+    "#VaticanNews",
+    "#SanctityOfLife"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-09-11-1110-leopopexiv-vatican-news-57ed.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-11-1110-leopopexiv-vatican-news-57ed.jpg",
+    "hash": "cacf28985dbcc996",
+    "version": 10,
+    "estilo": "28c21995920a45b7",
+    "renderizada": "2026-09-11T15:11:38.053Z"
+  },
+  "ilustracion": {
+    "descripcion": "Exterior of the UK Houses of Parliament at dusk, with a single lit window in the upper right third; left and center of the frame left open and empty, no people visible.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-11-1110-leopopexiv-vatican-news-57ed.jpg",
+    "hashDescripcion": "14732d31b62721f7",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-11T15:10:52.547Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-11T15:10:52.547Z",
+  "actualizado": "2026-09-11T15:10:52.547Z"
+}
