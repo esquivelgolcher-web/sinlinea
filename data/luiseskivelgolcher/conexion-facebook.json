@@ -1,9 +1,12 @@
 {
   "red": "facebook",
-  "estado": "error",
-  "identidad": null,
-  "comprobado": "2026-09-11T07:07:00.632Z",
-  "detalle": "la API respondió con error: message \"Error validating access token: The session is invalid because the user logged out.\" · code 190 · error_subcode 467 · type OAuthException",
+  "estado": "verificada",
+  "identidad": {
+    "id": "1365602693299887",
+    "nombre": "Luis Esquivel"
+  },
+  "comprobado": "2026-09-11T07:35:28.969Z",
+  "detalle": null,
   "secretos": {
     "nombres": [
       "FB_PAGE_TOKEN"
