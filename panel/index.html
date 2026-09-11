@@ -100,6 +100,18 @@
       <button class="boton" id="fc-anadir-fuente" type="button">Añadir fuente</button>
       <small>Sin fuentes la cuenta puede existir, pero la generación automática no podrá encenderse.</small>
     </fieldset>
+    <fieldset id="fc-frases-bloque">
+      <legend>Frases célebres (formato frase)</legend>
+      <label class="casilla"><input id="fc-frases-activo" type="checkbox"> <span>Generar una tarjeta de frase además de las noticias</span></label>
+      <div class="fila">
+        <label>Frases al día <input id="fc-frases-pordia" type="number" min="1" max="5" step="1" value="1"></label>
+        <label>Preferencia <select id="fc-frases-preferir"><option value="textos">Primero una frase literal de los textos del día; si no hay, el banco</option><option value="banco">Solo el banco</option></select></label>
+      </div>
+      <label>Hashtags de las frases (separados por espacio) <input id="fc-frases-hashtags" autocomplete="off" placeholder="#PopeLeoXIV #Vatican"></label>
+      <div id="fc-frases"></div>
+      <button class="boton" id="fc-anadir-frase" type="button">Añadir frase</button>
+      <small>Banco de frases de la cuenta: texto literal, autor (el papa que la dijo), ocasión o documento, año y enlace si lo hay. Se publican en orden y ninguna se repite. Ninguna frase se inventa: las de los textos del día se comprueban palabra por palabra contra el artículo.</small>
+    </fieldset>
     <fieldset>
       <legend>Identidad visual</legend>
       <div class="fila">

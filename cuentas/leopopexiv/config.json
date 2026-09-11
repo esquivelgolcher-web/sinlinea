@@ -90,5 +90,88 @@
   },
   "metricas": {
     "recoger": true
+  },
+  "frases": {
+    "activo": true,
+    "porDia": 1,
+    "preferir": "textos",
+    "categoria": "CULTURA",
+    "hashtags": [
+      "#PopeLeoXIV",
+      "#Vatican",
+      "#CatholicChurch"
+    ],
+    "banco": [
+      {
+        "texto": "Peace be with you all!",
+        "autor": "Pope Leo XIV",
+        "fuente": "First words from the loggia of St. Peter's Basilica",
+        "anio": 2025,
+        "url": "https://www.vatican.va/content/leo-xiv/en.html"
+      },
+      {
+        "texto": "God loves us, God loves you all, and evil will not prevail.",
+        "autor": "Pope Leo XIV",
+        "fuente": "First address from the loggia of St. Peter's Basilica",
+        "anio": 2025,
+        "url": "https://www.vatican.va/content/leo-xiv/en.html"
+      },
+      {
+        "texto": "Who am I to judge?",
+        "autor": "Pope Francis",
+        "fuente": "Press conference on the return flight from Rio de Janeiro",
+        "anio": 2013,
+        "url": "https://www.vatican.va/content/francesco/en/speeches/2013/july/documents/papa-francesco_20130728_gmg-conferenza-stampa.html"
+      },
+      {
+        "texto": "I prefer a Church which is bruised, hurting and dirty because it has been out on the streets, rather than a Church which is unhealthy from being confined and from clinging to its own security.",
+        "autor": "Pope Francis",
+        "fuente": "Evangelii gaudium, 49",
+        "anio": 2013,
+        "url": "https://www.vatican.va/content/francesco/en/apost_exhortations/documents/papa-francesco_esortazione-ap_20131124_evangelii-gaudium.html"
+      },
+      {
+        "texto": "Humanity still has the ability to work together in building our common home.",
+        "autor": "Pope Francis",
+        "fuente": "Laudato si', 13",
+        "anio": 2015,
+        "url": "https://www.vatican.va/content/francesco/en/encyclicals/documents/papa-francesco_20150524_enciclica-laudato-si.html"
+      },
+      {
+        "texto": "No one is saved alone; we can only be saved together.",
+        "autor": "Pope Francis",
+        "fuente": "Fratelli tutti, 32",
+        "anio": 2020,
+        "url": "https://www.vatican.va/content/francesco/en/encyclicals/documents/papa-francesco_20201003_enciclica-fratelli-tutti.html"
+      },
+      {
+        "texto": "Being Christian is not the result of an ethical choice or a lofty idea, but the encounter with an event, a person, which gives life a new horizon and a decisive direction.",
+        "autor": "Pope Benedict XVI",
+        "fuente": "Deus caritas est, 1",
+        "anio": 2005,
+        "url": "https://www.vatican.va/content/benedict-xvi/en/encyclicals/documents/hf_ben-xvi_enc_20051225_deus-caritas-est.html"
+      },
+      {
+        "texto": "Do not be afraid. Open wide the doors for Christ.",
+        "autor": "Saint John Paul II",
+        "fuente": "Homily at the Mass for the inauguration of his pontificate",
+        "anio": 1978,
+        "url": "https://www.vatican.va/content/john-paul-ii/en/homilies/1978/documents/hf_jp-ii_hom_19781022_inizio-pontificato.html"
+      },
+      {
+        "texto": "If you want peace, work for justice.",
+        "autor": "Saint Paul VI",
+        "fuente": "Message for the World Day of Peace",
+        "anio": 1972,
+        "url": "https://www.vatican.va/content/paul-vi/en/messages/peace/documents/hf_p-vi_mes_19711208_v-world-day-for-peace.html"
+      },
+      {
+        "texto": "It is neither just nor human so to grind men down with excessive labor as to stupefy their minds and wear out their bodies.",
+        "autor": "Pope Leo XIII",
+        "fuente": "Rerum novarum, 42",
+        "anio": 1891,
+        "url": "https://www.vatican.va/content/leo-xiii/en/encyclicals/documents/hf_l-xiii_enc_15051891_rerum-novarum.html"
+      }
+    ]
   }
 }

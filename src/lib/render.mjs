@@ -61,6 +61,7 @@ export function construirHtml(post, config, { plantilla, baseHref, logoUrl, ilus
 export const MENSAJES_NO_CABE = {
   titular: "El titular no cabe en 3 líneas ni a 70 px: acórtalo (máximo 65 caracteres)",
   bajada: "La bajada no cabe en 2 líneas ni a 30 px: acórtala (máximo 110 caracteres)",
+  frase: "La frase no cabe en 10 líneas ni a 36 px: elige una más corta o recórtala con puntos suspensivos",
 };
 
 export function errorTextoNoCabe(campo) {
@@ -111,6 +112,69 @@ export async function renderizarPost(post, { config, navegador, raiz = process.c
     estilo: estiloVisual(config, logoUrl),
     renderizada: new Date().toISOString(),
   };
+}
+
+// --- Frase célebre: tarjeta tipográfica 1080x1350 con templates/frase.html (sin ilustración) ---------------------------
+export const RUTA_PLANTILLA_FRASE = "templates/frase.html";
+
+export function datosDeFrase(post, config, { logoUrl }) {
+  const f = post.frase || {};
+  const nota = f.origen === "texto" && post.fuente?.medio ? `${String(config.idioma || "es").toLowerCase().startsWith("en") ? "Via" : "Vía"} ${post.fuente.medio}` : "";
+  return {
+    colores: config.marca?.colores ? { ...config.marca.colores } : undefined,
+    iniciales: iniciales(config.marca?.nombre),
+    logoForma: config.marca?.logoForma || "circulo",
+    logoTamano: Math.min(Number(config.marca?.logoTamano) || 96, 110),
+    usuario: config.marca.usuario,
+    frase: f.texto || "",
+    autor: f.autor || "",
+    fuente: f.fuente || "",
+    anio: f.anio ? String(f.anio) : "",
+    nota,
+    serie: "",
+    logoUrl,
+  };
+}
+
+export function construirHtmlFrase(post, config, { plantilla, baseHref, logoUrl }) {
+  const json = JSON.stringify(datosDeFrase(post, config, { logoUrl })).replace(/<\//g, "<\\/");
+  return plantilla
+    .replace("__BASE__", () => baseHref)
+    .replace(/<script id="datos" type="application\/json">[\s\S]*?<\/script>/, () => `<script id="datos" type="application/json">${json}</script>`);
+}
+
+// Mismo resultado que renderizarPost (ruta, url, hash, version, estilo, renderizada): la pieza se publica como imagen única.
+export async function renderizarFrase(post, { config, navegador, raiz = process.cwd(), destino = rutaImagen(post.id) }) {
+  const plantilla = fs.readFileSync(path.join(raiz, RUTA_PLANTILLA_FRASE), "utf8");
+  const version = versionPlantilla(plantilla);
+  const rutaLogo = config.rutas?.logo || RUTA_LOGO;
+  const logoUrl = fs.existsSync(path.join(raiz, rutaLogo)) ? rutaLogo.replace(/\\/g, "/") : null;
+  const baseHref = pathToFileURL(path.resolve(raiz) + path.sep).href;
+  const html = construirHtmlFrase(post, config, { plantilla, baseHref, logoUrl });
+  const dirTemp = path.join(raiz, "temp", "render");
+  fs.mkdirSync(dirTemp, { recursive: true });
+  const rutaHtml = path.join(dirTemp, `${post.id}.html`);
+  fs.writeFileSync(rutaHtml, html);
+  const page = await navegador.newPage({ viewport: { width: 1080, height: 1350 }, deviceScaleFactor: 1 });
+  try {
+    await page.goto(pathToFileURL(rutaHtml).href, { waitUntil: "load" });
+    await page.waitForSelector('body[data-listo="1"]', { timeout: 15000 });
+    const noCabe = await page.evaluate(() => document.body.dataset.error || "");
+    if (noCabe) throw errorTextoNoCabe(noCabe);
+    const png = await page.screenshot({ type: "png", fullPage: false });
+    const rutaSalida = path.join(raiz, destino);
+    fs.mkdirSync(path.dirname(rutaSalida), { recursive: true });
+    await sharp(png).jpeg({ quality: 88, progressive: true, mozjpeg: true }).toFile(rutaSalida);
+  } finally {
+    await page.close();
+    fs.rmSync(rutaHtml, { force: true });
+  }
+  return { ruta: destino, url: urlImagen(config.pages.baseUrl, post.id), hash: hashImagen(post, version), version, estilo: estiloVisual(config, logoUrl), renderizada: new Date().toISOString() };
+}
+
+// Render según el formato de la pieza: frase con su plantilla; el resto con la del post.
+export async function renderizarPieza(post, opciones) {
+  return post.formato === "frase" ? renderizarFrase(post, opciones) : renderizarPost(post, opciones);
 }
 
 // --- Carrusel (perfil editorial): una imagen 1080x1350 por diapositiva con templates/carrusel.html --------------------

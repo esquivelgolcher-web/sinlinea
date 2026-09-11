@@ -7,6 +7,7 @@ import { esNombreDeSecreto, ORIGENES } from "./secretos.mjs";
 import { erroresDeConexiones } from "./conexiones.mjs";
 import { validarPesos } from "./puntuacion.mjs";
 import { FORMATOS, ALERTAS } from "./formatos.mjs";
+import { CATEGORIAS } from "./estados.mjs";
 import { RE_ID_CUENTA, RE_IDIOMA, RE_COLOR, TIPOS_FUENTE, LOGO_FORMAS, LOGO_TAMANO, COLORES_POR_DEFECTO, AUTOMATICO_POR_DEFECTO, IDIOMA_POR_DEFECTO } from "./cuenta.mjs";
 
 export { RE_ID_CUENTA, LOGO_FORMAS, COLORES_POR_DEFECTO, AUTOMATICO_POR_DEFECTO, IDIOMA_POR_DEFECTO };
@@ -39,6 +40,30 @@ function validarFuentes(fuentes, archivo, { permitirVacio = false } = {}) {
 
 // Perfil editorial configurable de una cuenta (temas, idiomas, puntuación, formatos, criterios de revisión). La voz y las
 // reglas de atribución detalladas viven en editorial.md; aquí van los datos que usa el código.
+// Frases célebres por cuenta: banco propio (texto, autor, fuente, año y URL opcionales) y extracción de textos reales.
+const PREFERIR_FRASES = ["textos", "banco"];
+export const FRASES_POR_DEFECTO = Object.freeze({ activo: false, porDia: 1, preferir: "textos", maxTextos: 3, hashtags: [], banco: [] });
+function validarFrases(f, archivo) {
+  if (f === undefined) return;
+  exigir(f && typeof f === "object" && !Array.isArray(f), "frases debe ser un objeto", archivo);
+  if (f.activo !== undefined) exigir(typeof f.activo === "boolean", "frases.activo debe ser true o false", archivo);
+  if (f.porDia !== undefined) exigir(Number.isInteger(f.porDia) && f.porDia >= 1 && f.porDia <= 5, "frases.porDia debe ser un entero entre 1 y 5", archivo);
+  if (f.maxTextos !== undefined) exigir(Number.isInteger(f.maxTextos) && f.maxTextos >= 1 && f.maxTextos <= 10, "frases.maxTextos debe ser un entero entre 1 y 10", archivo);
+  if (f.preferir !== undefined) exigir(PREFERIR_FRASES.includes(f.preferir), `frases.preferir debe ser ${PREFERIR_FRASES.join(" o ")}`, archivo);
+  if (f.categoria !== undefined) exigir(CATEGORIAS.includes(f.categoria), `frases.categoria debe ser una de ${CATEGORIAS.join(", ")}`, archivo);
+  if (f.hashtags !== undefined) exigir(Array.isArray(f.hashtags) && f.hashtags.every((h) => typeof h === "string"), "frases.hashtags debe ser una lista de textos", archivo);
+  if (f.urlPorDefecto !== undefined) exigir(typeof f.urlPorDefecto === "string" && /^https?:\/\//.test(f.urlPorDefecto), "frases.urlPorDefecto debe ser una URL http(s)", archivo);
+  if (f.banco !== undefined) {
+    exigir(Array.isArray(f.banco), "frases.banco debe ser una lista", archivo);
+    f.banco.forEach((x, i) => exigir(
+      x && typeof x === "object" && typeof x.texto === "string" && x.texto.trim() && x.texto.trim().length <= 320
+        && typeof x.autor === "string" && x.autor.trim() && typeof x.fuente === "string"
+        && (x.anio === undefined || x.anio === null || Number.isInteger(x.anio))
+        && (x.url === undefined || x.url === null || (typeof x.url === "string" && /^https?:\/\//.test(x.url))),
+      `frases.banco: la frase ${i + 1} debe tener texto (hasta 320 caracteres), autor y fuente, y opcionalmente anio (entero) y url (http)`, archivo));
+  }
+}
+
 function validarPerfil(p, archivo) {
   if (p === undefined) return;
   exigir(p && typeof p === "object" && !Array.isArray(p), "perfil debe ser un objeto", archivo);
@@ -176,7 +201,7 @@ export function validarGlobal(g) {
   return g;
 }
 
-export const CLAVES_DE_CUENTA = ["nombre", "idioma", "zonaHoraria", "automatico", "marca", "fuentes", "generar", "franjas", "ilustraciones", "instagram", "editorial", "archivada", "archivadaEn", "metricas", "conexiones", "perfil"];
+export const CLAVES_DE_CUENTA = ["frases", "nombre", "idioma", "zonaHoraria", "automatico", "marca", "fuentes", "generar", "franjas", "ilustraciones", "instagram", "editorial", "archivada", "archivadaEn", "metricas", "conexiones", "perfil"];
 const CLAVES_SOLO_GLOBALES = ["pages", "claude", "archivarDespuesDeDias", "cuentas"];
 
 // Configuración de una cuenta (cuentas/<id>/config.json).
@@ -200,6 +225,7 @@ export function validarCuenta(c, id) {
   validarMetricas(c.metricas, archivo);
   validarConexiones(c.conexiones, archivo);
   validarPerfil(c.perfil, archivo);
+  validarFrases(c.frases, archivo);
   return c;
 }
 
@@ -218,6 +244,7 @@ export function validarConfig(cfg) {
   validarMetricas(cfg.metricas, "config.json");
   validarConexiones(cfg.conexiones, "config.json");
   validarPerfil(cfg.perfil, "config.json");
+  validarFrases(cfg.frases, "config.json");
   if (cfg.cuenta !== undefined) exigir(RE_ID_CUENTA.test(String(cfg.cuenta)), `cuenta "${cfg.cuenta}" no es un id válido`);
   if (cfg.idioma !== undefined) exigir(RE_IDIOMA.test(String(cfg.idioma)), `idioma "${cfg.idioma}" debe tener la forma xx o xx-XX`);
   return cfg;
@@ -249,6 +276,7 @@ export function configDeCuenta(global, cuenta, id) {
     instagram: { apiVersion: global.instagram.apiVersion, origen: "repositorio", ...cuenta.instagram },
     ilustraciones: { ...global.ilustraciones, ...cuenta.ilustraciones },
     metricas: { recoger: false, ...(cuenta.metricas || {}) },
+    frases: { ...FRASES_POR_DEFECTO, ...(cuenta.frases || {}) },
     rutas: rutasDeCuenta(id),
   };
   return validarConfig(efectiva);

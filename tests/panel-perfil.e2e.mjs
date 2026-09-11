@@ -39,7 +39,8 @@ async function montar(prefijo) {
   // carrusel, deshabilitar Facebook con el motivo de validación pendiente.
   const rutaPr = path.join(raiz, "cuentas/prueba/config.json");
   const cfgPr = JSON.parse(fs.readFileSync(rutaPr, "utf8"));
-  fs.writeFileSync(rutaPr, JSON.stringify({ ...cfgPr, instagram: { origen: "entorno" }, conexiones: { facebook: { publicar: true, pagina: "123" }, threads: { publicar: true, usuario: "555", perfil: "prueba.diario" } } }, null, 2) + "\n");
+  fs.writeFileSync(rutaPr, JSON.stringify({ ...cfgPr, instagram: { origen: "entorno" }, conexiones: { facebook: { publicar: true, pagina: "123" }, threads: { publicar: true, usuario: "555", perfil: "prueba.diario" } },
+    frases: { activo: true, porDia: 1, preferir: "banco", hashtags: ["#Vatican"], banco: [{ texto: "Peace be with you all!", autor: "Pope Leo XIV", fuente: "First blessing", anio: 2025 }] } }, null, 2) + "\n");
   fs.writeFileSync(path.join(raiz, "data/prueba/conexion.json"), JSON.stringify({ estado: "verificada", usuario: "prueba.diario", comprobado: iso, secretos: { tokenSecreto: "IG_ACCESS_TOKEN", usuarioIdSecreto: "IG_USER_ID", origen: "entorno", entorno: "cuenta-prueba" } }, null, 2));
   fs.writeFileSync(path.join(raiz, "data/prueba/conexion-facebook.json"), JSON.stringify({ red: "facebook", estado: "verificada", identidad: { id: "123", nombre: "Página" }, comprobado: iso, detalle: null, secretos: { nombres: ["FB_PAGE_TOKEN"], origen: "entorno", entorno: "cuenta-prueba" } }, null, 2));
   fs.writeFileSync(path.join(raiz, "data/prueba/conexion-threads.json"), JSON.stringify({ red: "threads", estado: "verificada", identidad: { id: "555", nombre: "@prueba.diario" }, comprobado: iso, detalle: null, secretos: { nombres: ["THREADS_ACCESS_TOKEN"], origen: "entorno", entorno: "cuenta-prueba" } }, null, 2));
@@ -58,6 +59,9 @@ async function montar(prefijo) {
     conImagen({ ...base0, id: id("b006"), cuenta: "prueba", titular: "Carrusel publicado en Instagram", formato: "carrusel", ...perfilComun, alertas: [], estado: "publicado", programado: "2026-09-10T09:00:00-05:00", carrusel: { diapositivas, imagenes: imagenesDe(id("b006")), hash: "e".repeat(16), version: 1 },
       destinos: { instagram: { texto: "IG carrusel", aprobado: { fecha: iso, hashPieza: "x", imagenHash: null, imagenSha: "8".repeat(40), imagenesSha: ["1".repeat(40), "2".repeat(40), "3".repeat(40)] }, estado: "publicado", publicacion: { id: "m6", idPublicacion: null, permalink: "https://www.instagram.com/p/m6/", fecha: iso }, error: null, intento: null, omitido: null } },
       publicacion: { idMedia: "m6", permalink: "https://www.instagram.com/p/m6/", fecha: iso } }),
+    // Frase célebre en borrador (del banco): la tarjeta muestra la frase y permite editarla.
+    conImagen({ ...base0, id: id("b007"), cuenta: "prueba", titular: "Pope Leo XIV", bajada: "First blessing · 2025", formato: "frase", categoria: "CULTURA", caption: "“Peace be with you all!”\n\n— Pope Leo XIV, First blessing (2025)", hashtags: ["#Vatican"], ilustracion: null,
+      frase: { texto: "Peace be with you all!", autor: "Pope Leo XIV", fuente: "First blessing", anio: 2025, url: null, origen: "banco" }, fuente: { medio: "Vatican.va", url: "https://www.vatican.va/", titulo: "First blessing", publicado: "2025-01-01T00:00:00.000Z" } }),
     // Carrusel ya programado cuyas diapositivas se volvieron a renderizar: el publicador lo dejó en espera (imagen-cambiada).
     conImagen({ ...base0, id: id("b004"), cuenta: "prueba", titular: "Carrusel programado con diapositivas cambiadas", formato: "carrusel", ...perfilComun, alertas: [], estado: "programado", programado: "2026-09-12T14:00:00-05:00", carrusel: { diapositivas, imagenes: imagenesDe(id("b004")), hash: "d".repeat(16), version: 2 },
       destinos: { instagram: { texto: "IG aprobado", aprobado: { fecha: iso, hashPieza: "x", imagenHash: null, imagenSha: "0".repeat(40), imagenesSha: ["1".repeat(40), "2".repeat(40), "3".repeat(40)] }, estado: "pendiente", publicacion: null, error: null, intento: null, omitido: null, espera: { motivo: "imagen-cambiada", fecha: iso } } } }),
@@ -72,7 +76,7 @@ async function montar(prefijo) {
   fs.writeFileSync(path.join(raiz, "public/img", `${id("b005")}.jpg`), Buffer.concat([ejemplo, Buffer.from([5, 5])]));
   const servidor = crearServidor({ raiz });
   await new Promise((r) => servidor.listen(0, "127.0.0.1", r));
-  return { raiz, servidor, base: `http://127.0.0.1:${servidor.address().port}`, ids: { post: id("b001"), carrusel: id("b002"), reel: id("b003"), carruselEspera: id("b004"), publicado: id("b005"), carruselPublicado: id("b006") } };
+  return { raiz, servidor, base: `http://127.0.0.1:${servidor.address().port}`, ids: { post: id("b001"), carrusel: id("b002"), reel: id("b003"), carruselEspera: id("b004"), publicado: id("b005"), carruselPublicado: id("b006"), frase: id("b007") } };
 }
 const huellaDe = (raiz, ruta) => shaDeBlob(fs.readFileSync(path.join(raiz, ...ruta.split("/"))));
 const leerPost = (raiz, id) => JSON.parse(fs.readFileSync(path.join(raiz, "posts", `${id}.json`), "utf8"));
@@ -239,6 +243,64 @@ test("(destinos) añadir un destino a una pieza ya publicada desde la interfaz: 
     await page.keyboard.press("Escape");
     await page.waitForFunction(() => !document.querySelector("dialog[open]"));
     assert.equal(leerPost(raiz, ids.carruselPublicado).estado, "publicado", "cancelar no cambia nada");
+    assert.deepEqual(errores, []);
+  } finally {
+    await page.close();
+    servidor.close();
+  }
+});
+
+test("(frases) la tarjeta de una frase muestra el chip Frase y la frase editable; guardar cambia la frase y marca la imagen para regenerar; el formulario de la cuenta edita el banco de frases", async () => {
+  const { raiz, servidor, base, ids } = await montar("panel-frases-");
+  const page = await navegador.newPage();
+  const errores = [];
+  page.on("pageerror", (e) => errores.push(String(e)));
+  try {
+    await page.goto(`${base}/panel/`);
+    await page.waitForFunction(() => document.querySelector("#cuentas-grid .cuenta-tarjeta") || (document.querySelector("#lista .tarjeta, #lista .vacio") && !/Cargando/.test(document.getElementById("lista").textContent)));
+    if (await page.locator("#maestro").isHidden()) await page.click("#boton-cuentas");
+    await page.waitForSelector("#cuentas-grid .cuenta-tarjeta");
+    await page.click('.cuenta-tarjeta[data-cuenta="prueba"] button:has-text("Abrir panel")');
+    await page.waitForSelector("#vista-posts:not([hidden])");
+    await page.click('#pestanas button:has-text("Borradores")');
+    await page.waitForSelector(".tarjeta");
+    const tf = tarjeta(page, ids.frase);
+    assert.match(await tf.locator(".chip.formato").textContent(), /Frase/);
+    assert.equal(await tf.locator("textarea.frase-texto").inputValue(), "Peace be with you all!");
+    assert.equal(await tf.locator("input.frase-autor").inputValue(), "Pope Leo XIV");
+    assert.equal(await tf.locator("input.frase-anio").inputValue(), "2025");
+    assert.equal(await tf.locator("textarea").filter({ hasText: "" }).count() >= 1, true);
+    await tf.locator("textarea.frase-texto").fill("Peace be with you all, dear brothers and sisters!");
+    await tf.locator("input.frase-fuente").fill("First blessing from the loggia");
+    await tf.locator('button:has-text("Guardar cambios")').click();
+    await page.waitForFunction((id) => /Regenerando imagen/.test(document.querySelector(`.tarjeta[data-id="${id}"]`)?.textContent || ""), ids.frase);
+    const guardada = leerPost(raiz, ids.frase);
+    assert.equal(guardada.frase.texto, "Peace be with you all, dear brothers and sisters!");
+    assert.equal(guardada.frase.fuente, "First blessing from the loggia");
+    assert.equal(guardada.frase.autor, "Pope Leo XIV", "lo no editado se conserva");
+    assert.equal(guardada.frase.origen, "banco");
+    // Formulario de la cuenta: bloque de frases con el banco; se añade una frase y se guarda.
+    await page.click("#boton-cuentas");
+    await page.waitForSelector("#cuentas-grid .cuenta-tarjeta");
+    await page.click('.cuenta-tarjeta[data-cuenta="prueba"] button:has-text("Editar")');
+    await page.waitForSelector("#formulario-cuenta:not([hidden])");
+    assert.equal(await page.isChecked("#fc-frases-activo"), true);
+    assert.equal(await page.inputValue("#fc-frases-pordia"), "1");
+    assert.equal(await page.inputValue("#fc-frases-preferir"), "banco");
+    assert.equal(await page.locator("#fc-frases .frase-fila").count(), 1);
+    await page.click("#fc-anadir-frase");
+    assert.equal(await page.locator("#fc-frases .frase-fila").count(), 2);
+    const nueva = page.locator("#fc-frases .frase-fila").nth(1);
+    await nueva.locator("textarea").fill("Be not afraid!");
+    await nueva.locator("input.autor").fill("Saint John Paul II");
+    await nueva.locator("input.fuente").fill("Homily at the inauguration of his pontificate");
+    await nueva.locator("input.anio").fill("1978");
+    await page.click("#fc-guardar");
+    await page.waitForFunction(() => document.getElementById("formulario-cuenta").hidden);
+    const cfg = JSON.parse(fs.readFileSync(path.join(raiz, "cuentas/prueba/config.json"), "utf8"));
+    assert.equal(cfg.frases.activo, true);
+    assert.deepEqual(cfg.frases.banco.map((x) => x.texto), ["Peace be with you all!", "Be not afraid!"]);
+    assert.equal(cfg.frases.banco[1].anio, 1978);
     assert.deepEqual(errores, []);
   } finally {
     await page.close();

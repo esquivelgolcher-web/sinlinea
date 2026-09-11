@@ -152,6 +152,28 @@ export async function escribirEscena({ client, config, titular, bajada }) {
   return escena;
 }
 
+// --- Frases célebres: una frase literal dicha por el papa dentro de textos reales del día -------------------------------
+const EsquemaFrase = z.object({ indice: z.number().int().nullable(), frase: z.string(), autor: z.string(), fuente: z.string(), motivo: z.string() });
+
+// `textos`: [{ url, medio, titulo, fecha, texto }]. Devuelve { indice, frase, autor, fuente } o null si ningún texto sirve.
+// Quien llama comprueba además que la frase aparece literalmente en el texto (esLiteral): nada se publica de memoria.
+export async function extraerFrase({ client, config, textos }) {
+  if (!textos?.length) return null;
+  const lista = textos.map((t, i) => `[${i}] ${t.medio} · ${t.titulo}${t.fecha ? ` · ${t.fecha}` : ""}\n${String(t.texto || "").slice(0, 6000)}`).join("\n\n---\n\n");
+  const res = await client.messages.parse({
+    model: config.claude.modelo,
+    max_tokens: 600,
+    thinking: { type: "adaptive" },
+    output_config: { effort: "low", format: zodOutputFormat(EsquemaFrase) },
+    system: `Eres editor de la cuenta ${config.marca?.nombre || ""}, dedicada al papa y la Iglesia. De los textos numerados elige UNA frase memorable dicha por el papa (palabras suyas citadas en el texto, no del redactor ni de otra persona), copiada de forma literal (verbatim, exacta: sin cambiar, añadir ni quitar palabras dentro de la frase), de entre 8 y 45 palabras, con sentido completo por sí sola y apta para publicarse como cita en ${nombreIdioma(config.idioma)}. Devuelve: indice (número del texto), frase (copia exacta), autor (el nombre del papa tal como aparece en el texto, p. ej. "Pope Leo XIV"), fuente (la ocasión: Angelus, homilía, discurso, audiencia general, mensaje…) y motivo (breve). Si ningún texto contiene palabras del papa adecuadas, devuelve indice null y frase vacía. Nunca inventes, traduzcas ni parafrasees.`,
+    messages: [{ role: "user", content: lista }],
+  });
+  if (res.stop_reason === "refusal") throw new Error(`Claude rechazó la solicitud: ${res.stop_details?.explanation || "sin explicación"}`);
+  const s = res.parsed_output;
+  if (!s || s.indice === null || !Number.isInteger(s.indice) || !textos[s.indice] || !String(s.frase || "").trim()) return null;
+  return { indice: s.indice, frase: String(s.frase).trim(), autor: String(s.autor || "").trim(), fuente: String(s.fuente || "").trim() };
+}
+
 // --- Perfil editorial (periodismo tecnológico): selección puntuada, afirmaciones con fuente, formatos post/carrusel/reel --
 import { FORMATOS, TIPOS_AFIRMACION, ALERTAS } from "./formatos.mjs";
 import { puntuar, PESOS_POR_DEFECTO } from "./puntuacion.mjs";

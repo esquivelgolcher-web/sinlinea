@@ -15,7 +15,7 @@ const carrusel = () => conImagen({ ...base, id: base.id.slice(0, -4) + "0c01", f
 const shas = ["a".repeat(40), "b".repeat(40), "c".repeat(40)];
 
 test("(carrusel) el carrusel pasa a ser publicable; el reel no; esCarrusel exige al menos dos diapositivas renderizadas y como máximo diez", () => {
-  assert.deepEqual(FORMATOS_PUBLICABLES, ["post", "carrusel"]);
+  assert.deepEqual(FORMATOS_PUBLICABLES, ["post", "carrusel", "frase"]);
   assert.equal(esPublicable("carrusel"), true);
   assert.equal(esPublicable("reel"), false);
   assert.deepEqual(LIMITES_CARRUSEL, { min: 2, max: 10 });

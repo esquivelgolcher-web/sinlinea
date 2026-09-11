@@ -344,6 +344,20 @@ function tarjeta({ post, sha }) {
   const casillaUsar = el("input", { type: "checkbox", disabled: bloqueado ? "" : null });
   casillaUsar.checked = Boolean(ilus && ilus.usar);
   campos.usar = casillaUsar;
+  // Formato frase: la frase, su autor, la ocasión y el año se editan aquí; cambiar cualquiera vuelve a dibujar la tarjeta.
+  const esFrase = Boolean(post.frase);
+  if (esFrase) {
+    campos.fraseTexto = el("textarea", { class: "frase-texto", rows: "3", maxlength: "320", disabled: bloqueado ? "" : null }); campos.fraseTexto.value = post.frase.texto || "";
+    campos.fraseAutor = el("input", { class: "frase-autor", disabled: bloqueado ? "" : null }); campos.fraseAutor.value = post.frase.autor || "";
+    campos.fraseFuente = el("input", { class: "frase-fuente", disabled: bloqueado ? "" : null }); campos.fraseFuente.value = post.frase.fuente || "";
+    campos.fraseAnio = el("input", { class: "frase-anio", inputmode: "numeric", disabled: bloqueado ? "" : null }); campos.fraseAnio.value = post.frase.anio ?? "";
+  }
+  const bloqueFrase = esFrase ? el("div", { class: "bloque-frase" }, [
+    el("label", { text: `Frase (literal, hasta 320 caracteres) · origen: ${post.frase.origen === "texto" ? "texto real del día" : "banco de la cuenta"}` }, [campos.fraseTexto]),
+    el("div", { class: "fila" }, [el("label", { text: "Autor" }, [campos.fraseAutor]), el("label", { text: "Año" }, [campos.fraseAnio])]),
+    el("label", { text: "Ocasión o documento" }, [campos.fraseFuente]),
+    post.frase.url ? el("p", { class: "nota" }, [el("a", { href: urlSegura(post.frase.url), target: "_blank", rel: "noopener", text: "Ver la fuente de la frase" })]) : "",
+  ]) : "";
   const contador = el("p", { class: "contador" });
   const actualizarContador = () => {
     const texto = componerCaption({ caption: campos.caption.value, medio: post.fuente.medio, hashtags: campos.hashtags.value.split(/\s+/) });
@@ -365,13 +379,15 @@ function tarjeta({ post, sha }) {
       regenerandoIlustracion(ilus) ? el("span", { class: "regenerando", text: ilus.descripcion.trim() ? "Regenerando ilustración…" : "Regenerando ilustración… (Claude redacta la escena)" }) : "",
     ]),
     post.error ? el("p", { class: "error-texto", text: `Error (${post.error.paso}): ${post.error.mensaje}` }) : "",
+    bloqueFrase,
     campo("Titular", "titular"),
     campo("Bajada", "bajada"),
     el("div", { class: "fila" }, [campo("Categoría", "categoria", "select"), campo("Variante", "variante", "select")]),
     campo("Caption", "caption"),
     campo("Hashtags (separados por espacio)", "hashtags", "input"),
-    el("label", { text: "Escena de la ilustración (sin personas reales)" }, [campoEscena]),
-    el("label", { class: "casilla" }, [casillaUsar, el("span", { text: " Usar ilustración generada con IA" })]),
+    // Una frase es tipográfica: no se ofrece ilustración generada.
+    esFrase ? "" : el("label", { text: "Escena de la ilustración (sin personas reales)" }, [campoEscena]),
+    esFrase ? "" : el("label", { class: "casilla" }, [casillaUsar, el("span", { text: " Usar ilustración generada con IA" })]),
     ilus && ilus.error ? el("p", { class: "error-texto", text: `La ilustración falló: ${ilus.error.mensaje}` }) : "",
     contador,
     // Perfil editorial: alertas, trazabilidad (fuentes y afirmaciones), carrusel y guion del reel.
@@ -383,9 +399,11 @@ function tarjeta({ post, sha }) {
     const escena = campos.escena.value.trim();
     const usar = campos.usar.checked; // sin escena, REGENERAR se la pide a Claude
     const reactivada = usar && !(post.ilustracion && post.ilustracion.usar);
+    const anioFrase = esFrase ? campos.fraseAnio.value.trim() : "";
     return {
       titular: campos.titular.value.trim(), bajada: campos.bajada.value.trim(), caption: campos.caption.value.trim(),
       hashtags: normalizarHashtags(campos.hashtags.value.split(/\s+/)), categoria: campos.categoria.value, variante: campos.variante.value,
+      ...(esFrase ? { frase: { texto: campos.fraseTexto.value.trim(), autor: campos.fraseAutor.value.trim(), fuente: campos.fraseFuente.value.trim(), anio: /^\d{3,4}$/.test(anioFrase) ? Number(anioFrase) : null } } : {}),
       ilustracion: (escena || usar || post.ilustracion)
         ? { ...(post.ilustracion || { ruta: null, hashDescripcion: null, proveedor: null, modelo: null, generada: null, error: null }), descripcion: escena, usar, ...(reactivada ? { error: null } : {}) }
         : null,
@@ -394,7 +412,8 @@ function tarjeta({ post, sha }) {
   const hayCambios = () => {
     const c = cambios();
     return ["titular", "bajada", "caption", "categoria", "variante"].some((k) => c[k] !== post[k]) || c.hashtags.join(" ") !== post.hashtags.join(" ")
-      || (c.ilustracion?.descripcion ?? "") !== (post.ilustracion?.descripcion ?? "") || Boolean(c.ilustracion?.usar) !== Boolean(post.ilustracion?.usar);
+      || (c.ilustracion?.descripcion ?? "") !== (post.ilustracion?.descripcion ?? "") || Boolean(c.ilustracion?.usar) !== Boolean(post.ilustracion?.usar)
+      || (c.frase ? ["texto", "autor", "fuente"].some((k) => c.frase[k] !== (post.frase[k] || "")) || (c.frase.anio ?? null) !== (post.frase.anio ?? null) : false);
   };
   const captionValido = () => {
     const t = validarTextos({ titular: campos.titular.value, bajada: campos.bajada.value });
@@ -1182,6 +1201,23 @@ function filaFuente(f = { nombre: "", tipo: "rss", url: "", patronArticulo: "" }
 }
 $("fc-anadir-fuente").addEventListener("click", () => $("fc-fuentes").append(filaFuente()));
 
+// Fila del banco de frases: texto literal, autor, ocasión o documento, año y enlace (opcionales).
+function filaFrase(f = { texto: "", autor: "", fuente: "", anio: "", url: "" }) {
+  const texto = el("textarea", { rows: "2", placeholder: "Frase literal (hasta 320 caracteres)", maxlength: "320" }); texto.value = f.texto || "";
+  const autor = el("input", { class: "autor", placeholder: "Autor (p. ej. Pope Leo XIV)", autocomplete: "off" }); autor.value = f.autor || "";
+  const fuente = el("input", { class: "fuente", placeholder: "Ocasión o documento", autocomplete: "off" }); fuente.value = f.fuente || "";
+  const anio = el("input", { class: "anio", placeholder: "Año", inputmode: "numeric", autocomplete: "off" }); anio.value = f.anio ?? "";
+  const url = el("input", { class: "url", placeholder: "https://… (opcional)", autocomplete: "off" }); url.value = f.url || "";
+  const quitar = el("button", { type: "button", class: "boton peligro", text: "Quitar" });
+  const fila = el("div", { class: "frase-fila" }, [
+    el("label", { class: "texto", text: "Frase" }, [texto]), el("label", { text: "Autor" }, [autor]), el("label", { text: "Ocasión o documento" }, [fuente]), el("label", { text: "Año" }, [anio]), el("label", { class: "url", text: "Enlace" }, [url]), quitar,
+  ]);
+  quitar.addEventListener("click", () => fila.remove());
+  fila.leer = () => ({ texto: texto.value.trim(), autor: autor.value.trim(), fuente: fuente.value.trim(), anio: anio.value.trim(), url: url.value.trim() });
+  return fila;
+}
+$("fc-anadir-frase").addEventListener("click", () => $("fc-frases").append(filaFrase()));
+
 function leerFormulario() {
   const f = estado.formulario;
   return {
@@ -1195,6 +1231,11 @@ function leerFormulario() {
     tono: $("fc-tono").value.trim(),
     editorialMd: $("fc-editorial").value,
     fuentes: [...$("fc-fuentes").children].map((fila) => fila.leer()),
+    frasesActivo: $("fc-frases-activo").checked,
+    frasesPorDia: $("fc-frases-pordia").value.trim(),
+    frasesPreferir: $("fc-frases-preferir").value,
+    frasesHashtags: $("fc-frases-hashtags").value.trim(),
+    frasesBanco: [...$("fc-frases").children].map((fila) => fila.leer()),
     franjas: $("fc-franjas").value.split(/[\s,;]+/).map((h) => h.trim()).filter(Boolean),
     colores: { principal: $("fc-color-principal").value.toUpperCase(), acento: $("fc-color-acento").value.toUpperCase(), oscuro: $("fc-color-oscuro").value.toUpperCase(), claro: $("fc-color-claro").value.toUpperCase() },
     logoForma: $("fc-logo-forma").value,
@@ -1227,6 +1268,11 @@ function rellenarFormulario(d) {
   $("fc-tono").value = d.tono || "";
   $("fc-editorial").value = d.editorialMd || "";
   $("fc-fuentes").replaceChildren(...(d.fuentes || []).map(filaFuente));
+  $("fc-frases-activo").checked = d.frasesActivo === true;
+  $("fc-frases-pordia").value = d.frasesPorDia || 1;
+  $("fc-frases-preferir").value = d.frasesPreferir === "banco" ? "banco" : "textos";
+  $("fc-frases-hashtags").value = d.frasesHashtags || "";
+  $("fc-frases").replaceChildren(...(d.frasesBanco || []).map(filaFrase));
   $("fc-franjas").value = (d.franjas || []).join(", ");
   const colores = { ...COLORES_POR_DEFECTO, ...(d.colores || {}) };
   for (const k of Object.keys(COLORES_POR_DEFECTO)) $(`fc-color-${k}`).value = colores[k];

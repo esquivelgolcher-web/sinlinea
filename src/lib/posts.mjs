@@ -35,6 +35,16 @@ function validarPerfilDePost(post) {
       && (c.hash === undefined || typeof c.hash === "string"),
     "carrusel debe tener diapositivas { titulo, texto } (al menos una) e imagenes { numero, ruta, url, hash }");
   }
+  // Frase célebre: texto literal acotado, autor y fuente, año entero o null, URL http(s) o null, origen banco|texto.
+  if (post.frase !== undefined && post.frase !== null) {
+    const f = post.frase;
+    exigir(f && typeof f.texto === "string" && f.texto.trim() && f.texto.trim().length <= 320
+      && typeof f.autor === "string" && typeof f.fuente === "string"
+      && (f.anio === null || f.anio === undefined || Number.isInteger(f.anio))
+      && (f.url === null || f.url === undefined || /^https?:\/\//.test(f.url))
+      && ["banco", "texto"].includes(f.origen),
+    "frase debe tener texto (hasta 320 caracteres), autor, fuente, anio (entero o null), url (http o null) y origen banco|texto");
+  }
   if (post.reel !== undefined && post.reel !== null) {
     const r = post.reel;
     exigir(r && typeof r.narracion === "string" && r.narracion.trim() && esListaDeTextos(r.subtitulos || []) && Array.isArray(r.escenas || [])

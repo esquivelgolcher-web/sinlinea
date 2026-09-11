@@ -5,7 +5,7 @@ import { pathToFileURL } from "node:url";
 import { cargarConfiguracion } from "./lib/config.mjs";
 import { leerPosts, escribirPost, urlImagen, rutaIlustracion, CUENTA_LEGADO } from "./lib/posts.mjs";
 import { imagenDesactualizada, renderOk, marcarError, necesitaIlustracion, necesitaEscena, hashTexto } from "./lib/estados.mjs";
-import { versionPlantilla, RUTA_PLANTILLA, RUTA_LOGO, abrirNavegador, renderizarPost, estiloVisual } from "./lib/render.mjs";
+import { versionPlantilla, RUTA_PLANTILLA, RUTA_PLANTILLA_FRASE, RUTA_LOGO, abrirNavegador, renderizarPieza, estiloVisual } from "./lib/render.mjs";
 import { crearIlustrador, guardarIlustracion, sanearMensaje } from "./lib/ilustrador.mjs";
 import { acortarTextos, escribirEscena } from "./lib/redactor.mjs";
 import { renderizarConAjuste } from "./lib/texto.mjs";
@@ -17,6 +17,10 @@ export async function ejecutarRegenerar({ config, raiz = process.cwd(), ahora = 
   const dir = path.join(raiz, "posts");
   const iso = ahora.toISOString();
   const actual = version ?? versionPlantilla(fs.readFileSync(path.join(raiz, RUTA_PLANTILLA), "utf8"));
+  // Las frases célebres tienen su propia plantilla (y su propia versión); sin ella, se comparan con la del post.
+  const rutaFrase = path.join(raiz, RUTA_PLANTILLA_FRASE);
+  const versionFrase = fs.existsSync(rutaFrase) ? versionPlantilla(fs.readFileSync(rutaFrase, "utf8")) : actual;
+  const versionDe = (p) => (p.formato === "frase" ? versionFrase : actual);
   const rutaLogo = config.rutas?.logo || RUTA_LOGO;
   const estilo = estiloActual ?? estiloVisual(config, fs.existsSync(path.join(raiz, rutaLogo)) ? rutaLogo : null);
   const cuenta = config.cuenta || CUENTA_LEGADO;
@@ -77,7 +81,7 @@ export async function ejecutarRegenerar({ config, raiz = process.cwd(), ahora = 
   }
   const vigentes = leerPosts(dir, opcionesLectura).filter(esActivo);
   const pendientes = vigentes.filter((p) =>
-    imagenDesactualizada(p, actual)
+    imagenDesactualizada(p, versionDe(p))
     || (p.estado === "error" && p.error?.paso === "render")
     || (p.imagen && p.imagen.url !== urlImagen(config.pages.baseUrl, p.id))
     || (typeof p.imagen?.estilo === "string" && p.imagen.estilo !== estilo) // cambió la paleta o el logo de la cuenta
@@ -136,7 +140,7 @@ async function main() {
   try {
     const r = await regenerarCuentas({
       configuracion,
-      render: (post, o) => renderizarPost(post, { ...o, navegador }),
+      render: (post, o) => renderizarPieza(post, { ...o, navegador }),
       ilustradorDe: (config) => (conGemini ? crearIlustrador({ apiKey: process.env.GEMINI_API_KEY, config }) : null),
       acortarDe: (config) => (client ? (a) => acortarTextos({ client, config, ...a }) : null),
       redactarEscenaDe: (config) => (client ? (a) => escribirEscena({ client, config, ...a }) : null),

@@ -533,3 +533,29 @@ Una cuenta puede declarar en `cuentas/<id>/config.json` un bloque `perfil` que c
 **Activar el perfil en otra cuenta:** añade el bloque `perfil` y las fuentes con idioma/prioridad, reescribe `editorial.md` con la voz y las reglas, y ajusta `ilustraciones.estilo`. Con `automatico.generar` encendido, la siguiente corrida de GENERAR usa el perfil. Para desactivarlo, borra el bloque `perfil`.
 
 **Estado (2026-09-10):** implementado y probado con clientes simulados (agrupación y duplicados, artículo inaccesible sin resumen inventado, hecho antiguo con su fecha, denuncias atribuidas, render del carrusel real con Chromium, borradores sin publicar, fuentes conservadas hasta el post). Primeros borradores reales generados con la corrida de GENERAR indicada en el ROADMAP. La publicación de carruseles en Instagram y Threads se desplegó el 2026-09-10. **Validado con la API real en Instagram** el 2026-09-10 a las 18:08 UTC: el carrusel de Clearview (WIRED 3cbb, seis diapositivas), aprobado expresamente por el operador solo para Instagram, salió en la corrida PUBLICAR 34512410209 con cinco commits del bot (reserva → contenedor (hijos) con los seis hijos → contenedor padre → enviando → publicado); medio 18215615350355192, enlace https://www.instagram.com/p/DdHcfgLIFzl/. **Validado con la API real en Threads** el mismo día a las 18:48 UTC: la misma pieza, con Threads añadido como destino nuevo (la pieza publicada admite destinos nuevos sin tocar lo publicado; propuesta automática de 187/500 aprobada por el operador), salió en la corrida PUBLICAR 34516524906 con cinco commits del bot (reserva → contenedor (hijos) con los seis hijos → contenedor padre → enviando → publicado); medio 17941937640346752, enlace https://www.threads.com/@luisegolcher/post/DdHhIhpiCZW; Instagram quedó intacto. Probado solo con simulaciones: la recuperación tras cortes y los inciertos (no se ha producido ninguno real). Facebook queda fuera de los carruseles: la publicación con varias fotos y la evidencia por `subattachments` no se confirmaron en la documentación oficial ni con la API real.
+
+## 15. Frases célebres (formato `frase`)
+
+Una pieza tipográfica con una cita textual de un papa, su autor y su fuente, generada aparte de las noticias y con su propio cupo. Se activa por cuenta en `cuentas/<id>/config.json` o desde el formulario de la cuenta (apartado «Frases célebres»):
+
+```json
+"frases": {
+  "activo": true,
+  "porDia": 1,
+  "preferir": "textos",
+  "categoria": "CULTURA",
+  "hashtags": ["#PopeLeoXIV", "#Vatican"],
+  "banco": [
+    { "texto": "Peace be with you all!", "autor": "Pope Leo XIV", "fuente": "First words from the loggia of St. Peter's Basilica", "anio": 2025, "url": "https://www.vatican.va/content/leo-xiv/en.html" }
+  ]
+}
+```
+
+- **Dos orígenes, ninguno inventado.** Con `preferir: "textos"`, en cada corrida de GENERAR se ofrecen a Claude los textos más recientes de las fuentes de la cuenta (hasta `maxTextos`, 3 por defecto) y se le pide una frase dicha por el papa, copiada literalmente; el sistema comprueba palabra por palabra que la frase está en el artículo (`esLiteral`, con tolerancia a comillas, espacios y puntuación) y, si no lo está, la descarta. Si no hay frase literal ese día, o con `preferir: "banco"`, sale la siguiente frase del banco de la cuenta en su orden. Claude nunca escribe frases de memoria.
+- **Sin repeticiones.** Una frase usada en cualquier pieza de la cuenta (aunque se haya descartado) no vuelve a salir; un artículo del que ya salió una frase no se vuelve a ofrecer.
+- **Cupo propio.** `porDia` (1 a 5) frases al día, contadas en la zona horaria de la cuenta, independientes de `generar.maxBorradoresPorDia`. Se generan solo si `automatico.generar` está encendido, o con «Generar ahora».
+- **La pieza.** `formato: "frase"`, `frase: { texto, autor, fuente, anio, url, origen }`, sin ilustración generada (la tipografía es la imagen: `templates/frase.html`, 1080×1350, con los colores de la cuenta; la frase baja de 60 a 36 px hasta caber en 10 líneas; hasta 320 caracteres). `fuente` es el artículo (origen `texto`) o el documento del banco (`url`; sin ella, la Santa Sede). El caption lleva la frase entre comillas, la atribución y, si procede, «Via <medio>, <fecha>»; los hashtags son los de `frases.hashtags`. Se aprueba y publica como cualquier post (Instagram, Facebook y Threads, imagen única).
+- **Panel.** La tarjeta muestra el chip «Frase» y la frase, el autor, la ocasión y el año editables; cambiar cualquiera vuelve a dibujar la tarjeta en la siguiente corrida de REGENERAR. El banco se edita en el formulario de la cuenta (una fila por frase: texto, autor, ocasión o documento, año y enlace opcionales).
+- **Validación.** `frases.activo` booleano; `porDia` entero entre 1 y 5; `preferir` `textos` o `banco`; `categoria` una de las del panel; `banco[]` con `texto` (hasta 320 caracteres), `autor`, `fuente` y, opcionales, `anio` (entero) y `url` (http).
+
+**Estado (2026-09-11):** implementado para la cuenta Leo Pope (@leopopexiv) con un banco inicial de 10 frases con documento y enlace, revisadas por el operador antes de publicar. Probado con simulaciones (banco, literalidad, cupo, render real con Chromium, panel) y con la primera corrida real de GENERAR.

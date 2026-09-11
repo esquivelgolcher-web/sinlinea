@@ -20,8 +20,8 @@ const perfilBase = () => ({
 });
 
 test("(perfil) formatos: post, carrusel y reel existen; solo post es publicable por el publicador actual; los posts antiguos son formato post", () => {
-  assert.deepEqual(FORMATOS, ["post", "carrusel", "reel"]);
-  assert.deepEqual(FORMATOS_PUBLICABLES, ["post", "carrusel"]);
+  assert.deepEqual(FORMATOS, ["post", "carrusel", "reel", "frase"]);
+  assert.deepEqual(FORMATOS_PUBLICABLES, ["post", "carrusel", "frase"]);
   assert.equal(esPublicable("post"), true);
   assert.equal(esPublicable("carrusel"), true, "desde la publicación de carruseles (contenedores hijos + CAROUSEL)");
   assert.equal(esPublicable("reel"), false);

@@ -151,6 +151,10 @@ dialog .acciones { justify-content: flex-end; margin-top: 12px; }
 .formulario-cuenta .fila { grid-template-columns: 1fr 1fr; }
 .formulario-cuenta .fila.colores { grid-template-columns: repeat(4, 1fr); }
 .fuente-fila { display: grid; grid-template-columns: 1.2fr 0.8fr 2fr auto; gap: 8px; align-items: end; }
+.frase-fila { display: grid; grid-template-columns: 1.4fr 1.4fr 0.6fr auto; gap: 8px; align-items: end; padding: 10px 0 12px; border-bottom: 1px solid var(--borde-suave); }
+.frase-fila .texto, .frase-fila .url { grid-column: 1 / -1; }
+.bloque-frase { display: grid; gap: 10px; padding: 12px; border: 1px solid var(--borde); border-left: 4px solid var(--acento); border-radius: var(--radio-s); background: var(--papel); }
+.bloque-frase .nota { color: var(--tinta-suave); }
 .fuente-fila .patron { grid-column: 1 / -1; }
 .logo-previa { display: flex; align-items: center; justify-content: center; min-height: 72px; }
 .logo-previa img { width: 72px; height: 72px; object-fit: cover; }
@@ -158,6 +162,7 @@ dialog .acciones { justify-content: flex-end; margin-top: 12px; }
 @media (max-width: 640px) {
   .formulario-cuenta .fila, .formulario-cuenta .fila.colores { grid-template-columns: 1fr 1fr; }
   .fuente-fila { grid-template-columns: 1fr 1fr; }
+  .frase-fila { grid-template-columns: 1fr 1fr; }
   .fuente-fila .url { grid-column: 1 / -1; }
   .maestro-cabecera { flex-wrap: wrap; }
 }

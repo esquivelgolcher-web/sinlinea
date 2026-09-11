@@ -10,7 +10,7 @@ export const CAMPOS_IMAGEN = ["titular", "bajada", "categoria", "variante"];
 // Pasos en los que puede fallar un post: render (imagen), instagram (entrega antigua de un solo destino) y destino
 // (multicanal: uno o más destinos fallaron; el detalle vive en post.destinos).
 export const PASOS_ERROR = ["render", "instagram", "destino"];
-const CAMPOS_EDITABLES = ["titular", "bajada", "caption", "hashtags", "categoria", "variante", "ilustracion"];
+const CAMPOS_EDITABLES = ["titular", "bajada", "caption", "hashtags", "categoria", "variante", "ilustracion", "frase"];
 
 function fnv1a(texto, base) {
   let h = base >>> 0;
@@ -29,7 +29,9 @@ export function hashTexto(texto) {
 export function hashImagen(post, version) {
   const il = post.ilustracion;
   const ilus = il && il.usar && il.ruta ? String(il.hashDescripcion || "") : "";
-  const texto = [...CAMPOS_IMAGEN.map((c) => String(post[c] ?? "")), ilus, String(version)].join("\u0000");
+  // Formato frase: la imagen es la frase, su autor y su fuente.
+  const frase = post.frase ? JSON.stringify([post.frase.texto, post.frase.autor, post.frase.fuente, post.frase.anio ?? null]) : "";
+  const texto = [...CAMPOS_IMAGEN.map((c) => String(post[c] ?? "")), ilus, frase, String(version)].join("\u0000");
   return fnv1a(texto, 0x811c9dc5) + fnv1a(texto, 0x050c5d1f);
 }
 
@@ -116,6 +118,16 @@ export function editarTexto(post, cambios, ahoraIso) {
   if (cambios.categoria !== undefined && !CATEGORIAS.includes(cambios.categoria)) throw new Error(`Categoría inválida: ${cambios.categoria}`);
   if (cambios.variante !== undefined && !VARIANTES.includes(cambios.variante)) throw new Error(`Variante inválida: ${cambios.variante}`);
   if (cambios.hashtags !== undefined && !Array.isArray(cambios.hashtags)) throw new Error("hashtags debe ser una lista");
+  if (cambios.frase !== undefined) {
+    const f = cambios.frase;
+    if (!post.frase) throw new Error("Solo una pieza en formato frase tiene frase");
+    if (!f || typeof f !== "object") throw new Error("frase debe ser un objeto con texto, autor, fuente y anio");
+    if (f.texto !== undefined && (typeof f.texto !== "string" || !f.texto.trim() || f.texto.trim().length > 320)) throw new Error("frase.texto es obligatorio y admite hasta 320 caracteres");
+    for (const k of ["autor", "fuente"]) if (f[k] !== undefined && typeof f[k] !== "string") throw new Error(`frase.${k} debe ser texto`);
+    if (f.anio !== undefined && f.anio !== null && !Number.isInteger(f.anio)) throw new Error("frase.anio debe ser un año (entero) o null");
+    cambios = { ...cambios, frase: { ...post.frase, ...Object.fromEntries(Object.entries(f).filter(([k]) => ["texto", "autor", "fuente", "anio"].includes(k))) } };
+    if (cambios.frase.texto) cambios.frase.texto = cambios.frase.texto.trim();
+  }
   if (cambios.ilustracion !== undefined && cambios.ilustracion !== null) {
     const il = cambios.ilustracion;
     if (!il || typeof il !== "object" || typeof il.descripcion !== "string" || typeof il.usar !== "boolean") {

@@ -88,6 +88,19 @@ export function erroresDeCuenta(d, { idsExistentes = [], editando = false } = {}
     if (d[k] !== undefined && d[k] !== "" && !/^[A-Z][A-Z0-9_]*$/.test(String(d[k]))) e.push(`${k}: el nombre del secreto va en mayúsculas (A-Z, 0-9 y _), p. ej. IG_ACCESS_TOKEN_NUEVO_MEDIO`);
   }
   // Multicanal (F1): la página de Facebook se identifica por su id numérico; hace falta para encender esa conexión.
+  // Frases célebres: cada frase del banco necesita texto (hasta 320 caracteres) y autor; año y URL son opcionales.
+  if (d.frasesPorDia !== undefined && d.frasesPorDia !== "" && !(Number.isInteger(Number(d.frasesPorDia)) && Number(d.frasesPorDia) >= 1 && Number(d.frasesPorDia) <= 5)) e.push("frasesPorDia: entre 1 y 5 frases al día");
+  (Array.isArray(d.frasesBanco) ? d.frasesBanco : []).forEach((f, i) => {
+    const n = i + 1;
+    const texto = String(f?.texto || "").trim();
+    if (!texto) e.push(`frases: la frase ${n} no tiene texto`);
+    else if (texto.length > 320) e.push(`frases: la frase ${n} supera los 320 caracteres`);
+    if (!String(f?.autor || "").trim()) e.push(`frases: la frase ${n} no tiene autor (el papa que la dijo)`);
+    const anio = String(f?.anio ?? "").trim();
+    if (anio && !/^\d{3,4}$/.test(anio)) e.push(`frases: la frase ${n} tiene un año que no es un número`);
+    const url = String(f?.url || "").trim();
+    if (url && !RE_URL.test(url)) e.push(`frases: la frase ${n} tiene una URL que no es http(s)`);
+  });
   const pagina = String(d.facebookPagina ?? "").trim();
   if (pagina && !/^\d+$/.test(pagina)) e.push("facebookPagina: el id de la página de Facebook es numérico");
   else if (d.facebookPublicar === true && !pagina) e.push("facebookPagina: indica el id numérico de la página para encender Facebook");
@@ -209,6 +222,26 @@ export function configDesdeFormulario(d, base = null) {
   }
   if (Object.keys(conexiones).length) config.conexiones = conexiones;
   else delete config.conexiones;
+  // Frases célebres: el bloque solo existe si se activa, hay banco o la cuenta ya lo tenía (apagarlo también se guarda).
+  const banco = (Array.isArray(d.frasesBanco) ? d.frasesBanco : []).map((f) => {
+    const anio = String(f?.anio ?? "").trim();
+    const url = String(f?.url || "").trim();
+    return { texto: String(f?.texto || "").trim(), autor: String(f?.autor || "").trim(), fuente: String(f?.fuente || "").trim(), ...(/^\d{3,4}$/.test(anio) ? { anio: Number(anio) } : {}), ...(url ? { url } : {}) };
+  });
+  const frasesActivo = d.frasesActivo === true;
+  if (frasesActivo || banco.length || base?.frases) {
+    const porDia = Number(d.frasesPorDia);
+    config.frases = {
+      ...(base?.frases || {}),
+      activo: frasesActivo,
+      porDia: Number.isInteger(porDia) && porDia >= 1 && porDia <= 5 ? porDia : (base?.frases?.porDia || 1),
+      preferir: ["textos", "banco"].includes(d.frasesPreferir) ? d.frasesPreferir : (base?.frases?.preferir || "textos"),
+      hashtags: normalizarHashtags(String(d.frasesHashtags ?? (base?.frases?.hashtags || []).join(" ")).split(/\s+/).filter(Boolean)),
+      banco,
+    };
+  } else {
+    delete config.frases;
+  }
   return config;
 }
 
@@ -243,6 +276,11 @@ export function formularioDesdeConfig(id, c, editorialMd = "") {
     threadsPublicar: c.conexiones?.threads?.publicar === true,
     threadsUsuario: String(c.conexiones?.threads?.usuario ?? ""),
     threadsPerfil: String(c.conexiones?.threads?.perfil ?? ""),
+    frasesActivo: c.frases?.activo === true,
+    frasesPorDia: c.frases?.porDia || 1,
+    frasesPreferir: c.frases?.preferir || "textos",
+    frasesHashtags: (c.frases?.hashtags || []).join(" "),
+    frasesBanco: (c.frases?.banco || []).map((f) => ({ ...f })),
     editorialMd,
   };
 }

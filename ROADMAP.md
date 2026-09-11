@@ -22,6 +22,12 @@ configurable por cuenta (`idioma`, `es-PA` por defecto).
   la de M2, y ejecutar `npm test`.
 - **Pendiente del operador**: crear `GH_PAT`, activar `renovar-token.yml` y
   lanzarlo una vez (el token de Instagram vence el 2026-11-07).
+- **Frases célebres, formato `frase` (2026-09-11):** para Leo Pope. Banco propio de la
+  cuenta (editable en el formulario) más extracción literal de los textos del día con
+  comprobación palabra por palabra; cupo propio (`frases.porDia`); plantilla tipográfica
+  `templates/frase.html` con los colores de la cuenta; tarjeta con frase, autor, ocasión y
+  año editables; publicable como imagen única en las tres redes. Detalle en
+  docs/CONFIGURACION.md §15.
 - **«Generar ahora» en el panel (2026-09-11):** botón junto a «Nuevo borrador» que lanza
   una corrida única de Generar borradores para la cuenta seleccionada (`forzar`), con
   `almacen.lanzarGeneracion`; exige el permiso Actions (lectura y escritura) en el token

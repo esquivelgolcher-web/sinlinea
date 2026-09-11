@@ -78,7 +78,7 @@ test("(M0) instagram.tokenSecreto y usuarioIdSecreto son opcionales y deben ser 
 
 test("(M1) config.json global es válido, declara cuentas y ya no lleva marca ni fuentes", () => {
   const g = cargarGlobal("config.json");
-  assert.deepEqual(g.cuentas, ["sinlinea", "luiseskivelgolcher"]);
+  assert.deepEqual(g.cuentas, ["sinlinea", "luiseskivelgolcher", "leopopexiv"]);
   assert.equal(g.cuentas[0], "sinlinea", "la principal sigue siendo sinlinea");
   assert.equal(g.marca, undefined);
   assert.equal(g.fuentes, undefined);
@@ -181,7 +181,7 @@ test("(M1 fix) resumenParaPanel expone cuentaPrincipal = primera cuenta declarad
 
 test("(M2) la cuenta luiseskivelgolcher carga con sus propios interruptores (activados el 2026-09-09 por el operador), colores propios, fuentes propias (no las de Sin Línea) y con sus secretos", () => {
   const c = cargarConfiguracion(".");
-  assert.deepEqual(c.global.cuentas, ["sinlinea", "luiseskivelgolcher"]);
+  assert.deepEqual(c.global.cuentas, ["sinlinea", "luiseskivelgolcher", "leopopexiv"]);
   assert.deepEqual(c.errores, []);
   const e = c.cuentas.find((x) => x.cuenta === "luiseskivelgolcher");
   assert.deepEqual(e.automatico, { generar: true, publicar: true });

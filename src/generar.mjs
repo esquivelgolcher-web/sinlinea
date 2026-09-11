@@ -8,14 +8,16 @@ import { fetchText as fetchTextReal } from "./lib/rss.mjs";
 import { recolectar } from "./lib/fuentes.mjs";
 import { cargarVistas, guardarVistas, estaVista, marcarVistas, purgarVistas } from "./lib/seen.mjs";
 import { leerPosts, escribirPost, crearPost, siguienteVariante, creadosHoy, archivar, rutaIlustracion, CUENTA_LEGADO } from "./lib/posts.mjs";
-import { redactar, redactarPerfil, acortarTextos } from "./lib/redactor.mjs";
+import { redactar, redactarPerfil, acortarTextos, extraerFrase } from "./lib/redactor.mjs";
+import { descargarArticulo } from "./lib/articulo.mjs";
+import { frasesCreadasHoy, elegirDelBanco, esLiteral, crearPostFrase, MAX_FRASE } from "./lib/frases.mjs";
 import { agruparCandidatos } from "./lib/temas.mjs";
 import { renderizarConAjuste } from "./lib/texto.mjs";
 import { todasFallaron, anotarFallos, resumirResultados } from "./lib/corrida.mjs";
 import { ocultarSecretos } from "./lib/secretos.mjs";
 import { recortarCaption } from "./lib/caption.mjs";
 import { marcarError, renderOk, hashTexto } from "./lib/estados.mjs";
-import { abrirNavegador, renderizarPost, renderizarCarrusel } from "./lib/render.mjs";
+import { abrirNavegador, renderizarPost, renderizarCarrusel, renderizarFrase } from "./lib/render.mjs";
 import { claveDia } from "./lib/fechas.mjs";
 import { crearIlustrador, guardarIlustracion, sanearMensaje } from "./lib/ilustrador.mjs";
 
@@ -149,12 +151,84 @@ export async function ejecutarGenerar({ config, raiz = process.cwd(), ahora = ne
   return { creados, motivo: "ok" };
 }
 
+// Frase célebre del día para una cuenta (formato "frase"): cupo propio (frases.porDia), sin repetir frases ni artículos.
+// Con `preferir: "textos"` se ofrecen a Claude los textos más recientes de las fuentes (homilías, discursos…) y solo se
+// acepta una frase que aparezca literalmente en el texto; si no la hay, o se prefiere el banco, sale la siguiente frase
+// del banco de la cuenta. Sin ilustración: la tipografía es la imagen (templates/frase.html).
+export async function ejecutarGenerarFrases({ config, raiz = process.cwd(), ahora = new Date(), fetchText, leerArticulo = null, extraerFrase = null, renderFrase, log = console, dryRun = false }) {
+  const cuenta = config.cuenta || CUENTA_LEGADO;
+  const f = config.frases || {};
+  if (!f.activo) return { creadas: [], motivo: "frases-desactivadas" };
+  if (config.automatico?.generar === false) {
+    log.info(`Cuenta ${cuenta}: generación automática desactivada; tampoco se generan frases.`);
+    return { creadas: [], motivo: "generar-desactivado" };
+  }
+  const zona = config.zonaHoraria;
+  const iso = ahora.toISOString();
+  const dir = path.join(raiz, "posts");
+  const dirSalida = dryRun ? path.join(raiz, "temp", "dry-run", "posts") : dir;
+  const posts = leerPosts(dir, { cuentaPorDefecto: config.cuentaPrincipal || CUENTA_LEGADO }).filter((p) => p.cuenta === cuenta);
+  const cupo = (f.porDia || 1) - frasesCreadasHoy(posts, ahora, zona);
+  if (cupo <= 0) {
+    log.info(`Cuenta ${cuenta}: cupo diario de frases agotado (${f.porDia || 1}).`);
+    return { creadas: [], motivo: "cupo-frases" };
+  }
+  let eleccion = null;
+  if ((f.preferir || "textos") === "textos" && extraerFrase && config.fuentes?.length) {
+    const usadas = new Set(posts.filter((p) => p.frase?.url).map((p) => p.frase.url));
+    const candidatos = (await recolectar(config, { fetchText, ahora, log, filtrar: (u) => !usadas.has(u) }))
+      .sort((a, b) => Date.parse(b.fecha || 0) - Date.parse(a.fecha || 0))
+      .slice(0, f.maxTextos || 3);
+    const lector = leerArticulo || (async (url) => { const a = await descargarArticulo(url, { fetchText }); return { titulo: a.titulo, fecha: a.fecha, texto: (a.parrafos || []).join("\n") }; });
+    const textos = [];
+    for (const c of candidatos) {
+      try {
+        const a = await lector(c.url);
+        if (a && String(a.texto || "").trim()) textos.push({ url: c.url, medio: c.medio, titulo: a.titulo || c.titulo, fecha: a.fecha || c.fecha, texto: String(a.texto) });
+      } catch (err) {
+        log.warn(`Texto no accesible ${c.url}: ${err.message}`);
+      }
+    }
+    if (textos.length) {
+      const r = await extraerFrase({ textos });
+      if (r && Number.isInteger(r.indice) && textos[r.indice]) {
+        const t = textos[r.indice];
+        if (esLiteral(r.frase, t.texto) && String(r.frase).trim().length <= MAX_FRASE) {
+          eleccion = { frase: { texto: r.frase.trim(), autor: r.autor, fuente: r.fuente, anio: new Date(t.fecha || ahora).getUTCFullYear(), url: t.url }, origen: "texto", articulo: { medio: t.medio, url: t.url, titulo: t.titulo, fecha: t.fecha } };
+        } else {
+          log.warn(`Cuenta ${cuenta}: la frase propuesta no aparece literalmente en ${t.url} (o es demasiado larga); se descarta y se usa el banco.`);
+        }
+      }
+    }
+  }
+  if (!eleccion) {
+    const b = elegirDelBanco(f.banco || [], posts);
+    if (b) eleccion = { frase: b, origen: "banco", articulo: null };
+  }
+  if (!eleccion) {
+    log.info(`Cuenta ${cuenta}: sin frase disponible (banco agotado y sin frase literal en los textos del día).`);
+    return { creadas: [], motivo: "sin-frases" };
+  }
+  let post = crearPostFrase({ frase: eleccion.frase, origen: eleccion.origen, articulo: eleccion.articulo, config, ahora, zona, cuenta, variante: siguienteVariante(posts) });
+  try {
+    const destino = dryRun ? path.join("temp", "dry-run", "img", `${post.id}.jpg`) : undefined;
+    const imagen = await renderFrase(post, { config, raiz, destino });
+    post = renderOk(post, imagen, iso);
+  } catch (err) {
+    log.warn(`Render de la frase falló para ${post.id}: ${err.message}`);
+    post = marcarError(post, { paso: "render", mensaje: err.message }, iso);
+  }
+  escribirPost(dirSalida, post);
+  log.info(`Frase ${post.id} (${eleccion.origen}): “${post.frase.texto.slice(0, 70)}${post.frase.texto.length > 70 ? "…" : ""}” — ${post.frase.autor}`);
+  return { creadas: [post], motivo: "ok" };
+}
+
 // Ejecuta GENERAR para cada cuenta activa. Un fallo en una cuenta se registra y no detiene a las demás.
 // `ilustradorDe(config)` y `acortarDe(config)` crean las dependencias que dependen de cada cuenta
 // (estilo de ilustración, idioma); si no se pasan, se usan `ilustrador` y `acortar` tal cual.
 // `soloCuenta`: procesa una sola cuenta. `forzar` (solo con `soloCuenta`): una generación única aunque su
 // `automatico.generar` esté apagado; la configuración no cambia y las demás cuentas no se tocan.
-export async function generarCuentas({ configuracion, raiz = process.cwd(), ahora = new Date(), fetchText, client, render, renderCarrusel = null, log = console, dryRun = false, ilustrador = null, guardar = guardarIlustracion, acortar = null, ilustradorDe = null, acortarDe = null, soloCuenta = null, forzar = false }) {
+export async function generarCuentas({ configuracion, raiz = process.cwd(), ahora = new Date(), fetchText, client, render, renderCarrusel = null, log = console, dryRun = false, ilustrador = null, guardar = guardarIlustracion, acortar = null, ilustradorDe = null, acortarDe = null, soloCuenta = null, forzar = false, renderFrase = null, leerArticulo = null, extraerFrase = null, extraerFraseDe = null }) {
   if (forzar && !soloCuenta) throw new Error("--forzar exige --cuenta <id>: la generación forzada es siempre de una sola cuenta");
   const resultados = {};
   for (const e of configuracion.errores || []) {
@@ -174,6 +248,13 @@ export async function generarCuentas({ configuracion, raiz = process.cwd(), ahor
         ilustrador: config.ilustraciones?.activo === false ? null : (ilustradorDe ? ilustradorDe(config) : ilustrador),
         acortar: acortarDe ? acortarDe(config) : acortar,
       });
+      // Frases célebres (si la cuenta las tiene activas): un paso aparte, con su propio cupo, tras las noticias.
+      if (renderFrase && config.frases?.activo) {
+        resultados[config.cuenta].frases = await ejecutarGenerarFrases({
+          config, raiz, ahora, fetchText, leerArticulo, renderFrase, log, dryRun,
+          extraerFrase: extraerFraseDe ? extraerFraseDe(config) : extraerFrase,
+        });
+      }
     } catch (err) {
       const mensaje = ocultarSecretos(err.message);
       resultados[config.cuenta] = { error: mensaje };
@@ -200,10 +281,12 @@ async function main() {
       configuracion, fetchText: fetchTextReal, client, dryRun, soloCuenta, forzar,
       render: (post, o) => renderizarPost(post, { ...o, navegador }),
       renderCarrusel: (post, o) => renderizarCarrusel(post, { ...o, navegador }),
+      renderFrase: (post, o) => renderizarFrase(post, { ...o, navegador }),
       ilustradorDe: (config) => (conGemini ? crearIlustrador({ apiKey: process.env.GEMINI_API_KEY, config }) : null),
       acortarDe: (config) => (a) => acortarTextos({ client, config, ...a }),
+      extraerFraseDe: (config) => (a) => extraerFrase({ client, config, ...a }),
     });
-    console.log(`Listo: ${resumirResultados(r.resultados, (x) => `${x.creados.length} borradores (${x.motivo})`)}${dryRun ? " [dry-run]" : ""}.`);
+    console.log(`Listo: ${resumirResultados(r.resultados, (x) => `${x.creados.length} borradores (${x.motivo})${x.frases ? ` · ${x.frases.creadas.length} frase(s) (${x.frases.motivo})` : ""}`)}${dryRun ? " [dry-run]" : ""}.`);
     anotarFallos(r.resultados, "GENERAR");
     if (todasFallaron(r.resultados)) process.exitCode = 1;
   } finally {

@@ -1,11 +1,11 @@
 // Formatos editoriales del perfil (post, carrusel, reel) y vocabulario de trazabilidad. Módulo isomorfo (Node y panel).
 // El publicador actual solo entrega imágenes sueltas: carrusel y reel se redactan y renderizan para revisión, pero no
 // se programan hasta que exista su adaptador de publicación (ver docs/CONFIGURACION.md §14).
-export const FORMATOS = ["post", "carrusel", "reel"];
-export const NOMBRES_FORMATO = Object.freeze({ post: "Post", carrusel: "Carrusel", reel: "Reel" });
+export const FORMATOS = ["post", "carrusel", "reel", "frase"];
+export const NOMBRES_FORMATO = Object.freeze({ post: "Post", carrusel: "Carrusel", reel: "Reel", frase: "Frase" });
 // El carrusel se publica como contenedores hijos + contenedor CAROUSEL (Instagram, Threads) o varias fotos adjuntas (Facebook).
 // El reel sigue sin adaptador (no hay producción de vídeo).
-export const FORMATOS_PUBLICABLES = ["post", "carrusel"];
+export const FORMATOS_PUBLICABLES = ["post", "carrusel", "frase"];
 export const formatoDe = (post) => post?.formato || "post";
 export const esPublicable = (formato) => FORMATOS_PUBLICABLES.includes(formato || "post");
 

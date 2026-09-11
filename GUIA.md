@@ -261,3 +261,12 @@ Tu cuenta personal tiene ahora un perfil editorial: fuentes prioritarias (WIRED,
 **Qué no hace:** no traduce artículos, no reutiliza vídeos ni fotos de otros medios, no elude muros de pago y no inventa resúmenes de lo que no pudo leer. Si una noticia solo llega como titular o descripción (los canales de YouTube), queda como pista y no genera pieza.
 
 **Ajustes:** temas, pesos de la puntuación, mínimo, formatos y fuentes en `cuentas/luiseskivelgolcher/config.json` (bloque `perfil` y `fuentes`); voz y reglas en `editorial.md`; estilo de imagen en `ilustraciones.estilo`. Ver docs/CONFIGURACION.md §14.
+
+## Frases célebres (Leo Pope)
+
+Además de las noticias, la cuenta puede generar cada día una **tarjeta de frase**: una cita textual de un papa con su autor y su fuente, sin ilustración. Se activa en «Editar» → «Frases célebres».
+
+- **De dónde salen.** Primero busca una frase literal en los textos del día de las fuentes (homilías, discursos, ángelus) y la comprueba palabra por palabra contra el artículo; si no hay, toma la siguiente del **banco** de la cuenta. Nunca se inventan frases. Ninguna se repite.
+- **El banco.** En el formulario de la cuenta añades filas con la frase literal, el papa que la dijo, la ocasión o documento, el año y el enlace si lo tienes. Se publican en ese orden.
+- **Revisar y aprobar.** Las frases llegan a Borradores con el chip «Frase». Puedes corregir la frase, el autor, la ocasión y el año en la tarjeta; al guardar, la imagen se vuelve a dibujar en unos minutos. Se aprueban y publican como cualquier pieza.
+- **Cuántas.** Por defecto una al día, aparte del cupo de noticias; se cambia en el mismo formulario (de 1 a 5).
