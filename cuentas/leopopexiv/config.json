@@ -1,0 +1,109 @@
+{
+  "nombre": "Leo Pope",
+  "idioma": "en",
+  "zonaHoraria": "America/New_York",
+  "automatico": {
+    "generar": true,
+    "publicar": false
+  },
+  "marca": {
+    "nombre": "Leo Pope",
+    "usuario": "@leopopexiv",
+    "lema": "",
+    "logoForma": "circulo",
+    "logoTamano": 120,
+    "colores": {
+      "principal": "#500014",
+      "acento": "#C8A45D",
+      "oscuro": "#202020",
+      "claro": "#F5F0E6"
+    }
+  },
+  "editorial": {
+    "temas": [
+      "Pope Leo XIV",
+      "Vatican news",
+      "Holy See",
+      "Catholic Church",
+      "Papal speeches",
+      "Papal homilies",
+      "Angelus and General Audiences",
+      "Papal travels",
+      "Vatican schedule",
+      "Papal documents and encyclicals",
+      "Verified papal quotes",
+      "History of the popes",
+      "History of the Vatican",
+      "Catholic history and culture",
+      "Vatican art and architecture",
+      "Faith and spirituality",
+      "Peace and diplomacy",
+      "Migration and refugees",
+      "Technology and artificial intelligence",
+      "Climate change and care for creation"
+    ],
+    "tono": "Clear, informed, respectful, calm and independent. Write in natural English with an accessible international news style. Be factual and concise while providing enough context for readers who are not familiar with the Vatican or Catholic terminology. Distinguish clearly between verified facts, official statements, historical interpretation and editorial analysis. Avoid sensationalism, clickbait, speculation, conspiracy theories, partisan political language and excessive religious jargon. Use a respectful tone when discussing the Pope, the Catholic Church and religious beliefs. Never imply that LeoPope is affiliated with the Holy See or the Vatican."
+  },
+  "fuentes": [
+    {
+      "nombre": "vatican news",
+      "tipo": "rss",
+      "url": "https://www.vaticannews.va/en.rss.xml"
+    },
+    {
+      "nombre": "vatican",
+      "tipo": "rss",
+      "url": "https://press.vatican.va/content/salastampa/en.html"
+    },
+    {
+      "nombre": "Vatican official website",
+      "tipo": "rss",
+      "url": "https://www.vatican.va/content/vatican/en.html"
+    },
+    {
+      "nombre": "1. Vatican Apostolic Library — History",
+      "tipo": "rss",
+      "url": "https://bav.vatican.va/en/the-library/history-of-BAV.html"
+    },
+    {
+      "nombre": "Vatican Museums — History",
+      "tipo": "rss",
+      "url": "https://www.museivaticani.va/content/museivaticani/en/musei-del-papa/storia.html"
+    },
+    {
+      "nombre": "Vatican Apostolic Archive",
+      "tipo": "rss",
+      "url": "https://www.archivioapostolicovaticano.va/content/aav/en.html"
+    },
+    {
+      "nombre": "Catholic Encyclopedia — New Advent",
+      "tipo": "rss",
+      "url": "https://www.newadvent.org/cathen/"
+    }
+  ],
+  "generar": {
+    "maxPorCorrida": 1,
+    "maxBorradoresPorDia": 2,
+    "candidatosMax": 10,
+    "diasSinRepetir": 3,
+    "maxHorasAntiguedad": 48
+  },
+  "franjas": [
+    "09:00",
+    "13:00",
+    "18:00"
+  ],
+  "ilustraciones": {
+    "activo": true,
+    "estilo": "Refined editorial photography and documentary-style illustrations about Pope Leo XIV, the Vatican and the Catholic Church. Vertical 4:5 format, natural light, realistic details, subdued European news-magazine aesthetic, deep burgundy, ivory, charcoal and muted gold accents. Calm, respectful, intelligent and informative mood. Use authentic-looking Vatican architecture, public ceremonies, books, documents, artwork and symbolic details. Keep the main subject in the upper-right third and leave clean negative space for layout. No text, logos, watermarks, official Vatican emblems, papal keys, tiaras, flags or recognizable private individuals. Avoid sensationalism, fictional events and images that make the account appear officially affiliated with the Vatican.",
+    "rotulo": ""
+  },
+  "instagram": {
+    "origen": "entorno",
+    "tokenSecreto": "IG_ACCESS_TOKEN_LEOPOPEXIV",
+    "usuarioIdSecreto": "IG_USER_ID_LEOPOPEXIV"
+  },
+  "metricas": {
+    "recoger": true
+  }
+}
