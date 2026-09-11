@@ -186,6 +186,9 @@ test("(destinos) añadir un destino a una pieza ya publicada desde la interfaz: 
     await page.waitForSelector("#cuentas-grid .cuenta-tarjeta");
     await page.click('.cuenta-tarjeta[data-cuenta="prueba"] button:has-text("Abrir panel")');
     await page.waitForSelector("#vista-posts:not([hidden])");
+    // «Generar ahora» junto a «Nuevo borrador»: en local no hay corridas; el aviso lo explica y no cambia nada.
+    await page.click('#boton-generar-ahora');
+    await page.waitForFunction(() => /En local no se lanzan corridas/.test(document.getElementById("aviso").textContent));
     await page.click('#pestanas button:has-text("Publicados")');
     await page.waitForSelector(".tarjeta");
     const antes = leerPost(raiz, ids.publicado);

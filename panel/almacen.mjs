@@ -146,6 +146,10 @@ export function crearAlmacenLocal() {
       if (!res.ok) throw new Error(j.error || `No se pudo solicitar la verificación (HTTP ${res.status})`);
       return { ok: true, nota: j.nota || "En local se marca como pendiente; el workflow solo corre en GitHub." };
     },
+    // La generación corre en GitHub Actions; en local solo se explica dónde lanzarla.
+    async lanzarGeneracion(cuenta) {
+      return { ok: false, nota: `En local no se lanzan corridas: la generación corre en GitHub (Actions → Generar borradores → Run workflow con cuenta = ${cuenta}).` };
+    },
   };
 }
 
@@ -427,6 +431,19 @@ export function crearAlmacenGitHub({ token, owner, repo, rama = "main", fetchImp
       const pendiente = esIg ? PENDIENTE(ahoraIso) : JSON.stringify({ red, estado: "pendiente", solicitada: ahoraIso }, null, 2) + "\n";
       await subir(ruta, base64Utf8(pendiente), { sha: actual?.sha || null, mensaje: `panel: verificación de ${red} solicitada para ${cuenta}` });
       return { ok: true, nota: `${nombreWorkflow} está en marcha; el resultado aparece aquí en unos minutos.` };
+    },
+    // Corrida única de generación para una cuenta (aunque su generación automática esté en pausa). Necesita el permiso
+    // Actions (lectura y escritura) en el token del panel; los borradores llegan por el commit del workflow.
+    async lanzarGeneracion(cuenta) {
+      const res = await pedir(`${api}/actions/workflows/generar.yml/dispatches`, {
+        method: "POST", headers: cabeceras({ "content-type": "application/json" }),
+        body: JSON.stringify({ ref: rama, inputs: { cuenta, forzar: "true" } }),
+      });
+      if (res.status === 403 || res.status === 404 || res.status === 401) {
+        throw new Error(`El token del panel no puede lanzar workflows (GitHub respondió ${res.status}): necesita el permiso Actions (lectura y escritura) además de Contents; se añade editando el token en GitHub sin cambiar su valor. Mientras tanto, lánzalo a mano: Actions → Generar borradores → Run workflow con cuenta = ${cuenta}.`);
+      }
+      if (!res.ok) throw new Error(`GitHub respondió ${res.status} al lanzar Generar borradores`);
+      return { ok: true, nota: `Generar borradores está en marcha para ${cuenta}. Si hay noticias nuevas que encajen con la línea editorial, los borradores aparecen aquí en 2 a 5 minutos (recarga la página); si no las hay, la corrida termina sin piezas.` };
     },
   };
 }

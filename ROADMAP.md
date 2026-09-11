@@ -22,6 +22,12 @@ configurable por cuenta (`idioma`, `es-PA` por defecto).
   la de M2, y ejecutar `npm test`.
 - **Pendiente del operador**: crear `GH_PAT`, activar `renovar-token.yml` y
   lanzarlo una vez (el token de Instagram vence el 2026-11-07).
+- **«Generar ahora» en el panel (2026-09-11):** botón junto a «Nuevo borrador» que lanza
+  una corrida única de Generar borradores para la cuenta seleccionada (`forzar`), con
+  `almacen.lanzarGeneracion`; exige el permiso Actions (lectura y escritura) en el token
+  del panel y lo explica si falta. Ese mismo día se renovó el token de página de Facebook
+  (invalidado por cierre de sesión) y se corrigió que un token roto en una red abortara
+  la corrida de la cuenta.
 - **Rediseño visual del panel (2026-09-10):** cabecera genérica «Redacción» con la fuente
   de titulares de las piezas (Anton, servida en `panel/fonts/`), paleta neutra con un solo
   acento, pestañas de sección subrayadas y fijas al desplazarse, tarjetas en dos columnas

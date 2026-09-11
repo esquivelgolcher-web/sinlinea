@@ -75,6 +75,22 @@ test("(maestro) escribirBinario sube el logo en base64 y solicitarVerificacion l
   assert.equal(f.llamadas.length, 5, "sin permiso Actions no se escribe conexion.json: la cuenta no queda pendiente en falso");
 });
 
+test("(panel) lanzarGeneracion lanza el workflow Generar borradores para la cuenta como corrida única (forzar); sin permiso Actions explica qué falta", async () => {
+  const f = fetchGitHub([
+    { status: 204, json: {} },
+    { status: 403, json: { message: "Resource not accessible by personal access token" } },
+  ]);
+  const a = crearAlmacenGitHub({ token: "t", owner: "o", repo: "r", fetchImpl: f.impl });
+  const r = await a.lanzarGeneracion("x");
+  assert.equal(r.ok, true);
+  assert.match(r.nota, /en marcha/);
+  const dispatch = f.llamadas[0];
+  assert.equal(dispatch.metodo, "POST");
+  assert.match(dispatch.url, /actions\/workflows\/generar.yml\/dispatches$/);
+  assert.deepEqual(dispatch.cuerpo, { ref: "main", inputs: { cuenta: "x", forzar: "true" } });
+  await assert.rejects(() => a.lanzarGeneracion("x"), /Actions/);
+});
+
 test("(maestro) leerSecretosActualizados consulta solo metadatos de los secretos (fecha de actualización) y distingue inexistente de sin permiso", async () => {
   const f = fetchGitHub([
     { status: 200, json: { name: "IG_ACCESS_TOKEN", updated_at: "2026-09-08T16:43:18Z" } },

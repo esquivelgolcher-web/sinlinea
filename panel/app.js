@@ -1107,6 +1107,20 @@ async function cambiarPausa(id, valor) {
 
 // Borrador manual desde el panel para la cuenta seleccionada.
 $("nb-categoria").replaceChildren(...CATEGORIAS.map((k) => el("option", { value: k, text: k })));
+// «Generar ahora»: corrida única de generación para la cuenta seleccionada (GitHub Actions); en local solo se explica.
+$("boton-generar-ahora").addEventListener("click", async () => {
+  const boton = $("boton-generar-ahora");
+  const id = estado.cuenta || cuentaPrincipal();
+  boton.disabled = true;
+  try {
+    const r = await estado.almacen.lanzarGeneracion(id);
+    avisar(r.nota, r.ok ? 12000 : 15000);
+  } catch (err) {
+    avisar(`No se pudo lanzar la generación: ${err.message}`, 20000);
+  } finally {
+    boton.disabled = false;
+  }
+});
 $("boton-nuevo-borrador").addEventListener("click", () => {
   const cfg = configDeCuenta(estado.cuenta);
   if (soloLectura()) { avisar("Sin token: el panel está en modo solo lectura.", 6000); return; }

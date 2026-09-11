@@ -25,6 +25,13 @@ de publicar, el sistema confirma con la API que la credencial pertenece a esa
 cuenta; si no coincide, no publica y lo avisa. Si una cuenta muestra la nota
 "está desactivada…", sus posts aprobados quedan en cola hasta que se active.
 
+Junto a las pestañas hay dos botones: **Generar ahora** lanza una corrida de generación
+para la cuenta seleccionada, aunque su generación automática esté en pausa (si hay noticias
+nuevas que encajen, los borradores aparecen en 2 a 5 minutos; si no, la corrida termina sin
+piezas). Necesita que el token del panel tenga el permiso Actions (lectura y escritura); si no
+lo tiene, el aviso lo dice y puedes lanzarla desde GitHub → Actions → Generar borradores.
+**Nuevo borrador** crea una pieza a mano.
+
 En cada tarjeta puedes:
 - Editar titular, bajada, categoría, variante de color, caption y hashtags.
   El titular admite hasta 65 caracteres (lo ideal son 40 a 55) y la bajada hasta 110;
