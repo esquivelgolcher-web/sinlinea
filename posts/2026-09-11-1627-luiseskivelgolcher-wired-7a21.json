@@ -1,7 +1,7 @@
 {
   "id": "2026-09-11-1627-luiseskivelgolcher-wired-7a21",
   "cuenta": "luiseskivelgolcher",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "WIRED",
     "url": "https://www.wired.com/story/meta-sued-over-training-data-for-its-ai-and-face-recognition-systems/",
@@ -246,25 +246,15 @@
           "68d608ee2f75721704d64cb10aa4d5a9d5763ada"
         ]
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-09-11T23:14:43.068Z",
-        "actualizado": "2026-09-11T23:14:43.068Z",
-        "contenedorId": "17988654048100604",
-        "hijos": [
-          "17988653889100604",
-          "17988653916100604",
-          "17988653937100604",
-          "17988653958100604",
-          "17988653979100604",
-          "17988654000100604",
-          "17988654021100604"
-        ]
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18059532113790884",
+        "idPublicacion": null,
+        "permalink": "https://www.threads.com/@luisegolcher/post/DdKkdQsEcuv",
+        "fecha": "2026-09-11T23:14:43.068Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
