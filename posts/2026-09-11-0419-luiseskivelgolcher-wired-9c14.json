@@ -134,7 +134,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-11T09:19:02.145Z",
-  "actualizado": "2026-09-11T09:21:48.192Z",
+  "actualizado": "2026-09-11T10:44:28.927Z",
   "destinos": {
     "instagram": {
       "texto": "México y Estados Unidos activaron una operación conjunta contra drones usados por el crimen organizado, según reportó WIRED. Bautizada Águila Alta, la estrategia arrancó con una fase de rastreo entre el 31 de agosto y el 2 de septiembre de 2026 en la frontera San Diego-Tijuana, y desde el 7 de septiembre pasó a la neutralización de los aparatos, que continuará hasta el 21 de septiembre.\n\nNi la Secretaría de la Defensa Nacional (SEDENA) ni el Comando Norte de EE.UU. confirmaron con exactitud qué tecnología se usa, aunque este último ha sugerido láseres de alta energía capaces de detectar, rastrear e inutilizar drones a distancia. El Ejército estadounidense ya invirtió en un sistema similar, llamado Locust, fabricado por AeroVironment.\n\nSegún el Comando Norte, este año se han destruido cerca de 300 drones ligados al narcotráfico, un tercio de ellos solo en agosto. ¿Hasta dónde debería llegar la vigilancia militar transfronteriza contra el crimen organizado?\n\n#Ciberseguridad #Drones #México #EstadosUnidos #CrimenOrganizado",
@@ -147,7 +147,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-09-11T10:44:28.927Z",
+        "actualizado": "2026-09-11T10:44:28.927Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     },
