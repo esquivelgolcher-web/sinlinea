@@ -608,6 +608,25 @@ function fbCarruselFalso({ fallo = null, existe = true, publicacionPrevia = null
   };
 }
 
+test("(multicanal) si la comprobación de identidad de una red falla con un error de la API (token invalidado), esa red espera y las demás siguen: la corrida no se aborta", async () => {
+  const p = piezaMulticanal("0e90", versiones3);
+  const raiz = raizCon([p]);
+  const ig = igFalso(); const th = thFalso();
+  const fb = { ...fbFalso(), perfil: async () => { throw Object.assign(new Error("Error validating access token: The session is invalid because the user logged out."), { codigo: 190, subcodigo: 467 }); } };
+  const avisos = [];
+  const r = await ejecutarPublicar({ config: cfgTh, raiz, ahora, ig, clientes: { facebook: fb, threads: th }, persistencia: persistenciaSimulada(raiz), log: { ...log, warn: (m) => avisos.push(m) } });
+  assert.equal(r.destinos[p.id].facebook, "identidad");
+  assert.equal(r.destinos[p.id].instagram, "publicado");
+  assert.equal(r.destinos[p.id].threads, "publicado");
+  assert.match(r.identidadRedes.facebook, /no se pudo comprobar la identidad.*session is invalid/);
+  assert.ok(avisos.some((m) => /identidad de Facebook no coincide|no se pudo comprobar/.test(m)));
+  const g = leer(raiz, p.id);
+  assert.equal(g.estado, "programado", "la pieza sigue en cola por Facebook");
+  assert.equal(g.destinos.facebook.estado, "pendiente");
+  assert.equal(g.destinos.facebook.intento, null, "sin reserva: no se llamó a Facebook");
+  assert.equal(fb.llamadas.length, 0);
+});
+
 test("(carrusel) una pieza carrusel sale en Instagram y Threads: hijos creados en el orden de las diapositivas, contenedor padre con children y publicación; hijos, padre y fase enviando suben al remoto antes de publicar", async () => {
   const p = piezaCarrusel("0f01", { instagram: versiones3.instagram, threads: versiones3.threads });
   const raiz = raizCon([p]);

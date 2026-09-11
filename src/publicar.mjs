@@ -129,7 +129,16 @@ export async function ejecutarPublicar({ config, raiz = process.cwd(), ahora = n
     if (identidad[red] !== undefined) return identidad[red];
     const cliente = todosClientes[red];
     if (!cliente || typeof cliente.perfil !== "function") { identidad[red] = true; return true; }
-    const perfil = await cliente.perfil();
+    let perfil;
+    try { perfil = await cliente.perfil(); }
+    catch (err) {
+      // Un token invalidado (o la API caída) en una red no aborta la corrida: esa red espera y las demás siguen.
+      const detalle = `no se pudo comprobar la identidad de ${NOMBRES_RED[red]} (${ocultarSecretos(err.message)}); no se publica en ${NOMBRES_RED[red]} hasta revisar la credencial (Probar destino)`;
+      if (red === "instagram") resumen.identidad = detalle; else resumen.identidadRedes = { ...(resumen.identidadRedes || {}), [red]: detalle };
+      log.warn(`Cuenta ${cuenta}: ${detalle}`);
+      identidad[red] = false;
+      return false;
+    }
     let ok = true; let detalle = "";
     if (red === "instagram") {
       const esperado = String(config.marca.usuario).replace(/^@/, "").toLowerCase();
