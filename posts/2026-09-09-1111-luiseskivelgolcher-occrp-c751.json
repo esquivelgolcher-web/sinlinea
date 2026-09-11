@@ -90,16 +90,15 @@
         "imagenHash": "abd46362ddf895a4",
         "imagenSha": "e18c1fb104a89755bab9eab79ae73902ed981880"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-09-11T07:11:23.757Z",
-        "actualizado": "2026-09-11T07:11:23.757Z",
-        "contenedorId": "17988559017100604"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "17916309006449968",
+        "idPublicacion": null,
+        "permalink": "https://www.threads.com/@luisegolcher/post/DdI2EUaG_dl",
+        "fecha": "2026-09-11T07:11:23.757Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
