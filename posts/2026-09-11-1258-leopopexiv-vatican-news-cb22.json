@@ -1,7 +1,7 @@
 {
   "id": "2026-09-11-1258-leopopexiv-vatican-news-cb22",
   "cuenta": "leopopexiv",
-  "estado": "borrador",
+  "estado": "programado",
   "formato": "frase",
   "frase": {
     "texto": "I hope that these celebrations may be an occasion of abundant blessings from the Almighty and a source of joy.",
@@ -36,9 +36,26 @@
     "renderizada": "2026-09-11T16:58:52.086Z"
   },
   "ilustracion": null,
-  "programado": null,
+  "programado": "2026-09-11T18:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-11T16:58:35.707Z",
-  "actualizado": "2026-09-11T16:58:35.707Z"
+  "actualizado": "2026-09-11T17:01:41.982Z",
+  "destinos": {
+    "instagram": {
+      "texto": "“I hope that these celebrations may be an occasion of abundant blessings from the Almighty and a source of joy.”\n\n— Pope Leo XIV, Telegram greeting for Jewish autumn holidays (2026)\n\nVia Vatican News, 11 September 2026\n\n#PopeLeoXIV #Vatican #CatholicChurch\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #CatholicChurch",
+      "aprobado": {
+        "fecha": "2026-09-11T17:01:41.982Z",
+        "hashPieza": "6d4ddedf08ea9cc5",
+        "imagenHash": "601c07df039cb5a5",
+        "imagenSha": "a89a5ec26bc7654f263346ccd83f5fc40f00eaa3"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
