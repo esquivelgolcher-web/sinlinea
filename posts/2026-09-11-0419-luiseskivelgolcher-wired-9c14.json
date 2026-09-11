@@ -1,0 +1,138 @@
+{
+  "id": "2026-09-11-0419-luiseskivelgolcher-wired-9c14",
+  "cuenta": "luiseskivelgolcher",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "WIRED",
+    "url": "https://www.wired.com/story/us-and-mexico-announce-teaming-up-against-drones/",
+    "titulo": "The US and Mexico Announce They’re Teaming Up Against Drones",
+    "publicado": "2026-09-11T09:15:00.000Z"
+  },
+  "categoria": "SEGURIDAD",
+  "titular": "México y EE.UU. usan láser contra drones del narco",
+  "bajada": "Operación Águila Alta rastrea y neutraliza drones del crimen organizado en la frontera",
+  "caption": "México y Estados Unidos activaron una operación conjunta contra drones usados por el crimen organizado, según reportó WIRED. Bautizada Águila Alta, la estrategia arrancó con una fase de rastreo entre el 31 de agosto y el 2 de septiembre de 2026 en la frontera San Diego-Tijuana, y desde el 7 de septiembre pasó a la neutralización de los aparatos, que continuará hasta el 21 de septiembre.\n\nNi la Secretaría de la Defensa Nacional (SEDENA) ni el Comando Norte de EE.UU. confirmaron con exactitud qué tecnología se usa, aunque este último ha sugerido láseres de alta energía capaces de detectar, rastrear e inutilizar drones a distancia. El Ejército estadounidense ya invirtió en un sistema similar, llamado Locust, fabricado por AeroVironment.\n\nSegún el Comando Norte, este año se han destruido cerca de 300 drones ligados al narcotráfico, un tercio de ellos solo en agosto. ¿Hasta dónde debería llegar la vigilancia militar transfronteriza contra el crimen organizado?",
+  "hashtags": [
+    "#Ciberseguridad",
+    "#Drones",
+    "#México",
+    "#EstadosUnidos",
+    "#CrimenOrganizado"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-09-11-0419-luiseskivelgolcher-wired-9c14.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-11-0419-luiseskivelgolcher-wired-9c14.jpg",
+    "hash": "dab75d05b85b513b",
+    "version": 10,
+    "estilo": "dc8c8fa3edf501fd",
+    "renderizada": "2026-09-11T09:19:35.158Z"
+  },
+  "ilustracion": {
+    "descripcion": "Silueta de un dron comercial sobrevolando una valla fronteriza al atardecer, con el horizonte despejado; el dron ubicado en el tercio superior derecho y el resto del encuadre despejado, sin personas ni texto.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-11-0419-luiseskivelgolcher-wired-9c14.jpg",
+    "hashDescripcion": "2ef969917493ac0b",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-11T09:19:02.145Z",
+    "error": null,
+    "procedencia": "generada"
+  },
+  "formato": "post",
+  "fuentes": [
+    {
+      "rol": "principal",
+      "medio": "WIRED",
+      "autor": "Fernanda González",
+      "url": "https://www.wired.com/story/us-and-mexico-announce-teaming-up-against-drones/",
+      "canonica": "https://www.wired.com/story/us-and-mexico-announce-teaming-up-against-drones/",
+      "idioma": "en",
+      "publicado": "2026-09-11T09:15:00.000Z",
+      "actualizado": "2026-09-11T09:15:00.000Z",
+      "fechaHecho": null,
+      "consultado": "2026-09-11T09:19:02.145Z",
+      "alcance": "completo",
+      "textoRecuperado": {
+        "parrafos": 10,
+        "caracteres": 3238,
+        "enviados": 3256
+      },
+      "fuentesPrimarias": [
+        "https://www.northcom.mil/Newsroom/Press-Releases/Article/4591063/usnorthcom-operational-update-cartel-drone-defeats-at-the-southern-border/",
+        "http://www.aboutads.info"
+      ],
+      "licenciaMedios": null
+    }
+  ],
+  "afirmaciones": [
+    {
+      "texto": "México y Estados Unidos implementan la operación conjunta Águila Alta contra drones usados por organizaciones criminales",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/us-and-mexico-announce-teaming-up-against-drones/",
+      "contrastada": true
+    },
+    {
+      "texto": "La primera fase de rastreo se realizó entre el 31 de agosto y el 2 de septiembre de 2026 en la frontera San Diego-Tijuana",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/us-and-mexico-announce-teaming-up-against-drones/",
+      "contrastada": true
+    },
+    {
+      "texto": "La segunda fase, de neutralización de drones, comenzó el 7 de septiembre y continuará hasta el 21 de septiembre de 2026",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/us-and-mexico-announce-teaming-up-against-drones/",
+      "contrastada": true
+    },
+    {
+      "texto": "El Comando Norte de EE.UU. ha sugerido que la operación podría usar láseres de alta energía, aunque SEDENA no ha especificado la tecnología",
+      "tipo": "hipotesis",
+      "fuente": "https://www.wired.com/story/us-and-mexico-announce-teaming-up-against-drones/",
+      "contrastada": false
+    },
+    {
+      "texto": "El Ejército de EE.UU. cuenta con el sistema láser Locust, de AeroVironment, entregado desde septiembre del año pasado",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/us-and-mexico-announce-teaming-up-against-drones/",
+      "contrastada": true
+    },
+    {
+      "texto": "El Comando Norte de EE.UU. informó haber desactivado o destruido cerca de 300 drones vinculados al crimen organizado en lo que va del año",
+      "tipo": "hecho",
+      "fuente": "https://www.northcom.mil/Newsroom/Press-Releases/Article/4591063/usnorthcom-operational-update-cartel-drone-defeats-at-the-southern-border/",
+      "contrastada": true
+    },
+    {
+      "texto": "No se ha confirmado que los sistemas láser se estén usando específicamente en la Operación Águila Alta",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/us-and-mexico-announce-teaming-up-against-drones/",
+      "contrastada": true
+    }
+  ],
+  "angulo": "Cooperación militar bilateral contra drones criminales mediante tecnología láser, con incertidumbre sobre su alcance real",
+  "atribucion": "WIRED en Español",
+  "puntuacion": {
+    "total": 71,
+    "componentes": {
+      "afinidad": 18,
+      "interes": 18,
+      "evidencia": 14,
+      "actualidad": 15,
+      "visual": 6
+    }
+  },
+  "alertas": [
+    "fuente-unica"
+  ],
+  "carrusel": null,
+  "reel": null,
+  "revision": {
+    "estado": "pendiente",
+    "notas": []
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-11T09:19:02.145Z",
+  "actualizado": "2026-09-11T09:19:02.145Z"
+}
