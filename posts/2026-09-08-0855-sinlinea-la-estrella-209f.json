@@ -24,10 +24,10 @@
   "imagen": {
     "ruta": "public/img/2026-09-08-0855-sinlinea-la-estrella-209f.jpg",
     "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-08-0855-sinlinea-la-estrella-209f.jpg",
-    "hash": "e5a47813adfe2165",
+    "hash": "7de9310714bed8dd",
     "version": 10,
     "estilo": "bd2669fff78536a1",
-    "renderizada": "2026-09-10T15:15:55.349Z"
+    "renderizada": "2026-09-11T16:59:52.237Z"
   },
   "ilustracion": {
     "descripcion": "Un vehículo estacionado de noche con la puerta trasera abierta y cajas selladas en su interior, bajo luces de una patrulla desenfocadas al fondo; el vehículo queda en el tercio superior derecho, resto despejado.",
@@ -43,5 +43,5 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-08T13:55:16.978Z",
-  "actualizado": "2026-09-10T15:15:45.251Z"
+  "actualizado": "2026-09-11T16:59:48.695Z"
 }

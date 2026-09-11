@@ -24,10 +24,10 @@
   "imagen": {
     "ruta": "public/img/2026-09-08-1335-sinlinea-la-estrella-e005.jpg",
     "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-08-1335-sinlinea-la-estrella-e005.jpg",
-    "hash": "946418dec2413204",
+    "hash": "f5360bdc0e443dee",
     "version": 10,
     "estilo": "bd2669fff78536a1",
-    "renderizada": "2026-09-10T15:15:53.132Z"
+    "renderizada": "2026-09-11T16:59:50.109Z"
   },
   "ilustracion": {
     "descripcion": "Pasillo de un hospital público moderno con equipo médico visible, elemento principal en el tercio superior derecho, zona izquierda y central despejadas, sin personas ni rostros.",
@@ -43,5 +43,5 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-08T18:35:45.127Z",
-  "actualizado": "2026-09-10T15:15:45.251Z"
+  "actualizado": "2026-09-11T16:59:48.695Z"
 }
