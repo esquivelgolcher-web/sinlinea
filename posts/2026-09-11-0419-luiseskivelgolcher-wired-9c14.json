@@ -1,7 +1,7 @@
 {
   "id": "2026-09-11-0419-luiseskivelgolcher-wired-9c14",
   "cuenta": "luiseskivelgolcher",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "WIRED",
     "url": "https://www.wired.com/story/us-and-mexico-announce-teaming-up-against-drones/",
@@ -188,16 +188,15 @@
         "imagenHash": "dab75d05b85b513b",
         "imagenSha": "a4188cd06398ede86459cd11412a88e287f4325a"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-09-11T10:44:28.927Z",
-        "actualizado": "2026-09-11T10:44:28.927Z",
-        "contenedorId": "17988575736100604"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18084409733300630",
+        "idPublicacion": null,
+        "permalink": "https://www.threads.com/@luisegolcher/post/DdJOgV9m8A4",
+        "fecha": "2026-09-11T10:44:28.927Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
