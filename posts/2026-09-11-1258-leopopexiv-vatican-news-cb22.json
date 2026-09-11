@@ -1,0 +1,44 @@
+{
+  "id": "2026-09-11-1258-leopopexiv-vatican-news-cb22",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "formato": "frase",
+  "frase": {
+    "texto": "I hope that these celebrations may be an occasion of abundant blessings from the Almighty and a source of joy.",
+    "autor": "Pope Leo XIV",
+    "fuente": "Telegram greeting for Jewish autumn holidays",
+    "anio": 2026,
+    "url": "https://www.vaticannews.va/en/pope/news/2026-09/pope-s-sends-greetings-for-jewish-autumn-holidays.html",
+    "origen": "texto"
+  },
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-09/pope-s-sends-greetings-for-jewish-autumn-holidays.html",
+    "titulo": "Pope sends greetings for Jewish autumn holidays - Vatican News",
+    "publicado": "2026-09-11T17:47:38.341+02:00"
+  },
+  "categoria": "CULTURA",
+  "titular": "Pope Leo XIV",
+  "bajada": "Telegram greeting for Jewish autumn holidays · 2026",
+  "caption": "“I hope that these celebrations may be an occasion of abundant blessings from the Almighty and a source of joy.”\n\n— Pope Leo XIV, Telegram greeting for Jewish autumn holidays (2026)\n\nVia Vatican News, 11 September 2026\n\n#PopeLeoXIV #Vatican #CatholicChurch",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Vatican",
+    "#CatholicChurch"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-09-11-1258-leopopexiv-vatican-news-cb22.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-11-1258-leopopexiv-vatican-news-cb22.jpg",
+    "hash": "601c07df039cb5a5",
+    "version": 1,
+    "estilo": "28c21995920a45b7",
+    "renderizada": "2026-09-11T16:58:52.086Z"
+  },
+  "ilustracion": null,
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-11T16:58:35.707Z",
+  "actualizado": "2026-09-11T16:58:35.707Z"
+}
