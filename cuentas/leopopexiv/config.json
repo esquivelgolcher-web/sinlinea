@@ -46,39 +46,24 @@
   },
   "fuentes": [
     {
-      "nombre": "vatican news",
+      "nombre": "Vatican News",
       "tipo": "rss",
       "url": "https://www.vaticannews.va/en.rss.xml"
     },
     {
-      "nombre": "vatican",
+      "nombre": "Vatican News · Pope",
       "tipo": "rss",
-      "url": "https://press.vatican.va/content/salastampa/en.html"
+      "url": "https://www.vaticannews.va/en/pope.rss.xml"
     },
     {
-      "nombre": "Vatican official website",
+      "nombre": "Vatican News · Church",
       "tipo": "rss",
-      "url": "https://www.vatican.va/content/vatican/en.html"
+      "url": "https://www.vaticannews.va/en/church.rss.xml"
     },
     {
-      "nombre": "1. Vatican Apostolic Library — History",
+      "nombre": "Vatican News · World",
       "tipo": "rss",
-      "url": "https://bav.vatican.va/en/the-library/history-of-BAV.html"
-    },
-    {
-      "nombre": "Vatican Museums — History",
-      "tipo": "rss",
-      "url": "https://www.museivaticani.va/content/museivaticani/en/musei-del-papa/storia.html"
-    },
-    {
-      "nombre": "Vatican Apostolic Archive",
-      "tipo": "rss",
-      "url": "https://www.archivioapostolicovaticano.va/content/aav/en.html"
-    },
-    {
-      "nombre": "Catholic Encyclopedia — New Advent",
-      "tipo": "rss",
-      "url": "https://www.newadvent.org/cathen/"
+      "url": "https://www.vaticannews.va/en/world.rss.xml"
     }
   ],
   "generar": {
