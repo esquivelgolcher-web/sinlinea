@@ -1,7 +1,7 @@
 {
   "id": "2026-09-11-1110-leopopexiv-vatican-news-57ed",
   "cuenta": "leopopexiv",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "vatican news",
     "url": "https://www.vaticannews.va/en/church/news/2026-09/england-wales-assisted-dying-bill-sherrington-egan-wright.html",
@@ -38,9 +38,26 @@
     "generada": "2026-09-11T15:10:52.547Z",
     "error": null
   },
-  "programado": null,
+  "programado": "2026-09-11T13:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-11T15:10:52.547Z",
-  "actualizado": "2026-09-11T15:10:52.547Z"
+  "actualizado": "2026-09-11T16:34:46.904Z",
+  "destinos": {
+    "instagram": {
+      "texto": "As the UK House of Commons prepares to resume debate on an assisted suicide bill, Catholic bishops of England and Wales have called it 'flawed and dangerous,' warning it does not adequately protect vulnerable people. Source: Vatican News, Sept 10, 2026.\n\nFuente: vatican news\n\n#AssistedDying #UKBishops #CatholicChurch #VaticanNews #SanctityOfLife",
+      "aprobado": {
+        "fecha": "2026-09-11T16:34:46.904Z",
+        "hashPieza": "43bbb2cc9e222506",
+        "imagenHash": "cacf28985dbcc996",
+        "imagenSha": "52de1825040a34e2c7eacae7609a031b6b426c9b"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
