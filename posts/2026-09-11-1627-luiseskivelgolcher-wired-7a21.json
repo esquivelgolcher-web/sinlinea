@@ -1,7 +1,7 @@
 {
   "id": "2026-09-11-1627-luiseskivelgolcher-wired-7a21",
   "cuenta": "luiseskivelgolcher",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "WIRED",
     "url": "https://www.wired.com/story/meta-sued-over-training-data-for-its-ai-and-face-recognition-systems/",
@@ -190,9 +190,59 @@
     "estado": "pendiente",
     "notas": []
   },
-  "programado": null,
+  "programado": "2026-09-11T18:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-11T21:27:45.960Z",
-  "actualizado": "2026-09-11T21:27:45.960Z"
+  "actualizado": "2026-09-11T22:20:05.267Z",
+  "destinos": {
+    "instagram": {
+      "texto": "Un grupo de familias de Illinois y California demandó a Meta en una corte federal de Chicago. Según reportó WIRED el 11 de septiembre de 2026, la demanda alega que la empresa usó fotos de Facebook e Instagram, sin aviso ni consentimiento, para entrenar sus modelos de generación de imágenes (Emu y Muse Image) y para construir NameTag, un sistema de reconocimiento facial no lanzado para sus lentes inteligentes. Un \"faceprint\" es una firma biométrica que convierte un rostro en datos únicos, similar a una huella digital. WIRED había reportado en junio que el código de NameTag estaba oculto en la app de los lentes de Meta, descargada más de 50 millones de veces. Meta niega estar construyendo \"una base de datos facial universal\", pero no ha dicho de dónde salieron los datos biométricos. La demanda podría representar a millones de personas. ¿Debería exigirse consentimiento explícito para entrenar IA con fotos personales?\n\nFuente: WIRED\n\n#Meta #IA #PrivacidadDigital #ReconocimientoFacial #Panama",
+      "aprobado": {
+        "fecha": "2026-09-11T22:20:05.267Z",
+        "hashPieza": "275e09ba45136938",
+        "imagenHash": "9bb2e593b860215d",
+        "imagenSha": "3cdd96fa22db97e1b78b6d51d7a79987090c1017",
+        "imagenesSha": [
+          "d9698b95dcafd237d52ab4c8c86eec03292001bf",
+          "02de5d8e8c0ff1caeda9672b99a1375a6d3a8866",
+          "1ed3c2d1f9d6140dd00ab27e01190757eff7c58e",
+          "7fdcb2eb96c3b5e8e1e2fa239c4fce11a85b08f2",
+          "ba9981850b4edec24deb9855d1461f8305a35aa4",
+          "83e9c2b469a199ae4d84cd34c9bad33abcb57df6",
+          "68d608ee2f75721704d64cb10aa4d5a9d5763ada"
+        ]
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    },
+    "threads": {
+      "texto": "Demandan a Meta por usar fotos para entrenar su IA\n\nFamilias de EE.UU. alegan que Meta extrajo datos biométricos sin consentimiento\n\nSegún WIRED (11 de septiembre de 2026)",
+      "aprobado": {
+        "fecha": "2026-09-11T22:20:05.267Z",
+        "hashPieza": "275e09ba45136938",
+        "imagenHash": "9bb2e593b860215d",
+        "imagenSha": "3cdd96fa22db97e1b78b6d51d7a79987090c1017",
+        "imagenesSha": [
+          "d9698b95dcafd237d52ab4c8c86eec03292001bf",
+          "02de5d8e8c0ff1caeda9672b99a1375a6d3a8866",
+          "1ed3c2d1f9d6140dd00ab27e01190757eff7c58e",
+          "7fdcb2eb96c3b5e8e1e2fa239c4fce11a85b08f2",
+          "ba9981850b4edec24deb9855d1461f8305a35aa4",
+          "83e9c2b469a199ae4d84cd34c9bad33abcb57df6",
+          "68d608ee2f75721704d64cb10aa4d5a9d5763ada"
+        ]
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
