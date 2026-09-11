@@ -1,0 +1,12 @@
+{
+  "estado": "verificada",
+  "usuario": "leopopexiv",
+  "comprobado": "2026-09-11T15:12:36.070Z",
+  "detalle": null,
+  "secretos": {
+    "tokenSecreto": "IG_ACCESS_TOKEN",
+    "usuarioIdSecreto": "IG_USER_ID",
+    "origen": "entorno",
+    "entorno": "cuenta-leopopexiv"
+  }
+}
