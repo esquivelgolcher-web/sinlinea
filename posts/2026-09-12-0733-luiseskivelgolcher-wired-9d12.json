@@ -1,7 +1,7 @@
 {
   "id": "2026-09-12-0733-luiseskivelgolcher-wired-9d12",
   "cuenta": "luiseskivelgolcher",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "WIRED",
     "url": "https://www.wired.com/story/security-news-this-week-from-hacks-to-bioweapons-claude-misuse-is-now-everywhere/",
@@ -163,16 +163,15 @@
         "imagenHash": "30d8b579c2ecd0ff",
         "imagenSha": "5eab0584703ff7545e5a4a46aba8da5e12a13aee"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-09-12T23:15:22.022Z",
-        "actualizado": "2026-09-12T23:15:22.022Z",
-        "contenedorId": "17988799602100604"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "17946109071321260",
+        "idPublicacion": null,
+        "permalink": "https://www.threads.com/@luisegolcher/post/DdNJOueHyhS",
+        "fecha": "2026-09-12T23:15:22.022Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
