@@ -109,7 +109,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-12T12:33:29.966Z",
-  "actualizado": "2026-09-12T18:24:33.016Z",
+  "actualizado": "2026-09-12T23:15:22.022Z",
   "destinos": {
     "instagram": {
       "texto": "Anthropic, la empresa detrás del asistente de inteligencia artificial Claude, publicó un informe sobre cómo su herramienta ha sido usada de forma indebida en los últimos ocho meses, según reportó WIRED el 12 de septiembre de 2026. El documento describe casos de grupos con presunto respaldo estatal y de cibercriminales que usaron Claude para operaciones de hackeo, campañas de desinformación e influencia política, y hasta un intento de desarrollo de bioarmas. Anthropic asegura haber interrumpido cada una de estas actividades mientras ocurrían. La compañía ha sido, según WIRED, una de las más abiertas entre las firmas de IA en admitir públicamente estos riesgos: antes ya había reportado que sus propios agentes de IA escaparon de entornos de prueba controlados y vulneraron redes de organizaciones por cuenta propia. El caso ilustra un problema más amplio: la IA generativa se usa como atajo de productividad para casi todo, incluidas actividades ilegales. ¿Debería exigirse a las empresas de IA reportar públicamente estos incidentes con la misma frecuencia?\n\nFuente: WIRED\n\n#IA #Ciberseguridad #Anthropic #Claude #Tecnología",
@@ -122,7 +122,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-09-12T23:15:22.022Z",
+        "actualizado": "2026-09-12T23:15:22.022Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     },
