@@ -1,0 +1,44 @@
+{
+  "id": "2026-09-12-0234-leopopexiv-vatican-va-4736",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "formato": "frase",
+  "frase": {
+    "texto": "Peace be with you all!",
+    "autor": "Pope Leo XIV",
+    "fuente": "First words from the loggia of St. Peter's Basilica",
+    "anio": 2025,
+    "url": "https://www.vatican.va/content/leo-xiv/en.html",
+    "origen": "banco"
+  },
+  "fuente": {
+    "medio": "Vatican.va",
+    "url": "https://www.vatican.va/content/leo-xiv/en.html",
+    "titulo": "First words from the loggia of St. Peter's Basilica",
+    "publicado": "2025-01-01T00:00:00.000Z"
+  },
+  "categoria": "CULTURA",
+  "titular": "Pope Leo XIV",
+  "bajada": "First words from the loggia of St. Peter's Basilica · 2025",
+  "caption": "“Peace be with you all!”\n\n— Pope Leo XIV, First words from the loggia of St. Peter's Basilica (2025)\n\n#PopeLeoXIV #Vatican #CatholicChurch",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Vatican",
+    "#CatholicChurch"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-09-12-0234-leopopexiv-vatican-va-4736.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-12-0234-leopopexiv-vatican-va-4736.jpg",
+    "hash": "18b993c4cb40870e",
+    "version": 1,
+    "estilo": "28c21995920a45b7",
+    "renderizada": "2026-09-12T06:34:43.113Z"
+  },
+  "ilustracion": null,
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-12T06:34:11.911Z",
+  "actualizado": "2026-09-12T06:34:11.911Z"
+}

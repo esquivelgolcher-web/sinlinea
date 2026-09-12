@@ -1,0 +1,45 @@
+{
+  "id": "2026-09-12-0234-leopopexiv-vatican-news-1318",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/church/news/2026-09/massachusetts-diocese-issues-statement-regarding-allegations.html",
+    "titulo": "US Diocese issues statement on allegations against Pontifical Mission Societies National Director",
+    "publicado": "2026-09-11T17:32:00.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "US diocese addresses claims against mission director",
+  "bajada": "Fall River says allegations against Msgr. Landry involve conduct code, not minors",
+  "caption": "The Diocese of Fall River, Massachusetts, has issued a statement on allegations received against Monsignor Roger J. Landry, National Director of the Pontifical Mission Societies in the US. The diocese says the claims do not involve minors but concern possible violations of the Codes of Conduct for Priests in both Fall River and the Archdiocese of New York. Source: Vatican News, Sept. 11, 2026.",
+  "hashtags": [
+    "#VaticanNews",
+    "#CatholicChurch",
+    "#PontificalMissionSocieties",
+    "#FallRiver"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-09-12-0234-leopopexiv-vatican-news-1318.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-12-0234-leopopexiv-vatican-news-1318.jpg",
+    "hash": "1359c6e563f0fa8b",
+    "version": 10,
+    "estilo": "28c21995920a45b7",
+    "renderizada": "2026-09-12T06:34:40.227Z"
+  },
+  "ilustracion": {
+    "descripcion": "Exterior facade of a quiet New England diocesan chancery building at dusk, stone architecture and a small cross visible, empty courtyard, main structure placed in upper right third, left and center open and calm",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-12-0234-leopopexiv-vatican-news-1318.jpg",
+    "hashDescripcion": "e1e9c65e6894d80c",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-12T06:34:11.911Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-12T06:34:11.911Z",
+  "actualizado": "2026-09-12T06:34:11.911Z"
+}
