@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "cuenta": "leopopexiv",
+  "ultimaCorrida": "2026-09-12T05:40:33.730Z",
+  "llamadas": 5,
+  "completo": true,
+  "motivoIncompleto": null,
+  "listadoCompleto": true,
+  "cobertura": {
+    "declaradas": 0,
+    "listadas": 0,
+    "enVentana": 0,
+    "consultadas": 0,
+    "listadoCompleto": true
+  },
+  "pendientes": [],
+  "noSoportadas": {},
+  "ultimaConsulta": {}
+}
