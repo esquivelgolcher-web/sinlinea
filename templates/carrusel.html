@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="es" data-version="1">
+<html lang="es" data-version="2">
 <head>
 <meta charset="utf-8">
 <base href="__BASE__">
@@ -85,6 +85,8 @@
   } else {
     $("fuentes").style.display = "none";
   }
+  // En la portada el título va sobre la ilustración (fondo oscuro): se usa el color de marca legible ahí (lib/render.mjs).
+  if (d.tipo === "portada" && d.titularIlustracion) $("titulo").style.color = d.titularIlustracion;
   if (d.ilustracionUrl && d.tipo === "portada") {
     const fondo = new Image();
     fondo.alt = "";

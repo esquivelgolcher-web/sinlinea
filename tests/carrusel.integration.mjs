@@ -41,7 +41,7 @@ const post = {
 test("(carrusel) renderiza una imagen por diapositiva (JPEG 1080x1350) con portada ilustrada y cierre con fuentes", async () => {
   const raiz = raizTemporal();
   const r = await renderizarCarrusel(post, { config: cfg, navegador, raiz });
-  assert.equal(r.version, 1);
+  assert.equal(r.version, 2);
   assert.equal(r.imagenes.length, 6);
   for (const img of r.imagenes) {
     const meta = await sharp(path.join(raiz, img.ruta)).metadata();

@@ -18,6 +18,28 @@ export function versionPlantilla(html) {
   return Number(m[1]);
 }
 
+// Contraste WCAG 2.1 entre dos colores #RRGGBB (1 = ninguno, 21 = blanco sobre negro).
+function luminancia(hex) {
+  const m = /^#?([0-9a-f]{6})$/i.exec(String(hex || ""));
+  if (!m) return 0;
+  const [r, g, b] = [0, 2, 4].map((i) => parseInt(m[1].slice(i, i + 2), 16) / 255);
+  const lin = (c) => (c <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4);
+  return 0.2126 * lin(r) + 0.7152 * lin(g) + 0.0722 * lin(b);
+}
+export function contraste(a, b) {
+  const [x, y] = [luminancia(a), luminancia(b)].sort((p, q) => q - p);
+  return (x + 0.05) / (y + 0.05);
+}
+
+// Primer color de la lista que se lea bien sobre `fondo`; si ninguno llega al mínimo, el de mayor contraste.
+// Con ilustración, el titular va sobre el fondo oscuro de la cuenta: una marca de color oscuro (granate, azul marino)
+// sería ilegible ahí, así que se pasa al acento o al claro sin tocar las cuentas cuyo color principal ya contrasta.
+export function colorLegible(candidatos, fondo, minimo = 4.5) {
+  const lista = (candidatos || []).filter((c) => /^#?[0-9a-f]{6}$/i.test(String(c || "")));
+  if (!lista.length) return null;
+  return lista.find((c) => contraste(c, fondo) >= minimo) || lista.reduce((mejor, c) => (contraste(c, fondo) > contraste(mejor, fondo) ? c : mejor));
+}
+
 // Iniciales de la marca para el círculo de reserva cuando la cuenta no tiene logo.
 export function iniciales(nombre) {
   const letras = String(nombre || "").trim().split(/\s+/).filter(Boolean).slice(0, 3).map((w) => w[0].toUpperCase()).join("");
@@ -30,8 +52,16 @@ export function iniciales(nombre) {
 export function estiloVisual(config, logoUrl, { conCategoria = true } = {}) {
   const c = config.marca?.colores || {};
   return hashTexto(JSON.stringify({
-    ...(conCategoria && config.marca?.mostrarCategoria === false ? { categoria: false } : {}), principal: c.principal, acento: c.acento, oscuro: c.oscuro, claro: c.claro, logo: Boolean(logoUrl), forma: config.marca?.logoForma || "circulo", tamano: config.marca?.logoTamano || 120, rotulo: config.ilustraciones?.rotulo || "", fecha: config.marca?.mostrarFecha !== false }));
+    ...(conCategoria && config.marca?.mostrarCategoria === false ? { categoria: false } : {}),
+    ...(colorTitular(config) !== (config.marca?.colores?.principal ?? "#FFD400") ? { titular: colorTitular(config) } : {}), principal: c.principal, acento: c.acento, oscuro: c.oscuro, claro: c.claro, logo: Boolean(logoUrl), forma: config.marca?.logoForma || "circulo", tamano: config.marca?.logoTamano || 120, rotulo: config.ilustraciones?.rotulo || "", fecha: config.marca?.mostrarFecha !== false }));
 }
+
+// Color del titular cuando hay ilustración de fondo: el principal si se lee, si no el acento y, en último caso, el claro.
+function colorTitular(config) {
+  const c = { ...COLORES_POR_DEFECTO_RENDER, ...(config.marca?.colores || {}) };
+  return colorLegible([c.principal, c.acento, c.claro], c.oscuro);
+}
+const COLORES_POR_DEFECTO_RENDER = Object.freeze({ principal: "#FFD400", acento: "#E30613", oscuro: "#111111", claro: "#FFFFFF" });
 
 export function datosDeRender(post, config, { logoUrl, ilustracionUrl = null }) {
   return {
@@ -43,6 +73,7 @@ export function datosDeRender(post, config, { logoUrl, ilustracionUrl = null }) 
     bajada: post.bajada,
     // marca.mostrarCategoria=false: la imagen no lleva la etiqueta de sección; por defecto se muestra.
     categoria: config.marca?.mostrarCategoria === false ? "" : post.categoria,
+    titularIlustracion: colorTitular(config),
     variante: post.variante,
     medio: post.fuente.medio,
     // marca.mostrarFecha=false: el pie no lleva fecha (estilo de medio tecnológico); por defecto se muestra.
@@ -206,6 +237,7 @@ export function datosDeDiapositiva(post, config, indice, { logoUrl, ilustracionU
     logoForma: config.marca?.logoForma || "circulo",
     logoTamano: Math.min(Number(config.marca?.logoTamano) || 90, 100),
     usuario: config.marca.usuario,
+    titularIlustracion: colorTitular(config),
     categoria: config.marca?.mostrarCategoria === false ? "" : post.categoria,
     atribucion: post.atribucion || post.fuente?.medio || "",
     nota: d.tipo === "cierre" ? (config.ilustraciones?.rotulo ? `${config.ilustraciones.rotulo} en la portada` : "") : (d.tipo === "portada" ? "Desliza →" : ""),

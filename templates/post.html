@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="es" data-version="10">
+<html lang="es" data-version="11">
 <head>
 <meta charset="utf-8">
 <base href="__BASE__">
@@ -101,6 +101,8 @@
     try {
       await fondo.decode();
       $("post").classList.add("con-ilustracion");
+      // Sobre la ilustración el fondo es oscuro: el titular usa el color de marca que se lee bien ahí (lib/render.mjs).
+      if (d.titularIlustracion) $("post").style.setProperty("--titular", d.titularIlustracion);
       $("rotulo").textContent = d.rotulo || "";
     } catch { /* la imagen no decodifica: se conserva el post tipográfico, sin clase ni rótulo */ }
   }

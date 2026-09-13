@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
-import { versionPlantilla, datosDeRender, construirHtml, estiloVisual, iniciales, datosDeDiapositiva } from "../src/lib/render.mjs";
+import { versionPlantilla, datosDeRender, construirHtml, estiloVisual, iniciales, datosDeDiapositiva, contraste, colorLegible } from "../src/lib/render.mjs";
 import { cargarConfiguracion } from "../src/lib/config.mjs";
 import { cargarConfig } from "../src/lib/config.mjs";
 
@@ -11,7 +11,7 @@ const plantilla = fs.readFileSync("templates/post.html", "utf8");
 
 test("versionPlantilla lee data-version", () => {
   assert.equal(versionPlantilla('<html lang="es" data-version="7">'), 7);
-  assert.equal(versionPlantilla(plantilla), 10);
+  assert.equal(versionPlantilla(plantilla), 11);
 });
 
 test("datosDeRender arma los textos de la imagen", () => {
@@ -121,4 +121,26 @@ test("(marca) marca.mostrarCategoria=false quita la etiqueta de categoría de la
   assert.equal(datosDeDiapositiva(carrusel, cfg, 0, { logoUrl: null }).categoria, post.categoria);
   assert.equal(datosDeDiapositiva(carrusel, sinCategoria, 0, { logoUrl: null }).categoria, "");
   assert.equal(datosDeDiapositiva(carrusel, sinCategoria, 1, { logoUrl: null }).etiqueta, "1 de 1");
+});
+
+test("(contraste) el titular sobre la ilustración usa el primer color de la marca que se lea bien sobre el fondo oscuro", () => {
+  // WCAG: blanco sobre negro es el máximo; un color sobre sí mismo, el mínimo.
+  assert.equal(Math.round(contraste("#FFFFFF", "#000000")), 21);
+  assert.equal(contraste("#123456", "#123456"), 1);
+  // Sin Línea: el amarillo de marca ya contrasta con su negro, así que no cambia nada de lo que hay dibujado.
+  assert.equal(colorLegible(["#FFD400", "#E30613", "#FFFFFF"], "#111111"), "#FFD400");
+  // Leo Pope: el granate es ilegible sobre su fondo oscuro; se pasa al dorado de acento, no al marfil.
+  assert.equal(colorLegible(["#500014", "#C8A45D", "#F5F0E6"], "#202020"), "#C8A45D");
+  // Si ninguno llega al mínimo, gana el de mayor contraste, aunque sea por ser más oscuro que el fondo.
+  assert.equal(colorLegible(["#500014", "#3A0010"], "#202020"), "#3A0010");
+  assert.ok(contraste("#3A0010", "#202020") > contraste("#500014", "#202020"));
+  assert.equal(colorLegible([], "#202020"), null);
+});
+
+test("(contraste) datosDeRender y la portada del carrusel llevan el color del titular ya resuelto para el fondo con ilustración", () => {
+  const marcaOscura = { ...cfg.marca, colores: { principal: "#500014", acento: "#C8A45D", oscuro: "#202020", claro: "#F5F0E6" } };
+  assert.equal(datosDeRender(post, cfg, { logoUrl: null }).titularIlustracion, cfg.marca.colores.principal, "con una marca legible se conserva el color principal");
+  assert.equal(datosDeRender(post, { ...cfg, marca: marcaOscura }, { logoUrl: null }).titularIlustracion, "#C8A45D");
+  const carrusel = { ...post, formato: "carrusel", carrusel: { diapositivas: [{ titulo: "A", texto: "a" }, { titulo: "B", texto: "b" }], imagenes: [] } };
+  assert.equal(datosDeDiapositiva(carrusel, { ...cfg, marca: marcaOscura }, 0, { logoUrl: null }).titularIlustracion, "#C8A45D");
 });

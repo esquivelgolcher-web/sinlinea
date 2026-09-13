@@ -23,7 +23,7 @@ for (const variante of ["negro", "amarillo", "rojo"]) {
     assert.equal(meta.width, 1080);
     assert.equal(meta.height, 1350);
     assert.ok(fs.statSync(img.ruta).size < 1024 * 1024);
-    assert.equal(img.version, 10);
+    assert.equal(img.version, 11);
     assert.match(img.hash, /^[0-9a-f]{16}$/);
   });
 }
@@ -161,7 +161,8 @@ test("(M2) la plantilla usa los colores de la cuenta y, sin logo, las iniciales 
   assert.equal(m.error, null);
   assert.equal(m.chipColor, "rgb(31, 95, 191)", "la categoría usa el acento de la cuenta (#1F5FBF)");
   assert.equal(m.barraAlto, 0, "sin lema no se dibuja la franja inferior");
-  assert.ok(m.pieAbajo < 40, `el pie baja al borde cuando no hay franja (queda a ${m.pieAbajo}px)`);
+  // Sin franja el pie ocupa los 80 px inferiores y su texto queda centrado, es decir, a 40 px del borde; con franja, a 95.
+  assert.ok(m.pieAbajo <= 40, `el pie baja al borde cuando no hay franja (queda a ${m.pieAbajo}px)`);
   assert.equal(m.fondoColor, "rgb(22, 22, 22)", "el fondo oscuro usa el oscuro de la cuenta (#161616, el negro del logo LEG)");
   assert.equal(m.fallbackTexto, "LEG");
   assert.equal(m.fallbackColor, "rgb(233, 228, 218)", "las iniciales de reserva usan el principal (#E9E4DA)");

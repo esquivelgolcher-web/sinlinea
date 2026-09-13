@@ -157,7 +157,9 @@ variante de color de fondo. Es opcional y se controla desde la propia tarjeta:
   nombra a una persona pública y la noticia trata de su actividad pública, la escena la
   incluye en su función, dibujada como ilustración para que no parezca una fotografía
   real del hecho. No se representa a personas privadas ni a quien esté acusado,
-  investigado o detenido: ahí la imagen muestra el lugar, la institución o el contexto.
+  investigado o detenido: ahí la imagen muestra el lugar, la institución o el contexto. La persona
+  se dibuja a media distancia o de perfil, sin primeros planos: el generador no conoce su cara y un
+  retrato de cerca saldría falso.
 - **Usar ilustración generada con IA**: la casilla que activa o desactiva el uso
   de la ilustración en el post final. Si la desmarcas, el post vuelve a usar el
   fondo de color de la variante.

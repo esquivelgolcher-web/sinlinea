@@ -46,7 +46,7 @@ test("(carrusel) los datos de cada diapositiva llevan la identidad de la cuenta,
 
 test("(carrusel) el HTML incrusta los datos en la plantilla versionada y la huella cambia con el texto, la atribución o las fuentes", () => {
   const plantilla = fs.readFileSync(RUTA_PLANTILLA_CARRUSEL, "utf8");
-  assert.equal(versionPlantilla(plantilla), 1);
+  assert.equal(versionPlantilla(plantilla), 2);
   const html = construirHtmlCarrusel(post, cfg, 2, { plantilla, baseHref: "file:///base/", logoUrl: null });
   assert.match(html, /<base href="file:\/\/\/base\/">/);
   assert.match(html, /"titulo":"Cómo funciona"/);

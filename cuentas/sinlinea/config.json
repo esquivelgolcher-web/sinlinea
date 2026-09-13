@@ -37,7 +37,8 @@
     "maxBorradoresPorDia": 12,
     "candidatosMax": 20,
     "diasSinRepetir": 3,
-    "maxHorasAntiguedad": 48
+    "maxHorasAntiguedad": 48,
+    "maxBorradoresPendientes": 6
   },
   "franjas": [
     "07:00",
@@ -48,7 +49,7 @@
     "19:30"
   ],
   "ilustraciones": {
-    "estilo": "Fotografía de prensa: estilo fotoperiodístico, editorial, profesional y realista, formato vertical 4:5. Representa claramente el hecho principal de la noticia. Coloca al protagonista o elemento principal en el tercio superior derecho, bien visible y no demasiado pequeño; mantén la zona izquierda y central relativamente despejada (allí va el titular) y evita elementos importantes en la parte inferior izquierda. Deja un margen visual seguro de unos 100 px alrededor de los bordes. La imagen cubre todo el lienzo, sin bordes. No incluyas texto, letras, números, titulares, logos, marcos, etiquetas, marcas de agua ni degradados. Si el titular nombra a una persona pública y la noticia trata de su actividad pública, represéntala en su función con un tratamiento de ilustración editorial claramente dibujada o pintada, nunca con acabado fotográfico que pueda confundirse con una imagen real del hecho. Para personas privadas, o cuando la pieza trate de denuncias, acusaciones o investigaciones, no representes a la persona: usa el lugar, la institución, el objeto o el contexto relacionado.",
+    "estilo": "Fotografía de prensa: estilo fotoperiodístico, editorial, profesional y realista, formato vertical 4:5. Representa claramente el hecho principal de la noticia. Coloca al protagonista o elemento principal en el tercio superior derecho, bien visible y no demasiado pequeño; mantén la zona izquierda y central relativamente despejada (allí va el titular) y evita elementos importantes en la parte inferior izquierda. Deja un margen visual seguro de unos 100 px alrededor de los bordes. La imagen cubre todo el lienzo, sin bordes. No incluyas texto, letras, números, titulares, logos, marcos, etiquetas, marcas de agua ni degradados. Si el titular nombra a una persona pública y la noticia trata de su actividad pública, represéntala en su función con un tratamiento de ilustración editorial claramente dibujada o pintada, nunca con acabado fotográfico que pueda confundirse con una imagen real del hecho; a media distancia, de perfil, de espaldas o en plano general, sin primeros planos del rostro y sin intentar el parecido facial. Para personas privadas, o cuando la pieza trate de denuncias, acusaciones o investigaciones, no representes a la persona: usa el lugar, la institución, el objeto o el contexto relacionado.",
     "rotulo": ""
   },
   "instagram": {

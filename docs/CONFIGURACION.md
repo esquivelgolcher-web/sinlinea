@@ -357,6 +357,13 @@ ilustración (con el fondo de color de la variante).
    ilustración editorial dibujada que no se confunda con una fotografía real del hecho.
    Quedan fuera las personas privadas, los menores, las víctimas y quien esté acusado,
    investigado o detenido: en esas piezas van el lugar, la institución o el contexto.
+   La persona aparece a media distancia, de perfil, de espaldas o en plano general, reconocible
+   por el cargo, la vestimenta y el contexto: el modelo de imagen no conoce el rostro de cada
+   figura y un primer plano produciría un retrato falso.
+   **Contraste del titular:** con ilustración de fondo, el titular usa el primer color de la marca
+   que se lea bien sobre el oscuro de la cuenta (principal, acento y, en último caso, claro), con
+   el criterio de contraste de WCAG (`colorLegible` en `lib/render.mjs`). Las cuentas cuyo color
+   principal ya contrasta no cambian.
    La regla está en `lib/redactor.mjs` (redacción y `escribirEscena`) y en el
    `ilustraciones.estilo` de cada cuenta.
    Edítalo en `cuentas/<id>/config.json` si cambian los lineamientos de esa cuenta;
