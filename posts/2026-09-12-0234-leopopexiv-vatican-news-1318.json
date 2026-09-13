@@ -1,7 +1,7 @@
 {
   "id": "2026-09-12-0234-leopopexiv-vatican-news-1318",
   "cuenta": "leopopexiv",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/church/news/2026-09/massachusetts-diocese-issues-statement-regarding-allegations.html",
@@ -38,7 +38,11 @@
     "error": null
   },
   "programado": "2026-09-12T18:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "18215379202344740",
+    "permalink": "https://www.instagram.com/p/DdOAA2TFUk0/",
+    "fecha": "2026-09-13T07:13:58.392Z"
+  },
   "error": null,
   "creado": "2026-09-12T06:34:11.911Z",
   "actualizado": "2026-09-13T07:13:58.392Z",
@@ -51,16 +55,15 @@
         "imagenHash": "1359c6e563f0fa8b",
         "imagenSha": "a1c7e53b689d7ddce52564fb85b50232b8a63655"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-09-13T07:13:58.392Z",
-        "actualizado": "2026-09-13T07:13:58.392Z",
-        "contenedorId": "18100680836081176"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18215379202344740",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/DdOAA2TFUk0/",
+        "fecha": "2026-09-13T07:13:58.392Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
