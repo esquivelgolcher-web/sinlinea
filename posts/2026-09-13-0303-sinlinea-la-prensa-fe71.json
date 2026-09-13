@@ -1,7 +1,7 @@
 {
   "id": "2026-09-13-0303-sinlinea-la-prensa-fe71",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "La Prensa",
     "url": "https://www.prensa.com/economia/varios-sectores-de-la-ciudad-capital-sin-energia-electrica/",
@@ -39,9 +39,26 @@
     "generada": "2026-09-13T08:03:51.729Z",
     "error": null
   },
-  "programado": null,
+  "programado": "2026-09-13T07:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-13T08:03:51.729Z",
-  "actualizado": "2026-09-13T08:03:51.729Z"
+  "actualizado": "2026-09-13T08:49:52.040Z",
+  "destinos": {
+    "instagram": {
+      "texto": "El apagón afectó a residentes de Panamá y San Miguelito, con sectores como Pueblo Nuevo, San Francisco y Las Cumbres sin servicio. Etesa trabaja en restablecer la energía de forma gradual. ¿Tu sector se vio afectado por el corte de luz?\n\nFuente: La Prensa\n\n#Panamá #SinLínea #Etesa #ApagónPanamá #EnergíaEléctrica #ServiciosPúblicos",
+      "aprobado": {
+        "fecha": "2026-09-13T08:49:52.040Z",
+        "hashPieza": "3343a4a8f9eaea66",
+        "imagenHash": "56cec7a5463170a7",
+        "imagenSha": "160bb1d58185b29b6566b906f7b060ca85220db6"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
