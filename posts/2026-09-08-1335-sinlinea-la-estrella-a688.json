@@ -24,10 +24,10 @@
   "imagen": {
     "ruta": "public/img/2026-09-08-1335-sinlinea-la-estrella-a688.jpg",
     "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-08-1335-sinlinea-la-estrella-a688.jpg",
-    "hash": "a0f8bcec2c0773e6",
-    "version": 10,
+    "hash": "a1f8be7f2d077579",
+    "version": 11,
     "estilo": "bd2669fff78536a1",
-    "renderizada": "2026-09-11T16:59:49.477Z"
+    "renderizada": "2026-09-13T10:02:14.869Z"
   },
   "ilustracion": {
     "descripcion": "Fachada de la Cámara de Comercio de Panamá con banderas panameñas ondeando, elemento principal en el tercio superior derecho, zona izquierda y central despejadas, sin personas ni texto.",
@@ -43,5 +43,5 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-08T18:35:45.127Z",
-  "actualizado": "2026-09-11T16:59:48.695Z"
+  "actualizado": "2026-09-13T10:02:11.693Z"
 }

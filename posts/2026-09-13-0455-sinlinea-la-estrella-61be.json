@@ -24,10 +24,10 @@
   "imagen": {
     "ruta": "public/img/2026-09-13-0455-sinlinea-la-estrella-61be.jpg",
     "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-13-0455-sinlinea-la-estrella-61be.jpg",
-    "hash": "9cbc8ffb059ee67d",
-    "version": 10,
+    "hash": "9bbc8e68049ee4ea",
+    "version": 11,
     "estilo": "bd2669fff78536a1",
-    "renderizada": "2026-09-13T09:56:02.168Z"
+    "renderizada": "2026-09-13T10:02:12.455Z"
   },
   "ilustracion": {
     "descripcion": "Fachada del Ministerio de Salud de Panamá con banderas ondeando, cielo despejado; el edificio queda en el tercio superior derecho, zona izquierda y central despejadas.",
@@ -43,5 +43,5 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-13T09:55:28.906Z",
-  "actualizado": "2026-09-13T09:55:28.906Z"
+  "actualizado": "2026-09-13T10:02:11.693Z"
 }

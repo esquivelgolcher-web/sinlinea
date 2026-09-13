@@ -24,10 +24,10 @@
   "imagen": {
     "ruta": "public/img/2026-09-08-0855-sinlinea-la-prensa-d4f9.jpg",
     "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-08-0855-sinlinea-la-prensa-d4f9.jpg",
-    "hash": "e2f63b8fb7a42041",
-    "version": 10,
+    "hash": "e1f639fcb6a41eae",
+    "version": 11,
     "estilo": "bd2669fff78536a1",
-    "renderizada": "2026-09-11T16:59:52.894Z"
+    "renderizada": "2026-09-13T10:02:17.804Z"
   },
   "ilustracion": {
     "descripcion": "Manos de una persona mayor sosteniendo unos documentos sobre una mesa, con una silla vacía al fondo simbolizando una reunión; el papeleo queda en el tercio superior derecho, izquierda y centro despejados.",
@@ -43,5 +43,5 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-08T13:55:16.978Z",
-  "actualizado": "2026-09-11T16:59:48.695Z"
+  "actualizado": "2026-09-13T10:02:11.693Z"
 }

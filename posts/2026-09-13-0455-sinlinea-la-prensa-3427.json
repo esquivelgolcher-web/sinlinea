@@ -24,10 +24,10 @@
   "imagen": {
     "ruta": "public/img/2026-09-13-0455-sinlinea-la-prensa-3427.jpg",
     "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-13-0455-sinlinea-la-prensa-3427.jpg",
-    "hash": "481a7d350fe9b1df",
-    "version": 10,
+    "hash": "471a7ba20ee9b04c",
+    "version": 11,
     "estilo": "bd2669fff78536a1",
-    "renderizada": "2026-09-13T09:56:06.437Z"
+    "renderizada": "2026-09-13T10:02:13.155Z"
   },
   "ilustracion": {
     "descripcion": "Plaza pública de la ciudad de Panamá con estructuras metálicas de alumbrado navideño sin encender, de día; los adornos quedan en el tercio superior derecho, zona izquierda y central despejadas.",
@@ -43,5 +43,5 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-13T09:55:28.906Z",
-  "actualizado": "2026-09-13T09:55:28.906Z"
+  "actualizado": "2026-09-13T10:02:11.693Z"
 }
