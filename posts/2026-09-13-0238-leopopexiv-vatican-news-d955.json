@@ -23,24 +23,24 @@
   "imagen": {
     "ruta": "public/img/2026-09-13-0238-leopopexiv-vatican-news-d955.jpg",
     "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-13-0238-leopopexiv-vatican-news-d955.jpg",
-    "hash": "cbc0e3f09cddeec2",
+    "hash": "053108b668d09c00",
     "version": 11,
     "estilo": "32cba508d6c2290e",
-    "renderizada": "2026-09-13T10:02:20.924Z"
+    "renderizada": "2026-09-13T10:05:21.909Z"
   },
   "ilustracion": {
-    "descripcion": "",
+    "descripcion": "Editorial illustration: a pope figure in white cassock stands in upper right third, viewed from behind at medium distance, overlooking a landscape blending modern city skyline and cracked, ruined ground, open sky and empty foreground on the left.",
     "usar": true,
     "ruta": "public/ilus/2026-09-13-0238-leopopexiv-vatican-news-d955.jpg",
-    "hashDescripcion": null,
+    "hashDescripcion": "c39e67087547bf92",
     "proveedor": "gemini",
     "modelo": "gemini-3.1-flash-lite-image",
-    "generada": "2026-09-13T08:06:16.333Z",
+    "generada": "2026-09-13T10:05:13.977Z",
     "error": null
   },
   "programado": null,
   "publicacion": null,
   "error": null,
   "creado": "2026-09-13T06:38:25.851Z",
-  "actualizado": "2026-09-13T10:04:01.292Z"
+  "actualizado": "2026-09-13T10:05:13.977Z"
 }
