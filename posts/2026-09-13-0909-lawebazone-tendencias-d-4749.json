@@ -1,0 +1,44 @@
+{
+  "id": "2026-09-13-0909-lawebazone-tendencias-d-4749",
+  "cuenta": "lawebazone",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Tendencias de México",
+    "url": "https://www.milenio.com/politica/ine-cambia-color-institucional-lila-perdimos-rosa-acusa-taddei",
+    "titulo": "guadalupe taddei zavala",
+    "publicado": "2026-09-13T13:50:00.000Z"
+  },
+  "categoria": "POLÍTICA",
+  "titular": "El INE cambia al lila y ya extrañan el rosa",
+  "bajada": "El instituto electoral mexicano actualizó su color institucional, generando comentarios",
+  "caption": "De repente el INE amaneció con otro color y todos preguntando qué pasó con el rosa de toda la vida. Cambiar de logo es fácil, lo difícil es que la gente se acostumbre.",
+  "hashtags": [
+    "#INE",
+    "#CambioDeColor",
+    "#México"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-09-13-0909-lawebazone-tendencias-d-4749.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-13-0909-lawebazone-tendencias-d-4749.jpg",
+    "hash": "7f480fcaf09c4f60",
+    "version": 11,
+    "estilo": "9fd322fb9927e571",
+    "renderizada": "2026-09-13T14:10:04.184Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada de un edificio institucional con una bandera de color lila ondeando en el tercio superior derecho, resto de la escena despejado y neutro.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-13T14:09:42.750Z",
+  "actualizado": "2026-09-13T14:09:42.750Z"
+}

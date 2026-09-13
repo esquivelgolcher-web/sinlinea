@@ -1,0 +1,45 @@
+{
+  "id": "2026-09-13-0909-lawebazone-tendencias-d-e7a3",
+  "cuenta": "lawebazone",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Tendencias de Chile",
+    "url": "https://www.emol.com/noticias/Deportes/2026/09/12/1211324/jaula-bahamondes-ufc-muslim-salikhov.html",
+    "titulo": "tvn en vivo",
+    "publicado": "2026-09-13T13:40:00.000Z"
+  },
+  "categoria": "DEPORTES",
+  "titular": "'La Jaula' Bahamondes se cuelga otra victoria en la UFC",
+  "bajada": "El chileno Ignacio Bahamondes venció a Muslim Salikhov en la Noche UFC",
+  "caption": "Cuando le dicen 'La Jaula' es porque ahí adentro no perdona a nadie. Otra vez ganando y otra vez todo Chile pegado a la tele viendo cómo lo hace.",
+  "hashtags": [
+    "#UFC",
+    "#LaJaula",
+    "#Chile",
+    "#MMA"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-09-13-0909-lawebazone-tendencias-d-e7a3.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-13-0909-lawebazone-tendencias-d-e7a3.jpg",
+    "hash": "2a1668475b0cbe29",
+    "version": 11,
+    "estilo": "9fd322fb9927e571",
+    "renderizada": "2026-09-13T14:10:03.912Z"
+  },
+  "ilustracion": {
+    "descripcion": "Octágono de artes marciales mixtas iluminado, con un peleador celebrando de espaldas en el tercio superior derecho, área central y zona izquierda despejadas.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-13T14:09:42.750Z",
+  "actualizado": "2026-09-13T14:09:42.750Z"
+}
