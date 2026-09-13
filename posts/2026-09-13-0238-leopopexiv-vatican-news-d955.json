@@ -1,7 +1,7 @@
 {
   "id": "2026-09-13-0238-leopopexiv-vatican-news-d955",
   "cuenta": "leopopexiv",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/pope/news/2026-09/pope-leo-fratelli-tutti-synodal-north-south-americas-progress.html",
@@ -38,9 +38,26 @@
     "generada": "2026-09-13T10:05:13.977Z",
     "error": null
   },
-  "programado": null,
+  "programado": "2026-09-13T13:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-13T06:38:25.851Z",
-  "actualizado": "2026-09-13T10:05:13.977Z"
+  "actualizado": "2026-09-13T13:21:54.799Z",
+  "destinos": {
+    "instagram": {
+      "texto": "Pope Leo XIV met with participants in the 'Fratelli Tutti: North-South Socio-Environmental Dialogue' meeting at the Vatican, urging shared responsibility in facing social, economic and technological change. Source: Vatican News, Sept 12, 2026.\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #FratelliTutti #Environment #SocialJustice",
+      "aprobado": {
+        "fecha": "2026-09-13T13:21:54.799Z",
+        "hashPieza": "1d86db5a76070a90",
+        "imagenHash": "053108b668d09c00",
+        "imagenSha": "5b8b8580b858c55d0820de387198772dd8550bb6"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
