@@ -41,7 +41,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-12T06:34:11.911Z",
-  "actualizado": "2026-09-12T18:23:47.938Z",
+  "actualizado": "2026-09-13T07:13:58.392Z",
   "destinos": {
     "instagram": {
       "texto": "The Diocese of Fall River, Massachusetts, has issued a statement on allegations received against Monsignor Roger J. Landry, National Director of the Pontifical Mission Societies in the US. The diocese says the claims do not involve minors but concern possible violations of the Codes of Conduct for Priests in both Fall River and the Archdiocese of New York. Source: Vatican News, Sept. 11, 2026.\n\nFuente: Vatican News\n\n#VaticanNews #CatholicChurch #PontificalMissionSocieties #FallRiver",
@@ -54,7 +54,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-09-13T07:13:58.392Z",
+        "actualizado": "2026-09-13T07:13:58.392Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
