@@ -23,24 +23,24 @@
   "imagen": {
     "ruta": "public/img/2026-09-13-0238-leopopexiv-vatican-news-d955.jpg",
     "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-13-0238-leopopexiv-vatican-news-d955.jpg",
-    "hash": "f0bebdb2c4b72fb8",
+    "hash": "ccc0e5839dddf055",
     "version": 10,
     "estilo": "048c1e1d76264e73",
-    "renderizada": "2026-09-13T07:45:12.892Z"
+    "renderizada": "2026-09-13T08:06:24.298Z"
   },
   "ilustracion": {
-    "descripcion": "",
+    "descripcion": "Editorial illustration of a pope figure in white papal vestments standing at a podium in the upper right third, gesturing thoughtfully, with a faint backdrop of cracked earth and skeletal factory structures suggesting environmental ruin, left and center space open and uncluttered.",
     "usar": true,
     "ruta": "public/ilus/2026-09-13-0238-leopopexiv-vatican-news-d955.jpg",
-    "hashDescripcion": null,
+    "hashDescripcion": "1935f29390d4b8e5",
     "proveedor": "gemini",
     "modelo": "gemini-3.1-flash-lite-image",
-    "generada": "2026-09-13T06:38:25.851Z",
+    "generada": "2026-09-13T08:06:16.333Z",
     "error": null
   },
   "programado": null,
   "publicacion": null,
   "error": null,
   "creado": "2026-09-13T06:38:25.851Z",
-  "actualizado": "2026-09-13T08:05:40.527Z"
+  "actualizado": "2026-09-13T08:06:16.333Z"
 }
