@@ -1,0 +1,47 @@
+{
+  "id": "2026-09-13-0303-sinlinea-la-prensa-b16d",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/sociedad/pase-u-estas-son-las-compras-permitidas-y-las-que-pueden-ser-rechazadas/",
+    "titulo": "PASE-U: Estas son las compras permitidas y las que pueden ser rechazadas",
+    "publicado": "2026-09-13T05:00:00.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "Ifarhu aclara qué se puede comprar con la tarjeta PASE-U",
+  "bajada": "Alimentos, medicinas, uniformes y zapatillas están permitidos; licor y combustible quedan fuera del beneficio.",
+  "caption": "Miles de familias panameñas dependen del PASE-U para cubrir gastos escolares y del hogar. El Ifarhu detalla ahora qué se puede y qué no se puede comprar con la tarjeta, luego de detectar usos indebidos. ¿Conoces a alguien que use esta ayuda? Cuéntanos si te ha quedado claro cómo usarla.",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#PASEU",
+    "#Ifarhu",
+    "#Educación",
+    "#AsistenciaSocial"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-09-13-0303-sinlinea-la-prensa-b16d.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-13-0303-sinlinea-la-prensa-b16d.jpg",
+    "hash": "d3868c8d101b2ec7",
+    "version": 10,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-09-13T08:04:27.217Z"
+  },
+  "ilustracion": {
+    "descripcion": "Una tarjeta de pago genérica sobre un mostrador de tienda con productos básicos como alimentos y útiles escolares, la tarjeta ubicada en el tercio superior derecho, zona izquierda y central despejadas.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-13-0303-sinlinea-la-prensa-b16d.jpg",
+    "hashDescripcion": "cc609e4128c448e3",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-13T08:03:51.729Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-13T08:03:51.729Z",
+  "actualizado": "2026-09-13T08:03:51.729Z"
+}

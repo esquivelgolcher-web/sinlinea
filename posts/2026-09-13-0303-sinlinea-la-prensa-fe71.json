@@ -1,0 +1,47 @@
+{
+  "id": "2026-09-13-0303-sinlinea-la-prensa-fe71",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/economia/varios-sectores-de-la-ciudad-capital-sin-energia-electrica/",
+    "titulo": "Varios sectores de la ciudad capital se quedaron sin energía eléctrica",
+    "publicado": "2026-09-13T03:59:34.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "Falla eléctrica deja sin luz a varios sectores de la capital",
+  "bajada": "Etesa reportó una afectación cercana a 600 MW por la salida de la generadora Gatún, la noche del sábado.",
+  "caption": "El apagón afectó a residentes de Panamá y San Miguelito, con sectores como Pueblo Nuevo, San Francisco y Las Cumbres sin servicio. Etesa trabaja en restablecer la energía de forma gradual. ¿Tu sector se vio afectado por el corte de luz?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Etesa",
+    "#ApagónPanamá",
+    "#EnergíaEléctrica",
+    "#ServiciosPúblicos"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-09-13-0303-sinlinea-la-prensa-fe71.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-13-0303-sinlinea-la-prensa-fe71.jpg",
+    "hash": "56cec7a5463170a7",
+    "version": 10,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-09-13T08:04:31.076Z"
+  },
+  "ilustracion": {
+    "descripcion": "Vista nocturna de un sector residencial de la ciudad de Panamá con edificios y calles a oscuras, una torre de transmisión eléctrica en el tercio superior derecho, zona izquierda y central despejadas.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-13-0303-sinlinea-la-prensa-fe71.jpg",
+    "hashDescripcion": "4926a6a0f435f296",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-13T08:03:51.729Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-13T08:03:51.729Z",
+  "actualizado": "2026-09-13T08:03:51.729Z"
+}
