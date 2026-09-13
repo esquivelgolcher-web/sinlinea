@@ -1,0 +1,47 @@
+{
+  "id": "2026-09-13-0503-sinlinea-la-prensa-679e",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/judiciales/caso-pandora-ya-son-22-los-imputados-por-el-fraude-de-los-creditos-fiscales-de-la-dgi/",
+    "titulo": "Caso Pandora: ya son 22 los imputados por el fraude de los créditos fiscales de la DGI",
+    "publicado": "2026-09-12T05:02:00.000Z"
+  },
+  "categoria": "INVESTIGACIÓN",
+  "titular": "Caso Pandora suma 22 imputados por fraude en la DGI",
+  "bajada": "Gabriel Martínez es el más reciente señalado por manipular créditos fiscales con funcionarios.",
+  "caption": "La red que manipuló el sistema e-Tax 2.0 de la Dirección General de Ingresos sigue creciendo: ya son 22 las personas imputadas por blanqueo de capitales, falsificación y corrupción. Se le atribuye a Martínez haber ayudado a mover hasta 21 millones de dólares en créditos fiscales falsos. ¿Debería el Estado reforzar los controles internos de la DGI?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#CasoPandora",
+    "#DGI",
+    "#Corrupción",
+    "#CréditosFiscales"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-09-13-0503-sinlinea-la-prensa-679e.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-13-0503-sinlinea-la-prensa-679e.jpg",
+    "hash": "ef74bc9e18a7544c",
+    "version": 11,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-09-13T10:04:15.102Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada de un edificio de oficinas gubernamentales en la ciudad de Panamá, con el cielo despejado de fondo, ubicado en el tercio superior derecho; la zona izquierda y central despejada.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-13-0503-sinlinea-la-prensa-679e.jpg",
+    "hashDescripcion": "2d1e64ccb129892a",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-13T10:03:23.448Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-13T10:03:23.448Z",
+  "actualizado": "2026-09-13T10:03:23.448Z"
+}

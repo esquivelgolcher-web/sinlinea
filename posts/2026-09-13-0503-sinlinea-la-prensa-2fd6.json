@@ -1,0 +1,47 @@
+{
+  "id": "2026-09-13-0503-sinlinea-la-prensa-2fd6",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/economia/ensa-activa-recargas-gratis-para-garantizar-energia-prepago-el-fin-de-semana-a-mas-de-100-mil-clientes-afectados-tras-falla-tecnologica/",
+    "titulo": "ENSA activa recargas gratis para garantizar energía prepago el fin de semana a más de 100 mil clientes afectados tras falla tecnológica",
+    "publicado": "2026-09-12T14:46:19.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "ENSA da recargas gratis a clientes prepago por falla",
+  "bajada": "La medida busca garantizar el suministro eléctrico mientras se restablece el sistema comercial de la empresa.",
+  "caption": "Más de 100 mil hogares con medidor prepago en Panamá se quedaron sin poder recargar electricidad por una falla informática de ENSA. Para evitar que se queden sin luz, la empresa activó pines de recarga gratuita de forma automática mientras arregla el sistema. ¿A ti te llegó la recarga gratuita este fin de semana?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#ENSA",
+    "#Electricidad",
+    "#ServiciosPúblicos",
+    "#Prepago"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-09-13-0503-sinlinea-la-prensa-2fd6.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-13-0503-sinlinea-la-prensa-2fd6.jpg",
+    "hash": "0bb617e61db5ff9c",
+    "version": 11,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-09-13T10:04:07.976Z"
+  },
+  "ilustracion": {
+    "descripcion": "Un medidor de energía prepago instalado en la fachada de una vivienda panameña, con la ciudad de fondo, ubicado en el tercio superior derecho; la zona izquierda y central de la imagen despejada.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-13-0503-sinlinea-la-prensa-2fd6.jpg",
+    "hashDescripcion": "bfa16000795980f2",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-13T10:03:23.448Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-13T10:03:23.448Z",
+  "actualizado": "2026-09-13T10:03:23.448Z"
+}
