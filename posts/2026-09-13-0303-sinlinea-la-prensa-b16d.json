@@ -1,7 +1,7 @@
 {
   "id": "2026-09-13-0303-sinlinea-la-prensa-b16d",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "La Prensa",
     "url": "https://www.prensa.com/sociedad/pase-u-estas-son-las-compras-permitidas-y-las-que-pueden-ser-rechazadas/",
@@ -39,9 +39,26 @@
     "generada": "2026-09-13T08:03:51.729Z",
     "error": null
   },
-  "programado": null,
+  "programado": "2026-09-13T09:30:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-13T08:03:51.729Z",
-  "actualizado": "2026-09-13T08:03:51.729Z"
+  "actualizado": "2026-09-13T08:49:58.997Z",
+  "destinos": {
+    "instagram": {
+      "texto": "Miles de familias panameñas dependen del PASE-U para cubrir gastos escolares y del hogar. El Ifarhu detalla ahora qué se puede y qué no se puede comprar con la tarjeta, luego de detectar usos indebidos. ¿Conoces a alguien que use esta ayuda? Cuéntanos si te ha quedado claro cómo usarla.\n\nFuente: La Prensa\n\n#Panamá #SinLínea #PASEU #Ifarhu #Educación #AsistenciaSocial",
+      "aprobado": {
+        "fecha": "2026-09-13T08:49:58.997Z",
+        "hashPieza": "531420803dcab61e",
+        "imagenHash": "d3868c8d101b2ec7",
+        "imagenSha": "4d0167a039180caa9c8549ceb8c0166bd77855ed"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
