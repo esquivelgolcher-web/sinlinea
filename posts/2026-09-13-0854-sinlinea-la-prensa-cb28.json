@@ -1,0 +1,47 @@
+{
+  "id": "2026-09-13-0854-sinlinea-la-prensa-cb28",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/economia/ley-de-pasantias-en-panama-que-deben-saber-los-jovenes-y-las-empresas-sobre-las-nuevas-reglas/",
+    "titulo": "Ley de Pasantías en Panamá: ¿qué deben saber los jóvenes y las empresas sobre las nuevas reglas?",
+    "publicado": "2026-09-13T13:29:13.000Z"
+  },
+  "categoria": "ECONOMÍA",
+  "titular": "Nueva ley regula pasantías para jóvenes en Panamá",
+  "bajada": "La norma exige remuneración mínima, seguro y tutor, y busca frenar el desempleo juvenil que llega a 19.9%.",
+  "caption": "Más de 113 mil jóvenes entre 15 y 29 años están desocupados en Panamá, según la Cámara de Comercio. La nueva Ley de Pasantías busca darles una puerta de entrada al mercado laboral con condiciones claras: remuneración, seguro, tutor y certificación del aprendizaje. La norma también prohíbe que las empresas usen las pasantías para reemplazar empleos permanentes. ¿Crees que esta ley ayudará realmente a que los jóvenes consigan su primer trabajo?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Empleo",
+    "#Economía",
+    "#Juventud",
+    "#Pasantías"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-09-13-0854-sinlinea-la-prensa-cb28.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-13-0854-sinlinea-la-prensa-cb28.jpg",
+    "hash": "ff591a266a72a370",
+    "version": 11,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-09-13T13:54:49.973Z"
+  },
+  "ilustracion": {
+    "descripcion": "Oficina moderna panameña con jóvenes trabajando en escritorios, uno de ellos en primer plano con una carpeta de documentos, ubicado en el tercio superior derecho, zona izquierda y central despejadas.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-13-0854-sinlinea-la-prensa-cb28.jpg",
+    "hashDescripcion": "f4b5a1454dfe6e0f",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-13T13:54:17.873Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-13T13:54:17.873Z",
+  "actualizado": "2026-09-13T13:54:17.873Z"
+}
