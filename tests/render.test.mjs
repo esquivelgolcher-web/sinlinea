@@ -115,7 +115,7 @@ test("(marca) marca.mostrarCategoria=false quita la etiqueta de categoría de la
   assert.notEqual(estiloVisual(sinCategoria, null), estiloVisual(cfg, null));
   assert.equal(estiloVisual(cfg, null), estiloVisual({ ...cfg, marca: { ...cfg.marca } }, null), "no declararla no cambia nada de lo ya dibujado");
   // Las frases no llevan categoría: su sello no depende de la opción y no se redibujan al apagarla.
-  assert.equal(estiloVisual(sinCategoria, null, { conCategoria: false }), estiloVisual(cfg, null, { conCategoria: false }));
+  assert.equal(estiloVisual(sinCategoria, null, { formato: "frase" }), estiloVisual(cfg, null, { formato: "frase" }));
   // Carrusel: la portada deja de llevar la etiqueta; el resto de diapositivas conservan su numeración y el cierre sus fuentes.
   const carrusel = { ...post, formato: "carrusel", carrusel: { diapositivas: [{ titulo: "A", texto: "a" }, { titulo: "B", texto: "b" }, { titulo: "C", texto: "c" }], imagenes: [] } };
   assert.equal(datosDeDiapositiva(carrusel, cfg, 0, { logoUrl: null }).categoria, post.categoria);
@@ -143,4 +143,14 @@ test("(contraste) datosDeRender y la portada del carrusel llevan el color del ti
   assert.equal(datosDeRender(post, { ...cfg, marca: marcaOscura }, { logoUrl: null }).titularIlustracion, "#C8A45D");
   const carrusel = { ...post, formato: "carrusel", carrusel: { diapositivas: [{ titulo: "A", texto: "a" }, { titulo: "B", texto: "b" }], imagenes: [] } };
   assert.equal(datosDeDiapositiva(carrusel, { ...cfg, marca: marcaOscura }, 0, { logoUrl: null }).titularIlustracion, "#C8A45D");
+});
+
+test("(sello) el de una frase no depende de la etiqueta de sección ni del color del titular sobre ilustración: esas opciones no la redibujan", () => {
+  const marcaOscura = { ...cfg.marca, colores: { principal: "#500014", acento: "#C8A45D", oscuro: "#202020", claro: "#F5F0E6" }, mostrarCategoria: false };
+  const conOpciones = { ...cfg, marca: marcaOscura };
+  const sinOpciones = { ...cfg, marca: { ...marcaOscura, mostrarCategoria: true } };
+  assert.equal(estiloVisual(conOpciones, null, { formato: "frase" }), estiloVisual(sinOpciones, null, { formato: "frase" }), "la frase ignora ambas");
+  assert.notEqual(estiloVisual(conOpciones, null), estiloVisual(sinOpciones, null), "la imagen del post sí las refleja");
+  // Cambiar los colores sí afecta a las frases: su tarjeta los usa.
+  assert.notEqual(estiloVisual(conOpciones, null, { formato: "frase" }), estiloVisual(cfg, null, { formato: "frase" }));
 });

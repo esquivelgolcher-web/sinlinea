@@ -47,13 +47,15 @@ export function iniciales(nombre) {
 }
 
 // Sello de la identidad visual de la cuenta (colores + presencia y forma del logo + rótulo): si cambia, REGENERAR re-dibuja.
-// `conCategoria: false` para las plantillas que no dibujan la etiqueta de categoría (las frases): así apagarla no obliga
-// a redibujar sus imágenes, y las cuentas que no declaran la opción conservan el sello que ya tenían.
-export function estiloVisual(config, logoUrl, { conCategoria = true } = {}) {
+// `formato`: la plantilla de la frase no dibuja ni la etiqueta de categoría ni el titular sobre ilustración, así que esas
+// dos opciones no entran en su sello (si entraran, cambiarlas obligaría a redibujar frases sin motivo). Las claves solo se
+// añaden cuando la cuenta se aparta del valor por defecto: así las demás cuentas conservan el sello que ya tenían.
+export function estiloVisual(config, logoUrl, { formato = "post" } = {}) {
   const c = config.marca?.colores || {};
+  const deLaImagen = formato !== "frase";
   return hashTexto(JSON.stringify({
-    ...(conCategoria && config.marca?.mostrarCategoria === false ? { categoria: false } : {}),
-    ...(colorTitular(config) !== (config.marca?.colores?.principal ?? "#FFD400") ? { titular: colorTitular(config) } : {}), principal: c.principal, acento: c.acento, oscuro: c.oscuro, claro: c.claro, logo: Boolean(logoUrl), forma: config.marca?.logoForma || "circulo", tamano: config.marca?.logoTamano || 120, rotulo: config.ilustraciones?.rotulo || "", fecha: config.marca?.mostrarFecha !== false }));
+    ...(deLaImagen && config.marca?.mostrarCategoria === false ? { categoria: false } : {}),
+    ...(deLaImagen && colorTitular(config) !== (config.marca?.colores?.principal ?? "#FFD400") ? { titular: colorTitular(config) } : {}), principal: c.principal, acento: c.acento, oscuro: c.oscuro, claro: c.claro, logo: Boolean(logoUrl), forma: config.marca?.logoForma || "circulo", tamano: config.marca?.logoTamano || 120, rotulo: config.ilustraciones?.rotulo || "", fecha: config.marca?.mostrarFecha !== false }));
 }
 
 // Color del titular cuando hay ilustración de fondo: el principal si se lee, si no el acento y, en último caso, el claro.
@@ -186,7 +188,7 @@ export async function renderizarFrase(post, { config, navegador, raiz = process.
   const logoUrl = fs.existsSync(path.join(raiz, rutaLogo)) ? rutaLogo.replace(/\\/g, "/") : null;
   const baseHref = pathToFileURL(path.resolve(raiz) + path.sep).href;
   const html = construirHtmlFrase(post, config, { plantilla, baseHref, logoUrl });
-  const estilo = estiloVisual(config, logoUrl, { conCategoria: false });
+  const estilo = estiloVisual(config, logoUrl, { formato: "frase" });
   const dirTemp = path.join(raiz, "temp", "render");
   fs.mkdirSync(dirTemp, { recursive: true });
   const rutaHtml = path.join(dirTemp, `${post.id}.html`);

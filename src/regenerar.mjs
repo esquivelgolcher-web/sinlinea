@@ -24,8 +24,9 @@ export async function ejecutarRegenerar({ config, raiz = process.cwd(), ahora = 
   const rutaLogo = config.rutas?.logo || RUTA_LOGO;
   const logoUrl = fs.existsSync(path.join(raiz, rutaLogo)) ? rutaLogo : null;
   const estilo = estiloActual ?? estiloVisual(config, logoUrl);
-  // Las frases no dibujan la etiqueta de categoría: su sello no depende de esa opción (si no, se redibujarían sin motivo).
-  const estiloFrase = estiloActual ?? estiloVisual(config, logoUrl, { conCategoria: false });
+  // Las frases no dibujan ni la etiqueta de categoría ni el titular sobre la ilustración: su sello no depende de esas
+  // opciones (si dependiera, cambiarlas las redibujaría sin motivo).
+  const estiloFrase = estiloActual ?? estiloVisual(config, logoUrl, { formato: "frase" });
   const estiloDe = (p) => (p.formato === "frase" ? estiloFrase : estilo);
   const cuenta = config.cuenta || CUENTA_LEGADO;
   const opcionesLectura = { cuentaPorDefecto: config.cuentaPrincipal || CUENTA_LEGADO };
