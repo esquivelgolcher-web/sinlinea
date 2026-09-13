@@ -1,0 +1,12 @@
+{
+  "estado": "verificada",
+  "usuario": "lawebazone",
+  "comprobado": "2026-09-13T14:21:49.919Z",
+  "detalle": null,
+  "secretos": {
+    "tokenSecreto": "IG_ACCESS_TOKEN",
+    "usuarioIdSecreto": "IG_USER_ID",
+    "origen": "entorno",
+    "entorno": "cuenta-lawebazone"
+  }
+}
