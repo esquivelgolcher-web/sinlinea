@@ -1,7 +1,7 @@
 {
   "id": "2026-09-13-0909-lawebazone-tendencias-d-e7a3",
   "cuenta": "lawebazone",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "Tendencias de Chile",
     "url": "https://www.emol.com/noticias/Deportes/2026/09/12/1211324/jaula-bahamondes-ufc-muslim-salikhov.html",
@@ -41,5 +41,5 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-13T14:09:42.750Z",
-  "actualizado": "2026-09-13T14:09:42.750Z"
+  "actualizado": "2026-09-13T14:53:05.336Z"
 }
