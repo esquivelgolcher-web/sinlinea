@@ -42,7 +42,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-11T15:10:52.547Z",
-  "actualizado": "2026-09-11T16:59:48.695Z",
+  "actualizado": "2026-09-13T07:13:58.392Z",
   "destinos": {
     "instagram": {
       "texto": "As the UK House of Commons prepares to resume debate on an assisted suicide bill, Catholic bishops of England and Wales have called it 'flawed and dangerous,' warning it does not adequately protect vulnerable people. Source: Vatican News, Sept 10, 2026.\n\nFuente: vatican news\n\n#AssistedDying #UKBishops #CatholicChurch #VaticanNews #SanctityOfLife",
@@ -55,7 +55,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-09-13T07:13:58.392Z",
+        "actualizado": "2026-09-13T07:13:58.392Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
