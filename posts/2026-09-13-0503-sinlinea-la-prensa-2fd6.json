@@ -1,7 +1,7 @@
 {
   "id": "2026-09-13-0503-sinlinea-la-prensa-2fd6",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "La Prensa",
     "url": "https://www.prensa.com/economia/ensa-activa-recargas-gratis-para-garantizar-energia-prepago-el-fin-de-semana-a-mas-de-100-mil-clientes-afectados-tras-falla-tecnologica/",
@@ -39,9 +39,26 @@
     "generada": "2026-09-13T10:03:23.448Z",
     "error": null
   },
-  "programado": null,
+  "programado": "2026-09-13T12:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-13T10:03:23.448Z",
-  "actualizado": "2026-09-13T10:03:23.448Z"
+  "actualizado": "2026-09-13T13:21:36.931Z",
+  "destinos": {
+    "instagram": {
+      "texto": "Más de 100 mil hogares con medidor prepago en Panamá se quedaron sin poder recargar electricidad por una falla informática de ENSA. Para evitar que se queden sin luz, la empresa activó pines de recarga gratuita de forma automática mientras arregla el sistema. ¿A ti te llegó la recarga gratuita este fin de semana?\n\nFuente: La Prensa\n\n#Panamá #SinLínea #ENSA #Electricidad #ServiciosPúblicos #Prepago",
+      "aprobado": {
+        "fecha": "2026-09-13T13:21:36.931Z",
+        "hashPieza": "5807653b1a9d6821",
+        "imagenHash": "0bb617e61db5ff9c",
+        "imagenSha": "8ece480f37e43b98b0c96b8613ceb95902514a43"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
