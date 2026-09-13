@@ -1,7 +1,7 @@
 {
   "id": "2026-09-11-1258-leopopexiv-vatican-news-cb22",
   "cuenta": "leopopexiv",
-  "estado": "programado",
+  "estado": "publicado",
   "formato": "frase",
   "frase": {
     "texto": "I hope that these celebrations may be an occasion of abundant blessings from the Almighty and a source of joy.",
@@ -37,7 +37,11 @@
   },
   "ilustracion": null,
   "programado": "2026-09-11T18:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "18050968649607076",
+    "permalink": "https://www.instagram.com/p/DdN__eLlWLr/",
+    "fecha": "2026-09-13T07:13:58.392Z"
+  },
   "error": null,
   "creado": "2026-09-11T16:58:35.707Z",
   "actualizado": "2026-09-13T07:13:58.392Z",
@@ -50,16 +54,15 @@
         "imagenHash": "601c07df039cb5a5",
         "imagenSha": "a89a5ec26bc7654f263346ccd83f5fc40f00eaa3"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-09-13T07:13:58.392Z",
-        "actualizado": "2026-09-13T07:13:58.392Z",
-        "contenedorId": "18100680629081176"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18050968649607076",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/DdN__eLlWLr/",
+        "fecha": "2026-09-13T07:13:58.392Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
