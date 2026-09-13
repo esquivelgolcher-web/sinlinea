@@ -1,0 +1,45 @@
+{
+  "id": "2026-09-13-0922-lawebazone-tendencias-d-790a",
+  "cuenta": "lawebazone",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Tendencias de Colombia",
+    "url": "https://barcauniversal.com/barcelona-coach-expected-to-make-five-changes-against-levante/",
+    "titulo": "levante",
+    "publicado": "2026-09-13T14:10:00.000Z"
+  },
+  "categoria": "DEPORTES",
+  "titular": "El Barça mueve cinco piezas y el equipo sigue igual",
+  "bajada": "El técnico prepara rotaciones para el partido ante el Levante",
+  "caption": "Cambiaron cinco jugadores como quien reorganiza los muebles de la casa: al final todo vuelve a quedar en el mismo lugar. Así es el fútbol, primero en la tabla y primero también en probar de todo.",
+  "hashtags": [
+    "#Barça",
+    "#Levante",
+    "#LaLiga",
+    "#FutbolDeTribuna"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-09-13-0922-lawebazone-tendencias-d-790a.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-13-0922-lawebazone-tendencias-d-790a.jpg",
+    "hash": "82d88a618158c7c7",
+    "version": 11,
+    "estilo": "9fd322fb9927e571",
+    "renderizada": "2026-09-13T14:23:13.777Z"
+  },
+  "ilustracion": {
+    "descripcion": "Un banquillo de fútbol con camisetas colgadas y balones apilados en una cancha vacía al atardecer, con el marcador iluminado en el tercio superior derecho, resto despejado.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-13T14:22:48.020Z",
+  "actualizado": "2026-09-13T14:22:48.020Z"
+}

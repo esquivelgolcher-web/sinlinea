@@ -1,0 +1,45 @@
+{
+  "id": "2026-09-13-0922-lawebazone-tendencias-d-9770",
+  "cuenta": "lawebazone",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Tendencias de Argentina",
+    "url": "https://english.mathrubhumi.com/sports/other-sports/lewis-hamilton-charles-leclerc-alexandra-saint-mleux-ferrari-hospitality-spanish-gp-2026-yilycdwv",
+    "titulo": "charles leclerc",
+    "publicado": "2026-09-13T14:00:00.000Z"
+  },
+  "categoria": "DEPORTES",
+  "titular": "Hamilton cede su asiento y se roba el show en Madrid",
+  "bajada": "El piloto ofreció su lugar a la pareja embarazada de Leclerc durante el GP de España",
+  "caption": "Mientras todos peleaban por la pole position, Hamilton se acordó de algo más importante: la buena educación. Si hasta en la Fórmula 1 hay quien cede el asiento, ya no hay excusa para el resto del mundo.",
+  "hashtags": [
+    "#F1",
+    "#GPEspaña",
+    "#Caballerosidad",
+    "#Hamilton"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-09-13-0922-lawebazone-tendencias-d-9770.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-13-0922-lawebazone-tendencias-d-9770.jpg",
+    "hash": "e87afb34a745a5ca",
+    "version": 11,
+    "estilo": "9fd322fb9927e571",
+    "renderizada": "2026-09-13T14:23:13.541Z"
+  },
+  "ilustracion": {
+    "descripcion": "Un auto de Fórmula 1 detenido en boxes con un casco apoyado en el asiento vacío, ambiente de circuito europeo iluminado, elemento principal en el tercio superior derecho, resto despejado.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-13T14:22:48.020Z",
+  "actualizado": "2026-09-13T14:22:48.020Z"
+}
