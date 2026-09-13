@@ -40,7 +40,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-12T06:34:11.911Z",
-  "actualizado": "2026-09-13T10:05:13.977Z",
+  "actualizado": "2026-09-13T14:16:27.738Z",
   "destinos": {
     "instagram": {
       "texto": "“Peace be with you all!”\n\n— Pope Leo XIV, First words from the loggia of St. Peter's Basilica (2025)\n\n#PopeLeoXIV #Vatican #CatholicChurch\n\nFuente: Vatican.va\n\n#PopeLeoXIV #Vatican #CatholicChurch",
@@ -53,7 +53,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-09-13T14:16:27.738Z",
+        "actualizado": "2026-09-13T14:16:27.738Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
