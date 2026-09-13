@@ -1,7 +1,7 @@
 {
   "id": "2026-09-13-0238-leopopexiv-vatican-news-d955",
   "cuenta": "leopopexiv",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/pope/news/2026-09/pope-leo-fratelli-tutti-synodal-north-south-americas-progress.html",
@@ -39,7 +39,11 @@
     "error": null
   },
   "programado": "2026-09-13T13:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "18127153660702104",
+    "permalink": "https://www.instagram.com/p/DdPMFO8IJV6/",
+    "fecha": "2026-09-13T18:19:13.330Z"
+  },
   "error": null,
   "creado": "2026-09-13T06:38:25.851Z",
   "actualizado": "2026-09-13T18:19:13.330Z",
@@ -52,16 +56,15 @@
         "imagenHash": "053108b668d09c00",
         "imagenSha": "5b8b8580b858c55d0820de387198772dd8550bb6"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-09-13T18:19:13.330Z",
-        "actualizado": "2026-09-13T18:19:13.330Z",
-        "contenedorId": "18100874657081176"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18127153660702104",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/DdPMFO8IJV6/",
+        "fecha": "2026-09-13T18:19:13.330Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
