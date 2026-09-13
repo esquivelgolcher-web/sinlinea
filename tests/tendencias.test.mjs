@@ -54,3 +54,15 @@ test("(tendencias) recolectar admite el tipo nuevo junto a los feeds normales y 
   const filtrados = await recolectar(config, { fetchText, ahora, log: { info: () => {}, warn: () => {} }, filtrar: (u) => !u.includes("as.com") });
   assert.equal(filtrados.length, 2, "lo ya visto no vuelve a proponerse");
 });
+
+test("(tendencias) el mismo tema en varios países llega una sola vez: se descartan los candidatos con la URL repetida", async () => {
+  const dos = [
+    { nombre: "Tendencias de México", tipo: "tendencias", url: "https://trends.google.com/trending/rss?geo=MX" },
+    { nombre: "Tendencias de Colombia", tipo: "tendencias", url: "https://trends.google.com/trending/rss?geo=CO" },
+  ];
+  const config = { fuentes: dos, generar: { maxHorasAntiguedad: 48, candidatosMax: 10 } };
+  const c = await recolectar(config, { fetchText: async () => xml, ahora, log: { info: () => {}, warn: () => {} } });
+  assert.equal(c.length, 3, "los dos países traen los mismos tres temas: se envían una vez");
+  assert.equal(new Set(c.map((x) => x.url)).size, c.length);
+  assert.equal(c[0].medio, "Tendencias de México", "se conserva el primero que lo trajo");
+});

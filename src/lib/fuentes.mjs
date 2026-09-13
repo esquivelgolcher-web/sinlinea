@@ -191,5 +191,9 @@ export async function recolectar(config, { fetchText, ahora = new Date(), log = 
     }
   }
   candidatos.sort((a, b) => b.fecha.localeCompare(a.fecha));
-  return candidatos.slice(0, config.generar.candidatosMax);
+  // Una misma noticia puede llegar por varias fuentes (el mismo tema en las tendencias de varios países, o un teletipo
+  // que publican dos medios): se envía una sola vez, la del primero que la trajo.
+  const vistas = new Set();
+  const unicos = candidatos.filter((c) => (vistas.has(c.url) ? false : vistas.add(c.url)));
+  return unicos.slice(0, config.generar.candidatosMax);
 }

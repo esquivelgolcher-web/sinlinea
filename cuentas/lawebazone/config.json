@@ -1,0 +1,86 @@
+{
+  "nombre": "La Webazone",
+  "idioma": "es",
+  "zonaHoraria": "America/Panama",
+  "automatico": {
+    "generar": false,
+    "publicar": false
+  },
+  "marca": {
+    "nombre": "La Webazone",
+    "usuario": "@lawebazone",
+    "lema": "",
+    "logoForma": "circulo",
+    "logoTamano": 120,
+    "colores": {
+      "principal": "#FFD400",
+      "acento": "#E30613",
+      "oscuro": "#111111",
+      "claro": "#FFFFFF"
+    },
+    "mostrarFecha": false,
+    "mostrarCategoria": false
+  },
+  "editorial": {
+    "temas": [
+      "Memes y humor de Latinoamérica",
+      "Tendencias del día",
+      "Deportes, música y farándula",
+      "Tecnología, precios y trámites cotidianos"
+    ],
+    "tono": "Cercano, ágil y observacional; el humor va sobre la situación, nunca sobre una persona."
+  },
+  "fuentes": [
+    {
+      "nombre": "Tendencias de México",
+      "tipo": "tendencias",
+      "url": "https://trends.google.com/trending/rss?geo=MX"
+    },
+    {
+      "nombre": "Tendencias de Colombia",
+      "tipo": "tendencias",
+      "url": "https://trends.google.com/trending/rss?geo=CO"
+    },
+    {
+      "nombre": "Tendencias de Argentina",
+      "tipo": "tendencias",
+      "url": "https://trends.google.com/trending/rss?geo=AR"
+    },
+    {
+      "nombre": "Tendencias de Panamá",
+      "tipo": "tendencias",
+      "url": "https://trends.google.com/trending/rss?geo=PA"
+    },
+    {
+      "nombre": "Tendencias de Chile",
+      "tipo": "tendencias",
+      "url": "https://trends.google.com/trending/rss?geo=CL"
+    }
+  ],
+  "generar": {
+    "maxPorCorrida": 2,
+    "maxBorradoresPorDia": 4,
+    "candidatosMax": 12,
+    "diasSinRepetir": 2,
+    "maxHorasAntiguedad": 24,
+    "maxBorradoresPendientes": 6
+  },
+  "franjas": [
+    "11:00",
+    "15:00",
+    "19:00"
+  ],
+  "ilustraciones": {
+    "activo": false,
+    "estilo": "Sin ilustración: esta cuenta usa tarjetas tipográficas como base del meme.",
+    "rotulo": ""
+  },
+  "instagram": {
+    "origen": "entorno",
+    "tokenSecreto": "IG_ACCESS_TOKEN_LAWEBAZONE",
+    "usuarioIdSecreto": "IG_USER_ID_LAWEBAZONE"
+  },
+  "metricas": {
+    "recoger": false
+  }
+}
