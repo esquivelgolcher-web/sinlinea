@@ -1,7 +1,7 @@
 {
   "id": "2026-09-13-0238-leopopexiv-vatican-va-000c",
   "cuenta": "leopopexiv",
-  "estado": "borrador",
+  "estado": "programado",
   "formato": "frase",
   "frase": {
     "texto": "God loves us, God loves you all, and evil will not prevail.",
@@ -36,9 +36,26 @@
     "renderizada": "2026-09-13T10:05:22.163Z"
   },
   "ilustracion": null,
-  "programado": null,
+  "programado": "2026-09-13T18:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-13T06:38:25.851Z",
-  "actualizado": "2026-09-13T10:05:13.977Z"
+  "actualizado": "2026-09-13T13:21:58.841Z",
+  "destinos": {
+    "instagram": {
+      "texto": "“God loves us, God loves you all, and evil will not prevail.”\n\n— Pope Leo XIV, First address from the loggia of St. Peter's Basilica (2025)\n\n#PopeLeoXIV #Vatican #CatholicChurch\n\nFuente: Vatican.va\n\n#PopeLeoXIV #Vatican #CatholicChurch",
+      "aprobado": {
+        "fecha": "2026-09-13T13:21:58.841Z",
+        "hashPieza": "89f8ae2cc7b1d106",
+        "imagenHash": "deeeb8794f08d203",
+        "imagenSha": "3e547237dac44a034803dd9e96ef4d21eab62418"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
