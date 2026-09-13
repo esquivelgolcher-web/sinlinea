@@ -1,0 +1,47 @@
+{
+  "id": "2026-09-13-0455-sinlinea-la-prensa-3427",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/politica/navidad-2026-de-la-alcaldia-de-panama-superaria-los-38-millones-en-contratos/",
+    "titulo": "Navidad 2026 de la Alcaldía de Panamá superaría los $3.8 millones en contratos",
+    "publicado": "2026-09-12T18:21:01.000Z"
+  },
+  "categoria": "POLÍTICA",
+  "titular": "Alcaldía de Panamá gastará más de $3.8 millones en Navidad 2026",
+  "bajada": "Nueva licitación por $533 mil se suma al contrato de alumbrado navideño de $3.3 millones adjudicado en julio.",
+  "caption": "Mientras se discuten recortes en otros sectores, la Alcaldía de Panamá alista una licitación de $533 mil para las actividades navideñas de este año, que se suma a los $3.3 millones ya adjudicados para el alumbrado. En total, la fiesta de fin de año superará los $3.8 millones en contratos públicos. La propuesta se recibirá el 26 de octubre. ¿Le parece justificado ese gasto en medio de otras prioridades?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Alcaldía",
+    "#Navidad",
+    "#GastoPúblico",
+    "#Contratos"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-09-13-0455-sinlinea-la-prensa-3427.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-13-0455-sinlinea-la-prensa-3427.jpg",
+    "hash": "481a7d350fe9b1df",
+    "version": 10,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-09-13T09:56:06.437Z"
+  },
+  "ilustracion": {
+    "descripcion": "Plaza pública de la ciudad de Panamá con estructuras metálicas de alumbrado navideño sin encender, de día; los adornos quedan en el tercio superior derecho, zona izquierda y central despejadas.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-13-0455-sinlinea-la-prensa-3427.jpg",
+    "hashDescripcion": "d5fff2017db9e45f",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-13T09:55:28.906Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-13T09:55:28.906Z",
+  "actualizado": "2026-09-13T09:55:28.906Z"
+}

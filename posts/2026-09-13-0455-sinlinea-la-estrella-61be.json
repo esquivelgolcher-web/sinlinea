@@ -1,0 +1,47 @@
+{
+  "id": "2026-09-13-0455-sinlinea-la-estrella-61be",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/amoacss-alerta-por-presupuesto-del-minsa-para-2027-estaria-800-millones-por-debajo-de-sus-necesidades-AF25640356",
+    "titulo": "Amoacss alerta por presupuesto del Minsa para 2027: estaría $800 millones por debajo de sus necesidades",
+    "publicado": "2026-09-12T20:17:00.000Z"
+  },
+  "categoria": "SALUD",
+  "titular": "Gremio médico alerta faltante de $800 millones en Minsa 2027",
+  "bajada": "Amoacss advierte que el presupuesto de Salud para 2027 no cubre las necesidades reales del sistema sanitario.",
+  "caption": "El presupuesto que se está armando para el próximo año dejaría al Minsa con $800 millones menos de lo que necesita, según el gremio de médicos de la CSS. Ya en 2026 hubo un recorte de más de $442 millones frente a lo solicitado. La preocupación es que, ante esos huecos, se termine usando dinero de los asegurados de la CSS para tapar gastos que le tocan al Estado. ¿Debería el Gobierno garantizar primero el presupuesto de salud antes que otros gastos?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Salud",
+    "#CSS",
+    "#Minsa",
+    "#PresupuestoPúblico"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-09-13-0455-sinlinea-la-estrella-61be.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-13-0455-sinlinea-la-estrella-61be.jpg",
+    "hash": "9cbc8ffb059ee67d",
+    "version": 10,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-09-13T09:56:02.168Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada del Ministerio de Salud de Panamá con banderas ondeando, cielo despejado; el edificio queda en el tercio superior derecho, zona izquierda y central despejadas.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-13-0455-sinlinea-la-estrella-61be.jpg",
+    "hashDescripcion": "0ff106dadefac25c",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-13T09:55:28.906Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-13T09:55:28.906Z",
+  "actualizado": "2026-09-13T09:55:28.906Z"
+}
