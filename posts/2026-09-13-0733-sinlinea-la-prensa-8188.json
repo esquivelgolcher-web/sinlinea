@@ -1,0 +1,47 @@
+{
+  "id": "2026-09-13-0733-sinlinea-la-prensa-8188",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/economia/caf-concede-prestamo-de-500-millones-de-dolares-a-panama-para-el-sector-agricola/",
+    "titulo": "CAF concede préstamo de 500 millones de dólares a Panamá para el sector agrícola",
+    "publicado": "2026-09-11T21:23:17.000Z"
+  },
+  "categoria": "ECONOMÍA",
+  "titular": "CAF presta 500 millones de dólares a Panamá para el agro",
+  "bajada": "El crédito al Banco Nacional apoyará pymes y negocios liderados por mujeres en zonas rurales.",
+  "caption": "El Banco de Desarrollo de América Latina y el Caribe otorgó su préstamo más grande en Panamá: 500 millones de dólares para el Banco Nacional. La mitad irá a agronegocio y agroindustria, golpeados por El Niño, y la otra mitad a pequeñas y medianas empresas, con énfasis en las lideradas por mujeres. Se espera beneficiar a 3,300 negocios en zonas rurales. ¿Crees que este dinero llegará a quienes más lo necesitan?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Economía",
+    "#Agro",
+    "#Pymes",
+    "#CAF"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-09-13-0733-sinlinea-la-prensa-8188.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-13-0733-sinlinea-la-prensa-8188.jpg",
+    "hash": "84acefee226cb534",
+    "version": 11,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-09-13T12:34:31.909Z"
+  },
+  "ilustracion": {
+    "descripcion": "Campo agrícola panameño con cultivos verdes en primer plano despejado y un letrero de banco rural en el tercio superior derecho, cielo despejado.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-13-0733-sinlinea-la-prensa-8188.jpg",
+    "hashDescripcion": "61f5b73775300801",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-13T12:33:56.260Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-13T12:33:56.260Z",
+  "actualizado": "2026-09-13T12:33:56.260Z"
+}

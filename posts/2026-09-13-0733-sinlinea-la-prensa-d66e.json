@@ -1,0 +1,47 @@
+{
+  "id": "2026-09-13-0733-sinlinea-la-prensa-d66e",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/economia/reformas-al-sector-electrico-10-claves-para-seguir-el-debate-en-la-asamblea-nacional/",
+    "titulo": "Reformas al sector eléctrico: 10 claves para seguir el debate en la Asamblea Nacional",
+    "publicado": "2026-09-11T20:46:17.000Z"
+  },
+  "categoria": "ECONOMÍA",
+  "titular": "Asamblea debate reforma eléctrica que afecta apagones y tarifas",
+  "bajada": "Dos proyectos buscan actualizar la ley del sector eléctrico y dar más poder a la ASEP.",
+  "caption": "En la Asamblea Nacional se discuten dos propuestas para cambiar las reglas del sector eléctrico, con casi 30 años sin actualizarse. Buscan resolver apagones, fallas de voltaje y demoras en reclamos, además de dar más poder a la ASEP para intervenir empresas con fallas graves. También se plantea un límite de 15 días para resolver quejas de los usuarios. ¿Crees que estos cambios mejorarán el servicio eléctrico en tu casa?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Electricidad",
+    "#AsambleaNacional",
+    "#ASEP",
+    "#ServiciosPúblicos"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-09-13-0733-sinlinea-la-prensa-d66e.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-13-0733-sinlinea-la-prensa-d66e.jpg",
+    "hash": "22089c41552613e7",
+    "version": 11,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-09-13T12:34:26.237Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada de la Asamblea Nacional de Panamá con nubes de tormenta al fondo, un poste eléctrico con cables en primer plano izquierdo despejado, edificio legislativo en el tercio superior derecho.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-13-0733-sinlinea-la-prensa-d66e.jpg",
+    "hashDescripcion": "267fb6d34adc1c89",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-13T12:33:56.260Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-13T12:33:56.260Z",
+  "actualizado": "2026-09-13T12:33:56.260Z"
+}
