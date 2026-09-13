@@ -1,7 +1,7 @@
 {
   "id": "2026-09-13-0909-lawebazone-tendencias-d-4749",
   "cuenta": "lawebazone",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "Tendencias de México",
     "url": "https://www.milenio.com/politica/ine-cambia-color-institucional-lila-perdimos-rosa-acusa-taddei",
@@ -40,5 +40,5 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-13T14:09:42.750Z",
-  "actualizado": "2026-09-13T14:09:42.750Z"
+  "actualizado": "2026-09-13T14:53:08.318Z"
 }
