@@ -40,7 +40,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-11T16:58:35.707Z",
-  "actualizado": "2026-09-11T17:01:41.982Z",
+  "actualizado": "2026-09-13T07:13:58.392Z",
   "destinos": {
     "instagram": {
       "texto": "“I hope that these celebrations may be an occasion of abundant blessings from the Almighty and a source of joy.”\n\n— Pope Leo XIV, Telegram greeting for Jewish autumn holidays (2026)\n\nVia Vatican News, 11 September 2026\n\n#PopeLeoXIV #Vatican #CatholicChurch\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #CatholicChurch",
@@ -53,7 +53,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-09-13T07:13:58.392Z",
+        "actualizado": "2026-09-13T07:13:58.392Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
