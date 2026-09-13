@@ -1,7 +1,7 @@
 {
   "id": "2026-09-11-1121-leopopexiv-vatican-news-e578",
   "cuenta": "leopopexiv",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/pope/news/2026-09/popes-words-about-september-11-2001-attacks.html",
@@ -39,7 +39,11 @@
     "error": null
   },
   "programado": "2026-09-11T13:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "17993577186009837",
+    "permalink": "https://www.instagram.com/p/DdN_8qXlbcM/",
+    "fecha": "2026-09-13T07:13:58.392Z"
+  },
   "error": null,
   "creado": "2026-09-11T15:21:00.679Z",
   "actualizado": "2026-09-13T07:13:58.392Z",
@@ -52,16 +56,15 @@
         "imagenHash": "9203ba31ddea88d7",
         "imagenSha": "8c162fcb4789706cd325fed41288b028e2ce2e18"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-09-13T07:13:58.392Z",
-        "actualizado": "2026-09-13T07:13:58.392Z",
-        "contenedorId": "18100680443081176"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "17993577186009837",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/DdN_8qXlbcM/",
+        "fecha": "2026-09-13T07:13:58.392Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
