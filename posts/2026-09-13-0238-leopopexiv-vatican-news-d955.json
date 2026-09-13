@@ -42,7 +42,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-13T06:38:25.851Z",
-  "actualizado": "2026-09-13T13:21:54.799Z",
+  "actualizado": "2026-09-13T18:19:13.330Z",
   "destinos": {
     "instagram": {
       "texto": "Pope Leo XIV met with participants in the 'Fratelli Tutti: North-South Socio-Environmental Dialogue' meeting at the Vatican, urging shared responsibility in facing social, economic and technological change. Source: Vatican News, Sept 12, 2026.\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #FratelliTutti #Environment #SocialJustice",
@@ -55,7 +55,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-09-13T18:19:13.330Z",
+        "actualizado": "2026-09-13T18:19:13.330Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
