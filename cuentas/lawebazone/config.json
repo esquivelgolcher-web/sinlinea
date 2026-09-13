@@ -3,7 +3,7 @@
   "idioma": "es",
   "zonaHoraria": "America/Panama",
   "automatico": {
-    "generar": false,
+    "generar": true,
     "publicar": false
   },
   "marca": {
