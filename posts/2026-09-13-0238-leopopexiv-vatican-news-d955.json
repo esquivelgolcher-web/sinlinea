@@ -29,10 +29,10 @@
     "renderizada": "2026-09-13T07:45:12.892Z"
   },
   "ilustracion": {
-    "descripcion": "A simple wooden globe resting on a stone Vatican courtyard bench at dusk, placed in the upper right third, with the empty cobblestone square open and unobstructed on the left and center.",
+    "descripcion": "",
     "usar": true,
     "ruta": "public/ilus/2026-09-13-0238-leopopexiv-vatican-news-d955.jpg",
-    "hashDescripcion": "b53dbc7c01295486",
+    "hashDescripcion": null,
     "proveedor": "gemini",
     "modelo": "gemini-3.1-flash-lite-image",
     "generada": "2026-09-13T06:38:25.851Z",
@@ -42,5 +42,5 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-13T06:38:25.851Z",
-  "actualizado": "2026-09-13T07:45:12.189Z"
+  "actualizado": "2026-09-13T08:05:40.527Z"
 }
