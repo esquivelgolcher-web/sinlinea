@@ -349,6 +349,13 @@ ilustración (con el fondo de color de la variante).
    cuántas ilustraciones pide REGENERAR a Gemini en una misma corrida; los
    posts que se queden fuera esperan a la corrida de la siguiente hora (no se
    pierden, solo se posponen).
+4b. **Tipos de fuente.** `rss` (un feed), `portada` (la home de un medio, con `patronArticulo`)
+   y `tendencias` (qué se busca hoy en un país, en el formato RSS de Google Trends:
+   `https://trends.google.com/trending/rss?geo=PA`). En una fuente de tendencias cada tema
+   es un candidato aparte con la URL de la noticia que lo explica, porque todos comparten el
+   enlace del feed y `seen.json` los daría por vistos tras el primero. Lo que llega a Claude
+   es el término, cuánta gente lo busca y el titular que lo explica. Útil para cuentas que
+   comentan la actualidad en vez de informar sobre ella.
 5. `ilustraciones.estilo` son las instrucciones fijas que se envían a Gemini con
    cada escena (lineamientos de imagen: fotoperiodismo realista, protagonista en el
    tercio superior derecho, zona del titular despejada, sin texto).

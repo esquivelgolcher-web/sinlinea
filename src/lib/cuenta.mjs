@@ -6,7 +6,7 @@ export const RE_IDIOMA = /^[a-z]{2}(-[A-Z]{2})?$/;
 export const RE_COLOR = /^#[0-9A-Fa-f]{6}$/;
 export const RE_HORA = /^([01]\d|2[0-3]):[0-5]\d$/;
 export const RE_URL = /^https?:\/\//;
-export const TIPOS_FUENTE = ["rss", "portada"];
+export const TIPOS_FUENTE = ["rss", "portada", "tendencias"];
 export const LOGO_FORMAS = ["circulo", "cuadrado"];
 export const LOGO_TAMANO = Object.freeze({ min: 60, max: 160, porDefecto: 120 });
 export const COLORES_POR_DEFECTO = Object.freeze({ principal: "#FFD400", acento: "#E30613", oscuro: "#111111", claro: "#FFFFFF" });
@@ -76,7 +76,7 @@ export function erroresDeCuenta(d, { idsExistentes = [], editando = false } = {}
   fuentes.forEach((f, i) => {
     const n = i + 1;
     if (!String(f.nombre || "").trim()) e.push(`fuentes: la fuente ${n} no tiene nombre`);
-    if (!TIPOS_FUENTE.includes(f.tipo)) e.push(`fuentes: la fuente ${n} debe ser rss o portada`);
+    if (!TIPOS_FUENTE.includes(f.tipo)) e.push(`fuentes: la fuente ${n} debe ser ${TIPOS_FUENTE.join(", ")}`);
     if (!RE_URL.test(String(f.url || ""))) e.push(`fuentes: la fuente ${n} necesita una URL http(s)`);
     if (f.tipo === "portada") {
       if (!String(f.patronArticulo || "").trim()) e.push(`fuentes: la fuente ${n} (portada) necesita un patrón de URL de artículo`);

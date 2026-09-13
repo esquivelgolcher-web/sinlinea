@@ -1185,7 +1185,7 @@ $("zonas").replaceChildren(...ZONAS.map((z) => el("option", { value: z })));
 
 function filaFuente(f = { nombre: "", tipo: "rss", url: "", patronArticulo: "" }) {
   const nombre = el("input", { placeholder: "Medio", autocomplete: "off" }); nombre.value = f.nombre || "";
-  const tipo = el("select", {}, [el("option", { value: "rss", text: "RSS" }), el("option", { value: "portada", text: "Portada" })]); tipo.value = f.tipo || "rss";
+  const tipo = el("select", {}, [el("option", { value: "rss", text: "RSS" }), el("option", { value: "portada", text: "Portada" }), el("option", { value: "tendencias", text: "Tendencias" })]); tipo.value = f.tipo || "rss";
   const url = el("input", { placeholder: "https://…", autocomplete: "off" }); url.value = f.url || "";
   const patron = el("input", { placeholder: "Patrón de URL de artículo (expresión regular)", autocomplete: "off" }); patron.value = f.patronArticulo || "";
   const labelPatron = el("label", { class: "patron", text: "Patrón de artículo (solo portada)" }, [patron]);

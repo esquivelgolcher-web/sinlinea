@@ -53,6 +53,36 @@ export function candidatosDesdeRss(items, fuente, { ahora, maxHoras }) {
   return salida;
 }
 
+// Tendencias de búsqueda de un país (formato RSS de Google Trends). Todos los temas comparten el <link> del feed, así que
+// aquí NO se usa: cada tema toma la URL de la noticia que lo explica (ht:news_item_url) o, si no la hay, una URL propia
+// derivada del término. Sin URL distinta, `seen.json` daría todos los temas por vistos después del primero.
+export function candidatosDesdeTendencias(xml, fuente, { ahora = new Date(), maxHoras = 48 } = {}) {
+  const texto = String(xml || "");
+  const limpiar = (s) => String(s || "").replace(/<!\[CDATA\[|\]\]>/g, "").replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"').replace(/&#39;/g, "'").trim();
+  const dentro = (bloque, etiqueta) => limpiar((bloque.match(new RegExp(`<${etiqueta}[^>]*>([\\s\\S]*?)</${etiqueta}>`, "i")) || [])[1]);
+  const salida = [];
+  for (const [bloque] of texto.matchAll(/<item\b[\s\S]*?<\/item>/gi)) {
+    const termino = dentro(bloque, "title");
+    if (!termino) continue;
+    const fecha = fechaIso(dentro(bloque, "pubDate"), ahora);
+    if (!esReciente(fecha, ahora, maxHoras)) continue;
+    const busquedas = dentro(bloque, "ht:approx_traffic");
+    const titularNoticia = dentro(bloque, "ht:news_item_title");
+    const urlNoticia = dentro(bloque, "ht:news_item_url");
+    const url = /^https?:\/\//.test(urlNoticia) ? urlNoticia : `https://trends.google.com/trending?q=${encodeURIComponent(termino)}`;
+    // Lo que ve Claude: el término, cuánta gente lo busca y el titular que explica por qué es tendencia.
+    const contexto = [titularNoticia, busquedas ? `Búsquedas: ${busquedas}` : ""].filter(Boolean).join(" · ");
+    salida.push({
+      url, canonica: urlCanonica(url), medio: fuente.nombre, seccion: null, titulo: termino,
+      descripcion: contexto, fecha, texto: contexto || termino, origen: "tendencias",
+      autor: null, idioma: fuente.idioma || null, prioridad: fuente.prioridad ?? null,
+      actualizado: null, consultado: ahora.toISOString(),
+      alcance: "titular", textoRecuperado: { parrafos: 0, caracteres: contexto.length }, fuentesPrimarias: [],
+    });
+  }
+  return salida;
+}
+
 export function candidatosDesdePortada(urls, fuente, { ahora = new Date() } = {}) {
   return urls.map((url) => ({
     url, canonica: urlCanonica(url), medio: fuente.nombre, seccion: seccionDeUrl(url),
@@ -116,6 +146,11 @@ export async function recolectar(config, { fetchText, ahora = new Date(), log = 
       cuerpo = await fetchText(fuente.url, { timeoutMs: 20000, retries: 1 });
     } catch (err) {
       log.warn(`Fuente "${fuente.nombre}" no disponible: ${err.message}`);
+      continue;
+    }
+    if (fuente.tipo === "tendencias") {
+      const deTendencias = candidatosDesdeTendencias(cuerpo, fuente, { ahora, maxHoras }).filter((c) => filtrar(c.url));
+      candidatos = candidatos.concat(deTendencias.slice(0, config.generar.candidatosMax));
       continue;
     }
     if (fuente.tipo === "rss") {

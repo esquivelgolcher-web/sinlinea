@@ -22,7 +22,7 @@ function validarFuentes(fuentes, archivo, { permitirVacio = false } = {}) {
   exigir(fuentes.length > 0 || permitirVacio, "fuentes debe tener al menos una fuente (o apaga automatico.generar)", archivo);
   fuentes.forEach((f, i) => {
     exigir(typeof f.nombre === "string" && f.nombre, `fuentes[${i}].nombre es obligatorio`, archivo);
-    exigir(TIPOS_FUENTE.includes(f.tipo), `fuentes[${i}].tipo debe ser rss o portada`, archivo);
+    exigir(TIPOS_FUENTE.includes(f.tipo), `fuentes[${i}].tipo debe ser ${TIPOS_FUENTE.join(", ")}`, archivo);
     exigir(/^https?:\/\//.test(f.url || ""), `fuentes[${i}].url debe ser una URL`, archivo);
     if (f.tipo === "portada") {
       exigir(typeof f.patronArticulo === "string", `fuentes[${i}].patronArticulo es obligatorio para portada`, archivo);
