@@ -1,0 +1,46 @@
+{
+  "id": "2026-09-13-0238-leopopexiv-vatican-news-d955",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-09/pope-leo-fratelli-tutti-synodal-north-south-americas-progress.html",
+    "titulo": "Pope: Progress must not leave new ruins in its wake",
+    "publicado": "2026-09-12T11:17:00.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "Pope warns progress must not leave new ruins",
+  "bajada": "Leo XIV meets 'Fratelli Tutti' dialogue group on social and environmental challenges",
+  "caption": "Pope Leo XIV met with participants in the 'Fratelli Tutti: North-South Socio-Environmental Dialogue' meeting at the Vatican, urging shared responsibility in facing social, economic and technological change. Source: Vatican News, Sept 12, 2026.",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Vatican",
+    "#FratelliTutti",
+    "#Environment",
+    "#SocialJustice"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-09-13-0238-leopopexiv-vatican-news-d955.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-13-0238-leopopexiv-vatican-news-d955.jpg",
+    "hash": "f0bebdb2c4b72fb8",
+    "version": 10,
+    "estilo": "28c21995920a45b7",
+    "renderizada": "2026-09-13T06:38:50.986Z"
+  },
+  "ilustracion": {
+    "descripcion": "A simple wooden globe resting on a stone Vatican courtyard bench at dusk, placed in the upper right third, with the empty cobblestone square open and unobstructed on the left and center.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-13-0238-leopopexiv-vatican-news-d955.jpg",
+    "hashDescripcion": "b53dbc7c01295486",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-13T06:38:25.851Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-13T06:38:25.851Z",
+  "actualizado": "2026-09-13T06:38:25.851Z"
+}
