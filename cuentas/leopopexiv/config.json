@@ -4,7 +4,7 @@
   "zonaHoraria": "America/New_York",
   "automatico": {
     "generar": true,
-    "publicar": false
+    "publicar": true
   },
   "marca": {
     "nombre": "Leo Pope",
