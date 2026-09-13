@@ -45,6 +45,17 @@
       "llamadas": 15,
       "completo": true,
       "motivoIncompleto": null
+    },
+    "2026-09-13T05:39:57.288Z": {
+      "perfil": {
+        "seguidores": 81038,
+        "seguidos": 387,
+        "publicaciones": 34
+      },
+      "permiso": "basico+insights",
+      "llamadas": 16,
+      "completo": true,
+      "motivoIncompleto": null
     }
   },
   "porDia": {
@@ -166,31 +177,55 @@
         "follows_and_unfollows": "conjunto-vacio",
         "follower_count": "conjunto-vacio"
       },
-      "consultadoEn": "2026-09-12T05:40:09.579Z"
+      "consultadoEn": "2026-09-13T05:39:57.288Z"
     },
     "2026-09-11": {
       "valores": {
-        "reach": 2085,
-        "views": 4822,
-        "accounts_engaged": 18,
-        "total_interactions": 20,
-        "likes": 14,
+        "reach": 2118,
+        "views": 4940,
+        "accounts_engaged": 20,
+        "total_interactions": 24,
+        "likes": 16,
         "comments": 0,
-        "shares": 0,
+        "shares": 1,
         "saves": 5,
         "reposts": 1,
         "replies": 0,
         "profile_links_taps": 0,
         "follows_and_unfollows": null,
         "follower_count": null,
-        "profile_views": 13,
+        "profile_views": 14,
         "website_clicks": 0
       },
       "faltantes": {
         "follows_and_unfollows": "conjunto-vacio",
         "follower_count": "conjunto-vacio"
       },
-      "consultadoEn": "2026-09-12T05:40:09.579Z"
+      "consultadoEn": "2026-09-13T05:39:57.288Z"
+    },
+    "2026-09-12": {
+      "valores": {
+        "reach": 1110,
+        "views": 2453,
+        "accounts_engaged": 9,
+        "total_interactions": 18,
+        "likes": 6,
+        "comments": 0,
+        "shares": 4,
+        "saves": 3,
+        "reposts": 1,
+        "replies": 0,
+        "profile_links_taps": 0,
+        "follows_and_unfollows": null,
+        "follower_count": null,
+        "profile_views": 5,
+        "website_clicks": 0
+      },
+      "faltantes": {
+        "follows_and_unfollows": "conjunto-vacio",
+        "follower_count": "conjunto-vacio"
+      },
+      "consultadoEn": "2026-09-13T05:39:57.288Z"
     }
   }
 }

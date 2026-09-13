@@ -62,9 +62,26 @@
             "follows": 1
           },
           "faltantes": {}
+        },
+        "2026-09-13T05:39:57.288Z": {
+          "acumulados": {
+            "meGusta": 7,
+            "comentarios": 0,
+            "reach": 1608,
+            "views": 2436,
+            "likes": 7,
+            "comments": 0,
+            "saved": 11,
+            "shares": 0,
+            "total_interactions": 19,
+            "profile_visits": 8,
+            "profile_activity": 0,
+            "follows": 1
+          },
+          "faltantes": {}
         }
       },
-      "ultimaConsulta": "2026-09-12T05:40:09.579Z"
+      "ultimaConsulta": "2026-09-13T05:39:57.288Z"
     },
     "18148295752532111": {
       "fecha": "2026-09-09T19:15:35.000Z",
@@ -126,9 +143,26 @@
             "follows": 0
           },
           "faltantes": {}
+        },
+        "2026-09-13T05:39:57.288Z": {
+          "acumulados": {
+            "meGusta": 33,
+            "comentarios": 0,
+            "reach": 1693,
+            "views": 2639,
+            "likes": 33,
+            "comments": 0,
+            "saved": 3,
+            "shares": 9,
+            "total_interactions": 50,
+            "profile_visits": 4,
+            "profile_activity": 0,
+            "follows": 0
+          },
+          "faltantes": {}
         }
       },
-      "ultimaConsulta": "2026-09-12T05:40:09.579Z"
+      "ultimaConsulta": "2026-09-13T05:39:57.288Z"
     },
     "18230106619323295": {
       "fecha": "2026-09-10T19:14:20.000Z",
@@ -173,9 +207,26 @@
             "follows": 0
           },
           "faltantes": {}
+        },
+        "2026-09-13T05:39:57.288Z": {
+          "acumulados": {
+            "meGusta": 10,
+            "comentarios": 0,
+            "reach": 2027,
+            "views": 3135,
+            "likes": 10,
+            "comments": 0,
+            "saved": 2,
+            "shares": 0,
+            "total_interactions": 12,
+            "profile_visits": 2,
+            "profile_activity": 0,
+            "follows": 0
+          },
+          "faltantes": {}
         }
       },
-      "ultimaConsulta": "2026-09-12T05:40:09.579Z"
+      "ultimaConsulta": "2026-09-13T05:39:57.288Z"
     },
     "18215615350355192": {
       "fecha": "2026-09-10T18:08:53.000Z",
@@ -220,9 +271,26 @@
             "follows": 0
           },
           "faltantes": {}
+        },
+        "2026-09-13T05:39:57.288Z": {
+          "acumulados": {
+            "meGusta": 7,
+            "comentarios": 0,
+            "reach": 695,
+            "views": 1330,
+            "likes": 7,
+            "comments": 0,
+            "saved": 0,
+            "shares": 1,
+            "total_interactions": 9,
+            "profile_visits": 0,
+            "profile_activity": 0,
+            "follows": 0
+          },
+          "faltantes": {}
         }
       },
-      "ultimaConsulta": "2026-09-12T05:40:09.579Z"
+      "ultimaConsulta": "2026-09-13T05:39:57.288Z"
     },
     "18108884542885260": {
       "fecha": "2026-09-11T23:15:31.000Z",
@@ -250,9 +318,26 @@
             "follows": 0
           },
           "faltantes": {}
+        },
+        "2026-09-13T05:39:57.288Z": {
+          "acumulados": {
+            "meGusta": 4,
+            "comentarios": 0,
+            "reach": 832,
+            "views": 1731,
+            "likes": 4,
+            "comments": 0,
+            "saved": 1,
+            "shares": 4,
+            "total_interactions": 10,
+            "profile_visits": 4,
+            "profile_activity": 0,
+            "follows": 0
+          },
+          "faltantes": {}
         }
       },
-      "ultimaConsulta": "2026-09-12T05:40:09.579Z"
+      "ultimaConsulta": "2026-09-13T05:39:57.288Z"
     },
     "17940300240358337": {
       "fecha": "2026-09-11T10:44:41.000Z",
@@ -280,9 +365,56 @@
             "follows": 0
           },
           "faltantes": {}
+        },
+        "2026-09-13T05:39:57.288Z": {
+          "acumulados": {
+            "meGusta": 4,
+            "comentarios": 0,
+            "reach": 1746,
+            "views": 2626,
+            "likes": 4,
+            "comments": 0,
+            "saved": 0,
+            "shares": 0,
+            "total_interactions": 4,
+            "profile_visits": 1,
+            "profile_activity": 0,
+            "follows": 0
+          },
+          "faltantes": {}
         }
       },
-      "ultimaConsulta": "2026-09-12T05:40:09.579Z"
+      "ultimaConsulta": "2026-09-13T05:39:57.288Z"
+    },
+    "18100476017016917": {
+      "fecha": "2026-09-12T23:15:35.000Z",
+      "permalink": "https://www.instagram.com/p/DdNJLbrH675/",
+      "tipo": "IMAGE",
+      "origen": "sistema",
+      "post": "2026-09-12-0733-luiseskivelgolcher-wired-9d12",
+      "categoria": "SEGURIDAD",
+      "franja": "18:00",
+      "titulo": "Anthropic, la empresa detrás del asistente de inteligencia artificial Claude, publicó un i",
+      "consultas": {
+        "2026-09-13T05:39:57.288Z": {
+          "acumulados": {
+            "meGusta": 2,
+            "comentarios": 0,
+            "reach": 335,
+            "views": 596,
+            "likes": 2,
+            "comments": 0,
+            "saved": 1,
+            "shares": 1,
+            "total_interactions": 4,
+            "profile_visits": 0,
+            "profile_activity": 0,
+            "follows": 0
+          },
+          "faltantes": {}
+        }
+      },
+      "ultimaConsulta": "2026-09-13T05:39:57.288Z"
     }
   }
 }
