@@ -1,7 +1,7 @@
 {
   "id": "2026-09-11-1110-leopopexiv-vatican-news-57ed",
   "cuenta": "leopopexiv",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "vatican news",
     "url": "https://www.vaticannews.va/en/church/news/2026-09/england-wales-assisted-dying-bill-sherrington-egan-wright.html",
@@ -39,7 +39,11 @@
     "error": null
   },
   "programado": "2026-09-11T13:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "18114932744281752",
+    "permalink": "https://www.instagram.com/p/DdN_-F3lfDf/",
+    "fecha": "2026-09-13T07:13:58.392Z"
+  },
   "error": null,
   "creado": "2026-09-11T15:10:52.547Z",
   "actualizado": "2026-09-13T07:13:58.392Z",
@@ -52,16 +56,15 @@
         "imagenHash": "cacf28985dbcc996",
         "imagenSha": "52de1825040a34e2c7eacae7609a031b6b426c9b"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-09-13T07:13:58.392Z",
-        "actualizado": "2026-09-13T07:13:58.392Z",
-        "contenedorId": "18100680542081176"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18114932744281752",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/DdN_-F3lfDf/",
+        "fecha": "2026-09-13T07:13:58.392Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
