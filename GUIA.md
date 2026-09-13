@@ -193,6 +193,7 @@ reactivarla, vuelve a marcar "Usar ilustración generada con IA" o pulsa
 Todo lo cotidiano se hace desde el panel: revisar y aprobar borradores, elegir destinos y horas, añadir una red a una pieza publicada, cambiar el texto por red, aprobar la imagen actual, omitir, decidir inciertos, reintentar, pausar, crear borradores a mano, gestionar cuentas, verificar conexiones y ver métricas. Queda fuera del panel:
 - **Editar las diapositivas de un carrusel o el guion de un reel.** El panel las muestra, pero no las edita: hay que cambiar `posts/<id>.json` y volver a dibujar las diapositivas con el render en un ordenador.
 - **Marcar la revisión editorial** de una pieza del perfil (`revision.estado`): no hay botón; se edita en el JSON.
+- **Quitar la fecha o la etiqueta de sección de las imágenes**: `marca.mostrarFecha` y `marca.mostrarCategoria` en `cuentas/<id>/config.json`. Al apagarlas, REGENERAR vuelve a dibujar solo las imágenes activas de esa cuenta; lo ya publicado no se toca.
 - **Ajustar el perfil editorial y los límites de generación**: el bloque `perfil` (temas, pesos, mínimo, formatos), `generar.maxPorCorrida`, `maxBorradoresPorDia`, `maxBorradoresPendientes`, `candidatosMax` y `marca.mostrarFecha` se cambian en `cuentas/<id>/config.json` desde GitHub. El formulario de la cuenta sí cubre nombre, usuario, idioma, zona, franjas, fuentes, temas, tono, colores, logo, ilustraciones y conexiones.
 - **Generar un logo nuevo**: `npm run logo` en un ordenador.
 - **Cambiar el diseño de la imagen** (`templates/*.html`).

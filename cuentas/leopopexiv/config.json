@@ -17,7 +17,8 @@
       "acento": "#C8A45D",
       "oscuro": "#202020",
       "claro": "#F5F0E6"
-    }
+    },
+    "mostrarCategoria": false
   },
   "editorial": {
     "temas": [

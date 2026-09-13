@@ -22,7 +22,11 @@ export async function ejecutarRegenerar({ config, raiz = process.cwd(), ahora = 
   const versionFrase = fs.existsSync(rutaFrase) ? versionPlantilla(fs.readFileSync(rutaFrase, "utf8")) : actual;
   const versionDe = (p) => (p.formato === "frase" ? versionFrase : actual);
   const rutaLogo = config.rutas?.logo || RUTA_LOGO;
-  const estilo = estiloActual ?? estiloVisual(config, fs.existsSync(path.join(raiz, rutaLogo)) ? rutaLogo : null);
+  const logoUrl = fs.existsSync(path.join(raiz, rutaLogo)) ? rutaLogo : null;
+  const estilo = estiloActual ?? estiloVisual(config, logoUrl);
+  // Las frases no dibujan la etiqueta de categoría: su sello no depende de esa opción (si no, se redibujarían sin motivo).
+  const estiloFrase = estiloActual ?? estiloVisual(config, logoUrl, { conCategoria: false });
+  const estiloDe = (p) => (p.formato === "frase" ? estiloFrase : estilo);
   const cuenta = config.cuenta || CUENTA_LEGADO;
   const opcionesLectura = { cuentaPorDefecto: config.cuentaPrincipal || CUENTA_LEGADO };
   // Solo los posts de esta cuenta; los antiguos sin campo `cuenta` pertenecen a la cuenta principal.
@@ -84,7 +88,7 @@ export async function ejecutarRegenerar({ config, raiz = process.cwd(), ahora = 
     imagenDesactualizada(p, versionDe(p))
     || (p.estado === "error" && p.error?.paso === "render")
     || (p.imagen && p.imagen.url !== urlImagen(config.pages.baseUrl, p.id))
-    || (typeof p.imagen?.estilo === "string" && p.imagen.estilo !== estilo) // cambió la paleta o el logo de la cuenta
+    || (typeof p.imagen?.estilo === "string" && p.imagen.estilo !== estiloDe(p)) // cambió la paleta, el logo o la etiqueta de sección
     || regeneradas.has(p.id));
   const resultado = { renderizados: [], fallidos: [] };
   if (!pendientes.length) { log.info("Ninguna imagen que regenerar."); return resultado; }

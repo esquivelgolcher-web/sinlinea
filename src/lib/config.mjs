@@ -109,6 +109,7 @@ function validarMarca(marca, archivo) {
   exigir(typeof marca?.usuario === "string" && marca.usuario.startsWith("@"), "marca.usuario debe empezar con @", archivo);
   exigir(typeof marca?.lema === "string", "marca.lema es obligatorio", archivo);
   if (marca.mostrarFecha !== undefined) exigir(typeof marca.mostrarFecha === "boolean", "marca.mostrarFecha debe ser true o false", archivo);
+  if (marca.mostrarCategoria !== undefined) exigir(typeof marca.mostrarCategoria === "boolean", "marca.mostrarCategoria debe ser true o false", archivo);
   if (marca.colores !== undefined) {
     exigir(marca.colores && typeof marca.colores === "object", "marca.colores debe ser un objeto", archivo);
     for (const k of Object.keys(COLORES_POR_DEFECTO)) {

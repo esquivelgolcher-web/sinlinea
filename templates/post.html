@@ -36,6 +36,7 @@
                    display: flex; align-items: center; justify-content: center; font-family: "Anton", Impact, sans-serif; font-size: calc(var(--logo-tamano) * 0.37); line-height: 1; letter-spacing: 0.04em;
                    text-align: center; border: 5px solid var(--negro); }
   .chip { font-weight: 700; font-size: 26px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--chip-fondo); color: var(--chip-texto); padding: 12px 20px; margin-top: 6px; }
+  .chip:empty { display: none; } /* marca.mostrarCategoria=false: sin etiqueta de sección */
   /* Cuerpo anclado a la mitad inferior: titular de 86 a 70 px (máx. 3 líneas) y bajada de 34 a 30 px (máx. 2 líneas). */
   .cuerpo { left: var(--margen); right: var(--margen); bottom: var(--cuerpo-abajo); display: flex; flex-direction: column; justify-content: flex-end; gap: 28px; }
   /* Sin ilustración (diseño tipográfico) el texto se centra entre la cabecera y el pie. */

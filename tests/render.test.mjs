@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
-import { versionPlantilla, datosDeRender, construirHtml, estiloVisual, iniciales } from "../src/lib/render.mjs";
+import { versionPlantilla, datosDeRender, construirHtml, estiloVisual, iniciales, datosDeDiapositiva } from "../src/lib/render.mjs";
 import { cargarConfiguracion } from "../src/lib/config.mjs";
 import { cargarConfig } from "../src/lib/config.mjs";
 
@@ -104,4 +104,21 @@ test("(marca) marca.mostrarFecha=false deja el pie sin fecha y cambia el sello v
   assert.equal(datosDeRender(post, sinFecha, { logoUrl: null }).fecha, "");
   assert.notEqual(datosDeRender(post, cfg, { logoUrl: null }).fecha, "", "por defecto la fecha se muestra");
   assert.notEqual(estiloVisual(sinFecha, null), estiloVisual(cfg, null));
+});
+
+test("(marca) marca.mostrarCategoria=false quita la etiqueta de categoría de la imagen y de la portada del carrusel, y solo cambia el sello visual de esa cuenta", () => {
+  const sinCategoria = { ...cfg, marca: { ...cfg.marca, mostrarCategoria: false } };
+  assert.equal(datosDeRender(post, cfg, { logoUrl: null }).categoria, post.categoria, "por defecto se muestra");
+  assert.equal(datosDeRender(post, sinCategoria, { logoUrl: null }).categoria, "", "apagada, el chip queda vacío y la plantilla no lo dibuja");
+  assert.equal(datosDeRender(post, { ...cfg, marca: { ...cfg.marca, mostrarCategoria: true } }, { logoUrl: null }).categoria, post.categoria);
+  // El sello visual cambia para esa cuenta (REGENERAR redibuja) y no para quien no use la opción.
+  assert.notEqual(estiloVisual(sinCategoria, null), estiloVisual(cfg, null));
+  assert.equal(estiloVisual(cfg, null), estiloVisual({ ...cfg, marca: { ...cfg.marca } }, null), "no declararla no cambia nada de lo ya dibujado");
+  // Las frases no llevan categoría: su sello no depende de la opción y no se redibujan al apagarla.
+  assert.equal(estiloVisual(sinCategoria, null, { conCategoria: false }), estiloVisual(cfg, null, { conCategoria: false }));
+  // Carrusel: la portada deja de llevar la etiqueta; el resto de diapositivas conservan su numeración y el cierre sus fuentes.
+  const carrusel = { ...post, formato: "carrusel", carrusel: { diapositivas: [{ titulo: "A", texto: "a" }, { titulo: "B", texto: "b" }, { titulo: "C", texto: "c" }], imagenes: [] } };
+  assert.equal(datosDeDiapositiva(carrusel, cfg, 0, { logoUrl: null }).categoria, post.categoria);
+  assert.equal(datosDeDiapositiva(carrusel, sinCategoria, 0, { logoUrl: null }).categoria, "");
+  assert.equal(datosDeDiapositiva(carrusel, sinCategoria, 1, { logoUrl: null }).etiqueta, "1 de 1");
 });

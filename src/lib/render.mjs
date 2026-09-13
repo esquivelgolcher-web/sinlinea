@@ -25,9 +25,12 @@ export function iniciales(nombre) {
 }
 
 // Sello de la identidad visual de la cuenta (colores + presencia y forma del logo + rótulo): si cambia, REGENERAR re-dibuja.
-export function estiloVisual(config, logoUrl) {
+// `conCategoria: false` para las plantillas que no dibujan la etiqueta de categoría (las frases): así apagarla no obliga
+// a redibujar sus imágenes, y las cuentas que no declaran la opción conservan el sello que ya tenían.
+export function estiloVisual(config, logoUrl, { conCategoria = true } = {}) {
   const c = config.marca?.colores || {};
-  return hashTexto(JSON.stringify({ principal: c.principal, acento: c.acento, oscuro: c.oscuro, claro: c.claro, logo: Boolean(logoUrl), forma: config.marca?.logoForma || "circulo", tamano: config.marca?.logoTamano || 120, rotulo: config.ilustraciones?.rotulo || "", fecha: config.marca?.mostrarFecha !== false }));
+  return hashTexto(JSON.stringify({
+    ...(conCategoria && config.marca?.mostrarCategoria === false ? { categoria: false } : {}), principal: c.principal, acento: c.acento, oscuro: c.oscuro, claro: c.claro, logo: Boolean(logoUrl), forma: config.marca?.logoForma || "circulo", tamano: config.marca?.logoTamano || 120, rotulo: config.ilustraciones?.rotulo || "", fecha: config.marca?.mostrarFecha !== false }));
 }
 
 export function datosDeRender(post, config, { logoUrl, ilustracionUrl = null }) {
@@ -38,7 +41,8 @@ export function datosDeRender(post, config, { logoUrl, ilustracionUrl = null }) 
     logoTamano: config.marca?.logoTamano || 120,
     titular: post.titular,
     bajada: post.bajada,
-    categoria: post.categoria,
+    // marca.mostrarCategoria=false: la imagen no lleva la etiqueta de sección; por defecto se muestra.
+    categoria: config.marca?.mostrarCategoria === false ? "" : post.categoria,
     variante: post.variante,
     medio: post.fuente.medio,
     // marca.mostrarFecha=false: el pie no lleva fecha (estilo de medio tecnológico); por defecto se muestra.
@@ -151,6 +155,7 @@ export async function renderizarFrase(post, { config, navegador, raiz = process.
   const logoUrl = fs.existsSync(path.join(raiz, rutaLogo)) ? rutaLogo.replace(/\\/g, "/") : null;
   const baseHref = pathToFileURL(path.resolve(raiz) + path.sep).href;
   const html = construirHtmlFrase(post, config, { plantilla, baseHref, logoUrl });
+  const estilo = estiloVisual(config, logoUrl, { conCategoria: false });
   const dirTemp = path.join(raiz, "temp", "render");
   fs.mkdirSync(dirTemp, { recursive: true });
   const rutaHtml = path.join(dirTemp, `${post.id}.html`);
@@ -169,7 +174,7 @@ export async function renderizarFrase(post, { config, navegador, raiz = process.
     await page.close();
     fs.rmSync(rutaHtml, { force: true });
   }
-  return { ruta: destino, url: urlImagen(config.pages.baseUrl, post.id), hash: hashImagen(post, version), version, estilo: estiloVisual(config, logoUrl), renderizada: new Date().toISOString() };
+  return { ruta: destino, url: urlImagen(config.pages.baseUrl, post.id), hash: hashImagen(post, version), version, estilo, renderizada: new Date().toISOString() };
 }
 
 // Render según el formato de la pieza: frase con su plantilla; el resto con la del post.
@@ -201,7 +206,7 @@ export function datosDeDiapositiva(post, config, indice, { logoUrl, ilustracionU
     logoForma: config.marca?.logoForma || "circulo",
     logoTamano: Math.min(Number(config.marca?.logoTamano) || 90, 100),
     usuario: config.marca.usuario,
-    categoria: post.categoria,
+    categoria: config.marca?.mostrarCategoria === false ? "" : post.categoria,
     atribucion: post.atribucion || post.fuente?.medio || "",
     nota: d.tipo === "cierre" ? (config.ilustraciones?.rotulo ? `${config.ilustraciones.rotulo} en la portada` : "") : (d.tipo === "portada" ? "Desliza →" : ""),
     logoUrl,
