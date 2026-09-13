@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { construirSystem, construirUsuario, validarSeleccion, redactar, EsquemaRedaccion, acortarTextos, escribirEscena } from "../src/lib/redactor.mjs";
+import { construirSystem, construirSystemPerfil, construirUsuario, validarSeleccion, redactar, EsquemaRedaccion, acortarTextos, escribirEscena } from "../src/lib/redactor.mjs";
 import { cargarConfig } from "../src/lib/config.mjs";
 
 const cfg = cargarConfig("config.json");
@@ -70,7 +70,17 @@ test("el esquema exige escena y las reglas la describen", () => {
   delete sin.seleccion[0].escena;
   assert.equal(EsquemaRedaccion.safeParse(sin).success, false);
   assert.match(construirSystem(""), /"escena"/);
-  assert.match(construirSystem(""), /Nunca personas reales/);
+});
+
+test("(personas) la escena puede mostrar a la persona pública nombrada en el titular, en su función y como ilustración; nunca a personas privadas ni a acusados o investigados", () => {
+  for (const sys of [construirSystem(""), construirSystemPerfil("", { perfil: { temas: ["x"] } })]) {
+    assert.match(sys, /persona pública/i, "la regla contempla a la persona pública nombrada en el titular");
+    assert.match(sys, /ilustraci/i, "se pide tratamiento de ilustración, no fotografía del hecho");
+    assert.match(sys, /no pretenda ser una fotografía|no parezca una fotografía/i);
+    assert.match(sys, /acusad|investigad|detenid/i, "quedan fuera las personas acusadas, investigadas o detenidas");
+    assert.match(sys, /privadas|menores|víctimas/i);
+    assert.doesNotMatch(sys, /Nunca personas reales ni rostros reconocibles/, "ya no es una prohibición absoluta");
+  }
 });
 
 test("las reglas fijan los límites del titular (40-55, máx. 65) y de la bajada (máx. 110)", () => {
@@ -124,7 +134,17 @@ test("escribirEscena pide a Claude una escena a partir del titular y la bajada y
   assert.match(params.messages[0].content, /Contralor frena compra/);
   assert.match(params.messages[0].content, /suspender adquisiciones/);
   assert.match(params.system, /tercio superior derecho/);
-  assert.match(params.system, /Nunca personas reales/);
+  assert.match(params.system, /Nunca personas privadas/);
+});
+
+test("(personas) escribirEscena da a Claude la misma regla que la redacción: persona pública nombrada, en su función y como ilustración", async () => {
+  let params;
+  const client = { messages: { parse: async (p) => { params = p; return { parsed_output: { escena: "El papa saluda desde el balcón de la basílica" }, stop_reason: "end_turn" }; } } };
+  await escribirEscena({ client, config: cfg, titular: "El papa pide el fin de la guerra", bajada: "Lo dijo en el ángelus." });
+  assert.match(params.system, /persona pública/i);
+  assert.match(params.system, /ilustraci/i);
+  assert.match(params.system, /acusad|investigad|detenid/i);
+  assert.doesNotMatch(params.system, /Nunca personas reales ni rostros reconocibles/);
 });
 
 test("escribirEscena lanza si Claude rechaza o devuelve una escena vacía", async () => {

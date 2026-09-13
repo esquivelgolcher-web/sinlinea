@@ -351,7 +351,14 @@ ilustración (con el fondo de color de la variante).
    pierden, solo se posponen).
 5. `ilustraciones.estilo` son las instrucciones fijas que se envían a Gemini con
    cada escena (lineamientos de imagen: fotoperiodismo realista, protagonista en el
-   tercio superior derecho, zona del titular despejada, sin texto ni rostros reales).
+   tercio superior derecho, zona del titular despejada, sin texto).
+   **Personas:** si el titular nombra a una persona pública y la noticia trata de su
+   actividad pública, la escena puede mostrarla en esa función, con un tratamiento de
+   ilustración editorial dibujada que no se confunda con una fotografía real del hecho.
+   Quedan fuera las personas privadas, los menores, las víctimas y quien esté acusado,
+   investigado o detenido: en esas piezas van el lugar, la institución o el contexto.
+   La regla está en `lib/redactor.mjs` (redacción y `escribirEscena`) y en el
+   `ilustraciones.estilo` de cada cuenta.
    Edítalo en `cuentas/<id>/config.json` si cambian los lineamientos de esa cuenta;
    `ilustraciones.activo` puede fijarse por cuenta (apaga Gemini solo para ella) y, si
    no se indica, vale lo del `config.json` global.

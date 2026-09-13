@@ -152,9 +152,12 @@ lectura).
 ## Ilustraciones
 Cada post puede llevar una ilustración generada con IA (Gemini) en vez de la
 variante de color de fondo. Es opcional y se controla desde la propia tarjeta:
-- **Escena de la ilustración**: describe en un par de frases qué dibujar (sin
-  personas reales, solo escenas, objetos o lugares). El redactor ya propone una
-  escena al crear el borrador; puedes editarla libremente.
+- **Escena de la ilustración**: describe en un par de frases qué dibujar. El redactor
+  ya propone una escena al crear el borrador; puedes editarla libremente. Si el titular
+  nombra a una persona pública y la noticia trata de su actividad pública, la escena la
+  incluye en su función, dibujada como ilustración para que no parezca una fotografía
+  real del hecho. No se representa a personas privadas ni a quien esté acusado,
+  investigado o detenido: ahí la imagen muestra el lugar, la institución o el contexto.
 - **Usar ilustración generada con IA**: la casilla que activa o desactiva el uso
   de la ilustración en el post final. Si la desmarcas, el post vuelve a usar el
   fondo de color de la variante.

@@ -46,8 +46,7 @@ const reglasFijas = (idioma) => `
 - "escena": describe en 15 a 40 palabras, en ${nombreIdioma(idioma)}, una imagen concreta que represente el hecho
   principal de la noticia (un lugar, un objeto, una situación): por ejemplo "Fachada de la Asamblea
   Nacional de Panamá al atardecer". Indica que el protagonista o elemento principal queda en el
-  tercio superior derecho y que la zona izquierda y central queda despejada. Nunca personas reales ni
-  rostros reconocibles, nunca texto ni logotipos, nunca violencia gráfica ni sangre. No incluyas el
+  tercio superior derecho y que la zona izquierda y central queda despejada. Si el titular nombra a una persona pública (un papa, un presidente, un ministro, un\n  directivo) y la noticia trata de su actividad pública, la escena puede mostrarla en esa función, descrita por su\n  cargo y el contexto (por ejemplo "el papa saluda desde el balcón de la basílica"), con un tratamiento de\n  ilustración editorial que no pretenda ser una fotografía real del hecho. Nunca personas privadas, menores,\n  víctimas ni testigos; nunca alguien acusado, investigado o detenido; nunca una persona real cometiendo un delito\n  ni escenas que parezcan pruebas. Nunca texto ni logotipos, nunca violencia gráfica ni sangre. No incluyas el
   estilo fotográfico: se añade aparte.
 `;
 
@@ -141,7 +140,7 @@ export async function escribirEscena({ client, config, titular, bajada }) {
     max_tokens: 800,
     thinking: { type: "adaptive" },
     output_config: { effort: "low", format: zodOutputFormat(EsquemaEscena) },
-    system: `Eres editor gráfico de un medio de noticias. Describe en 15 a 40 palabras, en ${nombreIdioma(config.idioma)}, una imagen concreta que represente el hecho principal de la noticia (un lugar, un objeto, una situación). El protagonista o elemento principal queda en el tercio superior derecho y la zona izquierda y central queda despejada. Nunca personas reales ni rostros reconocibles, nunca texto ni logotipos, nunca violencia gráfica ni sangre. No incluyas el estilo fotográfico. No inventes datos que no estén en el titular o la bajada.`,
+    system: `Eres editor gráfico de un medio de noticias. Describe en 15 a 40 palabras, en ${nombreIdioma(config.idioma)}, una imagen concreta que represente el hecho principal de la noticia (un lugar, un objeto, una situación). El protagonista o elemento principal queda en el tercio superior derecho y la zona izquierda y central queda despejada. Si el titular nombra a una persona pública (un papa, un presidente, un ministro, un directivo) y la noticia trata de su actividad pública, la escena puede mostrarla en esa función, descrita por su cargo y el contexto, con un tratamiento de ilustración editorial que no pretenda ser una fotografía real del hecho. Nunca personas privadas, menores, víctimas ni testigos; nunca alguien acusado, investigado o detenido; nunca una persona real cometiendo un delito ni escenas que parezcan pruebas. Nunca texto ni logotipos, nunca violencia gráfica ni sangre. No incluyas el estilo fotográfico. No inventes datos que no estén en el titular o la bajada.`,
     messages: [{ role: "user", content: `Titular: ${titular}\nBajada: ${bajada}` }],
   });
   if (res.stop_reason === "refusal") {
@@ -243,7 +242,9 @@ Especialidad: ${(perfil?.temas || []).join("; ")}.
     cortas en orden), "escenas" (segundos de inicio, descripción visual y recurso sugerido) y "recursos" necesarios. No prometas
     revelaciones que el vídeo no contiene.
 - Imagen ("escena"): ilustración o fotografía protagonista, alto contraste, sin el cliché del hacker con capucha, código verde
-  o candados; nunca documentos, capturas o escenas que parezcan pruebas reales; nunca una persona real cometiendo un delito.
+  o candados; nunca documentos, capturas o escenas que parezcan pruebas reales. Con la persona pública nombrada en el titular
+  se aplica la regla de la escena; en una pieza sobre denuncias, acusaciones o investigaciones nunca se representa a la persona
+  señalada: van el lugar, la institución o el contexto.
 - "alertas" solo admite: ${ALERTAS.join(", ")}.
 `;
 
