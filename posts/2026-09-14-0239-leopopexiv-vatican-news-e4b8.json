@@ -1,7 +1,7 @@
 {
   "id": "2026-09-14-0239-leopopexiv-vatican-news-e4b8",
   "cuenta": "leopopexiv",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/pope/news/2026-09/pope-leo-angelus-forgiveness-peace-love-conflict-gospel-peter.html",
@@ -39,7 +39,11 @@
     "error": null
   },
   "programado": "2026-09-14T13:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "17962876344191548",
+    "permalink": "https://www.instagram.com/p/DdRw_w9oK-F/",
+    "fecha": "2026-09-14T18:20:15.704Z"
+  },
   "error": null,
   "creado": "2026-09-14T06:39:53.170Z",
   "actualizado": "2026-09-14T18:20:15.704Z",
@@ -52,16 +56,15 @@
         "imagenHash": "854872226ca6113c",
         "imagenSha": "13b54abd65946cae5d2ad11c5e3dee8745c8dd9d"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-09-14T18:20:15.704Z",
-        "actualizado": "2026-09-14T18:20:15.704Z",
-        "contenedorId": "18101208062081176"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "17962876344191548",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/DdRw_w9oK-F/",
+        "fecha": "2026-09-14T18:20:15.704Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
