@@ -1,7 +1,7 @@
 {
   "id": "2026-09-14-1033-sinlinea-la-prensa-1a9f",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "La Prensa",
     "url": "https://www.prensa.com/economia/que-es-el-cargo-por-tonelada-del-canal-y-cuanto-recibira-el-estado-cada-mes/",
@@ -39,9 +39,26 @@
     "generada": "2026-09-14T15:33:16.935Z",
     "error": null
   },
-  "programado": null,
+  "programado": "2026-09-14T14:30:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-14T15:33:16.935Z",
-  "actualizado": "2026-09-14T15:33:16.935Z"
+  "actualizado": "2026-09-14T17:11:29.586Z",
+  "destinos": {
+    "instagram": {
+      "texto": "Cada buque que cruza el Canal ahora deja un poco más de dinero para las arcas del Estado. El Ministerio de Economía y Finanzas explicó que este ajuste no afecta a las navieras ni a los peajes, pero sí adelanta fondos para proyectos estratégicos del país. Es la primera revisión de este cobro en casi dos décadas. ¿Cree que este dinero adicional debe ir a salud, educación u otra prioridad?\n\nFuente: La Prensa\n\n#Panamá #SinLínea #CanalDePanamá #Economía #MEF #Estado",
+      "aprobado": {
+        "fecha": "2026-09-14T17:11:29.586Z",
+        "hashPieza": "60186cf0d7b79076",
+        "imagenHash": "cbea61d1a364839b",
+        "imagenSha": "0579bf9a8bbc0049e3d3916c933cc99be5cc439d"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
