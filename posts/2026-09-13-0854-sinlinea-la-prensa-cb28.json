@@ -1,7 +1,7 @@
 {
   "id": "2026-09-13-0854-sinlinea-la-prensa-cb28",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "La Prensa",
     "url": "https://www.prensa.com/economia/ley-de-pasantias-en-panama-que-deben-saber-los-jovenes-y-las-empresas-sobre-las-nuevas-reglas/",
@@ -43,5 +43,5 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-13T13:54:17.873Z",
-  "actualizado": "2026-09-13T13:54:17.873Z"
+  "actualizado": "2026-09-14T12:53:40.716Z"
 }
