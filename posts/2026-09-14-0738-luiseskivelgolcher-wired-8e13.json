@@ -1,0 +1,200 @@
+{
+  "id": "2026-09-14-0738-luiseskivelgolcher-wired-8e13",
+  "cuenta": "luiseskivelgolcher",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "WIRED",
+    "url": "https://www.wired.com/story/sexually-explicit-deepfake-sites-target-100-plus-politicians-in-europe/",
+    "titulo": "Sexually Explicit Deepfake Sites Target 100-Plus Politicians in Europe",
+    "publicado": "2026-09-14T11:00:00.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "Deepfakes sexuales atacan a más de 130 políticas en Europa",
+  "bajada": "Investigador halla que las diputadas son 33 veces más blanco que los diputados hombres",
+  "caption": "Un análisis de 160 sitios de pornografía falsa (contenido generado con inteligencia artificial que simula imágenes sexuales reales) encontró que al menos 138 mujeres diputadas de 22 países de la Unión Europea aparecen en ellos, frente a solo nueve hombres. La investigación, del especialista Benjamin Shultz para el centro alemán Agora Digitale Transformation, fue revisada por la periodista Matt Burgess para WIRED (14 de septiembre de 2026). Shultz avisó a cada legisladora afectada y ofreció orientación para retirar el contenido. Varias diputadas, como la neerlandesa Suzanne Kröger, describen el hallazgo como \"profundamente perturbador\". Investigadores advierten que este tipo de abuso puede desincentivar a las mujeres a ocupar cargos públicos. Este resumen se basa en un solo estudio; no hay una segunda fuente que confirme de forma independiente las cifras. ¿Debería la ley obligar a estos sitios a identificar y eliminar contenido sin consentimiento?",
+  "hashtags": [
+    "#Deepfakes",
+    "#Privacidad",
+    "#TecnologíaYPoder",
+    "#Panamá"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-09-14-0738-luiseskivelgolcher-wired-8e13.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-14-0738-luiseskivelgolcher-wired-8e13.jpg",
+    "hash": "413d124fc54da649",
+    "version": 11,
+    "estilo": "dc8c8fa3edf501fd",
+    "renderizada": "2026-09-14T12:39:04.911Z"
+  },
+  "ilustracion": {
+    "descripcion": "Hemiciclo parlamentario europeo vacío al anochecer, con una pantalla de computadora encendida sobre un escritorio en primer plano. La pantalla queda en el tercio superior derecho; la zona izquierda y central permanece despejada.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-14-0738-luiseskivelgolcher-wired-8e13.jpg",
+    "hashDescripcion": "bec7d04e065bc280",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-14T12:38:10.909Z",
+    "error": null,
+    "procedencia": "generada"
+  },
+  "formato": "carrusel",
+  "fuentes": [
+    {
+      "rol": "principal",
+      "medio": "WIRED",
+      "autor": "Matt Burgess",
+      "url": "https://www.wired.com/story/sexually-explicit-deepfake-sites-target-100-plus-politicians-in-europe/",
+      "canonica": "https://www.wired.com/story/sexually-explicit-deepfake-sites-target-100-plus-politicians-in-europe/",
+      "idioma": "en",
+      "publicado": "2026-09-14T11:00:00.000Z",
+      "actualizado": "2026-09-14T11:00:00.000Z",
+      "fechaHecho": null,
+      "consultado": "2026-09-14T12:38:10.909Z",
+      "alcance": "completo",
+      "textoRecuperado": {
+        "parrafos": 18,
+        "caracteres": 6680,
+        "enviados": 3569
+      },
+      "fuentesPrimarias": [
+        "https://agoradigital.de/projekte/who-gets-deepfaked/",
+        "https://www.vice.com/en/article/gal-gadot-fake-ai-porn/",
+        "https://www.bellingcat.com/news/2025/05/07/canadian-pharmacist-linked-to-worlds-most-notorious-deepfake-porn-site/",
+        "https://americansunlight.substack.com/p/asp-expands-deepfake",
+        "https://static1.squarespace.com/static/6612cbdfd9a9ce56ef931004/t/67586997eaec5c6ae3bb5e24/1733847451191/ASP+DFP+Report.pdf",
+        "http://www.aboutads.info"
+      ],
+      "licenciaMedios": null
+    }
+  ],
+  "afirmaciones": [
+    {
+      "texto": "Al menos 138 mujeres diputadas de 22 países de la UE aparecen o son mencionadas en sitios de pornografía deepfake",
+      "tipo": "hecho",
+      "fuente": "https://agoradigital.de/projekte/who-gets-deepfaked/",
+      "contrastada": false
+    },
+    {
+      "texto": "Solo nueve diputados hombres fueron referenciados en los mismos sitios",
+      "tipo": "hecho",
+      "fuente": "https://agoradigital.de/projekte/who-gets-deepfaked/",
+      "contrastada": false
+    },
+    {
+      "texto": "Según los cálculos del investigador, es 33 veces más probable que una diputada mujer sea blanco de estos sitios que un diputado hombre",
+      "tipo": "hipotesis",
+      "fuente": "https://www.wired.com/story/sexually-explicit-deepfake-sites-target-100-plus-politicians-in-europe/",
+      "contrastada": false
+    },
+    {
+      "texto": "\"Deepfake porn is part of a much bigger trend of online hate and intimidation against women and female politicians\"",
+      "tipo": "opinion",
+      "fuente": "https://www.wired.com/story/sexually-explicit-deepfake-sites-target-100-plus-politicians-in-europe/",
+      "contrastada": false
+    }
+  ],
+  "angulo": "Cómo la pornografía generada con IA se usa para intimidar y desplazar a mujeres de la política, según una investigación de Agora Digitale Transformation citada por WIRED.",
+  "atribucion": "WIRED (Matt Burgess), con datos de la investigación de Benjamin Shultz para Agora Digitale Transformation",
+  "puntuacion": {
+    "total": 85,
+    "componentes": {
+      "afinidad": 27,
+      "interes": 23,
+      "evidencia": 14,
+      "actualidad": 15,
+      "visual": 6
+    }
+  },
+  "alertas": [
+    "fuente-unica"
+  ],
+  "carrusel": {
+    "diapositivas": [
+      {
+        "titulo": "138 diputadas europeas, blanco de pornografía falsa",
+        "texto": "Un investigador halló que casi 150 legisladoras aparecen en sitios de deepfakes sexuales. Solo nueve hombres fueron mencionados."
+      },
+      {
+        "titulo": "Qué encontró la investigación",
+        "texto": "Benjamin Shultz, de Agora Digitale Transformation, analizó 160 sitios que alojan pornografía no consentida generada con IA."
+      },
+      {
+        "titulo": "Cómo se hizo el análisis",
+        "texto": "Shultz cruzó los datos de más de 5,800 legisladores europeos con motores de búsqueda diseñados para rastrear esos sitios."
+      },
+      {
+        "titulo": "A quién afecta y por qué",
+        "texto": "Alemania, Países Bajos, Italia y Francia concentran más casos. Cuanto más alto el cargo, más probable el ataque, según el estudio."
+      },
+      {
+        "titulo": "El costo político de callar a las mujeres",
+        "texto": "Investigadores advierten que el miedo a ser víctima de deepfakes puede alejar a mujeres y niñas de la vida pública."
+      },
+      {
+        "titulo": "Qué falta por saber",
+        "texto": "El hallazgo proviene de un solo estudio. WIRED no nombra los sitios para no darles más audiencia; no hay conteo oficial de víctimas."
+      },
+      {
+        "titulo": "Una advertencia, no una excepción",
+        "texto": "Legisladoras como Sarah Dobbe piden retirar el contenido rápido y dar apoyo directo a las víctimas. Fuente: WIRED y Agora Digitale Transformation."
+      }
+    ],
+    "imagenes": [
+      {
+        "numero": 1,
+        "ruta": "public/img/2026-09-14-0738-luiseskivelgolcher-wired-8e13-01.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-14-0738-luiseskivelgolcher-wired-8e13-01.jpg",
+        "hash": "d5a401afbe8f3b49"
+      },
+      {
+        "numero": 2,
+        "ruta": "public/img/2026-09-14-0738-luiseskivelgolcher-wired-8e13-02.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-14-0738-luiseskivelgolcher-wired-8e13-02.jpg",
+        "hash": "489c0bdbc29ddbb1"
+      },
+      {
+        "numero": 3,
+        "ruta": "public/img/2026-09-14-0738-luiseskivelgolcher-wired-8e13-03.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-14-0738-luiseskivelgolcher-wired-8e13-03.jpg",
+        "hash": "265cd76d2204dc33"
+      },
+      {
+        "numero": 4,
+        "ruta": "public/img/2026-09-14-0738-luiseskivelgolcher-wired-8e13-04.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-14-0738-luiseskivelgolcher-wired-8e13-04.jpg",
+        "hash": "d0c0c27a29d08e30"
+      },
+      {
+        "numero": 5,
+        "ruta": "public/img/2026-09-14-0738-luiseskivelgolcher-wired-8e13-05.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-14-0738-luiseskivelgolcher-wired-8e13-05.jpg",
+        "hash": "6d7b5e1377c9bfd1"
+      },
+      {
+        "numero": 6,
+        "ruta": "public/img/2026-09-14-0738-luiseskivelgolcher-wired-8e13-06.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-14-0738-luiseskivelgolcher-wired-8e13-06.jpg",
+        "hash": "297e8631be57fa47"
+      },
+      {
+        "numero": 7,
+        "ruta": "public/img/2026-09-14-0738-luiseskivelgolcher-wired-8e13-07.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-14-0738-luiseskivelgolcher-wired-8e13-07.jpg",
+        "hash": "19753adbe0b23a61"
+      }
+    ],
+    "hash": "f8d1993ba9711ce9",
+    "version": 2
+  },
+  "reel": null,
+  "revision": {
+    "estado": "pendiente",
+    "notas": []
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-14T12:38:10.909Z",
+  "actualizado": "2026-09-14T12:38:10.909Z"
+}
