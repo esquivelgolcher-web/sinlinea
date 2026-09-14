@@ -1,0 +1,47 @@
+{
+  "id": "2026-09-14-1630-sinlinea-la-prensa-e916",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/judiciales/una-juez-favorece-al-contratista-del-cru-de-san-miguelito-con-una-fianza-de-800000/",
+    "titulo": "Una juez favorece al contratista del CRU de San Miguelito con una fianza de $800,000",
+    "publicado": "2026-09-14T21:18:57.000Z"
+  },
+  "categoria": "SEGURIDAD",
+  "titular": "Juez fija fianza de $800 mil a imputado del caso Pandora",
+  "bajada": "Luis Gaitán, ligado a la operación Espejismo, pagará fianza para evitar prisión durante apelación",
+  "caption": "El caso Pandora sigue sumando capítulos. Ahora se conoce que un juez fijó una fianza de $800 mil para el empresario Luis Gaitán, señalado por blanqueo de capitales y falsificación en perjuicio de la DGI. La Fiscalía ya apeló la decisión, así que Gaitán permanece detenido mientras el Tribunal Superior resuelve. ¿Debería ser tan alta la fianza en casos de corrupción de este tipo?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#CasoPandora",
+    "#Corrupción",
+    "#DGI",
+    "#Justicia"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-09-14-1630-sinlinea-la-prensa-e916.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-14-1630-sinlinea-la-prensa-e916.jpg",
+    "hash": "3195fe961e6ddd70",
+    "version": 11,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-09-14T21:30:43.297Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada de un tribunal de justicia panameño con la balanza de la justicia visible, el edificio ubicado en el tercio superior derecho, zona izquierda y central despejadas.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-14-1630-sinlinea-la-prensa-e916.jpg",
+    "hashDescripcion": "f00af4f6cb2c98e8",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-14T21:30:10.619Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-14T21:30:10.619Z",
+  "actualizado": "2026-09-14T21:30:10.619Z"
+}

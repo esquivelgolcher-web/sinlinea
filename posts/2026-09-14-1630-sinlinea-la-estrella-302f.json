@@ -1,0 +1,47 @@
+{
+  "id": "2026-09-14-1630-sinlinea-la-estrella-302f",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/aumentan-el-pie-de-fuerza-774-agentes-se-unen-al-ministerio-de-seguridad-AG25677337",
+    "titulo": "Aumentan el pie de fuerza: 774 agentes se unen al Ministerio de Seguridad",
+    "publicado": "2026-09-14T14:54:00.000Z"
+  },
+  "categoria": "SEGURIDAD",
+  "titular": "Seguridad gradúa a 774 nuevos agentes en Panamá",
+  "bajada": "Mulino pidió a los nuevos policías y migrantes actuar con firmeza y respeto a los derechos humanos.",
+  "caption": "Más manos para cuidar las calles. El Ministerio de Seguridad graduó a 774 nuevos agentes entre Policía Nacional y Migración, parte de un refuerzo que ya suma más de 3,000 nuevos uniformados en esta administración. El presidente Mulino les pidió firmeza contra el delito, pero también respeto al ciudadano. ¿Sientes que la seguridad ha mejorado en tu barrio?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Seguridad",
+    "#PolicíaNacional",
+    "#Migración",
+    "#Mulino"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-09-14-1630-sinlinea-la-estrella-302f.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-14-1630-sinlinea-la-estrella-302f.jpg",
+    "hash": "02d6b60fb4a415c1",
+    "version": 11,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-09-14T21:30:48.001Z"
+  },
+  "ilustracion": {
+    "descripcion": "Patio de un instituto policial panameño con filas de agentes graduados en formación, ubicados en el tercio superior derecho, zona izquierda y central despejadas.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-14-1630-sinlinea-la-estrella-302f.jpg",
+    "hashDescripcion": "fcfb8eff2afd7bd1",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-14T21:30:10.619Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-14T21:30:10.619Z",
+  "actualizado": "2026-09-14T21:30:10.619Z"
+}
