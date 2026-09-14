@@ -1,0 +1,47 @@
+{
+  "id": "2026-09-14-1335-sinlinea-la-estrella-00ca",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/rio-indio-acp-ofrecera-casas-de-hasta-218-metros-cuadrados-y-compensara-tierras-a-valor-de-reposicion-LG25679112",
+    "titulo": "Río Indio: ACP ofrecerá casas de hasta 218 metros cuadrados y compensará tierras a valor de reposición",
+    "publicado": "2026-09-14T15:45:00.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "ACP ofrecerá casas y pago justo a afectados por Río Indio",
+  "bajada": "ACP anuncia viviendas de hasta 218 m² y compensación a valor de reposición para reubicados.",
+  "caption": "Las familias que deban dejar sus tierras para el lago de Río Indio recibirán vivienda nueva o compensación económica, según el tamaño de cada hogar. La ACP diseñó 16 tipos de casas para ajustarse a las necesidades de cada familia. Es un paso clave para las comunidades que llevan años esperando certeza sobre su futuro. ¿Qué opinas de este plan de compensación?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Canal",
+    "#RíoIndio",
+    "#ACP",
+    "#Comunidades"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-09-14-1335-sinlinea-la-estrella-00ca.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-14-1335-sinlinea-la-estrella-00ca.jpg",
+    "hash": "f5bcc9918ac9da8b",
+    "version": 11,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-09-14T18:35:40.224Z"
+  },
+  "ilustracion": {
+    "descripcion": "Casas de campo sencillas junto a un río en zona rural panameña, con el agua y el paisaje verde ocupando el centro y la izquierda despejados, y una vivienda nueva en construcción en el tercio superior derecho.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-14-1335-sinlinea-la-estrella-00ca.jpg",
+    "hashDescripcion": "e4f2dbb1769650cb",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-14T18:35:05.691Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-14T18:35:05.691Z",
+  "actualizado": "2026-09-14T18:35:05.691Z"
+}

@@ -1,0 +1,47 @@
+{
+  "id": "2026-09-14-1335-sinlinea-la-estrella-fe20",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/informacion-util/pagos-a-jubilados-en-panama-quienes-cobran-el-18-y-21-de-septiembre-BG25677969",
+    "titulo": "Pagos a jubilados en Panamá: ¿quiénes cobran el 18 y 21 de septiembre?",
+    "publicado": "2026-09-14T15:35:00.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "CSS define fechas de pago a jubilados en septiembre",
+  "bajada": "Quienes cobran por banco recibirán su pago el 18 de septiembre y los que usan cheque, el 21.",
+  "caption": "La Caja de Seguro Social confirmó el calendario de pagos para jubilados y pensionados durante la segunda quincena de septiembre. La fecha depende de si el cobro es por acreditación bancaria o por cheque. Es información práctica para miles de familias que dependen de este ingreso mensual. ¿Ya conocías estas fechas?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#CSS",
+    "#Jubilados",
+    "#Pensionados",
+    "#Pagos"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-09-14-1335-sinlinea-la-estrella-fe20.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-14-1335-sinlinea-la-estrella-fe20.jpg",
+    "hash": "832afb299a0dcefb",
+    "version": 11,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-09-14T18:35:45.132Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada de una sucursal de la Caja de Seguro Social en Panamá con personas mayores haciendo fila, el edificio y el grupo ubicados en el tercio superior derecho, con la acera despejada al centro e izquierda.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-14-1335-sinlinea-la-estrella-fe20.jpg",
+    "hashDescripcion": "bac9fd6fb127bc19",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-14T18:35:05.691Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-14T18:35:05.691Z",
+  "actualizado": "2026-09-14T18:35:05.691Z"
+}
