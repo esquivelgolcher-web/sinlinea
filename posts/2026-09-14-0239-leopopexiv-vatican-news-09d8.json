@@ -1,7 +1,7 @@
 {
   "id": "2026-09-14-0239-leopopexiv-vatican-news-09d8",
   "cuenta": "leopopexiv",
-  "estado": "programado",
+  "estado": "publicado",
   "formato": "frase",
   "frase": {
     "texto": "Forgiveness is indispensable, and without it, we cannot live in peace.",
@@ -37,7 +37,11 @@
   },
   "ilustracion": null,
   "programado": "2026-09-14T09:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "18026344733857229",
+    "permalink": "https://www.instagram.com/p/DdRVpFmlaKa/",
+    "fecha": "2026-09-14T14:21:16.215Z"
+  },
   "error": null,
   "creado": "2026-09-14T06:39:53.170Z",
   "actualizado": "2026-09-14T14:21:16.215Z",
@@ -50,16 +54,15 @@
         "imagenHash": "0df9273f2ad0d341",
         "imagenSha": "7e442640ce3d724243c325e4fac0f3eaa7901ace"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-09-14T14:21:16.215Z",
-        "actualizado": "2026-09-14T14:21:16.215Z",
-        "contenedorId": "18101137589081176"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18026344733857229",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/DdRVpFmlaKa/",
+        "fecha": "2026-09-14T14:21:16.215Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
