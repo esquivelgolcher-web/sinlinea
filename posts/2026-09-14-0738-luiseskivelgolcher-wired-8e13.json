@@ -1,7 +1,7 @@
 {
   "id": "2026-09-14-0738-luiseskivelgolcher-wired-8e13",
   "cuenta": "luiseskivelgolcher",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "WIRED",
     "url": "https://www.wired.com/story/sexually-explicit-deepfake-sites-target-100-plus-politicians-in-europe/",
@@ -248,25 +248,15 @@
           "52313d7728b279dde02b9a6af750dc73480a8cdf"
         ]
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-09-14T14:19:31.090Z",
-        "actualizado": "2026-09-14T14:19:31.090Z",
-        "contenedorId": "17989076523100604",
-        "hijos": [
-          "17989076352100604",
-          "17989076376100604",
-          "17989076397100604",
-          "17989076421100604",
-          "17989076445100604",
-          "17989076472100604",
-          "17989076499100604"
-        ]
+      "estado": "publicado",
+      "publicacion": {
+        "id": "17908501626536081",
+        "idPublicacion": null,
+        "permalink": "https://www.threads.com/@luisegolcher/post/DdRVleQINOr",
+        "fecha": "2026-09-14T14:19:31.090Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
