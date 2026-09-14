@@ -1,7 +1,7 @@
 {
   "id": "2026-09-14-0239-leopopexiv-vatican-news-e4b8",
   "cuenta": "leopopexiv",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/pope/news/2026-09/pope-leo-angelus-forgiveness-peace-love-conflict-gospel-peter.html",
@@ -38,9 +38,26 @@
     "generada": "2026-09-14T06:39:53.170Z",
     "error": null
   },
-  "programado": null,
+  "programado": "2026-09-14T13:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-14T06:39:53.170Z",
-  "actualizado": "2026-09-14T06:39:53.170Z"
+  "actualizado": "2026-09-14T07:29:09.013Z",
+  "destinos": {
+    "instagram": {
+      "texto": "At today's Angelus, Pope Leo XIV spoke on the power of forgiveness, saying that following Christ's example of forgiving others can help counter hatred, division and violence, and promote peace and love. Source: Vatican News, Sept 13, 2026.\n\nFuente: Vatican News\n\n#PopeLeoXIV #Angelus #VaticanNews #Forgiveness #Peace",
+      "aprobado": {
+        "fecha": "2026-09-14T07:29:09.013Z",
+        "hashPieza": "a0864f068cd6ac24",
+        "imagenHash": "854872226ca6113c",
+        "imagenSha": "13b54abd65946cae5d2ad11c5e3dee8745c8dd9d"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
