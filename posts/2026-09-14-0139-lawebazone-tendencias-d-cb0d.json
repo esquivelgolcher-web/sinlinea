@@ -1,0 +1,44 @@
+{
+  "id": "2026-09-14-0139-lawebazone-tendencias-d-cb0d",
+  "cuenta": "lawebazone",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Tendencias de México",
+    "url": "https://www.espn.com.mx/otros-deportes/nota/_/id/17244292/the-miz-no-ve-a-penta-capz-de-vencer-a-roman-reigns-en-mexico",
+    "titulo": "penta vs roman reigns",
+    "publicado": "2026-09-14T05:40:00.000Z"
+  },
+  "categoria": "DEPORTES",
+  "titular": "The Miz ya descartó a Penta antes de que suene la campana",
+  "bajada": "El luchador cuestionó las chances de Penta frente a Roman Reigns en México",
+  "caption": "Todavía no empieza la pelea y ya hay quien la dio por terminada. The Miz dice que Penta no tiene chance contra Roman Reigns, y la afición mexicana ya está afilando los memes para el día del evento.",
+  "hashtags": [
+    "#Lucha",
+    "#WWE",
+    "#Penta"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-09-14-0139-lawebazone-tendencias-d-cb0d.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-14-0139-lawebazone-tendencias-d-cb0d.jpg",
+    "hash": "c1e122c4192b1dfe",
+    "version": 11,
+    "estilo": "9fd322fb9927e571",
+    "renderizada": "2026-09-14T06:40:46.990Z"
+  },
+  "ilustracion": {
+    "descripcion": "Un cuadrilátero de lucha libre iluminado con luces de arena, cuerdas y lona vacías, silueta de un luchero enmascarado en el tercio superior derecho, zona izquierda y central despejadas.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-14T06:39:53.170Z",
+  "actualizado": "2026-09-14T06:39:53.170Z"
+}

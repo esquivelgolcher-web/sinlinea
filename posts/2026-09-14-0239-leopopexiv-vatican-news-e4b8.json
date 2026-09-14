@@ -1,0 +1,46 @@
+{
+  "id": "2026-09-14-0239-leopopexiv-vatican-news-e4b8",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-09/pope-leo-angelus-forgiveness-peace-love-conflict-gospel-peter.html",
+    "titulo": "Pope at Angelus: Without forgiveness we cannot live in peace",
+    "publicado": "2026-09-13T10:12:00.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "Pope Leo XIV: forgiveness is key to peace",
+  "bajada": "At Sunday Angelus, Pope reflects on forgiving others to counter hatred and division",
+  "caption": "At today's Angelus, Pope Leo XIV spoke on the power of forgiveness, saying that following Christ's example of forgiving others can help counter hatred, division and violence, and promote peace and love. Source: Vatican News, Sept 13, 2026.",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Angelus",
+    "#VaticanNews",
+    "#Forgiveness",
+    "#Peace"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-09-14-0239-leopopexiv-vatican-news-e4b8.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-14-0239-leopopexiv-vatican-news-e4b8.jpg",
+    "hash": "854872226ca6113c",
+    "version": 11,
+    "estilo": "32cba508d6c2290e",
+    "renderizada": "2026-09-14T06:40:19.101Z"
+  },
+  "ilustracion": {
+    "descripcion": "St. Peter's Square viewed from a distance, the Pope appears small on the balcony in the upper right third, waving to the crowd below, left and center of the frame open and calm.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-14-0239-leopopexiv-vatican-news-e4b8.jpg",
+    "hashDescripcion": "aa5cdb96020d736c",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-14T06:39:53.170Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-14T06:39:53.170Z",
+  "actualizado": "2026-09-14T06:39:53.170Z"
+}

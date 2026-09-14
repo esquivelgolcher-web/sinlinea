@@ -1,0 +1,44 @@
+{
+  "id": "2026-09-14-0239-leopopexiv-vatican-news-09d8",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "formato": "frase",
+  "frase": {
+    "texto": "Forgiveness is indispensable, and without it, we cannot live in peace.",
+    "autor": "Pope Leo XIV",
+    "fuente": "Angelus",
+    "anio": 2026,
+    "url": "https://www.vaticannews.va/en/pope/news/2026-09/pope-leo-angelus-forgiveness-peace-love-conflict-gospel-peter.html",
+    "origen": "texto"
+  },
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-09/pope-leo-angelus-forgiveness-peace-love-conflict-gospel-peter.html",
+    "titulo": "Pope at Angelus: Without forgiveness we cannot live in peace - Vatican News",
+    "publicado": "2026-09-13T12:12:00.000+02:00"
+  },
+  "categoria": "CULTURA",
+  "titular": "Pope Leo XIV",
+  "bajada": "Angelus · 2026",
+  "caption": "“Forgiveness is indispensable, and without it, we cannot live in peace.”\n\n— Pope Leo XIV, Angelus (2026)\n\nVia Vatican News, 13 September 2026\n\n#PopeLeoXIV #Vatican #CatholicChurch",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Vatican",
+    "#CatholicChurch"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-09-14-0239-leopopexiv-vatican-news-09d8.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-14-0239-leopopexiv-vatican-news-09d8.jpg",
+    "hash": "0df9273f2ad0d341",
+    "version": 1,
+    "estilo": "28c21995920a45b7",
+    "renderizada": "2026-09-14T06:40:23.312Z"
+  },
+  "ilustracion": null,
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-14T06:39:53.170Z",
+  "actualizado": "2026-09-14T06:39:53.170Z"
+}

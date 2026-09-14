@@ -1,0 +1,44 @@
+{
+  "id": "2026-09-14-0139-lawebazone-tendencias-d-7596",
+  "cuenta": "lawebazone",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Tendencias de México",
+    "url": "https://www.elfinanciero.com.mx/entretenimiento/2026/09/13/quien-es-el-eliminado-1-de-la-granja-vip-2026/",
+    "titulo": "quien salio de la granja vip 2026",
+    "publicado": "2026-09-14T05:10:00.000Z"
+  },
+  "categoria": "CULTURA",
+  "titular": "Primer eliminado de La Granja VIP ya duerme en su cama",
+  "bajada": "El reality mexicano tuvo a su primer expulsado y las redes no lo superan",
+  "caption": "Un día estás dando de comer a las gallinas y al otro estás en tu casa viendo memes sobre ti. Así de rápido es el reality. La Granja VIP ya tiene su primer eliminado y todos ya tienen su teoría de conspiración lista.",
+  "hashtags": [
+    "#LaGranjaVIP",
+    "#Reality",
+    "#MemesMX"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-09-14-0139-lawebazone-tendencias-d-7596.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-14-0139-lawebazone-tendencias-d-7596.jpg",
+    "hash": "58cfcf45c8e2aa6f",
+    "version": 11,
+    "estilo": "9fd322fb9927e571",
+    "renderizada": "2026-09-14T06:40:46.755Z"
+  },
+  "ilustracion": {
+    "descripcion": "Un gallinero rústico de granja con paja y cercas de madera al atardecer, silueta de una persona con maleta caminando hacia la salida en el tercio superior derecho, zona izquierda y central despejadas.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-14T06:39:53.170Z",
+  "actualizado": "2026-09-14T06:39:53.170Z"
+}
