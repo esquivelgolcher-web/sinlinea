@@ -1,7 +1,7 @@
 {
   "id": "2026-09-13-0733-sinlinea-la-prensa-8188",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "La Prensa",
     "url": "https://www.prensa.com/economia/caf-concede-prestamo-de-500-millones-de-dolares-a-panama-para-el-sector-agricola/",
@@ -39,9 +39,26 @@
     "generada": "2026-09-13T12:33:56.260Z",
     "error": null
   },
-  "programado": null,
+  "programado": "2026-09-14T12:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-13T12:33:56.260Z",
-  "actualizado": "2026-09-13T12:33:56.260Z"
+  "actualizado": "2026-09-14T12:53:38.734Z",
+  "destinos": {
+    "instagram": {
+      "texto": "El Banco de Desarrollo de América Latina y el Caribe otorgó su préstamo más grande en Panamá: 500 millones de dólares para el Banco Nacional. La mitad irá a agronegocio y agroindustria, golpeados por El Niño, y la otra mitad a pequeñas y medianas empresas, con énfasis en las lideradas por mujeres. Se espera beneficiar a 3,300 negocios en zonas rurales. ¿Crees que este dinero llegará a quienes más lo necesitan?\n\nFuente: La Prensa\n\n#Panamá #SinLínea #Economía #Agro #Pymes #CAF",
+      "aprobado": {
+        "fecha": "2026-09-14T12:53:38.734Z",
+        "hashPieza": "a555200f10d0aa0d",
+        "imagenHash": "84acefee226cb534",
+        "imagenSha": "5b2499720f93de982ba630213d9671f1ff19041d"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
