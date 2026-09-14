@@ -40,7 +40,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-14T06:39:53.170Z",
-  "actualizado": "2026-09-14T07:29:05.775Z",
+  "actualizado": "2026-09-14T14:21:16.215Z",
   "destinos": {
     "instagram": {
       "texto": "“Forgiveness is indispensable, and without it, we cannot live in peace.”\n\n— Pope Leo XIV, Angelus (2026)\n\nVia Vatican News, 13 September 2026\n\n#PopeLeoXIV #Vatican #CatholicChurch\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #CatholicChurch",
@@ -53,7 +53,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-09-14T14:21:16.215Z",
+        "actualizado": "2026-09-14T14:21:16.215Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
