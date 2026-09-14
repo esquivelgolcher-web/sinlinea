@@ -1,7 +1,7 @@
 {
   "id": "2026-09-13-0455-sinlinea-la-prensa-3427",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "La Prensa",
     "url": "https://www.prensa.com/politica/navidad-2026-de-la-alcaldia-de-panama-superaria-los-38-millones-en-contratos/",
@@ -43,5 +43,5 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-13T09:55:28.906Z",
-  "actualizado": "2026-09-13T10:02:11.693Z"
+  "actualizado": "2026-09-14T12:53:27.799Z"
 }
