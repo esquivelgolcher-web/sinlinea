@@ -1,7 +1,7 @@
 {
   "id": "2026-09-14-0433-lawebazone-tendencias-d-9943",
   "cuenta": "lawebazone",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "Tendencias de México",
     "url": "https://www.macrumors.com/2026/09/13/ios-27-features-available-tomorrow/",
@@ -40,5 +40,5 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-14T09:33:04.696Z",
-  "actualizado": "2026-09-14T09:33:04.696Z"
+  "actualizado": "2026-09-14T17:15:06.587Z"
 }
