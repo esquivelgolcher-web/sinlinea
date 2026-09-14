@@ -1,7 +1,7 @@
 {
   "id": "2026-09-13-0503-sinlinea-la-prensa-679e",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "La Prensa",
     "url": "https://www.prensa.com/judiciales/caso-pandora-ya-son-22-los-imputados-por-el-fraude-de-los-creditos-fiscales-de-la-dgi/",
@@ -39,9 +39,26 @@
     "generada": "2026-09-13T10:03:23.448Z",
     "error": null
   },
-  "programado": null,
+  "programado": "2026-09-14T09:30:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-13T10:03:23.448Z",
-  "actualizado": "2026-09-13T10:03:23.448Z"
+  "actualizado": "2026-09-14T12:53:20.666Z",
+  "destinos": {
+    "instagram": {
+      "texto": "La red que manipuló el sistema e-Tax 2.0 de la Dirección General de Ingresos sigue creciendo: ya son 22 las personas imputadas por blanqueo de capitales, falsificación y corrupción. Se le atribuye a Martínez haber ayudado a mover hasta 21 millones de dólares en créditos fiscales falsos. ¿Debería el Estado reforzar los controles internos de la DGI?\n\nFuente: La Prensa\n\n#Panamá #SinLínea #CasoPandora #DGI #Corrupción #CréditosFiscales",
+      "aprobado": {
+        "fecha": "2026-09-14T12:53:20.666Z",
+        "hashPieza": "13512c74133e4aa6",
+        "imagenHash": "ef74bc9e18a7544c",
+        "imagenSha": "beeb6dd400c387eea330b3b6aec50d76533fcd22"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
