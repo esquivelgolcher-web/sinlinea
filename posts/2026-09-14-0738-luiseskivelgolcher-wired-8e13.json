@@ -196,7 +196,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-14T12:38:10.909Z",
-  "actualizado": "2026-09-14T12:53:00.111Z",
+  "actualizado": "2026-09-14T14:19:31.090Z",
   "destinos": {
     "instagram": {
       "texto": "Un análisis de 160 sitios de pornografía falsa (contenido generado con inteligencia artificial que simula imágenes sexuales reales) encontró que al menos 138 mujeres diputadas de 22 países de la Unión Europea aparecen en ellos, frente a solo nueve hombres. La investigación, del especialista Benjamin Shultz para el centro alemán Agora Digitale Transformation, fue revisada por la periodista Matt Burgess para WIRED (14 de septiembre de 2026). Shultz avisó a cada legisladora afectada y ofreció orientación para retirar el contenido. Varias diputadas, como la neerlandesa Suzanne Kröger, describen el hallazgo como \"profundamente perturbador\". Investigadores advierten que este tipo de abuso puede desincentivar a las mujeres a ocupar cargos públicos. Este resumen se basa en un solo estudio; no hay una segunda fuente que confirme de forma independiente las cifras. ¿Debería la ley obligar a estos sitios a identificar y eliminar contenido sin consentimiento?\n\nFuente: WIRED\n\n#Deepfakes #Privacidad #TecnologíaYPoder #Panamá",
@@ -218,7 +218,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-09-14T14:19:31.090Z",
+        "actualizado": "2026-09-14T14:19:31.090Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     },
