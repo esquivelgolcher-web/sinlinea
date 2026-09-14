@@ -1,7 +1,7 @@
 {
   "id": "2026-09-14-0139-lawebazone-tendencias-d-cb0d",
   "cuenta": "lawebazone",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "Tendencias de México",
     "url": "https://www.espn.com.mx/otros-deportes/nota/_/id/17244292/the-miz-no-ve-a-penta-capz-de-vencer-a-roman-reigns-en-mexico",
@@ -40,5 +40,5 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-14T06:39:53.170Z",
-  "actualizado": "2026-09-14T06:39:53.170Z"
+  "actualizado": "2026-09-14T17:15:03.143Z"
 }
