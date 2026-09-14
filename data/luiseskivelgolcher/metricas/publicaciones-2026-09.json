@@ -79,9 +79,26 @@
             "follows": 1
           },
           "faltantes": {}
+        },
+        "2026-09-14T05:41:28.453Z": {
+          "acumulados": {
+            "meGusta": 7,
+            "comentarios": 0,
+            "reach": 1739,
+            "views": 2616,
+            "likes": 7,
+            "comments": 0,
+            "saved": 12,
+            "shares": 1,
+            "total_interactions": 21,
+            "profile_visits": 8,
+            "profile_activity": 0,
+            "follows": 1
+          },
+          "faltantes": {}
         }
       },
-      "ultimaConsulta": "2026-09-13T05:39:57.288Z"
+      "ultimaConsulta": "2026-09-14T05:41:28.453Z"
     },
     "18148295752532111": {
       "fecha": "2026-09-09T19:15:35.000Z",
@@ -160,9 +177,26 @@
             "follows": 0
           },
           "faltantes": {}
+        },
+        "2026-09-14T05:41:28.453Z": {
+          "acumulados": {
+            "meGusta": 34,
+            "comentarios": 0,
+            "reach": 1815,
+            "views": 2821,
+            "likes": 34,
+            "comments": 0,
+            "saved": 3,
+            "shares": 9,
+            "total_interactions": 51,
+            "profile_visits": 4,
+            "profile_activity": 0,
+            "follows": 0
+          },
+          "faltantes": {}
         }
       },
-      "ultimaConsulta": "2026-09-13T05:39:57.288Z"
+      "ultimaConsulta": "2026-09-14T05:41:28.453Z"
     },
     "18230106619323295": {
       "fecha": "2026-09-10T19:14:20.000Z",
@@ -224,9 +258,26 @@
             "follows": 0
           },
           "faltantes": {}
+        },
+        "2026-09-14T05:41:28.453Z": {
+          "acumulados": {
+            "meGusta": 10,
+            "comentarios": 0,
+            "reach": 2204,
+            "views": 3438,
+            "likes": 10,
+            "comments": 0,
+            "saved": 2,
+            "shares": 0,
+            "total_interactions": 12,
+            "profile_visits": 3,
+            "profile_activity": 0,
+            "follows": 0
+          },
+          "faltantes": {}
         }
       },
-      "ultimaConsulta": "2026-09-13T05:39:57.288Z"
+      "ultimaConsulta": "2026-09-14T05:41:28.453Z"
     },
     "18215615350355192": {
       "fecha": "2026-09-10T18:08:53.000Z",
@@ -288,9 +339,26 @@
             "follows": 0
           },
           "faltantes": {}
+        },
+        "2026-09-14T05:41:28.453Z": {
+          "acumulados": {
+            "meGusta": 7,
+            "comentarios": 0,
+            "reach": 754,
+            "views": 1418,
+            "likes": 7,
+            "comments": 0,
+            "saved": 0,
+            "shares": 1,
+            "total_interactions": 9,
+            "profile_visits": 0,
+            "profile_activity": 0,
+            "follows": 0
+          },
+          "faltantes": {}
         }
       },
-      "ultimaConsulta": "2026-09-13T05:39:57.288Z"
+      "ultimaConsulta": "2026-09-14T05:41:28.453Z"
     },
     "18108884542885260": {
       "fecha": "2026-09-11T23:15:31.000Z",
@@ -335,9 +403,26 @@
             "follows": 0
           },
           "faltantes": {}
+        },
+        "2026-09-14T05:41:28.453Z": {
+          "acumulados": {
+            "meGusta": 5,
+            "comentarios": 0,
+            "reach": 967,
+            "views": 2030,
+            "likes": 5,
+            "comments": 0,
+            "saved": 2,
+            "shares": 4,
+            "total_interactions": 12,
+            "profile_visits": 7,
+            "profile_activity": 0,
+            "follows": 0
+          },
+          "faltantes": {}
         }
       },
-      "ultimaConsulta": "2026-09-13T05:39:57.288Z"
+      "ultimaConsulta": "2026-09-14T05:41:28.453Z"
     },
     "17940300240358337": {
       "fecha": "2026-09-11T10:44:41.000Z",
@@ -382,9 +467,26 @@
             "follows": 0
           },
           "faltantes": {}
+        },
+        "2026-09-14T05:41:28.453Z": {
+          "acumulados": {
+            "meGusta": 4,
+            "comentarios": 0,
+            "reach": 1923,
+            "views": 2838,
+            "likes": 4,
+            "comments": 0,
+            "saved": 0,
+            "shares": 0,
+            "total_interactions": 4,
+            "profile_visits": 1,
+            "profile_activity": 0,
+            "follows": 0
+          },
+          "faltantes": {}
         }
       },
-      "ultimaConsulta": "2026-09-13T05:39:57.288Z"
+      "ultimaConsulta": "2026-09-14T05:41:28.453Z"
     },
     "18100476017016917": {
       "fecha": "2026-09-12T23:15:35.000Z",
@@ -412,9 +514,26 @@
             "follows": 0
           },
           "faltantes": {}
+        },
+        "2026-09-14T05:41:28.453Z": {
+          "acumulados": {
+            "meGusta": 3,
+            "comentarios": 0,
+            "reach": 567,
+            "views": 951,
+            "likes": 3,
+            "comments": 0,
+            "saved": 1,
+            "shares": 1,
+            "total_interactions": 5,
+            "profile_visits": 1,
+            "profile_activity": 0,
+            "follows": 0
+          },
+          "faltantes": {}
         }
       },
-      "ultimaConsulta": "2026-09-13T05:39:57.288Z"
+      "ultimaConsulta": "2026-09-14T05:41:28.453Z"
     }
   }
 }
