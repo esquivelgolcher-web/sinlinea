@@ -1,7 +1,7 @@
 {
   "id": "2026-09-14-0239-leopopexiv-vatican-news-09d8",
   "cuenta": "leopopexiv",
-  "estado": "borrador",
+  "estado": "programado",
   "formato": "frase",
   "frase": {
     "texto": "Forgiveness is indispensable, and without it, we cannot live in peace.",
@@ -36,9 +36,26 @@
     "renderizada": "2026-09-14T06:40:23.312Z"
   },
   "ilustracion": null,
-  "programado": null,
+  "programado": "2026-09-14T09:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-14T06:39:53.170Z",
-  "actualizado": "2026-09-14T06:39:53.170Z"
+  "actualizado": "2026-09-14T07:29:05.775Z",
+  "destinos": {
+    "instagram": {
+      "texto": "“Forgiveness is indispensable, and without it, we cannot live in peace.”\n\n— Pope Leo XIV, Angelus (2026)\n\nVia Vatican News, 13 September 2026\n\n#PopeLeoXIV #Vatican #CatholicChurch\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #CatholicChurch",
+      "aprobado": {
+        "fecha": "2026-09-14T07:29:05.775Z",
+        "hashPieza": "428350fe2da7c0f4",
+        "imagenHash": "0df9273f2ad0d341",
+        "imagenSha": "7e442640ce3d724243c325e4fac0f3eaa7901ace"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
