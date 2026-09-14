@@ -1,0 +1,47 @@
+{
+  "id": "2026-09-14-1033-sinlinea-la-prensa-32ef",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/politica/panama-con-menos-habitantes-que-costa-rica-y-el-salvador-tiene-una-asamblea-mas-grande-y-costosa/",
+    "titulo": "Panamá, con menos habitantes que Costa Rica y El Salvador, tiene una Asamblea más grande y costosa",
+    "publicado": "2026-09-14T05:05:00.000Z"
+  },
+  "categoria": "POLÍTICA",
+  "titular": "Asamblea de Panamá cuesta más que la de países con más población",
+  "bajada": "Panamá tiene 71 diputados y un presupuesto legislativo que rondará los $214 millones en 2026.",
+  "caption": "Panamá tiene menos habitantes que Costa Rica y El Salvador, pero su Asamblea Nacional gasta más que ambas juntas. El presupuesto legislativo pasó de $98.7 millones autorizados a $146.42 millones modificados hasta julio, con miras a $214 millones al cierre del año. La reducción del número de diputados es una de las propuestas que ronda la posible Constituyente. ¿Cree que Panamá necesita una Asamblea más pequeña?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#AsambleaNacional",
+    "#Presupuesto",
+    "#Diputados",
+    "#Constituyente"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-09-14-1033-sinlinea-la-prensa-32ef.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-14-1033-sinlinea-la-prensa-32ef.jpg",
+    "hash": "9f43b8792091219f",
+    "version": 11,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-09-14T15:33:48.681Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada del Palacio Legislativo de Panamá bajo un cielo despejado, con el edificio ubicado en el tercio superior derecho y la zona izquierda y central despejadas.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-14-1033-sinlinea-la-prensa-32ef.jpg",
+    "hashDescripcion": "340257a45f44f5d6",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-14T15:33:16.935Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-14T15:33:16.935Z",
+  "actualizado": "2026-09-14T15:33:16.935Z"
+}
