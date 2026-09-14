@@ -1,7 +1,7 @@
 {
   "id": "2026-09-13-0455-sinlinea-la-estrella-61be",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "La Estrella de Panamá",
     "url": "https://www.laestrella.com.pa/panama/nacional/amoacss-alerta-por-presupuesto-del-minsa-para-2027-estaria-800-millones-por-debajo-de-sus-necesidades-AF25640356",
@@ -43,5 +43,5 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-13T09:55:28.906Z",
-  "actualizado": "2026-09-13T10:02:11.693Z"
+  "actualizado": "2026-09-14T17:14:45.619Z"
 }
