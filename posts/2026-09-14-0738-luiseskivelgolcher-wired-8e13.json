@@ -1,7 +1,7 @@
 {
   "id": "2026-09-14-0738-luiseskivelgolcher-wired-8e13",
   "cuenta": "luiseskivelgolcher",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "WIRED",
     "url": "https://www.wired.com/story/sexually-explicit-deepfake-sites-target-100-plus-politicians-in-europe/",
@@ -192,9 +192,59 @@
     "estado": "pendiente",
     "notas": []
   },
-  "programado": null,
+  "programado": "2026-09-14T09:05:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-14T12:38:10.909Z",
-  "actualizado": "2026-09-14T12:38:10.909Z"
+  "actualizado": "2026-09-14T12:53:00.111Z",
+  "destinos": {
+    "instagram": {
+      "texto": "Un análisis de 160 sitios de pornografía falsa (contenido generado con inteligencia artificial que simula imágenes sexuales reales) encontró que al menos 138 mujeres diputadas de 22 países de la Unión Europea aparecen en ellos, frente a solo nueve hombres. La investigación, del especialista Benjamin Shultz para el centro alemán Agora Digitale Transformation, fue revisada por la periodista Matt Burgess para WIRED (14 de septiembre de 2026). Shultz avisó a cada legisladora afectada y ofreció orientación para retirar el contenido. Varias diputadas, como la neerlandesa Suzanne Kröger, describen el hallazgo como \"profundamente perturbador\". Investigadores advierten que este tipo de abuso puede desincentivar a las mujeres a ocupar cargos públicos. Este resumen se basa en un solo estudio; no hay una segunda fuente que confirme de forma independiente las cifras. ¿Debería la ley obligar a estos sitios a identificar y eliminar contenido sin consentimiento?\n\nFuente: WIRED\n\n#Deepfakes #Privacidad #TecnologíaYPoder #Panamá",
+      "aprobado": {
+        "fecha": "2026-09-14T12:53:00.111Z",
+        "hashPieza": "7ffe3cd79f5fe991",
+        "imagenHash": "413d124fc54da649",
+        "imagenSha": "03869753945175c8e40d751fa57b5096fc3ba10d",
+        "imagenesSha": [
+          "6d73f6ed57a836eb062f163b57ca3116e356efc8",
+          "813029331f6af6b971cd79820b65d5c7e4e2d6a8",
+          "417e094a8152b8ed3fc835a204c5d71ab7ca00d5",
+          "7ca7ac1fa46ed6533e8de0a32f03def28b47474b",
+          "1f38ccd1a0c48fd281fe418a5cba8e48f8f31868",
+          "6fdd185c3fbb7686e36a5c9a0769e2ab67593bc0",
+          "52313d7728b279dde02b9a6af750dc73480a8cdf"
+        ]
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    },
+    "threads": {
+      "texto": "Deepfakes sexuales atacan a más de 130 políticas en Europa\n\nInvestigador halla que las diputadas son 33 veces más blanco que los diputados hombres\n\nSegún WIRED (14 de septiembre de 2026)",
+      "aprobado": {
+        "fecha": "2026-09-14T12:53:00.111Z",
+        "hashPieza": "7ffe3cd79f5fe991",
+        "imagenHash": "413d124fc54da649",
+        "imagenSha": "03869753945175c8e40d751fa57b5096fc3ba10d",
+        "imagenesSha": [
+          "6d73f6ed57a836eb062f163b57ca3116e356efc8",
+          "813029331f6af6b971cd79820b65d5c7e4e2d6a8",
+          "417e094a8152b8ed3fc835a204c5d71ab7ca00d5",
+          "7ca7ac1fa46ed6533e8de0a32f03def28b47474b",
+          "1f38ccd1a0c48fd281fe418a5cba8e48f8f31868",
+          "6fdd185c3fbb7686e36a5c9a0769e2ab67593bc0",
+          "52313d7728b279dde02b9a6af750dc73480a8cdf"
+        ]
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
