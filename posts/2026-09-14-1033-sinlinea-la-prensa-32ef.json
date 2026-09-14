@@ -1,7 +1,7 @@
 {
   "id": "2026-09-14-1033-sinlinea-la-prensa-32ef",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "La Prensa",
     "url": "https://www.prensa.com/politica/panama-con-menos-habitantes-que-costa-rica-y-el-salvador-tiene-una-asamblea-mas-grande-y-costosa/",
@@ -43,5 +43,5 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-14T15:33:16.935Z",
-  "actualizado": "2026-09-14T15:33:16.935Z"
+  "actualizado": "2026-09-14T17:14:40.415Z"
 }
