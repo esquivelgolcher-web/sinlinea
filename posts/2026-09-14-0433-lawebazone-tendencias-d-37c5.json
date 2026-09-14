@@ -1,0 +1,44 @@
+{
+  "id": "2026-09-14-0433-lawebazone-tendencias-d-37c5",
+  "cuenta": "lawebazone",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Tendencias de México",
+    "url": "https://www.reforma.com/suspenden-contingencia-ambiental-y-sus-medidas-en-zmvm/ar3275446",
+    "titulo": "hoy no circula 14 de septiembre 2026",
+    "publicado": "2026-09-14T04:10:00.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "CDMX suspende el Hoy No Circula y nadie lo puede creer",
+  "bajada": "La Zona Metropolitana del Valle de México levantó la contingencia ambiental y sus restricciones vehiculares",
+  "caption": "Un día sin Hoy No Circula y ya no sabemos ni qué día es. Prende el coche que hoy sí puedes salir aunque tu placa termine en lo que sea. Aprovecha antes de que el aire se arrepienta.",
+  "hashtags": [
+    "#HoyNoCircula",
+    "#CDMX",
+    "#TráficoLibre"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-09-14-0433-lawebazone-tendencias-d-37c5.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-14-0433-lawebazone-tendencias-d-37c5.jpg",
+    "hash": "045ba10fc6a7fe05",
+    "version": 11,
+    "estilo": "9fd322fb9927e571",
+    "renderizada": "2026-09-14T09:33:26.442Z"
+  },
+  "ilustracion": {
+    "descripcion": "Avenida amplia de Ciudad de México con autos circulando libremente bajo un cielo despejado, semáforo en verde en el tercio superior derecho, calzada central despejada.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-14T09:33:04.696Z",
+  "actualizado": "2026-09-14T09:33:04.696Z"
+}
