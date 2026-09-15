@@ -96,9 +96,26 @@
             "follows": 1
           },
           "faltantes": {}
+        },
+        "2026-09-15T05:42:55.456Z": {
+          "acumulados": {
+            "meGusta": 7,
+            "comentarios": 0,
+            "reach": 1784,
+            "views": 2705,
+            "likes": 7,
+            "comments": 0,
+            "saved": 13,
+            "shares": 1,
+            "total_interactions": 22,
+            "profile_visits": 8,
+            "profile_activity": 0,
+            "follows": 1
+          },
+          "faltantes": {}
         }
       },
-      "ultimaConsulta": "2026-09-14T05:41:28.453Z"
+      "ultimaConsulta": "2026-09-15T05:42:55.456Z"
     },
     "18148295752532111": {
       "fecha": "2026-09-09T19:15:35.000Z",
@@ -194,9 +211,26 @@
             "follows": 0
           },
           "faltantes": {}
+        },
+        "2026-09-15T05:42:55.456Z": {
+          "acumulados": {
+            "meGusta": 35,
+            "comentarios": 0,
+            "reach": 1867,
+            "views": 2904,
+            "likes": 35,
+            "comments": 0,
+            "saved": 3,
+            "shares": 9,
+            "total_interactions": 52,
+            "profile_visits": 4,
+            "profile_activity": 0,
+            "follows": 0
+          },
+          "faltantes": {}
         }
       },
-      "ultimaConsulta": "2026-09-14T05:41:28.453Z"
+      "ultimaConsulta": "2026-09-15T05:42:55.456Z"
     },
     "18230106619323295": {
       "fecha": "2026-09-10T19:14:20.000Z",
@@ -275,9 +309,26 @@
             "follows": 0
           },
           "faltantes": {}
+        },
+        "2026-09-15T05:42:55.456Z": {
+          "acumulados": {
+            "meGusta": 10,
+            "comentarios": 0,
+            "reach": 2332,
+            "views": 3596,
+            "likes": 10,
+            "comments": 0,
+            "saved": 2,
+            "shares": 0,
+            "total_interactions": 12,
+            "profile_visits": 3,
+            "profile_activity": 0,
+            "follows": 0
+          },
+          "faltantes": {}
         }
       },
-      "ultimaConsulta": "2026-09-14T05:41:28.453Z"
+      "ultimaConsulta": "2026-09-15T05:42:55.456Z"
     },
     "18215615350355192": {
       "fecha": "2026-09-10T18:08:53.000Z",
@@ -356,9 +407,26 @@
             "follows": 0
           },
           "faltantes": {}
+        },
+        "2026-09-15T05:42:55.456Z": {
+          "acumulados": {
+            "meGusta": 8,
+            "comentarios": 0,
+            "reach": 775,
+            "views": 1461,
+            "likes": 8,
+            "comments": 0,
+            "saved": 0,
+            "shares": 1,
+            "total_interactions": 10,
+            "profile_visits": 0,
+            "profile_activity": 0,
+            "follows": 0
+          },
+          "faltantes": {}
         }
       },
-      "ultimaConsulta": "2026-09-14T05:41:28.453Z"
+      "ultimaConsulta": "2026-09-15T05:42:55.456Z"
     },
     "18108884542885260": {
       "fecha": "2026-09-11T23:15:31.000Z",
@@ -420,9 +488,26 @@
             "follows": 0
           },
           "faltantes": {}
+        },
+        "2026-09-15T05:42:55.456Z": {
+          "acumulados": {
+            "meGusta": 6,
+            "comentarios": 0,
+            "reach": 1010,
+            "views": 2119,
+            "likes": 6,
+            "comments": 0,
+            "saved": 2,
+            "shares": 4,
+            "total_interactions": 13,
+            "profile_visits": 7,
+            "profile_activity": 0,
+            "follows": 0
+          },
+          "faltantes": {}
         }
       },
-      "ultimaConsulta": "2026-09-14T05:41:28.453Z"
+      "ultimaConsulta": "2026-09-15T05:42:55.456Z"
     },
     "17940300240358337": {
       "fecha": "2026-09-11T10:44:41.000Z",
@@ -484,9 +569,26 @@
             "follows": 0
           },
           "faltantes": {}
+        },
+        "2026-09-15T05:42:55.456Z": {
+          "acumulados": {
+            "meGusta": 4,
+            "comentarios": 0,
+            "reach": 2022,
+            "views": 2968,
+            "likes": 4,
+            "comments": 0,
+            "saved": 0,
+            "shares": 0,
+            "total_interactions": 4,
+            "profile_visits": 1,
+            "profile_activity": 0,
+            "follows": 0
+          },
+          "faltantes": {}
         }
       },
-      "ultimaConsulta": "2026-09-14T05:41:28.453Z"
+      "ultimaConsulta": "2026-09-15T05:42:55.456Z"
     },
     "18100476017016917": {
       "fecha": "2026-09-12T23:15:35.000Z",
@@ -531,9 +633,56 @@
             "follows": 0
           },
           "faltantes": {}
+        },
+        "2026-09-15T05:42:55.456Z": {
+          "acumulados": {
+            "meGusta": 3,
+            "comentarios": 0,
+            "reach": 627,
+            "views": 1074,
+            "likes": 3,
+            "comments": 0,
+            "saved": 1,
+            "shares": 1,
+            "total_interactions": 5,
+            "profile_visits": 1,
+            "profile_activity": 0,
+            "follows": 0
+          },
+          "faltantes": {}
         }
       },
-      "ultimaConsulta": "2026-09-14T05:41:28.453Z"
+      "ultimaConsulta": "2026-09-15T05:42:55.456Z"
+    },
+    "17951694492036952": {
+      "fecha": "2026-09-14T14:20:14.000Z",
+      "permalink": "https://www.instagram.com/p/DdRVgU0oM-B/",
+      "tipo": "CAROUSEL_ALBUM",
+      "origen": "sistema",
+      "post": "2026-09-14-0738-luiseskivelgolcher-wired-8e13",
+      "categoria": "SOCIEDAD",
+      "franja": "09:05",
+      "titulo": "Un análisis de 160 sitios de pornografía falsa (contenido generado con inteligencia artifi",
+      "consultas": {
+        "2026-09-15T05:42:55.456Z": {
+          "acumulados": {
+            "meGusta": 7,
+            "comentarios": 0,
+            "reach": 864,
+            "views": 1794,
+            "likes": 7,
+            "comments": 0,
+            "saved": 0,
+            "shares": 1,
+            "total_interactions": 8,
+            "profile_visits": 5,
+            "profile_activity": 0,
+            "follows": 0
+          },
+          "faltantes": {}
+        }
+      },
+      "ultimaConsulta": "2026-09-15T05:42:55.456Z"
     }
   }
 }
