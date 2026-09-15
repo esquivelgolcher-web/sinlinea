@@ -115,7 +115,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-14T18:35:05.691Z",
-  "actualizado": "2026-09-15T09:22:23.729Z",
+  "actualizado": "2026-09-15T12:22:03.120Z",
   "destinos": {
     "instagram": {
       "texto": "La Fiscalía de Manhattan anunció la incautación de 12 dominios usados para publicar y vender videos deepfake —montajes hechos con inteligencia artificial que superponen el rostro de una persona sobre el cuerpo de otra en escenas sexuales sin su consentimiento—, según reportó WIRED el 14 de septiembre de 2026. La oficina del fiscal Alvin Bragg calcula que unas 1,200 personas, en su mayoría mujeres, aparecían en los sitios: influencers, actrices, deportistas, músicas y políticas. WIRED confirmó de forma independiente que varias páginas mostraban avisos de incautación días antes del anuncio oficial. La investigación sobre quiénes operaban los sitios sigue abierta. Es, según la propia fiscalía, una de las acciones más amplias contra este tipo de contenido desde que la tecnología surgió en 2017. ¿Qué tan preparadas están las leyes de tu país para este tipo de abuso?\n\nFuente: WIRED\n\n#Deepfakes #Privacidad #Ciberseguridad #IA",
@@ -128,7 +128,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-09-15T12:22:03.120Z",
+        "actualizado": "2026-09-15T12:22:03.120Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     },
