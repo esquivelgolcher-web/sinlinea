@@ -1,7 +1,7 @@
 {
   "id": "2026-09-14-1335-luiseskivelgolcher-wired-74f5",
   "cuenta": "luiseskivelgolcher",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "WIRED",
     "url": "https://www.wired.com/story/new-york-seizes-a-dozen-celebrity-deepfake-websites/",
@@ -169,16 +169,15 @@
         "imagenHash": "b34b2b7264bee9fc",
         "imagenSha": "74c158c773fe14e65b4fec23e5113edde115811e"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-09-15T12:22:03.120Z",
-        "actualizado": "2026-09-15T12:22:03.120Z",
-        "contenedorId": "17989202877100604"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18204758668366474",
+        "idPublicacion": null,
+        "permalink": "https://www.threads.com/@luisegolcher/post/DdTs1_8oPaI",
+        "fecha": "2026-09-15T12:22:03.120Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
