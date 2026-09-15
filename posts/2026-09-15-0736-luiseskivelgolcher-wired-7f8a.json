@@ -1,0 +1,123 @@
+{
+  "id": "2026-09-15-0736-luiseskivelgolcher-wired-7f8a",
+  "cuenta": "luiseskivelgolcher",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "WIRED",
+    "url": "https://www.wired.com/story/lawmakers-want-states-to-crack-down-on-flock-cameras-or-pay-the-price/",
+    "titulo": "Lawmakers Want States to Crack Down on Flock Cameras—or Pay the Price",
+    "publicado": "2026-09-15T10:00:00.000Z"
+  },
+  "categoria": "SEGURIDAD",
+  "titular": "EE.UU. amenaza fondos a estados que no limiten cámaras Flock",
+  "bajada": "Proyecto bipartidista busca restringir el uso de lectores de placas automatizados",
+  "caption": "Un proyecto bipartidista presentado en el Congreso de Estados Unidos, según reportó WIRED el 15 de septiembre de 2026, busca retirar fondos federales de carreteras a los estados que no restrinjan el uso de las cámaras Flock, dispositivos que leen automáticamente las placas de los vehículos (lectores automatizados de matrículas o ALPR, por sus siglas en inglés). La llamada \"No FLOCK Act\" limitaría su uso a cinco casos: peajes, vehículos robados, personas desaparecidas, órdenes de arresto por delito grave e investigación de delitos graves. El texto no prohíbe estos sistemas por completo ni impide que la información se comparta con otras agencias, incluidas las de inmigración. Según los legisladores, el impulso surge tras denuncias de abusos, como oficiales que usaron las cámaras para rastrear a exparejas. Flock no respondió a la solicitud de comentarios de WIRED. ¿Debería exigirse más transparencia sobre cómo se comparten estos datos entre agencias?",
+  "hashtags": [
+    "#Vigilancia",
+    "#Privacidad",
+    "#Tecnología",
+    "#EstadosUnidos"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-09-15-0736-luiseskivelgolcher-wired-7f8a.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-15-0736-luiseskivelgolcher-wired-7f8a.jpg",
+    "hash": "a866e96bcfec56a1",
+    "version": 11,
+    "estilo": "dc8c8fa3edf501fd",
+    "renderizada": "2026-09-15T12:36:54.374Z"
+  },
+  "ilustracion": {
+    "descripcion": "Autopista estadounidense al atardecer con un poste de cámara de vigilancia de placas vehiculares en el tercio superior derecho; carretera despejada y cielo amplio en la zona izquierda y central.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-15-0736-luiseskivelgolcher-wired-7f8a.jpg",
+    "hashDescripcion": "41006fddd37df83b",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-15T12:36:17.389Z",
+    "error": null,
+    "procedencia": "generada"
+  },
+  "formato": "post",
+  "fuentes": [
+    {
+      "rol": "principal",
+      "medio": "WIRED",
+      "autor": "Paresh Dave",
+      "url": "https://www.wired.com/story/lawmakers-want-states-to-crack-down-on-flock-cameras-or-pay-the-price/",
+      "canonica": "https://www.wired.com/story/lawmakers-want-states-to-crack-down-on-flock-cameras-or-pay-the-price/",
+      "idioma": "en",
+      "publicado": "2026-09-15T10:00:00.000Z",
+      "actualizado": "2026-09-15T10:00:00.000Z",
+      "fechaHecho": null,
+      "consultado": "2026-09-15T12:36:17.389Z",
+      "alcance": "completo",
+      "textoRecuperado": {
+        "parrafos": 20,
+        "caracteres": 5076,
+        "enviados": 3775
+      },
+      "fuentesPrimarias": [
+        "https://krishnamoorthi.house.gov/sites/evo-subsites/krishnamoorthi-evo.house.gov/files/evo-media-document/krishn_154_xml.pdf",
+        "https://massie.house.gov/news/documentsingle.aspx?DocumentID=395851",
+        "https://ij.org/the-ij-database-of-alpr-abuse/",
+        "https://alprscorecard.com/",
+        "https://www.google.com/preferences/source?q=wired.com",
+        "http://www.aboutads.info"
+      ],
+      "licenciaMedios": null
+    }
+  ],
+  "afirmaciones": [
+    {
+      "texto": "Un proyecto bipartidista retiraría el 10% de los fondos federales de carreteras a los estados que no restrinjan el uso de cámaras Flock y lectores de placas similares.",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/lawmakers-want-states-to-crack-down-on-flock-cameras-or-pay-the-price/",
+      "contrastada": false
+    },
+    {
+      "texto": "La ley limitaría el uso de estas cámaras a cinco casos: peajes, vehículos robados, personas desaparecidas, órdenes de arresto por delito grave e investigación de delitos graves.",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/lawmakers-want-states-to-crack-down-on-flock-cameras-or-pay-the-price/",
+      "contrastada": false
+    },
+    {
+      "texto": "Un reporte encontró al menos 100 casos de presunto abuso de estas cámaras por parte de policías en los últimos ocho años.",
+      "tipo": "denuncia",
+      "fuente": "https://www.wired.com/story/lawmakers-want-states-to-crack-down-on-flock-cameras-or-pay-the-price/",
+      "contrastada": false
+    },
+    {
+      "texto": "El presidente Trump expresó su apoyo a las cámaras Flock, señalando que ayudan a las autoridades policiales.",
+      "tipo": "opinion",
+      "fuente": "https://www.wired.com/story/lawmakers-want-states-to-crack-down-on-flock-cameras-or-pay-the-price/",
+      "contrastada": false
+    }
+  ],
+  "angulo": "Vigilancia y poder de las plataformas: cómo un proyecto de ley busca frenar el uso indebido de tecnología de rastreo vehicular por parte de policías estadounidenses.",
+  "atribucion": "Según WIRED (Paresh Dave), 15 de septiembre de 2026",
+  "puntuacion": {
+    "total": 82,
+    "componentes": {
+      "afinidad": 27,
+      "interes": 20,
+      "evidencia": 14,
+      "actualidad": 15,
+      "visual": 6
+    }
+  },
+  "alertas": [
+    "fuente-unica"
+  ],
+  "carrusel": null,
+  "reel": null,
+  "revision": {
+    "estado": "pendiente",
+    "notas": []
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-15T12:36:17.389Z",
+  "actualizado": "2026-09-15T12:36:17.389Z"
+}
