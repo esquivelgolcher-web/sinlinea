@@ -1,7 +1,7 @@
 {
   "id": "2026-09-15-0238-leopopexiv-vatican-news-84c5",
   "cuenta": "leopopexiv",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/pope/news/2026-09/pope-leo-xiv-celebrates-71st-birthday.html",
@@ -37,9 +37,26 @@
     "generada": "2026-09-15T06:38:19.561Z",
     "error": null
   },
-  "programado": null,
+  "programado": "2026-09-15T09:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-15T06:38:19.561Z",
-  "actualizado": "2026-09-15T06:38:19.561Z"
+  "actualizado": "2026-09-15T09:22:33.442Z",
+  "destinos": {
+    "instagram": {
+      "texto": "Pope Leo XIV turned 71 on September 14, 2026, closing a year marked by calls for peace, Apostolic Journeys abroad and a consistent focus on human dignity. Source: Vatican News, Sept 14, 2026.\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #CatholicChurch #HolySee",
+      "aprobado": {
+        "fecha": "2026-09-15T09:22:33.442Z",
+        "hashPieza": "ae7ca941d540d5df",
+        "imagenHash": "e5761d663248ad70",
+        "imagenSha": "b376772b5153357daede4924f17de95bd3be1d4e"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
