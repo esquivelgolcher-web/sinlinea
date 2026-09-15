@@ -41,7 +41,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-15T06:38:19.561Z",
-  "actualizado": "2026-09-15T09:22:33.442Z",
+  "actualizado": "2026-09-15T14:18:20.291Z",
   "destinos": {
     "instagram": {
       "texto": "Pope Leo XIV turned 71 on September 14, 2026, closing a year marked by calls for peace, Apostolic Journeys abroad and a consistent focus on human dignity. Source: Vatican News, Sept 14, 2026.\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #CatholicChurch #HolySee",
@@ -54,7 +54,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-09-15T14:18:20.291Z",
+        "actualizado": "2026-09-15T14:18:20.291Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
