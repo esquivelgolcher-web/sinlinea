@@ -1,7 +1,7 @@
 {
   "id": "2026-09-15-0238-leopopexiv-vatican-news-84c5",
   "cuenta": "leopopexiv",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/pope/news/2026-09/pope-leo-xiv-celebrates-71st-birthday.html",
@@ -38,7 +38,11 @@
     "error": null
   },
   "programado": "2026-09-15T09:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "18111404780584188",
+    "permalink": "https://www.instagram.com/p/DdT6GpmIHmx/",
+    "fecha": "2026-09-15T14:18:20.291Z"
+  },
   "error": null,
   "creado": "2026-09-15T06:38:19.561Z",
   "actualizado": "2026-09-15T14:18:20.291Z",
@@ -51,16 +55,15 @@
         "imagenHash": "e5761d663248ad70",
         "imagenSha": "b376772b5153357daede4924f17de95bd3be1d4e"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-09-15T14:18:20.291Z",
-        "actualizado": "2026-09-15T14:18:20.291Z",
-        "contenedorId": "18101456204081176"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18111404780584188",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/DdT6GpmIHmx/",
+        "fecha": "2026-09-15T14:18:20.291Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
