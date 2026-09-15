@@ -28,9 +28,26 @@
             "follows": 0
           },
           "faltantes": {}
+        },
+        "2026-09-15T05:43:22.578Z": {
+          "acumulados": {
+            "meGusta": 0,
+            "comentarios": 0,
+            "reach": 1,
+            "views": 1,
+            "likes": 0,
+            "comments": 0,
+            "saved": 0,
+            "shares": 0,
+            "total_interactions": 0,
+            "profile_visits": 0,
+            "profile_activity": 0,
+            "follows": 0
+          },
+          "faltantes": {}
         }
       },
-      "ultimaConsulta": "2026-09-14T05:41:53.932Z"
+      "ultimaConsulta": "2026-09-15T05:43:22.578Z"
     },
     "18127153660702104": {
       "fecha": "2026-09-13T18:19:26.000Z",
@@ -58,9 +75,26 @@
             "follows": 0
           },
           "faltantes": {}
+        },
+        "2026-09-15T05:43:22.578Z": {
+          "acumulados": {
+            "meGusta": 1,
+            "comentarios": 0,
+            "reach": 1,
+            "views": 3,
+            "likes": 1,
+            "comments": 0,
+            "saved": 0,
+            "shares": 0,
+            "total_interactions": 1,
+            "profile_visits": 0,
+            "profile_activity": 0,
+            "follows": 0
+          },
+          "faltantes": {}
         }
       },
-      "ultimaConsulta": "2026-09-14T05:41:53.932Z"
+      "ultimaConsulta": "2026-09-15T05:43:22.578Z"
     },
     "18123379270894448": {
       "fecha": "2026-09-13T14:16:40.000Z",
@@ -88,9 +122,26 @@
             "follows": 0
           },
           "faltantes": {}
+        },
+        "2026-09-15T05:43:22.578Z": {
+          "acumulados": {
+            "meGusta": 0,
+            "comentarios": 0,
+            "reach": 1,
+            "views": 2,
+            "likes": 0,
+            "comments": 0,
+            "saved": 0,
+            "shares": 0,
+            "total_interactions": 0,
+            "profile_visits": 0,
+            "profile_activity": 0,
+            "follows": 0
+          },
+          "faltantes": {}
         }
       },
-      "ultimaConsulta": "2026-09-14T05:41:53.932Z"
+      "ultimaConsulta": "2026-09-15T05:43:22.578Z"
     },
     "18215379202344740": {
       "fecha": "2026-09-13T07:14:42.000Z",
@@ -118,9 +169,26 @@
             "follows": 0
           },
           "faltantes": {}
+        },
+        "2026-09-15T05:43:22.578Z": {
+          "acumulados": {
+            "meGusta": 1,
+            "comentarios": 0,
+            "reach": 1,
+            "views": 2,
+            "likes": 1,
+            "comments": 0,
+            "saved": 0,
+            "shares": 0,
+            "total_interactions": 1,
+            "profile_visits": 0,
+            "profile_activity": 0,
+            "follows": 0
+          },
+          "faltantes": {}
         }
       },
-      "ultimaConsulta": "2026-09-14T05:41:53.932Z"
+      "ultimaConsulta": "2026-09-15T05:43:22.578Z"
     },
     "18050968649607076": {
       "fecha": "2026-09-13T07:14:31.000Z",
@@ -148,9 +216,26 @@
             "follows": 0
           },
           "faltantes": {}
+        },
+        "2026-09-15T05:43:22.578Z": {
+          "acumulados": {
+            "meGusta": 1,
+            "comentarios": 0,
+            "reach": 1,
+            "views": 1,
+            "likes": 1,
+            "comments": 0,
+            "saved": 0,
+            "shares": 0,
+            "total_interactions": 1,
+            "profile_visits": 0,
+            "profile_activity": 0,
+            "follows": 0
+          },
+          "faltantes": {}
         }
       },
-      "ultimaConsulta": "2026-09-14T05:41:53.932Z"
+      "ultimaConsulta": "2026-09-15T05:43:22.578Z"
     },
     "18114932744281752": {
       "fecha": "2026-09-13T07:14:19.000Z",
@@ -178,9 +263,26 @@
             "follows": 0
           },
           "faltantes": {}
+        },
+        "2026-09-15T05:43:22.578Z": {
+          "acumulados": {
+            "meGusta": 0,
+            "comentarios": 0,
+            "reach": 1,
+            "views": 1,
+            "likes": 0,
+            "comments": 0,
+            "saved": 0,
+            "shares": 0,
+            "total_interactions": 0,
+            "profile_visits": 0,
+            "profile_activity": 0,
+            "follows": 0
+          },
+          "faltantes": {}
         }
       },
-      "ultimaConsulta": "2026-09-14T05:41:53.932Z"
+      "ultimaConsulta": "2026-09-15T05:43:22.578Z"
     },
     "17993577186009837": {
       "fecha": "2026-09-13T07:14:08.000Z",
@@ -208,9 +310,86 @@
             "follows": 0
           },
           "faltantes": {}
+        },
+        "2026-09-15T05:43:22.578Z": {
+          "acumulados": {
+            "meGusta": 1,
+            "comentarios": 0,
+            "reach": 1,
+            "views": 3,
+            "likes": 1,
+            "comments": 0,
+            "saved": 0,
+            "shares": 0,
+            "total_interactions": 1,
+            "profile_visits": 0,
+            "profile_activity": 0,
+            "follows": 0
+          },
+          "faltantes": {}
         }
       },
-      "ultimaConsulta": "2026-09-14T05:41:53.932Z"
+      "ultimaConsulta": "2026-09-15T05:43:22.578Z"
+    },
+    "17962876344191548": {
+      "fecha": "2026-09-14T18:20:29.000Z",
+      "permalink": "https://www.instagram.com/p/DdRw_w9oK-F/",
+      "tipo": "IMAGE",
+      "origen": "sistema",
+      "post": "2026-09-14-0239-leopopexiv-vatican-news-e4b8",
+      "categoria": "SOCIEDAD",
+      "franja": "13:00",
+      "titulo": "At today's Angelus, Pope Leo XIV spoke on the power of forgiveness, saying that following ",
+      "consultas": {
+        "2026-09-15T05:43:22.578Z": {
+          "acumulados": {
+            "meGusta": 1,
+            "comentarios": 0,
+            "reach": 1,
+            "views": 1,
+            "likes": 1,
+            "comments": 0,
+            "saved": 0,
+            "shares": 0,
+            "total_interactions": 1,
+            "profile_visits": 0,
+            "profile_activity": 0,
+            "follows": 0
+          },
+          "faltantes": {}
+        }
+      },
+      "ultimaConsulta": "2026-09-15T05:43:22.578Z"
+    },
+    "18026344733857229": {
+      "fecha": "2026-09-14T14:21:26.000Z",
+      "permalink": "https://www.instagram.com/p/DdRVpFmlaKa/",
+      "tipo": "IMAGE",
+      "origen": "sistema",
+      "post": "2026-09-14-0239-leopopexiv-vatican-news-09d8",
+      "categoria": "CULTURA",
+      "franja": "09:00",
+      "titulo": "“Forgiveness is indispensable, and without it, we cannot live in peace.” — Pope Leo XIV, A",
+      "consultas": {
+        "2026-09-15T05:43:22.578Z": {
+          "acumulados": {
+            "meGusta": 0,
+            "comentarios": 0,
+            "reach": 1,
+            "views": 1,
+            "likes": 0,
+            "comments": 0,
+            "saved": 0,
+            "shares": 0,
+            "total_interactions": 0,
+            "profile_visits": 0,
+            "profile_activity": 0,
+            "follows": 0
+          },
+          "faltantes": {}
+        }
+      },
+      "ultimaConsulta": "2026-09-15T05:43:22.578Z"
     }
   }
 }
