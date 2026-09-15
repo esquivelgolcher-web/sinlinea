@@ -1,7 +1,7 @@
 {
   "id": "2026-09-14-1939-sinlinea-la-prensa-45db",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "La Prensa",
     "url": "https://www.prensa.com/economia/el-cierre-de-la-mina-ocasiono-la-perdida-de-30277-empleos-segun-nuevo-informe-del-conep/",
@@ -39,9 +39,26 @@
     "generada": "2026-09-15T00:39:19.765Z",
     "error": null
   },
-  "programado": null,
+  "programado": "2026-09-15T07:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-15T00:39:19.765Z",
-  "actualizado": "2026-09-15T00:39:19.765Z"
+  "actualizado": "2026-09-15T09:23:19.395Z",
+  "destinos": {
+    "instagram": {
+      "texto": "El cierre de Cobre Panamá no solo paralizó la mina: según el CoNEP, se perdieron más de 30 mil empleos y casi $5,000 millones en producción entre 2024 y 2025. El informe ya está en manos de la comisión que decidirá el futuro del proyecto. ¿Qué debería hacer el Gobierno con la mina?\n\nFuente: La Prensa\n\n#Panamá #SinLínea #CobrePanamá #Empleo #Economía #Minería",
+      "aprobado": {
+        "fecha": "2026-09-15T09:23:19.395Z",
+        "hashPieza": "afe95c9d28bed11f",
+        "imagenHash": "db8a5efc4d032fa2",
+        "imagenSha": "213f8bef11c6838eb99d81c8e7cf0e03c1ee0c42"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
