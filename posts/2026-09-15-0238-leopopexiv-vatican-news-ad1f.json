@@ -1,7 +1,7 @@
 {
   "id": "2026-09-15-0238-leopopexiv-vatican-news-ad1f",
   "cuenta": "leopopexiv",
-  "estado": "programado",
+  "estado": "publicado",
   "formato": "frase",
   "frase": {
     "texto": "you help the Church and humanity to reach the depths of desire",
@@ -37,7 +37,11 @@
   },
   "ilustracion": null,
   "programado": "2026-09-15T13:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "17914269390262444",
+    "permalink": "https://www.instagram.com/p/DdUVn8UG1Eu/",
+    "fecha": "2026-09-15T18:18:48.787Z"
+  },
   "error": null,
   "creado": "2026-09-15T06:38:19.561Z",
   "actualizado": "2026-09-15T18:18:48.787Z",
@@ -50,16 +54,15 @@
         "imagenHash": "0a90bd8a28d7cdf8",
         "imagenSha": "82d6e0a5405c22a37f5bb2f49863ba3cf04cdacf"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-09-15T18:18:48.787Z",
-        "actualizado": "2026-09-15T18:18:48.787Z",
-        "contenedorId": "18101529740081176"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "17914269390262444",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/DdUVn8UG1Eu/",
+        "fecha": "2026-09-15T18:18:48.787Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
