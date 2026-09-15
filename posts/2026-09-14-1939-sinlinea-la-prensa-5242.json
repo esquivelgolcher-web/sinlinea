@@ -1,0 +1,47 @@
+{
+  "id": "2026-09-14-1939-sinlinea-la-prensa-5242",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/judiciales/contraloria-ordena-secuestro-preventivo-de-bienes-vinculados-al-exministro-rafael-sabonge/",
+    "titulo": "Contraloría ordena secuestro preventivo de bienes vinculados al exministro Rafael Sabonge",
+    "publicado": "2026-09-14T22:24:00.000Z"
+  },
+  "categoria": "INVESTIGACIÓN",
+  "titular": "Contraloría secuestra bienes por $704 mil a exministro Sabonge",
+  "bajada": "La medida precautoria busca proteger el patrimonio estatal mientras avanza la investigación.",
+  "caption": "La Contraloría ordenó el secuestro preventivo de bienes, fondos y vehículos vinculados al exministro de Obras Públicas Rafael Sabonge, por más de $700 mil. La medida es precautoria y no implica una sentencia. ¿Cree que estas acciones ayudan a frenar la corrupción?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Corrupción",
+    "#Contraloría",
+    "#Sabonge",
+    "#Investigación"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-09-14-1939-sinlinea-la-prensa-5242.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-14-1939-sinlinea-la-prensa-5242.jpg",
+    "hash": "a819c7068b497ff0",
+    "version": 11,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-09-15T00:39:56.038Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada del edificio de la Contraloría General de la República de Panamá bajo un cielo despejado, con el elemento principal en el tercio superior derecho, zona izquierda y central despejadas.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-14-1939-sinlinea-la-prensa-5242.jpg",
+    "hashDescripcion": "c2d714c0f249bae2",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-15T00:39:19.765Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-15T00:39:19.765Z",
+  "actualizado": "2026-09-15T00:39:19.765Z"
+}
