@@ -1,0 +1,45 @@
+{
+  "id": "2026-09-15-0238-leopopexiv-vatican-news-84c5",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-09/pope-leo-xiv-celebrates-71st-birthday.html",
+    "titulo": "Pope Leo XIV celebrates his 71st birthday",
+    "publicado": "2026-09-14T07:00:00.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "Pope Leo XIV marks his 71st birthday",
+  "bajada": "A year of peace appeals, foreign trips and focus on human dignity",
+  "caption": "Pope Leo XIV turned 71 on September 14, 2026, closing a year marked by calls for peace, Apostolic Journeys abroad and a consistent focus on human dignity. Source: Vatican News, Sept 14, 2026.",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Vatican",
+    "#CatholicChurch",
+    "#HolySee"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-09-15-0238-leopopexiv-vatican-news-84c5.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-15-0238-leopopexiv-vatican-news-84c5.jpg",
+    "hash": "e5761d663248ad70",
+    "version": 11,
+    "estilo": "32cba508d6c2290e",
+    "renderizada": "2026-09-15T06:39:05.614Z"
+  },
+  "ilustracion": {
+    "descripcion": "A softly lit Vatican courtyard at dusk, St. Peter's dome visible in the background; a figure in white papal attire stands at a distance on a balcony in the upper right third, left and center of frame open and calm.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-15-0238-leopopexiv-vatican-news-84c5.jpg",
+    "hashDescripcion": "3d980f682620e1ce",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-15T06:38:19.561Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-15T06:38:19.561Z",
+  "actualizado": "2026-09-15T06:38:19.561Z"
+}

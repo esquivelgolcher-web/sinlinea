@@ -1,0 +1,45 @@
+{
+  "id": "2026-09-15-0138-lawebazone-tendencias-d-c548",
+  "cuenta": "lawebazone",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Tendencias de México",
+    "url": "https://www.mediotiempo.com/futbol/la-liga/real-madrid-vs-rayo-vallecano-a-que-hora-donde-ver-partido-hoy-laliga-2026-mexico",
+    "titulo": "rayo vallecano",
+    "publicado": "2026-09-15T06:10:00.000Z"
+  },
+  "categoria": "DEPORTES",
+  "titular": "Rayo Vallecano le recuerda al Madrid que hay más que Mbappé",
+  "bajada": "Resumen y goles del duelo de la jornada 5 de LaLiga 2026",
+  "caption": "Cada vez que el Rayo se enfrenta a un grande, algo en el ambiente cambia: la gente deja de ver el celular y empieza a gritar como si fuera la final. Así es el fútbol, capaz de convertir un lunes cualquiera en un caos total.",
+  "hashtags": [
+    "#LaLiga",
+    "#RealMadrid",
+    "#RayoVallecano",
+    "#Fútbol"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-09-15-0138-lawebazone-tendencias-d-c548.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-15-0138-lawebazone-tendencias-d-c548.jpg",
+    "hash": "e2bca66bb5b49e59",
+    "version": 11,
+    "estilo": "9fd322fb9927e571",
+    "renderizada": "2026-09-15T06:39:37.252Z"
+  },
+  "ilustracion": {
+    "descripcion": "Un estadio de fútbol iluminado de noche con las gradas llenas y una pelota en el aire sobre el césped; el balón queda en el tercio superior derecho, izquierda y centro despejados.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-15T06:38:19.561Z",
+  "actualizado": "2026-09-15T06:38:19.561Z"
+}

@@ -1,0 +1,45 @@
+{
+  "id": "2026-09-15-0138-lawebazone-tendencias-d-291a",
+  "cuenta": "lawebazone",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Tendencias de México",
+    "url": "https://es-us.finanzas.yahoo.com/noticias/disparado-precio-d%C3%B3lar-peso-mexicano-140510325.html",
+    "titulo": "dólar hoy",
+    "publicado": "2026-09-15T05:20:00.000Z"
+  },
+  "categoria": "ECONOMÍA",
+  "titular": "El dólar subió y tu quincena ya no alcanza ni pa'l chesco",
+  "bajada": "El peso mexicano cae más de 1% esta semana en plena decisión de la Fed",
+  "caption": "Otra vez el dólar jugando a las escondidas con nuestro sueldo. Uno hace planes en pesos y la economía te cambia las reglas a media semana. Ya hasta la calculadora del cel tiene atajo directo al tipo de cambio.",
+  "hashtags": [
+    "#Dólar",
+    "#PesoMexicano",
+    "#EconomíaDelMexicano",
+    "#Quincena"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-09-15-0138-lawebazone-tendencias-d-291a.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-15-0138-lawebazone-tendencias-d-291a.jpg",
+    "hash": "5648aa08396aeba2",
+    "version": 11,
+    "estilo": "9fd322fb9927e571",
+    "renderizada": "2026-09-15T06:39:35.006Z"
+  },
+  "ilustracion": {
+    "descripcion": "Una pizarra de casa de cambio con números en movimiento borrosos, ambiente urbano de ciudad mexicana; la pizarra queda en el tercio superior derecho, izquierda y centro despejados.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-15T06:38:19.561Z",
+  "actualizado": "2026-09-15T06:38:19.561Z"
+}

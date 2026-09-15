@@ -1,0 +1,44 @@
+{
+  "id": "2026-09-15-0238-leopopexiv-vatican-news-ad1f",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "formato": "frase",
+  "frase": {
+    "texto": "you help the Church and humanity to reach the depths of desire",
+    "autor": "Pope Leo XIV",
+    "fuente": "Visita a la Biblioteca y Archivo Apostólico Vaticano",
+    "anio": 2026,
+    "url": "https://www.vaticannews.va/en/pope/news/2026-09/pope-library-not-just-place-of-books-but-of-relationship-exchang.html",
+    "origen": "texto"
+  },
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-09/pope-library-not-just-place-of-books-but-of-relationship-exchang.html",
+    "titulo": "Pope: A library is not just place of books but of relationships and exchange - Vatican News",
+    "publicado": "2026-09-14T15:20:49.016+02:00"
+  },
+  "categoria": "CULTURA",
+  "titular": "Pope Leo XIV",
+  "bajada": "Visita a la Biblioteca y Archivo Apostólico Vaticano · 2026",
+  "caption": "“you help the Church and humanity to reach the depths of desire”\n\n— Pope Leo XIV, Visita a la Biblioteca y Archivo Apostólico Vaticano (2026)\n\nVia Vatican News, 14 September 2026\n\n#PopeLeoXIV #Vatican #CatholicChurch",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Vatican",
+    "#CatholicChurch"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-09-15-0238-leopopexiv-vatican-news-ad1f.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-15-0238-leopopexiv-vatican-news-ad1f.jpg",
+    "hash": "0a90bd8a28d7cdf8",
+    "version": 1,
+    "estilo": "28c21995920a45b7",
+    "renderizada": "2026-09-15T06:39:12.926Z"
+  },
+  "ilustracion": null,
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-15T06:38:19.561Z",
+  "actualizado": "2026-09-15T06:38:19.561Z"
+}
