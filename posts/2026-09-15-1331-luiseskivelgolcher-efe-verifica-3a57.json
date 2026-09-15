@@ -1,0 +1,118 @@
+{
+  "id": "2026-09-15-1331-luiseskivelgolcher-efe-verifica-3a57",
+  "cuenta": "luiseskivelgolcher",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "EFE Verifica",
+    "url": "https://verifica.efe.com/imagen-captura-pacto-historico-falsa-generado-ia/",
+    "titulo": "Incendio no fue causado por simpatizante del Pacto Histórico, es IA",
+    "publicado": "2026-09-15T16:52:47.000Z"
+  },
+  "categoria": "INVESTIGACIÓN",
+  "titular": "IA alteró foto de captura para culpar al Pacto Histórico",
+  "bajada": "EFE Verifica halló que la camiseta del partido se añadió con IA a una foto real de la CAM.",
+  "caption": "Una fotografía que circula en redes muestra a un hombre detenido por causar un incendio agrícola en Huila, Colombia, vistiendo una camiseta del Pacto Histórico. Según EFE Verifica, la imagen es falsa: fue alterada con inteligencia artificial, una tecnología que genera o modifica contenido de forma automática a partir de datos. La fotografía original, publicada el 25 de agosto de 2026 por la Corporación Autónoma Regional del Alto Magdalena (CAM), no muestra ningún logotipo político en la prenda del detenido, y el comunicado oficial no vincula el hecho con ningún partido. Medios como El Tiempo y El Colombiano reportaron la captura sin mencionar afiliación política. El caso muestra cómo una imagen real puede manipularse para insertar un mensaje político falso y viralizarse en plataformas como Reddit y X. ¿Cómo verificas una imagen antes de compartirla?",
+  "hashtags": [
+    "#Desinformación",
+    "#IA",
+    "#Colombia",
+    "#Verificación"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-09-15-1331-luiseskivelgolcher-efe-verifica-3a57.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-15-1331-luiseskivelgolcher-efe-verifica-3a57.jpg",
+    "hash": "f7e8ccf61d4b4ab0",
+    "version": 11,
+    "estilo": "dc8c8fa3edf501fd",
+    "renderizada": "2026-09-15T18:32:33.426Z"
+  },
+  "ilustracion": {
+    "descripcion": "Paisaje rural del departamento de Huila con una columna de humo de un incendio agrícola a la distancia, ubicada en el tercio superior derecho; vegetación seca despejada en el resto del encuadre, sin personas, tratamiento de ilustración editorial.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-15-1331-luiseskivelgolcher-efe-verifica-3a57.jpg",
+    "hashDescripcion": "3beac37704b0d105",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-15T18:31:54.383Z",
+    "error": null,
+    "procedencia": "generada"
+  },
+  "formato": "post",
+  "fuentes": [
+    {
+      "rol": "principal",
+      "medio": "EFE Verifica",
+      "autor": "Sara Florian",
+      "url": "https://verifica.efe.com/imagen-captura-pacto-historico-falsa-generado-ia/",
+      "canonica": "https://verifica.efe.com/imagen-captura-pacto-historico-falsa-generado-ia/",
+      "idioma": "es",
+      "publicado": "2026-09-15T16:52:47.000Z",
+      "actualizado": "2026-09-15T16:53:36.000Z",
+      "fechaHecho": "2026-08-25",
+      "consultado": "2026-09-15T18:31:54.383Z",
+      "alcance": "completo",
+      "textoRecuperado": {
+        "parrafos": 22,
+        "caracteres": 4459,
+        "enviados": 3861
+      },
+      "fuentesPrimarias": [
+        "https://archive.ph/Bm010",
+        "https://archive.ph/Hkf1O",
+        "https://www.cam.gov.co/prensa/blog/2026/08/25/capturado-hombre-que-gener%C3%B3-quema-en-arrocera-en-el-huila/",
+        "https://www.eltiempo.com/colombia/otras-ciudades/capturan-en-el-huila-al-primer-hombre-acusado-de-realizar-quema-agricola-en-medio-de-alerta-por-incendios-en-varios-departamentos-de-colombia-3580828",
+        "https://www.elcolombiano.com/colombia/captura-palermo-hombre-quema-agricola-alerta-incendios-huila-AA40262310",
+        "https://www.ideam.gov.co/sala-de-prensa/noticia/condiciones-el-nino-continuan-en-fortalecimiento-y-aumenta-la-probabilidad-de-que-alcance-una",
+        "https://archive.ph/3k3Ro"
+      ],
+      "licenciaMedios": null
+    }
+  ],
+  "afirmaciones": [
+    {
+      "texto": "La imagen que muestra a un hombre con camiseta del Pacto Histórico detenido por incendios en Huila fue alterada con IA",
+      "tipo": "hecho",
+      "fuente": "https://verifica.efe.com/imagen-captura-pacto-historico-falsa-generado-ia/",
+      "contrastada": true
+    },
+    {
+      "texto": "La fotografía original fue publicada por la CAM el 25 de agosto de 2026 y no muestra el logotipo del Pacto Histórico",
+      "tipo": "hecho",
+      "fuente": "https://www.cam.gov.co/prensa/blog/2026/08/25/capturado-hombre-que-gener%C3%B3-quema-en-arrocera-en-el-huila/",
+      "contrastada": true
+    },
+    {
+      "texto": "El detenido realizaba una quema para preparar terrenos agrícolas, sin vínculo político mencionado por autoridades",
+      "tipo": "hecho",
+      "fuente": "https://www.eltiempo.com/colombia/otras-ciudades/capturan-en-el-huila-al-primer-hombre-acusado-de-realizar-quema-agricola-en-medio-de-alerta-por-incendios-en-varios-departamentos-de-colombia-3580828",
+      "contrastada": true
+    }
+  ],
+  "angulo": "Cómo una imagen real de un arresto agrícola fue alterada con IA para insertar un logo político falso y viralizarse como desinformación.",
+  "atribucion": "EFE Verifica, con base en el comunicado de la CAM y registros de El Tiempo y El Colombiano",
+  "puntuacion": {
+    "total": 69,
+    "componentes": {
+      "afinidad": 18,
+      "interes": 15,
+      "evidencia": 16,
+      "actualidad": 15,
+      "visual": 5
+    }
+  },
+  "alertas": [
+    "fuente-unica"
+  ],
+  "carrusel": null,
+  "reel": null,
+  "revision": {
+    "estado": "pendiente",
+    "notas": []
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-15T18:31:54.383Z",
+  "actualizado": "2026-09-15T18:31:54.383Z"
+}
