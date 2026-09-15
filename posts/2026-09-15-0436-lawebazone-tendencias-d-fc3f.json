@@ -1,0 +1,44 @@
+{
+  "id": "2026-09-15-0436-lawebazone-tendencias-d-fc3f",
+  "cuenta": "lawebazone",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Tendencias de Colombia",
+    "url": "https://www.eltiempo.com/cultura/cine-y-tv/los-ganadores-de-los-emmy-2026-widow-s-bay-arrasa-con-seis-galardones-y-carlos-manuel-vesga-no-logra-quedarse-con-el-premio-por-pluribus-3586019",
+    "titulo": "premios emmy",
+    "publicado": "2026-09-15T03:30:00.000Z"
+  },
+  "categoria": "CULTURA",
+  "titular": "Widow's Bay arrasó en los Emmy y dejó a todos sin premio",
+  "bajada": "La serie se llevó seis galardones en la gala 2026, opacando a otros nominados",
+  "caption": "Widow's Bay se llevó tantos Emmys que ya deberían darle su propio estante en la casa de producción. Mientras tanto, el resto de nominados solo pudo aplaudir y sonreír para la cámara.",
+  "hashtags": [
+    "#Emmys2026",
+    "#WidowsBay",
+    "#TV"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-09-15-0436-lawebazone-tendencias-d-fc3f.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-15-0436-lawebazone-tendencias-d-fc3f.jpg",
+    "hash": "4fad868b90042ed9",
+    "version": 11,
+    "estilo": "9fd322fb9927e571",
+    "renderizada": "2026-09-15T09:36:47.592Z"
+  },
+  "ilustracion": {
+    "descripcion": "Alfombra roja de una gala de premios con una estatuilla dorada brillando en el tercio superior derecho, luces de flashes difusas, zona izquierda y central despejada.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-15T09:36:23.242Z",
+  "actualizado": "2026-09-15T09:36:23.242Z"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "2026-09-15-0436-lawebazone-tendencias-d-4aff",
+  "cuenta": "lawebazone",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Tendencias de Chile",
+    "url": "https://www.espn.cl/futbol/colombia/nota/_/id/17258638/america-de-cali-perdio-invicto-ante-deportivo-pasto-liga-betplay-2026",
+    "titulo": "posiciones de américa de cali contra deportivo pasto",
+    "publicado": "2026-09-15T08:50:00.000Z"
+  },
+  "categoria": "DEPORTES",
+  "titular": "América de Cali perdió el invicto ante Pasto",
+  "bajada": "El equipo caleño cayó por primera vez en el torneo tras varias fechas invicto",
+  "caption": "Nada es eterno, ni el invicto del América. Pasto llegó, ganó y ahora todo el mundo en Cali está revisando el fixture como si fuera examen final. A llorar a la cancha de al lado.",
+  "hashtags": [
+    "#LigaBetPlay",
+    "#AméricaDeCali",
+    "#Fútbol"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-09-15-0436-lawebazone-tendencias-d-4aff.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-15-0436-lawebazone-tendencias-d-4aff.jpg",
+    "hash": "e5acb0c4f0defa5e",
+    "version": 11,
+    "estilo": "9fd322fb9927e571",
+    "renderizada": "2026-09-15T09:36:47.310Z"
+  },
+  "ilustracion": {
+    "descripcion": "Cancha de fútbol vacía al atardecer con un balón detenido junto al arco, camiseta roja del América colgada en la red en el tercio superior derecho, zona izquierda y central despejada.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-15T09:36:23.242Z",
+  "actualizado": "2026-09-15T09:36:23.242Z"
+}
