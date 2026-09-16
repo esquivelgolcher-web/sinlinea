@@ -1,7 +1,7 @@
 {
   "id": "2026-09-16-0137-luiseskivelgolcher-icij-8477",
   "cuenta": "luiseskivelgolcher",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "ICIJ",
     "url": "https://www.icij.org/investigations/china-capital/uk-parliament-debates-infrastructure-security-after-china-capital-revelations/",
@@ -171,16 +171,15 @@
         "imagenHash": "1c7754e35ab89631",
         "imagenSha": "410ac7ba9d1e1b04cc3c9c9da51deaedaf4c8fd4"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-09-16T13:19:46.232Z",
-        "actualizado": "2026-09-16T13:19:46.232Z",
-        "contenedorId": "17989344495100604"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18011520914976563",
+        "idPublicacion": null,
+        "permalink": "https://www.threads.com/@luisegolcher/post/DdWYQGSG4yk",
+        "fecha": "2026-09-16T13:19:46.232Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
