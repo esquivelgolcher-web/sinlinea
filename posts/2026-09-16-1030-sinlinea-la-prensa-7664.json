@@ -1,0 +1,47 @@
+{
+  "id": "2026-09-16-1030-sinlinea-la-prensa-7664",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/economia/gobierno-propone-elevar-a-15-el-impuesto-a-los-alquileres-turisticos-como-airbnb/",
+    "titulo": "Gobierno propone elevar a 15% el impuesto a los alquileres turísticos como Airbnb",
+    "publicado": "2026-09-16T13:12:57.000Z"
+  },
+  "categoria": "ECONOMÍA",
+  "titular": "Gobierno propone elevar a 15% impuesto a Airbnb",
+  "bajada": "Proyecto de ley busca ordenar el tratamiento tributario de alquileres turísticos de corta duración.",
+  "caption": "La Autoridad de Turismo plantea que los alquileres tipo Airbnb paguen 15% de Itbms, por encima del 10% que pagan los hoteles registrados. La medida busca poner reglas claras a un sector que, según el Gobierno, \"llegó para quedarse\". ¿Crees que este impuesto encarecerá el hospedaje turístico en Panamá?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Airbnb",
+    "#Turismo",
+    "#Impuestos",
+    "#Economía"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-09-16-1030-sinlinea-la-prensa-7664.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-16-1030-sinlinea-la-prensa-7664.jpg",
+    "hash": "2d3406c99dbb6ed3",
+    "version": 11,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-09-16T15:31:16.785Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada de un edificio residencial con balcones en una zona turística de la Ciudad de Panamá, en el tercio superior derecho; la zona izquierda y central despejada.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-16-1030-sinlinea-la-prensa-7664.jpg",
+    "hashDescripcion": "c22cdb4368a81735",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-16T15:30:28.050Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-16T15:30:28.050Z",
+  "actualizado": "2026-09-16T15:30:28.050Z"
+}

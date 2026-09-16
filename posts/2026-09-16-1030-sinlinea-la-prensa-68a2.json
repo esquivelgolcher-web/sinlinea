@@ -1,0 +1,47 @@
+{
+  "id": "2026-09-16-1030-sinlinea-la-prensa-68a2",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/sociedad/miles-amanecieron-en-los-andes-mall-por-la-ultima-jornada-de-entrega-de-tarjetas-del-pase-u-en-san-miguelito/",
+    "titulo": "Miles amanecieron en Los Andes Mall por la última jornada de entrega de tarjetas del PASE-U en San Miguelito",
+    "publicado": "2026-09-16T12:31:57.000Z"
+  },
+  "categoria": "EDUCACIÓN",
+  "titular": "Ifarhu culmina en San Miguelito entrega de tarjetas Pase-U",
+  "bajada": "Más de 12 mil acudientes de 35 colegios retiran la nueva tarjeta digital en Los Andes Mall.",
+  "caption": "La transición a la tarjeta digital del Pase-U busca reemplazar los cheques y dar más control a las familias sobre el dinero de sus hijos. En San Miguelito, más de 30 mil acudientes y 41 mil estudiantes están en juego, con un desembolso de más de $4 millones. ¿Te tocó hacer fila para recibir la tuya?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#PaseU",
+    "#Ifarhu",
+    "#SanMiguelito",
+    "#Educación"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-09-16-1030-sinlinea-la-prensa-68a2.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-16-1030-sinlinea-la-prensa-68a2.jpg",
+    "hash": "25c2541d1dd2bfdb",
+    "version": 11,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-09-16T15:31:12.158Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fila de padres y acudientes frente a un mostrador de atención en un centro comercial, con una tarjeta digital visible en el tercio superior derecho; la zona izquierda y central despejada.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-16-1030-sinlinea-la-prensa-68a2.jpg",
+    "hashDescripcion": "b10e8db75003324d",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-16T15:30:28.050Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-16T15:30:28.050Z",
+  "actualizado": "2026-09-16T15:30:28.050Z"
+}
