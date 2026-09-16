@@ -1,7 +1,7 @@
 {
   "id": "2026-09-16-0237-leopopexiv-vatican-news-3b26",
   "cuenta": "leopopexiv",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/pope/news/2026-09/pope-leo-xiv-freedom-under-grace-book-release-english.html",
@@ -38,9 +38,26 @@
     "generada": "2026-09-16T06:37:29.518Z",
     "error": null
   },
-  "programado": null,
+  "programado": "2026-09-16T09:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-16T06:37:29.518Z",
-  "actualizado": "2026-09-16T06:37:29.518Z"
+  "actualizado": "2026-09-16T07:03:27.485Z",
+  "destinos": {
+    "instagram": {
+      "texto": "Pope Leo XIV's book \"Freedom Under Grace\" has been released in English, compiling his reflections on St. Augustine, whose thought has long shaped his spirituality as an Augustinian friar. Source: Vatican News, Sept 15, 2026.\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #CatholicChurch #StAugustine #FreedomUnderGrace",
+      "aprobado": {
+        "fecha": "2026-09-16T07:03:27.485Z",
+        "hashPieza": "541d441471e797a2",
+        "imagenHash": "5ba047b30cf57fbd",
+        "imagenSha": "f4b1629289b006fad47e33e5e8f860a4eee1a027"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
