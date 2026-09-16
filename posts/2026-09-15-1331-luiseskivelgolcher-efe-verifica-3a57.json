@@ -1,7 +1,7 @@
 {
   "id": "2026-09-15-1331-luiseskivelgolcher-efe-verifica-3a57",
   "cuenta": "luiseskivelgolcher",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "EFE Verifica",
     "url": "https://verifica.efe.com/imagen-captura-pacto-historico-falsa-generado-ia/",
@@ -168,16 +168,15 @@
         "imagenHash": "f7e8ccf61d4b4ab0",
         "imagenSha": "daca92fbaa0555ea2523a0da8fad480007f81ca0"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-09-16T17:15:09.810Z",
-        "actualizado": "2026-09-16T17:15:09.810Z",
-        "contenedorId": "17989375815100604"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18160436629491705",
+        "idPublicacion": null,
+        "permalink": "https://www.threads.com/@luisegolcher/post/DdWzLuWIAy6",
+        "fecha": "2026-09-16T17:15:09.810Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
