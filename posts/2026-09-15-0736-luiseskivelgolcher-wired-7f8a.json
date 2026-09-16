@@ -1,7 +1,7 @@
 {
   "id": "2026-09-15-0736-luiseskivelgolcher-wired-7f8a",
   "cuenta": "luiseskivelgolcher",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "WIRED",
     "url": "https://www.wired.com/story/lawmakers-want-states-to-crack-down-on-flock-cameras-or-pay-the-price/",
@@ -115,9 +115,56 @@
     "estado": "pendiente",
     "notas": []
   },
-  "programado": null,
+  "programado": "2026-09-16T10:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-15T12:36:17.389Z",
-  "actualizado": "2026-09-15T12:36:17.389Z"
+  "actualizado": "2026-09-16T07:03:08.222Z",
+  "destinos": {
+    "instagram": {
+      "texto": "Un proyecto bipartidista presentado en el Congreso de Estados Unidos, según reportó WIRED el 15 de septiembre de 2026, busca retirar fondos federales de carreteras a los estados que no restrinjan el uso de las cámaras Flock, dispositivos que leen automáticamente las placas de los vehículos (lectores automatizados de matrículas o ALPR, por sus siglas en inglés). La llamada \"No FLOCK Act\" limitaría su uso a cinco casos: peajes, vehículos robados, personas desaparecidas, órdenes de arresto por delito grave e investigación de delitos graves. El texto no prohíbe estos sistemas por completo ni impide que la información se comparta con otras agencias, incluidas las de inmigración. Según los legisladores, el impulso surge tras denuncias de abusos, como oficiales que usaron las cámaras para rastrear a exparejas. Flock no respondió a la solicitud de comentarios de WIRED. ¿Debería exigirse más transparencia sobre cómo se comparten estos datos entre agencias?\n\nFuente: WIRED\n\n#Vigilancia #Privacidad #Tecnología #EstadosUnidos",
+      "aprobado": {
+        "fecha": "2026-09-16T07:03:08.222Z",
+        "hashPieza": "fc7ef6fc35bc1f7e",
+        "imagenHash": "a866e96bcfec56a1",
+        "imagenSha": "608282fb26667a6c00ce4b6d6d2be6957cffeb81"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    },
+    "facebook": {
+      "texto": "Un proyecto bipartidista presentado en el Congreso de Estados Unidos, según reportó WIRED el 15 de septiembre de 2026, busca retirar fondos federales de carreteras a los estados que no restrinjan el uso de las cámaras Flock, dispositivos que leen automáticamente las placas de los vehículos (lectores automatizados de matrículas o ALPR, por sus siglas en inglés). La llamada \"No FLOCK Act\" limitaría su uso a cinco casos: peajes, vehículos robados, personas desaparecidas, órdenes de arresto por delito grave e investigación de delitos graves. El texto no prohíbe estos sistemas por completo ni impide que la información se comparta con otras agencias, incluidas las de inmigración. Según los legisladores, el impulso surge tras denuncias de abusos, como oficiales que usaron las cámaras para rastrear a exparejas. Flock no respondió a la solicitud de comentarios de WIRED. ¿Debería exigirse más transparencia sobre cómo se comparten estos datos entre agencias?\n\nFuente: WIRED",
+      "aprobado": {
+        "fecha": "2026-09-16T07:03:08.222Z",
+        "hashPieza": "fc7ef6fc35bc1f7e",
+        "imagenHash": "a866e96bcfec56a1",
+        "imagenSha": "608282fb26667a6c00ce4b6d6d2be6957cffeb81"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    },
+    "threads": {
+      "texto": "EE.UU. amenaza fondos a estados que no limiten cámaras Flock\n\nProyecto bipartidista busca restringir el uso de lectores de placas automatizados\n\nSegún WIRED (15 de septiembre de 2026)",
+      "aprobado": {
+        "fecha": "2026-09-16T07:03:08.222Z",
+        "hashPieza": "fc7ef6fc35bc1f7e",
+        "imagenHash": "a866e96bcfec56a1",
+        "imagenSha": "608282fb26667a6c00ce4b6d6d2be6957cffeb81"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
