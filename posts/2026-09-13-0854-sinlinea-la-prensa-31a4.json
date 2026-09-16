@@ -1,7 +1,7 @@
 {
   "id": "2026-09-13-0854-sinlinea-la-prensa-31a4",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "La Prensa",
     "url": "https://www.prensa.com/politica/grupos-sociales-denuncian-una-red-de-espionaje-la-policia-confirma-que-usa-agentes-encubiertos-mas-no-infiltrados/",
@@ -39,9 +39,26 @@
     "generada": "2026-09-13T13:54:17.873Z",
     "error": null
   },
-  "programado": null,
+  "programado": "2026-09-16T07:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-13T13:54:17.873Z",
-  "actualizado": "2026-09-13T13:54:17.873Z"
+  "actualizado": "2026-09-16T07:03:59.566Z",
+  "destinos": {
+    "instagram": {
+      "texto": "Un informe de 121 páginas preparado por organizaciones sindicales y sociales denuncia que una estructura policial no reconocida en el organigrama oficial vigila a sindicalistas, indígenas y defensores de derechos humanos. La Policía confirma el uso de 'agentes encubiertos', aunque niega que sean 'infiltrados'. El caso involucra a altos funcionarios del Gobierno y pone en la mesa el respeto a la libertad de organización. ¿Qué opinas de que el Estado vigile a quienes protestan o se organizan?\n\nFuente: La Prensa\n\n#Panamá #SinLínea #Seguridad #DerechosHumanos #Policía #Sindicatos",
+      "aprobado": {
+        "fecha": "2026-09-16T07:03:59.566Z",
+        "hashPieza": "c8599c2e0d3aaf84",
+        "imagenHash": "fc145c1519fe0f37",
+        "imagenSha": "18497616dd267231f231552a3af2e1ea439b4ae8"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
