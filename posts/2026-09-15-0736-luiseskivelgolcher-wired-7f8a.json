@@ -119,7 +119,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-15T12:36:17.389Z",
-  "actualizado": "2026-09-16T07:03:08.222Z",
+  "actualizado": "2026-09-16T15:17:09.560Z",
   "destinos": {
     "instagram": {
       "texto": "Un proyecto bipartidista presentado en el Congreso de Estados Unidos, según reportó WIRED el 15 de septiembre de 2026, busca retirar fondos federales de carreteras a los estados que no restrinjan el uso de las cámaras Flock, dispositivos que leen automáticamente las placas de los vehículos (lectores automatizados de matrículas o ALPR, por sus siglas en inglés). La llamada \"No FLOCK Act\" limitaría su uso a cinco casos: peajes, vehículos robados, personas desaparecidas, órdenes de arresto por delito grave e investigación de delitos graves. El texto no prohíbe estos sistemas por completo ni impide que la información se comparta con otras agencias, incluidas las de inmigración. Según los legisladores, el impulso surge tras denuncias de abusos, como oficiales que usaron las cámaras para rastrear a exparejas. Flock no respondió a la solicitud de comentarios de WIRED. ¿Debería exigirse más transparencia sobre cómo se comparten estos datos entre agencias?\n\nFuente: WIRED\n\n#Vigilancia #Privacidad #Tecnología #EstadosUnidos",
@@ -132,7 +132,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-09-16T15:17:09.560Z",
+        "actualizado": "2026-09-16T15:17:09.560Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     },
