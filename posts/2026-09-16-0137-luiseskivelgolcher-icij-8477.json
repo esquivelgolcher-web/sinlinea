@@ -117,7 +117,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-16T06:37:29.518Z",
-  "actualizado": "2026-09-16T07:02:49.956Z",
+  "actualizado": "2026-09-16T13:19:46.232Z",
   "destinos": {
     "instagram": {
       "texto": "El banco chino ICBC, el más grande del mundo por activos y controlado mayoritariamente por el Estado chino, financió con casi 1.700 millones de dólares a empresas de agua y energía en Reino Unido antes de julio de 2024, según reportó The Times, socio del Consorcio Internacional de Periodistas de Investigación (ICIJ), dentro de la investigación China Capital. La investigación, basada en 4,8 millones de archivos confidenciales de la banca de ICBC en Londres entre 2005 y 2024, encontró que la entidad financió también a compañías vinculadas a oligarcas sancionados y figuras acusadas públicamente de corrupción. Este martes, el legislador conservador Lord Blencathra pidió explicaciones en la Cámara de los Lores sobre el riesgo de que China controle infraestructura crítica británica. El gobierno respondió que el sector del agua entrará en un esquema que permite bloquear transacciones por motivos de seguridad nacional. ICBC no respondió a las solicitudes de comentario de ICIJ. ¿Debería exigirse más transparencia sobre quién financia la infraestructura pública?\n\nFuente: ICIJ\n\n#ICIJ #ChinaCapital #Infraestructura #SeguridadNacional #Panamá",
@@ -130,7 +130,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-09-16T13:19:46.232Z",
+        "actualizado": "2026-09-16T13:19:46.232Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     },
