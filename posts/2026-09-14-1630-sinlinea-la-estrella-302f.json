@@ -1,7 +1,7 @@
 {
   "id": "2026-09-14-1630-sinlinea-la-estrella-302f",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "La Estrella de Panamá",
     "url": "https://www.laestrella.com.pa/panama/nacional/aumentan-el-pie-de-fuerza-774-agentes-se-unen-al-ministerio-de-seguridad-AG25677337",
@@ -43,5 +43,5 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-14T21:30:10.619Z",
-  "actualizado": "2026-09-14T21:30:10.619Z"
+  "actualizado": "2026-09-16T07:03:40.610Z"
 }
