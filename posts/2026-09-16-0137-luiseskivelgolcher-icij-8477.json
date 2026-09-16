@@ -1,7 +1,7 @@
 {
   "id": "2026-09-16-0137-luiseskivelgolcher-icij-8477",
   "cuenta": "luiseskivelgolcher",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "ICIJ",
     "url": "https://www.icij.org/investigations/china-capital/uk-parliament-debates-infrastructure-security-after-china-capital-revelations/",
@@ -113,9 +113,56 @@
     "estado": "pendiente",
     "notas": []
   },
-  "programado": null,
+  "programado": "2026-09-16T08:05:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-16T06:37:29.518Z",
-  "actualizado": "2026-09-16T06:37:29.518Z"
+  "actualizado": "2026-09-16T07:02:49.956Z",
+  "destinos": {
+    "instagram": {
+      "texto": "El banco chino ICBC, el más grande del mundo por activos y controlado mayoritariamente por el Estado chino, financió con casi 1.700 millones de dólares a empresas de agua y energía en Reino Unido antes de julio de 2024, según reportó The Times, socio del Consorcio Internacional de Periodistas de Investigación (ICIJ), dentro de la investigación China Capital. La investigación, basada en 4,8 millones de archivos confidenciales de la banca de ICBC en Londres entre 2005 y 2024, encontró que la entidad financió también a compañías vinculadas a oligarcas sancionados y figuras acusadas públicamente de corrupción. Este martes, el legislador conservador Lord Blencathra pidió explicaciones en la Cámara de los Lores sobre el riesgo de que China controle infraestructura crítica británica. El gobierno respondió que el sector del agua entrará en un esquema que permite bloquear transacciones por motivos de seguridad nacional. ICBC no respondió a las solicitudes de comentario de ICIJ. ¿Debería exigirse más transparencia sobre quién financia la infraestructura pública?\n\nFuente: ICIJ\n\n#ICIJ #ChinaCapital #Infraestructura #SeguridadNacional #Panamá",
+      "aprobado": {
+        "fecha": "2026-09-16T07:02:49.956Z",
+        "hashPieza": "88c58a6d41e71d23",
+        "imagenHash": "1c7754e35ab89631",
+        "imagenSha": "410ac7ba9d1e1b04cc3c9c9da51deaedaf4c8fd4"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    },
+    "facebook": {
+      "texto": "El banco chino ICBC, el más grande del mundo por activos y controlado mayoritariamente por el Estado chino, financió con casi 1.700 millones de dólares a empresas de agua y energía en Reino Unido antes de julio de 2024, según reportó The Times, socio del Consorcio Internacional de Periodistas de Investigación (ICIJ), dentro de la investigación China Capital. La investigación, basada en 4,8 millones de archivos confidenciales de la banca de ICBC en Londres entre 2005 y 2024, encontró que la entidad financió también a compañías vinculadas a oligarcas sancionados y figuras acusadas públicamente de corrupción. Este martes, el legislador conservador Lord Blencathra pidió explicaciones en la Cámara de los Lores sobre el riesgo de que China controle infraestructura crítica británica. El gobierno respondió que el sector del agua entrará en un esquema que permite bloquear transacciones por motivos de seguridad nacional. ICBC no respondió a las solicitudes de comentario de ICIJ. ¿Debería exigirse más transparencia sobre quién financia la infraestructura pública?\n\nFuente: ICIJ",
+      "aprobado": {
+        "fecha": "2026-09-16T07:02:49.956Z",
+        "hashPieza": "88c58a6d41e71d23",
+        "imagenHash": "1c7754e35ab89631",
+        "imagenSha": "410ac7ba9d1e1b04cc3c9c9da51deaedaf4c8fd4"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    },
+    "threads": {
+      "texto": "Reino Unido debate riesgo de banco chino en infraestructura\n\nICBC financió agua y energía en Reino Unido; legisladores piden control de seguridad nacional.\n\nSegún ICIJ (15 de septiembre de 2026)",
+      "aprobado": {
+        "fecha": "2026-09-16T07:02:49.956Z",
+        "hashPieza": "88c58a6d41e71d23",
+        "imagenHash": "1c7754e35ab89631",
+        "imagenSha": "410ac7ba9d1e1b04cc3c9c9da51deaedaf4c8fd4"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
