@@ -1,7 +1,7 @@
 {
   "id": "2026-09-16-0237-leopopexiv-vatican-va-7adf",
   "cuenta": "leopopexiv",
-  "estado": "borrador",
+  "estado": "programado",
   "formato": "frase",
   "frase": {
     "texto": "Who am I to judge?",
@@ -36,9 +36,26 @@
     "renderizada": "2026-09-16T06:38:28.846Z"
   },
   "ilustracion": null,
-  "programado": null,
+  "programado": "2026-09-16T13:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-16T06:37:29.518Z",
-  "actualizado": "2026-09-16T06:37:29.518Z"
+  "actualizado": "2026-09-16T07:03:31.468Z",
+  "destinos": {
+    "instagram": {
+      "texto": "“Who am I to judge?”\n\n— Pope Francis, Press conference on the return flight from Rio de Janeiro (2013)\n\n#PopeLeoXIV #Vatican #CatholicChurch\n\nFuente: Vatican.va\n\n#PopeLeoXIV #Vatican #CatholicChurch",
+      "aprobado": {
+        "fecha": "2026-09-16T07:03:31.468Z",
+        "hashPieza": "540f947c911763f2",
+        "imagenHash": "cbc190bfe9044329",
+        "imagenSha": "17594bd5f64383b2e5e050df1e22d98d380e57a7"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
