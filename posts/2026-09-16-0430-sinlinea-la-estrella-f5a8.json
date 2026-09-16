@@ -1,0 +1,47 @@
+{
+  "id": "2026-09-16-0430-sinlinea-la-estrella-f5a8",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/recorte-de-b-3718-millones-amenaza-capacidad-investigativa-del-ministerio-publico-en-2027-AC25724712",
+    "titulo": "Recorte de B/.37.18 millones amenaza capacidad investigativa del Ministerio Público en 2027",
+    "publicado": "2026-09-16T03:00:00.000Z"
+  },
+  "categoria": "SEGURIDAD",
+  "titular": "Recorte de $37 millones golpea al Ministerio Público en 2027",
+  "bajada": "MEF asignó $38 millones menos de lo pedido, lo que limita plazas, vehículos y atención a víctimas.",
+  "caption": "El Ministerio Público pidió más de $242 millones para 2027, pero el Gobierno solo aprobó cerca de $205 millones. Con más de 91 mil casos nuevos este año, la falta de fondos puede frenar investigaciones y dejar sin atención a víctimas de delitos. ¿Cómo afecta esto a la justicia que recibe la gente todos los días?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#MinisterioPúblico",
+    "#Presupuesto2027",
+    "#Justicia",
+    "#Seguridad"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-09-16-0430-sinlinea-la-estrella-f5a8.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-16-0430-sinlinea-la-estrella-f5a8.jpg",
+    "hash": "9df35d1fcf63aed1",
+    "version": 11,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-09-16T09:31:36.476Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada del edificio del Ministerio Público de Panamá bajo un cielo nublado, con la bandera panameña ondeando; el edificio queda en el tercio superior derecho y la zona izquierda y central despejada.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-16-0430-sinlinea-la-estrella-f5a8.jpg",
+    "hashDescripcion": "42b6d7a233e00030",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-16T09:30:59.439Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-16T09:30:59.439Z",
+  "actualizado": "2026-09-16T09:30:59.439Z"
+}

@@ -1,0 +1,47 @@
+{
+  "id": "2026-09-16-0430-sinlinea-la-estrella-beb3",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/antai-admite-falta-de-competencia-para-investigar-nepotismo-en-la-asamblea-EC25724374",
+    "titulo": "Antai admite falta de competencia para investigar nepotismo en la Asamblea",
+    "publicado": "2026-09-16T03:00:00.000Z"
+  },
+  "categoria": "POLÍTICA",
+  "titular": "Antai admite que no puede investigar nepotismo en la Asamblea",
+  "bajada": "Sheyla Castillo dijo que un fallo judicial le impide sancionar a diputados por nombrar familiares.",
+  "caption": "Ante preguntas de un diputado sobre posibles nombramientos de familiares en la Asamblea, la directora de la Antai reconoció que la ley y un fallo de la Corte Suprema le impiden actuar contra el Legislativo. Mientras tanto, las denuncias de nepotismo quedan sin respuesta. ¿Debería la Asamblea estar sujeta a los mismos controles que el resto del Estado?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Antai",
+    "#Asamblea",
+    "#Nepotismo",
+    "#Transparencia"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-09-16-0430-sinlinea-la-estrella-beb3.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-16-0430-sinlinea-la-estrella-beb3.jpg",
+    "hash": "c78bbce643c0a17c",
+    "version": 11,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-09-16T09:31:43.916Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada del Palacio Justo Arosemena, sede de la Asamblea Nacional de Panamá, con columnas clásicas; el edificio ubicado en el tercio superior derecho y el resto de la imagen despejado.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-16-0430-sinlinea-la-estrella-beb3.jpg",
+    "hashDescripcion": "1b33325ce8c4144a",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-16T09:30:59.439Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-16T09:30:59.439Z",
+  "actualizado": "2026-09-16T09:30:59.439Z"
+}
