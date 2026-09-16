@@ -1,0 +1,47 @@
+{
+  "id": "2026-09-16-0737-sinlinea-la-estrella-5c21",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/economia/panama-registra-crecimiento-economico-de-55-en-el-primer-semestre-de-2026-FD25730612",
+    "titulo": "Panamá registra crecimiento económico de 5.5% en el primer semestre de 2026",
+    "publicado": "2026-09-17T05:00:00.000Z"
+  },
+  "categoria": "ECONOMÍA",
+  "titular": "Economía panameña creció 5.5% en primer semestre de 2026",
+  "bajada": "El INEC reporta aceleración al 6.4% entre abril y junio, impulsada por comercio y Canal.",
+  "caption": "El país registró su mejor ritmo de crecimiento en meses, con el comercio, el transporte y el Canal como motores principales. Las ventas de alimentos, autos y combustibles subieron con fuerza, mientras el peaje del Canal creció 13.6%. ¿Sientes que esta bonanza económica se refleja en tu bolsillo?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Economía",
+    "#INEC",
+    "#Canal",
+    "#ZonaLibre"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-09-16-0737-sinlinea-la-estrella-5c21.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-16-0737-sinlinea-la-estrella-5c21.jpg",
+    "hash": "da7d5b357d5e030b",
+    "version": 11,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-09-16T12:37:39.345Z"
+  },
+  "ilustracion": {
+    "descripcion": "Vista general del puerto y la Zona Libre de Colón con contenedores apilados, grúas portuarias en el tercio superior derecho, área izquierda y central despejada.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-16-0737-sinlinea-la-estrella-5c21.jpg",
+    "hashDescripcion": "e7c775eebf6f6868",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-16T12:37:11.125Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-16T12:37:11.125Z",
+  "actualizado": "2026-09-16T12:37:11.125Z"
+}

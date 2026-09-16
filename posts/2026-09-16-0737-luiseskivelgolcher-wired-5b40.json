@@ -1,0 +1,215 @@
+{
+  "id": "2026-09-16-0737-luiseskivelgolcher-wired-5b40",
+  "cuenta": "luiseskivelgolcher",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "WIRED",
+    "url": "https://www.wired.com/story/hackers-flock-camera-data-shows-how-system-works/",
+    "titulo": "Hackers Got Inside a Flock Camera. Its Data Shows How the System Really Works",
+    "publicado": "2026-09-16T10:30:00.000Z"
+  },
+  "categoria": "SEGURIDAD",
+  "titular": "Hackearon una cámara Flock y expusieron su función real",
+  "bajada": "Datos internos muestran que el sistema detecta también personas, no solo placas",
+  "caption": "Un colectivo de hackers desmontó una cámara de vigilancia de Flock Safety instalada sobre una carretera en Estados Unidos y copió su almacenamiento interno, según reveló WIRED en alianza con 404 Media el 16 de septiembre de 2026. Flock Safety fabrica lectores automáticos de placas: cámaras que fotografían vehículos y envían los datos a servidores que las policías locales pueden consultar. La empresa aseguraba que sus dispositivos protegían la información con cifrado. Pero los hackers, del colectivo stegan0gram, lograron recuperar una clave de cifrado almacenada en el propio aparato y acceder a videos de miles de detecciones vehiculares. El análisis conjunto de WIRED y 404 Media confirmó que el software de la cámara identifica explícitamente a personas, no solo vehículos, placas y bicicletas, y llegó a aislar detalles como una calcomanía de bandera estadounidense en una motocicleta. Casos previos documentados por 404 Media muestran que agencias policiales usaron la red nacional de Flock para búsquedas vinculadas a inmigración y a una mujer que se practicó un aborto. ¿Debería una cámara de tránsito guardar tanto detalle sobre las personas que pasan frente a ella?",
+  "hashtags": [
+    "#Vigilancia",
+    "#Privacidad",
+    "#Ciberseguridad",
+    "#FlockSafety"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-09-16-0737-luiseskivelgolcher-wired-5b40.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-16-0737-luiseskivelgolcher-wired-5b40.jpg",
+    "hash": "3b0745e0d20ffa8e",
+    "version": 11,
+    "estilo": "dc8c8fa3edf501fd",
+    "renderizada": "2026-09-16T12:38:13.028Z"
+  },
+  "ilustracion": {
+    "descripcion": "Poste de alumbrado público con una cámara de vigilancia vial en el tercio superior derecho, calle despejada al atardecer, sin personas ni placas visibles, zona izquierda y central despejada.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-16-0737-luiseskivelgolcher-wired-5b40.jpg",
+    "hashDescripcion": "3dd333c596464f27",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-16T12:37:11.125Z",
+    "error": null,
+    "procedencia": "generada"
+  },
+  "formato": "carrusel",
+  "fuentes": [
+    {
+      "rol": "principal",
+      "medio": "WIRED",
+      "autor": "Dhruv Mehrotra",
+      "url": "https://www.wired.com/story/hackers-flock-camera-data-shows-how-system-works/",
+      "canonica": "https://www.wired.com/story/hackers-flock-camera-data-shows-how-system-works/",
+      "idioma": "en",
+      "publicado": "2026-09-16T10:30:00.000Z",
+      "actualizado": "2026-09-16T10:30:00.000Z",
+      "fechaHecho": null,
+      "consultado": "2026-09-16T12:37:11.125Z",
+      "alcance": "completo",
+      "textoRecuperado": {
+        "parrafos": 28,
+        "caracteres": 11075,
+        "enviados": 3958
+      },
+      "fuentesPrimarias": [
+        "https://404media.co/hackers-stole-flocks-camera-software-revealing-how-the-company-tracks-cars-and-people/",
+        "https://404media.co/",
+        "https://www.404media.co/membership/",
+        "https://www.flocksafety.com/faq",
+        "https://www.404media.co/man-charged-with-3-felonies-for-breaking-3d-printed-decoy-flock-camera/",
+        "https://www.404media.co/ice-taps-into-nationwide-ai-enabled-camera-network-data-shows/",
+        "https://www.404media.co/flock-removes-states-from-national-lookup-tool-after-ice-and-abortion-searches-revealed/",
+        "https://www.404media.co/a-texas-cop-searched-license-plate-cameras-nationwide-for-a-woman-who-got-an-abortion/",
+        "https://gainsec.com/2025/06/19/grounded-flight-device-2-root-shell-on-flock-safetys-falcon-sparrow-automated-license-plate-reader/",
+        "https://gainsec.com/2025/06/19/bird-hunting-season-security-research-on-flock-safety-anti-crime-systems/",
+        "https://www.flocksafety.com/blog/gunshot-detection-and-license-plate-reader-security-alert",
+        "https://www.404media.co/how-cops-use-flock-to-track-people-not-cars/",
+        "https://www.flocksafety.com/legal/vulnerability-disclosure-policy",
+        "http://www.aboutads.info"
+      ],
+      "licenciaMedios": null
+    }
+  ],
+  "afirmaciones": [
+    {
+      "texto": "Un colectivo de hackers retiró una cámara Flock y copió casi por completo los datos almacenados dentro",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/hackers-flock-camera-data-shows-how-system-works/",
+      "contrastada": true
+    },
+    {
+      "texto": "El software de la cámara detecta explícitamente personas, además de vehículos, placas y bicicletas",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/hackers-flock-camera-data-shows-how-system-works/",
+      "contrastada": true
+    },
+    {
+      "texto": "Flock ha descrito sus cámaras como protegidas por cifrado en el dispositivo",
+      "tipo": "hecho",
+      "fuente": "https://www.flocksafety.com/faq",
+      "contrastada": false
+    },
+    {
+      "texto": "Un policía en Texas buscó en cámaras Flock de todo el país a una mujer que se practicó un aborto",
+      "tipo": "denuncia",
+      "fuente": "https://www.404media.co/a-texas-cop-searched-license-plate-cameras-nationwide-for-a-woman-who-got-an-abortion/",
+      "contrastada": false
+    },
+    {
+      "texto": "Policías locales realizaron búsquedas en la red nacional de Flock a pedido de agencias de inmigración",
+      "tipo": "denuncia",
+      "fuente": "https://www.404media.co/ice-taps-into-nationwide-ai-enabled-camera-network-data-shows/",
+      "contrastada": false
+    }
+  ],
+  "angulo": "Cómo un hackeo expuso el funcionamiento interno y el alcance real de un sistema de vigilancia vehicular usado por miles de policías en EE.UU.",
+  "atribucion": "Según WIRED y 404 Media (Dhruv Mehrotra), 16 de septiembre de 2026",
+  "puntuacion": {
+    "total": 87,
+    "componentes": {
+      "afinidad": 27,
+      "interes": 20,
+      "evidencia": 18,
+      "actualidad": 15,
+      "visual": 7
+    }
+  },
+  "alertas": [
+    "acusacion-sin-fuente",
+    "fuente-unica"
+  ],
+  "carrusel": {
+    "diapositivas": [
+      {
+        "titulo": "Hackearon una cámara de vigilancia vial y esto encontraron",
+        "texto": "Un colectivo llamado stegan0gram desmontó una cámara Flock Safety y copió sus datos internos, según WIRED y 404 Media."
+      },
+      {
+        "titulo": "La cámara ve más de lo que dice la empresa",
+        "texto": "El software detecta personas, no solo placas, vehículos y bicicletas. En 21 días captó 1,6 millones de imágenes de 50.000 vehículos."
+      },
+      {
+        "titulo": "El cifrado no era tan sólido",
+        "texto": "Flock aseguraba proteger sus datos con cifrado en el dispositivo. Los hackers recuperaron la clave almacenada en la propia cámara."
+      },
+      {
+        "titulo": "Una red nacional con miles de agencias",
+        "texto": "En una ciudad de Georgia, registros de cámaras Flock eran accesibles para más de 2.000 agencias, incluidas universidades y aeropuertos."
+      },
+      {
+        "titulo": "Casos que generaron controversia",
+        "texto": "404 Media documentó búsquedas vinculadas a inmigración y a una mujer que se practicó un aborto, según sus reportes previos."
+      },
+      {
+        "titulo": "Lo que falta por saber",
+        "texto": "Buena parte del almacenamiento más sensible de la cámara permaneció cifrado e inaccesible para los hackers."
+      },
+      {
+        "titulo": "Vigilar a quien vigila",
+        "texto": "El caso muestra por qué la infraestructura de vigilancia pública exige auditorías independientes y no solo promesas del fabricante."
+      }
+    ],
+    "imagenes": [
+      {
+        "numero": 1,
+        "ruta": "public/img/2026-09-16-0737-luiseskivelgolcher-wired-5b40-01.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-16-0737-luiseskivelgolcher-wired-5b40-01.jpg",
+        "hash": "f663b5c5268edccf"
+      },
+      {
+        "numero": 2,
+        "ruta": "public/img/2026-09-16-0737-luiseskivelgolcher-wired-5b40-02.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-16-0737-luiseskivelgolcher-wired-5b40-02.jpg",
+        "hash": "2645d9ec7e414e6e"
+      },
+      {
+        "numero": 3,
+        "ruta": "public/img/2026-09-16-0737-luiseskivelgolcher-wired-5b40-03.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-16-0737-luiseskivelgolcher-wired-5b40-03.jpg",
+        "hash": "dbbbc6b3939a8c41"
+      },
+      {
+        "numero": 4,
+        "ruta": "public/img/2026-09-16-0737-luiseskivelgolcher-wired-5b40-04.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-16-0737-luiseskivelgolcher-wired-5b40-04.jpg",
+        "hash": "c500c430ef31d3ce"
+      },
+      {
+        "numero": 5,
+        "ruta": "public/img/2026-09-16-0737-luiseskivelgolcher-wired-5b40-05.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-16-0737-luiseskivelgolcher-wired-5b40-05.jpg",
+        "hash": "eca1188360b915d9"
+      },
+      {
+        "numero": 6,
+        "ruta": "public/img/2026-09-16-0737-luiseskivelgolcher-wired-5b40-06.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-16-0737-luiseskivelgolcher-wired-5b40-06.jpg",
+        "hash": "fa9d57abcd3467ad"
+      },
+      {
+        "numero": 7,
+        "ruta": "public/img/2026-09-16-0737-luiseskivelgolcher-wired-5b40-07.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-16-0737-luiseskivelgolcher-wired-5b40-07.jpg",
+        "hash": "35066193b4aae911"
+      }
+    ],
+    "hash": "18497ca76c1f7229",
+    "version": 2
+  },
+  "reel": null,
+  "revision": {
+    "estado": "pendiente",
+    "notas": []
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-16T12:37:11.125Z",
+  "actualizado": "2026-09-16T12:37:11.125Z"
+}

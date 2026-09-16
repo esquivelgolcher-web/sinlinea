@@ -1,0 +1,47 @@
+{
+  "id": "2026-09-16-0737-sinlinea-la-prensa-51dd",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/judiciales/cae-otro-integrante-por-anomalias-en-la-dgi-se-trata-de-efrain-cherigo-socio-del-contratista-del-cru/",
+    "titulo": "Cae otro integrante por anomalías en la DGI; se trata de Efraín Cherigo, socio del contratista del CRU",
+    "publicado": "2026-09-15T21:52:41.000Z"
+  },
+  "categoria": "SEGURIDAD",
+  "titular": "Detienen a otro implicado en trama de corrupción en la DGI",
+  "bajada": "Efraín Cherigo, socio de contratista ya imputado, quedó bajo detención provisional en Panamá.",
+  "caption": "La operación Espejismo, derivada del caso Pandora, sigue destapando una red que habría desviado créditos fiscales dentro de la DGI. El contador capturado tras un llamado público de la Policía ahora enfrenta cargos por delincuencia organizada y blanqueo de capitales. ¿Hasta dónde llegará esta red de corrupción?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Corrupción",
+    "#DGI",
+    "#Justicia",
+    "#OperaciónEspejismo"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-09-16-0737-sinlinea-la-prensa-51dd.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-16-0737-sinlinea-la-prensa-51dd.jpg",
+    "hash": "9f26277e9558afe8",
+    "version": 11,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-09-16T12:37:43.606Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada de un edificio de tribunales panameños con rejas de acceso, figura de un oficial de seguridad en el tercio superior derecho, zona izquierda y central despejada.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-16-0737-sinlinea-la-prensa-51dd.jpg",
+    "hashDescripcion": "b1d1eee419f5b97a",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-16T12:37:11.125Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-16T12:37:11.125Z",
+  "actualizado": "2026-09-16T12:37:11.125Z"
+}
