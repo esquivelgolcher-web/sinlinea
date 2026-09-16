@@ -1,7 +1,7 @@
 {
   "id": "2026-09-14-1335-sinlinea-la-estrella-fe20",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "La Estrella de Panamá",
     "url": "https://www.laestrella.com.pa/panama/informacion-util/pagos-a-jubilados-en-panama-quienes-cobran-el-18-y-21-de-septiembre-BG25677969",
@@ -43,5 +43,5 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-14T18:35:05.691Z",
-  "actualizado": "2026-09-14T18:35:05.691Z"
+  "actualizado": "2026-09-16T07:03:51.758Z"
 }
