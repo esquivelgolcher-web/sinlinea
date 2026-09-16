@@ -42,7 +42,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-16T06:37:29.518Z",
-  "actualizado": "2026-09-16T07:03:27.485Z",
+  "actualizado": "2026-09-16T14:19:02.843Z",
   "destinos": {
     "instagram": {
       "texto": "Pope Leo XIV's book \"Freedom Under Grace\" has been released in English, compiling his reflections on St. Augustine, whose thought has long shaped his spirituality as an Augustinian friar. Source: Vatican News, Sept 15, 2026.\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #CatholicChurch #StAugustine #FreedomUnderGrace",
@@ -55,7 +55,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-09-16T14:19:02.843Z",
+        "actualizado": "2026-09-16T14:19:02.843Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
