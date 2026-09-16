@@ -1,7 +1,7 @@
 {
   "id": "2026-09-14-1939-sinlinea-la-prensa-5242",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "La Prensa",
     "url": "https://www.prensa.com/judiciales/contraloria-ordena-secuestro-preventivo-de-bienes-vinculados-al-exministro-rafael-sabonge/",
@@ -43,5 +43,5 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-15T00:39:19.765Z",
-  "actualizado": "2026-09-15T00:39:19.765Z"
+  "actualizado": "2026-09-16T07:03:36.488Z"
 }
