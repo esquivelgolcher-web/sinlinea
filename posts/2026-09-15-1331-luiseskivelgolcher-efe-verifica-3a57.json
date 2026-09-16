@@ -1,7 +1,7 @@
 {
   "id": "2026-09-15-1331-luiseskivelgolcher-efe-verifica-3a57",
   "cuenta": "luiseskivelgolcher",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "EFE Verifica",
     "url": "https://verifica.efe.com/imagen-captura-pacto-historico-falsa-generado-ia/",
@@ -110,9 +110,56 @@
     "estado": "pendiente",
     "notas": []
   },
-  "programado": null,
+  "programado": "2026-09-16T12:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-15T18:31:54.383Z",
-  "actualizado": "2026-09-15T18:31:54.383Z"
+  "actualizado": "2026-09-16T07:03:20.038Z",
+  "destinos": {
+    "instagram": {
+      "texto": "Una fotografía que circula en redes muestra a un hombre detenido por causar un incendio agrícola en Huila, Colombia, vistiendo una camiseta del Pacto Histórico. Según EFE Verifica, la imagen es falsa: fue alterada con inteligencia artificial, una tecnología que genera o modifica contenido de forma automática a partir de datos. La fotografía original, publicada el 25 de agosto de 2026 por la Corporación Autónoma Regional del Alto Magdalena (CAM), no muestra ningún logotipo político en la prenda del detenido, y el comunicado oficial no vincula el hecho con ningún partido. Medios como El Tiempo y El Colombiano reportaron la captura sin mencionar afiliación política. El caso muestra cómo una imagen real puede manipularse para insertar un mensaje político falso y viralizarse en plataformas como Reddit y X. ¿Cómo verificas una imagen antes de compartirla?\n\nFuente: EFE Verifica\n\n#Desinformación #IA #Colombia #Verificación",
+      "aprobado": {
+        "fecha": "2026-09-16T07:03:20.038Z",
+        "hashPieza": "cb5eba8de3e1986f",
+        "imagenHash": "f7e8ccf61d4b4ab0",
+        "imagenSha": "daca92fbaa0555ea2523a0da8fad480007f81ca0"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    },
+    "facebook": {
+      "texto": "Una fotografía que circula en redes muestra a un hombre detenido por causar un incendio agrícola en Huila, Colombia, vistiendo una camiseta del Pacto Histórico. Según EFE Verifica, la imagen es falsa: fue alterada con inteligencia artificial, una tecnología que genera o modifica contenido de forma automática a partir de datos. La fotografía original, publicada el 25 de agosto de 2026 por la Corporación Autónoma Regional del Alto Magdalena (CAM), no muestra ningún logotipo político en la prenda del detenido, y el comunicado oficial no vincula el hecho con ningún partido. Medios como El Tiempo y El Colombiano reportaron la captura sin mencionar afiliación política. El caso muestra cómo una imagen real puede manipularse para insertar un mensaje político falso y viralizarse en plataformas como Reddit y X. ¿Cómo verificas una imagen antes de compartirla?\n\nFuente: EFE Verifica",
+      "aprobado": {
+        "fecha": "2026-09-16T07:03:20.038Z",
+        "hashPieza": "cb5eba8de3e1986f",
+        "imagenHash": "f7e8ccf61d4b4ab0",
+        "imagenSha": "daca92fbaa0555ea2523a0da8fad480007f81ca0"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    },
+    "threads": {
+      "texto": "IA alteró foto de captura para culpar al Pacto Histórico\n\nEFE Verifica halló que la camiseta del partido se añadió con IA a una foto real de la CAM.\n\nSegún EFE Verifica (15 de septiembre de 2026)",
+      "aprobado": {
+        "fecha": "2026-09-16T07:03:20.038Z",
+        "hashPieza": "cb5eba8de3e1986f",
+        "imagenHash": "f7e8ccf61d4b4ab0",
+        "imagenSha": "daca92fbaa0555ea2523a0da8fad480007f81ca0"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
