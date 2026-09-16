@@ -1,0 +1,46 @@
+{
+  "id": "2026-09-16-0237-leopopexiv-vatican-news-3b26",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-09/pope-leo-xiv-freedom-under-grace-book-release-english.html",
+    "titulo": "Pope Leo XIV’s “Freedom Under Grace” released in English",
+    "publicado": "2026-09-15T11:49:00.000Z"
+  },
+  "categoria": "CULTURA",
+  "titular": "Pope Leo XIV's book arrives in English",
+  "bajada": "\"Freedom Under Grace\" gathers his reflections on St. Augustine's legacy",
+  "caption": "Pope Leo XIV's book \"Freedom Under Grace\" has been released in English, compiling his reflections on St. Augustine, whose thought has long shaped his spirituality as an Augustinian friar. Source: Vatican News, Sept 15, 2026.",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Vatican",
+    "#CatholicChurch",
+    "#StAugustine",
+    "#FreedomUnderGrace"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-09-16-0237-leopopexiv-vatican-news-3b26.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-16-0237-leopopexiv-vatican-news-3b26.jpg",
+    "hash": "5ba047b30cf57fbd",
+    "version": 11,
+    "estilo": "32cba508d6c2290e",
+    "renderizada": "2026-09-16T06:38:24.779Z"
+  },
+  "ilustracion": {
+    "descripcion": "A quiet library table with a new hardcover book resting under soft light, its cover facing up, placed in the upper right third; the left and central areas remain open and uncluttered.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-16-0237-leopopexiv-vatican-news-3b26.jpg",
+    "hashDescripcion": "4d80d41e7f65018c",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-16T06:37:29.518Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-16T06:37:29.518Z",
+  "actualizado": "2026-09-16T06:37:29.518Z"
+}

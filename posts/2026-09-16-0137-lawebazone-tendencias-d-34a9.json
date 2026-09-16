@@ -1,0 +1,45 @@
+{
+  "id": "2026-09-16-0137-lawebazone-tendencias-d-34a9",
+  "cuenta": "lawebazone",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Tendencias de México",
+    "url": "https://www.informador.mx/mexico/15-de-septiembre-mexicanos-dan-el-grito-pero-de-risa-con-estos-memes-20260915-0063.html",
+    "titulo": "día de la independencia de méxico",
+    "publicado": "2026-09-16T06:10:00.000Z"
+  },
+  "categoria": "CULTURA",
+  "titular": "El Grito ya no es de independencia, es de risa",
+  "bajada": "Los memes por el 15 de septiembre inundaron las redes mexicanas",
+  "caption": "Cada año pasa lo mismo: el Grito dura dos minutos y los memes duran toda la semana. Ya hasta el 'Viva México' se siente como excusa para el chiste del día.",
+  "hashtags": [
+    "#ElGrito",
+    "#15DeSeptiembre",
+    "#MemesMX",
+    "#VivaMéxico"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-09-16-0137-lawebazone-tendencias-d-34a9.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-16-0137-lawebazone-tendencias-d-34a9.jpg",
+    "hash": "efd6d81ff3e2a789",
+    "version": 11,
+    "estilo": "9fd322fb9927e571",
+    "renderizada": "2026-09-16T06:38:53.027Z"
+  },
+  "ilustracion": {
+    "descripcion": "Multitud agitando banderitas mexicanas frente a un balcón iluminado con luces tricolor, celebrando de noche. El balcón y las luces quedan en el tercio superior derecho, con el cielo despejado a la izquierda y el centro.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-16T06:37:29.518Z",
+  "actualizado": "2026-09-16T06:37:29.518Z"
+}

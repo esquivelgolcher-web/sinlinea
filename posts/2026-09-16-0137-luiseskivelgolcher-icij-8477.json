@@ -1,0 +1,121 @@
+{
+  "id": "2026-09-16-0137-luiseskivelgolcher-icij-8477",
+  "cuenta": "luiseskivelgolcher",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "ICIJ",
+    "url": "https://www.icij.org/investigations/china-capital/uk-parliament-debates-infrastructure-security-after-china-capital-revelations/",
+    "titulo": "Lawmakers debate infrastructure security after China Capital",
+    "publicado": "2026-09-15T22:22:01.000Z"
+  },
+  "categoria": "INVESTIGACIÓN",
+  "titular": "Reino Unido debate riesgo de banco chino en infraestructura",
+  "bajada": "ICBC financió agua y energía en Reino Unido; legisladores piden control de seguridad nacional.",
+  "caption": "El banco chino ICBC, el más grande del mundo por activos y controlado mayoritariamente por el Estado chino, financió con casi 1.700 millones de dólares a empresas de agua y energía en Reino Unido antes de julio de 2024, según reportó The Times, socio del Consorcio Internacional de Periodistas de Investigación (ICIJ), dentro de la investigación China Capital. La investigación, basada en 4,8 millones de archivos confidenciales de la banca de ICBC en Londres entre 2005 y 2024, encontró que la entidad financió también a compañías vinculadas a oligarcas sancionados y figuras acusadas públicamente de corrupción. Este martes, el legislador conservador Lord Blencathra pidió explicaciones en la Cámara de los Lores sobre el riesgo de que China controle infraestructura crítica británica. El gobierno respondió que el sector del agua entrará en un esquema que permite bloquear transacciones por motivos de seguridad nacional. ICBC no respondió a las solicitudes de comentario de ICIJ. ¿Debería exigirse más transparencia sobre quién financia la infraestructura pública?",
+  "hashtags": [
+    "#ICIJ",
+    "#ChinaCapital",
+    "#Infraestructura",
+    "#SeguridadNacional",
+    "#Panamá"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-09-16-0137-luiseskivelgolcher-icij-8477.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-16-0137-luiseskivelgolcher-icij-8477.jpg",
+    "hash": "1c7754e35ab89631",
+    "version": 11,
+    "estilo": "dc8c8fa3edf501fd",
+    "renderizada": "2026-09-16T06:38:06.611Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada del Parlamento británico en Londres al atardecer, con la Cámara de los Lores visible en el tercio superior derecho; el resto del encuadre despejado.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-16-0137-luiseskivelgolcher-icij-8477.jpg",
+    "hashDescripcion": "ef59906db883c64b",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-16T06:37:29.518Z",
+    "error": null,
+    "procedencia": "generada"
+  },
+  "formato": "post",
+  "fuentes": [
+    {
+      "rol": "principal",
+      "medio": "ICIJ",
+      "autor": "Scilla Alecci",
+      "url": "https://www.icij.org/investigations/china-capital/uk-parliament-debates-infrastructure-security-after-china-capital-revelations/",
+      "canonica": "https://www.icij.org/investigations/china-capital/uk-parliament-debates-infrastructure-security-after-china-capital-revelations/",
+      "idioma": "en",
+      "publicado": "2026-09-15T22:22:01.000Z",
+      "actualizado": "2026-09-15T22:22:01.000Z",
+      "fechaHecho": "2024-07-01",
+      "consultado": "2026-09-16T06:37:29.518Z",
+      "alcance": "completo",
+      "textoRecuperado": {
+        "parrafos": 21,
+        "caracteres": 4785,
+        "enviados": 3808
+      },
+      "fuentesPrimarias": [
+        "https://www.thetimes.com/business/energy/article/water-and-energy-firms-taking-millions-in-loans-from-chinese-state-bank-v5q28jkhc",
+        "https://www.afr.com/companies/infrastructure/chinese-lenders-knew-of-melbourne-metro-delays-long-before-public-20260914-p60x5h"
+      ],
+      "licenciaMedios": null
+    }
+  ],
+  "afirmaciones": [
+    {
+      "texto": "ICBC otorgó cerca de 1.700 millones de dólares en préstamos y opciones de financiamiento a empresas de agua y energía en Reino Unido antes de julio de 2024",
+      "tipo": "hecho",
+      "fuente": "https://www.thetimes.com/business/energy/article/water-and-energy-firms-taking-millions-in-loans-from-chinese-state-bank-v5q28jkhc",
+      "contrastada": true
+    },
+    {
+      "texto": "Las unidades londinenses de ICBC financiaron a empresas vinculadas a oligarcas sancionados y a figuras públicamente acusadas de corrupción",
+      "tipo": "hecho",
+      "fuente": "https://www.icij.org/investigations/china-capital/uk-parliament-debates-infrastructure-security-after-china-capital-revelations/",
+      "contrastada": true
+    },
+    {
+      "texto": "ICBC continuó aceptando negocios de clientes rusos y bielorrusos, lo que representa un riesgo de seguridad financiera",
+      "tipo": "denuncia",
+      "fuente": "https://www.icij.org/investigations/china-capital/uk-parliament-debates-infrastructure-security-after-china-capital-revelations/",
+      "contrastada": false
+    },
+    {
+      "texto": "El sector del agua será incluido en un esquema de notificación obligatoria que permite al gobierno bloquear transacciones por motivos de seguridad nacional",
+      "tipo": "hecho",
+      "fuente": "https://www.icij.org/investigations/china-capital/uk-parliament-debates-infrastructure-security-after-china-capital-revelations/",
+      "contrastada": true
+    }
+  ],
+  "angulo": "Investigación documental sobre financiamiento estatal chino de infraestructura crítica y su debate en el Parlamento británico.",
+  "atribucion": "ICIJ y The Times, dentro de la investigación China Capital",
+  "puntuacion": {
+    "total": 74,
+    "componentes": {
+      "afinidad": 18,
+      "interes": 18,
+      "evidencia": 18,
+      "actualidad": 15,
+      "visual": 5
+    }
+  },
+  "alertas": [
+    "fuente-unica",
+    "hecho-antiguo"
+  ],
+  "carrusel": null,
+  "reel": null,
+  "revision": {
+    "estado": "pendiente",
+    "notas": []
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-16T06:37:29.518Z",
+  "actualizado": "2026-09-16T06:37:29.518Z"
+}
