@@ -1,0 +1,47 @@
+{
+  "id": "2026-09-17-0237-leopopexiv-vatican-news-e26b",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/vatican-city/news/2026-09/parolin-concern-states-ai-going-it-alone-ukraine.html",
+    "titulo": "Parolin ‘concerned’ over states ‘going it alone’ on AI",
+    "publicado": "2026-09-16T15:52:00.000Z"
+  },
+  "categoria": "INTERNACIONAL",
+  "titular": "Vatican warns against go-it-alone AI regulation",
+  "bajada": "Cardinal Parolin urges global cooperation on AI rules and peace in Ukraine",
+  "caption": "Cardinal Pietro Parolin, the Holy See's Secretary of State, told journalists he is 'concerned' that individual states are moving to regulate artificial intelligence on their own rather than through coordinated international frameworks. He also addressed questions on the ongoing conflict in Ukraine. Source: Vatican News, Sept 16, 2026.",
+  "hashtags": [
+    "#Vatican",
+    "#AI",
+    "#Parolin",
+    "#HolySee",
+    "#Ukraine",
+    "#Diplomacy"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-09-17-0237-leopopexiv-vatican-news-e26b.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-17-0237-leopopexiv-vatican-news-e26b.jpg",
+    "hash": "041b01b15a618663",
+    "version": 11,
+    "estilo": "32cba508d6c2290e",
+    "renderizada": "2026-09-17T06:38:56.003Z"
+  },
+  "ilustracion": {
+    "descripcion": "A dimly lit Vatican press room with rows of empty chairs and microphones, a globe resting on a wooden table; a senior Vatican official in cassock stands at a podium in the upper right third, seen from the side, left and center of the frame left open and uncluttered.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-17-0237-leopopexiv-vatican-news-e26b.jpg",
+    "hashDescripcion": "240efc4e8b81a1ec",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-17T06:37:49.531Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-17T06:37:49.531Z",
+  "actualizado": "2026-09-17T06:37:49.531Z"
+}

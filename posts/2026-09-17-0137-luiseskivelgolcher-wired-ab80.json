@@ -1,0 +1,125 @@
+{
+  "id": "2026-09-17-0137-luiseskivelgolcher-wired-ab80",
+  "cuenta": "luiseskivelgolcher",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "WIRED",
+    "url": "https://www.wired.com/story/washington-wont-be-regulating-ai-anytime-soon/",
+    "titulo": "Washington Won’t Be Regulating AI Anytime Soon",
+    "publicado": "2026-09-16T21:00:00.000Z"
+  },
+  "categoria": "INTERNACIONAL",
+  "titular": "Casa Blanca frena toda regulación de la IA en EE.UU.",
+  "bajada": "Trump rechaza un organismo supervisor y el Congreso no logra unificar una ley, según WIRED.",
+  "caption": "La Casa Blanca pausó el plan para crear un organismo que supervisara a las empresas de inteligencia artificial, después de que el presidente Donald Trump se opusiera a la idea, según reportó WIRED el 16 de septiembre de 2026. La propuesta, inspirada en un ensayo de Demis Hassabis (cofundador de Google DeepMind), buscaba que los laboratorios de IA se autorregularan bajo un marco ligado al Tesoro y a la Casa Blanca. Pero ejecutivos como David Sacks, exasesor de IA de Trump, y Mark Zuckerberg, de Meta, llamaron directamente al presidente en agosto para oponerse, según las fuentes de WIRED. Trump ha llamado 'hoax' (engaño, en inglés) a las preocupaciones sobre seguridad de la IA en su red Truth Social. En el Congreso, el proyecto bipartidista Frontier Act —que permitiría auditores federales dentro de los laboratorios— tiene apoyo, pero el vocero republicano Mike Johnson no piensa llevarlo a votación, según el medio. ¿Puede una industria tan poderosa regularse a sí misma sin supervisión externa?",
+  "hashtags": [
+    "#InteligenciaArtificial",
+    "#Tecnología",
+    "#EEUU",
+    "#Regulación",
+    "#Wired"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-09-17-0137-luiseskivelgolcher-wired-ab80.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-17-0137-luiseskivelgolcher-wired-ab80.jpg",
+    "hash": "ea0edd1420b3b84a",
+    "version": 11,
+    "estilo": "dc8c8fa3edf501fd",
+    "renderizada": "2026-09-17T06:38:37.480Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada del Capitolio de Estados Unidos en Washington al atardecer, con la cúpula iluminada; el edificio queda en el tercio superior derecho y la zona izquierda y central de la imagen queda despejada.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-17-0137-luiseskivelgolcher-wired-ab80.jpg",
+    "hashDescripcion": "337fe120bf70de06",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-17T06:37:49.531Z",
+    "error": null,
+    "procedencia": "generada"
+  },
+  "formato": "post",
+  "fuentes": [
+    {
+      "rol": "principal",
+      "medio": "WIRED",
+      "autor": "Hugo Lowell",
+      "url": "https://www.wired.com/story/washington-wont-be-regulating-ai-anytime-soon/",
+      "canonica": "https://www.wired.com/story/washington-wont-be-regulating-ai-anytime-soon/",
+      "idioma": "en",
+      "publicado": "2026-09-16T21:00:00.000Z",
+      "actualizado": "2026-09-16T21:00:00.000Z",
+      "fechaHecho": null,
+      "consultado": "2026-09-17T06:37:49.531Z",
+      "alcance": "completo",
+      "textoRecuperado": {
+        "parrafos": 26,
+        "caracteres": 6003,
+        "enviados": 3935
+      },
+      "fuentesPrimarias": [
+        "https://darioamodei.com/post/we-must-pace-the-frontier",
+        "https://trahan.house.gov/news/documentsingle.aspx?DocumentID=3823",
+        "https://www.politico.com/news/2026/09/15/openai-backs-bipartisan-house-plan-for-third-party-safety-assessments-01076588",
+        "https://www.axios.com/2026/09/13/ai-safety-congress-law-mike-johnson",
+        "https://lieu.house.gov/media-center/press-releases/reps-lieu-and-moran-introduce-bill-require-kill-switch-ai-systems-can",
+        "https://www.politico.com/live-updates/2026/09/14/congress/kennedy-readies-ai-kill-switch-bill-01076078",
+        "http://www.aboutads.info"
+      ],
+      "licenciaMedios": null
+    }
+  ],
+  "afirmaciones": [
+    {
+      "texto": "La Casa Blanca pausó el trabajo para crear un organismo regulador de IA tras el rechazo de Trump a la idea.",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/washington-wont-be-regulating-ai-anytime-soon/",
+      "contrastada": false
+    },
+    {
+      "texto": "Ejecutivos como David Sacks y Mark Zuckerberg llamaron a Trump en agosto para expresar su oposición al plan regulatorio.",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/washington-wont-be-regulating-ai-anytime-soon/",
+      "contrastada": false
+    },
+    {
+      "texto": "Trump calificó las preocupaciones sobre seguridad de la IA como un 'hoax' en un mensaje reciente en Truth Social.",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/washington-wont-be-regulating-ai-anytime-soon/",
+      "contrastada": false
+    },
+    {
+      "texto": "El Frontier Act tiene apoyo bipartidista, pero el vocero de la Cámara, Mike Johnson, no tiene interés en llevarlo a votación.",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/washington-wont-be-regulating-ai-anytime-soon/",
+      "contrastada": false
+    }
+  ],
+  "angulo": "Cómo la presión de ejecutivos tecnológicos frenó cualquier intento de regulación federal de la IA en EE.UU.",
+  "atribucion": "WIRED (Hugo Lowell)",
+  "puntuacion": {
+    "total": 76,
+    "componentes": {
+      "afinidad": 24,
+      "interes": 18,
+      "evidencia": 14,
+      "actualidad": 15,
+      "visual": 5
+    }
+  },
+  "alertas": [
+    "fuente-unica"
+  ],
+  "carrusel": null,
+  "reel": null,
+  "revision": {
+    "estado": "pendiente",
+    "notas": []
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-17T06:37:49.531Z",
+  "actualizado": "2026-09-17T06:37:49.531Z"
+}
