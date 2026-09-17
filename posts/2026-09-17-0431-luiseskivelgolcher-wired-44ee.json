@@ -1,0 +1,121 @@
+{
+  "id": "2026-09-17-0431-luiseskivelgolcher-wired-44ee",
+  "cuenta": "luiseskivelgolcher",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "WIRED",
+    "url": "https://www.wired.com/story/flock-once-touted-its-cameras-as-made-in-the-usa-now-its-not-so-clear/",
+    "titulo": "Flock Once Touted Its Cameras as ‘Made in the USA.’ Now It’s Not So Clear",
+    "publicado": "2026-09-17T09:00:00.000Z"
+  },
+  "categoria": "INVESTIGACIÓN",
+  "titular": "Flock oculta el origen real de sus cámaras",
+  "bajada": "WIRED halló que la empresa ya no dice dónde fabrica sus lectores de placas",
+  "caption": "Flock, la empresa detrás de miles de cámaras lectoras de placas en Estados Unidos, dejó de decir en sus materiales de marketing dónde fabrica sus dispositivos, según una investigación de WIRED publicada el 17 de septiembre de 2026. Durante años la compañía promocionó sus cámaras como \"hechas en Estados Unidos\". Registros de importación revisados por el medio muestran que Flock ha traído cada vez más cámaras y sistemas de radar desde Primax Electronics, una empresa con sede en Taiwán y plantas en Tailandia y China. Flock respondió a WIRED que sus productos cumplen con la ley NDAA, que prohíbe piezas de ciertas empresas chinas en contratos con el gobierno, pero no respondió la mayoría de las preguntas del medio. El activista Cris van Pelt, creador del proyecto Have I Been Flocked, advierte que la falta de transparencia sobre la cadena de suministro es un problema mayor de supervisión sobre miles de dispositivos instalados en las calles. ¿Debería exigirse más transparencia sobre el origen de la tecnología de vigilancia que usan los gobiernos?",
+  "hashtags": [
+    "#Vigilancia",
+    "#Ciberseguridad",
+    "#Flock",
+    "#Tecnología"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-09-17-0431-luiseskivelgolcher-wired-44ee.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-17-0431-luiseskivelgolcher-wired-44ee.jpg",
+    "hash": "32ece3fed0297edc",
+    "version": 11,
+    "estilo": "dc8c8fa3edf501fd",
+    "renderizada": "2026-09-17T09:32:06.006Z"
+  },
+  "ilustracion": {
+    "descripcion": "Contenedor de carga marítima con cajas selladas y una cámara vial embalada en el tercio superior derecho; la zona izquierda y central del encuadre queda despejada y vacía.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-17-0431-luiseskivelgolcher-wired-44ee.jpg",
+    "hashDescripcion": "72a7c7b2538d9874",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-17T09:31:30.255Z",
+    "error": null,
+    "procedencia": "generada"
+  },
+  "formato": "post",
+  "fuentes": [
+    {
+      "rol": "principal",
+      "medio": "WIRED",
+      "autor": "Paresh Dave",
+      "url": "https://www.wired.com/story/flock-once-touted-its-cameras-as-made-in-the-usa-now-its-not-so-clear/",
+      "canonica": "https://www.wired.com/story/flock-once-touted-its-cameras-as-made-in-the-usa-now-its-not-so-clear/",
+      "idioma": "en",
+      "publicado": "2026-09-17T09:00:00.000Z",
+      "actualizado": "2026-09-17T09:00:00.000Z",
+      "fechaHecho": null,
+      "consultado": "2026-09-17T09:31:30.255Z",
+      "alcance": "completo",
+      "textoRecuperado": {
+        "parrafos": 35,
+        "caracteres": 9669,
+        "enviados": 3583
+      },
+      "fuentesPrimarias": [
+        "https://ewmfg.wistia.com/medias/tgp123bfkq",
+        "https://www.co.monroe.mi.us/DocumentCenter/View/5969/Drone1st-Responder-Monroe_County_DFR_Con-3-25-26?bidId=",
+        "https://berkeleyca.gov/sites/default/files/2026-03/2026-03-24%20Item%2026%20Public%20Safety%20Technology.pdf",
+        "http://www.aboutads.info"
+      ],
+      "licenciaMedios": null
+    }
+  ],
+  "afirmaciones": [
+    {
+      "texto": "Flock ya no especifica en sus materiales de marketing más recientes dónde se fabrican sus cámaras, a diferencia de años anteriores en que promocionaba que eran \"hechas en Estados Unidos\".",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/flock-once-touted-its-cameras-as-made-in-the-usa-now-its-not-so-clear/",
+      "contrastada": true
+    },
+    {
+      "texto": "Registros de importación muestran que Flock ha aumentado sus envíos de cámaras y sistemas de radar desde Primax Electronics, con sede en Taiwán y plantas en Tailandia y China.",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/flock-once-touted-its-cameras-as-made-in-the-usa-now-its-not-so-clear/",
+      "contrastada": true
+    },
+    {
+      "texto": "Flock afirma que todos sus productos cumplen con la ley NDAA, que prohíbe el uso de piezas de ciertas empresas tecnológicas chinas en contratos con el gobierno de EE.UU.",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/flock-once-touted-its-cameras-as-made-in-the-usa-now-its-not-so-clear/",
+      "contrastada": false
+    },
+    {
+      "texto": "La falta de transparencia sobre el origen de las piezas de Flock revela un problema más amplio de supervisión sobre la tecnología de vigilancia instalada en calles de EE.UU.",
+      "tipo": "opinion",
+      "fuente": "https://www.wired.com/story/flock-once-touted-its-cameras-as-made-in-the-usa-now-its-not-so-clear/",
+      "contrastada": false
+    }
+  ],
+  "angulo": "Origen de fabricación y cadena de suministro de las cámaras de vigilancia vial de Flock, con implicaciones de seguridad nacional.",
+  "atribucion": "WIRED, investigación de Paresh Dave, 17 de septiembre de 2026",
+  "puntuacion": {
+    "total": 80,
+    "componentes": {
+      "afinidad": 27,
+      "interes": 18,
+      "evidencia": 14,
+      "actualidad": 15,
+      "visual": 6
+    }
+  },
+  "alertas": [
+    "fuente-unica"
+  ],
+  "carrusel": null,
+  "reel": null,
+  "revision": {
+    "estado": "pendiente",
+    "notas": []
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-17T09:31:30.255Z",
+  "actualizado": "2026-09-17T09:31:30.255Z"
+}
