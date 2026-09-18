@@ -211,7 +211,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-16T12:37:11.125Z",
-  "actualizado": "2026-09-18T08:34:41.512Z",
+  "actualizado": "2026-09-18T17:38:05.135Z",
   "destinos": {
     "instagram": {
       "texto": "Un colectivo de hackers desmontó una cámara de vigilancia de Flock Safety instalada sobre una carretera en Estados Unidos y copió su almacenamiento interno, según reveló WIRED en alianza con 404 Media el 16 de septiembre de 2026. Flock Safety fabrica lectores automáticos de placas: cámaras que fotografían vehículos y envían los datos a servidores que las policías locales pueden consultar. La empresa aseguraba que sus dispositivos protegían la información con cifrado. Pero los hackers, del colectivo stegan0gram, lograron recuperar una clave de cifrado almacenada en el propio aparato y acceder a videos de miles de detecciones vehiculares. El análisis conjunto de WIRED y 404 Media confirmó que el software de la cámara identifica explícitamente a personas, no solo vehículos, placas y bicicletas, y llegó a aislar detalles como una calcomanía de bandera estadounidense en una motocicleta. Casos previos documentados por 404 Media muestran que agencias policiales usaron la red nacional de Flock para búsquedas vinculadas a inmigración y a una mujer que se practicó un aborto. ¿Debería una cámara de tránsito guardar tanto detalle sobre las personas que pasan frente a ella?\n\nFuente: WIRED\n\n#Vigilancia #Privacidad #Ciberseguridad #FlockSafety",
@@ -233,7 +233,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-09-18T17:38:05.135Z",
+        "actualizado": "2026-09-18T17:38:05.135Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     },
