@@ -27,8 +27,8 @@
     "renderizada": "2026-09-15T09:36:47.592Z"
   },
   "ilustracion": {
-    "descripcion": "Alfombra roja de una gala de premios con una estatuilla dorada brillando en el tercio superior derecho, luces de flashes difusas, zona izquierda y central despejada.",
-    "usar": false,
+    "descripcion": "Alfombra roja de una gala de premios con una estatuilla dorada brillando en el tercio superior derecho, luces de flashes difusas, zona izquierda y central despejada. genera una imagen de widows bay e integrala",
+    "usar": true,
     "ruta": null,
     "hashDescripcion": null,
     "proveedor": null,
@@ -40,5 +40,5 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-15T09:36:23.242Z",
-  "actualizado": "2026-09-15T09:36:23.242Z"
+  "actualizado": "2026-09-18T08:35:29.111Z"
 }
