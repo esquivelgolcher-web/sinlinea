@@ -1,7 +1,7 @@
 {
   "id": "2026-09-17-0431-luiseskivelgolcher-wired-44ee",
   "cuenta": "luiseskivelgolcher",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "WIRED",
     "url": "https://www.wired.com/story/flock-once-touted-its-cameras-as-made-in-the-usa-now-its-not-so-clear/",
@@ -113,9 +113,56 @@
     "estado": "pendiente",
     "notas": []
   },
-  "programado": null,
+  "programado": "2026-09-18T08:05:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-17T09:31:30.255Z",
-  "actualizado": "2026-09-17T09:31:30.255Z"
+  "actualizado": "2026-09-18T08:34:02.940Z",
+  "destinos": {
+    "instagram": {
+      "texto": "Flock, la empresa detrás de miles de cámaras lectoras de placas en Estados Unidos, dejó de decir en sus materiales de marketing dónde fabrica sus dispositivos, según una investigación de WIRED publicada el 17 de septiembre de 2026. Durante años la compañía promocionó sus cámaras como \"hechas en Estados Unidos\". Registros de importación revisados por el medio muestran que Flock ha traído cada vez más cámaras y sistemas de radar desde Primax Electronics, una empresa con sede en Taiwán y plantas en Tailandia y China. Flock respondió a WIRED que sus productos cumplen con la ley NDAA, que prohíbe piezas de ciertas empresas chinas en contratos con el gobierno, pero no respondió la mayoría de las preguntas del medio. El activista Cris van Pelt, creador del proyecto Have I Been Flocked, advierte que la falta de transparencia sobre la cadena de suministro es un problema mayor de supervisión sobre miles de dispositivos instalados en las calles. ¿Debería exigirse más transparencia sobre el origen de la tecnología de vigilancia que usan los gobiernos?\n\nFuente: WIRED\n\n#Vigilancia #Ciberseguridad #Flock #Tecnología",
+      "aprobado": {
+        "fecha": "2026-09-18T08:34:02.940Z",
+        "hashPieza": "2dc7ff94605f08be",
+        "imagenHash": "32ece3fed0297edc",
+        "imagenSha": "9615cfa3b447a0b10f841376a95d364e8bdd0675"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    },
+    "facebook": {
+      "texto": "Flock, la empresa detrás de miles de cámaras lectoras de placas en Estados Unidos, dejó de decir en sus materiales de marketing dónde fabrica sus dispositivos, según una investigación de WIRED publicada el 17 de septiembre de 2026. Durante años la compañía promocionó sus cámaras como \"hechas en Estados Unidos\". Registros de importación revisados por el medio muestran que Flock ha traído cada vez más cámaras y sistemas de radar desde Primax Electronics, una empresa con sede en Taiwán y plantas en Tailandia y China. Flock respondió a WIRED que sus productos cumplen con la ley NDAA, que prohíbe piezas de ciertas empresas chinas en contratos con el gobierno, pero no respondió la mayoría de las preguntas del medio. El activista Cris van Pelt, creador del proyecto Have I Been Flocked, advierte que la falta de transparencia sobre la cadena de suministro es un problema mayor de supervisión sobre miles de dispositivos instalados en las calles. ¿Debería exigirse más transparencia sobre el origen de la tecnología de vigilancia que usan los gobiernos?\n\nFuente: WIRED",
+      "aprobado": {
+        "fecha": "2026-09-18T08:34:02.940Z",
+        "hashPieza": "2dc7ff94605f08be",
+        "imagenHash": "32ece3fed0297edc",
+        "imagenSha": "9615cfa3b447a0b10f841376a95d364e8bdd0675"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    },
+    "threads": {
+      "texto": "Flock oculta el origen real de sus cámaras\n\nWIRED halló que la empresa ya no dice dónde fabrica sus lectores de placas\n\nSegún WIRED (17 de septiembre de 2026)",
+      "aprobado": {
+        "fecha": "2026-09-18T08:34:02.940Z",
+        "hashPieza": "2dc7ff94605f08be",
+        "imagenHash": "32ece3fed0297edc",
+        "imagenSha": "9615cfa3b447a0b10f841376a95d364e8bdd0675"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
