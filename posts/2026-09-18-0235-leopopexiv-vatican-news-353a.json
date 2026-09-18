@@ -1,0 +1,46 @@
+{
+  "id": "2026-09-18-0235-leopopexiv-vatican-news-353a",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/church/news/2026-09/uruguay-bishops-ad-limina-visit-rome-pope-leo-xiv.html",
+    "titulo": "Uruguayan Bishops visit Rome ahead of Pope Leo’s November visit",
+    "publicado": "2026-09-17T10:22:00.000Z"
+  },
+  "categoria": "INTERNACIONAL",
+  "titular": "Uruguay's bishops prepare for Pope Leo's visit",
+  "bajada": "Ad limina visit to Rome ahead of the November 6-8 papal trip to Uruguay",
+  "caption": "Uruguay's Catholic bishops traveled to Rome for their ad limina visit, sharing hopes for the Church's mission in a secularized society ahead of Pope Leo XIV's Apostolic Journey to Uruguay, scheduled for November 6-8. Source: Vatican News, Sept 17, 2026.",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Uruguay",
+    "#Vatican",
+    "#CatholicChurch",
+    "#PapalVisit"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-09-18-0235-leopopexiv-vatican-news-353a.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-18-0235-leopopexiv-vatican-news-353a.jpg",
+    "hash": "2e255c8d5b7685db",
+    "version": 11,
+    "estilo": "32cba508d6c2290e",
+    "renderizada": "2026-09-18T06:35:46.183Z"
+  },
+  "ilustracion": {
+    "descripcion": "A group of bishops in formal cassocks walk through a Vatican courtyard toward St. Peter's dome, positioned in the upper right third, with the left and center foreground open and uncluttered.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-18-0235-leopopexiv-vatican-news-353a.jpg",
+    "hashDescripcion": "7971631381efe2bd",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-18T06:35:28.122Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-18T06:35:28.122Z",
+  "actualizado": "2026-09-18T06:35:28.122Z"
+}

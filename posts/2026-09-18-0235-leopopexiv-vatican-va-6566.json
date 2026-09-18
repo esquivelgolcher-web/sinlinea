@@ -1,0 +1,44 @@
+{
+  "id": "2026-09-18-0235-leopopexiv-vatican-va-6566",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "formato": "frase",
+  "frase": {
+    "texto": "Humanity still has the ability to work together in building our common home.",
+    "autor": "Pope Francis",
+    "fuente": "Laudato si', 13",
+    "anio": 2015,
+    "url": "https://www.vatican.va/content/francesco/en/encyclicals/documents/papa-francesco_20150524_enciclica-laudato-si.html",
+    "origen": "banco"
+  },
+  "fuente": {
+    "medio": "Vatican.va",
+    "url": "https://www.vatican.va/content/francesco/en/encyclicals/documents/papa-francesco_20150524_enciclica-laudato-si.html",
+    "titulo": "Laudato si', 13",
+    "publicado": "2015-01-01T00:00:00.000Z"
+  },
+  "categoria": "CULTURA",
+  "titular": "Pope Francis",
+  "bajada": "Laudato si', 13 · 2015",
+  "caption": "“Humanity still has the ability to work together in building our common home.”\n\n— Pope Francis, Laudato si', 13 (2015)\n\n#PopeLeoXIV #Vatican #CatholicChurch",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Vatican",
+    "#CatholicChurch"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-09-18-0235-leopopexiv-vatican-va-6566.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-18-0235-leopopexiv-vatican-va-6566.jpg",
+    "hash": "9b17b863ba8c33b1",
+    "version": 1,
+    "estilo": "28c21995920a45b7",
+    "renderizada": "2026-09-18T06:35:51.131Z"
+  },
+  "ilustracion": null,
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-18T06:35:28.122Z",
+  "actualizado": "2026-09-18T06:35:28.122Z"
+}
