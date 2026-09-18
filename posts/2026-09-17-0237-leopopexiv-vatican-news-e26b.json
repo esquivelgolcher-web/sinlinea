@@ -1,7 +1,7 @@
 {
   "id": "2026-09-17-0237-leopopexiv-vatican-news-e26b",
   "cuenta": "leopopexiv",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/vatican-city/news/2026-09/parolin-concern-states-ai-going-it-alone-ukraine.html",
@@ -39,9 +39,26 @@
     "generada": "2026-09-17T06:37:49.531Z",
     "error": null
   },
-  "programado": null,
+  "programado": "2026-09-18T13:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-17T06:37:49.531Z",
-  "actualizado": "2026-09-17T06:37:49.531Z"
+  "actualizado": "2026-09-18T08:33:39.683Z",
+  "destinos": {
+    "instagram": {
+      "texto": "Cardinal Pietro Parolin, the Holy See's Secretary of State, told journalists he is 'concerned' that individual states are moving to regulate artificial intelligence on their own rather than through coordinated international frameworks. He also addressed questions on the ongoing conflict in Ukraine. Source: Vatican News, Sept 16, 2026.\n\nFuente: Vatican News\n\n#Vatican #AI #Parolin #HolySee #Ukraine #Diplomacy",
+      "aprobado": {
+        "fecha": "2026-09-18T08:33:39.683Z",
+        "hashPieza": "9a5b1443ce6c5b55",
+        "imagenHash": "041b01b15a618663",
+        "imagenSha": "0bbe6554d6622f55a638e9b9c5940da4260695a9"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
