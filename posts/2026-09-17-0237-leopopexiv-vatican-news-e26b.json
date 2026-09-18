@@ -43,7 +43,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-17T06:37:49.531Z",
-  "actualizado": "2026-09-18T08:33:39.683Z",
+  "actualizado": "2026-09-18T20:47:52.821Z",
   "destinos": {
     "instagram": {
       "texto": "Cardinal Pietro Parolin, the Holy See's Secretary of State, told journalists he is 'concerned' that individual states are moving to regulate artificial intelligence on their own rather than through coordinated international frameworks. He also addressed questions on the ongoing conflict in Ukraine. Source: Vatican News, Sept 16, 2026.\n\nFuente: Vatican News\n\n#Vatican #AI #Parolin #HolySee #Ukraine #Diplomacy",
@@ -56,7 +56,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-09-18T20:47:52.821Z",
+        "actualizado": "2026-09-18T20:47:52.821Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
