@@ -42,7 +42,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-18T06:35:28.122Z",
-  "actualizado": "2026-09-18T08:33:34.776Z",
+  "actualizado": "2026-09-18T17:40:13.968Z",
   "destinos": {
     "instagram": {
       "texto": "Uruguay's Catholic bishops traveled to Rome for their ad limina visit, sharing hopes for the Church's mission in a secularized society ahead of Pope Leo XIV's Apostolic Journey to Uruguay, scheduled for November 6-8. Source: Vatican News, Sept 17, 2026.\n\nFuente: Vatican News\n\n#PopeLeoXIV #Uruguay #Vatican #CatholicChurch #PapalVisit",
@@ -55,7 +55,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-09-18T17:40:13.968Z",
+        "actualizado": "2026-09-18T17:40:13.968Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
