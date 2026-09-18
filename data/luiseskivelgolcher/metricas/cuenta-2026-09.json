@@ -100,6 +100,17 @@
       "llamadas": 22,
       "completo": true,
       "motivoIncompleto": null
+    },
+    "2026-09-18T05:40:45.064Z": {
+      "perfil": {
+        "seguidores": 81051,
+        "seguidos": 387,
+        "publicaciones": 40
+      },
+      "permiso": "basico+insights",
+      "llamadas": 22,
+      "completo": true,
+      "motivoIncompleto": null
     }
   },
   "porDia": {
@@ -341,19 +352,43 @@
         "follows_and_unfollows": "conjunto-vacio",
         "follower_count": "conjunto-vacio"
       },
-      "consultadoEn": "2026-09-17T05:42:21.372Z"
+      "consultadoEn": "2026-09-18T05:40:45.064Z"
     },
     "2026-09-16": {
       "valores": {
-        "reach": 4597,
-        "views": 10855,
-        "accounts_engaged": 247,
-        "total_interactions": 365,
-        "likes": 223,
+        "reach": 4635,
+        "views": 11003,
+        "accounts_engaged": 249,
+        "total_interactions": 367,
+        "likes": 225,
         "comments": 33,
         "shares": 41,
         "saves": 19,
         "reposts": 8,
+        "replies": 0,
+        "profile_links_taps": 0,
+        "follows_and_unfollows": null,
+        "follower_count": null,
+        "profile_views": 18,
+        "website_clicks": 0
+      },
+      "faltantes": {
+        "follows_and_unfollows": "conjunto-vacio",
+        "follower_count": "conjunto-vacio"
+      },
+      "consultadoEn": "2026-09-18T05:40:45.064Z"
+    },
+    "2026-09-17": {
+      "valores": {
+        "reach": 1211,
+        "views": 2170,
+        "accounts_engaged": 27,
+        "total_interactions": 31,
+        "likes": 27,
+        "comments": 0,
+        "shares": 0,
+        "saves": 3,
+        "reposts": 1,
         "replies": 0,
         "profile_links_taps": 0,
         "follows_and_unfollows": null,
@@ -365,7 +400,7 @@
         "follows_and_unfollows": "conjunto-vacio",
         "follower_count": "conjunto-vacio"
       },
-      "consultadoEn": "2026-09-17T05:42:21.372Z"
+      "consultadoEn": "2026-09-18T05:40:45.064Z"
     }
   }
 }

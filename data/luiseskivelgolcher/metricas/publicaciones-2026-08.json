@@ -227,9 +227,33 @@
             "profile_activity": "metrica-no-soportada",
             "follows": "metrica-no-soportada"
           }
+        },
+        "2026-09-18T05:40:45.064Z": {
+          "acumulados": {
+            "meGusta": 113,
+            "comentarios": 2,
+            "reach": 3660,
+            "views": 4808,
+            "likes": 113,
+            "comments": 2,
+            "saved": 14,
+            "shares": 85,
+            "total_interactions": 233,
+            "ig_reels_avg_watch_time": 19139,
+            "ig_reels_video_view_total_time": 72271272,
+            "reels_skip_rate": 45.4,
+            "profile_visits": null,
+            "profile_activity": null,
+            "follows": null
+          },
+          "faltantes": {
+            "profile_visits": "metrica-no-soportada",
+            "profile_activity": "metrica-no-soportada",
+            "follows": "metrica-no-soportada"
+          }
         }
       },
-      "ultimaConsulta": "2026-09-17T05:42:21.372Z"
+      "ultimaConsulta": "2026-09-18T05:40:45.064Z"
     }
   }
 }
