@@ -117,7 +117,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-17T09:31:30.255Z",
-  "actualizado": "2026-09-18T08:34:02.940Z",
+  "actualizado": "2026-09-18T13:16:58.261Z",
   "destinos": {
     "instagram": {
       "texto": "Flock, la empresa detrás de miles de cámaras lectoras de placas en Estados Unidos, dejó de decir en sus materiales de marketing dónde fabrica sus dispositivos, según una investigación de WIRED publicada el 17 de septiembre de 2026. Durante años la compañía promocionó sus cámaras como \"hechas en Estados Unidos\". Registros de importación revisados por el medio muestran que Flock ha traído cada vez más cámaras y sistemas de radar desde Primax Electronics, una empresa con sede en Taiwán y plantas en Tailandia y China. Flock respondió a WIRED que sus productos cumplen con la ley NDAA, que prohíbe piezas de ciertas empresas chinas en contratos con el gobierno, pero no respondió la mayoría de las preguntas del medio. El activista Cris van Pelt, creador del proyecto Have I Been Flocked, advierte que la falta de transparencia sobre la cadena de suministro es un problema mayor de supervisión sobre miles de dispositivos instalados en las calles. ¿Debería exigirse más transparencia sobre el origen de la tecnología de vigilancia que usan los gobiernos?\n\nFuente: WIRED\n\n#Vigilancia #Ciberseguridad #Flock #Tecnología",
@@ -130,7 +130,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-09-18T13:16:58.261Z",
+        "actualizado": "2026-09-18T13:16:58.261Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     },
