@@ -1,7 +1,7 @@
 {
   "id": "2026-09-18-0235-leopopexiv-vatican-news-353a",
   "cuenta": "leopopexiv",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/church/news/2026-09/uruguay-bishops-ad-limina-visit-rome-pope-leo-xiv.html",
@@ -39,7 +39,11 @@
     "error": null
   },
   "programado": "2026-09-18T09:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "18219508393341898",
+    "permalink": "https://www.instagram.com/p/Ddb_mJWGmVn/",
+    "fecha": "2026-09-18T17:40:13.968Z"
+  },
   "error": null,
   "creado": "2026-09-18T06:35:28.122Z",
   "actualizado": "2026-09-18T17:40:13.968Z",
@@ -52,16 +56,15 @@
         "imagenHash": "2e255c8d5b7685db",
         "imagenSha": "ea1d98a6183dd74a69e5c31203a643500fa83c8f"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-09-18T17:40:13.968Z",
-        "actualizado": "2026-09-18T17:40:13.968Z",
-        "contenedorId": "18102515714081176"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18219508393341898",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/Ddb_mJWGmVn/",
+        "fecha": "2026-09-18T17:40:13.968Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
