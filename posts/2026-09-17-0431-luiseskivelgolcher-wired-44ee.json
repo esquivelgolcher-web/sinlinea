@@ -174,7 +174,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-09-18T13:16:58.261Z",
+        "actualizado": "2026-09-18T13:16:58.261Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
