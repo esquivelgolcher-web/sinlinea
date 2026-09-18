@@ -1,7 +1,7 @@
 {
   "id": "2026-09-16-0737-luiseskivelgolcher-wired-5b40",
   "cuenta": "luiseskivelgolcher",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "WIRED",
     "url": "https://www.wired.com/story/hackers-flock-camera-data-shows-how-system-works/",
@@ -263,25 +263,15 @@
           "d94796e22fa60a926750bbe55f80374c44696a22"
         ]
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-09-18T17:38:05.135Z",
-        "actualizado": "2026-09-18T17:38:05.135Z",
-        "contenedorId": "17989651389100604",
-        "hijos": [
-          "17989651206100604",
-          "17989651233100604",
-          "17989651254100604",
-          "17989651287100604",
-          "17989651308100604",
-          "17989651332100604",
-          "17989651368100604"
-        ]
+      "estado": "publicado",
+      "publicacion": {
+        "id": "17920375647225870",
+        "idPublicacion": null,
+        "permalink": "https://www.threads.com/@luisegolcher/post/Ddb_dIjFPlp",
+        "fecha": "2026-09-18T17:38:05.135Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
