@@ -1,7 +1,7 @@
 {
   "id": "2026-09-17-0237-leopopexiv-vatican-va-d57a",
   "cuenta": "leopopexiv",
-  "estado": "borrador",
+  "estado": "programado",
   "formato": "frase",
   "frase": {
     "texto": "I prefer a Church which is bruised, hurting and dirty because it has been out on the streets, rather than a Church which is unhealthy from being confined and from clinging to its own security.",
@@ -36,9 +36,26 @@
     "renderizada": "2026-09-17T06:39:00.367Z"
   },
   "ilustracion": null,
-  "programado": null,
+  "programado": "2026-09-18T18:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-17T06:37:49.531Z",
-  "actualizado": "2026-09-17T06:37:49.531Z"
+  "actualizado": "2026-09-18T08:33:43.161Z",
+  "destinos": {
+    "instagram": {
+      "texto": "“I prefer a Church which is bruised, hurting and dirty because it has been out on the streets, rather than a Church which is unhealthy from being confined and from clinging to its own security.”\n\n— Pope Francis, Evangelii gaudium, 49 (2013)\n\n#PopeLeoXIV #Vatican #CatholicChurch\n\nFuente: Vatican.va\n\n#PopeLeoXIV #Vatican #CatholicChurch",
+      "aprobado": {
+        "fecha": "2026-09-18T08:33:43.161Z",
+        "hashPieza": "95764c07d5d9fd29",
+        "imagenHash": "22a47fd3f111be75",
+        "imagenSha": "6c78613a68676577e16950c51e891c2c40c36369"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
