@@ -1,7 +1,7 @@
 {
   "id": "2026-09-16-1030-sinlinea-la-prensa-68a2",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "La Prensa",
     "url": "https://www.prensa.com/sociedad/miles-amanecieron-en-los-andes-mall-por-la-ultima-jornada-de-entrega-de-tarjetas-del-pase-u-en-san-miguelito/",
@@ -39,9 +39,26 @@
     "generada": "2026-09-16T15:30:28.050Z",
     "error": null
   },
-  "programado": null,
+  "programado": "2026-09-18T07:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-16T15:30:28.050Z",
-  "actualizado": "2026-09-16T15:30:28.050Z"
+  "actualizado": "2026-09-18T08:33:27.630Z",
+  "destinos": {
+    "instagram": {
+      "texto": "La transición a la tarjeta digital del Pase-U busca reemplazar los cheques y dar más control a las familias sobre el dinero de sus hijos. En San Miguelito, más de 30 mil acudientes y 41 mil estudiantes están en juego, con un desembolso de más de $4 millones. ¿Te tocó hacer fila para recibir la tuya?\n\nFuente: La Prensa\n\n#Panamá #SinLínea #PaseU #Ifarhu #SanMiguelito #Educación",
+      "aprobado": {
+        "fecha": "2026-09-18T08:33:27.630Z",
+        "hashPieza": "fef9e11d047da01b",
+        "imagenHash": "25c2541d1dd2bfdb",
+        "imagenSha": "f47ce495cd1d2d30f2713d75d8e82180f5d599fd"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
