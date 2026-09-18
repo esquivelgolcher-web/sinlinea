@@ -1,7 +1,7 @@
 {
   "id": "2026-09-16-0737-luiseskivelgolcher-wired-5b40",
   "cuenta": "luiseskivelgolcher",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "WIRED",
     "url": "https://www.wired.com/story/hackers-flock-camera-data-shows-how-system-works/",
@@ -207,9 +207,59 @@
     "estado": "pendiente",
     "notas": []
   },
-  "programado": null,
+  "programado": "2026-09-18T11:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-16T12:37:11.125Z",
-  "actualizado": "2026-09-16T12:37:11.125Z"
+  "actualizado": "2026-09-18T08:34:41.512Z",
+  "destinos": {
+    "instagram": {
+      "texto": "Un colectivo de hackers desmontó una cámara de vigilancia de Flock Safety instalada sobre una carretera en Estados Unidos y copió su almacenamiento interno, según reveló WIRED en alianza con 404 Media el 16 de septiembre de 2026. Flock Safety fabrica lectores automáticos de placas: cámaras que fotografían vehículos y envían los datos a servidores que las policías locales pueden consultar. La empresa aseguraba que sus dispositivos protegían la información con cifrado. Pero los hackers, del colectivo stegan0gram, lograron recuperar una clave de cifrado almacenada en el propio aparato y acceder a videos de miles de detecciones vehiculares. El análisis conjunto de WIRED y 404 Media confirmó que el software de la cámara identifica explícitamente a personas, no solo vehículos, placas y bicicletas, y llegó a aislar detalles como una calcomanía de bandera estadounidense en una motocicleta. Casos previos documentados por 404 Media muestran que agencias policiales usaron la red nacional de Flock para búsquedas vinculadas a inmigración y a una mujer que se practicó un aborto. ¿Debería una cámara de tránsito guardar tanto detalle sobre las personas que pasan frente a ella?\n\nFuente: WIRED\n\n#Vigilancia #Privacidad #Ciberseguridad #FlockSafety",
+      "aprobado": {
+        "fecha": "2026-09-18T08:34:41.512Z",
+        "hashPieza": "3e7d0f72608ece30",
+        "imagenHash": "3b0745e0d20ffa8e",
+        "imagenSha": "e6485787108eb22be4b796491c2f36fb76e2c5fc",
+        "imagenesSha": [
+          "ca9a5dbc8079893438800e08b43334001ae7903a",
+          "7a792710f1589a54830c56389462506459f8e094",
+          "61bc515dacacbf23ff883536f1021ddf00685f47",
+          "c6e88d38bb53017f38dd76e17ee68ca548c4d205",
+          "dbea606fa5e1ffc8b5e89b9fb7c4f2f649eaf431",
+          "033c5ec2ccac79bf2fe07f27f5f5ad9f1488157d",
+          "d94796e22fa60a926750bbe55f80374c44696a22"
+        ]
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    },
+    "threads": {
+      "texto": "Hackearon una cámara Flock y expusieron su función real\n\nDatos internos muestran que el sistema detecta también personas, no solo placas\n\nSegún WIRED (16 de septiembre de 2026)",
+      "aprobado": {
+        "fecha": "2026-09-18T08:34:41.512Z",
+        "hashPieza": "3e7d0f72608ece30",
+        "imagenHash": "3b0745e0d20ffa8e",
+        "imagenSha": "e6485787108eb22be4b796491c2f36fb76e2c5fc",
+        "imagenesSha": [
+          "ca9a5dbc8079893438800e08b43334001ae7903a",
+          "7a792710f1589a54830c56389462506459f8e094",
+          "61bc515dacacbf23ff883536f1021ddf00685f47",
+          "c6e88d38bb53017f38dd76e17ee68ca548c4d205",
+          "dbea606fa5e1ffc8b5e89b9fb7c4f2f649eaf431",
+          "033c5ec2ccac79bf2fe07f27f5f5ad9f1488157d",
+          "d94796e22fa60a926750bbe55f80374c44696a22"
+        ]
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
