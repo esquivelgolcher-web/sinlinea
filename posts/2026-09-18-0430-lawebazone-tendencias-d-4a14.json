@@ -1,0 +1,44 @@
+{
+  "id": "2026-09-18-0430-lawebazone-tendencias-d-4a14",
+  "cuenta": "lawebazone",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Tendencias de México",
+    "url": "https://www.milenio.com/ciencia-y-salud/entrada-otono-2026-fecha-hora-exacta-por-que-cambia",
+    "titulo": "equinoccio de otoño",
+    "publicado": "2026-09-18T06:00:00.000Z"
+  },
+  "categoria": "EDUCACIÓN",
+  "titular": "Resulta que el otoño no empieza cuando tú creías",
+  "bajada": "La UNAM explica por qué la fecha y hora del equinoccio cambian cada año",
+  "caption": "Toda la vida pensando que el otoño arrancaba el 21 y resulta que la ciencia dice otra cosa. Ahora hasta para ponerse la chaqueta hay que consultar a la UNAM.",
+  "hashtags": [
+    "#Equinoccio",
+    "#Otoño2026",
+    "#DatoCurioso"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-09-18-0430-lawebazone-tendencias-d-4a14.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-18-0430-lawebazone-tendencias-d-4a14.jpg",
+    "hash": "6729904ca46d675a",
+    "version": 11,
+    "estilo": "9fd322fb9927e571",
+    "renderizada": "2026-09-18T09:31:54.286Z"
+  },
+  "ilustracion": {
+    "descripcion": "Ilustración de un calendario de pared con hojas de otoño cayendo y un sol a media altura; el calendario y las hojas en el tercio superior derecho, zona izquierda y central despejada.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-18T09:30:07.037Z",
+  "actualizado": "2026-09-18T09:30:07.037Z"
+}

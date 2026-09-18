@@ -1,0 +1,210 @@
+{
+  "id": "2026-09-18-0430-luiseskivelgolcher-wired-8c12",
+  "cuenta": "luiseskivelgolcher",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "WIRED",
+    "url": "https://www.wired.com/story/the-eu-wants-to-break-up-kids-and-their-chatbots/",
+    "titulo": "The EU Wants to Break Up Kids and Their Chatbots",
+    "publicado": "2026-09-17T10:06:50.625Z"
+  },
+  "categoria": "POLÍTICA",
+  "titular": "La Unión Europea limita los chatbots para menores",
+  "bajada": "La ley prohíbe que la IA finja emociones o memoria con usuarios menores de edad",
+  "caption": "La Comisión Europea propuso el 17 de septiembre de 2026 la Ley de la Infancia Digital (EU Kids Act), que prohíbe a los chatbots simular emociones o relaciones personales con menores de 18 años, según un borrador revisado por WIRED. Los menores de 13 años no podrán usar chatbots sin supervisión de sus tutores y las plataformas no podrán retener memoria de conversaciones con menores entre sesiones distintas. Quienes incumplan enfrentarán multas de hasta el 6% de su facturación mundial. La medida llega después de que Snapchat fijara su chatbot 'My AI' al inicio de la lista de contactos de menores. Según una encuesta de Ipsos BVA, cerca de la mitad de los jóvenes europeos de 11 a 25 años ha hablado temas íntimos con chatbots. Un estudio de la OCDE en 91 países encontró que los estudiantes que usan IA para tareas escolares obtienen puntajes más bajos. Organizaciones como European Digital Rights piden que la protección se extienda a todos los usuarios, no solo a menores. ¿Debería esa protección aplicar también a los adultos?",
+  "hashtags": [
+    "#InteligenciaArtificial",
+    "#UniónEuropea",
+    "#PrivacidadDigital",
+    "#Menores",
+    "#Chatbots"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-09-18-0430-luiseskivelgolcher-wired-8c12.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-18-0430-luiseskivelgolcher-wired-8c12.jpg",
+    "hash": "356a4563c705bc2d",
+    "version": 11,
+    "estilo": "dc8c8fa3edf501fd",
+    "renderizada": "2026-09-18T09:31:30.195Z"
+  },
+  "ilustracion": {
+    "descripcion": "Ursula von der Leyen habla desde un atril en una sala de prensa de la Comisión Europea en Bruselas, de perfil y a media distancia, con banderas de la UE desenfocadas al fondo; ella queda en el tercio superior derecho y la zona izquierda y central despejadas.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-18-0430-luiseskivelgolcher-wired-8c12.jpg",
+    "hashDescripcion": "9dd89d448842cffa",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-18T09:30:07.037Z",
+    "error": null,
+    "procedencia": "generada"
+  },
+  "formato": "carrusel",
+  "fuentes": [
+    {
+      "rol": "principal",
+      "medio": "WIRED",
+      "autor": "Isabella Ward",
+      "url": "https://www.wired.com/story/the-eu-wants-to-break-up-kids-and-their-chatbots/",
+      "canonica": "https://www.wired.com/story/the-eu-wants-to-break-up-kids-and-their-chatbots/",
+      "idioma": "en",
+      "publicado": "2026-09-17T10:06:50.625Z",
+      "actualizado": "2026-09-17T10:06:50.625Z",
+      "fechaHecho": null,
+      "consultado": "2026-09-18T09:30:07.037Z",
+      "alcance": "completo",
+      "textoRecuperado": {
+        "parrafos": 13,
+        "caracteres": 4281,
+        "enviados": 3958
+      },
+      "fuentesPrimarias": [
+        "https://www.oecd.org/en/publications/2026/09/pisa-2025-results-volume-i_5265bfb1.html",
+        "https://researchonline.lse.ac.uk/id/eprint/137132/",
+        "http://www.aboutads.info"
+      ],
+      "licenciaMedios": null
+    }
+  ],
+  "afirmaciones": [
+    {
+      "texto": "La Comisión Europea propuso el 17 de septiembre de 2026 la Ley de la Infancia Digital, que prohíbe a los chatbots simular emociones o relaciones personales con menores de 18 años.",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/the-eu-wants-to-break-up-kids-and-their-chatbots/",
+      "contrastada": false
+    },
+    {
+      "texto": "Los menores de 13 años no podrán usar chatbots sin supervisión de sus tutores, según el borrador revisado por WIRED.",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/the-eu-wants-to-break-up-kids-and-their-chatbots/",
+      "contrastada": false
+    },
+    {
+      "texto": "Las plataformas que incumplan las nuevas reglas enfrentarán multas de hasta el 6% de su facturación mundial.",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/the-eu-wants-to-break-up-kids-and-their-chatbots/",
+      "contrastada": false
+    },
+    {
+      "texto": "Cerca de la mitad de los europeos de 11 a 25 años ha hablado temas íntimos o personales con chatbots de IA, según una encuesta de Ipsos BVA en Francia, Alemania, Suecia e Irlanda.",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/the-eu-wants-to-break-up-kids-and-their-chatbots/",
+      "contrastada": false
+    },
+    {
+      "texto": "Los estudiantes que usan chatbots de IA para tareas escolares obtienen puntajes más bajos, según una investigación de la OCDE en 91 países.",
+      "tipo": "hecho",
+      "fuente": "https://www.oecd.org/en/publications/2026/09/pisa-2025-results-volume-i_5265bfb1.html",
+      "contrastada": true
+    },
+    {
+      "texto": "La protección contra el diseño adictivo de la IA debería aplicarse a todos los usuarios, no solo a los menores.",
+      "tipo": "opinion",
+      "fuente": "https://www.wired.com/story/the-eu-wants-to-break-up-kids-and-their-chatbots/",
+      "contrastada": false
+    }
+  ],
+  "angulo": "La UE busca frenar el vínculo emocional entre menores y la inteligencia artificial conversacional, con restricciones concretas y sanciones económicas.",
+  "atribucion": "Según WIRED, con base en un borrador de la Ley de la Infancia Digital de la Comisión Europea",
+  "puntuacion": {
+    "total": 83,
+    "componentes": {
+      "afinidad": 27,
+      "interes": 20,
+      "evidencia": 14,
+      "actualidad": 15,
+      "visual": 7
+    }
+  },
+  "alertas": [
+    "fuente-unica"
+  ],
+  "carrusel": {
+    "diapositivas": [
+      {
+        "titulo": "¿Puede una IA fingir cariño para retener a un niño?",
+        "texto": "La Comisión Europea quiere impedir que los chatbots simulen emociones o vínculos afectivos con menores de 18 años."
+      },
+      {
+        "titulo": "Qué propone la Ley de la Infancia Digital",
+        "texto": "El proyecto, presentado el 17 de septiembre de 2026, prohíbe a chatbots como ChatGPT, Character.ai o Snapchat's My AI simular relaciones personales con menores."
+      },
+      {
+        "titulo": "Sin memoria y sin acceso libre para los más chicos",
+        "texto": "Los chatbots no podrán recordar conversaciones pasadas con menores. Los menores de 13 años necesitarán supervisión de un tutor para usarlos."
+      },
+      {
+        "titulo": "Multas de hasta 6% de la facturación mundial",
+        "texto": "Las plataformas que no cumplan enfrentan sanciones económicas fuertes, según el borrador de la ley visto por WIRED."
+      },
+      {
+        "titulo": "La mitad de los jóvenes ya habla temas íntimos con IA",
+        "texto": "Una encuesta de Ipsos BVA halló que cerca de la mitad de los europeos de 11 a 25 años comparte asuntos personales con chatbots."
+      },
+      {
+        "titulo": "¿Protección solo para menores o para todos?",
+        "texto": "European Digital Rights cuestiona por qué la ley no protege también a los adultos de sistemas diseñados para generar dependencia."
+      },
+      {
+        "titulo": "Una pieza de un plan más amplio",
+        "texto": "La UE prepara además una Ley de Equidad Digital contra el diseño adictivo. Fuente: WIRED, con documentos de la Comisión Europea."
+      }
+    ],
+    "imagenes": [
+      {
+        "numero": 1,
+        "ruta": "public/img/2026-09-18-0430-luiseskivelgolcher-wired-8c12-01.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-18-0430-luiseskivelgolcher-wired-8c12-01.jpg",
+        "hash": "ca154b63185d7c19"
+      },
+      {
+        "numero": 2,
+        "ruta": "public/img/2026-09-18-0430-luiseskivelgolcher-wired-8c12-02.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-18-0430-luiseskivelgolcher-wired-8c12-02.jpg",
+        "hash": "966bbea75fa5bb71"
+      },
+      {
+        "numero": 3,
+        "ruta": "public/img/2026-09-18-0430-luiseskivelgolcher-wired-8c12-03.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-18-0430-luiseskivelgolcher-wired-8c12-03.jpg",
+        "hash": "8a8148dc2fffb79e"
+      },
+      {
+        "numero": 4,
+        "ruta": "public/img/2026-09-18-0430-luiseskivelgolcher-wired-8c12-04.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-18-0430-luiseskivelgolcher-wired-8c12-04.jpg",
+        "hash": "d6ca494205e16324"
+      },
+      {
+        "numero": 5,
+        "ruta": "public/img/2026-09-18-0430-luiseskivelgolcher-wired-8c12-05.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-18-0430-luiseskivelgolcher-wired-8c12-05.jpg",
+        "hash": "01e07975cd7fe9cf"
+      },
+      {
+        "numero": 6,
+        "ruta": "public/img/2026-09-18-0430-luiseskivelgolcher-wired-8c12-06.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-18-0430-luiseskivelgolcher-wired-8c12-06.jpg",
+        "hash": "ea200296682e9df0"
+      },
+      {
+        "numero": 7,
+        "ruta": "public/img/2026-09-18-0430-luiseskivelgolcher-wired-8c12-07.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-18-0430-luiseskivelgolcher-wired-8c12-07.jpg",
+        "hash": "bffb3c55cd569a67"
+      }
+    ],
+    "hash": "2e294f1211c8fa80",
+    "version": 2
+  },
+  "reel": null,
+  "revision": {
+    "estado": "pendiente",
+    "notas": []
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-18T09:30:07.037Z",
+  "actualizado": "2026-09-18T09:30:07.037Z"
+}

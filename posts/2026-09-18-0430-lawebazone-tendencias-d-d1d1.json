@@ -1,0 +1,44 @@
+{
+  "id": "2026-09-18-0430-lawebazone-tendencias-d-d1d1",
+  "cuenta": "lawebazone",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Tendencias de Chile",
+    "url": "https://www.meganoticias.cl/nacional/531966-lluvia-la-pampilla-coquimbo-goterones-viento-jaime-leyton-precipitaciones-17-09-2026.html",
+    "titulo": "pampilla de san isidro",
+    "publicado": "2026-09-18T09:10:00.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "La lluvia se metió a las Fiestas Patrias sin invitación",
+  "bajada": "Viento y goterones sorprendieron en La Pampilla justo en pleno festejo dieciochero",
+  "caption": "Uno se prepara todo el año para el asado y las cuecas, y justo el 18 aparece la lluvia como ese pariente que nadie invitó. La Pampilla con viento y goterones mientras todos rezaban por sol.",
+  "hashtags": [
+    "#FiestasPatrias",
+    "#LaPampilla",
+    "#Chile18"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-09-18-0430-lawebazone-tendencias-d-d1d1.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-18-0430-lawebazone-tendencias-d-d1d1.jpg",
+    "hash": "52db2b68804a79ea",
+    "version": 11,
+    "estilo": "9fd322fb9927e571",
+    "renderizada": "2026-09-18T09:31:54.087Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fonda al aire libre con banderines chilenos y toldos, cielo gris con gotas de lluvia cayendo; en el tercio superior derecho un paraguas abierto junto a globos, zona izquierda y central despejada.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-18T09:30:07.037Z",
+  "actualizado": "2026-09-18T09:30:07.037Z"
+}
