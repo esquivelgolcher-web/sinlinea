@@ -1,7 +1,7 @@
 {
   "id": "2026-09-15-0138-lawebazone-tendencias-d-291a",
   "cuenta": "lawebazone",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "Tendencias de México",
     "url": "https://es-us.finanzas.yahoo.com/noticias/disparado-precio-d%C3%B3lar-peso-mexicano-140510325.html",
@@ -37,9 +37,26 @@
     "generada": null,
     "error": null
   },
-  "programado": null,
+  "programado": "2026-09-18T11:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-15T06:38:19.561Z",
-  "actualizado": "2026-09-15T06:38:19.561Z"
+  "actualizado": "2026-09-18T08:35:38.336Z",
+  "destinos": {
+    "instagram": {
+      "texto": "Otra vez el dólar jugando a las escondidas con nuestro sueldo. Uno hace planes en pesos y la economía te cambia las reglas a media semana. Ya hasta la calculadora del cel tiene atajo directo al tipo de cambio.\n\nFuente: Tendencias de México\n\n#Dólar #PesoMexicano #EconomíaDelMexicano #Quincena",
+      "aprobado": {
+        "fecha": "2026-09-18T08:35:38.336Z",
+        "hashPieza": "caa2ba4822e84f8a",
+        "imagenHash": "5648aa08396aeba2",
+        "imagenSha": "3f02bb47ab625534c8f79e7609ab1eca3a966af0"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
