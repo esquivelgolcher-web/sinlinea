@@ -1,7 +1,7 @@
 {
   "id": "2026-09-18-0235-leopopexiv-vatican-news-353a",
   "cuenta": "leopopexiv",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/church/news/2026-09/uruguay-bishops-ad-limina-visit-rome-pope-leo-xiv.html",
@@ -38,9 +38,26 @@
     "generada": "2026-09-18T06:35:28.122Z",
     "error": null
   },
-  "programado": null,
+  "programado": "2026-09-18T09:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-18T06:35:28.122Z",
-  "actualizado": "2026-09-18T06:35:28.122Z"
+  "actualizado": "2026-09-18T08:33:34.776Z",
+  "destinos": {
+    "instagram": {
+      "texto": "Uruguay's Catholic bishops traveled to Rome for their ad limina visit, sharing hopes for the Church's mission in a secularized society ahead of Pope Leo XIV's Apostolic Journey to Uruguay, scheduled for November 6-8. Source: Vatican News, Sept 17, 2026.\n\nFuente: Vatican News\n\n#PopeLeoXIV #Uruguay #Vatican #CatholicChurch #PapalVisit",
+      "aprobado": {
+        "fecha": "2026-09-18T08:33:34.776Z",
+        "hashPieza": "e30280530b2cfa99",
+        "imagenHash": "2e255c8d5b7685db",
+        "imagenSha": "ea1d98a6183dd74a69e5c31203a643500fa83c8f"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
