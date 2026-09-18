@@ -1,0 +1,121 @@
+{
+  "id": "2026-09-18-0734-luiseskivelgolcher-occrp-1b25",
+  "cuenta": "luiseskivelgolcher",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "OCCRP",
+    "url": "https://www.occrp.org/en/news/uk-freezes-72-million-london-townhouse-in-connection-to-sanctioned-prince-group-associate",
+    "titulo": "UK Freezes $72-Million London Townhouse in Connection to Sanctioned Prince Group Associate",
+    "publicado": "2026-09-17T09:51:00.000Z"
+  },
+  "categoria": "INVESTIGACIÓN",
+  "titular": "Reino Unido congela mansión de lujo por nexo con red de fraude",
+  "bajada": "La casa en Londres está ligada a un sancionado por el Prince Group, acusado de estafas cibernéticas",
+  "caption": "Autoridades británicas congelaron una casa de 53 millones de libras (unos 72 millones de dólares) en el barrio londinense de Belgravia, según documentos revisados por OCCRP. La propiedad está a nombre de Zhao Chen, ciudadana chipriota nacida en China, casada con Wu An Ming, uno de los alias de Hu Xiaowei, sancionado por Reino Unido y Estados Unidos por su presunta relación con el Prince Group. Washington acusa a ese conglomerado camboyano de operar centros donde trabajadores retenidos contra su voluntad eran forzados a cometer fraudes cibernéticos a escala industrial. El Prince Group niega cualquier actividad ilegal y llama las acusaciones \"infundadas\". Zhao Chen no ha sido sancionada. Ni ella ni Hu Xiaowei respondieron a OCCRP. La medida se da en el marco de una estrategia británica anunciada en junio para congelar bienes vinculados a fraude y cibercrimen. ¿Debería exigirse más transparencia en la compra de propiedades de lujo con fondos de origen incierto?",
+  "hashtags": [
+    "#Fraude",
+    "#Camboya",
+    "#OCCRP",
+    "#Ciberseguridad",
+    "#Investigación"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-09-18-0734-luiseskivelgolcher-occrp-1b25.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-18-0734-luiseskivelgolcher-occrp-1b25.jpg",
+    "hash": "e70d346a99a689b0",
+    "version": 11,
+    "estilo": "dc8c8fa3edf501fd",
+    "renderizada": "2026-09-18T12:35:29.640Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada de una mansión de estilo georgiano en un vecindario exclusivo de Londres, con una verja de hierro forjado. La casa queda en el tercio superior derecho; la izquierda y el centro despejados.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-18-0734-luiseskivelgolcher-occrp-1b25.jpg",
+    "hashDescripcion": "8286a4c5508853d3",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-18T12:34:56.202Z",
+    "error": null,
+    "procedencia": "generada"
+  },
+  "formato": "post",
+  "fuentes": [
+    {
+      "rol": "principal",
+      "medio": "OCCRP",
+      "autor": null,
+      "url": "https://www.occrp.org/en/news/uk-freezes-72-million-london-townhouse-in-connection-to-sanctioned-prince-group-associate",
+      "canonica": "https://www.occrp.org/en/news/uk-freezes-72-million-london-townhouse-in-connection-to-sanctioned-prince-group-associate",
+      "idioma": "en",
+      "publicado": "2026-09-17T09:51:00.000Z",
+      "actualizado": null,
+      "fechaHecho": "2026-08-01",
+      "consultado": "2026-09-18T12:34:56.202Z",
+      "alcance": "completo",
+      "textoRecuperado": {
+        "parrafos": 25,
+        "caracteres": 4425,
+        "enviados": 3897
+      },
+      "fuentesPrimarias": [
+        "https://www.police.gov.sg/media-hub/news/2026/06/20260623_police_investigating_two_foreign_nationals_in_money_laundering_investigation"
+      ],
+      "licenciaMedios": null
+    }
+  ],
+  "afirmaciones": [
+    {
+      "texto": "El Reino Unido congeló una propiedad de 53 millones de libras (72 millones de dólares) en Londres a nombre de Zhao Chen",
+      "tipo": "hecho",
+      "fuente": "https://www.occrp.org/en/news/uk-freezes-72-million-london-townhouse-in-connection-to-sanctioned-prince-group-associate",
+      "contrastada": true
+    },
+    {
+      "texto": "La orden de congelamiento cita la asociación de Zhao Chen con Wu An Ming, designado objetivo de congelamiento de activos por el Reino Unido",
+      "tipo": "hecho",
+      "fuente": "https://www.occrp.org/en/news/uk-freezes-72-million-london-townhouse-in-connection-to-sanctioned-prince-group-associate",
+      "contrastada": true
+    },
+    {
+      "texto": "Wu An Ming es uno de los alias de Hu Xiaowei, sancionado por su presunta relación con el Prince Group, conglomerado que EE.UU. acusa de operar centros de fraude cibernético con trabajadores retenidos contra su voluntad",
+      "tipo": "denuncia",
+      "fuente": "https://www.occrp.org/en/news/uk-freezes-72-million-london-townhouse-in-connection-to-sanctioned-prince-group-associate",
+      "contrastada": true
+    },
+    {
+      "texto": "El Prince Group niega cualquier actividad ilegal y califica las acusaciones de \"infundadas\"",
+      "tipo": "opinion",
+      "fuente": "https://www.occrp.org/en/news/uk-freezes-72-million-london-townhouse-in-connection-to-sanctioned-prince-group-associate",
+      "contrastada": false
+    }
+  ],
+  "angulo": "Investigación periodística sobre activos vinculados a una red de fraude cibernético sancionada, atribuida a OCCRP.",
+  "atribucion": "OCCRP",
+  "puntuacion": {
+    "total": 70,
+    "componentes": {
+      "afinidad": 21,
+      "interes": 15,
+      "evidencia": 16,
+      "actualidad": 12,
+      "visual": 6
+    }
+  },
+  "alertas": [
+    "acusacion-sin-fuente",
+    "fuente-unica",
+    "hecho-antiguo"
+  ],
+  "carrusel": null,
+  "reel": null,
+  "revision": {
+    "estado": "pendiente",
+    "notas": []
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-18T12:34:56.202Z",
+  "actualizado": "2026-09-18T12:34:56.202Z"
+}
