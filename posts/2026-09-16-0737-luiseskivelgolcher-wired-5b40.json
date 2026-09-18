@@ -208,7 +208,11 @@
     "notas": []
   },
   "programado": "2026-09-18T11:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "18159745894497111",
+    "permalink": "https://www.instagram.com/p/Ddb_ZJglFWB/",
+    "fecha": "2026-09-18T17:38:05.135Z"
+  },
   "error": null,
   "creado": "2026-09-16T12:37:11.125Z",
   "actualizado": "2026-09-18T17:38:05.135Z",
@@ -230,25 +234,15 @@
           "d94796e22fa60a926750bbe55f80374c44696a22"
         ]
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-09-18T17:38:05.135Z",
-        "actualizado": "2026-09-18T17:38:05.135Z",
-        "contenedorId": "18593183143064913",
-        "hijos": [
-          "18593183002064913",
-          "18593183023064913",
-          "18593183041064913",
-          "18593183062064913",
-          "18593183083064913",
-          "18593183104064913",
-          "18593183122064913"
-        ]
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18159745894497111",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/Ddb_ZJglFWB/",
+        "fecha": "2026-09-18T17:38:05.135Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     },
