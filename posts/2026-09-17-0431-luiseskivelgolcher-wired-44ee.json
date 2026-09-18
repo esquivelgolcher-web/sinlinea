@@ -1,7 +1,7 @@
 {
   "id": "2026-09-17-0431-luiseskivelgolcher-wired-44ee",
   "cuenta": "luiseskivelgolcher",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "WIRED",
     "url": "https://www.wired.com/story/flock-once-touted-its-cameras-as-made-in-the-usa-now-its-not-so-clear/",
@@ -171,16 +171,15 @@
         "imagenHash": "32ece3fed0297edc",
         "imagenSha": "9615cfa3b447a0b10f841376a95d364e8bdd0675"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-09-18T13:16:58.261Z",
-        "actualizado": "2026-09-18T13:16:58.261Z",
-        "contenedorId": "17989613466100604"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18113331965029004",
+        "idPublicacion": null,
+        "permalink": "https://www.threads.com/@luisegolcher/post/Ddbhhugln-d",
+        "fecha": "2026-09-18T13:16:58.261Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
