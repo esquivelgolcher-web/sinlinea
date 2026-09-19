@@ -1,0 +1,46 @@
+{
+  "id": "2026-09-19-0043-leopopexiv-vatican-news-8698",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-09/france-pope-leo-xiv-brief-matteo-bruni-holy-see-press-office.html",
+    "titulo": "Pope Leo's visit to France to focus on faith, culture, Europe",
+    "publicado": "2026-09-18T13:58:00.000Z"
+  },
+  "categoria": "INTERNACIONAL",
+  "titular": "Pope Leo XIV to visit France Sept 25-28",
+  "bajada": "Trip includes UNESCO visit and Metz meeting on Europe and peace",
+  "caption": "Pope Leo XIV will travel to France from September 25 to 28 for an Apostolic Journey focused on faith, culture and Europe. The itinerary includes meetings with civil authorities, young people and the Church, a visit to UNESCO headquarters in Paris, and an encounter in Metz centered on European unity and peace. Source: Vatican News, September 18, 2026.",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Vatican",
+    "#France",
+    "#UNESCO",
+    "#Metz"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-09-19-0043-leopopexiv-vatican-news-8698.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-19-0043-leopopexiv-vatican-news-8698.jpg",
+    "hash": "274172d326ea6255",
+    "version": 11,
+    "estilo": "32cba508d6c2290e",
+    "renderizada": "2026-09-19T04:43:34.893Z"
+  },
+  "ilustracion": {
+    "descripcion": "Exterior of the UNESCO headquarters building in Paris under a clear sky, with a small papal figure in white cassock walking toward the entrance, placed in the upper right third, left and center open.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-19-0043-leopopexiv-vatican-news-8698.jpg",
+    "hashDescripcion": "e91185c3e58c5021",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-19T04:43:18.645Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-19T04:43:18.645Z",
+  "actualizado": "2026-09-19T04:43:18.645Z"
+}

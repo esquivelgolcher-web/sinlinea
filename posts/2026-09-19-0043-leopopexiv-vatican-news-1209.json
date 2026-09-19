@@ -1,0 +1,44 @@
+{
+  "id": "2026-09-19-0043-leopopexiv-vatican-news-1209",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "formato": "frase",
+  "frase": {
+    "texto": "The Church does not exist for herself, but to lead every person to an encounter with the Lord.",
+    "autor": "Pope Leo XIV",
+    "fuente": "Address to the Diocesan Assembly of Rome at the Basilica of St John Lateran",
+    "anio": 2026,
+    "url": "https://www.vaticannews.va/en/pope/news/2026-09/pope-leo-diocese-rome-pastoral-evaluation-luigi-di-liegro.html",
+    "origen": "texto"
+  },
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-09/pope-leo-diocese-rome-pastoral-evaluation-luigi-di-liegro.html",
+    "titulo": "Pope calls Diocese of Rome to pastoral evaluation: ‘Do less and do it better' - Vatican News",
+    "publicado": "2026-09-18T18:26:31.910+02:00"
+  },
+  "categoria": "CULTURA",
+  "titular": "Pope Leo XIV",
+  "bajada": "Address to the Diocesan Assembly of Rome at the Basilica of St John Lateran · 2026",
+  "caption": "“The Church does not exist for herself, but to lead every person to an encounter with the Lord.”\n\n— Pope Leo XIV, Address to the Diocesan Assembly of Rome at the Basilica of St John Lateran (2026)\n\nVia Vatican News, 18 September 2026\n\n#PopeLeoXIV #Vatican #CatholicChurch",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Vatican",
+    "#CatholicChurch"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-09-19-0043-leopopexiv-vatican-news-1209.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-19-0043-leopopexiv-vatican-news-1209.jpg",
+    "hash": "cb539bbfdfdf7045",
+    "version": 1,
+    "estilo": "28c21995920a45b7",
+    "renderizada": "2026-09-19T04:43:38.404Z"
+  },
+  "ilustracion": null,
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-19T04:43:18.645Z",
+  "actualizado": "2026-09-19T04:43:18.645Z"
+}
