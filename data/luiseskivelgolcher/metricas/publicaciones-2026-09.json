@@ -164,9 +164,26 @@
             "follows": 1
           },
           "faltantes": {}
+        },
+        "2026-09-19T05:39:34.997Z": {
+          "acumulados": {
+            "meGusta": 8,
+            "comentarios": 0,
+            "reach": 2022,
+            "views": 3082,
+            "likes": 8,
+            "comments": 0,
+            "saved": 16,
+            "shares": 1,
+            "total_interactions": 26,
+            "profile_visits": 8,
+            "profile_activity": 0,
+            "follows": 1
+          },
+          "faltantes": {}
         }
       },
-      "ultimaConsulta": "2026-09-18T05:40:45.064Z"
+      "ultimaConsulta": "2026-09-19T05:39:34.997Z"
     },
     "18148295752532111": {
       "fecha": "2026-09-09T19:15:35.000Z",
@@ -330,15 +347,32 @@
             "follows": 0
           },
           "faltantes": {}
+        },
+        "2026-09-19T05:39:34.997Z": {
+          "acumulados": {
+            "meGusta": 36,
+            "comentarios": 0,
+            "reach": 1969,
+            "views": 3080,
+            "likes": 36,
+            "comments": 0,
+            "saved": 3,
+            "shares": 9,
+            "total_interactions": 53,
+            "profile_visits": 4,
+            "profile_activity": 0,
+            "follows": 0
+          },
+          "faltantes": {}
         }
       },
-      "ultimaConsulta": "2026-09-18T05:40:45.064Z"
+      "ultimaConsulta": "2026-09-19T05:39:34.997Z"
     },
     "18230106619323295": {
       "fecha": "2026-09-10T19:14:20.000Z",
       "permalink": "https://www.instagram.com/p/DdHj--PlM7E/",
       "tipo": "IMAGE",
-      "origen": "sistema",
+      "origen": "instagram",
       "post": "2026-09-09-1111-luiseskivelgolcher-occrp-c751",
       "categoria": "SEGURIDAD",
       "franja": "14:00",
@@ -479,15 +513,32 @@
             "follows": 0
           },
           "faltantes": {}
+        },
+        "2026-09-19T05:39:34.997Z": {
+          "acumulados": {
+            "meGusta": 14,
+            "comentarios": 0,
+            "reach": 2573,
+            "views": 3995,
+            "likes": 14,
+            "comments": 0,
+            "saved": 2,
+            "shares": 0,
+            "total_interactions": 16,
+            "profile_visits": 3,
+            "profile_activity": 0,
+            "follows": 0
+          },
+          "faltantes": {}
         }
       },
-      "ultimaConsulta": "2026-09-18T05:40:45.064Z"
+      "ultimaConsulta": "2026-09-19T05:39:34.997Z"
     },
     "18215615350355192": {
       "fecha": "2026-09-10T18:08:53.000Z",
       "permalink": "https://www.instagram.com/p/DdHcfgLIFzl/",
       "tipo": "CAROUSEL_ALBUM",
-      "origen": "sistema",
+      "origen": "instagram",
       "post": "2026-09-10-0959-luiseskivelgolcher-wired-3cbb",
       "categoria": "SEGURIDAD",
       "franja": "13:30",
@@ -628,15 +679,32 @@
             "follows": 0
           },
           "faltantes": {}
+        },
+        "2026-09-19T05:39:34.997Z": {
+          "acumulados": {
+            "meGusta": 8,
+            "comentarios": 0,
+            "reach": 814,
+            "views": 1514,
+            "likes": 8,
+            "comments": 0,
+            "saved": 0,
+            "shares": 1,
+            "total_interactions": 10,
+            "profile_visits": 0,
+            "profile_activity": 0,
+            "follows": 0
+          },
+          "faltantes": {}
         }
       },
-      "ultimaConsulta": "2026-09-18T05:40:45.064Z"
+      "ultimaConsulta": "2026-09-19T05:39:34.997Z"
     },
     "18108884542885260": {
       "fecha": "2026-09-11T23:15:31.000Z",
       "permalink": "https://www.instagram.com/p/DdKkYNcEl9n/",
       "tipo": "CAROUSEL_ALBUM",
-      "origen": "sistema",
+      "origen": "instagram",
       "post": "2026-09-11-1627-luiseskivelgolcher-wired-7a21",
       "categoria": "INVESTIGACIÓN",
       "franja": "18:00",
@@ -760,15 +828,32 @@
             "follows": 0
           },
           "faltantes": {}
+        },
+        "2026-09-19T05:39:34.997Z": {
+          "acumulados": {
+            "meGusta": 6,
+            "comentarios": 0,
+            "reach": 1090,
+            "views": 2255,
+            "likes": 6,
+            "comments": 0,
+            "saved": 2,
+            "shares": 4,
+            "total_interactions": 13,
+            "profile_visits": 8,
+            "profile_activity": 0,
+            "follows": 0
+          },
+          "faltantes": {}
         }
       },
-      "ultimaConsulta": "2026-09-18T05:40:45.064Z"
+      "ultimaConsulta": "2026-09-19T05:39:34.997Z"
     },
     "17940300240358337": {
       "fecha": "2026-09-11T10:44:41.000Z",
       "permalink": "https://www.instagram.com/p/DdJOc4NG2kI/",
       "tipo": "IMAGE",
-      "origen": "sistema",
+      "origen": "instagram",
       "post": "2026-09-11-0419-luiseskivelgolcher-wired-9c14",
       "categoria": "SEGURIDAD",
       "franja": "05:30",
@@ -892,9 +977,26 @@
             "follows": 0
           },
           "faltantes": {}
+        },
+        "2026-09-19T05:39:34.997Z": {
+          "acumulados": {
+            "meGusta": 5,
+            "comentarios": 0,
+            "reach": 2172,
+            "views": 3206,
+            "likes": 5,
+            "comments": 0,
+            "saved": 0,
+            "shares": 0,
+            "total_interactions": 5,
+            "profile_visits": 1,
+            "profile_activity": 0,
+            "follows": 0
+          },
+          "faltantes": {}
         }
       },
-      "ultimaConsulta": "2026-09-18T05:40:45.064Z"
+      "ultimaConsulta": "2026-09-19T05:39:34.997Z"
     },
     "18100476017016917": {
       "fecha": "2026-09-12T23:15:35.000Z",
@@ -1007,9 +1109,26 @@
             "follows": 0
           },
           "faltantes": {}
+        },
+        "2026-09-19T05:39:34.997Z": {
+          "acumulados": {
+            "meGusta": 4,
+            "comentarios": 0,
+            "reach": 664,
+            "views": 1140,
+            "likes": 4,
+            "comments": 0,
+            "saved": 1,
+            "shares": 1,
+            "total_interactions": 6,
+            "profile_visits": 1,
+            "profile_activity": 0,
+            "follows": 0
+          },
+          "faltantes": {}
         }
       },
-      "ultimaConsulta": "2026-09-18T05:40:45.064Z"
+      "ultimaConsulta": "2026-09-19T05:39:34.997Z"
     },
     "17951694492036952": {
       "fecha": "2026-09-14T14:20:14.000Z",
@@ -1088,9 +1207,26 @@
             "follows": 0
           },
           "faltantes": {}
+        },
+        "2026-09-19T05:39:34.997Z": {
+          "acumulados": {
+            "meGusta": 10,
+            "comentarios": 0,
+            "reach": 1221,
+            "views": 2540,
+            "likes": 10,
+            "comments": 0,
+            "saved": 0,
+            "shares": 1,
+            "total_interactions": 11,
+            "profile_visits": 10,
+            "profile_activity": 0,
+            "follows": 0
+          },
+          "faltantes": {}
         }
       },
-      "ultimaConsulta": "2026-09-18T05:40:45.064Z"
+      "ultimaConsulta": "2026-09-19T05:39:34.997Z"
     },
     "17919973050429146": {
       "fecha": "2026-09-15T12:22:13.000Z",
@@ -1152,9 +1288,26 @@
             "follows": 0
           },
           "faltantes": {}
+        },
+        "2026-09-19T05:39:34.997Z": {
+          "acumulados": {
+            "meGusta": 10,
+            "comentarios": 0,
+            "reach": 1021,
+            "views": 1590,
+            "likes": 10,
+            "comments": 0,
+            "saved": 1,
+            "shares": 2,
+            "total_interactions": 14,
+            "profile_visits": 2,
+            "profile_activity": 0,
+            "follows": 0
+          },
+          "faltantes": {}
         }
       },
-      "ultimaConsulta": "2026-09-18T05:40:45.064Z"
+      "ultimaConsulta": "2026-09-19T05:39:34.997Z"
     },
     "18112862216105496": {
       "fecha": "2026-09-16T17:15:21.000Z",
@@ -1199,9 +1352,26 @@
             "follows": 0
           },
           "faltantes": {}
+        },
+        "2026-09-19T05:39:34.997Z": {
+          "acumulados": {
+            "meGusta": 11,
+            "comentarios": 0,
+            "reach": 2187,
+            "views": 3462,
+            "likes": 11,
+            "comments": 0,
+            "saved": 0,
+            "shares": 0,
+            "total_interactions": 11,
+            "profile_visits": 7,
+            "profile_activity": 0,
+            "follows": 0
+          },
+          "faltantes": {}
         }
       },
-      "ultimaConsulta": "2026-09-18T05:40:45.064Z"
+      "ultimaConsulta": "2026-09-19T05:39:34.997Z"
     },
     "17923758951422545": {
       "fecha": "2026-09-16T15:17:21.000Z",
@@ -1246,9 +1416,26 @@
             "follows": 0
           },
           "faltantes": {}
+        },
+        "2026-09-19T05:39:34.997Z": {
+          "acumulados": {
+            "meGusta": 9,
+            "comentarios": 0,
+            "reach": 887,
+            "views": 1406,
+            "likes": 9,
+            "comments": 0,
+            "saved": 0,
+            "shares": 0,
+            "total_interactions": 9,
+            "profile_visits": 1,
+            "profile_activity": 0,
+            "follows": 0
+          },
+          "faltantes": {}
         }
       },
-      "ultimaConsulta": "2026-09-18T05:40:45.064Z"
+      "ultimaConsulta": "2026-09-19T05:39:34.997Z"
     },
     "17922858972423990": {
       "fecha": "2026-09-16T13:19:58.000Z",
@@ -1293,9 +1480,26 @@
             "follows": 0
           },
           "faltantes": {}
+        },
+        "2026-09-19T05:39:34.997Z": {
+          "acumulados": {
+            "meGusta": 1,
+            "comentarios": 0,
+            "reach": 488,
+            "views": 709,
+            "likes": 1,
+            "comments": 0,
+            "saved": 0,
+            "shares": 0,
+            "total_interactions": 1,
+            "profile_visits": 0,
+            "profile_activity": 0,
+            "follows": 0
+          },
+          "faltantes": {}
         }
       },
-      "ultimaConsulta": "2026-09-18T05:40:45.064Z"
+      "ultimaConsulta": "2026-09-19T05:39:34.997Z"
     },
     "18565856392074649": {
       "fecha": "2026-09-16T06:40:03.000Z",
@@ -1354,9 +1558,123 @@
             "profile_activity": "metrica-no-soportada",
             "follows": "metrica-no-soportada"
           }
+        },
+        "2026-09-19T05:39:34.997Z": {
+          "acumulados": {
+            "meGusta": 84,
+            "comentarios": 3,
+            "reach": 3560,
+            "views": 4323,
+            "likes": 84,
+            "comments": 3,
+            "saved": 8,
+            "shares": 1,
+            "total_interactions": 106,
+            "ig_reels_avg_watch_time": 22158,
+            "ig_reels_video_view_total_time": 79417218,
+            "reels_skip_rate": 41.5,
+            "profile_visits": null,
+            "profile_activity": null,
+            "follows": null
+          },
+          "faltantes": {
+            "profile_visits": "metrica-no-soportada",
+            "profile_activity": "metrica-no-soportada",
+            "follows": "metrica-no-soportada"
+          }
         }
       },
-      "ultimaConsulta": "2026-09-18T05:40:45.064Z"
+      "ultimaConsulta": "2026-09-19T05:39:34.997Z"
+    },
+    "18105272384207080": {
+      "fecha": "2026-09-18T17:39:26.000Z",
+      "permalink": "https://www.instagram.com/p/Ddb_eykFMY3/",
+      "tipo": "IMAGE",
+      "origen": "sistema",
+      "post": "2026-09-17-0137-luiseskivelgolcher-wired-ab80",
+      "categoria": "INTERNACIONAL",
+      "franja": "12:00",
+      "titulo": "La Casa Blanca pausó el plan para crear un organismo que supervisara a las empresas de int",
+      "consultas": {
+        "2026-09-19T05:39:34.997Z": {
+          "acumulados": {
+            "meGusta": 4,
+            "comentarios": 0,
+            "reach": 778,
+            "views": 1149,
+            "likes": 4,
+            "comments": 0,
+            "saved": 0,
+            "shares": 1,
+            "total_interactions": 5,
+            "profile_visits": 0,
+            "profile_activity": 0,
+            "follows": 0
+          },
+          "faltantes": {}
+        }
+      },
+      "ultimaConsulta": "2026-09-19T05:39:34.997Z"
+    },
+    "18159745894497111": {
+      "fecha": "2026-09-18T17:38:39.000Z",
+      "permalink": "https://www.instagram.com/p/Ddb_ZJglFWB/",
+      "tipo": "CAROUSEL_ALBUM",
+      "origen": "sistema",
+      "post": "2026-09-16-0737-luiseskivelgolcher-wired-5b40",
+      "categoria": "SEGURIDAD",
+      "franja": "11:00",
+      "titulo": "Un colectivo de hackers desmontó una cámara de vigilancia de Flock Safety instalada sobre ",
+      "consultas": {
+        "2026-09-19T05:39:34.997Z": {
+          "acumulados": {
+            "meGusta": 13,
+            "comentarios": 0,
+            "reach": 2674,
+            "views": 5328,
+            "likes": 13,
+            "comments": 0,
+            "saved": 5,
+            "shares": 1,
+            "total_interactions": 19,
+            "profile_visits": 15,
+            "profile_activity": 0,
+            "follows": 1
+          },
+          "faltantes": {}
+        }
+      },
+      "ultimaConsulta": "2026-09-19T05:39:34.997Z"
+    },
+    "18124664155889522": {
+      "fecha": "2026-09-18T13:17:11.000Z",
+      "permalink": "https://www.instagram.com/p/DdbheCfFh_4/",
+      "tipo": "IMAGE",
+      "origen": "sistema",
+      "post": "2026-09-17-0431-luiseskivelgolcher-wired-44ee",
+      "categoria": "INVESTIGACIÓN",
+      "franja": "08:05",
+      "titulo": "Flock, la empresa detrás de miles de cámaras lectoras de placas en Estados Unidos, dejó de",
+      "consultas": {
+        "2026-09-19T05:39:34.997Z": {
+          "acumulados": {
+            "meGusta": 6,
+            "comentarios": 0,
+            "reach": 474,
+            "views": 731,
+            "likes": 6,
+            "comments": 0,
+            "saved": 0,
+            "shares": 1,
+            "total_interactions": 7,
+            "profile_visits": 1,
+            "profile_activity": 0,
+            "follows": 0
+          },
+          "faltantes": {}
+        }
+      },
+      "ultimaConsulta": "2026-09-19T05:39:34.997Z"
     }
   }
 }
