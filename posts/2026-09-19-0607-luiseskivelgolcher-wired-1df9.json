@@ -1,0 +1,116 @@
+{
+  "id": "2026-09-19-0607-luiseskivelgolcher-wired-1df9",
+  "cuenta": "luiseskivelgolcher",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "WIRED",
+    "url": "https://www.wired.com/story/an-undercover-google-analyst-infiltrated-a-notorious-supply-chain-hacking-gang/",
+    "titulo": "An Undercover Google Analyst Infiltrated a Notorious Supply-Chain Hacking Gang",
+    "publicado": "2026-09-18T16:00:00.000Z"
+  },
+  "categoria": "SEGURIDAD",
+  "titular": "Un topo de Google se infiltró en la banda hacker TeamPCP",
+  "bajada": "Mandiant vigiló desde dentro la mayor ola de ataques a cadenas de suministro de software",
+  "caption": "Google reveló que su unidad de inteligencia de amenazas, Mandiant, tuvo un analista encubierto dentro del grupo hacker TeamPCP, responsable de la mayor ola de ataques a cadenas de suministro de software registrada hasta ahora, según contó el investigador Austin Larsen a WIRED (Andy Greenberg, 18 de septiembre de 2026). Un ataque a la cadena de suministro ocurre cuando los delincuentes contaminan programas de código abierto para que, al usarlos, otras empresas queden infectadas sin saberlo. TeamPCP comprometió herramientas como Trivy, LiteLLM y Mistral AI, y llegó a usar un gusano automatizado para propagarse, afectando a más de mil empresas, entre ellas GitHub y OpenAI. Según Google, el espía interno ayudó a advertir a víctimas y a identificar a los responsables, dos jóvenes australianos arrestados en agosto. La empresa también dice haber recibido datos del grupo ShinyHunters, antiguo aliado de TeamPCP. Este relato proviene de una sola fuente, la propia Google, y no ha sido confirmado de forma independiente por otras compañías afectadas.",
+  "hashtags": [
+    "#Ciberseguridad",
+    "#Hackeo",
+    "#Google",
+    "#SupplyChain"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-09-19-0607-luiseskivelgolcher-wired-1df9.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-19-0607-luiseskivelgolcher-wired-1df9.jpg",
+    "hash": "983039cc60c040ca",
+    "version": 11,
+    "estilo": "dc8c8fa3edf501fd",
+    "renderizada": "2026-09-19T11:08:15.394Z"
+  },
+  "ilustracion": {
+    "descripcion": "Interior de un centro de datos en penumbra con hileras de servidores iluminados en azul, sin personas visibles; el elemento principal queda en el tercio superior derecho y el centro e izquierda despejados",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-19-0607-luiseskivelgolcher-wired-1df9.jpg",
+    "hashDescripcion": "151eb2ac99764b72",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-19T11:07:29.644Z",
+    "error": null,
+    "procedencia": "generada"
+  },
+  "formato": "post",
+  "fuentes": [
+    {
+      "rol": "principal",
+      "medio": "WIRED",
+      "autor": "Andy Greenberg",
+      "url": "https://www.wired.com/story/an-undercover-google-analyst-infiltrated-a-notorious-supply-chain-hacking-gang/",
+      "canonica": "https://www.wired.com/story/an-undercover-google-analyst-infiltrated-a-notorious-supply-chain-hacking-gang/",
+      "idioma": "en",
+      "publicado": "2026-09-18T16:00:00.000Z",
+      "actualizado": "2026-09-18T16:00:00.000Z",
+      "fechaHecho": null,
+      "consultado": "2026-09-19T11:07:29.644Z",
+      "alcance": "completo",
+      "textoRecuperado": {
+        "parrafos": 31,
+        "caracteres": 12388,
+        "enviados": 3789
+      },
+      "fuentesPrimarias": [
+        "https://cloud.google.com/blog/topics/threat-intelligence/ai-vulnerability-exploitation-initial-access",
+        "https://krebsonsecurity.com/2026/08/two-alleged-teampcp-hackers-arrested-in-australia/",
+        "https://www.fbi.gov/investigate/cyber/cyber-strategy",
+        "https://spaces.hightail.com/space/atMBRK4snj/files/fi-3c490cfc-3693-4381-b029-8cda405bf8a3/fv-198e3b71-8a34-4330-8ec8-145931d9ecc8/Arrest%20of%2021yo%20in%20dark%20clothing%20in%20Hamilton%20Hill%20and%20Cott%20warrant.mp4",
+        "http://www.aboutads.info"
+      ],
+      "licenciaMedios": null
+    }
+  ],
+  "afirmaciones": [
+    {
+      "texto": "TeamPCP comprometió herramientas de código abierto como Trivy, LiteLLM y Mistral AI para propagar malware",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/an-undercover-google-analyst-infiltrated-a-notorious-supply-chain-hacking-gang/",
+      "contrastada": false
+    },
+    {
+      "texto": "Un analista encubierto de Mandiant se infiltró en el círculo interno de TeamPCP casi desde el inicio de sus ataques",
+      "tipo": "denuncia",
+      "fuente": "https://www.wired.com/story/an-undercover-google-analyst-infiltrated-a-notorious-supply-chain-hacking-gang/",
+      "contrastada": false
+    },
+    {
+      "texto": "Dos ciudadanos australianos fueron arrestados en agosto de 2026 acusados de ser miembros principales de TeamPCP",
+      "tipo": "hecho",
+      "fuente": "https://krebsonsecurity.com/2026/08/two-alleged-teampcp-hackers-arrested-in-australia/",
+      "contrastada": true
+    }
+  ],
+  "angulo": "Cómo una empresa de ciberseguridad se infiltró dentro de un grupo hacker para frenarlo desde adentro, según el relato de la propia compañía",
+  "atribucion": "WIRED (Andy Greenberg), 18 de septiembre de 2026, con declaraciones de Austin Larsen (Google Threat Intelligence Group)",
+  "puntuacion": {
+    "total": 78,
+    "componentes": {
+      "afinidad": 27,
+      "interes": 18,
+      "evidencia": 12,
+      "actualidad": 15,
+      "visual": 6
+    }
+  },
+  "alertas": [
+    "fuente-unica"
+  ],
+  "carrusel": null,
+  "reel": null,
+  "revision": {
+    "estado": "pendiente",
+    "notas": []
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-19T11:07:29.644Z",
+  "actualizado": "2026-09-19T11:07:29.644Z"
+}
