@@ -1,7 +1,7 @@
 {
   "id": "2026-09-20-0059-leopopexiv-vatican-news-dfc2",
   "cuenta": "leopopexiv",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/pope/news/2026-09/pope-leo-xiv-special-olympics-delegation.html",
@@ -38,9 +38,26 @@
     "generada": "2026-09-20T04:59:05.326Z",
     "error": null
   },
-  "programado": null,
+  "programado": "2026-09-20T09:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-20T04:59:05.326Z",
-  "actualizado": "2026-09-20T04:59:05.326Z"
+  "actualizado": "2026-09-20T09:55:20.102Z",
+  "destinos": {
+    "instagram": {
+      "texto": "Pope Leo XIV received a delegation from the Special Olympics at the Vatican, telling them, 'As you know, I too am very fond of sport.' He invited them to live holy lives, pointing to Saint Pier Giorgio Frassati as an example of someone who translated the values of sport into a life of faith. Source: Vatican News, Sept 19, 2026.\n\nFuente: Vatican News\n\n#PopeLeoXIV #SpecialOlympics #Vatican #Sport #Faith",
+      "aprobado": {
+        "fecha": "2026-09-20T09:55:20.102Z",
+        "hashPieza": "ef55bf2ce681eb16",
+        "imagenHash": "148b989142c1d15f",
+        "imagenSha": "68160c48f5ed871c5cf9efd084919964a3e75ed2"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
