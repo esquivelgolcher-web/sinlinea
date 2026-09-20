@@ -1,0 +1,46 @@
+{
+  "id": "2026-09-20-0059-leopopexiv-vatican-news-dfc2",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-09/pope-leo-xiv-special-olympics-delegation.html",
+    "titulo": "Pope to Special Olympics: 'As you know, I too am very fond of sport'",
+    "publicado": "2026-09-19T11:02:15.000Z"
+  },
+  "categoria": "CULTURA",
+  "titular": "Pope Leo XIV welcomes Special Olympics delegation",
+  "bajada": "He recalled his own love of sport and praised Pier Giorgio Frassati as a model of holiness",
+  "caption": "Pope Leo XIV received a delegation from the Special Olympics at the Vatican, telling them, 'As you know, I too am very fond of sport.' He invited them to live holy lives, pointing to Saint Pier Giorgio Frassati as an example of someone who translated the values of sport into a life of faith. Source: Vatican News, Sept 19, 2026.",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#SpecialOlympics",
+    "#Vatican",
+    "#Sport",
+    "#Faith"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-09-20-0059-leopopexiv-vatican-news-dfc2.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-20-0059-leopopexiv-vatican-news-dfc2.jpg",
+    "hash": "148b989142c1d15f",
+    "version": 11,
+    "estilo": "32cba508d6c2290e",
+    "renderizada": "2026-09-20T04:59:25.327Z"
+  },
+  "ilustracion": {
+    "descripcion": "A Vatican audience hall with rows of empty chairs and a small Special Olympics banner in the background; a robed pope figure stands greeting a small group, positioned in the upper right third, left and center space open and calm.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-20-0059-leopopexiv-vatican-news-dfc2.jpg",
+    "hashDescripcion": "8d16d7e74179851d",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-20T04:59:05.326Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-20T04:59:05.326Z",
+  "actualizado": "2026-09-20T04:59:05.326Z"
+}
