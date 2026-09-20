@@ -1,0 +1,127 @@
+{
+  "id": "2026-09-20-1553-luiseskivelgolcher-wired-a8e1",
+  "cuenta": "luiseskivelgolcher",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "WIRED",
+    "url": "https://www.wired.com/story/donald-trump-versus-maga-on-data-centers/",
+    "titulo": "It’s Donald Trump Versus MAGA on Data Centers",
+    "publicado": "2026-09-20T00:00:00.000Z"
+  },
+  "categoria": "INTERNACIONAL",
+  "titular": "Trump choca con su base por los centros de datos",
+  "bajada": "Encuestas y memos internos republicanos muestran rechazo creciente a la industria de IA en EE.UU.",
+  "caption": "Donald Trump defiende sin matices los centros de datos y la inteligencia artificial (IA, sistemas que procesan datos para generar respuestas o decisiones automatizadas). Pero una parte de su propia base no está de acuerdo, según reportó WIRED el 20 de septiembre de 2026. Una encuesta de The New York Times citada por el medio halló que más del 60% de los estadounidenses, incluido el 47% de los republicanos, se opone a que se construyan estos centros en sus comunidades. Preocupan el consumo eléctrico y la contaminación. Un memo interno del Comité Nacional Republicano de Senadores, también citado por WIRED, advirtió a las empresas de IA que \"no se puede arreglar la marca tóxica de todo un sector\" solo con campaña. Trump, en cambio, escribió en Truth Social que solo las comunidades que quieren ser \"atrasadas y pobres\" rechazarían estos proyectos. Según WIRED, la tensión refleja una disputa real dentro del movimiento MAGA de cara a las elecciones legislativas. ¿Puede un partido ganar una elección defendiendo una industria que su propia base rechaza?",
+  "hashtags": [
+    "#IA",
+    "#EstadosUnidos",
+    "#Tecnología",
+    "#DataCenters",
+    "#Política"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-09-20-1553-luiseskivelgolcher-wired-a8e1.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-20-1553-luiseskivelgolcher-wired-a8e1.jpg",
+    "hash": "9df83d8df876aa63",
+    "version": 11,
+    "estilo": "dc8c8fa3edf501fd",
+    "renderizada": "2026-09-20T20:54:09.805Z"
+  },
+  "ilustracion": {
+    "descripcion": "Nave industrial de un centro de datos iluminada de noche, con hileras de servidores y luces azules tenues, rodeada de terreno rural extenso. El edificio principal queda en el tercio superior derecho; la zona izquierda y central del encuadre permanece despejada.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-20-1553-luiseskivelgolcher-wired-a8e1.jpg",
+    "hashDescripcion": "78d034fe572b275c",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-20T20:53:20.054Z",
+    "error": null,
+    "procedencia": "generada"
+  },
+  "formato": "post",
+  "fuentes": [
+    {
+      "rol": "principal",
+      "medio": "WIRED",
+      "autor": "Molly Taft",
+      "url": "https://www.wired.com/story/donald-trump-versus-maga-on-data-centers/",
+      "canonica": "https://www.wired.com/story/donald-trump-versus-maga-on-data-centers/",
+      "idioma": "en",
+      "publicado": "2026-09-20T00:00:00.000Z",
+      "actualizado": "2026-09-20T10:30:00.000Z",
+      "fechaHecho": null,
+      "consultado": "2026-09-20T20:53:20.054Z",
+      "alcance": "completo",
+      "textoRecuperado": {
+        "parrafos": 26,
+        "caracteres": 6629,
+        "enviados": 3720
+      },
+      "fuentesPrimarias": [
+        "https://www.nytimes.com/2026/09/15/us/politics/ai-polls-midterms.html",
+        "https://www.documentcloud.org/documents/28624377-messaging-memo-neutralizing-data-center-attacks/",
+        "https://www.nytimes.com/2026/09/15/us/politics/trump-truth-social-ai-data-centers.html",
+        "https://www.nytimes.com/interactive/2026/09/15/polls/times-siena-poll-likely-voter-crosstabs.html",
+        "https://www.washingtonsun.com/climate-environment/trump-administration-data-centers-public-lands-proposals",
+        "https://nataliefertig1.substack.com/p/nobodys-coming-to-save-us-one-pennsylvania",
+        "https://www.reuters.com/world/middle-east/amazons-aws-is-unable-restore-access-bahrain-one-uae-cloud-data-zone-after-war-2026-09-15/",
+        "https://www.theverge.com/policy/997573/virginia-governor-spanberger-data-center-ai-task-force",
+        "http://www.aboutads.info"
+      ],
+      "licenciaMedios": null
+    }
+  ],
+  "afirmaciones": [
+    {
+      "texto": "Más del 60% de los estadounidenses, incluido el 47% de los republicanos, se opone a la construcción de centros de datos, según una encuesta de The New York Times citada por WIRED.",
+      "tipo": "hecho",
+      "fuente": "https://www.nytimes.com/2026/09/15/us/politics/ai-polls-midterms.html",
+      "contrastada": true
+    },
+    {
+      "texto": "Un memo interno del Comité Nacional Republicano de Senadores advirtió a las empresas de IA que la campaña no puede \"arreglar la marca tóxica de todo un sector\" de la economía.",
+      "tipo": "hecho",
+      "fuente": "https://www.documentcloud.org/documents/28624377-messaging-memo-neutralizing-data-center-attacks/",
+      "contrastada": true
+    },
+    {
+      "texto": "Trump escribió en Truth Social que solo las comunidades que quieren ser \"atrasadas y pobres\" rechazarían la llegada de centros de datos.",
+      "tipo": "hecho",
+      "fuente": "https://www.nytimes.com/2026/09/15/us/politics/trump-truth-social-ai-data-centers.html",
+      "contrastada": true
+    },
+    {
+      "texto": "Molly McCann Sanders, dirigente de Eagle Forum, dijo que le alarma que los centros de datos \"puedan contaminar\" y que considera que Trump está equivocado en este tema.",
+      "tipo": "opinion",
+      "fuente": "https://www.wired.com/story/donald-trump-versus-maga-on-data-centers/",
+      "contrastada": false
+    }
+  ],
+  "angulo": "La disputa entre Trump y su propia base sobre el costo político de los centros de datos de IA, según reveló WIRED con datos de una encuesta y un memo interno republicano.",
+  "atribucion": "WIRED (Molly Taft), 20 de septiembre de 2026, con datos de una encuesta de The New York Times y un memo interno del Comité Nacional Republicano de Senadores",
+  "puntuacion": {
+    "total": 73,
+    "componentes": {
+      "afinidad": 21,
+      "interes": 18,
+      "evidencia": 14,
+      "actualidad": 15,
+      "visual": 5
+    }
+  },
+  "alertas": [
+    "fuente-unica"
+  ],
+  "carrusel": null,
+  "reel": null,
+  "revision": {
+    "estado": "pendiente",
+    "notas": []
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-20T20:53:20.054Z",
+  "actualizado": "2026-09-20T20:53:20.054Z"
+}
