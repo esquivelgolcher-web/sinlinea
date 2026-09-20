@@ -1,7 +1,7 @@
 {
   "id": "2026-09-18-0734-luiseskivelgolcher-occrp-1b25",
   "cuenta": "luiseskivelgolcher",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "OCCRP",
     "url": "https://www.occrp.org/en/news/uk-freezes-72-million-london-townhouse-in-connection-to-sanctioned-prince-group-associate",
@@ -113,9 +113,56 @@
     "estado": "pendiente",
     "notas": []
   },
-  "programado": null,
+  "programado": "2026-09-20T18:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-18T12:34:56.202Z",
-  "actualizado": "2026-09-18T12:34:56.202Z"
+  "actualizado": "2026-09-20T20:08:15.238Z",
+  "destinos": {
+    "instagram": {
+      "texto": "Autoridades británicas congelaron una casa de 53 millones de libras (unos 72 millones de dólares) en el barrio londinense de Belgravia, según documentos revisados por OCCRP. La propiedad está a nombre de Zhao Chen, ciudadana chipriota nacida en China, casada con Wu An Ming, uno de los alias de Hu Xiaowei, sancionado por Reino Unido y Estados Unidos por su presunta relación con el Prince Group. Washington acusa a ese conglomerado camboyano de operar centros donde trabajadores retenidos contra su voluntad eran forzados a cometer fraudes cibernéticos a escala industrial. El Prince Group niega cualquier actividad ilegal y llama las acusaciones \"infundadas\". Zhao Chen no ha sido sancionada. Ni ella ni Hu Xiaowei respondieron a OCCRP. La medida se da en el marco de una estrategia británica anunciada en junio para congelar bienes vinculados a fraude y cibercrimen. ¿Debería exigirse más transparencia en la compra de propiedades de lujo con fondos de origen incierto?\n\nFuente: OCCRP\n\n#Fraude #Camboya #OCCRP #Ciberseguridad #Investigación",
+      "aprobado": {
+        "fecha": "2026-09-20T20:08:15.238Z",
+        "hashPieza": "32e358ce5ca39674",
+        "imagenHash": "e70d346a99a689b0",
+        "imagenSha": "996ec6994bb5387e9d765ff05a9eca16148c0543"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    },
+    "facebook": {
+      "texto": "Autoridades británicas congelaron una casa de 53 millones de libras (unos 72 millones de dólares) en el barrio londinense de Belgravia, según documentos revisados por OCCRP. La propiedad está a nombre de Zhao Chen, ciudadana chipriota nacida en China, casada con Wu An Ming, uno de los alias de Hu Xiaowei, sancionado por Reino Unido y Estados Unidos por su presunta relación con el Prince Group. Washington acusa a ese conglomerado camboyano de operar centros donde trabajadores retenidos contra su voluntad eran forzados a cometer fraudes cibernéticos a escala industrial. El Prince Group niega cualquier actividad ilegal y llama las acusaciones \"infundadas\". Zhao Chen no ha sido sancionada. Ni ella ni Hu Xiaowei respondieron a OCCRP. La medida se da en el marco de una estrategia británica anunciada en junio para congelar bienes vinculados a fraude y cibercrimen. ¿Debería exigirse más transparencia en la compra de propiedades de lujo con fondos de origen incierto?\n\nFuente: OCCRP",
+      "aprobado": {
+        "fecha": "2026-09-20T20:08:15.238Z",
+        "hashPieza": "32e358ce5ca39674",
+        "imagenHash": "e70d346a99a689b0",
+        "imagenSha": "996ec6994bb5387e9d765ff05a9eca16148c0543"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    },
+    "threads": {
+      "texto": "Reino Unido congela mansión de lujo por nexo con red de fraude\n\nLa casa en Londres está ligada a un sancionado por el Prince Group, acusado de estafas cibernéticas\n\nSegún OCCRP (17 de septiembre de 2026)",
+      "aprobado": {
+        "fecha": "2026-09-20T20:08:15.238Z",
+        "hashPieza": "32e358ce5ca39674",
+        "imagenHash": "e70d346a99a689b0",
+        "imagenSha": "996ec6994bb5387e9d765ff05a9eca16148c0543"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
