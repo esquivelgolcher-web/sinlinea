@@ -1,7 +1,7 @@
 {
   "id": "2026-09-20-0059-leopopexiv-vatican-news-dfc2",
   "cuenta": "leopopexiv",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/pope/news/2026-09/pope-leo-xiv-special-olympics-delegation.html",
@@ -39,7 +39,11 @@
     "error": null
   },
   "programado": "2026-09-20T09:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "18391830100205313",
+    "permalink": "https://www.instagram.com/p/DdhDBKqGgR1/",
+    "fecha": "2026-09-20T16:46:21.209Z"
+  },
   "error": null,
   "creado": "2026-09-20T04:59:05.326Z",
   "actualizado": "2026-09-20T16:46:21.209Z",
@@ -52,16 +56,15 @@
         "imagenHash": "148b989142c1d15f",
         "imagenSha": "68160c48f5ed871c5cf9efd084919964a3e75ed2"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-09-20T16:46:21.209Z",
-        "actualizado": "2026-09-20T16:46:21.209Z",
-        "contenedorId": "18103222019081176"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18391830100205313",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/DdhDBKqGgR1/",
+        "fecha": "2026-09-20T16:46:21.209Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
