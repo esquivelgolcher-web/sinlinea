@@ -1,7 +1,7 @@
 {
   "id": "2026-09-20-0059-leopopexiv-vatican-news-d8fb",
   "cuenta": "leopopexiv",
-  "estado": "borrador",
+  "estado": "programado",
   "formato": "frase",
   "frase": {
     "texto": "At a time when so many voices claim authority over the consciences of the faithful, it is the bishop’s duty to offer a clear teaching that is patient and rooted in this communion, in order to help his people recognize the voice of the one Shepherd.",
@@ -36,9 +36,26 @@
     "renderizada": "2026-09-20T04:59:29.722Z"
   },
   "ilustracion": null,
-  "programado": null,
+  "programado": "2026-09-20T18:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-20T04:59:05.326Z",
-  "actualizado": "2026-09-20T04:59:05.326Z"
+  "actualizado": "2026-09-20T20:07:51.138Z",
+  "destinos": {
+    "instagram": {
+      "texto": "“At a time when so many voices claim authority over the consciences of the faithful, it is the bishop’s duty to offer a clear teaching that is patient and rooted in this communion, in order to help his people recognize the voice of the one Shepherd.”\n\n— Pope Leo XIV, Pontifical Letter to the bishops of Latin America and the Caribbean (2026)\n\nVia Vatican News, 19 September 2026\n\n#PopeLeoXIV #Vatican #CatholicChurch\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #CatholicChurch",
+      "aprobado": {
+        "fecha": "2026-09-20T20:07:51.138Z",
+        "hashPieza": "5083777167aed38f",
+        "imagenHash": "cef91b06a4455d54",
+        "imagenSha": "cabc94e1aebf41cd05c6a2683cacc761dc935264"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
