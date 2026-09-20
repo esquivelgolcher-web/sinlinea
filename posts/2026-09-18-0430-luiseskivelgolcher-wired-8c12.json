@@ -1,7 +1,7 @@
 {
   "id": "2026-09-18-0430-luiseskivelgolcher-wired-8c12",
   "cuenta": "luiseskivelgolcher",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "WIRED",
     "url": "https://www.wired.com/story/the-eu-wants-to-break-up-kids-and-their-chatbots/",
@@ -202,9 +202,59 @@
     "estado": "pendiente",
     "notas": []
   },
-  "programado": null,
+  "programado": "2026-09-20T18:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-18T09:30:07.037Z",
-  "actualizado": "2026-09-18T09:30:07.037Z"
+  "actualizado": "2026-09-20T20:08:22.108Z",
+  "destinos": {
+    "instagram": {
+      "texto": "La Comisión Europea propuso el 17 de septiembre de 2026 la Ley de la Infancia Digital (EU Kids Act), que prohíbe a los chatbots simular emociones o relaciones personales con menores de 18 años, según un borrador revisado por WIRED. Los menores de 13 años no podrán usar chatbots sin supervisión de sus tutores y las plataformas no podrán retener memoria de conversaciones con menores entre sesiones distintas. Quienes incumplan enfrentarán multas de hasta el 6% de su facturación mundial. La medida llega después de que Snapchat fijara su chatbot 'My AI' al inicio de la lista de contactos de menores. Según una encuesta de Ipsos BVA, cerca de la mitad de los jóvenes europeos de 11 a 25 años ha hablado temas íntimos con chatbots. Un estudio de la OCDE en 91 países encontró que los estudiantes que usan IA para tareas escolares obtienen puntajes más bajos. Organizaciones como European Digital Rights piden que la protección se extienda a todos los usuarios, no solo a menores. ¿Debería esa protección aplicar también a los adultos?\n\nFuente: WIRED\n\n#InteligenciaArtificial #UniónEuropea #PrivacidadDigital #Menores #Chatbots",
+      "aprobado": {
+        "fecha": "2026-09-20T20:08:22.108Z",
+        "hashPieza": "5b4a9605b1ab8283",
+        "imagenHash": "356a4563c705bc2d",
+        "imagenSha": "14fd0e40face2fbd07b178ebce633f4baee20ad7",
+        "imagenesSha": [
+          "b5240c2e3322c8a8bbf865634426a78df886465e",
+          "9b90d473c704d377046a547479fcba1c47771fc6",
+          "3ed8f17359101a24dc598376c2989da372746977",
+          "53a2ecb7a118874652141f00348862fbd97bfa27",
+          "8f4b02c1a51909031b57a34ae72929c6cb55a1cf",
+          "20aeb5eda97f1ec52dbff691487cb84966ad3751",
+          "c789bea0cbb6b485f4ef49b9d05434d5ac7311e2"
+        ]
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    },
+    "threads": {
+      "texto": "La Unión Europea limita los chatbots para menores\n\nLa ley prohíbe que la IA finja emociones o memoria con usuarios menores de edad\n\nSegún WIRED (17 de septiembre de 2026)",
+      "aprobado": {
+        "fecha": "2026-09-20T20:08:22.108Z",
+        "hashPieza": "5b4a9605b1ab8283",
+        "imagenHash": "356a4563c705bc2d",
+        "imagenSha": "14fd0e40face2fbd07b178ebce633f4baee20ad7",
+        "imagenesSha": [
+          "b5240c2e3322c8a8bbf865634426a78df886465e",
+          "9b90d473c704d377046a547479fcba1c47771fc6",
+          "3ed8f17359101a24dc598376c2989da372746977",
+          "53a2ecb7a118874652141f00348862fbd97bfa27",
+          "8f4b02c1a51909031b57a34ae72929c6cb55a1cf",
+          "20aeb5eda97f1ec52dbff691487cb84966ad3751",
+          "c789bea0cbb6b485f4ef49b9d05434d5ac7311e2"
+        ]
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
