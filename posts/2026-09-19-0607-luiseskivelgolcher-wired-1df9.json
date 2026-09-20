@@ -1,7 +1,7 @@
 {
   "id": "2026-09-19-0607-luiseskivelgolcher-wired-1df9",
   "cuenta": "luiseskivelgolcher",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "WIRED",
     "url": "https://www.wired.com/story/an-undercover-google-analyst-infiltrated-a-notorious-supply-chain-hacking-gang/",
@@ -108,9 +108,56 @@
     "estado": "pendiente",
     "notas": []
   },
-  "programado": null,
+  "programado": "2026-09-20T18:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-19T11:07:29.644Z",
-  "actualizado": "2026-09-19T11:07:29.644Z"
+  "actualizado": "2026-09-20T20:08:10.137Z",
+  "destinos": {
+    "instagram": {
+      "texto": "Google reveló que su unidad de inteligencia de amenazas, Mandiant, tuvo un analista encubierto dentro del grupo hacker TeamPCP, responsable de la mayor ola de ataques a cadenas de suministro de software registrada hasta ahora, según contó el investigador Austin Larsen a WIRED (Andy Greenberg, 18 de septiembre de 2026). Un ataque a la cadena de suministro ocurre cuando los delincuentes contaminan programas de código abierto para que, al usarlos, otras empresas queden infectadas sin saberlo. TeamPCP comprometió herramientas como Trivy, LiteLLM y Mistral AI, y llegó a usar un gusano automatizado para propagarse, afectando a más de mil empresas, entre ellas GitHub y OpenAI. Según Google, el espía interno ayudó a advertir a víctimas y a identificar a los responsables, dos jóvenes australianos arrestados en agosto. La empresa también dice haber recibido datos del grupo ShinyHunters, antiguo aliado de TeamPCP. Este relato proviene de una sola fuente, la propia Google, y no ha sido confirmado de forma independiente por otras compañías afectadas.\n\nFuente: WIRED\n\n#Ciberseguridad #Hackeo #Google #SupplyChain",
+      "aprobado": {
+        "fecha": "2026-09-20T20:08:10.137Z",
+        "hashPieza": "5c6e43cf71aa6651",
+        "imagenHash": "983039cc60c040ca",
+        "imagenSha": "5ff4a74afe8d5dfc5e09c0698c796767f147f721"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    },
+    "facebook": {
+      "texto": "Google reveló que su unidad de inteligencia de amenazas, Mandiant, tuvo un analista encubierto dentro del grupo hacker TeamPCP, responsable de la mayor ola de ataques a cadenas de suministro de software registrada hasta ahora, según contó el investigador Austin Larsen a WIRED (Andy Greenberg, 18 de septiembre de 2026). Un ataque a la cadena de suministro ocurre cuando los delincuentes contaminan programas de código abierto para que, al usarlos, otras empresas queden infectadas sin saberlo. TeamPCP comprometió herramientas como Trivy, LiteLLM y Mistral AI, y llegó a usar un gusano automatizado para propagarse, afectando a más de mil empresas, entre ellas GitHub y OpenAI. Según Google, el espía interno ayudó a advertir a víctimas y a identificar a los responsables, dos jóvenes australianos arrestados en agosto. La empresa también dice haber recibido datos del grupo ShinyHunters, antiguo aliado de TeamPCP. Este relato proviene de una sola fuente, la propia Google, y no ha sido confirmado de forma independiente por otras compañías afectadas.\n\nFuente: WIRED",
+      "aprobado": {
+        "fecha": "2026-09-20T20:08:10.137Z",
+        "hashPieza": "5c6e43cf71aa6651",
+        "imagenHash": "983039cc60c040ca",
+        "imagenSha": "5ff4a74afe8d5dfc5e09c0698c796767f147f721"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    },
+    "threads": {
+      "texto": "Un topo de Google se infiltró en la banda hacker TeamPCP\n\nMandiant vigiló desde dentro la mayor ola de ataques a cadenas de suministro de software\n\nSegún WIRED (18 de septiembre de 2026)",
+      "aprobado": {
+        "fecha": "2026-09-20T20:08:10.137Z",
+        "hashPieza": "5c6e43cf71aa6651",
+        "imagenHash": "983039cc60c040ca",
+        "imagenSha": "5ff4a74afe8d5dfc5e09c0698c796767f147f721"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
