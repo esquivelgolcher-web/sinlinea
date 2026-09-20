@@ -42,7 +42,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-20T04:59:05.326Z",
-  "actualizado": "2026-09-20T09:55:20.102Z",
+  "actualizado": "2026-09-20T16:46:21.209Z",
   "destinos": {
     "instagram": {
       "texto": "Pope Leo XIV received a delegation from the Special Olympics at the Vatican, telling them, 'As you know, I too am very fond of sport.' He invited them to live holy lives, pointing to Saint Pier Giorgio Frassati as an example of someone who translated the values of sport into a life of faith. Source: Vatican News, Sept 19, 2026.\n\nFuente: Vatican News\n\n#PopeLeoXIV #SpecialOlympics #Vatican #Sport #Faith",
@@ -55,7 +55,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-09-20T16:46:21.209Z",
+        "actualizado": "2026-09-20T16:46:21.209Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
