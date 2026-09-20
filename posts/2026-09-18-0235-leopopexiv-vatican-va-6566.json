@@ -1,7 +1,7 @@
 {
   "id": "2026-09-18-0235-leopopexiv-vatican-va-6566",
   "cuenta": "leopopexiv",
-  "estado": "borrador",
+  "estado": "programado",
   "formato": "frase",
   "frase": {
     "texto": "Humanity still has the ability to work together in building our common home.",
@@ -36,9 +36,26 @@
     "renderizada": "2026-09-18T06:35:51.131Z"
   },
   "ilustracion": null,
-  "programado": null,
+  "programado": "2026-09-21T13:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-18T06:35:28.122Z",
-  "actualizado": "2026-09-18T06:35:28.122Z"
+  "actualizado": "2026-09-20T20:07:57.372Z",
+  "destinos": {
+    "instagram": {
+      "texto": "“Humanity still has the ability to work together in building our common home.”\n\n— Pope Francis, Laudato si', 13 (2015)\n\n#PopeLeoXIV #Vatican #CatholicChurch\n\nFuente: Vatican.va\n\n#PopeLeoXIV #Vatican #CatholicChurch",
+      "aprobado": {
+        "fecha": "2026-09-20T20:07:57.372Z",
+        "hashPieza": "c7c089665a5cf3e0",
+        "imagenHash": "9b17b863ba8c33b1",
+        "imagenSha": "bb7dece2c7e742070c0d9c5685eabcf45b8de36c"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
