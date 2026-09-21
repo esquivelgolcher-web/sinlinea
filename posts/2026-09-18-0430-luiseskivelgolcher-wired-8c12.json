@@ -206,7 +206,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-18T09:30:07.037Z",
-  "actualizado": "2026-09-20T20:08:22.108Z",
+  "actualizado": "2026-09-21T00:05:45.543Z",
   "destinos": {
     "instagram": {
       "texto": "La Comisión Europea propuso el 17 de septiembre de 2026 la Ley de la Infancia Digital (EU Kids Act), que prohíbe a los chatbots simular emociones o relaciones personales con menores de 18 años, según un borrador revisado por WIRED. Los menores de 13 años no podrán usar chatbots sin supervisión de sus tutores y las plataformas no podrán retener memoria de conversaciones con menores entre sesiones distintas. Quienes incumplan enfrentarán multas de hasta el 6% de su facturación mundial. La medida llega después de que Snapchat fijara su chatbot 'My AI' al inicio de la lista de contactos de menores. Según una encuesta de Ipsos BVA, cerca de la mitad de los jóvenes europeos de 11 a 25 años ha hablado temas íntimos con chatbots. Un estudio de la OCDE en 91 países encontró que los estudiantes que usan IA para tareas escolares obtienen puntajes más bajos. Organizaciones como European Digital Rights piden que la protección se extienda a todos los usuarios, no solo a menores. ¿Debería esa protección aplicar también a los adultos?\n\nFuente: WIRED\n\n#InteligenciaArtificial #UniónEuropea #PrivacidadDigital #Menores #Chatbots",
@@ -228,7 +228,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-09-21T00:05:45.543Z",
+        "actualizado": "2026-09-21T00:05:45.543Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     },
