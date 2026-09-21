@@ -42,7 +42,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-19T04:43:18.645Z",
-  "actualizado": "2026-09-20T20:07:54.739Z",
+  "actualizado": "2026-09-21T17:10:23.660Z",
   "destinos": {
     "instagram": {
       "texto": "Pope Leo XIV will travel to France from September 25 to 28 for an Apostolic Journey focused on faith, culture and Europe. The itinerary includes meetings with civil authorities, young people and the Church, a visit to UNESCO headquarters in Paris, and an encounter in Metz centered on European unity and peace. Source: Vatican News, September 18, 2026.\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #France #UNESCO #Metz",
@@ -55,7 +55,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-09-21T17:10:23.660Z",
+        "actualizado": "2026-09-21T17:10:23.660Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
