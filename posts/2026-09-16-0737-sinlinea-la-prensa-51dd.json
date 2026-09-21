@@ -1,7 +1,7 @@
 {
   "id": "2026-09-16-0737-sinlinea-la-prensa-51dd",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "La Prensa",
     "url": "https://www.prensa.com/judiciales/cae-otro-integrante-por-anomalias-en-la-dgi-se-trata-de-efrain-cherigo-socio-del-contratista-del-cru/",
@@ -43,5 +43,5 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-16T12:37:11.125Z",
-  "actualizado": "2026-09-16T12:37:11.125Z"
+  "actualizado": "2026-09-21T07:14:52.812Z"
 }
