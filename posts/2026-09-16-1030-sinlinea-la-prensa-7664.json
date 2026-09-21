@@ -1,7 +1,7 @@
 {
   "id": "2026-09-16-1030-sinlinea-la-prensa-7664",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "La Prensa",
     "url": "https://www.prensa.com/economia/gobierno-propone-elevar-a-15-el-impuesto-a-los-alquileres-turisticos-como-airbnb/",
@@ -43,5 +43,5 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-16T15:30:28.050Z",
-  "actualizado": "2026-09-16T15:30:28.050Z"
+  "actualizado": "2026-09-21T07:14:57.598Z"
 }
