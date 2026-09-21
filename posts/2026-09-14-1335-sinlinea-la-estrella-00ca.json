@@ -1,7 +1,7 @@
 {
   "id": "2026-09-14-1335-sinlinea-la-estrella-00ca",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "La Estrella de Panamá",
     "url": "https://www.laestrella.com.pa/panama/nacional/rio-indio-acp-ofrecera-casas-de-hasta-218-metros-cuadrados-y-compensara-tierras-a-valor-de-reposicion-LG25679112",
@@ -43,5 +43,5 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-14T18:35:05.691Z",
-  "actualizado": "2026-09-14T18:35:05.691Z"
+  "actualizado": "2026-09-21T07:14:06.988Z"
 }
