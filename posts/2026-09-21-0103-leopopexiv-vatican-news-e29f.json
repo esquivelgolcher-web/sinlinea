@@ -1,0 +1,46 @@
+{
+  "id": "2026-09-21-0103-leopopexiv-vatican-news-e29f",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-09/pope-leo-xiv-angelus-appeals-humanitarian-crisis-somalia.html",
+    "titulo": "Pope Leo prays for end to humanitarian crisis in Somalia",
+    "publicado": "2026-09-20T10:22:00.000Z"
+  },
+  "categoria": "INTERNACIONAL",
+  "titular": "Pope Leo XIV prays for peace in Somalia",
+  "bajada": "He calls for an end to violence and more aid for the humanitarian crisis",
+  "caption": "Pope Leo XIV offered prayers for an end to violence in parts of Somalia and appealed for greater assistance amid the ongoing humanitarian crisis. Source: Vatican News, Sept 20, 2026.",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Somalia",
+    "#Vatican",
+    "#Peace",
+    "#HumanitarianCrisis"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-09-21-0103-leopopexiv-vatican-news-e29f.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-21-0103-leopopexiv-vatican-news-e29f.jpg",
+    "hash": "f10d5d880c8837b6",
+    "version": 11,
+    "estilo": "32cba508d6c2290e",
+    "renderizada": "2026-09-21T05:04:20.195Z"
+  },
+  "ilustracion": {
+    "descripcion": "A quiet map-like view of the Horn of Africa coastline at dusk, with a small humanitarian aid tent in the upper right third; left and center areas open and empty, no text or logos.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-21-0103-leopopexiv-vatican-news-e29f.jpg",
+    "hashDescripcion": "2c5e06cf3306ec15",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-21T05:03:54.169Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-21T05:03:54.169Z",
+  "actualizado": "2026-09-21T05:03:54.169Z"
+}
