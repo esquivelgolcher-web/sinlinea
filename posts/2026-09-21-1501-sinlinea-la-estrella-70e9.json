@@ -1,0 +1,47 @@
+{
+  "id": "2026-09-21-1501-sinlinea-la-estrella-70e9",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/ministro-andrade-por-las-criticas-el-segundo-grupo-de-zarzos-lo-vamos-a-licitar-HK25856076",
+    "titulo": "Ministro Andrade: ‘Por las críticas, el segundo grupo de zarzos lo vamos a licitar’",
+    "publicado": "2026-09-21T14:51:00.000Z"
+  },
+  "categoria": "ECONOMÍA",
+  "titular": "MOP licitará segundo grupo de zarzos tras críticas",
+  "bajada": "Andrade admitió que el primer grupo se contrató de forma directa a precios más altos en la comarca.",
+  "caption": "Tras señalamientos de que los primeros zarzos costaron hasta el triple de lo habitual, el ministro de Obras Públicas anunció que el segundo grupo sí pasará por licitación pública. El MOP reportó 154 contrataciones de emergencia por unos $110 millones. ¿Cree que la licitación evitará nuevos sobrecostos en estas obras para comunidades indígenas?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#MOP",
+    "#NgäbeBuglé",
+    "#ContratosPúblicos",
+    "#Economía"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-09-21-1501-sinlinea-la-estrella-70e9.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-21-1501-sinlinea-la-estrella-70e9.jpg",
+    "hash": "140d8cc5751000e3",
+    "version": 11,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-09-21T20:02:35.736Z"
+  },
+  "ilustracion": {
+    "descripcion": "Camino rural de montaña en la comarca Ngäbe-Buglé con un zarzo o puente colgante de madera en el tercio superior derecho; zona izquierda y central despejada, sin personas.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-21-1501-sinlinea-la-estrella-70e9.jpg",
+    "hashDescripcion": "987f2913c3c71f21",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-21T20:01:52.881Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-21T20:01:52.881Z",
+  "actualizado": "2026-09-21T20:01:52.881Z"
+}

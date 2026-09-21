@@ -1,0 +1,47 @@
+{
+  "id": "2026-09-21-1501-sinlinea-la-estrella-5b28",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/politica/ausentismo-invasion-de-competencias-y-fueros-los-puntos-del-reglamento-interno-de-la-asamblea-objetados-por-mulino-DK25857859",
+    "titulo": "Ausentismo, invasión de competencias y fueros: los puntos del Reglamento Interno de la Asamblea objetados por Mulino",
+    "publicado": "2026-09-21T17:19:00.000Z"
+  },
+  "categoria": "POLÍTICA",
+  "titular": "Mulino veta artículos del reglamento de la Asamblea",
+  "bajada": "Objetó nueve artículos por inconstitucionales, incluido uno sobre ausencias de diputados.",
+  "caption": "El mandatario devolvió sin sanción la reforma al reglamento interno de la Asamblea Nacional. Entre los puntos rechazados está uno que habría permitido a los diputados justificar su ausencia en el pleno con actividades en su circuito, sin forma de comprobarlo. El Ejecutivo advirtió que eso abriría la puerta a pagar sueldos sin exigir asistencia real. ¿Debe la Asamblea insistir con esta reforma o replantearla desde cero?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#AsambleaNacional",
+    "#Mulino",
+    "#ReglamentoInterno",
+    "#Política"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-09-21-1501-sinlinea-la-estrella-5b28.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-21-1501-sinlinea-la-estrella-5b28.jpg",
+    "hash": "2de94ca3f251d48d",
+    "version": 11,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-09-21T20:02:28.938Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada del Palacio Legislativo de Panamá con la bandera nacional ondeando, en tercio superior derecho un pupitre vacío de diputado; zona izquierda y central despejada, sin personas.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-21-1501-sinlinea-la-estrella-5b28.jpg",
+    "hashDescripcion": "8d732ec00418b336",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-21T20:01:52.881Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-21T20:01:52.881Z",
+  "actualizado": "2026-09-21T20:01:52.881Z"
+}
