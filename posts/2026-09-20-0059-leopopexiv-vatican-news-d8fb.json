@@ -1,7 +1,7 @@
 {
   "id": "2026-09-20-0059-leopopexiv-vatican-news-d8fb",
   "cuenta": "leopopexiv",
-  "estado": "programado",
+  "estado": "publicado",
   "formato": "frase",
   "frase": {
     "texto": "At a time when so many voices claim authority over the consciences of the faithful, it is the bishop’s duty to offer a clear teaching that is patient and rooted in this communion, in order to help his people recognize the voice of the one Shepherd.",
@@ -37,7 +37,11 @@
   },
   "ilustracion": null,
   "programado": "2026-09-20T18:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "17973998543936658",
+    "permalink": "https://www.instagram.com/p/Ddh1nAvlAyx/",
+    "fecha": "2026-09-21T00:08:26.843Z"
+  },
   "error": null,
   "creado": "2026-09-20T04:59:05.326Z",
   "actualizado": "2026-09-21T00:08:26.843Z",
@@ -50,16 +54,15 @@
         "imagenHash": "cef91b06a4455d54",
         "imagenSha": "cabc94e1aebf41cd05c6a2683cacc761dc935264"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-09-21T00:08:26.843Z",
-        "actualizado": "2026-09-21T00:08:26.843Z",
-        "contenedorId": "18103337261081176"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "17973998543936658",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/Ddh1nAvlAyx/",
+        "fecha": "2026-09-21T00:08:26.843Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
