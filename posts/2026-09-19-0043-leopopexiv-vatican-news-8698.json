@@ -1,7 +1,7 @@
 {
   "id": "2026-09-19-0043-leopopexiv-vatican-news-8698",
   "cuenta": "leopopexiv",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/pope/news/2026-09/france-pope-leo-xiv-brief-matteo-bruni-holy-see-press-office.html",
@@ -39,7 +39,11 @@
     "error": null
   },
   "programado": "2026-09-21T09:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "18143932078500100",
+    "permalink": "https://www.instagram.com/p/DdjqkL7mgOE/",
+    "fecha": "2026-09-21T17:10:23.660Z"
+  },
   "error": null,
   "creado": "2026-09-19T04:43:18.645Z",
   "actualizado": "2026-09-21T17:10:23.660Z",
@@ -52,16 +56,15 @@
         "imagenHash": "274172d326ea6255",
         "imagenSha": "d2cd182b5d81e3a58dc96260ff76b100d3c5db15"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-09-21T17:10:23.660Z",
-        "actualizado": "2026-09-21T17:10:23.660Z",
-        "contenedorId": "18103602257081176"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18143932078500100",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/DdjqkL7mgOE/",
+        "fecha": "2026-09-21T17:10:23.660Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
