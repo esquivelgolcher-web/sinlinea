@@ -117,7 +117,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-18T12:34:56.202Z",
-  "actualizado": "2026-09-20T20:08:15.238Z",
+  "actualizado": "2026-09-21T00:05:45.543Z",
   "destinos": {
     "instagram": {
       "texto": "Autoridades británicas congelaron una casa de 53 millones de libras (unos 72 millones de dólares) en el barrio londinense de Belgravia, según documentos revisados por OCCRP. La propiedad está a nombre de Zhao Chen, ciudadana chipriota nacida en China, casada con Wu An Ming, uno de los alias de Hu Xiaowei, sancionado por Reino Unido y Estados Unidos por su presunta relación con el Prince Group. Washington acusa a ese conglomerado camboyano de operar centros donde trabajadores retenidos contra su voluntad eran forzados a cometer fraudes cibernéticos a escala industrial. El Prince Group niega cualquier actividad ilegal y llama las acusaciones \"infundadas\". Zhao Chen no ha sido sancionada. Ni ella ni Hu Xiaowei respondieron a OCCRP. La medida se da en el marco de una estrategia británica anunciada en junio para congelar bienes vinculados a fraude y cibercrimen. ¿Debería exigirse más transparencia en la compra de propiedades de lujo con fondos de origen incierto?\n\nFuente: OCCRP\n\n#Fraude #Camboya #OCCRP #Ciberseguridad #Investigación",
@@ -130,7 +130,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-09-21T00:05:45.543Z",
+        "actualizado": "2026-09-21T00:05:45.543Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     },
