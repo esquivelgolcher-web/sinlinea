@@ -1,7 +1,7 @@
 {
   "id": "2026-09-18-0734-luiseskivelgolcher-occrp-1b25",
   "cuenta": "luiseskivelgolcher",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "OCCRP",
     "url": "https://www.occrp.org/en/news/uk-freezes-72-million-london-townhouse-in-connection-to-sanctioned-prince-group-associate",
@@ -171,16 +171,15 @@
         "imagenHash": "e70d346a99a689b0",
         "imagenSha": "996ec6994bb5387e9d765ff05a9eca16148c0543"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-09-21T00:05:45.543Z",
-        "actualizado": "2026-09-21T00:05:45.543Z",
-        "contenedorId": "17989980726100604"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18018355172874548",
+        "idPublicacion": null,
+        "permalink": "https://www.threads.com/@luisegolcher/post/Ddh1adulYXd",
+        "fecha": "2026-09-21T00:05:45.543Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
