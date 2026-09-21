@@ -40,7 +40,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-20T04:59:05.326Z",
-  "actualizado": "2026-09-20T20:07:51.138Z",
+  "actualizado": "2026-09-21T00:08:26.843Z",
   "destinos": {
     "instagram": {
       "texto": "“At a time when so many voices claim authority over the consciences of the faithful, it is the bishop’s duty to offer a clear teaching that is patient and rooted in this communion, in order to help his people recognize the voice of the one Shepherd.”\n\n— Pope Leo XIV, Pontifical Letter to the bishops of Latin America and the Caribbean (2026)\n\nVia Vatican News, 19 September 2026\n\n#PopeLeoXIV #Vatican #CatholicChurch\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #CatholicChurch",
@@ -53,7 +53,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-09-21T00:08:26.843Z",
+        "actualizado": "2026-09-21T00:08:26.843Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
