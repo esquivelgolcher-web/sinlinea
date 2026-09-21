@@ -1,7 +1,7 @@
 {
   "id": "2026-09-16-0430-sinlinea-la-estrella-beb3",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "La Estrella de Panamá",
     "url": "https://www.laestrella.com.pa/panama/nacional/antai-admite-falta-de-competencia-para-investigar-nepotismo-en-la-asamblea-EC25724374",
@@ -43,5 +43,5 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-16T09:30:59.439Z",
-  "actualizado": "2026-09-16T09:30:59.439Z"
+  "actualizado": "2026-09-21T07:14:49.541Z"
 }
