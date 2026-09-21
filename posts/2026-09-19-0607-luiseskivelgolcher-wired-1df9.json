@@ -1,7 +1,7 @@
 {
   "id": "2026-09-19-0607-luiseskivelgolcher-wired-1df9",
   "cuenta": "luiseskivelgolcher",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "WIRED",
     "url": "https://www.wired.com/story/an-undercover-google-analyst-infiltrated-a-notorious-supply-chain-hacking-gang/",
@@ -166,16 +166,15 @@
         "imagenHash": "983039cc60c040ca",
         "imagenSha": "5ff4a74afe8d5dfc5e09c0698c796767f147f721"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-09-21T00:05:45.543Z",
-        "actualizado": "2026-09-21T00:05:45.543Z",
-        "contenedorId": "17989980690100604"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18009483497965844",
+        "idPublicacion": null,
+        "permalink": "https://www.threads.com/@luisegolcher/post/Ddh1WTWld_C",
+        "fecha": "2026-09-21T00:05:45.543Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
