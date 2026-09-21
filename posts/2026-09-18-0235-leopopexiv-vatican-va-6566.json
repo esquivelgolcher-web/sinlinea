@@ -1,7 +1,7 @@
 {
   "id": "2026-09-18-0235-leopopexiv-vatican-va-6566",
   "cuenta": "leopopexiv",
-  "estado": "programado",
+  "estado": "publicado",
   "formato": "frase",
   "frase": {
     "texto": "Humanity still has the ability to work together in building our common home.",
@@ -37,7 +37,11 @@
   },
   "ilustracion": null,
   "programado": "2026-09-21T13:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "18116687266974474",
+    "permalink": "https://www.instagram.com/p/DdkGXzOEiRH/",
+    "fecha": "2026-09-21T21:13:22.976Z"
+  },
   "error": null,
   "creado": "2026-09-18T06:35:28.122Z",
   "actualizado": "2026-09-21T21:13:22.976Z",
@@ -50,16 +54,15 @@
         "imagenHash": "9b17b863ba8c33b1",
         "imagenSha": "bb7dece2c7e742070c0d9c5685eabcf45b8de36c"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-09-21T21:13:22.976Z",
-        "actualizado": "2026-09-21T21:13:22.976Z",
-        "contenedorId": "18103657265081176"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18116687266974474",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/DdkGXzOEiRH/",
+        "fecha": "2026-09-21T21:13:22.976Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
