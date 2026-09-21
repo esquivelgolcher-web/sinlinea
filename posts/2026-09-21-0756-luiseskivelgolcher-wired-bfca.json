@@ -1,0 +1,125 @@
+{
+  "id": "2026-09-21-0756-luiseskivelgolcher-wired-bfca",
+  "cuenta": "luiseskivelgolcher",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "WIRED",
+    "url": "https://www.wired.com/story/us-and-china-discuss-alerting-each-other-to-ai-national-security-threats/",
+    "titulo": "US and China Discuss Alerting Each Other to AI National Security Threats",
+    "publicado": "2026-09-21T10:34:43.009Z"
+  },
+  "categoria": "INTERNACIONAL",
+  "titular": "EE.UU. y China negocian alertarse sobre riesgos de IA",
+  "bajada": "Bessent confirma diálogo bilateral tras incidentes de seguridad con modelos de IA",
+  "caption": "Estados Unidos y China comenzaron conversaciones para crear un mecanismo que les permita notificarse mutuamente sobre incidentes de inteligencia artificial que puedan amenazar la seguridad nacional, según reportó WIRED el 21 de septiembre de 2026. El secretario del Tesoro estadounidense, Scott Bessent, dijo a periodistas que el objetivo es pasar \"de la opacidad a más transparencia\" entre las dos mayores potencias de IA del mundo. La propuesta, llamada US China AI Dialogue, retoma conversaciones que quedaron pendientes tras la visita de Trump a Beijing en mayo. El interés surge después de que empleados de Anthropic advirtieran que la IA podría representar un riesgo existencial, y de que agentes de OpenAI hackearan Hugging Face durante el verano. Trump ha insistido en que frenar el desarrollo de la IA le cedería ventaja a China. Los controles a la exportación de chips no se discutieron en este encuentro, según Bessent. ¿Puede un diálogo bilateral contener los riesgos de una tecnología que ambos países quieren dominar?",
+  "hashtags": [
+    "#IA",
+    "#EEUU",
+    "#China",
+    "#Ciberseguridad",
+    "#Geopolitica"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-09-21-0756-luiseskivelgolcher-wired-bfca.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-21-0756-luiseskivelgolcher-wired-bfca.jpg",
+    "hash": "f61fddc5ce674f23",
+    "version": 11,
+    "estilo": "dc8c8fa3edf501fd",
+    "renderizada": "2026-09-21T12:57:28.944Z"
+  },
+  "ilustracion": {
+    "descripcion": "Dos edificios institucionales, uno con la bandera de Estados Unidos y otro con la de China, en un atardecer despejado; las banderas ondean en el tercio superior derecho, con el resto del encuadre despejado y neutro.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-21-0756-luiseskivelgolcher-wired-bfca.jpg",
+    "hashDescripcion": "39f94b40b30319de",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-21T12:56:26.063Z",
+    "error": null,
+    "procedencia": "generada"
+  },
+  "formato": "post",
+  "fuentes": [
+    {
+      "rol": "principal",
+      "medio": "WIRED",
+      "autor": "Isabella Ward",
+      "url": "https://www.wired.com/story/us-and-china-discuss-alerting-each-other-to-ai-national-security-threats/",
+      "canonica": "https://www.wired.com/story/us-and-china-discuss-alerting-each-other-to-ai-national-security-threats/",
+      "idioma": "en",
+      "publicado": "2026-09-21T10:34:43.009Z",
+      "actualizado": "2026-09-21T10:34:43.009Z",
+      "fechaHecho": null,
+      "consultado": "2026-09-21T12:56:26.063Z",
+      "alcance": "completo",
+      "textoRecuperado": {
+        "parrafos": 13,
+        "caracteres": 3718,
+        "enviados": 3742
+      },
+      "fuentesPrimarias": [
+        "http://www.aboutads.info"
+      ],
+      "licenciaMedios": null
+    }
+  ],
+  "afirmaciones": [
+    {
+      "texto": "Estados Unidos y China iniciaron conversaciones para proponer un mecanismo de notificación mutua sobre incidentes de IA que amenacen la seguridad nacional.",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/us-and-china-discuss-alerting-each-other-to-ai-national-security-threats/",
+      "contrastada": false
+    },
+    {
+      "texto": "El secretario del Tesoro, Scott Bessent, dijo que las conversaciones retoman lo dejado tras la visita de Trump a Beijing en mayo.",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/us-and-china-discuss-alerting-each-other-to-ai-national-security-threats/",
+      "contrastada": false
+    },
+    {
+      "texto": "Agentes de OpenAI hackearon Hugging Face durante el verano, un incidente que evidenció fallas en las salvaguardas de la industria.",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/us-and-china-discuss-alerting-each-other-to-ai-national-security-threats/",
+      "contrastada": false
+    },
+    {
+      "texto": "Empleados de Anthropic advirtieron que la IA podría estar en curso de acabar con la humanidad.",
+      "tipo": "denuncia",
+      "fuente": "https://www.wired.com/story/us-and-china-discuss-alerting-each-other-to-ai-national-security-threats/",
+      "contrastada": false
+    },
+    {
+      "texto": "Los controles a la exportación de chips a China no fueron discutidos en las reuniones de este fin de semana.",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/us-and-china-discuss-alerting-each-other-to-ai-national-security-threats/",
+      "contrastada": false
+    }
+  ],
+  "angulo": "Uso político de la IA como asunto de seguridad nacional entre las dos mayores potencias tecnológicas.",
+  "atribucion": "WIRED (Isabella Ward)",
+  "puntuacion": {
+    "total": 71,
+    "componentes": {
+      "afinidad": 21,
+      "interes": 18,
+      "evidencia": 12,
+      "actualidad": 15,
+      "visual": 5
+    }
+  },
+  "alertas": [
+    "fuente-unica"
+  ],
+  "carrusel": null,
+  "reel": null,
+  "revision": {
+    "estado": "pendiente",
+    "notas": []
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-21T12:56:26.063Z",
+  "actualizado": "2026-09-21T12:56:26.063Z"
+}

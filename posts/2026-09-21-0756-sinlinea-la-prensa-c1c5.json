@@ -1,0 +1,47 @@
+{
+  "id": "2026-09-21-0756-sinlinea-la-prensa-c1c5",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/politica/ministerios-gastan-15-millones-en-alquiler-de-vehiculos-todo-terreno/",
+    "titulo": "Ministerios gastan $1.5 millones en alquiler de vehículos todo terreno",
+    "publicado": "2026-09-21T05:03:00.000Z"
+  },
+  "categoria": "POLÍTICA",
+  "titular": "Ministerios gastan $1.5 millones en alquiler de camionetas",
+  "bajada": "Más de 120 vehículos 4x4 fueron contratados por 13 ministerios entre enero y septiembre de 2026.",
+  "caption": "Los ministerios panameños han gastado más de un millón y medio de dólares en alquilar camionetas 4x4 de alta gama para sus despachos. El Ministerio de Seguridad Pública encabeza la lista con más de $363 mil en contratos. Mientras el país enfrenta necesidades urgentes, este tipo de gastos genera dudas sobre las prioridades del Gobierno. ¿Te parece justificado este gasto?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#GastoPúblico",
+    "#Ministerios",
+    "#Transparencia",
+    "#PanamáCompra"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-09-21-0756-sinlinea-la-prensa-c1c5.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-21-0756-sinlinea-la-prensa-c1c5.jpg",
+    "hash": "af6205f3cc2d514d",
+    "version": 11,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-09-21T12:57:00.533Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fila de camionetas 4x4 nuevas estacionadas frente a un edificio ministerial en Ciudad de Panamá, con los vehículos en el tercio superior derecho, zona izquierda y central despejadas, estilo ilustración editorial.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-21-0756-sinlinea-la-prensa-c1c5.jpg",
+    "hashDescripcion": "da0d9067271b7055",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-21T12:56:26.063Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-21T12:56:26.063Z",
+  "actualizado": "2026-09-21T12:56:26.063Z"
+}

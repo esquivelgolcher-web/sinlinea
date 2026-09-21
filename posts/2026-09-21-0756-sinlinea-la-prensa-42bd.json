@@ -1,0 +1,47 @@
+{
+  "id": "2026-09-21-0756-sinlinea-la-prensa-42bd",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/unidad-investigativa/la-exsubdirectora-de-la-dgi-maritza-urena-es-investigada-por-enriquecimiento-injustificado/",
+    "titulo": "La exsubdirectora de la DGI, Maritza Ureña, es investigada por enriquecimiento injustificado",
+    "publicado": "2026-09-21T05:06:00.000Z"
+  },
+  "categoria": "INVESTIGACIÓN",
+  "titular": "Investigan a exsubdirectora de la DGI por $428 mil",
+  "bajada": "Maritza Ureña, exfuncionaria de la DGI, no pudo justificar parte de $1 millón movidos en su cuenta.",
+  "caption": "La Contraloría detectó que Maritza Ureña, quien fue segunda al mando en la DGI, no logró justificar $428 mil de los más de $1 millón que movió mientras trabajaba en el Estado. Ya se ordenó la aprehensión de tres fincas, incluidas propiedades de su hijo. Casos así golpean la confianza en las instituciones que manejan nuestros impuestos. ¿Qué opinas de estos casos de enriquecimiento injustificado?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Corrupción",
+    "#DGI",
+    "#MinisterioPúblico",
+    "#Transparencia"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-09-21-0756-sinlinea-la-prensa-42bd.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-21-0756-sinlinea-la-prensa-42bd.jpg",
+    "hash": "abd794fa46678b74",
+    "version": 11,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-09-21T12:56:56.292Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada del edificio de la Dirección General de Ingresos en la ciudad de Panamá, con el logo institucional en el tercio superior derecho, zona izquierda y central despejadas, estilo ilustración editorial.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-21-0756-sinlinea-la-prensa-42bd.jpg",
+    "hashDescripcion": "876f896f791d749d",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-21T12:56:26.063Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-21T12:56:26.063Z",
+  "actualizado": "2026-09-21T12:56:26.063Z"
+}
