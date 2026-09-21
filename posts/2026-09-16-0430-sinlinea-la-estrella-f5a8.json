@@ -1,7 +1,7 @@
 {
   "id": "2026-09-16-0430-sinlinea-la-estrella-f5a8",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "La Estrella de Panamá",
     "url": "https://www.laestrella.com.pa/panama/nacional/recorte-de-b-3718-millones-amenaza-capacidad-investigativa-del-ministerio-publico-en-2027-AC25724712",
@@ -43,5 +43,5 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-16T09:30:59.439Z",
-  "actualizado": "2026-09-16T09:30:59.439Z"
+  "actualizado": "2026-09-21T07:13:49.882Z"
 }
