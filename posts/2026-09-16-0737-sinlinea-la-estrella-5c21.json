@@ -1,7 +1,7 @@
 {
   "id": "2026-09-16-0737-sinlinea-la-estrella-5c21",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "La Estrella de Panamá",
     "url": "https://www.laestrella.com.pa/economia/panama-registra-crecimiento-economico-de-55-en-el-primer-semestre-de-2026-FD25730612",
@@ -43,5 +43,5 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-16T12:37:11.125Z",
-  "actualizado": "2026-09-16T12:37:11.125Z"
+  "actualizado": "2026-09-21T07:13:20.002Z"
 }
