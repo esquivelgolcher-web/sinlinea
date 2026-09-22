@@ -1,0 +1,47 @@
+{
+  "id": "2026-09-21-1910-sinlinea-la-prensa-1e90",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/politica/comenzo-la-discusion-del-proyecto-que-reforma-los-circuitos-electorales/",
+    "titulo": "Comenzó la discusión del proyecto que reforma los circuitos electorales",
+    "publicado": "2026-09-21T23:38:13.000Z"
+  },
+  "categoria": "POLÍTICA",
+  "titular": "Asamblea debate reforma que cambia circuitos electorales",
+  "bajada": "El pleno inició el segundo debate del proyecto que sube de 39 a 41 los circuitos electorales.",
+  "caption": "La Asamblea Nacional arrancó la discusión de una reforma que redibuja el mapa electoral del país. Bocas del Toro perdería su circuito único y Panamá pasaría de 25 a 23 diputados, mientras Chiriquí suma un circuito. La sesión se suspendió por la ausencia de los magistrados del Tribunal Electoral y continúa este martes.\n\n¿Te parece justo que cambien los circuitos antes de las próximas elecciones?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Asamblea",
+    "#EleccionesPanamá",
+    "#CircuitosElectorales",
+    "#TribunalElectoral"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-09-21-1910-sinlinea-la-prensa-1e90.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-21-1910-sinlinea-la-prensa-1e90.jpg",
+    "hash": "07a3bbc875adfb7e",
+    "version": 11,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-09-22T00:10:46.671Z"
+  },
+  "ilustracion": {
+    "descripcion": "Salón del pleno de la Asamblea Nacional de Panamá con curules vacías y un mapa de Panamá difuminado al fondo, el atril presidencial en el tercio superior derecho, zona izquierda y central despejadas.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-21-1910-sinlinea-la-prensa-1e90.jpg",
+    "hashDescripcion": "2061cccb693513d9",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-22T00:10:12.185Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-22T00:10:12.185Z",
+  "actualizado": "2026-09-22T00:10:12.185Z"
+}

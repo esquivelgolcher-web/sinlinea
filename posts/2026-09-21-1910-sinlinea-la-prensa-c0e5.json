@@ -1,0 +1,47 @@
+{
+  "id": "2026-09-21-1910-sinlinea-la-prensa-c0e5",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/politica/auditoria-vincula-a-exministro-roger-tejada-detectan-perjuicio-de-116-mil-en-los-bomberos/",
+    "titulo": "Auditoría vincula a exministro Roger Tejada: detectan perjuicio de $116 mil en los Bomberos",
+    "publicado": "2026-09-21T20:19:03.000Z"
+  },
+  "categoria": "INVESTIGACIÓN",
+  "titular": "Auditoría liga a exministro Tejada con perjuicio de $116 mil",
+  "bajada": "La Contraloría detectó que fondos de Bomberos se usaron en obras de la cárcel La Esmeralda entre 2022 y 2024.",
+  "caption": "Una auditoría forense de la Contraloría encontró que se desviaron $116,498 del Cuerpo de Bomberos para construir en el centro femenino La Esmeralda. El caso pasa ahora a la Procuraduría y al Tribunal de Cuentas, y señala al exministro de Gobierno Roger Tejada, quien también presidía Bomberos.\n\n¿Quién responde quie por el uso de fondos de una institución de emergencia?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Contraloría",
+    "#Bomberos",
+    "#Corrupción",
+    "#RogerTejada"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-09-21-1910-sinlinea-la-prensa-c0e5.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-21-1910-sinlinea-la-prensa-c0e5.jpg",
+    "hash": "9534e161fece4a83",
+    "version": 11,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-09-22T00:10:52.080Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada de un cuartel de bomberos panameño con un camión rojo estacionado, un edificio de la Contraloría General difuminado al fondo en el tercio superior derecho, zona izquierda y central despejadas.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-21-1910-sinlinea-la-prensa-c0e5.jpg",
+    "hashDescripcion": "dbc3b49cfa46976e",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-22T00:10:12.185Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-22T00:10:12.185Z",
+  "actualizado": "2026-09-22T00:10:12.185Z"
+}
