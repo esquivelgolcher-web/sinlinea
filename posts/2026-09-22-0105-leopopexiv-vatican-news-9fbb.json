@@ -1,0 +1,47 @@
+{
+  "id": "2026-09-22-0105-leopopexiv-vatican-news-9fbb",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-09/hspo-programme-latin-america-logos-mottos-itinerary.html",
+    "titulo": "Vatican releases itinerary for Pope's upcoming journey to Latin America",
+    "publicado": "2026-09-21T11:04:00.000Z"
+  },
+  "categoria": "INTERNACIONAL",
+  "titular": "Vatican reveals itinerary for Pope's Latin America trip",
+  "bajada": "Leo XIV will visit Uruguay, Argentina and Peru from Nov. 6 to 17, Holy See says",
+  "caption": "The Holy See Press Office has released the official programme, logos and mottos for Pope Leo XIV's upcoming Apostolic Journey to Uruguay, Argentina and Peru, set to take place from November 6 to 17. Source: Vatican News, Sept. 21, 2026.",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Vatican",
+    "#ApostolicJourney",
+    "#Uruguay",
+    "#Argentina",
+    "#Peru"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-09-22-0105-leopopexiv-vatican-news-9fbb.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-22-0105-leopopexiv-vatican-news-9fbb.jpg",
+    "hash": "35bfb798a75df966",
+    "version": 11,
+    "estilo": "32cba508d6c2290e",
+    "renderizada": "2026-09-22T05:05:42.011Z"
+  },
+  "ilustracion": {
+    "descripcion": "An airport tarmac with a white papal aircraft parked under a clear sky, a small Vatican flag visible on the tail, the plane placed in the upper right third, left and center of the frame left open and empty.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-22-0105-leopopexiv-vatican-news-9fbb.jpg",
+    "hashDescripcion": "4b4218274917c8d1",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-22T05:05:18.479Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-22T05:05:18.479Z",
+  "actualizado": "2026-09-22T05:05:18.479Z"
+}
