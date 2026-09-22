@@ -1,0 +1,207 @@
+{
+  "id": "2026-09-22-0645-luiseskivelgolcher-wired-6685",
+  "cuenta": "luiseskivelgolcher",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "WIRED",
+    "url": "https://www.wired.com/story/the-uk-government-faces-a-reckoning-over-palantir/",
+    "titulo": "The UK Government Faces a Reckoning Over Palantir",
+    "publicado": "2026-09-22T10:30:00.000Z"
+  },
+  "categoria": "POLÍTICA",
+  "titular": "Reino Unido evalúa romper contrato NHS con Palantir",
+  "bajada": "Burnham enfrenta presión para cancelar el acuerdo de £330 millones con la firma de datos",
+  "caption": "El primer ministro británico Andy Burnham llega a su cargo con un dilema que él mismo ayudó a crear: cuando era alcalde de Manchester, mantuvo a Palantir fuera de los datos de esa región. Ahora, según reportó WIRED el 22 de septiembre de 2026, fuentes de Westminster afirman que enfrenta presión de su propio partido para romper el contrato de £330 millones que la empresa estadounidense de análisis de datos tiene con el Servicio Nacional de Salud (NHS). Palantir, cuya tecnología también se usa en defensa y policía, gestiona una plataforma que centraliza datos médicos de pacientes en Inglaterra. Una petición pública para eliminarla por completo del NHS ya suma 177,000 firmas. El gobierno tiene, según Whitehall, hasta el otoño para decidir si busca otro proveedor. La disputa expone la tensión entre gobiernos que dependen de tecnología privada extranjera y la desconfianza pública hacia empresas de vigilancia con acceso a datos sensibles. ¿Debe un sistema de salud pública depender de una sola empresa privada para manejar los datos de sus pacientes?",
+  "hashtags": [
+    "#Palantir",
+    "#NHS",
+    "#ReinoUnido",
+    "#DatosPersonales",
+    "#TecnologíaYPoder"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-09-22-0645-luiseskivelgolcher-wired-6685.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-22-0645-luiseskivelgolcher-wired-6685.jpg",
+    "hash": "d753db78d9da0ede",
+    "version": 11,
+    "estilo": "dc8c8fa3edf501fd",
+    "renderizada": "2026-09-22T11:46:47.410Z"
+  },
+  "ilustracion": {
+    "descripcion": "El primer ministro británico camina de perfil hacia la entrada de Downing Street, en plano general, reconocible por su cargo y su traje. Aparece en el tercio superior derecho; la zona izquierda y central queda despejada.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-22-0645-luiseskivelgolcher-wired-6685.jpg",
+    "hashDescripcion": "b147a960d653b0f2",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-22T11:45:57.844Z",
+    "error": null,
+    "procedencia": "generada"
+  },
+  "formato": "carrusel",
+  "fuentes": [
+    {
+      "rol": "principal",
+      "medio": "WIRED",
+      "autor": "Ben Gartside",
+      "url": "https://www.wired.com/story/the-uk-government-faces-a-reckoning-over-palantir/",
+      "canonica": "https://www.wired.com/story/the-uk-government-faces-a-reckoning-over-palantir/",
+      "idioma": "en",
+      "publicado": "2026-09-22T10:30:00.000Z",
+      "actualizado": "2026-09-22T11:00:00.000Z",
+      "fechaHecho": null,
+      "consultado": "2026-09-22T11:45:57.844Z",
+      "alcance": "completo",
+      "textoRecuperado": {
+        "parrafos": 33,
+        "caracteres": 10078,
+        "enviados": 3768
+      },
+      "fuentesPrimarias": [
+        "https://www.thejc.com/news/politics/burnham-allies-distance-likely-next-pm-from-report-of-palantir-nhs-contract-cancellation-e6b3qho1",
+        "https://www.parallelparliament.co.uk/mp/rachael-maskell/debate/2026-04-16/commons/westminster-hall/nhs-federated-data-platform",
+        "https://assets.publishing.service.gov.uk/media/6a1d73ed916cd732dcdaad93/HA_Volume_II_part_III.pdf",
+        "https://www.gov.uk/csv-preview/67e560db55be617e1490d648/No10_special_advisers_hospitality__October_to_December_2024.csv",
+        "https://www.ft.com/content/9ea6f458-ce0c-458e-8300-201030cf846e?syn-25a6b1a6=1",
+        "http://www.aboutads.info"
+      ],
+      "licenciaMedios": null
+    }
+  ],
+  "afirmaciones": [
+    {
+      "texto": "Palantir tiene contratos por unos £670 millones en el sector público británico, incluyendo salud, defensa y policía.",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/the-uk-government-faces-a-reckoning-over-palantir/",
+      "contrastada": true
+    },
+    {
+      "texto": "El contrato más grande, de £330 millones, gestiona datos de salud en la Plataforma de Datos Federados del NHS.",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/the-uk-government-faces-a-reckoning-over-palantir/",
+      "contrastada": true
+    },
+    {
+      "texto": "Tres fuentes de Whitehall dijeron a WIRED que, si se rompe el contrato, la decisión debe tomarse en las próximas semanas para no arriesgar el cambio de proveedor.",
+      "tipo": "denuncia",
+      "fuente": "https://www.wired.com/story/the-uk-government-faces-a-reckoning-over-palantir/",
+      "contrastada": false
+    },
+    {
+      "texto": "Una petición pública para retirar a Palantir del NHS ha reunido 177,000 firmas.",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/the-uk-government-faces-a-reckoning-over-palantir/",
+      "contrastada": true
+    },
+    {
+      "texto": "La legisladora Rachael Maskell, exclínica del NHS, pidió en el Parlamento terminar el contrato porque \"esta empresa estadounidense de espionaje tecnológico está profundamente metida en los datos de nuestro NHS\".",
+      "tipo": "opinion",
+      "fuente": "https://www.parallelparliament.co.uk/mp/rachael-maskell/debate/2026-04-16/commons/westminster-hall/nhs-federated-data-platform",
+      "contrastada": true
+    }
+  ],
+  "angulo": "Cómo una decisión sobre datos de salud pone a prueba al nuevo gobierno británico frente a una gran tecnológica de vigilancia",
+  "atribucion": "WIRED (Ben Gartside)",
+  "puntuacion": {
+    "total": 82,
+    "componentes": {
+      "afinidad": 27,
+      "interes": 18,
+      "evidencia": 16,
+      "actualidad": 15,
+      "visual": 6
+    }
+  },
+  "alertas": [
+    "fuente-unica"
+  ],
+  "carrusel": {
+    "diapositivas": [
+      {
+        "titulo": "¿Puede un gobierno romper con la empresa que gestiona los datos de su sistema de salud?",
+        "texto": "El primer ministro británico Andy Burnham enfrenta presión de su propio partido para cancelar el contrato de Palantir con el NHS, según reportó WIRED el 22 de septiembre de 2026."
+      },
+      {
+        "titulo": "Qué ocurrió",
+        "texto": "Burnham, que como alcalde de Manchester mantuvo a Palantir fuera de esa región, ahora decide sobre su rol en todo el sistema de salud inglés. Fuentes de Westminster dicen que la decisión debe tomarse en semanas."
+      },
+      {
+        "titulo": "El contrato en cifras",
+        "texto": "Palantir gestiona £670 millones en contratos públicos británicos: salud, defensa y policía. El mayor, de £330 millones, controla la Plataforma de Datos Federados del NHS, que centraliza historiales médicos."
+      },
+      {
+        "titulo": "Quién presiona y por qué",
+        "texto": "El ala izquierda del Partido Laborista, incluida la legisladora y exclínica Rachael Maskell, exige romper el contrato. Argumentan que la confianza del paciente se debilita si una empresa de datos de vigilancia gestiona su información."
+      },
+      {
+        "titulo": "177,000 firmas y una respuesta ambigua",
+        "texto": "Una petición pública pide sacar a Palantir del NHS por completo. El gobierno respondió que \"considerará\" el tema en futuras políticas, sin comprometerse a nada, según documentó WIRED."
+      },
+      {
+        "titulo": "Qué falta por saber",
+        "texto": "No hay confirmación oficial de que el gobierno vaya a cancelar el contrato. La información proviene de fuentes de Westminster no identificadas por nombre; es una sola fuente periodística con múltiples informantes internos."
+      },
+      {
+        "titulo": "Una decisión que va más allá del Reino Unido",
+        "texto": "El caso ilustra una pregunta que se repite en varios países: qué tanto poder sobre datos sensibles debe tener una empresa privada de análisis y vigilancia. Fuente: WIRED, 22 de septiembre de 2026."
+      }
+    ],
+    "imagenes": [
+      {
+        "numero": 1,
+        "ruta": "public/img/2026-09-22-0645-luiseskivelgolcher-wired-6685-01.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-22-0645-luiseskivelgolcher-wired-6685-01.jpg",
+        "hash": "383d937ac7705820"
+      },
+      {
+        "numero": 2,
+        "ruta": "public/img/2026-09-22-0645-luiseskivelgolcher-wired-6685-02.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-22-0645-luiseskivelgolcher-wired-6685-02.jpg",
+        "hash": "4db4bf64c404fa0a"
+      },
+      {
+        "numero": 3,
+        "ruta": "public/img/2026-09-22-0645-luiseskivelgolcher-wired-6685-03.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-22-0645-luiseskivelgolcher-wired-6685-03.jpg",
+        "hash": "52d64e8beafc5c5d"
+      },
+      {
+        "numero": 4,
+        "ruta": "public/img/2026-09-22-0645-luiseskivelgolcher-wired-6685-04.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-22-0645-luiseskivelgolcher-wired-6685-04.jpg",
+        "hash": "996c4ab4e2833df2"
+      },
+      {
+        "numero": 5,
+        "ruta": "public/img/2026-09-22-0645-luiseskivelgolcher-wired-6685-05.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-22-0645-luiseskivelgolcher-wired-6685-05.jpg",
+        "hash": "5c4674d67cace89c"
+      },
+      {
+        "numero": 6,
+        "ruta": "public/img/2026-09-22-0645-luiseskivelgolcher-wired-6685-06.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-22-0645-luiseskivelgolcher-wired-6685-06.jpg",
+        "hash": "12eff184086cd9ce"
+      },
+      {
+        "numero": 7,
+        "ruta": "public/img/2026-09-22-0645-luiseskivelgolcher-wired-6685-07.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-22-0645-luiseskivelgolcher-wired-6685-07.jpg",
+        "hash": "81b39fce66379a3c"
+      }
+    ],
+    "hash": "f34cf8d288ad81b0",
+    "version": 2
+  },
+  "reel": null,
+  "revision": {
+    "estado": "pendiente",
+    "notas": []
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-22T11:45:57.844Z",
+  "actualizado": "2026-09-22T11:45:57.844Z"
+}
