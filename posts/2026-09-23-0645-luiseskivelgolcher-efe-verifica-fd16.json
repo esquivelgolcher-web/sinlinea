@@ -1,0 +1,119 @@
+{
+  "id": "2026-09-23-0645-luiseskivelgolcher-efe-verifica-fd16",
+  "cuenta": "luiseskivelgolcher",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "EFE Verifica",
+    "url": "https://verifica.efe.com/no-portadas-reales-declaraciones-mohamed-vi-son-montajes-ia/",
+    "titulo": "No son portadas de ABC, son montajes de IA",
+    "publicado": "2026-09-22T14:37:18.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "Portadas falsas de ABC sobre Marruecos, hechas con IA",
+  "bajada": "Imágenes virales atribuidas a Mohamed VI sobre Ceuta y Melilla fueron creadas con inteligencia artificial.",
+  "caption": "Circulan en redes sociales portadas del diario ABC en las que, supuestamente, el rey de Marruecos, Mohamed VI, ofrece devolver territorios españoles a cambio de Ceuta y Melilla. Según una verificación de EFE Verifica publicada el 22 de septiembre de 2026, esas portadas no son reales: son montajes hechos con inteligencia artificial que empezaron como contenido humorístico y terminaron difundiéndose como si fueran noticia. La portada auténtica de ABC de la fecha que aparece en las imágenes trataba sobre el caso Koldo, no sobre Marruecos. Para confirmarlo, los verificadores usaron Verify, una herramienta de OpenAI que detecta la marca de agua SynthID, un código invisible que algunas empresas insertan en imágenes generadas por IA para poder identificarlas después. El caso muestra cómo el humor digital puede mutar en desinformación cuando pierde su contexto original. ¿Cómo distinguís una portada real de un montaje antes de compartirlo?",
+  "hashtags": [
+    "#Desinformación",
+    "#IA",
+    "#Verificación",
+    "#España",
+    "#Marruecos"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-09-23-0645-luiseskivelgolcher-efe-verifica-fd16.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-23-0645-luiseskivelgolcher-efe-verifica-fd16.jpg",
+    "hash": "fccf9c977ba014d1",
+    "version": 11,
+    "estilo": "dc8c8fa3edf501fd",
+    "renderizada": "2026-09-23T11:47:03.587Z"
+  },
+  "ilustracion": {
+    "descripcion": "Un teléfono móvil que muestra una portada de periódico borrosa y genérica flota junto a un ícono digital de lupa; el elemento principal ocupa el tercio superior derecho y la zona izquierda y central quedan despejadas.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-23-0645-luiseskivelgolcher-efe-verifica-fd16.jpg",
+    "hashDescripcion": "7dc14314c09ca692",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-23T11:45:31.955Z",
+    "error": null,
+    "procedencia": "generada"
+  },
+  "formato": "post",
+  "fuentes": [
+    {
+      "rol": "principal",
+      "medio": "EFE Verifica",
+      "autor": "Leticia Bermejo de la Lama",
+      "url": "https://verifica.efe.com/no-portadas-reales-declaraciones-mohamed-vi-son-montajes-ia/",
+      "canonica": "https://verifica.efe.com/no-portadas-reales-declaraciones-mohamed-vi-son-montajes-ia/",
+      "idioma": "es",
+      "publicado": "2026-09-22T14:37:18.000Z",
+      "actualizado": "2026-09-22T14:55:34.000Z",
+      "fechaHecho": null,
+      "consultado": "2026-09-23T11:45:31.955Z",
+      "alcance": "completo",
+      "textoRecuperado": {
+        "parrafos": 21,
+        "caracteres": 4131,
+        "enviados": 3771
+      },
+      "fuentesPrimarias": [
+        "https://megalodon.jp/2026-0922-1944-26/https://x.com:443/Josepbcnm/status/2099915723267076317",
+        "https://megalodon.jp/2026-0922-1945-39/https://www.tiktok.com:443/@duque.de.alba71/photo/7683646441792769302",
+        "https://megalodon.jp/2026-0922-1941-57/https://www.facebook.com:443/manuel.bejarano.10/posts/el-de-la-chilaba-sigue-con-su-pulso-a-espa%C3%B1a-ante-un-gobierno-sumiso/28111402821822238/",
+        "https://megalodon.jp/2026-0922-1943-20/https://www.facebook.com:443/groups/478840995479886/posts/28873949125542360/",
+        "https://www.verportadas.es/portada/abc/20250524.html",
+        "https://efe.com/noticias/caso-koldo/",
+        "https://openai.com/es-ES/research/verify/"
+      ],
+      "licenciaMedios": null
+    }
+  ],
+  "afirmaciones": [
+    {
+      "texto": "Las portadas virales del ABC con declaraciones de Mohamed VI son montajes generados con inteligencia artificial.",
+      "tipo": "hecho",
+      "fuente": "https://verifica.efe.com/no-portadas-reales-declaraciones-mohamed-vi-son-montajes-ia/",
+      "contrastada": true
+    },
+    {
+      "texto": "La herramienta Verify de OpenAI detectó la marca de agua SynthID en las imágenes, lo que confirma que fueron generadas con IA.",
+      "tipo": "hecho",
+      "fuente": "https://verifica.efe.com/no-portadas-reales-declaraciones-mohamed-vi-son-montajes-ia/",
+      "contrastada": true
+    },
+    {
+      "texto": "La portada real de ABC del 24 de mayo de 2025 trataba sobre el caso Koldo, no sobre Marruecos.",
+      "tipo": "hecho",
+      "fuente": "https://www.verportadas.es/portada/abc/20250524.html",
+      "contrastada": true
+    }
+  ],
+  "angulo": "Cómo un montaje humorístico hecho con IA se convirtió en desinformación política, y cómo se detectó con herramientas de verificación.",
+  "atribucion": "EFE Verifica",
+  "puntuacion": {
+    "total": 73,
+    "componentes": {
+      "afinidad": 18,
+      "interes": 18,
+      "evidencia": 16,
+      "actualidad": 15,
+      "visual": 6
+    }
+  },
+  "alertas": [
+    "fuente-unica"
+  ],
+  "carrusel": null,
+  "reel": null,
+  "revision": {
+    "estado": "pendiente",
+    "notas": []
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-23T11:45:31.955Z",
+  "actualizado": "2026-09-23T11:45:31.955Z"
+}

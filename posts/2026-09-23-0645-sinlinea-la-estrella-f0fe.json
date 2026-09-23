@@ -1,0 +1,47 @@
+{
+  "id": "2026-09-23-0645-sinlinea-la-estrella-f0fe",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/economia/cciap-47-de-los-hogares-panamenos-comio-menos-de-tres-veces-al-dia-por-falta-de-dinero-GO25905113",
+    "titulo": "CCIAP: 47% de los hogares panameños comió menos de tres veces al día por falta de dinero",
+    "publicado": "2026-09-23T05:00:00.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "47% de hogares comió menos de 3 veces al día",
+  "bajada": "Encuesta de la CCIAP revela que falta de dinero afecta alimentación de casi la mitad de familias.",
+  "caption": "Casi la mitad de los hogares panameños no pudo comer tres veces al día el último mes por falta de dinero, según un estudio de la CCIAP y Gallup Panamá. La cifra sube a 74% en las comarcas indígenas y a 51% entre los hogares de menores ingresos. El informe también muestra que 83% de los panameños considera difícil conseguir trabajo. Detrás de estos números hay familias que ajustan el plato todos los días. ¿Has sentido este impacto en tu bolsillo?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#CostoDeVida",
+    "#Pobreza",
+    "#Empleo",
+    "#CCIAP"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-09-23-0645-sinlinea-la-estrella-f0fe.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-23-0645-sinlinea-la-estrella-f0fe.jpg",
+    "hash": "b8eb4aa4be7e983e",
+    "version": 11,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-09-23T11:46:09.382Z"
+  },
+  "ilustracion": {
+    "descripcion": "Mesa sencilla de cocina panameña con platos vacíos y pocos alimentos, en un hogar humilde; la mesa queda en el tercio superior derecho y el resto del espacio despejado.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-23-0645-sinlinea-la-estrella-f0fe.jpg",
+    "hashDescripcion": "9ee466623d9b24c8",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-23T11:45:31.955Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-23T11:45:31.955Z",
+  "actualizado": "2026-09-23T11:45:31.955Z"
+}

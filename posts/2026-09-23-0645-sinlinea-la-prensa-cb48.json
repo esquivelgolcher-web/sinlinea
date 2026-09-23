@@ -1,0 +1,46 @@
+{
+  "id": "2026-09-23-0645-sinlinea-la-prensa-cb48",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/politica/nueva-fiscal-electoral-frena-contrato-de-160-mil-para-monitorear-redes-sociales/",
+    "titulo": "Nueva fiscal electoral frena contrato de $160 mil para monitorear redes sociales",
+    "publicado": "2026-09-23T05:02:00.000Z"
+  },
+  "categoria": "POLÍTICA",
+  "titular": "Fiscal electoral frena contrato de $160 mil para monitoreo",
+  "bajada": "María Eugenia Pérez anuló un contrato directo con una empresa privada para vigilar redes sociales.",
+  "caption": "La nueva fiscal electoral, María Eugenia Pérez, decidió anular un contrato directo por $160,500 que la Fiscalía Electoral gestionaba con una empresa privada para monitorear redes sociales. La Contraloría ya había devuelto el contrato tras observaciones. Pérez propuso que dos funcionarios de la propia institución hagan ese trabajo, para ahorrar fondos públicos. ¿Crees que las instituciones deben evitar este tipo de contrataciones directas?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#FiscalíaElectoral",
+    "#GastoPúblico",
+    "#Transparencia"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-09-23-0645-sinlinea-la-prensa-cb48.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-23-0645-sinlinea-la-prensa-cb48.jpg",
+    "hash": "01f54899173273e3",
+    "version": 11,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-09-23T11:46:13.547Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada del edificio de la Fiscalía General Electoral de Panamá en un día soleado, con la entrada institucional en el tercio superior derecho y el resto despejado.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-23-0645-sinlinea-la-prensa-cb48.jpg",
+    "hashDescripcion": "6c91f91830598656",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-23T11:45:31.955Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-23T11:45:31.955Z",
+  "actualizado": "2026-09-23T11:45:31.955Z"
+}
