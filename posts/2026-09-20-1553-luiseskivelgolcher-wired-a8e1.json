@@ -1,7 +1,7 @@
 {
   "id": "2026-09-20-1553-luiseskivelgolcher-wired-a8e1",
   "cuenta": "luiseskivelgolcher",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "WIRED",
     "url": "https://www.wired.com/story/donald-trump-versus-maga-on-data-centers/",
@@ -119,9 +119,56 @@
     "estado": "pendiente",
     "notas": []
   },
-  "programado": null,
+  "programado": "2026-09-23T12:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-20T20:53:20.054Z",
-  "actualizado": "2026-09-20T20:53:20.054Z"
+  "actualizado": "2026-09-23T10:25:15.961Z",
+  "destinos": {
+    "instagram": {
+      "texto": "Donald Trump defiende sin matices los centros de datos y la inteligencia artificial (IA, sistemas que procesan datos para generar respuestas o decisiones automatizadas). Pero una parte de su propia base no está de acuerdo, según reportó WIRED el 20 de septiembre de 2026. Una encuesta de The New York Times citada por el medio halló que más del 60% de los estadounidenses, incluido el 47% de los republicanos, se opone a que se construyan estos centros en sus comunidades. Preocupan el consumo eléctrico y la contaminación. Un memo interno del Comité Nacional Republicano de Senadores, también citado por WIRED, advirtió a las empresas de IA que \"no se puede arreglar la marca tóxica de todo un sector\" solo con campaña. Trump, en cambio, escribió en Truth Social que solo las comunidades que quieren ser \"atrasadas y pobres\" rechazarían estos proyectos. Según WIRED, la tensión refleja una disputa real dentro del movimiento MAGA de cara a las elecciones legislativas. ¿Puede un partido ganar una elección defendiendo una industria que su propia base rechaza?\n\nFuente: WIRED\n\n#IA #EstadosUnidos #Tecnología #DataCenters #Política",
+      "aprobado": {
+        "fecha": "2026-09-23T10:25:15.961Z",
+        "hashPieza": "69b4a113ee26cb15",
+        "imagenHash": "9df83d8df876aa63",
+        "imagenSha": "1014ea0bf1e273733bb7922dd3bde22ea4755c59"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    },
+    "facebook": {
+      "texto": "Donald Trump defiende sin matices los centros de datos y la inteligencia artificial (IA, sistemas que procesan datos para generar respuestas o decisiones automatizadas). Pero una parte de su propia base no está de acuerdo, según reportó WIRED el 20 de septiembre de 2026. Una encuesta de The New York Times citada por el medio halló que más del 60% de los estadounidenses, incluido el 47% de los republicanos, se opone a que se construyan estos centros en sus comunidades. Preocupan el consumo eléctrico y la contaminación. Un memo interno del Comité Nacional Republicano de Senadores, también citado por WIRED, advirtió a las empresas de IA que \"no se puede arreglar la marca tóxica de todo un sector\" solo con campaña. Trump, en cambio, escribió en Truth Social que solo las comunidades que quieren ser \"atrasadas y pobres\" rechazarían estos proyectos. Según WIRED, la tensión refleja una disputa real dentro del movimiento MAGA de cara a las elecciones legislativas. ¿Puede un partido ganar una elección defendiendo una industria que su propia base rechaza?\n\nFuente: WIRED",
+      "aprobado": {
+        "fecha": "2026-09-23T10:25:15.961Z",
+        "hashPieza": "69b4a113ee26cb15",
+        "imagenHash": "9df83d8df876aa63",
+        "imagenSha": "1014ea0bf1e273733bb7922dd3bde22ea4755c59"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    },
+    "threads": {
+      "texto": "Trump choca con su base por los centros de datos\n\nEncuestas y memos internos republicanos muestran rechazo creciente a la industria de IA en EE.UU.\n\nSegún WIRED (19 de septiembre de 2026)",
+      "aprobado": {
+        "fecha": "2026-09-23T10:25:15.961Z",
+        "hashPieza": "69b4a113ee26cb15",
+        "imagenHash": "9df83d8df876aa63",
+        "imagenSha": "1014ea0bf1e273733bb7922dd3bde22ea4755c59"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
