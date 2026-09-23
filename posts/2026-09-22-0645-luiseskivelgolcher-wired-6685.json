@@ -1,7 +1,7 @@
 {
   "id": "2026-09-22-0645-luiseskivelgolcher-wired-6685",
   "cuenta": "luiseskivelgolcher",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "WIRED",
     "url": "https://www.wired.com/story/the-uk-government-faces-a-reckoning-over-palantir/",
@@ -199,9 +199,59 @@
     "estado": "pendiente",
     "notas": []
   },
-  "programado": null,
+  "programado": "2026-09-23T09:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-22T11:45:57.844Z",
-  "actualizado": "2026-09-22T11:45:57.844Z"
+  "actualizado": "2026-09-23T10:25:30.730Z",
+  "destinos": {
+    "instagram": {
+      "texto": "El primer ministro británico Andy Burnham llega a su cargo con un dilema que él mismo ayudó a crear: cuando era alcalde de Manchester, mantuvo a Palantir fuera de los datos de esa región. Ahora, según reportó WIRED el 22 de septiembre de 2026, fuentes de Westminster afirman que enfrenta presión de su propio partido para romper el contrato de £330 millones que la empresa estadounidense de análisis de datos tiene con el Servicio Nacional de Salud (NHS). Palantir, cuya tecnología también se usa en defensa y policía, gestiona una plataforma que centraliza datos médicos de pacientes en Inglaterra. Una petición pública para eliminarla por completo del NHS ya suma 177,000 firmas. El gobierno tiene, según Whitehall, hasta el otoño para decidir si busca otro proveedor. La disputa expone la tensión entre gobiernos que dependen de tecnología privada extranjera y la desconfianza pública hacia empresas de vigilancia con acceso a datos sensibles. ¿Debe un sistema de salud pública depender de una sola empresa privada para manejar los datos de sus pacientes?\n\nFuente: WIRED\n\n#Palantir #NHS #ReinoUnido #DatosPersonales #TecnologíaYPoder",
+      "aprobado": {
+        "fecha": "2026-09-23T10:25:30.730Z",
+        "hashPieza": "aec033eec6a0e1b8",
+        "imagenHash": "d753db78d9da0ede",
+        "imagenSha": "19e5505241d0449727830ec595ce81a4a6714acd",
+        "imagenesSha": [
+          "5dcc5f214f184f55cea504cbe5ce3d2091ec91f6",
+          "607ccd98497a256284638b157e73ff16a44d62f1",
+          "16a094903413fefb53224c217120ef3c28a78342",
+          "f3c18b1c91850e823411f1d69b3732574676b20d",
+          "9b82531191bc4ba07b3b3083013d19b309ec8521",
+          "b4f70d3ad20e070f7a6ba97e356833e95ca1cda4",
+          "b321b4310abb8f3350bad6c6d8334e671bd1b323"
+        ]
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    },
+    "threads": {
+      "texto": "Reino Unido evalúa romper contrato NHS con Palantir\n\nBurnham enfrenta presión para cancelar el acuerdo de £330 millones con la firma de datos\n\nSegún WIRED (22 de septiembre de 2026)",
+      "aprobado": {
+        "fecha": "2026-09-23T10:25:30.730Z",
+        "hashPieza": "aec033eec6a0e1b8",
+        "imagenHash": "d753db78d9da0ede",
+        "imagenSha": "19e5505241d0449727830ec595ce81a4a6714acd",
+        "imagenesSha": [
+          "5dcc5f214f184f55cea504cbe5ce3d2091ec91f6",
+          "607ccd98497a256284638b157e73ff16a44d62f1",
+          "16a094903413fefb53224c217120ef3c28a78342",
+          "f3c18b1c91850e823411f1d69b3732574676b20d",
+          "9b82531191bc4ba07b3b3083013d19b309ec8521",
+          "b4f70d3ad20e070f7a6ba97e356833e95ca1cda4",
+          "b321b4310abb8f3350bad6c6d8334e671bd1b323"
+        ]
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
