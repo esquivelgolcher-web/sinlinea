@@ -1,7 +1,7 @@
 {
   "id": "2026-09-20-1553-luiseskivelgolcher-wired-a8e1",
   "cuenta": "luiseskivelgolcher",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "WIRED",
     "url": "https://www.wired.com/story/donald-trump-versus-maga-on-data-centers/",
@@ -177,16 +177,15 @@
         "imagenHash": "9df83d8df876aa63",
         "imagenSha": "1014ea0bf1e273733bb7922dd3bde22ea4755c59"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-09-23T19:37:23.575Z",
-        "actualizado": "2026-09-23T19:37:23.575Z",
-        "contenedorId": "17990360418100604"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "17941191846361435",
+        "idPublicacion": null,
+        "permalink": "https://www.threads.com/@luisegolcher/post/DdpFB5vj3cm",
+        "fecha": "2026-09-23T19:37:23.575Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
