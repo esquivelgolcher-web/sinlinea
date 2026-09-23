@@ -1,7 +1,7 @@
 {
   "id": "2026-09-22-0645-luiseskivelgolcher-wired-6685",
   "cuenta": "luiseskivelgolcher",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "WIRED",
     "url": "https://www.wired.com/story/the-uk-government-faces-a-reckoning-over-palantir/",
@@ -255,25 +255,15 @@
           "b321b4310abb8f3350bad6c6d8334e671bd1b323"
         ]
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-09-23T15:33:29.688Z",
-        "actualizado": "2026-09-23T15:33:29.688Z",
-        "contenedorId": "17990333328100604",
-        "hijos": [
-          "17990333163100604",
-          "17990333184100604",
-          "17990333211100604",
-          "17990333235100604",
-          "17990333265100604",
-          "17990333286100604",
-          "17990333307100604"
-        ]
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18127429777627485",
+        "idPublicacion": null,
+        "permalink": "https://www.threads.com/@luisegolcher/post/DdopM5GFExA",
+        "fecha": "2026-09-23T15:33:29.688Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
