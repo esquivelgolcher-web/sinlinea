@@ -123,7 +123,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-20T20:53:20.054Z",
-  "actualizado": "2026-09-23T10:25:15.961Z",
+  "actualizado": "2026-09-23T19:37:23.575Z",
   "destinos": {
     "instagram": {
       "texto": "Donald Trump defiende sin matices los centros de datos y la inteligencia artificial (IA, sistemas que procesan datos para generar respuestas o decisiones automatizadas). Pero una parte de su propia base no está de acuerdo, según reportó WIRED el 20 de septiembre de 2026. Una encuesta de The New York Times citada por el medio halló que más del 60% de los estadounidenses, incluido el 47% de los republicanos, se opone a que se construyan estos centros en sus comunidades. Preocupan el consumo eléctrico y la contaminación. Un memo interno del Comité Nacional Republicano de Senadores, también citado por WIRED, advirtió a las empresas de IA que \"no se puede arreglar la marca tóxica de todo un sector\" solo con campaña. Trump, en cambio, escribió en Truth Social que solo las comunidades que quieren ser \"atrasadas y pobres\" rechazarían estos proyectos. Según WIRED, la tensión refleja una disputa real dentro del movimiento MAGA de cara a las elecciones legislativas. ¿Puede un partido ganar una elección defendiendo una industria que su propia base rechaza?\n\nFuente: WIRED\n\n#IA #EstadosUnidos #Tecnología #DataCenters #Política",
@@ -136,7 +136,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-09-23T19:37:23.575Z",
+        "actualizado": "2026-09-23T19:37:23.575Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     },
