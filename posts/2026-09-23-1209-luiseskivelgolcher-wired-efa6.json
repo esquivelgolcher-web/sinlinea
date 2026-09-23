@@ -1,0 +1,214 @@
+{
+  "id": "2026-09-23-1209-luiseskivelgolcher-wired-efa6",
+  "cuenta": "luiseskivelgolcher",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "WIRED",
+    "url": "https://www.wired.com/story/metas-muse-ai-agent-zero-day/",
+    "titulo": "Meta’s Muse AI Assistant Rolled Out With a Serious Security Flaw",
+    "publicado": "2026-09-23T12:54:58.373Z"
+  },
+  "categoria": "SEGURIDAD",
+  "titular": "Zero-day en Muse, la IA de Meta, exponía Mac ajenas",
+  "bajada": "Cualquier app local podía tomar control total del asistente, según investigador citado por WIRED",
+  "caption": "Meta lanzó hace unas semanas Muse, un asistente de inteligencia artificial para macOS que agenda citas, redacta documentos y se conecta con WhatsApp, correo y redes sociales. Según reportó WIRED (Dan Goodin, Ars Technica) el 23 de septiembre de 2026, el investigador de seguridad Patrick Wardle halló un 'zero-day': una falla desconocida hasta ese momento para el fabricante. Cualquier aplicación o comando de terminal en la computadora podía cambiar el servidor donde Muse envía las transcripciones de voz, robando así el token que da control total de la cuenta. Wardle dijo que con eso podía escribir archivos maliciosos o tomar fotos sin que el usuario lo notara. Meta publicó un parche más de 12 horas después de que WIRED difundiera el hallazgo. Amazon, por su parte, había empezado a bloquear Muse en su sitio días antes. ¿Cuánto acceso le damos a un asistente de IA sin pensarlo dos veces?",
+  "hashtags": [
+    "#Ciberseguridad",
+    "#IA",
+    "#Meta",
+    "#Privacidad"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-09-23-1209-luiseskivelgolcher-wired-efa6.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-23-1209-luiseskivelgolcher-wired-efa6.jpg",
+    "hash": "f90ad6fac302c6b0",
+    "version": 11,
+    "estilo": "dc8c8fa3edf501fd",
+    "renderizada": "2026-09-23T17:10:14.412Z"
+  },
+  "ilustracion": {
+    "descripcion": "Laptop Mac abierta sobre un escritorio minimalista, con un ícono abstracto de asistente de inteligencia artificial flotando sobre la pantalla; el elemento principal queda en el tercio superior derecho y la zona izquierda y central permanece despejada.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-23-1209-luiseskivelgolcher-wired-efa6.jpg",
+    "hashDescripcion": "af30a70c8d5be352",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-23T17:09:31.466Z",
+    "error": null,
+    "procedencia": "generada"
+  },
+  "formato": "carrusel",
+  "fuentes": [
+    {
+      "rol": "principal",
+      "medio": "WIRED",
+      "autor": "Dan Goodin, Ars Technica",
+      "url": "https://www.wired.com/story/metas-muse-ai-agent-zero-day/",
+      "canonica": "https://arstechnica.com/security/2026/09/muse-metas-extraordinarily-privileged-ai-assistant-has-a-serious-0-day/",
+      "idioma": "en",
+      "publicado": "2026-09-23T12:54:58.373Z",
+      "actualizado": "2026-09-23T12:54:58.373Z",
+      "fechaHecho": null,
+      "consultado": "2026-09-23T17:09:31.466Z",
+      "alcance": "completo",
+      "textoRecuperado": {
+        "parrafos": 25,
+        "caracteres": 8798,
+        "enviados": 3888
+      },
+      "fuentesPrimarias": [
+        "https://www.wired.com/story/mark-zuckerbergs-ai-manifesto-is-6500-words-and-barely-says-anything/",
+        "https://www.wired.com/story/meta-releases-muse-a-personal-ai-agent-with-privacy-built-into-it/",
+        "https://www.wired.com/story/metas-muse-is-better-at-surveilling-than-helping-me/",
+        "https://www.wired.com/2014/11/what-is-a-zero-day/",
+        "https://ai.meta.com/muse/",
+        "https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse",
+        "https://www.meta.com/help/artificial-intelligence/1047255454427887/",
+        "https://objectivebythesea.org/v9/index.html",
+        "https://www.wired.com/story/app/splash/",
+        "https://www.wired.com/story/why-so-many-ai-researchers-think-the-machines-could-kill-everyone/",
+        "https://www.wired.com/story/big-interview-patti-harrison/",
+        "https://www.wired.com/story/i-used-ai-to-hack-my-home-network/",
+        "https://www.wired.com/newsletter/exclusive/kernel-panic?sourceCode=BottomStories",
+        "http://www.aboutads.info"
+      ],
+      "licenciaMedios": null
+    }
+  ],
+  "afirmaciones": [
+    {
+      "texto": "Meta lanzó Muse, un asistente de IA para macOS que puede reservar citas, hacer compras y conectarse a WhatsApp, correo y calendarios",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/metas-muse-ai-agent-zero-day/",
+      "contrastada": true
+    },
+    {
+      "texto": "El investigador Patrick Wardle descubrió un zero-day (una falla de seguridad desconocida hasta ese momento) que permitía a cualquier app o comando de terminal cambiar el destino de las transcripciones de voz y robar el token de la cuenta",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/metas-muse-ai-agent-zero-day/",
+      "contrastada": false
+    },
+    {
+      "texto": "Con ese acceso, según Wardle, se podía escribir archivos maliciosos en el disco o tomar fotos con la cámara sin alertar al usuario",
+      "tipo": "denuncia",
+      "fuente": "https://www.wired.com/story/metas-muse-ai-agent-zero-day/",
+      "contrastada": false
+    },
+    {
+      "texto": "Meta publicó una corrección (hotfix) más de 12 horas después de la publicación del artículo de WIRED",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/metas-muse-ai-agent-zero-day/",
+      "contrastada": true
+    },
+    {
+      "texto": "Amazon comenzó a bloquear el acceso de Muse a su sitio antes de que se conociera el hallazgo",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/metas-muse-ai-agent-zero-day/",
+      "contrastada": false
+    }
+  ],
+  "angulo": "Explicar cómo una falla de diseño en un asistente de IA con permisos amplios en macOS pudo dar control total a un atacante, y qué dice esto sobre la seguridad de los agentes de IA en general.",
+  "atribucion": "Según WIRED (Dan Goodin, Ars Technica), 23 de septiembre de 2026",
+  "puntuacion": {
+    "total": 84,
+    "componentes": {
+      "afinidad": 27,
+      "interes": 20,
+      "evidencia": 16,
+      "actualidad": 15,
+      "visual": 6
+    }
+  },
+  "alertas": [
+    "fuente-unica"
+  ],
+  "carrusel": {
+    "diapositivas": [
+      {
+        "titulo": "Un asistente de IA con acceso total a tu Mac",
+        "texto": "Meta lanzó Muse, una IA que promete privacidad y seguridad 'desde el diseño'. Un investigador encontró una falla que contradice esa promesa, según WIRED."
+      },
+      {
+        "titulo": "Qué ocurrió",
+        "texto": "El experto en seguridad de macOS Patrick Wardle halló un zero-day en Muse: una vulnerabilidad que nadie conocía hasta su hallazgo, reportado el 23 de septiembre de 2026."
+      },
+      {
+        "titulo": "Cómo se rompía la protección",
+        "texto": "Cualquier app o comando de terminal podía cambiar el servidor donde Muse envía audio para transcribir, robando así el token que controla toda la cuenta del asistente."
+      },
+      {
+        "titulo": "Qué podía hacer un atacante",
+        "texto": "Wardle creó pruebas de concepto: escribir archivos maliciosos en el disco o tomar fotos con la cámara, muchas veces sin ninguna alerta visible para el usuario."
+      },
+      {
+        "titulo": "A quién afecta",
+        "texto": "A cualquier persona que instaló Muse en su Mac y le dio acceso a WhatsApp, correo, calendario o redes sociales, según describe Meta en la promoción del producto."
+      },
+      {
+        "titulo": "Qué falta por saber",
+        "texto": "No hay evidencia pública de que la falla fuera explotada antes del parche. Meta corrigió el problema más de 12 horas después de conocerse el hallazgo."
+      },
+      {
+        "titulo": "La lección detrás del caso",
+        "texto": "Dar permisos amplios a un asistente de IA multiplica los riesgos de seguridad. Fuente: WIRED, con base en el trabajo del investigador Patrick Wardle."
+      }
+    ],
+    "imagenes": [
+      {
+        "numero": 1,
+        "ruta": "public/img/2026-09-23-1209-luiseskivelgolcher-wired-efa6-01.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-23-1209-luiseskivelgolcher-wired-efa6-01.jpg",
+        "hash": "cd7ebc3395b67d59"
+      },
+      {
+        "numero": 2,
+        "ruta": "public/img/2026-09-23-1209-luiseskivelgolcher-wired-efa6-02.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-23-1209-luiseskivelgolcher-wired-efa6-02.jpg",
+        "hash": "6a5714bdab5cdf3b"
+      },
+      {
+        "numero": 3,
+        "ruta": "public/img/2026-09-23-1209-luiseskivelgolcher-wired-efa6-03.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-23-1209-luiseskivelgolcher-wired-efa6-03.jpg",
+        "hash": "90f84559fff212e7"
+      },
+      {
+        "numero": 4,
+        "ruta": "public/img/2026-09-23-1209-luiseskivelgolcher-wired-efa6-04.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-23-1209-luiseskivelgolcher-wired-efa6-04.jpg",
+        "hash": "58bf8e9990295af3"
+      },
+      {
+        "numero": 5,
+        "ruta": "public/img/2026-09-23-1209-luiseskivelgolcher-wired-efa6-05.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-23-1209-luiseskivelgolcher-wired-efa6-05.jpg",
+        "hash": "704ab19d33172487"
+      },
+      {
+        "numero": 6,
+        "ruta": "public/img/2026-09-23-1209-luiseskivelgolcher-wired-efa6-06.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-23-1209-luiseskivelgolcher-wired-efa6-06.jpg",
+        "hash": "1364486733873b59"
+      },
+      {
+        "numero": 7,
+        "ruta": "public/img/2026-09-23-1209-luiseskivelgolcher-wired-efa6-07.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-23-1209-luiseskivelgolcher-wired-efa6-07.jpg",
+        "hash": "84469690be674632"
+      }
+    ],
+    "hash": "0af3ef61a55ee027",
+    "version": 2
+  },
+  "reel": null,
+  "revision": {
+    "estado": "pendiente",
+    "notas": []
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-23T17:09:31.466Z",
+  "actualizado": "2026-09-23T17:09:31.466Z"
+}
