@@ -1,0 +1,46 @@
+{
+  "id": "2026-09-23-0050-leopopexiv-vatican-news-e70c",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/vatican-city/news/2026-09/american-theologian-john-cavadini-receive-2026-ratzinger-prize.html",
+    "titulo": "American theologian to receive the 2026 Ratzinger Prize",
+    "publicado": "2026-09-22T16:50:00.000Z"
+  },
+  "categoria": "CULTURA",
+  "titular": "Pope Leo XIV to award 2026 Ratzinger Prize",
+  "bajada": "US theologian John Cavadini honored for research on St Augustine and Patristics",
+  "caption": "Pope Leo XIV will present the 2026 Ratzinger Prize to American theologian Dr John Cavadini on December 19 at the Apostolic Palace, recognizing his scholarly work on Patristics and St Augustine. Source: Vatican News, Sept 22, 2026.",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#RatzingerPrize",
+    "#Vatican",
+    "#Theology",
+    "#StAugustine"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-09-23-0050-leopopexiv-vatican-news-e70c.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-23-0050-leopopexiv-vatican-news-e70c.jpg",
+    "hash": "4b1e9d4dc1b87eaf",
+    "version": 11,
+    "estilo": "32cba508d6c2290e",
+    "renderizada": "2026-09-23T04:50:58.403Z"
+  },
+  "ilustracion": {
+    "descripcion": "The Apostolic Palace's ornate reception hall, warm lighting, a wooden podium and framed medal case in the upper right third, left and center space open and calm.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-23-0050-leopopexiv-vatican-news-e70c.jpg",
+    "hashDescripcion": "d1b0f2bcedfa590a",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-23T04:50:43.070Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-23T04:50:43.070Z",
+  "actualizado": "2026-09-23T04:50:43.070Z"
+}
