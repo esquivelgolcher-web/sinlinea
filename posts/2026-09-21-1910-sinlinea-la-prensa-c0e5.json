@@ -1,7 +1,7 @@
 {
   "id": "2026-09-21-1910-sinlinea-la-prensa-c0e5",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "La Prensa",
     "url": "https://www.prensa.com/politica/auditoria-vincula-a-exministro-roger-tejada-detectan-perjuicio-de-116-mil-en-los-bomberos/",
@@ -43,5 +43,5 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-22T00:10:12.185Z",
-  "actualizado": "2026-09-22T00:10:12.185Z"
+  "actualizado": "2026-09-23T10:26:37.523Z"
 }
