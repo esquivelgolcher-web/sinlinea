@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="es" data-version="1">
+<html lang="es" data-version="2">
 <head>
 <meta charset="utf-8">
 <base href="__BASE__">
@@ -41,7 +41,9 @@
   /* Titular: anclado abajo, como una portada, con la regla del acento encima. */
   .tarjeta[data-plantilla="titular"] .cuerpo { justify-content: flex-end; }
   .regla { width: 200px; height: 18px; background: var(--acento); margin-bottom: 40px; flex: none; }
-  .titular { font-size: 168px; line-height: 0.94; letter-spacing: 0.005em; }
+  /* Interlineado 1.14: en Anton, una mayúscula con tilde (Í, Á, Ñ) sube 1.11 veces el tamaño sobre la línea base;
+     con menos, la tilde toca la línea de arriba. */
+  .titular { font-size: 168px; line-height: 1.14; letter-spacing: 0.005em; }
   .bajada { margin: 34px 0 0; font-weight: 500; font-size: 38px; line-height: 1.3; color: color-mix(in srgb, var(--texto) 82%, var(--fondo)); max-width: 920px; overflow-wrap: normal; word-break: normal; hyphens: none; }
   .bajada:empty { display: none; }
 
@@ -148,7 +150,7 @@
   } else {
     const titular = $("titular");
     const bloque = titular.parentElement;
-    const titularCabe = ajustar(titular, { max: 168, min: 96, paso: 4, interlineado: 0.94, lineas: 5 });
+    const titularCabe = ajustar(titular, { max: 168, min: 96, paso: 4, interlineado: 1.14, lineas: 5 });
     const bajadaCabe = ajustar($("bajada"), { max: 38, min: 32, paso: 2, interlineado: 1.3, lineas: 3 });
     let t = parseFloat(titular.style.fontSize);
     while (!cabeBloque(bloque) && t > 96) { t -= 4; titular.style.fontSize = t + "px"; }

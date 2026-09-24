@@ -76,7 +76,11 @@ async function medir(post) {
     await page.waitForSelector('body[data-listo="1"]');
     return await page.evaluate(() => {
       const bloque = document.querySelector(document.getElementById("tarjeta").dataset.plantilla === "dato" ? ".dato-bloque" : ".titular-bloque").getBoundingClientRect();
-      return { cabecera: document.querySelector(".cabecera").getBoundingClientRect().bottom, arriba: bloque.top, abajo: bloque.bottom, pie: document.querySelector(".pie").getBoundingClientRect().top, error: document.body.dataset.error || "" };
+      const t = getComputedStyle(document.getElementById("titular"));
+      return { cabecera: document.querySelector(".cabecera").getBoundingClientRect().bottom, arriba: bloque.top, abajo: bloque.bottom, pie: document.querySelector(".pie").getBoundingClientRect().top, error: document.body.dataset.error || "",
+        interlineado: parseFloat(t.lineHeight) / parseFloat(t.fontSize),
+        // Cuánto sube una mayúscula con tilde sobre la línea base, medido con la fuente cargada (en múltiplos del tamaño).
+        tilde: (() => { const c = document.createElement("canvas").getContext("2d"); c.font = "400 100px Anton"; return Math.max(...["Í", "Á", "Ñ"].map((x) => c.measureText(x).actualBoundingBoxAscent)) / 100; })() };
     });
   } finally {
     await page.close();
@@ -91,4 +95,10 @@ test("(tarjeta) el texto nunca pisa la cabecera ni el pie, aunque el titular ocu
     assert.ok(m.arriba >= m.cabecera + 20, `${post.titular}: el bloque empieza en ${m.arriba} y la cabecera acaba en ${m.cabecera}`);
     assert.ok(m.abajo <= m.pie, `${post.titular}: el bloque acaba en ${m.abajo} y el pie empieza en ${m.pie}`);
   }
+});
+
+test("(tarjeta) el interlineado del titular deja sitio a las tildes de las mayúsculas (Ñ, Í) sin pisar la línea de arriba", async () => {
+  const m = await medir({ ...titular, titular: "Capturan red que reclutaba panameños para guerra en Rusia" });
+  assert.ok(m.tilde > 1, "la medida de la tilde tiene sentido (Anton cargada)");
+  assert.ok(m.interlineado >= m.tilde + 0.02, `interlineado ${m.interlineado.toFixed(2)}: la tilde sube ${m.tilde.toFixed(2)} y tocaría la línea de arriba`);
 });
