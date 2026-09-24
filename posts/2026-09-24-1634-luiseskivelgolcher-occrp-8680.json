@@ -1,0 +1,196 @@
+{
+  "id": "2026-09-24-1634-luiseskivelgolcher-occrp-8680",
+  "cuenta": "luiseskivelgolcher",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "OCCRP",
+    "url": "https://www.occrp.org/en/news/us-charges-tech-ceo-russian-over-hidden-ownership",
+    "titulo": "US Charges Tech CEO, Russian Over Hidden Ownership",
+    "publicado": "2026-09-24T12:47:00.000Z"
+  },
+  "categoria": "SEGURIDAD",
+  "titular": "EE.UU. acusa a firma forense por ocultar dueños rusos",
+  "bajada": "Oxygen Forensics vendía software a agencias como el Servicio Secreto, dice la fiscalía",
+  "caption": "La fiscalía federal de Los Ángeles acusó al CEO de Oxygen Forensics, Lee Reiber, y al ciudadano ruso Oleg Davydov de conspirar para ocultar que la empresa tenía dueños rusos y desarrollaba su software forense digital —herramientas que extraen datos de teléfonos y computadoras para investigaciones— en Rusia, según reportó OCCRP el 24 de septiembre de 2026. Oxygen vendía ese software a agencias estadounidenses, incluido el Servicio Secreto. Según la acusación, cinco ciudadanos rusos controlaban la empresa a través de una firma en Chipre y desaparecieron de los registros públicos tras las sanciones de 2022, aunque siguieron decidiendo pagos y manejando cuentas. El Departamento de Justicia aclaró que no se alega que el software tuviera código malicioso. Reiber fue arrestado en Idaho; Davydov, detenido en Londres, enfrenta un pedido de extradición. Ambos se presumen inocentes. ¿Cuántos contratos gubernamentales dependen de verificar quién controla realmente el software que compran?",
+  "hashtags": [
+    "#Ciberseguridad",
+    "#EstadosUnidos",
+    "#ContratosPúblicos",
+    "#Rusia"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-09-24-1634-luiseskivelgolcher-occrp-8680.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-24-1634-luiseskivelgolcher-occrp-8680.jpg",
+    "hash": "1fd01965c3e08b6f",
+    "version": 11,
+    "estilo": "dc8c8fa3edf501fd",
+    "renderizada": "2026-09-24T21:35:37.494Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada de un edificio de tribunales federales de Estados Unidos, columnas clásicas, bandera ondeando; el edificio ocupa el tercio superior derecho y la zona izquierda y central queda despejada.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-24-1634-luiseskivelgolcher-occrp-8680.jpg",
+    "hashDescripcion": "ffde97871a99ef85",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-24T21:34:55.460Z",
+    "error": null,
+    "procedencia": "generada"
+  },
+  "formato": "carrusel",
+  "fuentes": [
+    {
+      "rol": "principal",
+      "medio": "OCCRP",
+      "autor": null,
+      "url": "https://www.occrp.org/en/news/us-charges-tech-ceo-russian-over-hidden-ownership",
+      "canonica": "https://www.occrp.org/en/news/us-charges-tech-ceo-russian-over-hidden-ownership",
+      "idioma": "en",
+      "publicado": "2026-09-24T12:47:00.000Z",
+      "actualizado": null,
+      "fechaHecho": "2026-09-24",
+      "consultado": "2026-09-24T21:34:55.460Z",
+      "alcance": "completo",
+      "textoRecuperado": {
+        "parrafos": 31,
+        "caracteres": 5388,
+        "enviados": 3997
+      },
+      "fuentesPrimarias": [
+        "https://www.justice.gov/usao-cdca/pr/tech-ceo-russian-national-arrested-complaint-alleging-they-hid-russian-ownership-and"
+      ],
+      "licenciaMedios": null
+    }
+  ],
+  "afirmaciones": [
+    {
+      "texto": "Fiscales de EE.UU. acusaron al CEO Lee Reiber y al ciudadano ruso Oleg Davydov de conspiración para cometer fraude electrónico por ocultar la propiedad rusa de Oxygen Forensics.",
+      "tipo": "hecho",
+      "fuente": "https://www.occrp.org/en/news/us-charges-tech-ceo-russian-over-hidden-ownership",
+      "contrastada": true
+    },
+    {
+      "texto": "Oxygen Forensics vendió software forense digital a agencias estadounidenses, incluidos el Servicio Secreto y Seguridad Nacional.",
+      "tipo": "hecho",
+      "fuente": "https://www.occrp.org/en/news/us-charges-tech-ceo-russian-over-hidden-ownership",
+      "contrastada": true
+    },
+    {
+      "texto": "Según la acusación, los dueños rusos desaparecieron de los registros públicos pero siguieron controlando pagos y cuentas bancarias de la empresa.",
+      "tipo": "denuncia",
+      "fuente": "https://www.justice.gov/usao-cdca/pr/tech-ceo-russian-national-arrested-complaint-alleging-they-hid-russian-ownership-and",
+      "contrastada": false
+    },
+    {
+      "texto": "El Departamento de Justicia aclaró que la acusación no alega que el software contuviera código malicioso ni que se usara para acceder sin autorización a sistemas de clientes.",
+      "tipo": "hecho",
+      "fuente": "https://www.occrp.org/en/news/us-charges-tech-ceo-russian-over-hidden-ownership",
+      "contrastada": true
+    }
+  ],
+  "angulo": "Cómo una empresa que vendía herramientas forenses a agencias de EE.UU. habría ocultado su propiedad rusa tras las sanciones de 2022.",
+  "atribucion": "OCCRP, con base en el Departamento de Justicia de EE.UU.",
+  "puntuacion": {
+    "total": 79,
+    "componentes": {
+      "afinidad": 27,
+      "interes": 18,
+      "evidencia": 14,
+      "actualidad": 15,
+      "visual": 5
+    }
+  },
+  "alertas": [
+    "acusacion-sin-fuente",
+    "fuente-unica"
+  ],
+  "carrusel": {
+    "diapositivas": [
+      {
+        "titulo": "¿Quién es realmente dueño del software forense que usa el gobierno de EE.UU.?",
+        "texto": "Fiscales acusan a una empresa de ocultar que sus dueños eran rusos mientras vendía herramientas a agencias federales."
+      },
+      {
+        "titulo": "Dos arrestos, un cargo de fraude",
+        "texto": "El CEO Lee Reiber y el ruso Oleg Davydov fueron acusados de conspirar para ocultar la propiedad rusa de Oxygen Forensics, según el Departamento de Justicia."
+      },
+      {
+        "titulo": "El negocio: extraer datos de teléfonos y computadoras",
+        "texto": "Oxygen Forensics vendía software que agencias como el Servicio Secreto usan para analizar dispositivos en investigaciones."
+      },
+      {
+        "titulo": "Cinco rusos, una empresa en Chipre",
+        "texto": "La fiscalía dice que cinco ciudadanos rusos controlaban la firma mediante una holding en Chipre y desaparecieron de los registros tras las sanciones de 2022."
+      },
+      {
+        "titulo": "No hay alegación de código malicioso",
+        "texto": "El Departamento de Justicia aclaró que no se acusa a la empresa de haber insertado fallas o accedido sin permiso a los sistemas de sus clientes."
+      },
+      {
+        "titulo": "Presunción de inocencia y extradición pendiente",
+        "texto": "Reiber fue liberado bajo fianza en Idaho; Davydov fue detenido en Londres y EE.UU. busca extraditarlo. Ambos se presumen inocentes."
+      },
+      {
+        "titulo": "Una pregunta para los contratos públicos tecnológicos",
+        "texto": "El caso muestra el riesgo de no verificar quién controla realmente el software que compran las agencias de gobierno. Fuente: OCCRP, 24 de septiembre de 2026."
+      }
+    ],
+    "imagenes": [
+      {
+        "numero": 1,
+        "ruta": "public/img/2026-09-24-1634-luiseskivelgolcher-occrp-8680-01.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-24-1634-luiseskivelgolcher-occrp-8680-01.jpg",
+        "hash": "64b908421ec2fc84"
+      },
+      {
+        "numero": 2,
+        "ruta": "public/img/2026-09-24-1634-luiseskivelgolcher-occrp-8680-02.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-24-1634-luiseskivelgolcher-occrp-8680-02.jpg",
+        "hash": "4b13285b68b354b9"
+      },
+      {
+        "numero": 3,
+        "ruta": "public/img/2026-09-24-1634-luiseskivelgolcher-occrp-8680-03.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-24-1634-luiseskivelgolcher-occrp-8680-03.jpg",
+        "hash": "bb100ae62b72ed10"
+      },
+      {
+        "numero": 4,
+        "ruta": "public/img/2026-09-24-1634-luiseskivelgolcher-occrp-8680-04.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-24-1634-luiseskivelgolcher-occrp-8680-04.jpg",
+        "hash": "fd08a4d8273e3482"
+      },
+      {
+        "numero": 5,
+        "ruta": "public/img/2026-09-24-1634-luiseskivelgolcher-occrp-8680-05.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-24-1634-luiseskivelgolcher-occrp-8680-05.jpg",
+        "hash": "61967ecf42e535b9"
+      },
+      {
+        "numero": 6,
+        "ruta": "public/img/2026-09-24-1634-luiseskivelgolcher-occrp-8680-06.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-24-1634-luiseskivelgolcher-occrp-8680-06.jpg",
+        "hash": "3c1fc42dd1f313db"
+      },
+      {
+        "numero": 7,
+        "ruta": "public/img/2026-09-24-1634-luiseskivelgolcher-occrp-8680-07.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-24-1634-luiseskivelgolcher-occrp-8680-07.jpg",
+        "hash": "32eb0adfe5dfcce1"
+      }
+    ],
+    "hash": "95dbecb97cfa6d3f",
+    "version": 2
+  },
+  "reel": null,
+  "revision": {
+    "estado": "pendiente",
+    "notas": []
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-24T21:34:55.460Z",
+  "actualizado": "2026-09-24T21:34:55.460Z"
+}
