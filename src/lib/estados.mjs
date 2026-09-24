@@ -2,6 +2,8 @@
 // Módulo isomorfo: sin imports de Node, se usa también en el panel.
 export const ESTADOS = ["borrador", "programado", "publicado", "descartado", "error"];
 export const VARIANTES = ["negro", "amarillo", "rojo"];
+import { PLANTILLAS, plantillaDe, erroresDeDato } from "./plantillas.mjs";
+
 export const CATEGORIAS = [
   "POLÍTICA", "ECONOMÍA", "SOCIEDAD", "SEGURIDAD", "SALUD",
   "EDUCACIÓN", "INVESTIGACIÓN", "DEPORTES", "CULTURA", "INTERNACIONAL", "ÚLTIMA HORA",
@@ -10,7 +12,7 @@ export const CAMPOS_IMAGEN = ["titular", "bajada", "categoria", "variante"];
 // Pasos en los que puede fallar un post: render (imagen), instagram (entrega antigua de un solo destino) y destino
 // (multicanal: uno o más destinos fallaron; el detalle vive en post.destinos).
 export const PASOS_ERROR = ["render", "instagram", "destino"];
-const CAMPOS_EDITABLES = ["titular", "bajada", "caption", "hashtags", "categoria", "variante", "ilustracion", "frase"];
+const CAMPOS_EDITABLES = ["titular", "bajada", "caption", "hashtags", "categoria", "variante", "ilustracion", "frase", "plantilla", "dato"];
 
 function fnv1a(texto, base) {
   let h = base >>> 0;
@@ -31,7 +33,11 @@ export function hashImagen(post, version) {
   const ilus = il && il.usar && il.ruta ? String(il.hashDescripcion || "") : "";
   // Formato frase: la imagen es la frase, su autor y su fuente.
   const frase = post.frase ? JSON.stringify([post.frase.texto, post.frase.autor, post.frase.fuente, post.frase.anio ?? null]) : "";
-  const texto = [...CAMPOS_IMAGEN.map((c) => String(post[c] ?? "")), ilus, frase, String(version)].join("\u0000");
+  // Plantillas dato y titular: la imagen depende de cuál es y de la cifra. La foto (o un post sin el campo) no añade
+  // nada, así que ningún post anterior cambia de huella ni se redibuja.
+  const plantilla = plantillaDe(post);
+  const tarjeta = plantilla === "foto" ? [] : [JSON.stringify([plantilla, plantilla === "dato" ? [post.dato?.cifra ?? "", post.dato?.frase ?? ""] : null])];
+  const texto = [...CAMPOS_IMAGEN.map((c) => String(post[c] ?? "")), ilus, frase, ...tarjeta, String(version)].join("\u0000");
   return fnv1a(texto, 0x811c9dc5) + fnv1a(texto, 0x050c5d1f);
 }
 
@@ -127,6 +133,16 @@ export function editarTexto(post, cambios, ahoraIso) {
     if (f.anio !== undefined && f.anio !== null && !Number.isInteger(f.anio)) throw new Error("frase.anio debe ser un año (entero) o null");
     cambios = { ...cambios, frase: { ...post.frase, ...Object.fromEntries(Object.entries(f).filter(([k]) => ["texto", "autor", "fuente", "anio"].includes(k))) } };
     if (cambios.frase.texto) cambios.frase.texto = cambios.frase.texto.trim();
+  }
+  if (cambios.plantilla !== undefined && !PLANTILLAS.includes(cambios.plantilla)) throw new Error(`Plantilla desconocida: ${cambios.plantilla}`);
+  if (cambios.dato !== undefined && cambios.dato !== null) {
+    const e = erroresDeDato(cambios.dato);
+    if (e.length) throw new Error(e[0]);
+    cambios = { ...cambios, dato: { cifra: cambios.dato.cifra.trim(), frase: cambios.dato.frase.trim() } };
+  }
+  if ((cambios.plantilla ?? post.plantilla) === "dato") {
+    const e = erroresDeDato(cambios.dato !== undefined ? cambios.dato : post.dato);
+    if (e.length) throw new Error(e[0]);
   }
   if (cambios.ilustracion !== undefined && cambios.ilustracion !== null) {
     const il = cambios.ilustracion;

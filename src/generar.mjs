@@ -11,6 +11,7 @@ import { leerPosts, escribirPost, crearPost, siguienteVariante, creadosHoy, arch
 import { redactar, redactarPerfil, acortarTextos, extraerFrase } from "./lib/redactor.mjs";
 import { descargarArticulo } from "./lib/articulo.mjs";
 import { frasesCreadasHoy, elegirDelBanco, esLiteral, crearPostFrase, MAX_FRASE } from "./lib/frases.mjs";
+import { plantillasDeCuenta, plantillaDe, erroresDeDato, datoEnTexto, elegirPlantilla } from "./lib/plantillas.mjs";
 import { agruparCandidatos } from "./lib/temas.mjs";
 import { renderizarConAjuste } from "./lib/texto.mjs";
 import { todasFallaron, anotarFallos, resumirResultados } from "./lib/corrida.mjs";
@@ -107,7 +108,22 @@ export async function ejecutarGenerar({ config, raiz = process.cwd(), ahora = ne
       ahora, zona, cuenta,
       referencias: s.referencias || [],
     });
-    if (ilustrador && post.ilustracion) {
+    // Plantillas (marca.plantillas): la cifra de Claude solo vale si está en el texto de la noticia; la plantilla no
+    // repite la del post anterior. Una cuenta sin plantillas declaradas no recibe ningún campo nuevo.
+    const permitidas = plantillasDeCuenta(config);
+    if (permitidas.length > 1) {
+      let dato = null;
+      if (s.dato && permitidas.includes("dato")) {
+        const errores = erroresDeDato(s.dato);
+        const textos = [s.candidato.texto, s.candidato.titulo, s.candidato.descripcion];
+        if (errores.length) log.warn(`Dato descartado para "${s.titular}": ${errores[0]}.`);
+        else if (!datoEnTexto(s.dato, textos)) log.warn(`Dato descartado para "${s.titular}": la cifra "${s.dato.cifra}" no aparece en el texto de la noticia.`);
+        else dato = { cifra: s.dato.cifra.trim(), frase: s.dato.frase.trim() };
+      }
+      post = { ...post, plantilla: elegirPlantilla({ permitidas, dato, anteriores: existentes }), ...(dato ? { dato } : {}) };
+    }
+    // Dato y titular no llevan ilustración: la escena se guarda por si se cambia a foto, pero no se pide a Gemini.
+    if (ilustrador && post.ilustracion && plantillaDe(post) === "foto") {
       const rutaIlus = dryRun ? path.join("temp", "dry-run", "ilus", `${post.id}.jpg`) : rutaIlustracion(post.id);
       try {
         const buf = await ilustrador.generar(post.ilustracion.descripcion);
@@ -142,7 +158,7 @@ export async function ejecutarGenerar({ config, raiz = process.cwd(), ahora = ne
     escribirPost(dirSalida, post);
     existentes.push(post);
     creados.push(post);
-    log.info(`Borrador ${post.id} (${post.variante}): ${post.titular}`);
+    log.info(`Borrador ${post.id} (${post.plantilla ? `${post.plantilla}, ` : ""}${post.variante}): ${post.titular}`);
   }
 
   if (!dryRun) {

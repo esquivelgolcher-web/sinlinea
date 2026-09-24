@@ -3,6 +3,7 @@ import { z } from "zod";
 import { zodOutputFormat } from "@anthropic-ai/sdk/helpers/zod";
 import { CATEGORIAS } from "./estados.mjs";
 import { LIMITES } from "./texto.mjs";
+import { plantillasDeCuenta } from "./plantillas.mjs";
 
 export const EsquemaRedaccion = z.object({
   seleccion: z.array(z.object({
@@ -18,6 +19,22 @@ export const EsquemaRedaccion = z.object({
   })),
   descartados: z.array(z.object({ indiceCandidato: z.number().int(), motivo: z.string() })),
 });
+
+// Con la plantilla dato, cada post puede traer la cifra protagonista de la noticia (o null).
+export const EsquemaRedaccionConDato = z.object({
+  seleccion: z.array(EsquemaRedaccion.shape.seleccion.element.extend({
+    dato: z.object({ cifra: z.string(), frase: z.string() }).nullable(),
+  })),
+  descartados: EsquemaRedaccion.shape.descartados,
+});
+
+const reglaDato = `- "dato": si la noticia gira en torno a una cifra concreta (un porcentaje, un monto, una cantidad) que aparece
+  en el texto del candidato, devuelve { "cifra", "frase" }. "cifra" es solo el número con su unidad, copiado tal cual
+  del texto, sin redondear ni convertir: por ejemplo "47%", "$1.5 millones", "5,100". Máximo 14 caracteres.
+  "frase" completa la cifra en una sola oración corta, en minúscula, sin repetir la cifra ni poner punto final: por
+  ejemplo, con la cifra "47%", la frase "de los hogares comió menos de 3 veces al día". Máximo 90 caracteres.
+  Si la noticia no tiene una cifra protagonista, devuelve null. Nunca inventes una cifra para rellenar.
+`;
 
 const NOMBRES_IDIOMA = {
   "es": "español", "es-PA": "español de Panamá", "es-MX": "español de México", "es-CO": "español de Colombia",
@@ -50,8 +67,9 @@ const reglasFijas = (idioma) => `
   estilo fotográfico: se añade aparte.
 `;
 
-export function construirSystem(editorialMd, { idioma = "es-PA" } = {}) {
-  return `${String(editorialMd || "").trim()}\n${reglasFijas(idioma)}`.trim();
+export function construirSystem(editorialMd, { idioma = "es-PA", plantillas = ["foto"] } = {}) {
+  const dato = plantillas.includes("dato") ? reglaDato : "";
+  return `${String(editorialMd || "").trim()}\n${reglasFijas(idioma)}${dato}`.trim();
 }
 
 export function construirUsuario({ candidatos, recientes, max }) {
@@ -82,12 +100,14 @@ export function validarSeleccion(salida, candidatos, max) {
 }
 
 export async function redactar({ client, config, editorialMd, candidatos, recientes, max }) {
+  const plantillas = plantillasDeCuenta(config);
+  const conDato = plantillas.includes("dato");
   const res = await client.messages.parse({
     model: config.claude.modelo,
     max_tokens: 16000,
     thinking: { type: "adaptive" },
-    output_config: { effort: config.claude.esfuerzo, format: zodOutputFormat(EsquemaRedaccion) },
-    system: [{ type: "text", text: construirSystem(editorialMd, { idioma: config.idioma }), cache_control: { type: "ephemeral" } }],
+    output_config: { effort: config.claude.esfuerzo, format: zodOutputFormat(conDato ? EsquemaRedaccionConDato : EsquemaRedaccion) },
+    system: [{ type: "text", text: construirSystem(editorialMd, { idioma: config.idioma, plantillas }), cache_control: { type: "ephemeral" } }],
     messages: [{ role: "user", content: construirUsuario({ candidatos, recientes, max }) }],
   });
   if (res.stop_reason === "refusal") {

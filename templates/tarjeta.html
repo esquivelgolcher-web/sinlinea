@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="es" data-version="1">
+<head>
+<meta charset="utf-8">
+<base href="__BASE__">
+<title>Tarjeta · dato y titular</title>
+<style>
+  /* Tarjetas tipográficas 1080x1350 con el marco de la marca (logo, sección, fecha, usuario y franja del lema):
+     - dato: la cifra de la noticia, enorme, sobre el color principal, y la frase que la completa;
+     - titular: portada de periódico, el titular en negro sobre el claro con una regla del acento.
+     Sin ilustración: la variedad del perfil viene de la composición, no del adorno. */
+  @font-face { font-family: "Anton"; src: url("assets/fonts/Anton-Regular.ttf") format("truetype"); font-display: block; }
+  @font-face { font-family: "Inter"; src: url("assets/fonts/Inter-Variable.ttf") format("truetype"); font-weight: 100 900; font-display: block; }
+  :root { --principal: #FFD400; --acento: #E30613; --oscuro: #111111; --claro: #FFFFFF;
+          --margen: 72px; --barra-alto: 70px; --pie-alto: 80px; --logo-tamano: 120px; }
+  html, body { margin: 0; padding: 0; }
+  body { width: 1080px; height: 1350px; overflow: hidden; font-family: "Inter", Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+  .tarjeta { position: relative; width: 1080px; height: 1350px; box-sizing: border-box; overflow: hidden; background: var(--fondo); color: var(--texto); }
+  .tarjeta[data-plantilla="dato"]    { --fondo: var(--principal); --texto: var(--oscuro); }
+  .tarjeta[data-plantilla="titular"] { --fondo: var(--claro);     --texto: var(--oscuro); }
+
+  .cabecera { position: absolute; top: var(--margen); left: var(--margen); right: var(--margen); display: flex; justify-content: space-between; align-items: flex-start; }
+  .logo, .logo-fallback { width: var(--logo-tamano); height: var(--logo-tamano); border-radius: 50%; display: block; box-shadow: 0 0 0 5px var(--oscuro); }
+  .logo { object-fit: cover; }
+  .logo-fallback { box-sizing: border-box; background: var(--principal); color: var(--oscuro); display: flex; align-items: center; justify-content: center;
+                   font-family: "Anton", Impact, sans-serif; font-size: calc(var(--logo-tamano) * 0.37); letter-spacing: 0.04em; }
+  .tarjeta[data-logo-forma="cuadrado"] .logo, .tarjeta[data-logo-forma="cuadrado"] .logo-fallback { border-radius: 0; }
+  .chip { font-weight: 700; font-size: 26px; letter-spacing: 0.12em; text-transform: uppercase; background: var(--acento); color: var(--claro); padding: 12px 20px; margin-top: 6px; }
+  .chip:empty { display: none; }
+
+  /* El cuerpo ocupa el hueco entre la cabecera y el pie. */
+  .cuerpo { position: absolute; left: var(--margen); right: var(--margen); top: 250px; bottom: calc(var(--barra-alto) + var(--pie-alto) + 56px);
+            display: flex; flex-direction: column; }
+  .anton { font-family: "Anton", Impact, sans-serif; font-weight: 400; text-transform: uppercase; margin: 0; overflow-wrap: normal; word-break: normal; hyphens: none; }
+
+  /* Dato: la cifra en una sola línea, tan grande como quepa, y la frase debajo. */
+  .tarjeta[data-plantilla="dato"] .cuerpo { justify-content: center; }
+  .cifra { font-size: 480px; line-height: 0.86; letter-spacing: -0.01em; white-space: nowrap; margin-left: -6px; }
+  .frase { margin: 40px 0 0; font-weight: 800; font-size: 66px; line-height: 1.1; letter-spacing: -0.015em; max-width: 920px; overflow-wrap: normal; word-break: normal; hyphens: none; }
+
+  /* Titular: anclado abajo, como una portada, con la regla del acento encima. */
+  .tarjeta[data-plantilla="titular"] .cuerpo { justify-content: flex-end; }
+  .regla { width: 200px; height: 18px; background: var(--acento); margin-bottom: 40px; flex: none; }
+  .titular { font-size: 168px; line-height: 0.94; letter-spacing: 0.005em; }
+  .bajada { margin: 34px 0 0; font-weight: 500; font-size: 38px; line-height: 1.3; color: color-mix(in srgb, var(--texto) 82%, var(--fondo)); max-width: 920px; overflow-wrap: normal; word-break: normal; hyphens: none; }
+  .bajada:empty { display: none; }
+
+  .dato-bloque, .titular-bloque { display: none; }
+  .tarjeta[data-plantilla="dato"] .dato-bloque, .tarjeta[data-plantilla="titular"] .titular-bloque { display: block; }
+
+  .pie { position: absolute; left: var(--margen); right: var(--margen); bottom: var(--barra-alto); height: var(--pie-alto); display: flex; justify-content: space-between; align-items: center;
+         font-size: 24px; font-weight: 600; border-top: 2px solid color-mix(in srgb, var(--texto) 30%, transparent); }
+  .barra { position: absolute; left: 0; right: 0; bottom: 0; height: var(--barra-alto); background: var(--acento); color: var(--claro);
+           display: flex; align-items: center; justify-content: center; font-family: "Anton", Impact, sans-serif; font-size: 32px; letter-spacing: 0.06em; text-transform: uppercase; }
+  .barra:empty { display: none; }
+</style>
+</head>
+<body>
+<div class="tarjeta" id="tarjeta" data-plantilla="titular">
+  <header class="cabecera">
+    <div id="logo"></div>
+    <div class="chip" id="categoria"></div>
+  </header>
+  <main class="cuerpo" id="cuerpo">
+    <div class="dato-bloque">
+      <p class="anton cifra" id="cifra"></p>
+      <p class="frase" id="frase"></p>
+    </div>
+    <div class="titular-bloque">
+      <div class="regla"></div>
+      <h1 class="anton titular" id="titular"></h1>
+      <p class="bajada" id="bajada"></p>
+    </div>
+  </main>
+  <footer class="pie">
+    <span id="fecha"></span>
+    <span id="usuario"></span>
+  </footer>
+  <div class="barra" id="lema"></div>
+</div>
+<script id="datos" type="application/json">{}</script>
+<script>
+(async function () {
+  const d = JSON.parse(document.getElementById("datos").textContent || "{}");
+  const $ = (id) => document.getElementById(id);
+  for (const [v, valor] of [["--principal", d.colores?.principal], ["--acento", d.colores?.acento], ["--oscuro", d.colores?.oscuro], ["--claro", d.colores?.claro]]) {
+    if (valor) document.documentElement.style.setProperty(v, valor);
+  }
+  const plantilla = d.plantilla === "dato" ? "dato" : "titular";
+  $("tarjeta").dataset.plantilla = plantilla;
+  $("tarjeta").dataset.logoForma = d.logoForma || "circulo";
+  document.documentElement.style.setProperty("--logo-tamano", `${Number(d.logoTamano) || 120}px`);
+  $("categoria").textContent = d.categoria || "";
+  $("fecha").textContent = d.fecha || "";
+  $("usuario").textContent = d.usuario || "";
+  $("lema").textContent = d.lema || "";
+  if (!d.lema) document.documentElement.style.setProperty("--barra-alto", "0px");
+  $("cifra").textContent = d.cifra || "";
+  $("frase").textContent = d.frase || "";
+  $("titular").textContent = d.titular || "";
+  $("bajada").textContent = d.bajada || "";
+  if (d.logoUrl) {
+    const img = new Image();
+    img.className = "logo"; img.alt = ""; img.src = d.logoUrl;
+    $("logo").replaceWith(img);
+    await img.decode().catch(() => {});
+  } else {
+    $("logo").className = "logo-fallback";
+    $("logo").textContent = d.iniciales || "?";
+  }
+  await document.fonts.ready;
+
+  // Baja la letra de a poco hasta que el texto cabe en sus líneas, sin partir palabras.
+  function ajustar(el, { max, min, paso, interlineado, lineas }) {
+    let t = max;
+    const cabe = () => Math.round(el.scrollHeight / (t * interlineado)) <= lineas && el.scrollWidth <= el.clientWidth + 1;
+    el.style.fontSize = t + "px";
+    while (!cabe() && t > min) { t -= paso; el.style.fontSize = t + "px"; }
+    return cabe();
+  }
+  const cuerpo = $("cuerpo");
+  // El bloque entero tiene que caber en el cuerpo. Se mide su alto, no el desborde: anclado abajo o centrado, lo que
+  // sobra se escaparía por arriba y pisaría el logo sin que el cuerpo lo notara.
+  const cabeBloque = (bloque) => bloque.offsetHeight <= cuerpo.clientHeight + 1;
+  let error = "";
+  if (plantilla === "dato") {
+    // La cifra va en una línea: se encoge hasta el ancho de su caja; luego la frase, y si aun así no cabe, ambas.
+    const cifra = $("cifra");
+    const bloque = cifra.parentElement;
+    let t = 480;
+    const ancho = () => cifra.scrollWidth <= cifra.clientWidth + 1;
+    while (!ancho() && t > 200) { t -= 10; cifra.style.fontSize = t + "px"; }
+    const fraseCabe = ajustar($("frase"), { max: 66, min: 44, paso: 2, interlineado: 1.1, lineas: 4 });
+    while (!cabeBloque(bloque) && t > 200) { t -= 10; cifra.style.fontSize = t + "px"; }
+    if (!ancho() || !fraseCabe || !cabeBloque(bloque)) error = "dato";
+  } else {
+    const titular = $("titular");
+    const bloque = titular.parentElement;
+    const titularCabe = ajustar(titular, { max: 168, min: 96, paso: 4, interlineado: 0.94, lineas: 5 });
+    const bajadaCabe = ajustar($("bajada"), { max: 38, min: 32, paso: 2, interlineado: 1.3, lineas: 3 });
+    let t = parseFloat(titular.style.fontSize);
+    while (!cabeBloque(bloque) && t > 96) { t -= 4; titular.style.fontSize = t + "px"; }
+    if (!titularCabe) error = "titular";
+    else if (!bajadaCabe) error = "bajada";
+    else if (!cabeBloque(bloque)) error = "titular";
+  }
+  if (error) document.body.dataset.error = error;
+  document.body.dataset.listo = "1";
+})();
+</script>
+</body>
+</html>

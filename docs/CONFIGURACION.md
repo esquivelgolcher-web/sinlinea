@@ -592,3 +592,41 @@ Una pieza tipográfica con una cita textual de un papa, su autor y su fuente, ge
 - **Validación.** `frases.activo` booleano; `porDia` entero entre 1 y 5; `preferir` `textos` o `banco`; `categoria` una de las del panel; `banco[]` con `texto` (hasta 320 caracteres), `autor`, `fuente` y, opcionales, `anio` (entero) y `url` (http).
 
 **Estado (2026-09-11):** implementado para la cuenta Leo Pope (@leopopexiv) con un banco inicial de 10 frases con documento y enlace, revisadas por el operador antes de publicar. Probado con simulaciones (banco, literalidad, cupo, render real con Chromium, panel) y con la primera corrida real de GENERAR.
+
+## 16. Plantillas de imagen: foto, dato y titular
+
+Para que el perfil no sea una pared de tarjetas iguales, una cuenta puede alternar tres composiciones con el mismo marco
+de marca (logo, sección, fecha, usuario y franja del lema). Se activa por cuenta en `cuentas/<id>/config.json`:
+
+```json
+"marca": { "plantillas": ["foto", "dato", "titular"] }
+```
+
+- **Foto**: la de siempre (`templates/post.html`), con la ilustración de fondo y el titular abajo.
+- **Dato**: la cifra de la noticia, enorme, sobre el color principal, y una frase corta que la completa
+  (`templates/tarjeta.html`). Sin ilustración.
+- **Titular**: portada tipográfica, el titular en grande sobre el color claro con una regla del acento
+  (`templates/tarjeta.html`). Sin ilustración.
+
+**Cómo se elige.** Si la cuenta usa la plantilla dato, Claude devuelve con cada noticia la cifra protagonista
+(`dato: { cifra, frase }`) o `null`. El sistema solo la acepta si los números de la cifra aparecen tal cual en el texto
+de la noticia (título, descripción o artículo); un redondeo o un número inventado se descarta con un aviso. Con cifra
+comprobada sale Dato; si no, Foto. Nunca se repite la plantilla del post anterior de la cuenta: tras una foto viene un
+titular, tras un dato una foto.
+
+**Coste.** Dato y titular no piden ilustración a Gemini. La escena se guarda igual, por si el operador cambia a Foto.
+
+**Panel.** Cada borrador de la cuenta muestra la plantilla junto a Categoría y Variante. Con Dato aparecen la cifra
+(hasta 14 caracteres) y la frase (hasta 90). Pasar a Foto con una escena escrita enciende la ilustración; pasar a Dato
+o Titular la apaga y esconde la escena. Un dato incompleto no se puede guardar ni aprobar. Al guardar, REGENERAR
+vuelve a dibujar la imagen.
+
+**Qué no cambia.** Una cuenta sin `marca.plantillas` no recibe campos nuevos ni cambia su prompt: sus posts se dibujan
+igual que antes y ninguna imagen se redibuja. La plantilla de la foto conserva su versión; la tarjeta tiene la suya.
+
+**Validación.** `marca.plantillas` es una lista con `foto` y, si se quiere, `dato` y `titular`. En el post, `plantilla`
+es una de las tres y `dato` lleva `cifra` (con un número, hasta 14 caracteres) y `frase` (hasta 90).
+
+**Estado (2026-09-24):** implementado y activado en Sin Línea. Probado con simulaciones (elección, cifra comprobada,
+cuenta sin plantillas intacta, regeneración con la versión de cada plantilla, panel de extremo a extremo) y con render
+real en Chromium de las dos tarjetas. Pendiente de validación real: la primera corrida de GENERAR con Claude.

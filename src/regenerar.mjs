@@ -5,7 +5,8 @@ import { pathToFileURL } from "node:url";
 import { cargarConfiguracion } from "./lib/config.mjs";
 import { leerPosts, escribirPost, urlImagen, rutaIlustracion, CUENTA_LEGADO } from "./lib/posts.mjs";
 import { imagenDesactualizada, renderOk, marcarError, necesitaIlustracion, necesitaEscena, hashTexto } from "./lib/estados.mjs";
-import { versionPlantilla, RUTA_PLANTILLA, RUTA_PLANTILLA_FRASE, RUTA_LOGO, abrirNavegador, renderizarPieza, estiloVisual } from "./lib/render.mjs";
+import { versionPlantilla, RUTA_PLANTILLA, RUTA_PLANTILLA_FRASE, RUTA_PLANTILLA_TARJETA, RUTA_LOGO, abrirNavegador, renderizarPieza, estiloVisual } from "./lib/render.mjs";
+import { plantillaDe } from "./lib/plantillas.mjs";
 import { crearIlustrador, guardarIlustracion, sanearMensaje } from "./lib/ilustrador.mjs";
 import { acortarTextos, escribirEscena } from "./lib/redactor.mjs";
 import { renderizarConAjuste } from "./lib/texto.mjs";
@@ -20,7 +21,10 @@ export async function ejecutarRegenerar({ config, raiz = process.cwd(), ahora = 
   // Las frases célebres tienen su propia plantilla (y su propia versión); sin ella, se comparan con la del post.
   const rutaFrase = path.join(raiz, RUTA_PLANTILLA_FRASE);
   const versionFrase = fs.existsSync(rutaFrase) ? versionPlantilla(fs.readFileSync(rutaFrase, "utf8")) : actual;
-  const versionDe = (p) => (p.formato === "frase" ? versionFrase : actual);
+  // Las plantillas dato y titular se dibujan con templates/tarjeta.html, que lleva su propia versión.
+  const rutaTarjeta = path.join(raiz, RUTA_PLANTILLA_TARJETA);
+  const versionTarjeta = fs.existsSync(rutaTarjeta) ? versionPlantilla(fs.readFileSync(rutaTarjeta, "utf8")) : actual;
+  const versionDe = (p) => (p.formato === "frase" ? versionFrase : plantillaDe(p) !== "foto" ? versionTarjeta : actual);
   const rutaLogo = config.rutas?.logo || RUTA_LOGO;
   const logoUrl = fs.existsSync(path.join(raiz, rutaLogo)) ? rutaLogo : null;
   const estilo = estiloActual ?? estiloVisual(config, logoUrl);
@@ -34,7 +38,8 @@ export async function ejecutarRegenerar({ config, raiz = process.cwd(), ahora = 
   const esActivo = (p) => p.cuenta === cuenta && ["borrador", "programado", "error"].includes(p.estado);
   // 1) Escenas: posts marcados para ilustrar pero sin escena (p. ej. borradores antiguos) → Claude la redacta.
   const tope = config.ilustraciones.maxPorCorrida;
-  const sinEscena = leerPosts(dir, opcionesLectura).filter((p) => esActivo(p) && necesitaEscena(p, ahora));
+  const conFoto = (p) => plantillaDe(p) === "foto"; // dato y titular no llevan ilustración: ni escena ni Gemini
+  const sinEscena = leerPosts(dir, opcionesLectura).filter((p) => esActivo(p) && conFoto(p) && necesitaEscena(p, ahora));
   if (ilustrador && redactarEscena) {
     let escenas = 0;
     for (const p of sinEscena) {
@@ -63,7 +68,7 @@ export async function ejecutarRegenerar({ config, raiz = process.cwd(), ahora = 
   if (ilustrador) {
     let llamadas = 0;
     for (const p of activos) {
-      if (!necesitaIlustracion(p, ahora)) continue;
+      if (!conFoto(p) || !necesitaIlustracion(p, ahora)) continue;
       if (llamadas >= tope) { log.info(`Tope de ilustraciones por corrida (${tope}) alcanzado; ${p.id} espera a la siguiente hora.`); continue; }
       llamadas++;
       const ruta = rutaIlustracion(p.id);

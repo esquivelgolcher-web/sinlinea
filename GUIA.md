@@ -272,6 +272,23 @@ Tu cuenta personal tiene ahora un perfil editorial: fuentes prioritarias (WIRED,
 
 **Ajustes:** temas, pesos de la puntuación, mínimo, formatos y fuentes en `cuentas/luiseskivelgolcher/config.json` (bloque `perfil` y `fuentes`); voz y reglas en `editorial.md`; estilo de imagen en `ilustraciones.estilo`. Ver docs/CONFIGURACION.md §14.
 
+## Plantillas de Sin Línea: foto, dato y titular
+
+Los borradores de Sin Línea ya no salen todos iguales. Hay tres plantillas con la misma marca:
+
+- **Foto**: la de siempre, con la ilustración y el titular amarillo abajo.
+- **Dato**: la cifra de la noticia en grande sobre amarillo, como «47 %», con una frase que la explica.
+- **Titular**: el titular en grande sobre blanco, como una portada.
+
+**La elige el sistema.** Si la noticia gira en torno a una cifra y esa cifra está de verdad en el artículo, sale como
+Dato. Si no, como Foto. Y nunca sale la misma plantilla dos veces seguidas: después de una foto viene un titular.
+
+**La puedes cambiar tú.** En cada borrador, junto a Categoría y Variante, está el desplegable **Plantilla**. Con Dato
+aparecen la cifra y la frase para que las corrijas. Al guardar, la imagen se vuelve a dibujar en unos minutos.
+
+Dato y Titular no usan ilustración, así que tampoco gastan en Gemini. Si pasas un borrador a Foto, la ilustración se
+genera en la siguiente corrida.
+
 ## Frases célebres (Leo Pope)
 
 Además de las noticias, la cuenta puede generar cada día una **tarjeta de frase**: una cita textual de un papa con su autor y su fuente, sin ilustración. Se activa en «Editar» → «Frases célebres».

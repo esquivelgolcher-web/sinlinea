@@ -281,3 +281,29 @@ test("(M2) REGENERAR vuelve a dibujar un post cuyo imagen.estilo no coincide con
   assert.equal(posts[conEstilo.id].imagen.estilo, "1111111111111111");
   assert.equal(posts[sinEstilo.id].imagen.estilo, undefined);
 });
+
+test("(plantillas) REGENERAR: dato y titular se comparan con la versión de su plantilla y no piden ilustración a Gemini", async () => {
+  const leerVersion = (ruta) => Number(fs.readFileSync(ruta, "utf8").match(/data-version="(\d+)"/)[1]);
+  const vPost = leerVersion("templates/post.html");
+  const vTarjeta = leerVersion("templates/tarjeta.html");
+  assert.notEqual(vPost, vTarjeta, "la prueba solo tiene sentido si las versiones difieren");
+  const id = (n) => base.id.slice(0, -4) + String(n).padStart(4, "0");
+  const conIlus = { descripcion: "Fachada de la Asamblea", usar: true, ruta: null, hashDescripcion: null, proveedor: null, modelo: null, generada: null, error: null };
+  const foto = { ...base, id: id(1), plantilla: "foto" };
+  const titular = { ...base, id: id(2), plantilla: "titular", ilustracion: conIlus };
+  const dato = { ...base, id: id(3), plantilla: "dato", dato: { cifra: "47%", frase: "de los hogares" } };
+  const alDia = [
+    { ...foto, imagen: imagenDe(foto, vPost) },
+    { ...titular, imagen: imagenDe(titular, vTarjeta) },
+    { ...dato, imagen: imagenDe(dato, vTarjeta) },
+  ];
+  const raiz = dirCon(alDia);
+  fs.mkdirSync(path.join(raiz, "templates"), { recursive: true });
+  for (const t of ["templates/post.html", "templates/tarjeta.html"]) fs.copyFileSync(t, path.join(raiz, t));
+  const renderizados = [];
+  let gemini = 0;
+  const ilustrador = { generar: async () => { gemini++; return Buffer.from("x"); } };
+  const r = await ejecutarRegenerar({ config: cfg, raiz, ahora, render: async (p) => { renderizados.push(p.id); return imagenDe(p, vTarjeta); }, log, ilustrador, guardar: async () => {} });
+  assert.deepEqual(r.renderizados, [], "ninguna está desactualizada: cada una lleva la versión de su propia plantilla");
+  assert.equal(gemini, 0, "una tarjeta no usa ilustración: no se gasta una llamada a Gemini");
+});

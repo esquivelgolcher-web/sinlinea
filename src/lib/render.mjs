@@ -8,6 +8,7 @@ import { chromium } from "playwright";
 import { hashImagen, hashTexto } from "./estados.mjs";
 import { rutaImagen, urlImagen, rutaDiapositiva, urlDiapositiva } from "./posts.mjs";
 import { fechaCorta } from "./fechas.mjs";
+import { plantillaDe } from "./plantillas.mjs";
 
 export const RUTA_PLANTILLA = "templates/post.html";
 export const RUTA_LOGO = "assets/logo.png";
@@ -101,8 +102,15 @@ export const MENSAJES_NO_CABE = {
   frase: "La frase no cabe en 10 líneas ni a 36 px: elige una más corta o recórtala con puntos suspensivos",
 };
 
-export function errorTextoNoCabe(campo) {
-  const err = new Error(MENSAJES_NO_CABE[campo] || `El texto "${campo}" no cabe en la imagen`);
+// La tarjeta (plantillas dato y titular) tiene sus propios tamaños: el mensaje dice los suyos.
+export const MENSAJES_NO_CABE_TARJETA = {
+  titular: "El titular no cabe en la tarjeta ni en 5 líneas a 96 px: acórtalo (máximo 65 caracteres)",
+  bajada: "La bajada no cabe en la tarjeta ni en 3 líneas a 32 px: acórtala (máximo 110 caracteres)",
+  dato: "La cifra o su frase no caben en la tarjeta: acorta la frase (máximo 90 caracteres) o usa una cifra más corta",
+};
+
+export function errorTextoNoCabe(campo, mensaje = null) {
+  const err = new Error(mensaje || MENSAJES_NO_CABE[campo] || `El texto "${campo}" no cabe en la imagen`);
   err.code = "TEXTO_NO_CABE";
   err.campo = campo;
   return err;
@@ -113,6 +121,8 @@ export async function abrirNavegador() {
 }
 
 export async function renderizarPost(post, { config, navegador, raiz = process.cwd(), destino = rutaImagen(post.id) }) {
+  // Plantillas dato y titular: otra composición, sin ilustración (templates/tarjeta.html).
+  if (plantillaDe(post) !== "foto") return renderizarTarjeta(post, { config, navegador, raiz, destino });
   const plantilla = fs.readFileSync(path.join(raiz, RUTA_PLANTILLA), "utf8");
   const version = versionPlantilla(plantilla);
   const rutaLogo = config.rutas?.logo || RUTA_LOGO;
@@ -149,6 +159,64 @@ export async function renderizarPost(post, { config, navegador, raiz = process.c
     estilo: estiloVisual(config, logoUrl),
     renderizada: new Date().toISOString(),
   };
+}
+
+// --- Tarjeta: plantillas dato y titular, 1080x1350 con templates/tarjeta.html (sin ilustración) ------------------------
+export const RUTA_PLANTILLA_TARJETA = "templates/tarjeta.html";
+
+export function datosDeTarjeta(post, config, { logoUrl }) {
+  return {
+    plantilla: plantillaDe(post),
+    colores: config.marca?.colores ? { ...config.marca.colores } : undefined,
+    iniciales: iniciales(config.marca?.nombre),
+    logoForma: config.marca?.logoForma || "circulo",
+    logoTamano: config.marca?.logoTamano || 120,
+    titular: post.titular,
+    bajada: post.bajada,
+    categoria: config.marca?.mostrarCategoria === false ? "" : post.categoria,
+    fecha: config.marca?.mostrarFecha === false ? "" : fechaCorta(post.creado, config.zonaHoraria),
+    usuario: config.marca.usuario,
+    lema: config.marca.lema,
+    cifra: post.dato?.cifra || "",
+    frase: post.dato?.frase || "",
+    logoUrl,
+  };
+}
+
+export function construirHtmlTarjeta(post, config, { plantilla, baseHref, logoUrl }) {
+  const json = JSON.stringify(datosDeTarjeta(post, config, { logoUrl })).replace(/<\//g, "<\\/");
+  return plantilla
+    .replace("__BASE__", () => baseHref)
+    .replace(/<script id="datos" type="application\/json">[\s\S]*?<\/script>/, () => `<script id="datos" type="application/json">${json}</script>`);
+}
+
+export async function renderizarTarjeta(post, { config, navegador, raiz = process.cwd(), destino = rutaImagen(post.id) }) {
+  const plantilla = fs.readFileSync(path.join(raiz, RUTA_PLANTILLA_TARJETA), "utf8");
+  const version = versionPlantilla(plantilla);
+  const rutaLogo = config.rutas?.logo || RUTA_LOGO;
+  const logoUrl = fs.existsSync(path.join(raiz, rutaLogo)) ? rutaLogo.split(path.sep).join("/") : null;
+  const baseHref = pathToFileURL(path.resolve(raiz) + path.sep).href;
+  const html = construirHtmlTarjeta(post, config, { plantilla, baseHref, logoUrl });
+  const dirTemp = path.join(raiz, "temp", "render");
+  fs.mkdirSync(dirTemp, { recursive: true });
+  const rutaHtml = path.join(dirTemp, `${post.id}.html`);
+  fs.writeFileSync(rutaHtml, html);
+  const page = await navegador.newPage({ viewport: { width: 1080, height: 1350 }, deviceScaleFactor: 1 });
+  try {
+    await page.goto(pathToFileURL(rutaHtml).href, { waitUntil: "load" });
+    await page.waitForSelector('body[data-listo="1"]', { timeout: 15000 });
+    const noCabe = await page.evaluate(() => document.body.dataset.error || "");
+    if (noCabe) throw errorTextoNoCabe(noCabe, MENSAJES_NO_CABE_TARJETA[noCabe]);
+    const png = await page.screenshot({ type: "png", fullPage: false });
+    const rutaSalida = path.join(raiz, destino);
+    fs.mkdirSync(path.dirname(rutaSalida), { recursive: true });
+    await sharp(png).jpeg({ quality: 88, progressive: true, mozjpeg: true }).toFile(rutaSalida);
+  } finally {
+    await page.close();
+    fs.rmSync(rutaHtml, { force: true });
+  }
+  // El sello de estilo es el del post: si cambian los colores o la sección de la cuenta, la tarjeta se redibuja igual.
+  return { ruta: destino, url: urlImagen(config.pages.baseUrl, post.id), hash: hashImagen(post, version), version, estilo: estiloVisual(config, logoUrl), renderizada: new Date().toISOString() };
 }
 
 // --- Frase célebre: tarjeta tipográfica 1080x1350 con templates/frase.html (sin ilustración) ---------------------------

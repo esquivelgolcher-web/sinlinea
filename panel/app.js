@@ -22,6 +22,7 @@ import { proponerVersion, medirVersion } from "./lib/versiones.mjs";
 import { destinosEncendidos, pausaGeneral } from "./lib/conexiones.mjs";
 // Perfil editorial: formatos (post, carrusel, reel), trazabilidad de fuentes y alertas de revisión.
 import { NOMBRES_FORMATO, esPublicable, formatoDe, DESCRIPCION_ALERTA } from "./lib/formatos.mjs";
+import { PLANTILLAS, NOMBRES_PLANTILLA, LIMITES_DATO, plantillaDe, plantillasDeCuenta, erroresDeDato } from "./lib/plantillas.mjs";
 
 const configPanel = { franjas: ["07:00", "09:30", "12:00", "14:30", "17:00", "19:30"], zonaHoraria: ZONA_PANAMA, marca: {}, cuentas: [] };
 async function cargarConfigPanel() {
@@ -358,6 +359,27 @@ function tarjeta({ post, sha }) {
     el("label", { text: "Ocasión o documento" }, [campos.fraseFuente]),
     post.frase.url ? el("p", { class: "nota" }, [el("a", { href: urlSegura(post.frase.url), target: "_blank", rel: "noopener", text: "Ver la fuente de la frase" })]) : "",
   ]) : "";
+  // Plantilla de la imagen (foto, dato, titular): solo en cuentas que la usan. El dato es la cifra y la frase que la
+  // completa; la escena de la ilustración solo cuenta para la foto.
+  const plantillasPost = [...new Set([...plantillasDeCuenta(configDeCuenta(cuentaDe(post))), ...(post.plantilla ? [plantillaDe(post)] : [])])];
+  const conPlantillas = !esFrase && plantillasPost.length > 1;
+  const avisoDato = el("p", { class: "nota" });
+  if (conPlantillas) {
+    campos.plantilla = el("select", { class: "plantilla", disabled: bloqueado ? "" : null });
+    campos.plantilla.replaceChildren(...PLANTILLAS.filter((p) => plantillasPost.includes(p)).map((p) => el("option", { value: p, text: NOMBRES_PLANTILLA[p] })));
+    campos.plantilla.value = plantillaDe(post);
+    campos.datoCifra = el("input", { class: "dato-cifra", maxlength: String(LIMITES_DATO.cifraMax), placeholder: "47%", disabled: bloqueado ? "" : null });
+    campos.datoCifra.value = post.dato?.cifra || "";
+    campos.datoFrase = el("input", { class: "dato-frase", maxlength: String(LIMITES_DATO.fraseMax), placeholder: "de los hogares comió menos de 3 veces al día", disabled: bloqueado ? "" : null });
+    campos.datoFrase.value = post.dato?.frase || "";
+  }
+  const datoDelCampo = () => ({ cifra: campos.datoCifra.value.trim(), frase: campos.datoFrase.value.trim() });
+  const camposDato = conPlantillas ? el("div", { class: "bloque-dato" }, [
+    el("label", { text: `Cifra (tal cual aparece en la noticia, hasta ${LIMITES_DATO.cifraMax} caracteres)` }, [campos.datoCifra]),
+    el("label", { text: `Frase que completa la cifra (hasta ${LIMITES_DATO.fraseMax} caracteres)` }, [campos.datoFrase]),
+    avisoDato,
+  ]) : "";
+  const campoPlantilla = conPlantillas ? el("label", { text: "Plantilla" }, [campos.plantilla]) : "";
   const contador = el("p", { class: "contador" });
   const actualizarContador = () => {
     const texto = componerCaption({ caption: campos.caption.value, medio: post.fuente.medio, hashtags: campos.hashtags.value.split(/\s+/) });
@@ -371,6 +393,7 @@ function tarjeta({ post, sha }) {
     el("div", { class: "meta" }, [
       el("span", { class: "chip", text: post.categoria }),
       formatoDe(post) !== "post" ? el("span", { class: "chip formato", text: NOMBRES_FORMATO[formatoDe(post)] }) : "",
+      plantillaDe(post) !== "foto" ? el("span", { class: "chip formato", text: NOMBRES_PLANTILLA[plantillaDe(post)] }) : "",
       el("span", { class: `badge ${post.estado}`, text: post.estado }),
       el("a", { href: urlSegura(post.fuente.url), target: "_blank", rel: "noopener", text: post.fuente.medio }),
       post.programado ? el("span", { text: `Programado: ${claveDia(post.programado)} ${horaMinutoDeIso(post.programado)}` }) : "",
@@ -382,12 +405,13 @@ function tarjeta({ post, sha }) {
     bloqueFrase,
     campo("Titular", "titular"),
     campo("Bajada", "bajada"),
-    el("div", { class: "fila" }, [campo("Categoría", "categoria", "select"), campo("Variante", "variante", "select")]),
+    el("div", { class: "fila" }, [campo("Categoría", "categoria", "select"), campo("Variante", "variante", "select"), campoPlantilla]),
+    camposDato,
     campo("Caption", "caption"),
     campo("Hashtags (separados por espacio)", "hashtags", "input"),
     // Una frase es tipográfica: no se ofrece ilustración generada.
-    esFrase ? "" : el("label", { text: "Escena de la ilustración (sin personas reales)" }, [campoEscena]),
-    esFrase ? "" : el("label", { class: "casilla" }, [casillaUsar, el("span", { text: " Usar ilustración generada con IA" })]),
+    esFrase ? "" : el("label", { class: "solo-foto", text: "Escena de la ilustración (sin personas reales)" }, [campoEscena]),
+    esFrase ? "" : el("label", { class: "casilla solo-foto" }, [casillaUsar, el("span", { text: " Usar ilustración generada con IA" })]),
     ilus && ilus.error ? el("p", { class: "error-texto", text: `La ilustración falló: ${ilus.error.mensaje}` }) : "",
     contador,
     // Perfil editorial: alertas, trazabilidad (fuentes y afirmaciones), carrusel y guion del reel.
@@ -404,6 +428,7 @@ function tarjeta({ post, sha }) {
       titular: campos.titular.value.trim(), bajada: campos.bajada.value.trim(), caption: campos.caption.value.trim(),
       hashtags: normalizarHashtags(campos.hashtags.value.split(/\s+/)), categoria: campos.categoria.value, variante: campos.variante.value,
       ...(esFrase ? { frase: { texto: campos.fraseTexto.value.trim(), autor: campos.fraseAutor.value.trim(), fuente: campos.fraseFuente.value.trim(), anio: /^\d{3,4}$/.test(anioFrase) ? Number(anioFrase) : null } } : {}),
+      ...(conPlantillas ? { plantilla: campos.plantilla.value, ...(campos.plantilla.value === "dato" ? { dato: datoDelCampo() } : {}) } : {}),
       ilustracion: (escena || usar || post.ilustracion)
         ? { ...(post.ilustracion || { ruta: null, hashDescripcion: null, proveedor: null, modelo: null, generada: null, error: null }), descripcion: escena, usar, ...(reactivada ? { error: null } : {}) }
         : null,
@@ -413,12 +438,15 @@ function tarjeta({ post, sha }) {
     const c = cambios();
     return ["titular", "bajada", "caption", "categoria", "variante"].some((k) => c[k] !== post[k]) || c.hashtags.join(" ") !== post.hashtags.join(" ")
       || (c.ilustracion?.descripcion ?? "") !== (post.ilustracion?.descripcion ?? "") || Boolean(c.ilustracion?.usar) !== Boolean(post.ilustracion?.usar)
-      || (c.frase ? ["texto", "autor", "fuente"].some((k) => c.frase[k] !== (post.frase[k] || "")) || (c.frase.anio ?? null) !== (post.frase.anio ?? null) : false);
+      || (c.frase ? ["texto", "autor", "fuente"].some((k) => c.frase[k] !== (post.frase[k] || "")) || (c.frase.anio ?? null) !== (post.frase.anio ?? null) : false)
+      || (c.plantilla !== undefined && c.plantilla !== plantillaDe(post))
+      || (c.dato ? c.dato.cifra !== (post.dato?.cifra || "") || c.dato.frase !== (post.dato?.frase || "") : false);
   };
   const captionValido = () => {
     const t = validarTextos({ titular: campos.titular.value, bajada: campos.bajada.value });
     const c = validarCaption(componerCaption({ caption: campos.caption.value, medio: post.fuente.medio, hashtags: campos.hashtags.value.split(/\s+/) }));
-    return { ok: t.ok && c.ok, errores: [...t.errores, ...c.errores] };
+    const d = conPlantillas && campos.plantilla.value === "dato" ? erroresDeDato(datoDelCampo()) : [];
+    return { ok: t.ok && c.ok && !d.length, errores: [...t.errores, ...c.errores, ...d] };
   };
 
   const local = estado.borradores.get(post.id);
@@ -427,11 +455,24 @@ function tarjeta({ post, sha }) {
     if (k === "usar") campos[k].checked = local[k];
     else campos[k].value = local[k];
   }
+  // Al cambiar de plantilla: el dato solo se muestra para "dato", y la escena solo para "foto". Pasar a foto con una
+  // escena escrita enciende la ilustración (REGENERAR la pide a Gemini); pasar a dato o titular la apaga.
+  const mostrarPlantilla = (alCambiar = false) => {
+    if (!conPlantillas) return;
+    const p = campos.plantilla.value;
+    camposDato.style.display = p === "dato" ? "" : "none";
+    for (const n of cuerpo.querySelectorAll(".solo-foto")) n.style.display = p === "foto" ? "" : "none";
+    if (alCambiar) campos.usar.checked = p === "foto" && Boolean(campos.escena.value.trim());
+    const e = p === "dato" ? erroresDeDato(datoDelCampo()) : [];
+    avisoDato.textContent = e.length ? e[0] : "La cifra se comprueba contra el texto de la noticia al generar; si la cambias, que siga siendo la del artículo.";
+    avisoDato.className = e.length ? "nota excede" : "nota";
+  };
   const recordarBorrador = () => {
     if (hayCambios()) estado.borradores.set(post.id, {
       titular: campos.titular.value, bajada: campos.bajada.value, caption: campos.caption.value,
       hashtags: campos.hashtags.value, categoria: campos.categoria.value, variante: campos.variante.value,
       escena: campos.escena.value, usar: campos.usar.checked,
+      ...(conPlantillas ? { plantilla: campos.plantilla.value, datoCifra: campos.datoCifra.value, datoFrase: campos.datoFrase.value } : {}),
     });
     else estado.borradores.delete(post.id);
   };
@@ -439,6 +480,12 @@ function tarjeta({ post, sha }) {
   campos.categoria.addEventListener("change", recordarBorrador);
   campos.variante.addEventListener("change", recordarBorrador);
   campos.usar.addEventListener("change", recordarBorrador);
+  if (conPlantillas) {
+    campos.plantilla.addEventListener("change", () => { mostrarPlantilla(true); recordarBorrador(); });
+    campos.datoCifra.addEventListener("input", () => mostrarPlantilla());
+    campos.datoFrase.addEventListener("input", () => mostrarPlantilla());
+    mostrarPlantilla();
+  }
 
   campos.titular.addEventListener("input", actualizarContador);
   campos.bajada.addEventListener("input", actualizarContador);

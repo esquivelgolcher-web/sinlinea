@@ -8,7 +8,12 @@
   "marca": {
     "nombre": "Sin Línea",
     "usuario": "@sinlinea.pa",
-    "lema": "Nuestra línea es el Pueblo"
+    "lema": "Nuestra línea es el Pueblo",
+    "plantillas": [
+      "foto",
+      "dato",
+      "titular"
+    ]
   },
   "fuentes": [
     {

@@ -6,6 +6,7 @@ import { validarDestinos } from "./destinos.mjs";
 import { claveDia, claveMinuto, ZONA_PANAMA } from "./fechas.mjs";
 import { slugify, sha1short } from "./util.mjs";
 import { normalizarHashtags } from "./caption.mjs";
+import { PLANTILLAS, erroresDeDato } from "./plantillas.mjs";
 import { FORMATOS, TIPOS_AFIRMACION, ALCANCES, ALERTAS, ESTADOS_REVISION } from "./formatos.mjs";
 
 const esTextoONull = (v) => v === null || v === undefined || typeof v === "string";
@@ -120,6 +121,9 @@ export function validarPost(post) {
       "ilustracion debe tener descripcion, usar, ruta, hashDescripcion y error válidos"
     );
   }
+  if (post.plantilla !== undefined) exigir(PLANTILLAS.includes(post.plantilla), `plantilla "${post.plantilla}" desconocida (${PLANTILLAS.join(", ")})`);
+  if (post.dato !== undefined && post.dato !== null) exigir(erroresDeDato(post.dato).length === 0, `dato inválido: ${erroresDeDato(post.dato)[0]}`);
+  if (post.plantilla === "dato") exigir(post.dato && erroresDeDato(post.dato).length === 0, "dato: la plantilla dato necesita cifra y frase");
   validarPerfilDePost(post);
   return post;
 }
