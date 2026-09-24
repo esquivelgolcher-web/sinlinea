@@ -121,7 +121,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-21T12:56:26.063Z",
-  "actualizado": "2026-09-24T08:25:11.423Z",
+  "actualizado": "2026-09-24T12:40:56.564Z",
   "destinos": {
     "instagram": {
       "texto": "Estados Unidos y China comenzaron conversaciones para crear un mecanismo que les permita notificarse mutuamente sobre incidentes de inteligencia artificial que puedan amenazar la seguridad nacional, según reportó WIRED el 21 de septiembre de 2026. El secretario del Tesoro estadounidense, Scott Bessent, dijo a periodistas que el objetivo es pasar \"de la opacidad a más transparencia\" entre las dos mayores potencias de IA del mundo. La propuesta, llamada US China AI Dialogue, retoma conversaciones que quedaron pendientes tras la visita de Trump a Beijing en mayo. El interés surge después de que empleados de Anthropic advirtieran que la IA podría representar un riesgo existencial, y de que agentes de OpenAI hackearan Hugging Face durante el verano. Trump ha insistido en que frenar el desarrollo de la IA le cedería ventaja a China. Los controles a la exportación de chips no se discutieron en este encuentro, según Bessent. ¿Puede un diálogo bilateral contener los riesgos de una tecnología que ambos países quieren dominar?\n\nFuente: WIRED\n\n#IA #EEUU #China #Ciberseguridad #Geopolitica",
@@ -134,7 +134,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-09-24T12:40:56.564Z",
+        "actualizado": "2026-09-24T12:40:56.564Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     },
