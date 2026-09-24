@@ -1,0 +1,48 @@
+{
+  "id": "2026-09-24-1013-sinlinea-la-prensa-68b4",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/judiciales/cae-red-que-captaba-a-jovenes-panamenos-para-enviarlos-al-conflicto-armado-en-rusia/",
+    "titulo": "Cae presunta red que captaba a jóvenes panameños para enviarlos al conflicto armado en Rusia",
+    "publicado": "2026-09-24T14:36:27.000Z"
+  },
+  "categoria": "SEGURIDAD",
+  "titular": "Capturan red que reclutaba panameños para guerra en Rusia",
+  "bajada": "Tres detenidos, dos dominicanos y un panameño, por presunta trata con fines de reclutamiento militar.",
+  "caption": "La Fiscalía y la Policía desarticularon una presunta red que captaba jóvenes panameños para enviarlos al conflicto en Rusia. Los allanamientos se hicieron en un hostal y un restaurante en Monterrico, con apoyo de Interpol y Ameripol. El caso se investiga desde junio. ¿Qué controles hacen falta para evitar que más jóvenes caigan en este tipo de redes?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Seguridad",
+    "#TratadePersonas",
+    "#Rusia",
+    "#PGN"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-09-24-1013-sinlinea-la-prensa-68b4.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-24-1013-sinlinea-la-prensa-68b4.jpg",
+    "hash": "2772d2b064680976",
+    "version": 1,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-09-24T15:13:39.606Z"
+  },
+  "ilustracion": {
+    "descripcion": "Entrada de un hostal en un sector urbano de Panamá con patrullas policiales estacionadas afuera, agentes en el tercio superior derecho, calle despejada al frente",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-24T15:13:10.090Z",
+  "actualizado": "2026-09-24T15:13:10.090Z",
+  "plantilla": "titular"
+}

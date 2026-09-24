@@ -1,0 +1,48 @@
+{
+  "id": "2026-09-24-1013-sinlinea-la-prensa-bc4f",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/deportes/panama-tendra-tres-arbitros-en-la-copa-del-mundo-sub-17-catar-2026/",
+    "titulo": "Panamá tendrá tres árbitros en la Copa del Mundo Sub-17 Catar 2026",
+    "publicado": "2026-09-23T21:58:24.000Z"
+  },
+  "categoria": "DEPORTES",
+  "titular": "Tres árbitros panameños dirigirán en el Mundial Sub-17",
+  "bajada": "Fernando Morón, Andrés Vargas y Alejandro Camarena representarán a Panamá en Catar 2026.",
+  "caption": "El arbitraje panameño vuelve a un Mundial masculino después de la cita de Rusia 2018. Fernando Morón será árbitro principal, acompañado por Andrés Vargas y Alejandro Camarena como asistentes en el torneo que se jugará de noviembre a diciembre. Un reconocimiento al trabajo constante de los colegiados panameños en el fútbol internacional. ¿Qué le deseas a este trío en su primer Mundial?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Deportes",
+    "#Arbitraje",
+    "#MundialSub17",
+    "#Catar2026"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-09-24-1013-sinlinea-la-prensa-bc4f.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-24-1013-sinlinea-la-prensa-bc4f.jpg",
+    "hash": "bba101f459e5d652",
+    "version": 11,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-09-24T15:13:44.159Z"
+  },
+  "ilustracion": {
+    "descripcion": "Un árbitro de fútbol con uniforme oficial en el centro de una cancha vacía bajo luces de estadio, ubicado en el tercio superior derecho, campo despejado alrededor",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-24-1013-sinlinea-la-prensa-bc4f.jpg",
+    "hashDescripcion": "383a69d4e13eaaaa",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-24T15:13:10.090Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-24T15:13:10.090Z",
+  "actualizado": "2026-09-24T15:13:10.090Z",
+  "plantilla": "foto"
+}
