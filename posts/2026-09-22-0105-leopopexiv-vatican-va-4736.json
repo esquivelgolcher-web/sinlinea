@@ -1,7 +1,7 @@
 {
   "id": "2026-09-22-0105-leopopexiv-vatican-va-4736",
   "cuenta": "leopopexiv",
-  "estado": "borrador",
+  "estado": "programado",
   "formato": "frase",
   "frase": {
     "texto": "Peace be with you all!",
@@ -36,9 +36,26 @@
     "renderizada": "2026-09-22T05:05:48.047Z"
   },
   "ilustracion": null,
-  "programado": null,
+  "programado": "2026-09-24T18:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-22T05:05:18.479Z",
-  "actualizado": "2026-09-22T05:05:18.479Z"
+  "actualizado": "2026-09-24T08:25:59.553Z",
+  "destinos": {
+    "instagram": {
+      "texto": "“Peace be with you all!”\n\n— Pope Leo XIV, First words from the loggia of St. Peter's Basilica (2025)\n\n#PopeLeoXIV #Vatican #CatholicChurch\n\nFuente: Vatican.va\n\n#PopeLeoXIV #Vatican #CatholicChurch",
+      "aprobado": {
+        "fecha": "2026-09-24T08:25:59.553Z",
+        "hashPieza": "403e1b736c37fc59",
+        "imagenHash": "0a934a1d82fd282f",
+        "imagenSha": "5d8d050bcc25dd178b0b97b2d256d871b8e83859"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
