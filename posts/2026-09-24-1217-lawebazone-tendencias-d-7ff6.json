@@ -1,0 +1,45 @@
+{
+  "id": "2026-09-24-1217-lawebazone-tendencias-d-7ff6",
+  "cuenta": "lawebazone",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Tendencias de Colombia",
+    "url": "https://centrodeinformacion.manizales.gov.co/resultados-de-la-loteria-de-manizales-miercoles-23-de-septiembre-de-2026/",
+    "titulo": "manizales",
+    "publicado": "2026-09-24T17:00:00.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "La lotería salió y tu número no, otra vez",
+  "bajada": "Se conocieron los resultados de la Lotería de Manizales y el país entero revisó su billete con fe.",
+  "caption": "Todos los miércoles pasa lo mismo: revisás el número con la misma esperanza que un lunes de gimnasio. Y como siempre, la plata se la lleva otro, pero el sueño de renunciar al trabajo duró cinco segundos más.",
+  "hashtags": [
+    "#Lotería",
+    "#Manizales",
+    "#SueñosRotos",
+    "#MeQuedéEnBlanco"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-09-24-1217-lawebazone-tendencias-d-7ff6.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-24-1217-lawebazone-tendencias-d-7ff6.jpg",
+    "hash": "76d556cd618689c3",
+    "version": 11,
+    "estilo": "9fd322fb9927e571",
+    "renderizada": "2026-09-24T17:17:30.242Z"
+  },
+  "ilustracion": {
+    "descripcion": "Una mano sostiene un billete de lotería frente a una pizarra con números de resultados, en un puesto de venta callejero. El billete y la pizarra quedan en el tercio superior derecho, con la calle despejada en el centro e izquierda.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-24T17:17:04.444Z",
+  "actualizado": "2026-09-24T17:17:04.444Z"
+}

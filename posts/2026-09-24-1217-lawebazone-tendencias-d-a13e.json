@@ -1,0 +1,44 @@
+{
+  "id": "2026-09-24-1217-lawebazone-tendencias-d-a13e",
+  "cuenta": "lawebazone",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Tendencias de México",
+    "url": "https://www.milenio.com/deportes/futbol-internacional/paises-bajos-vs-alemania-ver-en-vivo-partido-uefa-nations-league-2026",
+    "titulo": "liga de naciones",
+    "publicado": "2026-09-24T16:20:00.000Z"
+  },
+  "categoria": "DEPORTES",
+  "titular": "Nadie sabe a qué hora es el partido, pero todos lo buscan",
+  "bajada": "Países Bajos y Alemania juegan hoy la Nations League y medio internet solo busca el horario.",
+  "caption": "Cada partido importante es lo mismo: 20 pestañas abiertas preguntando 'a qué hora es' y ninguna te da la hora en tu zona. Al final terminás viendo el resumen en un video vertical de 40 segundos, como toda persona civilizada.",
+  "hashtags": [
+    "#NationsLeague",
+    "#AQuéHoraEs",
+    "#FútbolInternacional"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-09-24-1217-lawebazone-tendencias-d-a13e.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-24-1217-lawebazone-tendencias-d-a13e.jpg",
+    "hash": "0e47267d9772cadf",
+    "version": 11,
+    "estilo": "9fd322fb9927e571",
+    "renderizada": "2026-09-24T17:17:30.525Z"
+  },
+  "ilustracion": {
+    "descripcion": "Un televisor apagado en una sala vacía con un balón de fútbol sobre la mesa, junto a un celular mostrando una búsqueda. El celular y el balón quedan en el tercio superior derecho, el resto del cuadro despejado.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-24T17:17:04.444Z",
+  "actualizado": "2026-09-24T17:17:04.444Z"
+}
