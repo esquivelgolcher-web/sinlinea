@@ -115,7 +115,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-23T11:45:31.955Z",
-  "actualizado": "2026-09-24T08:25:29.691Z",
+  "actualizado": "2026-09-24T17:49:46.477Z",
   "destinos": {
     "instagram": {
       "texto": "Circulan en redes sociales portadas del diario ABC en las que, supuestamente, el rey de Marruecos, Mohamed VI, ofrece devolver territorios españoles a cambio de Ceuta y Melilla. Según una verificación de EFE Verifica publicada el 22 de septiembre de 2026, esas portadas no son reales: son montajes hechos con inteligencia artificial que empezaron como contenido humorístico y terminaron difundiéndose como si fueran noticia. La portada auténtica de ABC de la fecha que aparece en las imágenes trataba sobre el caso Koldo, no sobre Marruecos. Para confirmarlo, los verificadores usaron Verify, una herramienta de OpenAI que detecta la marca de agua SynthID, un código invisible que algunas empresas insertan en imágenes generadas por IA para poder identificarlas después. El caso muestra cómo el humor digital puede mutar en desinformación cuando pierde su contexto original. ¿Cómo distinguís una portada real de un montaje antes de compartirlo?\n\nFuente: EFE Verifica\n\n#Desinformación #IA #Verificación #España #Marruecos",
@@ -128,7 +128,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-09-24T17:49:46.477Z",
+        "actualizado": "2026-09-24T17:49:46.477Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     },
