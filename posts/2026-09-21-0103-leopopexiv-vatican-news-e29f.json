@@ -42,7 +42,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-21T05:03:54.169Z",
-  "actualizado": "2026-09-24T08:25:55.331Z",
+  "actualizado": "2026-09-24T21:26:18.935Z",
   "destinos": {
     "instagram": {
       "texto": "Pope Leo XIV offered prayers for an end to violence in parts of Somalia and appealed for greater assistance amid the ongoing humanitarian crisis. Source: Vatican News, Sept 20, 2026.\n\nFuente: Vatican News\n\n#PopeLeoXIV #Somalia #Vatican #Peace #HumanitarianCrisis",
@@ -55,7 +55,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-09-24T21:26:18.935Z",
+        "actualizado": "2026-09-24T21:26:18.935Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
