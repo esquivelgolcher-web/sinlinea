@@ -1,7 +1,7 @@
 {
   "id": "2026-09-23-1209-luiseskivelgolcher-wired-efa6",
   "cuenta": "luiseskivelgolcher",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "WIRED",
     "url": "https://www.wired.com/story/metas-muse-ai-agent-zero-day/",
@@ -206,9 +206,59 @@
     "estado": "pendiente",
     "notas": []
   },
-  "programado": null,
+  "programado": "2026-09-24T08:15:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-23T17:09:31.466Z",
-  "actualizado": "2026-09-23T17:09:31.466Z"
+  "actualizado": "2026-09-24T08:25:45.464Z",
+  "destinos": {
+    "instagram": {
+      "texto": "Meta lanzó hace unas semanas Muse, un asistente de inteligencia artificial para macOS que agenda citas, redacta documentos y se conecta con WhatsApp, correo y redes sociales. Según reportó WIRED (Dan Goodin, Ars Technica) el 23 de septiembre de 2026, el investigador de seguridad Patrick Wardle halló un 'zero-day': una falla desconocida hasta ese momento para el fabricante. Cualquier aplicación o comando de terminal en la computadora podía cambiar el servidor donde Muse envía las transcripciones de voz, robando así el token que da control total de la cuenta. Wardle dijo que con eso podía escribir archivos maliciosos o tomar fotos sin que el usuario lo notara. Meta publicó un parche más de 12 horas después de que WIRED difundiera el hallazgo. Amazon, por su parte, había empezado a bloquear Muse en su sitio días antes. ¿Cuánto acceso le damos a un asistente de IA sin pensarlo dos veces?\n\nFuente: WIRED\n\n#Ciberseguridad #IA #Meta #Privacidad",
+      "aprobado": {
+        "fecha": "2026-09-24T08:25:45.464Z",
+        "hashPieza": "bfcd6f72a712bd8c",
+        "imagenHash": "f90ad6fac302c6b0",
+        "imagenSha": "0eb3d591092e51976d53b0ef00584215f7e50ebb",
+        "imagenesSha": [
+          "45604f5b71769658360ca1a1f76e2da98292febd",
+          "6555634241a3bdb3108b29a793e0087458847b4b",
+          "83dc3e163a851becfaf3bc0d95477ec4f0fb22f7",
+          "60916a9d328a86a82f20be24dfd72be62b7918bb",
+          "63308115f29089597521c05ca879915aa20b584a",
+          "ea8c731774deebc6f95131c1435eabf71fce7279",
+          "55e6f83291a7650e9327b3854182b4de8e6a24d0"
+        ]
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    },
+    "threads": {
+      "texto": "Zero-day en Muse, la IA de Meta, exponía Mac ajenas\n\nCualquier app local podía tomar control total del asistente, según investigador citado por WIRED\n\nSegún WIRED (23 de septiembre de 2026)",
+      "aprobado": {
+        "fecha": "2026-09-24T08:25:45.464Z",
+        "hashPieza": "bfcd6f72a712bd8c",
+        "imagenHash": "f90ad6fac302c6b0",
+        "imagenSha": "0eb3d591092e51976d53b0ef00584215f7e50ebb",
+        "imagenesSha": [
+          "45604f5b71769658360ca1a1f76e2da98292febd",
+          "6555634241a3bdb3108b29a793e0087458847b4b",
+          "83dc3e163a851becfaf3bc0d95477ec4f0fb22f7",
+          "60916a9d328a86a82f20be24dfd72be62b7918bb",
+          "63308115f29089597521c05ca879915aa20b584a",
+          "ea8c731774deebc6f95131c1435eabf71fce7279",
+          "55e6f83291a7650e9327b3854182b4de8e6a24d0"
+        ]
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
