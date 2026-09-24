@@ -1,7 +1,7 @@
 {
   "id": "2026-09-23-1209-luiseskivelgolcher-wired-efa6",
   "cuenta": "luiseskivelgolcher",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "WIRED",
     "url": "https://www.wired.com/story/metas-muse-ai-agent-zero-day/",
@@ -262,25 +262,15 @@
           "55e6f83291a7650e9327b3854182b4de8e6a24d0"
         ]
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-09-24T17:49:46.477Z",
-        "actualizado": "2026-09-24T17:49:46.477Z",
-        "contenedorId": "17990489847100604",
-        "hijos": [
-          "17990489697100604",
-          "17990489721100604",
-          "17990489742100604",
-          "17990489763100604",
-          "17990489784100604",
-          "17990489805100604",
-          "17990489826100604"
-        ]
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18129474388751373",
+        "idPublicacion": null,
+        "permalink": "https://www.threads.com/@luisegolcher/post/DdrdoJGFHmu",
+        "fecha": "2026-09-24T17:49:46.477Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
