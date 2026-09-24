@@ -1,7 +1,7 @@
 {
   "id": "2026-09-22-0105-leopopexiv-vatican-news-9fbb",
   "cuenta": "leopopexiv",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/pope/news/2026-09/hspo-programme-latin-america-logos-mottos-itinerary.html",
@@ -39,9 +39,26 @@
     "generada": "2026-09-22T05:05:18.479Z",
     "error": null
   },
-  "programado": null,
+  "programado": "2026-09-26T13:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-22T05:05:18.479Z",
-  "actualizado": "2026-09-22T05:05:18.479Z"
+  "actualizado": "2026-09-24T08:26:18.953Z",
+  "destinos": {
+    "instagram": {
+      "texto": "The Holy See Press Office has released the official programme, logos and mottos for Pope Leo XIV's upcoming Apostolic Journey to Uruguay, Argentina and Peru, set to take place from November 6 to 17. Source: Vatican News, Sept. 21, 2026.\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #ApostolicJourney #Uruguay #Argentina #Peru",
+      "aprobado": {
+        "fecha": "2026-09-24T08:26:18.953Z",
+        "hashPieza": "a5b94e1159677a1f",
+        "imagenHash": "35bfb798a75df966",
+        "imagenSha": "37769146be6c6c08b5ea7917eb276108e9023449"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
