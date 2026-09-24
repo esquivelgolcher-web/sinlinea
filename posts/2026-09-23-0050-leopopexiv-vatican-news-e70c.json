@@ -1,7 +1,7 @@
 {
   "id": "2026-09-23-0050-leopopexiv-vatican-news-e70c",
   "cuenta": "leopopexiv",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/vatican-city/news/2026-09/american-theologian-john-cavadini-receive-2026-ratzinger-prize.html",
@@ -38,9 +38,26 @@
     "generada": "2026-09-23T04:50:43.070Z",
     "error": null
   },
-  "programado": null,
+  "programado": "2026-09-26T09:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-23T04:50:43.070Z",
-  "actualizado": "2026-09-23T04:50:43.070Z"
+  "actualizado": "2026-09-24T08:26:14.501Z",
+  "destinos": {
+    "instagram": {
+      "texto": "Pope Leo XIV will present the 2026 Ratzinger Prize to American theologian Dr John Cavadini on December 19 at the Apostolic Palace, recognizing his scholarly work on Patristics and St Augustine. Source: Vatican News, Sept 22, 2026.\n\nFuente: Vatican News\n\n#PopeLeoXIV #RatzingerPrize #Vatican #Theology #StAugustine",
+      "aprobado": {
+        "fecha": "2026-09-24T08:26:14.501Z",
+        "hashPieza": "0277f7711ab3c48f",
+        "imagenHash": "4b1e9d4dc1b87eaf",
+        "imagenSha": "370a396a69271e76055c5f0b5087563294bd9a7a"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
