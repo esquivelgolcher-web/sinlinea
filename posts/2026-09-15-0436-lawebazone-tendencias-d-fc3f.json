@@ -1,7 +1,7 @@
 {
   "id": "2026-09-15-0436-lawebazone-tendencias-d-fc3f",
   "cuenta": "lawebazone",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "Tendencias de Colombia",
     "url": "https://www.eltiempo.com/cultura/cine-y-tv/los-ganadores-de-los-emmy-2026-widow-s-bay-arrasa-con-seis-galardones-y-carlos-manuel-vesga-no-logra-quedarse-con-el-premio-por-pluribus-3586019",
@@ -40,5 +40,5 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-15T09:36:23.242Z",
-  "actualizado": "2026-09-18T08:35:29.111Z"
+  "actualizado": "2026-09-24T15:17:45.191Z"
 }
