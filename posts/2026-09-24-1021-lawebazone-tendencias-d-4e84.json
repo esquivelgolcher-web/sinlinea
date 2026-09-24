@@ -1,0 +1,44 @@
+{
+  "id": "2026-09-24-1021-lawebazone-tendencias-d-4e84",
+  "cuenta": "lawebazone",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Tendencias de Argentina",
+    "url": "https://www.perfil.com/noticias/cordoba/compraste-una-propiedad-pero-ya-sos-dueno-claves-de-la-escritura-y-que-mirar-antes-de-firmar.phtml",
+    "titulo": "propiedad",
+    "publicado": "2026-09-24T13:10:00.000Z"
+  },
+  "categoria": "ECONOMÍA",
+  "titular": "Compraste casa, pero ¿ya sos dueño de verdad?",
+  "bajada": "Especialistas recuerdan revisar bien la escritura antes de firmar la compra de una propiedad",
+  "caption": "Firmaste, pagaste, tenés las llaves... pero la casa recién es tuya cuando la escritura está en regla. Momento ideal para leer letra chica y fingir que entendés todo lo que dice el abogado.",
+  "hashtags": [
+    "#Escritura",
+    "#BienesRaices",
+    "#TramitesDeAdulto"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-09-24-1021-lawebazone-tendencias-d-4e84.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-24-1021-lawebazone-tendencias-d-4e84.jpg",
+    "hash": "cb0590e97d1536ab",
+    "version": 11,
+    "estilo": "9fd322fb9927e571",
+    "renderizada": "2026-09-24T15:22:55.201Z"
+  },
+  "ilustracion": {
+    "descripcion": "Mesa con documentos y un sello notarial sobre un escritorio, mano firmando un papel; los documentos en el tercio superior derecho, resto de la mesa despejado.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-24T15:21:45.132Z",
+  "actualizado": "2026-09-24T15:21:45.132Z"
+}

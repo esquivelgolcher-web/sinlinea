@@ -1,0 +1,48 @@
+{
+  "id": "2026-09-24-1021-sinlinea-la-estrella-b93c",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/muerte-de-nino-en-pedasi-dictan-arresto-domiciliario-a-madre-EK25942273",
+    "titulo": "Muerte de niño en Pedasí: dictan arresto domiciliario a madre",
+    "publicado": "2026-09-23T21:54:00.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "Madre de niño fallecido en Pedasí recibe arresto domiciliario",
+  "bajada": "Es la segunda persona procesada tras la muerte del menor de 10 años en Los Santos",
+  "caption": "La mujer, que está embarazada, fue imputada por maltrato al menor y no podrá acercarse a las demás víctimas del caso. La investigación ya suma dos personas vinculadas, incluida la abuela materna del niño, detenida previamente. El caso examina hechos ocurridos durante casi diez meses. ¿Qué tan efectivos son los controles para proteger a los niños en Panamá?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Pedasí",
+    "#Justicia",
+    "#ProtecciónInfantil",
+    "#LosSantos"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-09-24-1021-sinlinea-la-estrella-b93c.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-24-1021-sinlinea-la-estrella-b93c.jpg",
+    "hash": "65bd6a7b142adcd9",
+    "version": 11,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-09-24T15:22:31.540Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada de un tribunal de garantías en Las Tablas, provincia de Los Santos, con una balanza de la justicia en el tercio superior derecho, zona izquierda y central despejadas",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-24-1021-sinlinea-la-estrella-b93c.jpg",
+    "hashDescripcion": "c672f9dfd4210379",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-24T15:21:45.132Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-24T15:21:45.132Z",
+  "actualizado": "2026-09-24T15:21:45.132Z",
+  "plantilla": "foto"
+}

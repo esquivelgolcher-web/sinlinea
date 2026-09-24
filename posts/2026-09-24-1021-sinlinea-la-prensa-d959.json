@@ -1,0 +1,52 @@
+{
+  "id": "2026-09-24-1021-sinlinea-la-prensa-d959",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/sociedad/pase-u-45-millones-de-los-58-millones-pagados-ya-fueron-utilizados/",
+    "titulo": "PASE-U: $45 millones de los $58 millones pagados ya fueron utilizados",
+    "publicado": "2026-09-23T18:55:38.000Z"
+  },
+  "categoria": "EDUCACIÓN",
+  "titular": "Ifarhu confirma que ya se usaron $45 millones del PASE-U",
+  "bajada": "De los $58 millones pagados, el 71% se destinó a alimentos, según el director del Ifarhu",
+  "caption": "El Programa de Asistencia Social Educativa Universal ya movió la mayor parte de lo desembolsado, y la mayoría del dinero fue a parar a comida para las familias beneficiarias. El Ifarhu también detectó errores en el registro de miles de estudiantes antes de pagar. El segundo desembolso llega en octubre. ¿Te ha llegado el pago del PASE-U a tiempo?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#PASEU",
+    "#Educación",
+    "#Ifarhu",
+    "#AsambleaNacional"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-09-24-1021-sinlinea-la-prensa-d959.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-24-1021-sinlinea-la-prensa-d959.jpg",
+    "hash": "951f24028571ec40",
+    "version": 2,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-09-24T15:22:24.919Z"
+  },
+  "ilustracion": {
+    "descripcion": "Una tarjeta de pago junto a bolsas de alimentos y útiles escolares sobre una mesa, la tarjeta ubicada en el tercio superior derecho, zona izquierda y central despejadas",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-24T15:21:45.132Z",
+  "actualizado": "2026-09-24T15:21:45.132Z",
+  "plantilla": "dato",
+  "dato": {
+    "cifra": "$45 millones",
+    "frase": "de los $58 millones pagados por el PASE-U ya fueron utilizados por los beneficiarios"
+  }
+}
