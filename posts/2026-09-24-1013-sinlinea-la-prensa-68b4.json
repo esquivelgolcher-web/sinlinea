@@ -24,10 +24,10 @@
   "imagen": {
     "ruta": "public/img/2026-09-24-1013-sinlinea-la-prensa-68b4.jpg",
     "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-24-1013-sinlinea-la-prensa-68b4.jpg",
-    "hash": "2772d2b064680976",
-    "version": 1,
+    "hash": "2a72d769636807e3",
+    "version": 2,
     "estilo": "bd2669fff78536a1",
-    "renderizada": "2026-09-24T15:13:39.606Z"
+    "renderizada": "2026-09-24T15:20:45.086Z"
   },
   "ilustracion": {
     "descripcion": "Entrada de un hostal en un sector urbano de Panamá con patrullas policiales estacionadas afuera, agentes en el tercio superior derecho, calle despejada al frente",
@@ -43,6 +43,6 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-24T15:13:10.090Z",
-  "actualizado": "2026-09-24T15:13:10.090Z",
+  "actualizado": "2026-09-24T15:20:44.516Z",
   "plantilla": "titular"
 }
