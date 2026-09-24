@@ -1,7 +1,7 @@
 {
   "id": "2026-09-15-0436-lawebazone-tendencias-d-4aff",
   "cuenta": "lawebazone",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "Tendencias de Chile",
     "url": "https://www.espn.cl/futbol/colombia/nota/_/id/17258638/america-de-cali-perdio-invicto-ante-deportivo-pasto-liga-betplay-2026",
@@ -40,5 +40,5 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-15T09:36:23.242Z",
-  "actualizado": "2026-09-15T09:36:23.242Z"
+  "actualizado": "2026-09-24T15:17:42.701Z"
 }
