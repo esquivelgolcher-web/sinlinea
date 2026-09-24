@@ -1,7 +1,7 @@
 {
   "id": "2026-09-21-0756-sinlinea-la-prensa-c1c5",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "La Prensa",
     "url": "https://www.prensa.com/politica/ministerios-gastan-15-millones-en-alquiler-de-vehiculos-todo-terreno/",
@@ -43,5 +43,5 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-21T12:56:26.063Z",
-  "actualizado": "2026-09-21T12:56:26.063Z"
+  "actualizado": "2026-09-24T15:13:26.256Z"
 }
