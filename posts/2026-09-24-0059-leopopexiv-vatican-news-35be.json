@@ -1,7 +1,7 @@
 {
   "id": "2026-09-24-0059-leopopexiv-vatican-news-35be",
   "cuenta": "leopopexiv",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/pope/news/2026-09/pope-leo-appeal-world-day-migrants-refugees-children.html",
@@ -38,9 +38,26 @@
     "generada": "2026-09-24T04:59:17.245Z",
     "error": null
   },
-  "programado": null,
+  "programado": "2026-09-25T18:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-24T04:59:17.245Z",
-  "actualizado": "2026-09-24T04:59:17.245Z"
+  "actualizado": "2026-09-24T08:26:10.301Z",
+  "destinos": {
+    "instagram": {
+      "texto": "Pope Leo XIV has appealed for the care and protection of migrant and refugee children, urging everyone to take responsibility for minors on the move. The appeal comes ahead of the World Day of Migrants and Refugees. Source: Vatican News, Sept 23, 2026.\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #Migrants #Refugees #CatholicChurch",
+      "aprobado": {
+        "fecha": "2026-09-24T08:26:10.301Z",
+        "hashPieza": "bf81f39434e9248e",
+        "imagenHash": "d1194c57a311d33d",
+        "imagenSha": "3c1b2f351258f61fb7d98b78797686fea27817e3"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
