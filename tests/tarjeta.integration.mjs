@@ -84,7 +84,8 @@ async function medir(post) {
 }
 
 test("(tarjeta) el texto nunca pisa la cabecera ni el pie, aunque el titular ocupe cinco líneas", async () => {
-  for (const post of [titular, dato, { ...titular, titular: "Antai admite que no puede investigar nepotismo en la Asamblea" }]) {
+  const cifraLarga = { ...dato, dato: { cifra: "$1.5 millones", frase: "gastaron 13 ministerios en alquilar camionetas este año" } };
+  for (const post of [titular, dato, cifraLarga, { ...titular, titular: "Antai admite que no puede investigar nepotismo en la Asamblea" }]) {
     const m = await medir(post);
     assert.equal(m.error, "", post.titular);
     assert.ok(m.arriba >= m.cabecera + 20, `${post.titular}: el bloque empieza en ${m.arriba} y la cabecera acaba en ${m.cabecera}`);

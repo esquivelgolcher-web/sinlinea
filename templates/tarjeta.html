@@ -124,15 +124,27 @@
   const cabeBloque = (bloque) => bloque.offsetHeight <= cuerpo.clientHeight + 1;
   let error = "";
   if (plantilla === "dato") {
-    // La cifra va en una línea: se encoge hasta el ancho de su caja; luego la frase, y si aun así no cabe, ambas.
+    // La cifra va en una línea mientras quepa grande ("47%"). Una cifra larga ("$1.5 millones") pasa a dos líneas,
+    // sin partir palabras. Luego la frase y, si el bloque aún no cabe, se encoge la cifra.
     const cifra = $("cifra");
     const bloque = cifra.parentElement;
     let t = 480;
+    const poner = (n) => { t = n; cifra.style.fontSize = t + "px"; };
     const ancho = () => cifra.scrollWidth <= cifra.clientWidth + 1;
-    while (!ancho() && t > 200) { t -= 10; cifra.style.fontSize = t + "px"; }
+    let interlineado = 0.86;
+    const lineasCifra = () => Math.round(cifra.scrollHeight / (t * interlineado));
+    while (!ancho() && t > 260) poner(t - 10);
+    if (!ancho()) {
+      // En dos líneas, un poco más de aire entre ellas para que la segunda no toque la primera.
+      interlineado = 0.96;
+      cifra.style.lineHeight = String(interlineado);
+      cifra.style.whiteSpace = "normal";
+      poner(320);
+      while ((!ancho() || lineasCifra() > 2) && t > 140) poner(t - 10);
+    }
     const fraseCabe = ajustar($("frase"), { max: 66, min: 44, paso: 2, interlineado: 1.1, lineas: 4 });
-    while (!cabeBloque(bloque) && t > 200) { t -= 10; cifra.style.fontSize = t + "px"; }
-    if (!ancho() || !fraseCabe || !cabeBloque(bloque)) error = "dato";
+    while (!cabeBloque(bloque) && t > 140) poner(t - 10);
+    if (!ancho() || lineasCifra() > 2 || !fraseCabe || !cabeBloque(bloque)) error = "dato";
   } else {
     const titular = $("titular");
     const bloque = titular.parentElement;
