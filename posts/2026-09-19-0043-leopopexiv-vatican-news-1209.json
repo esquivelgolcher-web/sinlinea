@@ -1,7 +1,7 @@
 {
   "id": "2026-09-19-0043-leopopexiv-vatican-news-1209",
   "cuenta": "leopopexiv",
-  "estado": "borrador",
+  "estado": "programado",
   "formato": "frase",
   "frase": {
     "texto": "The Church does not exist for herself, but to lead every person to an encounter with the Lord.",
@@ -36,9 +36,26 @@
     "renderizada": "2026-09-19T04:43:38.404Z"
   },
   "ilustracion": null,
-  "programado": null,
+  "programado": "2026-09-24T09:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-19T04:43:18.645Z",
-  "actualizado": "2026-09-19T04:43:18.645Z"
+  "actualizado": "2026-09-24T08:25:51.209Z",
+  "destinos": {
+    "instagram": {
+      "texto": "“The Church does not exist for herself, but to lead every person to an encounter with the Lord.”\n\n— Pope Leo XIV, Address to the Diocesan Assembly of Rome at the Basilica of St John Lateran (2026)\n\nVia Vatican News, 18 September 2026\n\n#PopeLeoXIV #Vatican #CatholicChurch\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #CatholicChurch",
+      "aprobado": {
+        "fecha": "2026-09-24T08:25:51.209Z",
+        "hashPieza": "58a2ebbd81786373",
+        "imagenHash": "cb539bbfdfdf7045",
+        "imagenSha": "94e1fe88121a8fd01365185e20d2444bf8c22e29"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
