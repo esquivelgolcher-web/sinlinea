@@ -1,7 +1,7 @@
 {
   "id": "2026-09-21-0756-luiseskivelgolcher-wired-bfca",
   "cuenta": "luiseskivelgolcher",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "WIRED",
     "url": "https://www.wired.com/story/us-and-china-discuss-alerting-each-other-to-ai-national-security-threats/",
@@ -175,16 +175,15 @@
         "imagenHash": "f61fddc5ce674f23",
         "imagenSha": "7aed631a425dc834e023f4e602db487de3dec73c"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-09-24T12:40:56.564Z",
-        "actualizado": "2026-09-24T12:40:56.564Z",
-        "contenedorId": "17990449215100604"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18091489952655587",
+        "idPublicacion": null,
+        "permalink": "https://www.threads.com/@luisegolcher/post/Ddq6KVoFsVK",
+        "fecha": "2026-09-24T12:40:56.564Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
