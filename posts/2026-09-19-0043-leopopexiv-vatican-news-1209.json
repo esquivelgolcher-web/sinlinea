@@ -1,7 +1,7 @@
 {
   "id": "2026-09-19-0043-leopopexiv-vatican-news-1209",
   "cuenta": "leopopexiv",
-  "estado": "programado",
+  "estado": "publicado",
   "formato": "frase",
   "frase": {
     "texto": "The Church does not exist for herself, but to lead every person to an encounter with the Lord.",
@@ -37,7 +37,11 @@
   },
   "ilustracion": null,
   "programado": "2026-09-24T09:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "18331623556277031",
+    "permalink": "https://www.instagram.com/p/DdrdwW8lk9p/",
+    "fecha": "2026-09-24T17:52:24.005Z"
+  },
   "error": null,
   "creado": "2026-09-19T04:43:18.645Z",
   "actualizado": "2026-09-24T17:52:24.005Z",
@@ -50,16 +54,15 @@
         "imagenHash": "cb539bbfdfdf7045",
         "imagenSha": "94e1fe88121a8fd01365185e20d2444bf8c22e29"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-09-24T17:52:24.005Z",
-        "actualizado": "2026-09-24T17:52:24.005Z",
-        "contenedorId": "18104462318081176"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18331623556277031",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/DdrdwW8lk9p/",
+        "fecha": "2026-09-24T17:52:24.005Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
