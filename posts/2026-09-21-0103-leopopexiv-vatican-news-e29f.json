@@ -1,7 +1,7 @@
 {
   "id": "2026-09-21-0103-leopopexiv-vatican-news-e29f",
   "cuenta": "leopopexiv",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/pope/news/2026-09/pope-leo-xiv-angelus-appeals-humanitarian-crisis-somalia.html",
@@ -38,9 +38,26 @@
     "generada": "2026-09-21T05:03:54.169Z",
     "error": null
   },
-  "programado": null,
+  "programado": "2026-09-24T13:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-21T05:03:54.169Z",
-  "actualizado": "2026-09-21T05:03:54.169Z"
+  "actualizado": "2026-09-24T08:25:55.331Z",
+  "destinos": {
+    "instagram": {
+      "texto": "Pope Leo XIV offered prayers for an end to violence in parts of Somalia and appealed for greater assistance amid the ongoing humanitarian crisis. Source: Vatican News, Sept 20, 2026.\n\nFuente: Vatican News\n\n#PopeLeoXIV #Somalia #Vatican #Peace #HumanitarianCrisis",
+      "aprobado": {
+        "fecha": "2026-09-24T08:25:55.331Z",
+        "hashPieza": "f408242987d83e43",
+        "imagenHash": "f10d5d880c8837b6",
+        "imagenSha": "bf90d09fb592492f7c5af85ba654ba00ba7d65c1"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
