@@ -1,7 +1,7 @@
 {
   "id": "2026-09-23-0645-luiseskivelgolcher-efe-verifica-fd16",
   "cuenta": "luiseskivelgolcher",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "EFE Verifica",
     "url": "https://verifica.efe.com/no-portadas-reales-declaraciones-mohamed-vi-son-montajes-ia/",
@@ -111,9 +111,56 @@
     "estado": "pendiente",
     "notas": []
   },
-  "programado": null,
+  "programado": "2026-09-24T08:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-23T11:45:31.955Z",
-  "actualizado": "2026-09-23T11:45:31.955Z"
+  "actualizado": "2026-09-24T08:25:29.691Z",
+  "destinos": {
+    "instagram": {
+      "texto": "Circulan en redes sociales portadas del diario ABC en las que, supuestamente, el rey de Marruecos, Mohamed VI, ofrece devolver territorios españoles a cambio de Ceuta y Melilla. Según una verificación de EFE Verifica publicada el 22 de septiembre de 2026, esas portadas no son reales: son montajes hechos con inteligencia artificial que empezaron como contenido humorístico y terminaron difundiéndose como si fueran noticia. La portada auténtica de ABC de la fecha que aparece en las imágenes trataba sobre el caso Koldo, no sobre Marruecos. Para confirmarlo, los verificadores usaron Verify, una herramienta de OpenAI que detecta la marca de agua SynthID, un código invisible que algunas empresas insertan en imágenes generadas por IA para poder identificarlas después. El caso muestra cómo el humor digital puede mutar en desinformación cuando pierde su contexto original. ¿Cómo distinguís una portada real de un montaje antes de compartirlo?\n\nFuente: EFE Verifica\n\n#Desinformación #IA #Verificación #España #Marruecos",
+      "aprobado": {
+        "fecha": "2026-09-24T08:25:29.691Z",
+        "hashPieza": "e2ab338e0af46008",
+        "imagenHash": "fccf9c977ba014d1",
+        "imagenSha": "178d3cc03a66f41bf06d2e80917369ba9432baaf"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    },
+    "facebook": {
+      "texto": "Circulan en redes sociales portadas del diario ABC en las que, supuestamente, el rey de Marruecos, Mohamed VI, ofrece devolver territorios españoles a cambio de Ceuta y Melilla. Según una verificación de EFE Verifica publicada el 22 de septiembre de 2026, esas portadas no son reales: son montajes hechos con inteligencia artificial que empezaron como contenido humorístico y terminaron difundiéndose como si fueran noticia. La portada auténtica de ABC de la fecha que aparece en las imágenes trataba sobre el caso Koldo, no sobre Marruecos. Para confirmarlo, los verificadores usaron Verify, una herramienta de OpenAI que detecta la marca de agua SynthID, un código invisible que algunas empresas insertan en imágenes generadas por IA para poder identificarlas después. El caso muestra cómo el humor digital puede mutar en desinformación cuando pierde su contexto original. ¿Cómo distinguís una portada real de un montaje antes de compartirlo?\n\nFuente: EFE Verifica",
+      "aprobado": {
+        "fecha": "2026-09-24T08:25:29.691Z",
+        "hashPieza": "e2ab338e0af46008",
+        "imagenHash": "fccf9c977ba014d1",
+        "imagenSha": "178d3cc03a66f41bf06d2e80917369ba9432baaf"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    },
+    "threads": {
+      "texto": "Portadas falsas de ABC sobre Marruecos, hechas con IA\n\nImágenes virales atribuidas a Mohamed VI sobre Ceuta y Melilla fueron creadas con inteligencia artificial.\n\nSegún EFE Verifica (22 de septiembre de 2026)",
+      "aprobado": {
+        "fecha": "2026-09-24T08:25:29.691Z",
+        "hashPieza": "e2ab338e0af46008",
+        "imagenHash": "fccf9c977ba014d1",
+        "imagenSha": "178d3cc03a66f41bf06d2e80917369ba9432baaf"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
