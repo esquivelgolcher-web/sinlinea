@@ -1,7 +1,7 @@
 {
   "id": "2026-09-21-0103-leopopexiv-vatican-news-e29f",
   "cuenta": "leopopexiv",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/pope/news/2026-09/pope-leo-xiv-angelus-appeals-humanitarian-crisis-somalia.html",
@@ -39,7 +39,11 @@
     "error": null
   },
   "programado": "2026-09-24T13:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "17989759989028338",
+    "permalink": "https://www.instagram.com/p/Ddr2PIwoPco/",
+    "fecha": "2026-09-24T21:26:18.935Z"
+  },
   "error": null,
   "creado": "2026-09-21T05:03:54.169Z",
   "actualizado": "2026-09-24T21:26:18.935Z",
@@ -52,16 +56,15 @@
         "imagenHash": "f10d5d880c8837b6",
         "imagenSha": "bf90d09fb592492f7c5af85ba654ba00ba7d65c1"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-09-24T21:26:18.935Z",
-        "actualizado": "2026-09-24T21:26:18.935Z",
-        "contenedorId": "18104493305081176"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "17989759989028338",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/Ddr2PIwoPco/",
+        "fecha": "2026-09-24T21:26:18.935Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
