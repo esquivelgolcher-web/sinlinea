@@ -1,0 +1,46 @@
+{
+  "id": "2026-09-24-0059-leopopexiv-vatican-news-35be",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-09/pope-leo-appeal-world-day-migrants-refugees-children.html",
+    "titulo": "Pope appeals for care and protection of migrant children",
+    "publicado": "2026-09-23T10:13:00.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "Pope Leo XIV calls for protection of migrant children",
+  "bajada": "Appeal comes ahead of World Day of Migrants and Refugees",
+  "caption": "Pope Leo XIV has appealed for the care and protection of migrant and refugee children, urging everyone to take responsibility for minors on the move. The appeal comes ahead of the World Day of Migrants and Refugees. Source: Vatican News, Sept 23, 2026.",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Vatican",
+    "#Migrants",
+    "#Refugees",
+    "#CatholicChurch"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-09-24-0059-leopopexiv-vatican-news-35be.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-24-0059-leopopexiv-vatican-news-35be.jpg",
+    "hash": "d1194c57a311d33d",
+    "version": 11,
+    "estilo": "32cba508d6c2290e",
+    "renderizada": "2026-09-24T04:59:32.850Z"
+  },
+  "ilustracion": {
+    "descripcion": "A quiet dockside at dusk with small suitcases and a child's shoe left on worn stones, the Pope's silhouette blessing from a distance in the upper right, left and center open and calm.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-24-0059-leopopexiv-vatican-news-35be.jpg",
+    "hashDescripcion": "8fa67c6dfdc283bf",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-24T04:59:17.245Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-24T04:59:17.245Z",
+  "actualizado": "2026-09-24T04:59:17.245Z"
+}

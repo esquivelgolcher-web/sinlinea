@@ -1,0 +1,44 @@
+{
+  "id": "2026-09-24-0059-leopopexiv-vatican-news-a85e",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "formato": "frase",
+  "frase": {
+    "texto": "I appeal to everyone's sense of responsibility. Let everyone feel personally involved in the lives of these young people, who must always be protected and cared for.",
+    "autor": "Pope Leo XIV",
+    "fuente": "General Audience",
+    "anio": 2026,
+    "url": "https://www.vaticannews.va/en/pope/news/2026-09/pope-leo-appeal-world-day-migrants-refugees-children.html",
+    "origen": "texto"
+  },
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-09/pope-leo-appeal-world-day-migrants-refugees-children.html",
+    "titulo": "Pope appeals for care and protection of migrant children - Vatican News",
+    "publicado": "2026-09-23T12:18:57.788+02:00"
+  },
+  "categoria": "CULTURA",
+  "titular": "Pope Leo XIV",
+  "bajada": "General Audience · 2026",
+  "caption": "“I appeal to everyone's sense of responsibility. Let everyone feel personally involved in the lives of these young people, who must always be protected and cared for.”\n\n— Pope Leo XIV, General Audience (2026)\n\nVia Vatican News, 23 September 2026\n\n#PopeLeoXIV #Vatican #CatholicChurch",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Vatican",
+    "#CatholicChurch"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-09-24-0059-leopopexiv-vatican-news-a85e.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-24-0059-leopopexiv-vatican-news-a85e.jpg",
+    "hash": "68f132ad12cdae07",
+    "version": 1,
+    "estilo": "28c21995920a45b7",
+    "renderizada": "2026-09-24T04:59:37.829Z"
+  },
+  "ilustracion": null,
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-24T04:59:17.245Z",
+  "actualizado": "2026-09-24T04:59:17.245Z"
+}
