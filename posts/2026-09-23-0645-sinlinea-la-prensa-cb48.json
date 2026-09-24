@@ -1,7 +1,7 @@
 {
   "id": "2026-09-23-0645-sinlinea-la-prensa-cb48",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "La Prensa",
     "url": "https://www.prensa.com/politica/nueva-fiscal-electoral-frena-contrato-de-160-mil-para-monitorear-redes-sociales/",
@@ -42,5 +42,5 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-23T11:45:31.955Z",
-  "actualizado": "2026-09-23T11:45:31.955Z"
+  "actualizado": "2026-09-24T15:13:01.264Z"
 }
