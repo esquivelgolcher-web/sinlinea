@@ -1,7 +1,7 @@
 {
   "id": "2026-09-22-0105-leopopexiv-vatican-va-4736",
   "cuenta": "leopopexiv",
-  "estado": "programado",
+  "estado": "publicado",
   "formato": "frase",
   "frase": {
     "texto": "Peace be with you all!",
@@ -37,7 +37,11 @@
   },
   "ilustracion": null,
   "programado": "2026-09-24T18:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "18635033818058335",
+    "permalink": "https://www.instagram.com/p/DdsHv76iZYt/",
+    "fecha": "2026-09-24T23:59:20.034Z"
+  },
   "error": null,
   "creado": "2026-09-22T05:05:18.479Z",
   "actualizado": "2026-09-24T23:59:20.034Z",
@@ -50,16 +54,15 @@
         "imagenHash": "0a934a1d82fd282f",
         "imagenSha": "5d8d050bcc25dd178b0b97b2d256d871b8e83859"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-09-24T23:59:20.034Z",
-        "actualizado": "2026-09-24T23:59:20.034Z",
-        "contenedorId": "18104511461081176"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18635033818058335",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/DdsHv76iZYt/",
+        "fecha": "2026-09-24T23:59:20.034Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
