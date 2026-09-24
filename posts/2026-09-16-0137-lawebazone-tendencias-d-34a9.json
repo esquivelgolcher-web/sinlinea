@@ -1,7 +1,7 @@
 {
   "id": "2026-09-16-0137-lawebazone-tendencias-d-34a9",
   "cuenta": "lawebazone",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "Tendencias de México",
     "url": "https://www.informador.mx/mexico/15-de-septiembre-mexicanos-dan-el-grito-pero-de-risa-con-estos-memes-20260915-0063.html",
@@ -41,5 +41,5 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-16T06:37:29.518Z",
-  "actualizado": "2026-09-16T06:37:29.518Z"
+  "actualizado": "2026-09-24T15:17:47.237Z"
 }
