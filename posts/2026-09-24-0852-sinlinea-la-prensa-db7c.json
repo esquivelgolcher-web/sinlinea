@@ -1,0 +1,47 @@
+{
+  "id": "2026-09-24-0852-sinlinea-la-prensa-db7c",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/politica/las-secuelas-de-la-guerra-entre-rusia-y-ucrania-seis-panamenos-muertos-y-15-desaparecidos/",
+    "titulo": "Seis panameños muertos en Rusia y 15 desaparecidos a raíz de la guerra con Ucrania",
+    "publicado": "2026-09-24T13:05:30.000Z"
+  },
+  "categoria": "INTERNACIONAL",
+  "titular": "Seis panameños murieron en la guerra Rusia-Ucrania",
+  "bajada": "Informe oficial reporta 70 panameños activos en la zona de combate y 15 desaparecidos.",
+  "caption": "La guerra entre Rusia y Ucrania, aunque lejana, ya golpea a familias panameñas. Un informe oficial confirma seis muertos, decenas de desaparecidos y varios repatriados. Detrás de cada cifra hay una historia y una espera. ¿Conoces a alguien afectado por este conflicto?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Rusia",
+    "#Ucrania",
+    "#Guerra",
+    "#Panameños"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-09-24-0852-sinlinea-la-prensa-db7c.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-24-0852-sinlinea-la-prensa-db7c.jpg",
+    "hash": "5053870d9a9c2b6b",
+    "version": 11,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-09-24T13:53:32.160Z"
+  },
+  "ilustracion": {
+    "descripcion": "Mapa de Panamá desgastado junto a un casco militar genérico y una vela encendida en la esquina superior derecha, sin banderas ni texto, zona izquierda y central despejadas.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-24-0852-sinlinea-la-prensa-db7c.jpg",
+    "hashDescripcion": "285c8625860cdb6b",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-24T13:52:44.706Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-24T13:52:44.706Z",
+  "actualizado": "2026-09-24T13:52:44.706Z"
+}

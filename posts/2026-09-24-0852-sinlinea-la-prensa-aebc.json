@@ -1,0 +1,47 @@
+{
+  "id": "2026-09-24-0852-sinlinea-la-prensa-aebc",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/sociedad/reabre-el-corredor-norte-derrame-de-aceite-provoca-accidente-multiple-y-cierre-de-12-horas/",
+    "titulo": "Reabre el Corredor Norte: Derrame de aceite provoca accidente múltiple y cierre de 12 horas",
+    "publicado": "2026-09-24T13:01:54.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "Corredor Norte reabre tras 12 horas cerrado por derrame",
+  "bajada": "Un derrame de aceite provocó un choque múltiple y afectó el tránsito hacia la capital.",
+  "caption": "Miles de conductores sufrieron horas de caos este jueves por un derrame de aceite en el Corredor Norte. Equipos técnicos trabajaron toda la noche para limpiar la vía y evitar daños ambientales. La vía ya está habilitada, pero el hecho recuerda lo vulnerable que es nuestra infraestructura vial. ¿Te tocó quedar atrapado en el tranque?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#CorredorNorte",
+    "#Tránsito",
+    "#CiudadDePanamá",
+    "#Movilidad"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-09-24-0852-sinlinea-la-prensa-aebc.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-24-0852-sinlinea-la-prensa-aebc.jpg",
+    "hash": "1dac55bd8b277cdf",
+    "version": 11,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-09-24T13:53:39.375Z"
+  },
+  "ilustracion": {
+    "descripcion": "Tramo de autopista urbana con maquinaria de limpieza vial y conos de seguridad en la esquina superior derecha, carriles despejados al centro y a la izquierda, cielo nublado de fondo.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-24-0852-sinlinea-la-prensa-aebc.jpg",
+    "hashDescripcion": "85f549794c34894f",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-24T13:52:44.706Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-24T13:52:44.706Z",
+  "actualizado": "2026-09-24T13:52:44.706Z"
+}
