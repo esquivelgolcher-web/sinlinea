@@ -97,6 +97,9 @@ function validarGenerar(g, archivo) {
   }
   // Opcional: con ese número de borradores sin revisar, GENERAR no llama a Claude (controla coste y acumulación).
   if (g?.maxBorradoresPendientes !== undefined) exigir(Number.isInteger(g.maxBorradoresPendientes) && g.maxBorradoresPendientes > 0, "generar.maxBorradoresPendientes debe ser un entero positivo", archivo);
+  // Opcional: solo cuentan para ese tope los borradores creados en las últimas N horas. Para cuentas que se suben a
+  // mano: el panel no sabe qué se subió, y un borrador de hace días no debe frenar los nuevos.
+  if (g?.ventanaPendientesHoras !== undefined) exigir(Number.isInteger(g.ventanaPendientesHoras) && g.ventanaPendientesHoras >= 1 && g.ventanaPendientesHoras <= 720, "generar.ventanaPendientesHoras debe ser un entero entre 1 y 720", archivo);
 }
 
 export const LOGO_FORMA_POR_DEFECTO = LOGO_FORMAS[0];

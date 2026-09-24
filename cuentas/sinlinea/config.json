@@ -38,7 +38,8 @@
     "candidatosMax": 20,
     "diasSinRepetir": 3,
     "maxHorasAntiguedad": 48,
-    "maxBorradoresPendientes": 6
+    "maxBorradoresPendientes": 6,
+    "ventanaPendientesHoras": 48
   },
   "franjas": [
     "07:00",

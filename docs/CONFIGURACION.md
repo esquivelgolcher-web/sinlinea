@@ -317,6 +317,18 @@ nuevo va al Environment `cuenta-sinlinea`. Un valor idéntico en el repositorio
 y en el Environment es válido: la procedencia se comprueba por la API
 (existencia de los dos secretos en el Environment exacto), no por el valor.
 
+### 6e. Cuentas que se suben a mano: el tope de borradores pendientes
+
+`generar.maxBorradoresPendientes` frena la generación cuando hay ese número de borradores sin revisar, para no gastar
+en borradores que nadie mira. En una cuenta que se sube a mano, el panel no sabe qué se subió: los borradores quedan
+pendientes para siempre y la generación se para. Con `generar.ventanaPendientesHoras` (entero de 1 a 720), solo cuentan
+para el tope los borradores creados en las últimas N horas; los viejos siguen en el panel pero ya no frenan los nuevos.
+Sin la clave, cuentan todos, como antes.
+
+**Estado (2026-09-24):** activado en Sin Línea con 48 horas, la misma ventana de actualidad de `maxHorasAntiguedad`,
+mientras la cuenta se publica a mano. La generación de Sin Línea estaba parada desde el 23 de septiembre por seis
+borradores ya subidos a mano.
+
 ## 7. Primera corrida
 1. GitHub → **Actions → Generar borradores → Run workflow**. Tarda 3 a 5 minutos.
 2. Abre el panel: deben aparecer 1 o 2 borradores con imagen.

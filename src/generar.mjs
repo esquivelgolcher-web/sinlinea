@@ -50,7 +50,10 @@ export async function ejecutarGenerar({ config, raiz = process.cwd(), ahora = ne
     return { creados: [], motivo: "cupo" };
   }
   // Tope de borradores sin revisar (opcional): evita acumular borradores y coste mientras el operador no aprueba.
-  const pendientes = posts.filter((p) => p.estado === "borrador").length;
+  // Con generar.ventanaPendientesHoras, solo cuentan los borradores recientes; sin la clave, cuentan todos.
+  const ventana = config.generar.ventanaPendientesHoras;
+  const desde = ventana ? ahora.getTime() - ventana * 3600000 : -Infinity;
+  const pendientes = posts.filter((p) => p.estado === "borrador" && Date.parse(p.creado) >= desde).length;
   if (config.generar.maxBorradoresPendientes && pendientes >= config.generar.maxBorradoresPendientes) {
     log.info(`Cuenta ${cuenta}: ${pendientes} borrador(es) sin revisar (tope ${config.generar.maxBorradoresPendientes}); no se llama a Claude hasta que se revisen.`);
     return { creados: [], motivo: "pendientes" };

@@ -203,7 +203,7 @@ Todo lo cotidiano se hace desde el panel: revisar y aprobar borradores, elegir d
   del país. Trae los diez temas más buscados del día con su contexto, para cuentas que
   comentan lo que está pasando en vez de informar.
 - **Quitar la fecha o la etiqueta de sección de las imágenes**: `marca.mostrarFecha` y `marca.mostrarCategoria` en `cuentas/<id>/config.json`. Al apagarlas, REGENERAR vuelve a dibujar solo las imágenes activas de esa cuenta; lo ya publicado no se toca.
-- **Ajustar el perfil editorial y los límites de generación**: el bloque `perfil` (temas, pesos, mínimo, formatos), `generar.maxPorCorrida`, `maxBorradoresPorDia`, `maxBorradoresPendientes`, `candidatosMax` y `marca.mostrarFecha` se cambian en `cuentas/<id>/config.json` desde GitHub. El formulario de la cuenta sí cubre nombre, usuario, idioma, zona, franjas, fuentes, temas, tono, colores, logo, ilustraciones y conexiones.
+- **Ajustar el perfil editorial y los límites de generación**: el bloque `perfil` (temas, pesos, mínimo, formatos), `generar.maxPorCorrida`, `maxBorradoresPorDia`, `maxBorradoresPendientes`, `ventanaPendientesHoras`, `candidatosMax` y `marca.mostrarFecha` se cambian en `cuentas/<id>/config.json` desde GitHub. El formulario de la cuenta sí cubre nombre, usuario, idioma, zona, franjas, fuentes, temas, tono, colores, logo, ilustraciones y conexiones.
 - **Generar un logo nuevo**: `npm run logo` en un ordenador.
 - **Cambiar el diseño de la imagen** (`templates/*.html`).
 - **Tokens y secretos**: se crean o renuevan en Meta y en GitHub (Environment), sin código pero fuera del panel; «Probar destino» se lanza desde Actions si el token del panel no tiene permiso Actions.

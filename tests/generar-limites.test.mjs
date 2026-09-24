@@ -43,6 +43,7 @@ test("(límites) con maxBorradoresPendientes alcanzado no se llama a Claude (mot
   const raiz = raizTemporal();
   const config = cargarConfig(path.join(raiz, "config.json"));
   config.generar.maxBorradoresPendientes = 2;
+  delete config.generar.ventanaPendientesHoras; // comportamiento sin ventana: cuentan todos los borradores
   const dir = path.join(raiz, "posts");
   // URLs propias para no filtrar los candidatos del feed de prueba (GENERAR descarta las URLs que ya tienen post).
   const post = (n, estado) => ({ ...base, id: `${base.id.slice(0, -4)}${String(n).padStart(4, "0")}`, cuenta: "sinlinea", estado, fuente: { ...base.fuente, url: `https://www.prensa.com/antigua/nota-${n}/` }, creado: "2026-09-01T10:00:00Z", actualizado: "2026-09-01T10:00:00Z", imagen: null, programado: estado === "programado" ? "2026-09-08T12:00:00-05:00" : null });
@@ -57,6 +58,44 @@ test("(límites) con maxBorradoresPendientes alcanzado no se llama a Claude (mot
   assert.equal(r2.motivo, "pendientes");
   assert.equal(client.llamadas, 1, "no se llama a Claude con dos borradores sin revisar");
   assert.equal(leerPosts(dir).filter((p) => p.estado === "borrador").length, 2);
+});
+
+test("(límites) generar.ventanaPendientesHoras es opcional y debe ser un entero entre 1 y 720", () => {
+  const c = cargarCuenta(".", "sinlinea");
+  assert.doesNotThrow(() => validarCuenta({ ...c, generar: { ...c.generar, ventanaPendientesHoras: 48 } }, "sinlinea"));
+  assert.throws(() => validarCuenta({ ...c, generar: { ...c.generar, ventanaPendientesHoras: 0 } }, "sinlinea"), /ventanaPendientesHoras/);
+  assert.throws(() => validarCuenta({ ...c, generar: { ...c.generar, ventanaPendientesHoras: "48" } }, "sinlinea"), /ventanaPendientesHoras/);
+  assert.throws(() => validarCuenta({ ...c, generar: { ...c.generar, ventanaPendientesHoras: 1000 } }, "sinlinea"), /ventanaPendientesHoras/);
+});
+
+test("(límites) con ventanaPendientesHoras, los borradores viejos no bloquean: quien sube a mano no tiene que vaciar la bandeja", async () => {
+  const raiz = raizTemporal();
+  const config = cargarConfig(path.join(raiz, "config.json"));
+  config.generar.maxBorradoresPendientes = 2;
+  delete config.generar.ventanaPendientesHoras; // se parte de la cuenta sin ventana, sea cual sea la configuración real
+  const dir = path.join(raiz, "posts");
+  const post = (n, creado) => ({ ...base, id: `${base.id.slice(0, -4)}${String(n).padStart(4, "0")}`, cuenta: "sinlinea", estado: "borrador", fuente: { ...base.fuente, url: `https://www.prensa.com/antigua/nota-${n}/` }, creado, actualizado: creado, imagen: null, programado: null });
+  // Dos borradores de hace cuatro días (ya subidos a mano por el operador) y ninguno reciente.
+  escribirPost(dir, post(1, "2026-09-03T10:00:00Z"));
+  escribirPost(dir, post(2, "2026-09-03T11:00:00Z"));
+
+  const sinVentana = clientContador();
+  const r1 = await ejecutarGenerar({ config, raiz, ahora, fetchText, client: sinVentana, render: renderOkFalso, log });
+  assert.equal(r1.motivo, "pendientes", "sin la clave, todo borrador cuenta, como hasta ahora");
+  assert.equal(sinVentana.llamadas, 0);
+
+  config.generar.ventanaPendientesHoras = 48;
+  const conVentana = clientContador();
+  const r2 = await ejecutarGenerar({ config, raiz, ahora, fetchText, client: conVentana, render: renderOkFalso, log });
+  assert.equal(r2.motivo, "ok", "los borradores de hace días ya no bloquean");
+  assert.equal(conVentana.llamadas, 1);
+  assert.equal(leerPosts(dir).filter((p) => p.estado === "borrador").length, 3, "los viejos siguen en el panel para subirlos a mano");
+
+  // Los recientes sí cuentan: con dos borradores de las últimas 48 horas, el tope vuelve a frenar.
+  escribirPost(dir, post(9, new Date(ahora.getTime() - 3600000).toISOString()));
+  const r3 = await ejecutarGenerar({ config, raiz, ahora: new Date(ahora.getTime() + 3600000), fetchText, client: conVentana, render: renderOkFalso, log });
+  assert.equal(r3.motivo, "pendientes");
+  assert.equal(conVentana.llamadas, 1, "con el tope alcanzado por borradores recientes no se llama a Claude");
 });
 
 test("(límites) generarCuentas con soloCuenta y forzar genera una vez para esa cuenta aunque automatico.generar esté apagado; sin forzar se omite y las demás cuentas no se tocan", async () => {
