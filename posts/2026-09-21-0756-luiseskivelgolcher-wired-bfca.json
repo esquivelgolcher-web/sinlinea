@@ -118,7 +118,11 @@
     "notas": []
   },
   "programado": "2026-09-24T06:05:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "18114477473084618",
+    "permalink": "https://www.instagram.com/p/Ddq6HK-Fji-/",
+    "fecha": "2026-09-24T12:40:56.564Z"
+  },
   "error": null,
   "creado": "2026-09-21T12:56:26.063Z",
   "actualizado": "2026-09-24T12:40:56.564Z",
@@ -131,16 +135,15 @@
         "imagenHash": "f61fddc5ce674f23",
         "imagenSha": "7aed631a425dc834e023f4e602db487de3dec73c"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-09-24T12:40:56.564Z",
-        "actualizado": "2026-09-24T12:40:56.564Z",
-        "contenedorId": "18594855340064913"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18114477473084618",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/Ddq6HK-Fji-/",
+        "fecha": "2026-09-24T12:40:56.564Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     },
