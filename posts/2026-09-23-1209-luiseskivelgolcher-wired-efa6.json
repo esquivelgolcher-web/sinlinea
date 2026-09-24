@@ -210,7 +210,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-23T17:09:31.466Z",
-  "actualizado": "2026-09-24T08:25:45.464Z",
+  "actualizado": "2026-09-24T17:49:46.477Z",
   "destinos": {
     "instagram": {
       "texto": "Meta lanzó hace unas semanas Muse, un asistente de inteligencia artificial para macOS que agenda citas, redacta documentos y se conecta con WhatsApp, correo y redes sociales. Según reportó WIRED (Dan Goodin, Ars Technica) el 23 de septiembre de 2026, el investigador de seguridad Patrick Wardle halló un 'zero-day': una falla desconocida hasta ese momento para el fabricante. Cualquier aplicación o comando de terminal en la computadora podía cambiar el servidor donde Muse envía las transcripciones de voz, robando así el token que da control total de la cuenta. Wardle dijo que con eso podía escribir archivos maliciosos o tomar fotos sin que el usuario lo notara. Meta publicó un parche más de 12 horas después de que WIRED difundiera el hallazgo. Amazon, por su parte, había empezado a bloquear Muse en su sitio días antes. ¿Cuánto acceso le damos a un asistente de IA sin pensarlo dos veces?\n\nFuente: WIRED\n\n#Ciberseguridad #IA #Meta #Privacidad",
@@ -232,7 +232,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-09-24T17:49:46.477Z",
+        "actualizado": "2026-09-24T17:49:46.477Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     },
