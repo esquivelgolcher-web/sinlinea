@@ -1,7 +1,7 @@
 {
   "id": "2026-09-16-0137-lawebazone-tendencias-d-a74f",
   "cuenta": "lawebazone",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "Tendencias de México",
     "url": "https://www.tiempo.com.mx/local/reportan-8-mil-personas-en-el-primer-cuadro-por-festejos-del-grito/",
@@ -41,5 +41,5 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-16T06:37:29.518Z",
-  "actualizado": "2026-09-16T06:37:29.518Z"
+  "actualizado": "2026-09-24T15:17:49.591Z"
 }
