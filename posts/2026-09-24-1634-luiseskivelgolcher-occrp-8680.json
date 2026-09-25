@@ -192,7 +192,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-24T21:34:55.460Z",
-  "actualizado": "2026-09-25T12:36:38.509Z",
+  "actualizado": "2026-09-25T19:30:06.701Z",
   "destinos": {
     "instagram": {
       "texto": "La fiscalía federal de Los Ángeles acusó al CEO de Oxygen Forensics, Lee Reiber, y al ciudadano ruso Oleg Davydov de conspirar para ocultar que la empresa tenía dueños rusos y desarrollaba su software forense digital —herramientas que extraen datos de teléfonos y computadoras para investigaciones— en Rusia, según reportó OCCRP el 24 de septiembre de 2026. Oxygen vendía ese software a agencias estadounidenses, incluido el Servicio Secreto. Según la acusación, cinco ciudadanos rusos controlaban la empresa a través de una firma en Chipre y desaparecieron de los registros públicos tras las sanciones de 2022, aunque siguieron decidiendo pagos y manejando cuentas. El Departamento de Justicia aclaró que no se alega que el software tuviera código malicioso. Reiber fue arrestado en Idaho; Davydov, detenido en Londres, enfrenta un pedido de extradición. Ambos se presumen inocentes. ¿Cuántos contratos gubernamentales dependen de verificar quién controla realmente el software que compran?\n\nFuente: OCCRP\n\n#Ciberseguridad #EstadosUnidos #ContratosPúblicos #Rusia",
@@ -214,7 +214,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-09-25T19:30:06.701Z",
+        "actualizado": "2026-09-25T19:30:06.701Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     },
