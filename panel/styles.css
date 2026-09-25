@@ -155,6 +155,12 @@ dialog .acciones { justify-content: flex-end; margin-top: 12px; }
 .frase-fila .texto, .frase-fila .url { grid-column: 1 / -1; }
 .bloque-frase { display: grid; gap: 10px; padding: 12px; border: 1px solid var(--borde); border-left: 4px solid var(--acento); border-radius: var(--radio-s); background: var(--papel); }
 .bloque-frase .nota { color: var(--tinta-suave); }
+/* Glosa: cuatro versos, uno por campo, con las sílabas y la rima debajo. */
+.bloque-glosa { display: grid; gap: 10px; padding: 12px; border: 1px solid var(--borde); border-left: 4px solid var(--acento); border-radius: var(--radio-s); background: var(--papel); }
+.bloque-glosa label { display: grid; gap: 6px; }
+.bloque-glosa .verso { font-size: 16px; }
+.bloque-glosa .nota { color: var(--tinta-suave); }
+.bloque-glosa .nota.excede { color: var(--peligro); }
 /* Plantilla "dato": la cifra y la frase que la completa, bajo la fila de Categoría, Variante y Plantilla. */
 .bloque-dato { display: grid; gap: 10px; padding: 12px; border: 1px solid var(--borde); border-left: 4px solid var(--acento); border-radius: var(--radio-s); background: var(--papel); }
 .bloque-dato .dato-cifra { font-size: 20px; font-weight: 700; max-width: 12ch; }

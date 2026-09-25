@@ -289,6 +289,22 @@ aparecen la cifra y la frase para que las corrijas. Al guardar, la imagen se vue
 Dato y Titular no usan ilustración, así que tampoco gastan en Gemini. Si pasas un borrador a Foto, la ilustración se
 genera en la siguiente corrida.
 
+## Las glosas de La Garza María (Sin Línea)
+
+Una vez al día, **La Garza María**, la comentarista del Palacio, escribe una glosa: una cuarteta con humor, al estilo
+de las cantaderas, sobre una noticia que Sin Línea ya tiene en borrador o publicada. Sale como borrador y la apruebas
+como cualquier pieza.
+
+- **La forma está vigilada.** Cuatro versos de ocho sílabas con rima, como manda la glosa. El sistema cuenta las
+  sílabas y comprueba la rima antes de guardar nada; si Claude se equivoca, le devuelve el error para que corrija, y
+  si no lo logra, no sale nada ese día.
+- **En la tarjeta** ves los cuatro versos y, debajo, cuántas sílabas tiene cada uno y cómo riman. Puedes
+  reescribirlos; si un verso queda cojo, el panel no te deja guardar hasta arreglarlo.
+- **De qué se ríe y de qué no.** Del acto público: un gasto, una promesa, una contradicción. Nunca de muertes,
+  víctimas, delitos contra personas, enfermedad o desastres, ni de la vida privada de nadie.
+- **El personaje.** Nombre y cargo se cambian en «Editar» → «Glosas». El dibujo es el archivo `garza.png` de la
+  carpeta de la cuenta en GitHub; si lo cambias por uno tuyo, las glosas se vuelven a dibujar solas.
+
 ## Frases célebres (Leo Pope)
 
 Además de las noticias, la cuenta puede generar cada día una **tarjeta de frase**: una cita textual de un papa con su autor y su fuente, sin ilustración. Se activa en «Editar» → «Frases célebres».

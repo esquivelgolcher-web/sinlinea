@@ -307,3 +307,25 @@ test("(plantillas) REGENERAR: dato y titular se comparan con la versión de su p
   assert.deepEqual(r.renderizados, [], "ninguna está desactualizada: cada una lleva la versión de su propia plantilla");
   assert.equal(gemini, 0, "una tarjeta no usa ilustración: no se gasta una llamada a Gemini");
 });
+
+test("(glosas) REGENERAR: la glosa se compara con la versión de templates/garza.html y no pide escena ni ilustración", async () => {
+  const leerVersion = (ruta) => Number(fs.readFileSync(ruta, "utf8").match(/data-version="(\d+)"/)[1]);
+  const vPost = leerVersion("templates/post.html");
+  const vGarza = leerVersion("templates/garza.html");
+  const id = (n) => base.id.slice(0, -4) + String(n).padStart(4, "0");
+  const glosa = { ...base, id: id(7), formato: "glosa", ilustracion: null, glosa: { versos: ["Trece ministerios andan", "en camioneta alquilada;", "el pueblo a pie, sin más nada,", "pagando lo que ellos mandan."], esquema: "ABBA", sobre: { id: id(1), titular: "Ministerios gastan" } } };
+  const raiz = dirCon([{ ...glosa, imagen: imagenDe(glosa, vGarza) }, { ...base, id: id(8), imagen: imagenDe({ ...base, id: id(8) }, vPost) }]);
+  fs.mkdirSync(path.join(raiz, "templates"), { recursive: true });
+  for (const t of ["templates/post.html", "templates/tarjeta.html", "templates/garza.html"]) fs.copyFileSync(t, path.join(raiz, t));
+  let gemini = 0;
+  const renderizados = [];
+  const r = await ejecutarRegenerar({ config: cfg, raiz, ahora, render: async (p) => { renderizados.push(p.id); return imagenDe(p, p.formato === "glosa" ? vGarza : vPost); }, log, ilustrador: { generar: async () => { gemini++; return Buffer.from("x"); } }, guardar: async () => {}, redactarEscena: async () => "escena" });
+  assert.deepEqual(r.renderizados, [], "ninguna está desactualizada: cada una lleva la versión de su plantilla");
+  assert.equal(gemini, 0);
+  // Si cambia la versión de la plantilla de la glosa, solo la glosa se redibuja.
+  const raiz2 = dirCon([{ ...glosa, imagen: imagenDe(glosa, vGarza - 1) }, { ...base, id: id(8), imagen: imagenDe({ ...base, id: id(8) }, vPost) }]);
+  fs.mkdirSync(path.join(raiz2, "templates"), { recursive: true });
+  for (const t of ["templates/post.html", "templates/tarjeta.html", "templates/garza.html"]) fs.copyFileSync(t, path.join(raiz2, t));
+  const r2 = await ejecutarRegenerar({ config: cfg, raiz: raiz2, ahora, render: async (p) => imagenDe(p, p.formato === "glosa" ? vGarza : vPost), log });
+  assert.deepEqual(r2.renderizados, [id(7)]);
+});

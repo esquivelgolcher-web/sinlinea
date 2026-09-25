@@ -8,9 +8,11 @@ import { fetchText as fetchTextReal } from "./lib/rss.mjs";
 import { recolectar } from "./lib/fuentes.mjs";
 import { cargarVistas, guardarVistas, estaVista, marcarVistas, purgarVistas } from "./lib/seen.mjs";
 import { leerPosts, escribirPost, crearPost, siguienteVariante, creadosHoy, archivar, rutaIlustracion, CUENTA_LEGADO } from "./lib/posts.mjs";
-import { redactar, redactarPerfil, acortarTextos, extraerFrase } from "./lib/redactor.mjs";
+import { redactar, redactarPerfil, acortarTextos, extraerFrase, escribirGlosa } from "./lib/redactor.mjs";
 import { descargarArticulo } from "./lib/articulo.mjs";
 import { frasesCreadasHoy, elegirDelBanco, esLiteral, crearPostFrase, MAX_FRASE } from "./lib/frases.mjs";
+import { crearPostGlosa, glosasCreadasHoy, noticiasGlosadas } from "./lib/glosas.mjs";
+import { erroresDeGlosa } from "./lib/metrica.mjs";
 import { plantillasDeCuenta, plantillaDe, erroresDeDato, datoEnTexto, elegirPlantilla } from "./lib/plantillas.mjs";
 import { agruparCandidatos } from "./lib/temas.mjs";
 import { renderizarConAjuste } from "./lib/texto.mjs";
@@ -18,7 +20,7 @@ import { todasFallaron, anotarFallos, resumirResultados } from "./lib/corrida.mj
 import { ocultarSecretos } from "./lib/secretos.mjs";
 import { recortarCaption } from "./lib/caption.mjs";
 import { marcarError, renderOk, hashTexto } from "./lib/estados.mjs";
-import { abrirNavegador, renderizarPost, renderizarCarrusel, renderizarFrase } from "./lib/render.mjs";
+import { abrirNavegador, renderizarPost, renderizarCarrusel, renderizarFrase, renderizarGlosa } from "./lib/render.mjs";
 import { claveDia } from "./lib/fechas.mjs";
 import { crearIlustrador, guardarIlustracion, sanearMensaje } from "./lib/ilustrador.mjs";
 
@@ -242,12 +244,80 @@ export async function ejecutarGenerarFrases({ config, raiz = process.cwd(), ahor
   return { creadas: [post], motivo: "ok" };
 }
 
+// Glosa del día: la cuarteta de La Garza sobre una noticia reciente de la propia cuenta (borrador, programada o
+// publicada, dentro de glosas.horasVentana). Cupo propio. Claude escribe; la métrica y la rima se comprueban aquí, con
+// un reintento que le devuelve los errores. Todo sale como borrador: ninguna glosa se programa ni se publica sola.
+export async function ejecutarGenerarGlosas({ config, raiz = process.cwd(), ahora = new Date(), escribirGlosa: escribir, renderGlosa, log = console, dryRun = false }) {
+  const cuenta = config.cuenta || CUENTA_LEGADO;
+  const g = config.glosas || {};
+  if (!g.activo) return { creadas: [], motivo: "glosas-desactivadas" };
+  if (config.automatico?.generar === false) {
+    log.info(`Cuenta ${cuenta}: generación automática desactivada; tampoco se escriben glosas.`);
+    return { creadas: [], motivo: "generar-desactivado" };
+  }
+  const zona = config.zonaHoraria;
+  const iso = ahora.toISOString();
+  const dir = path.join(raiz, "posts");
+  const dirSalida = dryRun ? path.join(raiz, "temp", "dry-run", "posts") : dir;
+  const posts = leerPosts(dir, { cuentaPorDefecto: config.cuentaPrincipal || CUENTA_LEGADO }).filter((p) => p.cuenta === cuenta);
+  const cupo = (g.porDia || 1) - glosasCreadasHoy(posts, ahora, zona);
+  if (cupo <= 0) {
+    log.info(`Cuenta ${cuenta}: cupo diario de glosas agotado (${g.porDia || 1}).`);
+    return { creadas: [], motivo: "cupo-glosas" };
+  }
+  const desde = ahora.getTime() - (g.horasVentana || 48) * 3600000;
+  const glosadas = noticiasGlosadas(posts);
+  const noticias = posts
+    .filter((p) => (p.formato || "post") === "post" && ["borrador", "programado", "publicado"].includes(p.estado) && Date.parse(p.creado) >= desde && !glosadas.has(p.id))
+    .sort((a, b) => String(b.creado).localeCompare(String(a.creado)))
+    .slice(0, 8);
+  if (!noticias.length) {
+    log.info(`Cuenta ${cuenta}: sin noticias recientes que glosar.`);
+    return { creadas: [], motivo: "sin-noticias" };
+  }
+  const editorialMd = fs.readFileSync(path.join(raiz, config.rutas?.editorial || path.join("prompts", "editorial.md")), "utf8");
+  const personaje = g.personaje || {};
+  const lista = noticias.map((n) => ({ titular: n.titular, bajada: n.bajada, caption: n.caption, categoria: n.categoria, medio: n.fuente?.medio }));
+  let propuesta = await escribir({ config, editorialMd, noticias: lista, personaje });
+  if (!propuesta) {
+    log.info(`Cuenta ${cuenta}: Claude no vio ninguna noticia apta para una glosa.`);
+    return { creadas: [], motivo: "sin-glosa" };
+  }
+  let errores = erroresDeGlosa(propuesta.versos);
+  if (errores.length) {
+    log.info(`Cuenta ${cuenta}: la cuarteta no cumple la forma (${errores.join("; ")}); se pide corregir.`);
+    const otra = await escribir({ config, editorialMd, noticias: lista, personaje, errores, versosAnteriores: propuesta.versos });
+    if (!otra) {
+      log.info(`Cuenta ${cuenta}: Claude no corrigió la glosa; no se escribe nada.`);
+      return { creadas: [], motivo: "sin-glosa" };
+    }
+    propuesta = otra;
+    errores = erroresDeGlosa(propuesta.versos);
+    if (errores.length) {
+      log.warn(`Cuenta ${cuenta}: glosa descartada, sigue sin cumplir la forma (${errores.join("; ")}).`);
+      return { creadas: [], motivo: "glosa-invalida" };
+    }
+  }
+  const sobre = noticias[propuesta.indice] || noticias[0];
+  let post = crearPostGlosa({ versos: propuesta.versos, sobre, config, ahora, zona, cuenta, variante: "rojo" });
+  try {
+    const destino = dryRun ? path.join("temp", "dry-run", "img", `${post.id}.jpg`) : undefined;
+    post = renderOk(post, await renderGlosa(post, { config, raiz, destino }), iso);
+  } catch (err) {
+    log.warn(`Render de la glosa falló para ${post.id}: ${err.message}`);
+    post = marcarError(post, { paso: "render", mensaje: err.message }, iso);
+  }
+  escribirPost(dirSalida, post);
+  log.info(`Glosa ${post.id} sobre "${sobre.titular}": ${propuesta.versos.join(" / ")}`);
+  return { creadas: [post], motivo: "ok" };
+}
+
 // Ejecuta GENERAR para cada cuenta activa. Un fallo en una cuenta se registra y no detiene a las demás.
 // `ilustradorDe(config)` y `acortarDe(config)` crean las dependencias que dependen de cada cuenta
 // (estilo de ilustración, idioma); si no se pasan, se usan `ilustrador` y `acortar` tal cual.
 // `soloCuenta`: procesa una sola cuenta. `forzar` (solo con `soloCuenta`): una generación única aunque su
 // `automatico.generar` esté apagado; la configuración no cambia y las demás cuentas no se tocan.
-export async function generarCuentas({ configuracion, raiz = process.cwd(), ahora = new Date(), fetchText, client, render, renderCarrusel = null, log = console, dryRun = false, ilustrador = null, guardar = guardarIlustracion, acortar = null, ilustradorDe = null, acortarDe = null, soloCuenta = null, forzar = false, renderFrase = null, leerArticulo = null, extraerFrase = null, extraerFraseDe = null }) {
+export async function generarCuentas({ configuracion, raiz = process.cwd(), ahora = new Date(), fetchText, client, render, renderCarrusel = null, log = console, dryRun = false, ilustrador = null, guardar = guardarIlustracion, acortar = null, ilustradorDe = null, acortarDe = null, soloCuenta = null, forzar = false, renderFrase = null, leerArticulo = null, extraerFrase = null, extraerFraseDe = null, renderGlosa = null, escribirGlosaDe = null }) {
   if (forzar && !soloCuenta) throw new Error("--forzar exige --cuenta <id>: la generación forzada es siempre de una sola cuenta");
   const resultados = {};
   for (const e of configuracion.errores || []) {
@@ -273,6 +343,10 @@ export async function generarCuentas({ configuracion, raiz = process.cwd(), ahor
           config, raiz, ahora, fetchText, leerArticulo, renderFrase, log, dryRun,
           extraerFrase: extraerFraseDe ? extraerFraseDe(config) : extraerFrase,
         });
+      }
+      // Glosa de La Garza (si la cuenta la tiene activa): su propio cupo, sobre las noticias de la cuenta, en borrador.
+      if (renderGlosa && escribirGlosaDe && config.glosas?.activo) {
+        resultados[config.cuenta].glosas = await ejecutarGenerarGlosas({ config, raiz, ahora, renderGlosa, log, dryRun, escribirGlosa: escribirGlosaDe(config) });
       }
     } catch (err) {
       const mensaje = ocultarSecretos(err.message);
@@ -301,11 +375,13 @@ async function main() {
       render: (post, o) => renderizarPost(post, { ...o, navegador }),
       renderCarrusel: (post, o) => renderizarCarrusel(post, { ...o, navegador }),
       renderFrase: (post, o) => renderizarFrase(post, { ...o, navegador }),
+      renderGlosa: (post, o) => renderizarGlosa(post, { ...o, navegador }),
+      escribirGlosaDe: (config) => (a) => escribirGlosa({ client, config, ...a }),
       ilustradorDe: (config) => (conGemini ? crearIlustrador({ apiKey: process.env.GEMINI_API_KEY, config }) : null),
       acortarDe: (config) => (a) => acortarTextos({ client, config, ...a }),
       extraerFraseDe: (config) => (a) => extraerFrase({ client, config, ...a }),
     });
-    console.log(`Listo: ${resumirResultados(r.resultados, (x) => `${x.creados.length} borradores (${x.motivo})${x.frases ? ` · ${x.frases.creadas.length} frase(s) (${x.frases.motivo})` : ""}`)}${dryRun ? " [dry-run]" : ""}.`);
+    console.log(`Listo: ${resumirResultados(r.resultados, (x) => `${x.creados.length} borradores (${x.motivo})${x.frases ? ` · ${x.frases.creadas.length} frase(s) (${x.frases.motivo})` : ""}${x.glosas ? ` · ${x.glosas.creadas.length} glosa(s) (${x.glosas.motivo})` : ""}`)}${dryRun ? " [dry-run]" : ""}.`);
     anotarFallos(r.resultados, "GENERAR");
     if (todasFallaron(r.resultados)) process.exitCode = 1;
   } finally {

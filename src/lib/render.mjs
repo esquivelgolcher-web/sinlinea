@@ -100,6 +100,7 @@ export const MENSAJES_NO_CABE = {
   titular: "El titular no cabe en 3 líneas ni a 70 px: acórtalo (máximo 65 caracteres)",
   bajada: "La bajada no cabe en 2 líneas ni a 30 px: acórtala (máximo 110 caracteres)",
   frase: "La frase no cabe en 10 líneas ni a 36 px: elige una más corta o recórtala con puntos suspensivos",
+  glosa: "Algún verso de la glosa no cabe en el globo ni a 48 px: acórtalo (máximo 34 caracteres por verso)",
 };
 
 // La tarjeta (plantillas dato y titular) tiene sus propios tamaños: el mensaje dice los suyos.
@@ -278,9 +279,82 @@ export async function renderizarFrase(post, { config, navegador, raiz = process.
   return { ruta: destino, url: urlImagen(config.pages.baseUrl, post.id), hash: hashImagen(post, version), version, estilo, renderizada: new Date().toISOString() };
 }
 
-// Render según el formato de la pieza: frase con su plantilla; el resto con la del post.
+// Render según el formato de la pieza: cada formato con su plantilla; por defecto, la del post.
+const RENDER_POR_FORMATO = { frase: (p, o) => renderizarFrase(p, o), glosa: (p, o) => renderizarGlosa(p, o) };
 export async function renderizarPieza(post, opciones) {
-  return post.formato === "frase" ? renderizarFrase(post, opciones) : renderizarPost(post, opciones);
+  const render = RENDER_POR_FORMATO[post.formato];
+  return render ? render(post, opciones) : renderizarPost(post, opciones);
+}
+
+// --- Glosa: La Garza comenta la cuarteta en un globo, 1080x1350 con templates/garza.html (sin ilustración) ----------
+export const RUTA_PLANTILLA_GARZA = "templates/garza.html";
+
+export function datosDeGlosa(post, config, { logoUrl, personajeUrl }) {
+  const p = config.glosas?.personaje || {};
+  const sobre = [post.glosa?.sobre?.titular, post.fuente?.medio].filter(Boolean).join(" · ");
+  return {
+    colores: config.marca?.colores ? { ...config.marca.colores } : undefined,
+    iniciales: iniciales(config.marca?.nombre),
+    logoForma: config.marca?.logoForma || "circulo",
+    logoTamano: config.marca?.logoTamano || 120,
+    versos: (post.glosa?.versos || []).map((v) => String(v).trim()),
+    sobre: sobre ? `Sobre: ${sobre}` : "",
+    nombre: p.nombre || "La Garza",
+    cargo: p.cargo || "",
+    fecha: config.marca?.mostrarFecha === false ? "" : fechaCorta(post.creado, config.zonaHoraria),
+    usuario: config.marca.usuario,
+    lema: config.marca.lema,
+    logoUrl,
+    personajeUrl,
+  };
+}
+
+export function construirHtmlGlosa(post, config, { plantilla, baseHref, logoUrl, personajeUrl }) {
+  const json = JSON.stringify(datosDeGlosa(post, config, { logoUrl, personajeUrl })).replace(/<\//g, "<\\/");
+  return plantilla
+    .replace("__BASE__", () => baseHref)
+    .replace(/<script id="datos" type="application\/json">[\s\S]*?<\/script>/, () => `<script id="datos" type="application/json">${json}</script>`);
+}
+
+export async function renderizarGlosa(post, { config, navegador, raiz = process.cwd(), destino = rutaImagen(post.id) }) {
+  const plantilla = fs.readFileSync(path.join(raiz, RUTA_PLANTILLA_GARZA), "utf8");
+  const version = versionPlantilla(plantilla);
+  const rutaLogo = config.rutas?.logo || RUTA_LOGO;
+  const logoUrl = fs.existsSync(path.join(raiz, rutaLogo)) ? rutaLogo.split(path.sep).join("/") : null;
+  const personajeUrl = urlPersonaje(config, raiz);
+  const baseHref = pathToFileURL(path.resolve(raiz) + path.sep).href;
+  const html = construirHtmlGlosa(post, config, { plantilla, baseHref, logoUrl, personajeUrl });
+  const dirTemp = path.join(raiz, "temp", "render");
+  fs.mkdirSync(dirTemp, { recursive: true });
+  const rutaHtml = path.join(dirTemp, `${post.id}.html`);
+  fs.writeFileSync(rutaHtml, html);
+  const page = await navegador.newPage({ viewport: { width: 1080, height: 1350 }, deviceScaleFactor: 1 });
+  try {
+    await page.goto(pathToFileURL(rutaHtml).href, { waitUntil: "load" });
+    await page.waitForSelector('body[data-listo="1"]', { timeout: 15000 });
+    const noCabe = await page.evaluate(() => document.body.dataset.error || "");
+    if (noCabe) throw errorTextoNoCabe(noCabe);
+    const png = await page.screenshot({ type: "png", fullPage: false });
+    const rutaSalida = path.join(raiz, destino);
+    fs.mkdirSync(path.dirname(rutaSalida), { recursive: true });
+    await sharp(png).jpeg({ quality: 88, progressive: true, mozjpeg: true }).toFile(rutaSalida);
+  } finally {
+    await page.close();
+    fs.rmSync(rutaHtml, { force: true });
+  }
+  return { ruta: destino, url: urlImagen(config.pages.baseUrl, post.id), hash: hashImagen(post, version), version, estilo: estiloGlosa(config, { logoUrl, personajeUrl }), renderizada: new Date().toISOString() };
+}
+
+// Sello de estilo de la glosa: colores y logo de la marca más el personaje (dibujo, nombre y cargo). Si cambia
+// cualquiera, REGENERAR vuelve a dibujar las glosas activas.
+export function estiloGlosa(config, { logoUrl = null, personajeUrl = null } = {}) {
+  return hashTexto(JSON.stringify([estiloVisual(config, logoUrl, { formato: "frase" }), personajeUrl, config.glosas?.personaje?.nombre || "", config.glosas?.personaje?.cargo || ""]));
+}
+
+// Ruta pública del dibujo del personaje de la cuenta (cuentas/<id>/garza.png), o null si no existe.
+export function urlPersonaje(config, raiz = process.cwd()) {
+  const ruta = config.rutas?.personaje || null;
+  return ruta && fs.existsSync(path.join(raiz, ruta)) ? ruta.split(path.sep).join("/") : null;
 }
 
 // --- Carrusel (perfil editorial): una imagen 1080x1350 por diapositiva con templates/carrusel.html --------------------

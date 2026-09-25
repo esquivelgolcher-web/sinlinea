@@ -3,6 +3,7 @@
 export const ESTADOS = ["borrador", "programado", "publicado", "descartado", "error"];
 export const VARIANTES = ["negro", "amarillo", "rojo"];
 import { PLANTILLAS, plantillaDe, erroresDeDato } from "./plantillas.mjs";
+import { erroresDeGlosa, esquemaDeRima } from "./metrica.mjs";
 
 export const CATEGORIAS = [
   "POLÍTICA", "ECONOMÍA", "SOCIEDAD", "SEGURIDAD", "SALUD",
@@ -12,7 +13,7 @@ export const CAMPOS_IMAGEN = ["titular", "bajada", "categoria", "variante"];
 // Pasos en los que puede fallar un post: render (imagen), instagram (entrega antigua de un solo destino) y destino
 // (multicanal: uno o más destinos fallaron; el detalle vive en post.destinos).
 export const PASOS_ERROR = ["render", "instagram", "destino"];
-const CAMPOS_EDITABLES = ["titular", "bajada", "caption", "hashtags", "categoria", "variante", "ilustracion", "frase", "plantilla", "dato"];
+const CAMPOS_EDITABLES = ["titular", "bajada", "caption", "hashtags", "categoria", "variante", "ilustracion", "frase", "plantilla", "dato", "glosa"];
 
 function fnv1a(texto, base) {
   let h = base >>> 0;
@@ -37,7 +38,9 @@ export function hashImagen(post, version) {
   // nada, así que ningún post anterior cambia de huella ni se redibuja.
   const plantilla = plantillaDe(post);
   const tarjeta = plantilla === "foto" ? [] : [JSON.stringify([plantilla, plantilla === "dato" ? [post.dato?.cifra ?? "", post.dato?.frase ?? ""] : null])];
-  const texto = [...CAMPOS_IMAGEN.map((c) => String(post[c] ?? "")), ilus, frase, ...tarjeta, String(version)].join("\u0000");
+  // Formato glosa: la imagen son los cuatro versos.
+  const glosa = post.glosa ? [JSON.stringify(post.glosa.versos)] : [];
+  const texto = [...CAMPOS_IMAGEN.map((c) => String(post[c] ?? "")), ilus, frase, ...tarjeta, ...glosa, String(version)].join("\u0000");
   return fnv1a(texto, 0x811c9dc5) + fnv1a(texto, 0x050c5d1f);
 }
 
@@ -133,6 +136,15 @@ export function editarTexto(post, cambios, ahoraIso) {
     if (f.anio !== undefined && f.anio !== null && !Number.isInteger(f.anio)) throw new Error("frase.anio debe ser un año (entero) o null");
     cambios = { ...cambios, frase: { ...post.frase, ...Object.fromEntries(Object.entries(f).filter(([k]) => ["texto", "autor", "fuente", "anio"].includes(k))) } };
     if (cambios.frase.texto) cambios.frase.texto = cambios.frase.texto.trim();
+  }
+  if (cambios.glosa !== undefined) {
+    if (!post.glosa) throw new Error("Solo una pieza en formato glosa tiene glosa");
+    const g = cambios.glosa;
+    if (!g || typeof g !== "object" || !Array.isArray(g.versos)) throw new Error("glosa debe ser un objeto con versos");
+    const versos = g.versos.map((v) => String(v).trim());
+    const e = erroresDeGlosa(versos);
+    if (e.length) throw new Error(e[0]);
+    cambios = { ...cambios, glosa: { ...post.glosa, versos, esquema: esquemaDeRima(versos) } };
   }
   if (cambios.plantilla !== undefined && !PLANTILLAS.includes(cambios.plantilla)) throw new Error(`Plantilla desconocida: ${cambios.plantilla}`);
   if (cambios.dato !== undefined && cambios.dato !== null) {

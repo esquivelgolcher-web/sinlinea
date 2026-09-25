@@ -61,5 +61,19 @@
   "instagram": {
     "tokenSecreto": "IG_ACCESS_TOKEN",
     "usuarioIdSecreto": "IG_USER_ID"
+  },
+  "glosas": {
+    "activo": true,
+    "porDia": 1,
+    "horasVentana": 48,
+    "hashtags": [
+      "#Panamá",
+      "#Glosa",
+      "#LaGarzaMaría"
+    ],
+    "personaje": {
+      "nombre": "La Garza María",
+      "cargo": "Comentarista del Palacio"
+    }
   }
 }

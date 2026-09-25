@@ -90,6 +90,12 @@ export function erroresDeCuenta(d, { idsExistentes = [], editando = false } = {}
   // Multicanal (F1): la página de Facebook se identifica por su id numérico; hace falta para encender esa conexión.
   // Frases célebres: cada frase del banco necesita texto (hasta 320 caracteres) y autor; año y URL son opcionales.
   if (d.frasesPorDia !== undefined && d.frasesPorDia !== "" && !(Number.isInteger(Number(d.frasesPorDia)) && Number(d.frasesPorDia) >= 1 && Number(d.frasesPorDia) <= 5)) e.push("frasesPorDia: entre 1 y 5 frases al día");
+  // Glosas: cupo, ventana de noticias y personaje (con nombre si están encendidas).
+  if (d.glosasPorDia !== undefined && d.glosasPorDia !== "" && !(Number.isInteger(Number(d.glosasPorDia)) && Number(d.glosasPorDia) >= 1 && Number(d.glosasPorDia) <= 3)) e.push("glosasPorDia: entre 1 y 3 glosas al día");
+  if (d.glosasVentana !== undefined && d.glosasVentana !== "" && !(Number.isInteger(Number(d.glosasVentana)) && Number(d.glosasVentana) >= 1 && Number(d.glosasVentana) <= 168)) e.push("glosasVentana: entre 1 y 168 horas");
+  if (d.glosasActivo === true && !String(d.glosasNombre || "").trim()) e.push("glosasNombre: el personaje de las glosas necesita un nombre");
+  if (String(d.glosasNombre || "").trim().length > 40) e.push("glosasNombre: hasta 40 caracteres");
+  if (String(d.glosasCargo || "").length > 60) e.push("glosasCargo: hasta 60 caracteres");
   (Array.isArray(d.frasesBanco) ? d.frasesBanco : []).forEach((f, i) => {
     const n = i + 1;
     const texto = String(f?.texto || "").trim();
@@ -242,6 +248,22 @@ export function configDesdeFormulario(d, base = null) {
   } else {
     delete config.frases;
   }
+  // Glosas: el bloque solo existe si se encienden o si la cuenta ya lo tenía (apagarlas también se guarda).
+  const glosasActivo = d.glosasActivo === true;
+  if (glosasActivo || base?.glosas) {
+    const porDia = Number(d.glosasPorDia);
+    const ventana = Number(d.glosasVentana);
+    config.glosas = {
+      ...(base?.glosas || {}),
+      activo: glosasActivo,
+      porDia: Number.isInteger(porDia) && porDia >= 1 && porDia <= 3 ? porDia : (base?.glosas?.porDia || 1),
+      horasVentana: Number.isInteger(ventana) && ventana >= 1 && ventana <= 168 ? ventana : (base?.glosas?.horasVentana || 48),
+      hashtags: normalizarHashtags(String(d.glosasHashtags ?? (base?.glosas?.hashtags || []).join(" ")).split(/\s+/).filter(Boolean)),
+      personaje: { nombre: String(d.glosasNombre ?? base?.glosas?.personaje?.nombre ?? "La Garza").trim() || "La Garza", cargo: String(d.glosasCargo ?? base?.glosas?.personaje?.cargo ?? "").trim() },
+    };
+  } else {
+    delete config.glosas;
+  }
   return config;
 }
 
@@ -281,6 +303,12 @@ export function formularioDesdeConfig(id, c, editorialMd = "") {
     frasesPreferir: c.frases?.preferir || "textos",
     frasesHashtags: (c.frases?.hashtags || []).join(" "),
     frasesBanco: (c.frases?.banco || []).map((f) => ({ ...f })),
+    glosasActivo: c.glosas?.activo === true,
+    glosasPorDia: c.glosas?.porDia || 1,
+    glosasVentana: c.glosas?.horasVentana || 48,
+    glosasNombre: String(c.glosas?.personaje?.nombre ?? ""),
+    glosasCargo: String(c.glosas?.personaje?.cargo ?? ""),
+    glosasHashtags: (c.glosas?.hashtags || []).join(" "),
     editorialMd,
   };
 }

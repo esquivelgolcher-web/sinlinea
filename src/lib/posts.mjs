@@ -124,6 +124,11 @@ export function validarPost(post) {
   if (post.plantilla !== undefined) exigir(PLANTILLAS.includes(post.plantilla), `plantilla "${post.plantilla}" desconocida (${PLANTILLAS.join(", ")})`);
   if (post.dato !== undefined && post.dato !== null) exigir(erroresDeDato(post.dato).length === 0, `dato inválido: ${erroresDeDato(post.dato)[0]}`);
   if (post.plantilla === "dato") exigir(post.dato && erroresDeDato(post.dato).length === 0, "dato: la plantilla dato necesita cifra y frase");
+  if (post.glosa !== undefined && post.glosa !== null) {
+    const g = post.glosa;
+    exigir(g && typeof g === "object" && Array.isArray(g.versos) && g.versos.length === 4 && g.versos.every((v) => typeof v === "string" && v.trim()), "glosa.versos debe tener cuatro versos con texto");
+    exigir(g.sobre && typeof g.sobre === "object" && typeof g.sobre.id === "string" && typeof g.sobre.titular === "string", "glosa.sobre debe tener id y titular de la noticia glosada");
+  }
   validarPerfilDePost(post);
   return post;
 }

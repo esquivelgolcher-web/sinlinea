@@ -23,6 +23,7 @@ import { destinosEncendidos, pausaGeneral } from "./lib/conexiones.mjs";
 // Perfil editorial: formatos (post, carrusel, reel), trazabilidad de fuentes y alertas de revisión.
 import { NOMBRES_FORMATO, esPublicable, formatoDe, DESCRIPCION_ALERTA } from "./lib/formatos.mjs";
 import { PLANTILLAS, NOMBRES_PLANTILLA, LIMITES_DATO, plantillaDe, plantillasDeCuenta, erroresDeDato } from "./lib/plantillas.mjs";
+import { erroresDeGlosa, silabasDeVerso, esquemaDeRima, LIMITES_GLOSA } from "./lib/metrica.mjs";
 
 const configPanel = { franjas: ["07:00", "09:30", "12:00", "14:30", "17:00", "19:30"], zonaHoraria: ZONA_PANAMA, marca: {}, cuentas: [] };
 async function cargarConfigPanel() {
@@ -362,7 +363,7 @@ function tarjeta({ post, sha }) {
   // Plantilla de la imagen (foto, dato, titular): solo en cuentas que la usan. El dato es la cifra y la frase que la
   // completa; la escena de la ilustración solo cuenta para la foto.
   const plantillasPost = [...new Set([...plantillasDeCuenta(configDeCuenta(cuentaDe(post))), ...(post.plantilla ? [plantillaDe(post)] : [])])];
-  const conPlantillas = !esFrase && plantillasPost.length > 1;
+  const conPlantillas = !esFrase && !post.glosa && plantillasPost.length > 1;
   const avisoDato = el("p", { class: "nota" });
   if (conPlantillas) {
     campos.plantilla = el("select", { class: "plantilla", disabled: bloqueado ? "" : null });
@@ -380,6 +381,26 @@ function tarjeta({ post, sha }) {
     avisoDato,
   ]) : "";
   const campoPlantilla = conPlantillas ? el("label", { text: "Plantilla" }, [campos.plantilla]) : "";
+  // Formato glosa: los cuatro versos se editan uno a uno; debajo, las sílabas de cada verso y la rima de la cuarteta.
+  const esGlosa = Boolean(post.glosa);
+  const avisoGlosa = el("p", { class: "nota" });
+  const versosCampos = esGlosa ? (post.glosa.versos || ["", "", "", ""]).map((v, i) => { const n = el("input", { class: `verso verso-${i + 1}`, maxlength: String(LIMITES_GLOSA.versoMax), disabled: bloqueado ? "" : null }); n.value = v; return n; }) : [];
+  versosCampos.forEach((n, i) => { campos[`glosaVerso${i}`] = n; });
+  const versosDelCampo = () => versosCampos.map((n) => n.value.trim());
+  const revisarGlosa = () => {
+    if (!esGlosa) return;
+    const versos = versosDelCampo();
+    const errores = erroresDeGlosa(versos);
+    const cuentas = versos.map((v, i) => { const { min, max } = silabasDeVerso(v); return `${i + 1}: ${min === max ? min : `${min}-${max}`}`; }).join(" · ");
+    avisoGlosa.textContent = errores.length ? `${errores[0]} (sílabas ${cuentas})` : `Cuarteta ${esquemaDeRima(versos)} · sílabas ${cuentas}`;
+    avisoGlosa.className = errores.length ? "nota excede" : "nota";
+  };
+  const bloqueGlosa = esGlosa ? el("div", { class: "bloque-glosa" }, [
+    el("label", { text: "La glosa, un verso por línea (ocho sílabas cada uno, con rima)" }, versosCampos),
+    avisoGlosa,
+    post.glosa.sobre?.titular ? el("p", { class: "nota", text: `Sobre: ${post.glosa.sobre.titular}` }) : "",
+  ]) : "";
+  if (esGlosa) { for (const n of versosCampos) n.addEventListener("input", revisarGlosa); revisarGlosa(); }
   const contador = el("p", { class: "contador" });
   const actualizarContador = () => {
     const texto = componerCaption({ caption: campos.caption.value, medio: post.fuente.medio, hashtags: campos.hashtags.value.split(/\s+/) });
@@ -403,6 +424,7 @@ function tarjeta({ post, sha }) {
     ]),
     post.error ? el("p", { class: "error-texto", text: `Error (${post.error.paso}): ${post.error.mensaje}` }) : "",
     bloqueFrase,
+    bloqueGlosa,
     campo("Titular", "titular"),
     campo("Bajada", "bajada"),
     el("div", { class: "fila" }, [campo("Categoría", "categoria", "select"), campo("Variante", "variante", "select"), campoPlantilla]),
@@ -410,8 +432,8 @@ function tarjeta({ post, sha }) {
     campo("Caption", "caption"),
     campo("Hashtags (separados por espacio)", "hashtags", "input"),
     // Una frase es tipográfica: no se ofrece ilustración generada.
-    esFrase ? "" : el("label", { class: "solo-foto", text: "Escena de la ilustración (sin personas reales)" }, [campoEscena]),
-    esFrase ? "" : el("label", { class: "casilla solo-foto" }, [casillaUsar, el("span", { text: " Usar ilustración generada con IA" })]),
+    esFrase || esGlosa ? "" : el("label", { class: "solo-foto", text: "Escena de la ilustración (sin personas reales)" }, [campoEscena]),
+    esFrase || esGlosa ? "" : el("label", { class: "casilla solo-foto" }, [casillaUsar, el("span", { text: " Usar ilustración generada con IA" })]),
     ilus && ilus.error ? el("p", { class: "error-texto", text: `La ilustración falló: ${ilus.error.mensaje}` }) : "",
     contador,
     // Perfil editorial: alertas, trazabilidad (fuentes y afirmaciones), carrusel y guion del reel.
@@ -429,6 +451,7 @@ function tarjeta({ post, sha }) {
       hashtags: normalizarHashtags(campos.hashtags.value.split(/\s+/)), categoria: campos.categoria.value, variante: campos.variante.value,
       ...(esFrase ? { frase: { texto: campos.fraseTexto.value.trim(), autor: campos.fraseAutor.value.trim(), fuente: campos.fraseFuente.value.trim(), anio: /^\d{3,4}$/.test(anioFrase) ? Number(anioFrase) : null } } : {}),
       ...(conPlantillas ? { plantilla: campos.plantilla.value, ...(campos.plantilla.value === "dato" ? { dato: datoDelCampo() } : {}) } : {}),
+      ...(esGlosa ? { glosa: { versos: versosDelCampo() } } : {}),
       ilustracion: (escena || usar || post.ilustracion)
         ? { ...(post.ilustracion || { ruta: null, hashDescripcion: null, proveedor: null, modelo: null, generada: null, error: null }), descripcion: escena, usar, ...(reactivada ? { error: null } : {}) }
         : null,
@@ -440,13 +463,16 @@ function tarjeta({ post, sha }) {
       || (c.ilustracion?.descripcion ?? "") !== (post.ilustracion?.descripcion ?? "") || Boolean(c.ilustracion?.usar) !== Boolean(post.ilustracion?.usar)
       || (c.frase ? ["texto", "autor", "fuente"].some((k) => c.frase[k] !== (post.frase[k] || "")) || (c.frase.anio ?? null) !== (post.frase.anio ?? null) : false)
       || (c.plantilla !== undefined && c.plantilla !== plantillaDe(post))
-      || (c.dato ? c.dato.cifra !== (post.dato?.cifra || "") || c.dato.frase !== (post.dato?.frase || "") : false);
+      || (c.dato ? c.dato.cifra !== (post.dato?.cifra || "") || c.dato.frase !== (post.dato?.frase || "") : false)
+      || (c.glosa ? c.glosa.versos.join("\n") !== (post.glosa.versos || []).join("\n") : false);
   };
   const captionValido = () => {
     const t = validarTextos({ titular: campos.titular.value, bajada: campos.bajada.value });
     const c = validarCaption(componerCaption({ caption: campos.caption.value, medio: post.fuente.medio, hashtags: campos.hashtags.value.split(/\s+/) }));
     const d = conPlantillas && campos.plantilla.value === "dato" ? erroresDeDato(datoDelCampo()) : [];
-    return { ok: t.ok && c.ok && !d.length, errores: [...t.errores, ...c.errores, ...d] };
+    // Una glosa coja no se guarda ni se aprueba: saldría un verso partido o sin rima.
+    const g = esGlosa ? erroresDeGlosa(versosDelCampo()) : [];
+    return { ok: t.ok && c.ok && !d.length && !g.length, errores: [...t.errores, ...c.errores, ...d, ...g] };
   };
 
   const local = estado.borradores.get(post.id);
@@ -467,12 +493,14 @@ function tarjeta({ post, sha }) {
     avisoDato.textContent = e.length ? e[0] : "La cifra se comprueba contra el texto de la noticia al generar; si la cambias, que siga siendo la del artículo.";
     avisoDato.className = e.length ? "nota excede" : "nota";
   };
+  if (esGlosa) revisarGlosa(); // con el borrador local ya puesto, las sílabas y la rima corresponden a lo que se ve
   const recordarBorrador = () => {
     if (hayCambios()) estado.borradores.set(post.id, {
       titular: campos.titular.value, bajada: campos.bajada.value, caption: campos.caption.value,
       hashtags: campos.hashtags.value, categoria: campos.categoria.value, variante: campos.variante.value,
       escena: campos.escena.value, usar: campos.usar.checked,
       ...(conPlantillas ? { plantilla: campos.plantilla.value, datoCifra: campos.datoCifra.value, datoFrase: campos.datoFrase.value } : {}),
+      ...(esGlosa ? Object.fromEntries(versosCampos.map((n, i) => [`glosaVerso${i}`, n.value])) : {}),
     });
     else estado.borradores.delete(post.id);
   };
@@ -1283,6 +1311,12 @@ function leerFormulario() {
     frasesPreferir: $("fc-frases-preferir").value,
     frasesHashtags: $("fc-frases-hashtags").value.trim(),
     frasesBanco: [...$("fc-frases").children].map((fila) => fila.leer()),
+    glosasActivo: $("fc-glosas-activo").checked,
+    glosasPorDia: $("fc-glosas-pordia").value.trim(),
+    glosasVentana: $("fc-glosas-ventana").value.trim(),
+    glosasNombre: $("fc-glosas-nombre").value.trim(),
+    glosasCargo: $("fc-glosas-cargo").value.trim(),
+    glosasHashtags: $("fc-glosas-hashtags").value.trim(),
     franjas: $("fc-franjas").value.split(/[\s,;]+/).map((h) => h.trim()).filter(Boolean),
     colores: { principal: $("fc-color-principal").value.toUpperCase(), acento: $("fc-color-acento").value.toUpperCase(), oscuro: $("fc-color-oscuro").value.toUpperCase(), claro: $("fc-color-claro").value.toUpperCase() },
     logoForma: $("fc-logo-forma").value,
@@ -1320,6 +1354,12 @@ function rellenarFormulario(d) {
   $("fc-frases-preferir").value = d.frasesPreferir === "banco" ? "banco" : "textos";
   $("fc-frases-hashtags").value = d.frasesHashtags || "";
   $("fc-frases").replaceChildren(...(d.frasesBanco || []).map(filaFrase));
+  $("fc-glosas-activo").checked = d.glosasActivo === true;
+  $("fc-glosas-pordia").value = d.glosasPorDia || 1;
+  $("fc-glosas-ventana").value = d.glosasVentana || 48;
+  $("fc-glosas-nombre").value = d.glosasNombre || "";
+  $("fc-glosas-cargo").value = d.glosasCargo || "";
+  $("fc-glosas-hashtags").value = d.glosasHashtags || "";
   $("fc-franjas").value = (d.franjas || []).join(", ");
   const colores = { ...COLORES_POR_DEFECTO, ...(d.colores || {}) };
   for (const k of Object.keys(COLORES_POR_DEFECTO)) $(`fc-color-${k}`).value = colores[k];

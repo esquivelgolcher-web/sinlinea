@@ -630,3 +630,53 @@ es una de las tres y `dato` lleva `cifra` (con un número, hasta 14 caracteres) 
 **Estado (2026-09-24):** implementado y activado en Sin Línea. Probado con simulaciones (elección, cifra comprobada,
 cuenta sin plantillas intacta, regeneración con la versión de cada plantilla, panel de extremo a extremo) y con render
 real en Chromium de las dos tarjetas. Pendiente de validación real: la primera corrida de GENERAR con Claude.
+
+## 17. Glosas de La Garza (formato `glosa`)
+
+Una cuarteta satírica, al estilo de la glosa panameña de las cantaderas, que un personaje fijo (La Garza, por el
+Palacio de las Garzas) comenta en un globo de cómic sobre una noticia reciente de la propia cuenta. Se activa por
+cuenta en `cuentas/<id>/config.json` o desde el formulario de la cuenta (apartado «Glosas»):
+
+```json
+"glosas": {
+  "activo": true,
+  "porDia": 1,
+  "horasVentana": 48,
+  "hashtags": ["#Panamá", "#Glosa", "#LaGarzaMaría"],
+  "personaje": { "nombre": "La Garza María", "cargo": "Comentarista del Palacio" }
+}
+```
+
+- **La forma se comprueba, no se confía.** `src/lib/metrica.mjs` cuenta las sílabas de cada verso con las reglas
+  del verso en español (diptongos, hiatos, u muda de que/gui, sinalefa opcional entre palabras, una sílaba más si
+  el verso acaba en aguda y una menos si acaba en esdrújula) y exige ocho por verso; comprueba la rima consonante
+  desde la vocal tónica y que la cuarteta sea ABBA o ABAB. Claude recibe una vez sus errores para corregir; si la
+  segunda cuarteta tampoco cumple, se descarta con aviso y no llega al panel.
+- **La materia son las noticias de la cuenta.** Solo posts de la propia cuenta (borrador, programado o publicado)
+  de las últimas `horasVentana` horas, nunca descartados, y ninguna noticia se glosa dos veces. La glosa hereda la
+  fuente de la noticia y la cita en la imagen y en el caption («Sobre: titular · medio»).
+- **Lo que no se glosa** va en las reglas fijas del redactor: muertes, accidentes, víctimas, delitos contra
+  personas, enfermedad, desastres y guerra; nada inventado; humor sobre el acto público, nunca sobre la vida
+  privada, el físico ni la familia de nadie. Si ninguna noticia sirve, Claude devuelve nada y no se escribe.
+- **Cupo propio.** `porDia` (1 a 3) glosas al día, contadas en la zona horaria de la cuenta, aparte del cupo de
+  noticias. Con el cupo agotado o sin noticias recientes no se llama a Claude.
+- **La imagen.** `templates/garza.html`, 1080×1350 sobre el color de acento: globo del color principal con los
+  cuatro versos (cada uno en una línea; el remate en el acento), el personaje a la derecha hablando hacia el globo,
+  la noticia debajo y la placa con el nombre y el cargo junto a las patas. Sin chip de sección ni ilustración
+  generada. El dibujo del personaje es `cuentas/<id>/garza.png` (PNG con transparencia); sin él, sale solo el globo.
+  Si cambian el dibujo, el nombre o el cargo, REGENERAR redibuja las glosas activas (el sello de estilo los incluye).
+- **Panel.** La tarjeta muestra el chip «Glosa», los cuatro versos editables y, debajo, las sílabas de cada uno y
+  el esquema de rima; una cuarteta coja no se guarda ni se aprueba. En el formulario de la cuenta se encienden las
+  glosas, el cupo, la ventana, el nombre y el cargo del personaje y los hashtags.
+- **Validación.** `glosas.activo` booleano; `porDia` 1 a 3; `horasVentana` 1 a 168; `hashtags` lista; `personaje.nombre`
+  hasta 40 caracteres (obligatorio si están activas); `personaje.cargo` hasta 60. En el post, `glosa.versos` lleva
+  cuatro versos y `glosa.sobre` el id y el titular de la noticia.
+
+**Sobre el dibujo.** La garza de Sin Línea se generó con una herramienta de imagen con la cuenta del operador y se
+guardó como `cuentas/sinlinea/garza.png`; se puede sustituir por un dibujo propio con el mismo nombre de archivo.
+
+**Estado (2026-09-25):** implementado y activado en Sin Línea con La Garza María, una glosa al día. Probado con
+simulaciones (métrica y rima con versos reales, modelo, cupo, ventana, noticias ya glosadas, reintento con errores,
+encadenado en generarCuentas, regeneración, panel de extremo a extremo) y con render real en Chromium (medidas del
+globo, el personaje y la placa; render determinista; error claro si un verso no cabe). Pendiente de validación real:
+la primera corrida de GENERAR con Claude.

@@ -5,7 +5,7 @@ import { pathToFileURL } from "node:url";
 import { cargarConfiguracion } from "./lib/config.mjs";
 import { leerPosts, escribirPost, urlImagen, rutaIlustracion, CUENTA_LEGADO } from "./lib/posts.mjs";
 import { imagenDesactualizada, renderOk, marcarError, necesitaIlustracion, necesitaEscena, hashTexto } from "./lib/estados.mjs";
-import { versionPlantilla, RUTA_PLANTILLA, RUTA_PLANTILLA_FRASE, RUTA_PLANTILLA_TARJETA, RUTA_LOGO, abrirNavegador, renderizarPieza, estiloVisual } from "./lib/render.mjs";
+import { versionPlantilla, RUTA_PLANTILLA, RUTA_PLANTILLA_FRASE, RUTA_PLANTILLA_TARJETA, RUTA_PLANTILLA_GARZA, RUTA_LOGO, abrirNavegador, renderizarPieza, estiloVisual, estiloGlosa, urlPersonaje } from "./lib/render.mjs";
 import { plantillaDe } from "./lib/plantillas.mjs";
 import { crearIlustrador, guardarIlustracion, sanearMensaje } from "./lib/ilustrador.mjs";
 import { acortarTextos, escribirEscena } from "./lib/redactor.mjs";
@@ -24,14 +24,18 @@ export async function ejecutarRegenerar({ config, raiz = process.cwd(), ahora = 
   // Las plantillas dato y titular se dibujan con templates/tarjeta.html, que lleva su propia versión.
   const rutaTarjeta = path.join(raiz, RUTA_PLANTILLA_TARJETA);
   const versionTarjeta = fs.existsSync(rutaTarjeta) ? versionPlantilla(fs.readFileSync(rutaTarjeta, "utf8")) : actual;
-  const versionDe = (p) => (p.formato === "frase" ? versionFrase : plantillaDe(p) !== "foto" ? versionTarjeta : actual);
+  // La glosa de La Garza tiene su plantilla (templates/garza.html) y su versión.
+  const rutaGarza = path.join(raiz, RUTA_PLANTILLA_GARZA);
+  const versionGarza = fs.existsSync(rutaGarza) ? versionPlantilla(fs.readFileSync(rutaGarza, "utf8")) : actual;
+  const versionDe = (p) => (p.formato === "frase" ? versionFrase : p.formato === "glosa" ? versionGarza : plantillaDe(p) !== "foto" ? versionTarjeta : actual);
   const rutaLogo = config.rutas?.logo || RUTA_LOGO;
   const logoUrl = fs.existsSync(path.join(raiz, rutaLogo)) ? rutaLogo : null;
   const estilo = estiloActual ?? estiloVisual(config, logoUrl);
   // Las frases no dibujan ni la etiqueta de categoría ni el titular sobre la ilustración: su sello no depende de esas
   // opciones (si dependiera, cambiarlas las redibujaría sin motivo).
   const estiloFrase = estiloActual ?? estiloVisual(config, logoUrl, { formato: "frase" });
-  const estiloDe = (p) => (p.formato === "frase" ? estiloFrase : estilo);
+  const estiloDeGlosa = estiloActual ?? estiloGlosa(config, { logoUrl, personajeUrl: urlPersonaje(config, raiz) });
+  const estiloDe = (p) => (p.formato === "frase" ? estiloFrase : p.formato === "glosa" ? estiloDeGlosa : estilo);
   const cuenta = config.cuenta || CUENTA_LEGADO;
   const opcionesLectura = { cuentaPorDefecto: config.cuentaPrincipal || CUENTA_LEGADO };
   // Solo los posts de esta cuenta; los antiguos sin campo `cuenta` pertenecen a la cuenta principal.

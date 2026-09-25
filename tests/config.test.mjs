@@ -114,7 +114,7 @@ test("(M1) configDeCuenta produce la configuración efectiva con la forma de sie
   assert.equal(e.fuentes.length, 2);
   assert.equal(e.franjas.length, 6);
   assert.equal(e.generar.maxPorCorrida, 2);
-  assert.deepEqual(e.rutas, { carpeta: "cuentas/sinlinea", editorial: "cuentas/sinlinea/editorial.md", logo: "cuentas/sinlinea/logo.png", datos: "data/sinlinea" });
+  assert.deepEqual(e.rutas, { carpeta: "cuentas/sinlinea", editorial: "cuentas/sinlinea/editorial.md", logo: "cuentas/sinlinea/logo.png", personaje: "cuentas/sinlinea/garza.png", datos: "data/sinlinea" });
   assert.equal(e.cuentas, undefined, "la efectiva no lleva la lista de cuentas");
   assert.doesNotThrow(() => validarConfig(e));
 });

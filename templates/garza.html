@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="es" data-version="1">
+<head>
+<meta charset="utf-8">
+<base href="__BASE__">
+<title>Glosa · La Garza</title>
+<style>
+  /* La Garza comenta la glosa: tarjeta 1080x1350 sobre el color de acento de la marca, un globo de cómic en el color
+     principal con la cuarteta (un verso por línea, sin partir), el personaje a la derecha hablando hacia el globo, la
+     noticia que comenta debajo y la placa con su nombre junto a las patas. Sin chip de sección: el personaje es la sección. */
+  @font-face { font-family: "Anton"; src: url("assets/fonts/Anton-Regular.ttf") format("truetype"); font-display: block; }
+  @font-face { font-family: "Inter"; src: url("assets/fonts/Inter-Variable.ttf") format("truetype"); font-weight: 100 900; font-display: block; }
+  :root { --principal: #FFD400; --acento: #E30613; --oscuro: #111111; --claro: #FFFFFF; --margen: 72px; --barra-alto: 70px; --pie-alto: 80px; --logo-tamano: 120px; }
+  html, body { margin: 0; padding: 0; }
+  body { width: 1080px; height: 1350px; overflow: hidden; font-family: "Inter", Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+  .pieza { position: relative; width: 1080px; height: 1350px; box-sizing: border-box; overflow: hidden; background: var(--acento); color: var(--claro); }
+  .cabecera { position: absolute; top: var(--margen); left: var(--margen); right: var(--margen); display: flex; align-items: flex-start; }
+  .logo, .logo-fallback { width: var(--logo-tamano); height: var(--logo-tamano); border-radius: 50%; display: block; box-shadow: 0 0 0 6px var(--claro); }
+  .logo { object-fit: cover; }
+  .logo-fallback { box-sizing: border-box; background: var(--principal); color: var(--oscuro); display: flex; align-items: center; justify-content: center; font-family: "Anton", Impact, sans-serif; font-size: calc(var(--logo-tamano) * 0.37); letter-spacing: 0.04em; }
+  .pieza[data-logo-forma="cuadrado"] .logo, .pieza[data-logo-forma="cuadrado"] .logo-fallback { border-radius: 0; }
+  /* Globo de cómic: contorno grueso y sombra dura, como el trazo del personaje. */
+  .globo { position: absolute; left: var(--margen); right: var(--margen); top: 236px; padding: 44px 48px 40px; box-sizing: border-box; background: var(--principal); color: var(--oscuro); border: 7px solid var(--oscuro); border-radius: 40px; box-shadow: 14px 14px 0 var(--oscuro); }
+  .verso { font-family: "Anton", Impact, sans-serif; font-weight: 400; text-transform: uppercase; margin: 0; white-space: nowrap; font-size: 84px; line-height: 1.3; letter-spacing: 0.005em; }
+  .verso.remate { color: var(--acento); }
+  .cola { position: absolute; width: 150px; height: 120px; overflow: visible; }
+  .personaje { position: absolute; right: 48px; bottom: 156px; height: 560px; } /* las patas, justo sobre la línea del pie */
+  .sobre { position: absolute; left: var(--margen); width: 540px; font-weight: 600; font-size: 26px; line-height: 1.35; opacity: 0.92; }
+  .sobre:empty { display: none; }
+  .placa { position: absolute; left: var(--margen); bottom: 176px; font-family: "Anton", Impact, sans-serif; font-size: 44px; line-height: 1; letter-spacing: 0.06em; text-transform: uppercase; color: var(--principal); background: var(--oscuro); padding: 14px 22px 12px; box-shadow: 8px 8px 0 rgba(0,0,0,.35); }
+  .placa small { display: block; font-family: "Inter", Arial, sans-serif; font-weight: 600; font-size: 20px; letter-spacing: 0.04em; text-transform: none; color: var(--claro); margin-top: 8px; }
+  .placa small:empty { display: none; }
+  .pie { position: absolute; left: var(--margen); right: var(--margen); bottom: var(--barra-alto); height: var(--pie-alto); display: flex; justify-content: space-between; align-items: center; font-size: 24px; font-weight: 600; border-top: 2px solid rgba(255,255,255,.35); }
+  .barra { position: absolute; left: 0; right: 0; bottom: 0; height: var(--barra-alto); display: flex; align-items: center; justify-content: center; font-family: "Anton", Impact, sans-serif; font-size: 32px; letter-spacing: 0.06em; text-transform: uppercase; background: var(--oscuro); color: var(--principal); }
+  .barra:empty { display: none; }
+</style>
+</head>
+<body>
+<div class="pieza" id="pieza">
+  <header class="cabecera"><div id="logo"></div></header>
+  <div class="globo" id="globo"></div>
+  <svg class="cola" id="cola" viewBox="0 0 150 120" style="overflow:visible">
+    <polygon points="20,0 130,0 118,96" fill="var(--oscuro)" transform="translate(12,12)"/>
+    <polygon points="20,0 130,0 118,96" style="fill:var(--principal);stroke:var(--oscuro)" stroke-width="7" stroke-linejoin="round"/>
+    <rect x="26" y="-8" width="98" height="16" style="fill:var(--principal)"/>
+  </svg>
+  <div id="personaje"></div>
+  <p class="sobre" id="sobre"></p>
+  <div class="placa" id="placa"><span id="nombre"></span><small id="cargo"></small></div>
+  <footer class="pie"><span id="fecha"></span><span id="usuario"></span></footer>
+  <div class="barra" id="lema"></div>
+</div>
+<script id="datos" type="application/json">{}</script>
+<script>
+(async function () {
+  const d = JSON.parse(document.getElementById("datos").textContent || "{}");
+  const $ = (id) => document.getElementById(id);
+  for (const [v, valor] of [["--principal", d.colores?.principal], ["--acento", d.colores?.acento], ["--oscuro", d.colores?.oscuro], ["--claro", d.colores?.claro]]) {
+    if (valor) document.documentElement.style.setProperty(v, valor);
+  }
+  $("pieza").dataset.logoForma = d.logoForma || "circulo";
+  document.documentElement.style.setProperty("--logo-tamano", `${Number(d.logoTamano) || 120}px`);
+  const versos = d.versos || [];
+  $("globo").replaceChildren(...versos.map((v, i) => { const p = document.createElement("p"); p.className = `verso${i === versos.length - 1 ? " remate" : ""}`; p.textContent = v; return p; }));
+  $("sobre").textContent = d.sobre || "";
+  $("nombre").textContent = d.nombre || "";
+  $("cargo").textContent = d.cargo || "";
+  $("fecha").textContent = d.fecha || "";
+  $("usuario").textContent = d.usuario || "";
+  $("lema").textContent = d.lema || "";
+  if (!d.lema) document.documentElement.style.setProperty("--barra-alto", "0px");
+  const cargas = [];
+  if (d.logoUrl) {
+    const img = new Image(); img.className = "logo"; img.alt = ""; img.src = d.logoUrl;
+    $("logo").replaceWith(img); cargas.push(img.decode().catch(() => {}));
+  } else {
+    $("logo").className = "logo-fallback"; $("logo").textContent = d.iniciales || "?";
+  }
+  if (d.personajeUrl) {
+    const img = new Image(); img.className = "personaje"; img.alt = ""; img.src = d.personajeUrl;
+    $("personaje").replaceWith(img); cargas.push(img.decode().catch(() => {}));
+  } else {
+    $("personaje").remove();
+    $("cola").remove(); // sin dibujo no hay a quién apuntar
+  }
+  await Promise.all(cargas);
+  await document.fonts.ready;
+  // Cada verso va en una sola línea: todos bajan a la vez hasta que el más largo quepa.
+  const lineas = [...document.querySelectorAll(".verso")];
+  let t = 84;
+  const cabe = () => lineas.every((l) => l.scrollWidth <= l.clientWidth + 1);
+  lineas.forEach((l) => { l.style.fontSize = t + "px"; });
+  while (!cabe() && t > 48) { t -= 2; lineas.forEach((l) => { l.style.fontSize = t + "px"; }); }
+  if (!cabe() || !lineas.length) document.body.dataset.error = "glosa";
+  // La cola sale del borde inferior del globo, hacia el pico del personaje; "Sobre:" cuelga debajo del globo.
+  const g = $("globo").getBoundingClientRect();
+  const cola = $("cola");
+  if (cola) { cola.style.left = `${g.right - 470}px`; cola.style.top = `${g.bottom - 6}px`; }
+  $("sobre").style.top = `${g.bottom + 40}px`;
+  document.body.dataset.listo = "1";
+})();
+</script>
+</body>
+</html>

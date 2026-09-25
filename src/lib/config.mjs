@@ -65,6 +65,23 @@ function validarFrases(f, archivo) {
   }
 }
 
+// Glosas: la cuarteta de un personaje (La Garza) sobre una noticia de la cuenta. Cupo propio y ventana de noticias.
+export const GLOSAS_POR_DEFECTO = Object.freeze({ activo: false, porDia: 1, horasVentana: 48, hashtags: [], personaje: Object.freeze({ nombre: "La Garza", cargo: "" }) });
+function validarGlosas(g, archivo) {
+  if (g === undefined) return;
+  exigir(g && typeof g === "object" && !Array.isArray(g), "glosas debe ser un objeto", archivo);
+  if (g.activo !== undefined) exigir(typeof g.activo === "boolean", "glosas.activo debe ser true o false", archivo);
+  if (g.porDia !== undefined) exigir(Number.isInteger(g.porDia) && g.porDia >= 1 && g.porDia <= 3, "glosas.porDia debe ser un entero entre 1 y 3", archivo);
+  if (g.horasVentana !== undefined) exigir(Number.isInteger(g.horasVentana) && g.horasVentana >= 1 && g.horasVentana <= 168, "glosas.horasVentana debe ser un entero entre 1 y 168", archivo);
+  if (g.hashtags !== undefined) exigir(Array.isArray(g.hashtags) && g.hashtags.every((h) => typeof h === "string"), "glosas.hashtags debe ser una lista de textos", archivo);
+  if (g.categoria !== undefined) exigir(CATEGORIAS.includes(g.categoria), `glosas.categoria debe ser una de ${CATEGORIAS.join(", ")}`, archivo);
+  if (g.personaje !== undefined) {
+    exigir(g.personaje && typeof g.personaje === "object" && !Array.isArray(g.personaje), "glosas.personaje debe ser un objeto con nombre y cargo", archivo);
+    if (g.personaje.nombre !== undefined) exigir(typeof g.personaje.nombre === "string" && g.personaje.nombre.trim() && g.personaje.nombre.trim().length <= 40, "glosas.personaje.nombre debe ser un texto de hasta 40 caracteres", archivo);
+    if (g.personaje.cargo !== undefined) exigir(typeof g.personaje.cargo === "string" && g.personaje.cargo.length <= 60, "glosas.personaje.cargo debe ser un texto de hasta 60 caracteres", archivo);
+  }
+}
+
 function validarPerfil(p, archivo) {
   if (p === undefined) return;
   exigir(p && typeof p === "object" && !Array.isArray(p), "perfil debe ser un objeto", archivo);
@@ -210,7 +227,7 @@ export function validarGlobal(g) {
   return g;
 }
 
-export const CLAVES_DE_CUENTA = ["frases", "nombre", "idioma", "zonaHoraria", "automatico", "marca", "fuentes", "generar", "franjas", "ilustraciones", "instagram", "editorial", "archivada", "archivadaEn", "metricas", "conexiones", "perfil"];
+export const CLAVES_DE_CUENTA = ["frases", "glosas", "nombre", "idioma", "zonaHoraria", "automatico", "marca", "fuentes", "generar", "franjas", "ilustraciones", "instagram", "editorial", "archivada", "archivadaEn", "metricas", "conexiones", "perfil"];
 const CLAVES_SOLO_GLOBALES = ["pages", "claude", "archivarDespuesDeDias", "cuentas"];
 
 // Configuración de una cuenta (cuentas/<id>/config.json).
@@ -235,6 +252,7 @@ export function validarCuenta(c, id) {
   validarConexiones(c.conexiones, archivo);
   validarPerfil(c.perfil, archivo);
   validarFrases(c.frases, archivo);
+  validarGlosas(c.glosas, archivo);
   return c;
 }
 
@@ -254,6 +272,7 @@ export function validarConfig(cfg) {
   validarConexiones(cfg.conexiones, "config.json");
   validarPerfil(cfg.perfil, "config.json");
   validarFrases(cfg.frases, "config.json");
+  validarGlosas(cfg.glosas, "config.json");
   if (cfg.cuenta !== undefined) exigir(RE_ID_CUENTA.test(String(cfg.cuenta)), `cuenta "${cfg.cuenta}" no es un id válido`);
   if (cfg.idioma !== undefined) exigir(RE_IDIOMA.test(String(cfg.idioma)), `idioma "${cfg.idioma}" debe tener la forma xx o xx-XX`);
   return cfg;
@@ -261,7 +280,7 @@ export function validarConfig(cfg) {
 
 export function rutasDeCuenta(id) {
   const carpeta = `cuentas/${id}`;
-  return { carpeta, editorial: `${carpeta}/editorial.md`, logo: `${carpeta}/logo.png`, datos: `data/${id}` };
+  return { carpeta, editorial: `${carpeta}/editorial.md`, logo: `${carpeta}/logo.png`, personaje: `${carpeta}/garza.png`, datos: `data/${id}` };
 }
 
 export function configDeCuenta(global, cuenta, id) {
@@ -286,6 +305,7 @@ export function configDeCuenta(global, cuenta, id) {
     ilustraciones: { ...global.ilustraciones, ...cuenta.ilustraciones },
     metricas: { recoger: false, ...(cuenta.metricas || {}) },
     frases: { ...FRASES_POR_DEFECTO, ...(cuenta.frases || {}) },
+    glosas: { ...GLOSAS_POR_DEFECTO, ...(cuenta.glosas || {}), personaje: { ...GLOSAS_POR_DEFECTO.personaje, ...(cuenta.glosas?.personaje || {}) } },
     rutas: rutasDeCuenta(id),
   };
   return validarConfig(efectiva);

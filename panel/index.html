@@ -112,6 +112,20 @@
       <button class="boton" id="fc-anadir-frase" type="button">Añadir frase</button>
       <small>Banco de frases de la cuenta: texto literal, autor (el papa que la dijo), ocasión o documento, año y enlace si lo hay. Se publican en orden y ninguna se repite. Ninguna frase se inventa: las de los textos del día se comprueban palabra por palabra contra el artículo.</small>
     </fieldset>
+    <fieldset id="fc-glosas-bloque">
+      <legend>Glosas (formato glosa)</legend>
+      <label class="casilla"><input id="fc-glosas-activo" type="checkbox"> <span>Escribir cada día una glosa: una cuarteta con humor sobre una noticia reciente de la cuenta</span></label>
+      <div class="fila">
+        <label>Glosas al día <input id="fc-glosas-pordia" type="number" min="1" max="3" step="1" value="1"></label>
+        <label>Noticias de las últimas horas <input id="fc-glosas-ventana" type="number" min="1" max="168" step="1" value="48"></label>
+      </div>
+      <div class="fila">
+        <label>Nombre del personaje <input id="fc-glosas-nombre" autocomplete="off" maxlength="40" placeholder="La Garza María"></label>
+        <label>Cargo o apodo <input id="fc-glosas-cargo" autocomplete="off" maxlength="60" placeholder="Comentarista del Palacio"></label>
+      </div>
+      <label>Hashtags de las glosas (separados por espacio) <input id="fc-glosas-hashtags" autocomplete="off" placeholder="#Panamá #Glosa"></label>
+      <small>La cuarteta tiene cuatro versos de ocho sílabas con rima; el sistema la comprueba antes de guardarla y sale como borrador. El dibujo del personaje es el archivo <code>garza.png</code> de la carpeta de la cuenta en GitHub: si lo cambias, las glosas se vuelven a dibujar.</small>
+    </fieldset>
     <fieldset>
       <legend>Identidad visual</legend>
       <div class="fila">

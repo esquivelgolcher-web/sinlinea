@@ -193,6 +193,57 @@ export async function extraerFrase({ client, config, textos }) {
   return { indice: s.indice, frase: String(s.frase).trim(), autor: String(s.autor || "").trim(), fuente: String(s.fuente || "").trim() };
 }
 
+// --- Glosa: la cuarteta de La Garza sobre una noticia de la cuenta ---------------------------------------------------
+const EsquemaGlosa = z.object({ indice: z.number().int().nullable(), versos: z.array(z.string()), porQue: z.string() });
+
+export function construirSystemGlosa(editorialMd, { idioma = "es-PA", personaje = {} } = {}) {
+  const quien = `${personaje.nombre || "La Garza"}${personaje.cargo ? `, ${personaje.cargo}` : ""}`;
+  return `Eres ${quien}: el personaje que comenta las noticias de la cuenta con una glosa, al estilo de la glosa panameña de las cantaderas. Escribes en ${nombreIdioma(idioma)}, con habla popular panameña, sin vulgaridades.
+
+## La forma: una cuarteta
+- Cuatro versos de OCHO sílabas cada uno (octosílabos), contadas como en la décima: los diptongos cuentan una sílaba, una vocal final y una vocal inicial de la palabra siguiente se pueden unir (sinalefa), y si el verso acaba en palabra aguda se cuenta una sílaba más; si acaba en esdrújula, una menos.
+- Rima consonante (iguales desde la vocal tónica hasta el final): el verso 1 rima con el 4 y el 2 con el 3 (abba), o el 1 con el 3 y el 2 con el 4 (abab). Las dos rimas tienen que ser distintas.
+- Cada verso cabe en una línea de la imagen: hasta 34 caracteres.
+- El último verso es el remate: ahí está la gracia.
+- Ejemplo de la forma (no lo copies): "Trece ministerios andan / en camioneta alquilada; / el pueblo a pie, sin más nada, / pagando lo que ellos mandan."
+
+## El fondo
+- Elige UNA noticia de la lista que dé para humor popular: un gasto, una promesa, una contradicción, un trámite absurdo, una cifra que habla sola.
+- Solo dices lo que dice la noticia. Nada inventado: ni cifras, ni nombres, ni intenciones.
+- El humor va sobre el acto público y la situación, nunca sobre la vida privada, el físico, la familia ni el origen de nadie. Sin insultos ni motes.
+- Nunca glosas muertes, accidentes, víctimas, delitos contra personas, enfermedad, desastres ni guerra. Si todas las noticias son de eso, devuelve indice null y versos vacíos: es mejor callar que forzar la broma.
+- "porQue": en una frase, qué contraste o giro sostiene el chiste.
+
+## Línea editorial de la cuenta
+${String(editorialMd || "").trim()}`;
+}
+
+export function construirUsuarioGlosa({ noticias, errores = [], versosAnteriores = [] }) {
+  const lista = (noticias || []).map((n, i) => `[${i}] ${n.titular}${n.medio ? ` (${n.medio}${n.categoria ? `, ${n.categoria}` : ""})` : ""}\n    ${n.bajada || ""}${n.caption ? `\n    ${String(n.caption).slice(0, 400)}` : ""}`).join("\n\n");
+  const correccion = errores.length
+    ? `\n\nTu cuarteta anterior no cumplió la forma:\n${(versosAnteriores || []).map((v) => `  ${v}`).join("\n")}\nProblemas: ${errores.join("; ")}.\nCorrígela conservando el chiste, o escribe otra sobre la misma noticia.`
+    : "";
+  return `Noticias de hoy en la cuenta:\n\n${lista}\n\nElige una y escribe la glosa: indice (el número entre corchetes), versos (cuatro) y porQue.${correccion}`;
+}
+
+// Devuelve { indice, versos, porQue } o null si ninguna noticia sirve. Quien llama comprueba la métrica y la rima
+// (src/lib/metrica.mjs) y puede volver a pedir con `errores` y `versosAnteriores`: nada se guarda sin cumplir la forma.
+export async function escribirGlosa({ client, config, editorialMd, noticias, personaje = {}, errores = [], versosAnteriores = [] }) {
+  if (!noticias?.length) return null;
+  const res = await client.messages.parse({
+    model: config.claude.modelo,
+    max_tokens: 1200,
+    thinking: { type: "adaptive" },
+    output_config: { effort: config.claude.esfuerzo, format: zodOutputFormat(EsquemaGlosa) },
+    system: [{ type: "text", text: construirSystemGlosa(editorialMd, { idioma: config.idioma, personaje }), cache_control: { type: "ephemeral" } }],
+    messages: [{ role: "user", content: construirUsuarioGlosa({ noticias, errores, versosAnteriores }) }],
+  });
+  if (res.stop_reason === "refusal") throw new Error(`Claude rechazó la solicitud: ${res.stop_details?.explanation || "sin explicación"}`);
+  const s = res.parsed_output;
+  if (!s || s.indice === null || !Number.isInteger(s.indice) || !noticias[s.indice] || !Array.isArray(s.versos) || !s.versos.length) return null;
+  return { indice: s.indice, versos: s.versos.map((v) => String(v).trim()), porQue: String(s.porQue || "").trim() };
+}
+
 // --- Perfil editorial (periodismo tecnológico): selección puntuada, afirmaciones con fuente, formatos post/carrusel/reel --
 import { FORMATOS, TIPOS_AFIRMACION, ALERTAS } from "./formatos.mjs";
 import { puntuar, PESOS_POR_DEFECTO } from "./puntuacion.mjs";
