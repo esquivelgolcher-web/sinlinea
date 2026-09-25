@@ -161,6 +161,8 @@ test("(glosas) escribirGlosa: el personaje, las reglas de la cuarteta y las noti
   assert.match(system, /ocho sílabas/i);
   assert.match(system, /rima/i);
   assert.match(system, /muert/i, "los temas vetados van en las reglas");
+  assert.match(system, /sección de humor/i, "la línea editorial de noticias no manda callar a La Garza");
+  assert.match(system, /SOLO si todas/, "callar es la excepción, no la salida cómoda");
   assert.match(peticiones[0].messages[0].content, /Ministerios gastan/);
   await escribirGlosa({ client, config, editorialMd: "Línea editorial.", noticias, personaje, errores: ["el verso 1 tiene 10 sílabas y la glosa pide 8"], versosAnteriores: ["Trece ministerios andan hoy", ...versos.slice(1)] });
   assert.match(peticiones[1].messages[0].content, /10 sílabas/);

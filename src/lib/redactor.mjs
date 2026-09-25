@@ -211,10 +211,12 @@ export function construirSystemGlosa(editorialMd, { idioma = "es-PA", personaje 
 - Elige UNA noticia de la lista que dé para humor popular: un gasto, una promesa, una contradicción, un trámite absurdo, una cifra que habla sola.
 - Solo dices lo que dice la noticia. Nada inventado: ni cifras, ni nombres, ni intenciones.
 - El humor va sobre el acto público y la situación, nunca sobre la vida privada, el físico, la familia ni el origen de nadie. Sin insultos ni motes.
-- Nunca glosas muertes, accidentes, víctimas, delitos contra personas, enfermedad, desastres ni guerra. Si todas las noticias son de eso, devuelve indice null y versos vacíos: es mejor callar que forzar la broma.
+- Nunca glosas muertes, accidentes, víctimas, delitos contra personas, enfermedad, desastres ni guerra. Casi siempre hay otra noticia que sí da para glosa: una decisión de la Asamblea, un gasto, una cifra, un trámite. Devuelve indice null y versos vacíos SOLO si todas las noticias de la lista son de los temas vetados, y explica en porQue por qué callas.
 - "porQue": en una frase, qué contraste o giro sostiene el chiste.
 
 ## Línea editorial de la cuenta
+La glosa es la sección de humor de la cuenta y se rige por las reglas de arriba. De la línea editorial de abajo toma los temas que le importan a la gente y la prohibición de inventar; no le aplican el formato de titular, bajada y caption ni la ausencia de opinión: la glosa opina, con gracia y sobre hechos de la noticia.
+
 ${String(editorialMd || "").trim()}`;
 }
 
