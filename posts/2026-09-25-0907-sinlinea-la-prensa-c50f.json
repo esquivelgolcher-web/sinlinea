@@ -1,0 +1,52 @@
+{
+  "id": "2026-09-25-0907-sinlinea-la-prensa-c50f",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/sociedad/la-crisis-silenciosa-del-agua-panama-necesita-invertir-1000-millones-al-ano-durante-una-decada/",
+    "titulo": "La crisis del agua: Panamá necesita invertir $1,000 millones al año durante una década",
+    "publicado": "2026-09-25T05:04:00.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "Panamá invierte solo 35% de lo necesario en agua",
+  "bajada": "El país destina $350 millones anuales en agua y saneamiento, cuando necesita $1,000 millones, según el BID.",
+  "caption": "Cada año se abre un hueco de $650 millones en inversión de agua y saneamiento en Panamá. Eso significa menos redes reparadas, menos plantas potabilizadoras y más rezago en zonas rurales e indígenas. La brecha no es nueva, pero sigue creciendo. ¿Sientes que el servicio de agua en tu comunidad ha mejorado o empeorado en los últimos años?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#AguaPotable",
+    "#Saneamiento",
+    "#BID",
+    "#ServiciosPúblicos"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-09-25-0907-sinlinea-la-prensa-c50f.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-25-0907-sinlinea-la-prensa-c50f.jpg",
+    "hash": "5acb08f2478ea1ec",
+    "version": 11,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-09-25T14:07:47.116Z"
+  },
+  "ilustracion": {
+    "descripcion": "Tubería vieja y oxidada de una red de acueducto en una calle panameña, con un tanque de agua comunitario visible al fondo; el elemento principal en el tercio superior derecho, izquierda y centro despejados",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-25-0907-sinlinea-la-prensa-c50f.jpg",
+    "hashDescripcion": "0c71b0bc6c5eb4d6",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-25T14:07:16.720Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-25T14:07:16.720Z",
+  "actualizado": "2026-09-25T14:07:16.720Z",
+  "plantilla": "foto",
+  "dato": {
+    "cifra": "35%",
+    "frase": "es lo que Panamá invierte del monto anual que necesita en agua y saneamiento"
+  }
+}

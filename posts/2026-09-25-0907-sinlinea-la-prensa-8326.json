@@ -1,0 +1,48 @@
+{
+  "id": "2026-09-25-0907-sinlinea-la-prensa-8326",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/politica/diputados-aprobaron-reforma-electoral-que-permitiria-ejercer-dos-cargos-a-la-vez/",
+    "titulo": "Diputados aprobaron reforma electoral que permitiría ejercer dos cargos a la vez",
+    "publicado": "2026-09-25T05:02:00.000Z"
+  },
+  "categoria": "POLÍTICA",
+  "titular": "Asamblea aprueba reforma para ejercer dos cargos electos",
+  "bajada": "Comisión de Gobierno avaló en primer debate el cambio al Código Electoral, impulsado por PRD y RM.",
+  "caption": "Hoy quien gana dos elecciones debe escoger un cargo. Con esta reforma, podría quedarse con ambos, ejerciendo uno y poniendo en licencia el otro por al menos un año. La propuesta pasó su primer debate en la Comisión de Gobierno. ¿Te parece correcto que un mismo funcionario pueda ocupar dos puestos de elección popular?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#AsambleaNacional",
+    "#ReformaElectoral",
+    "#Política",
+    "#CódigoElectoral"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-09-25-0907-sinlinea-la-prensa-8326.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-25-0907-sinlinea-la-prensa-8326.jpg",
+    "hash": "d43097262b20ae1c",
+    "version": 2,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-09-25T14:07:50.264Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada del Palacio Legislativo de la Asamblea Nacional de Panamá bajo un cielo despejado, con la bandera panameña ondeando; el edificio en el tercio superior derecho, izquierda y centro despejados",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-25T14:07:16.720Z",
+  "actualizado": "2026-09-25T14:07:16.720Z",
+  "plantilla": "titular"
+}
