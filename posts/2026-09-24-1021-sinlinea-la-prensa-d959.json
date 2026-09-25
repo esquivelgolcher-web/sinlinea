@@ -1,7 +1,7 @@
 {
   "id": "2026-09-24-1021-sinlinea-la-prensa-d959",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "La Prensa",
     "url": "https://www.prensa.com/sociedad/pase-u-45-millones-de-los-58-millones-pagados-ya-fueron-utilizados/",
@@ -43,7 +43,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-24T15:21:45.132Z",
-  "actualizado": "2026-09-24T15:21:45.132Z",
+  "actualizado": "2026-09-25T12:21:26.259Z",
   "plantilla": "dato",
   "dato": {
     "cifra": "$45 millones",
