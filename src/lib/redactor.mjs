@@ -234,13 +234,14 @@ export async function escribirGlosa({ client, config, editorialMd, noticias, per
   if (!noticias?.length) return null;
   const res = await client.messages.parse({
     model: config.claude.modelo,
-    max_tokens: 1200,
+    max_tokens: 12000, // contar sílabas y rimar lleva pensamiento largo; con 1200 Claude se cortaba y parecía que callaba
     thinking: { type: "adaptive" },
     output_config: { effort: config.claude.esfuerzo, format: zodOutputFormat(EsquemaGlosa) },
     system: [{ type: "text", text: construirSystemGlosa(editorialMd, { idioma: config.idioma, personaje }), cache_control: { type: "ephemeral" } }],
     messages: [{ role: "user", content: construirUsuarioGlosa({ noticias, errores, versosAnteriores }) }],
   });
   if (res.stop_reason === "refusal") throw new Error(`Claude rechazó la solicitud: ${res.stop_details?.explanation || "sin explicación"}`);
+  if (res.stop_reason === "max_tokens") throw new Error("Claude se quedó sin espacio para escribir la glosa (max_tokens); no es que callara");
   const s = res.parsed_output;
   if (!s || s.indice === null || !Number.isInteger(s.indice) || !noticias[s.indice] || !Array.isArray(s.versos) || !s.versos.length) {
     log?.info?.(`La Garza calla. Motivo de Claude: ${String(s?.porQue || "").trim() || "no lo dio"}.`);
