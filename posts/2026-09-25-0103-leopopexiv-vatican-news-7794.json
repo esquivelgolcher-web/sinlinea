@@ -1,0 +1,46 @@
+{
+  "id": "2026-09-25-0103-leopopexiv-vatican-news-7794",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-09/pope-climate-crisis-not-only-environmental-challenge-but-justice.html",
+    "titulo": "Pope: Climate crisis is not just an environmental challenge, but a matter of justice",
+    "publicado": "2026-09-24T11:10:00.000Z"
+  },
+  "categoria": "INTERNACIONAL",
+  "titular": "Pope Leo: climate crisis is a justice issue",
+  "bajada": "To scientists in Rome, he links climate shocks to growing moral responsibility",
+  "caption": "Pope Leo XIV told members of the Pontifical Academy of Sciences, gathered for their Plenary Session in the Vatican's Clementine Hall, that the climate crisis is 'not just an environmental challenge, but a matter of justice.' He called for scientific and technological progress to be matched by 'a corresponding growth in responsibility,' especially as climate shocks become more frequent. Source: Vatican News, Sept 24, 2026.",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Vatican",
+    "#ClimateJustice",
+    "#CareForCreation",
+    "#PontificalAcademyOfSciences"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-09-25-0103-leopopexiv-vatican-news-7794.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-25-0103-leopopexiv-vatican-news-7794.jpg",
+    "hash": "da7f7815fec75113",
+    "version": 11,
+    "estilo": "32cba508d6c2290e",
+    "renderizada": "2026-09-25T05:04:04.574Z"
+  },
+  "ilustracion": {
+    "descripcion": "The Clementine Hall of the Vatican, ornate frescoed ceiling and grand windows, with a robed papal figure standing at a lectern in the upper right third, addressing seated scientists; left and center space open and calm.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-25-0103-leopopexiv-vatican-news-7794.jpg",
+    "hashDescripcion": "ea9f4e6462fc2fc6",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-25T05:03:38.442Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-25T05:03:38.442Z",
+  "actualizado": "2026-09-25T05:03:38.442Z"
+}
