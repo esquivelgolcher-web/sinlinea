@@ -1,7 +1,7 @@
 {
   "id": "2026-09-18-0430-lawebazone-tendencias-d-4a14",
   "cuenta": "lawebazone",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "Tendencias de México",
     "url": "https://www.milenio.com/ciencia-y-salud/entrada-otono-2026-fecha-hora-exacta-por-que-cambia",
@@ -40,5 +40,5 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-18T09:30:07.037Z",
-  "actualizado": "2026-09-18T09:30:07.037Z"
+  "actualizado": "2026-09-25T12:43:31.348Z"
 }
