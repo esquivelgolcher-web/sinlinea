@@ -40,7 +40,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-24T04:59:17.245Z",
-  "actualizado": "2026-09-24T08:26:06.550Z",
+  "actualizado": "2026-09-25T19:31:57.671Z",
   "destinos": {
     "instagram": {
       "texto": "“I appeal to everyone's sense of responsibility. Let everyone feel personally involved in the lives of these young people, who must always be protected and cared for.”\n\n— Pope Leo XIV, General Audience (2026)\n\nVia Vatican News, 23 September 2026\n\n#PopeLeoXIV #Vatican #CatholicChurch\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #CatholicChurch",
@@ -53,7 +53,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-09-25T19:31:57.671Z",
+        "actualizado": "2026-09-25T19:31:57.671Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
