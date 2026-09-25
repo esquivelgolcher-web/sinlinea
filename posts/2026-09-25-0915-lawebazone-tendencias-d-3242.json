@@ -1,0 +1,45 @@
+{
+  "id": "2026-09-25-0915-lawebazone-tendencias-d-3242",
+  "cuenta": "lawebazone",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Tendencias de Argentina",
+    "url": "https://www.infobae.com/deportes/2026/09/25/la-vuelta-al-limite-de-franco-colapinto-para-avanzar-a-q3-con-el-tiempo-cumplido-y-la-euforia-por-radio/",
+    "titulo": "clasificacion f1",
+    "publicado": "2026-09-25T13:30:00.000Z"
+  },
+  "categoria": "DEPORTES",
+  "titular": "Colapinto entra a Q3 y Argentina grita por radio",
+  "bajada": "El piloto argentino clasificó a la Q3 en el GP de Azerbaiyán entre euforia total",
+  "caption": "Colapinto mete una vuelta límite, entra a Q3 y de repente todo el país está gritando frente a la tele como si fuera la final de un Mundial. Así nomás nos gana el corazón cualquier domingo de F1.",
+  "hashtags": [
+    "#Colapinto",
+    "#F1",
+    "#Azerbaiyan",
+    "#Formula1"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-09-25-0915-lawebazone-tendencias-d-3242.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-25-0915-lawebazone-tendencias-d-3242.jpg",
+    "hash": "b28fd75c7f29a78a",
+    "version": 11,
+    "estilo": "9fd322fb9927e571",
+    "renderizada": "2026-09-25T14:16:42.813Z"
+  },
+  "ilustracion": {
+    "descripcion": "Circuito urbano de calle al atardecer, con un auto de Fórmula 1 en pista visto de lejos en el tercio superior derecho; el resto de la imagen despejado.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-25T14:15:15.512Z",
+  "actualizado": "2026-09-25T14:15:15.512Z"
+}

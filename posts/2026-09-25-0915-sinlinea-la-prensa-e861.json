@@ -1,0 +1,52 @@
+{
+  "id": "2026-09-25-0915-sinlinea-la-prensa-e861",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/judiciales/caso-de-8-millones-en-belisario-porras-ya-suma-15-imputados-por-peculado/",
+    "titulo": "Caso de $8 millones en Belisario Porras ya suma 15 imputados por peculado",
+    "publicado": "2026-09-25T00:20:00.000Z"
+  },
+  "categoria": "INVESTIGACIÓN",
+  "titular": "Caso de peculado en Belisario Porras suma 15 imputados",
+  "bajada": "Ocho personas recibieron arresto domiciliario por el presunto desvío de $8 millones en obras sociales.",
+  "caption": "La Junta Comunal de Belisario Porras está en el centro de una investigación por peculado que ya suma 15 personas imputadas. El esquema habría operado entre 2019 y 2024 con fondos destinados a ayudar a la gente durante la pandemia. ¿Qué garantías hay de que esto no se repita?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Corrupción",
+    "#Justicia",
+    "#Peculado",
+    "#BelisarioPorras"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-09-25-0915-sinlinea-la-prensa-e861.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-25-0915-sinlinea-la-prensa-e861.jpg",
+    "hash": "f9a2811ec7ae1bd4",
+    "version": 2,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-09-25T14:15:56.126Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada de un edificio de junta comunal panameña con una patrulla policial estacionada al frente, el edificio en el tercio superior derecho, zona izquierda y central despejadas.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-25T14:15:15.512Z",
+  "actualizado": "2026-09-25T14:15:15.512Z",
+  "plantilla": "dato",
+  "dato": {
+    "cifra": "$8 millones",
+    "frase": "habrían sido desviados de fondos para obras sociales en la comuna"
+  }
+}

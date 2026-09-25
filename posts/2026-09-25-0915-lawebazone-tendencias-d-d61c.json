@@ -1,0 +1,44 @@
+{
+  "id": "2026-09-25-0915-lawebazone-tendencias-d-d61c",
+  "cuenta": "lawebazone",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Tendencias de Panamá",
+    "url": "https://www.tvn-2.com/tvmax/somos-la-sele/india-vs-panama-en-vivo-partido-amistoso-bangalore-futbol-gira-asia_6_2262706.html",
+    "titulo": "rpc en vivo",
+    "publicado": "2026-09-25T13:30:00.000Z"
+  },
+  "categoria": "DEPORTES",
+  "titular": "Panamá juega contra India y nadie sabe a qué hora",
+  "bajada": "La selección panameña disputa un amistoso de gira asiática transmitido por TV y streaming",
+  "caption": "Panamá vs India suena a examen de geografía, pero es partido real de la gira asiática. Entre el cambio de horario y no saber si es de noche o madrugada, el verdadero desafío es no perderse el pitazo inicial.",
+  "hashtags": [
+    "#Panama",
+    "#Futbol",
+    "#GiraAsiatica"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-09-25-0915-lawebazone-tendencias-d-d61c.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-25-0915-lawebazone-tendencias-d-d61c.jpg",
+    "hash": "d602238d8c0ebeeb",
+    "version": 11,
+    "estilo": "9fd322fb9927e571",
+    "renderizada": "2026-09-25T14:16:43.067Z"
+  },
+  "ilustracion": {
+    "descripcion": "Estadio de fútbol genérico bajo luces nocturnas con un balón en el centro del campo y banderines borrosos en el tercio superior derecho; resto despejado.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-25T14:15:15.512Z",
+  "actualizado": "2026-09-25T14:15:15.512Z"
+}

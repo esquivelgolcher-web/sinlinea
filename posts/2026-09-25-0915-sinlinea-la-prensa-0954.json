@@ -1,0 +1,48 @@
+{
+  "id": "2026-09-25-0915-sinlinea-la-prensa-0954",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/economia/aprueban-en-segundo-debate-presupuesto-del-canal-de-panama/",
+    "titulo": "Aprueban en segundo debate presupuesto del Canal de Panamá",
+    "publicado": "2026-09-24T21:44:23.000Z"
+  },
+  "categoria": "ECONOMÍA",
+  "titular": "Asamblea aprueba presupuesto del Canal por $5,555 millones",
+  "bajada": "El pleno aprobó en segundo debate el presupuesto del Canal para 2027, con 48 votos a favor.",
+  "caption": "El Canal de Panamá tendrá un presupuesto de más de $5,500 millones para el próximo año fiscal, con aportes proyectados al Estado por $3,607.8 millones. Esta plata sostiene programas sociales y obras públicas que dependen de lo que genera la vía interoceánica. ¿Crees que se está usando bien ese dinero?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Canal",
+    "#Economía",
+    "#Presupuesto",
+    "#Asamblea"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-09-25-0915-sinlinea-la-prensa-0954.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-25-0915-sinlinea-la-prensa-0954.jpg",
+    "hash": "bdcb2a044873a32a",
+    "version": 11,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-09-25T14:15:55.743Z"
+  },
+  "ilustracion": {
+    "descripcion": "Esclusas del Canal de Panamá al atardecer con un buque de carga cruzando, el buque ubicado en el tercio superior derecho, la zona izquierda y central despejada.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-25-0915-sinlinea-la-prensa-0954.jpg",
+    "hashDescripcion": "5e1a0b50ab53ecd6",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-25T14:15:15.512Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-25T14:15:15.512Z",
+  "actualizado": "2026-09-25T14:15:15.512Z",
+  "plantilla": "foto"
+}
