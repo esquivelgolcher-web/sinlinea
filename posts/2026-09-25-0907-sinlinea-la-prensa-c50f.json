@@ -33,7 +33,7 @@
     "descripcion": "Tubería vieja y oxidada de una red de acueducto en una calle panameña, con un tanque de agua comunitario visible al fondo; el elemento principal en el tercio superior derecho, izquierda y centro despejados",
     "usar": true,
     "ruta": "public/ilus/2026-09-25-0907-sinlinea-la-prensa-c50f.jpg",
-    "hashDescripcion": "0c71b0bc6c5eb4d6",
+    "hashDescripcion": null,
     "proveedor": "gemini",
     "modelo": "gemini-3.1-flash-lite-image",
     "generada": "2026-09-25T14:07:16.720Z",
@@ -43,8 +43,8 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-25T14:07:16.720Z",
-  "actualizado": "2026-09-25T14:07:16.720Z",
-  "plantilla": "foto",
+  "actualizado": "2026-09-25T14:12:47.650Z",
+  "plantilla": "dato",
   "dato": {
     "cifra": "35%",
     "frase": "es lo que Panamá invierte del monto anual que necesita en agua y saneamiento"
