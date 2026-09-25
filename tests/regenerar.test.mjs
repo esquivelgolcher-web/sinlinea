@@ -9,6 +9,7 @@ import { raizConCuentas } from "./ayuda/cuentas.mjs";
 import { cargarConfig } from "../src/lib/config.mjs";
 import { leerPosts, escribirPost, urlImagen } from "../src/lib/posts.mjs";
 import { hashImagen, marcarError, aprobar, hashTexto } from "../src/lib/estados.mjs";
+import { estiloGlosa, urlPersonaje, huellaPersonaje } from "../src/lib/render.mjs";
 
 const cfg = cargarConfig("config.json");
 const base = JSON.parse(fs.readFileSync("tests/fixtures/post-ejemplo.json", "utf8"));
@@ -328,4 +329,25 @@ test("(glosas) REGENERAR: la glosa se compara con la versión de templates/garza
   for (const t of ["templates/post.html", "templates/tarjeta.html", "templates/garza.html"]) fs.copyFileSync(t, path.join(raiz2, t));
   const r2 = await ejecutarRegenerar({ config: cfg, raiz: raiz2, ahora, render: async (p) => imagenDe(p, p.formato === "glosa" ? vGarza : vPost), log });
   assert.deepEqual(r2.renderizados, [id(7)]);
+});
+
+test("(glosas) REGENERAR: cambiar el dibujo de la garza conservando el nombre del archivo redibuja la glosa; el mismo dibujo, no", async () => {
+  const vGarza = Number(fs.readFileSync("templates/garza.html", "utf8").match(/data-version="(\d+)"/)[1]);
+  const id = base.id.slice(0, -4) + "0077";
+  const cfgGarza = { ...cfg, rutas: { ...(cfg.rutas || {}), personaje: "cuentas/sinlinea/garza.png" } };
+  const glosa = { ...base, id, formato: "glosa", ilustracion: null, glosa: { versos: ["Trece ministerios andan", "en camioneta alquilada;", "el pueblo a pie, sin más nada,", "pagando lo que ellos mandan."], esquema: "ABBA", sobre: { id: base.id, titular: "Ministerios gastan" } } };
+  const raiz = dirCon([]);
+  fs.mkdirSync(path.join(raiz, "templates"), { recursive: true });
+  for (const t of ["templates/post.html", "templates/tarjeta.html", "templates/garza.html"]) fs.copyFileSync(t, path.join(raiz, t));
+  const dibujo = path.join(raiz, "cuentas/sinlinea/garza.png");
+  fs.mkdirSync(path.dirname(dibujo), { recursive: true });
+  fs.writeFileSync(dibujo, Buffer.from("garza generada"));
+  const sello = () => estiloGlosa(cfgGarza, { logoUrl: null, personajeUrl: urlPersonaje(cfgGarza, raiz), personajeHuella: huellaPersonaje(cfgGarza, raiz) });
+  escribirPost(path.join(raiz, "posts"), { ...glosa, imagen: { ...imagenDe(glosa, vGarza), estilo: sello() } });
+  const igual = await ejecutarRegenerar({ config: cfgGarza, raiz, ahora, render: async (p) => imagenDe(p, vGarza), log });
+  assert.deepEqual(igual.renderizados, [], "mismo dibujo: nada que redibujar");
+  fs.writeFileSync(dibujo, Buffer.from("garza dibujada a mano"));
+  const cambiado = await ejecutarRegenerar({ config: cfgGarza, raiz, ahora, render: async (p) => ({ ...imagenDe(p, vGarza), estilo: sello() }), log });
+  assert.deepEqual(cambiado.renderizados, [id], "nuevo dibujo: la glosa se redibuja");
+  assert.equal(JSON.parse(fs.readFileSync(path.join(raiz, "posts", `${id}.json`), "utf8")).imagen.estilo, sello());
 });

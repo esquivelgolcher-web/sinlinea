@@ -5,7 +5,7 @@ import { pathToFileURL } from "node:url";
 import { cargarConfiguracion } from "./lib/config.mjs";
 import { leerPosts, escribirPost, urlImagen, rutaIlustracion, CUENTA_LEGADO } from "./lib/posts.mjs";
 import { imagenDesactualizada, renderOk, marcarError, necesitaIlustracion, necesitaEscena, hashTexto } from "./lib/estados.mjs";
-import { versionPlantilla, RUTA_PLANTILLA, RUTA_PLANTILLA_FRASE, RUTA_PLANTILLA_TARJETA, RUTA_PLANTILLA_GARZA, RUTA_LOGO, abrirNavegador, renderizarPieza, estiloVisual, estiloGlosa, urlPersonaje } from "./lib/render.mjs";
+import { versionPlantilla, RUTA_PLANTILLA, RUTA_PLANTILLA_FRASE, RUTA_PLANTILLA_TARJETA, RUTA_PLANTILLA_GARZA, RUTA_LOGO, abrirNavegador, renderizarPieza, estiloVisual, estiloGlosa, urlPersonaje, huellaPersonaje } from "./lib/render.mjs";
 import { plantillaDe } from "./lib/plantillas.mjs";
 import { crearIlustrador, guardarIlustracion, sanearMensaje } from "./lib/ilustrador.mjs";
 import { acortarTextos, escribirEscena } from "./lib/redactor.mjs";
@@ -34,7 +34,7 @@ export async function ejecutarRegenerar({ config, raiz = process.cwd(), ahora = 
   // Las frases no dibujan ni la etiqueta de categoría ni el titular sobre la ilustración: su sello no depende de esas
   // opciones (si dependiera, cambiarlas las redibujaría sin motivo).
   const estiloFrase = estiloActual ?? estiloVisual(config, logoUrl, { formato: "frase" });
-  const estiloDeGlosa = estiloActual ?? estiloGlosa(config, { logoUrl, personajeUrl: urlPersonaje(config, raiz) });
+  const estiloDeGlosa = estiloActual ?? estiloGlosa(config, { logoUrl, personajeUrl: urlPersonaje(config, raiz), personajeHuella: huellaPersonaje(config, raiz) });
   const estiloDe = (p) => (p.formato === "frase" ? estiloFrase : p.formato === "glosa" ? estiloDeGlosa : estilo);
   const cuenta = config.cuenta || CUENTA_LEGADO;
   const opcionesLectura = { cuentaPorDefecto: config.cuentaPrincipal || CUENTA_LEGADO };

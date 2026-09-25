@@ -322,6 +322,7 @@ export async function renderizarGlosa(post, { config, navegador, raiz = process.
   const rutaLogo = config.rutas?.logo || RUTA_LOGO;
   const logoUrl = fs.existsSync(path.join(raiz, rutaLogo)) ? rutaLogo.split(path.sep).join("/") : null;
   const personajeUrl = urlPersonaje(config, raiz);
+  const personajeHuella = huellaPersonaje(config, raiz);
   const baseHref = pathToFileURL(path.resolve(raiz) + path.sep).href;
   const html = construirHtmlGlosa(post, config, { plantilla, baseHref, logoUrl, personajeUrl });
   const dirTemp = path.join(raiz, "temp", "render");
@@ -342,19 +343,26 @@ export async function renderizarGlosa(post, { config, navegador, raiz = process.
     await page.close();
     fs.rmSync(rutaHtml, { force: true });
   }
-  return { ruta: destino, url: urlImagen(config.pages.baseUrl, post.id), hash: hashImagen(post, version), version, estilo: estiloGlosa(config, { logoUrl, personajeUrl }), renderizada: new Date().toISOString() };
+  return { ruta: destino, url: urlImagen(config.pages.baseUrl, post.id), hash: hashImagen(post, version), version, estilo: estiloGlosa(config, { logoUrl, personajeUrl, personajeHuella }), renderizada: new Date().toISOString() };
 }
 
 // Sello de estilo de la glosa: colores y logo de la marca más el personaje (dibujo, nombre y cargo). Si cambia
 // cualquiera, REGENERAR vuelve a dibujar las glosas activas.
-export function estiloGlosa(config, { logoUrl = null, personajeUrl = null } = {}) {
-  return hashTexto(JSON.stringify([estiloVisual(config, logoUrl, { formato: "frase" }), personajeUrl, config.glosas?.personaje?.nombre || "", config.glosas?.personaje?.cargo || ""]));
+export function estiloGlosa(config, { logoUrl = null, personajeUrl = null, personajeHuella = null } = {}) {
+  return hashTexto(JSON.stringify([estiloVisual(config, logoUrl, { formato: "frase" }), personajeUrl, config.glosas?.personaje?.nombre || "", config.glosas?.personaje?.cargo || "", ...(personajeHuella ? [personajeHuella] : [])]));
 }
 
 // Ruta pública del dibujo del personaje de la cuenta (cuentas/<id>/garza.png), o null si no existe.
 export function urlPersonaje(config, raiz = process.cwd()) {
   const ruta = config.rutas?.personaje || null;
   return ruta && fs.existsSync(path.join(raiz, ruta)) ? ruta.split(path.sep).join("/") : null;
+}
+// Huella de los bytes del dibujo: si cambias el dibujo conservando el nombre del archivo, el sello de la glosa cambia
+// y REGENERAR la redibuja con el nuevo.
+export function huellaPersonaje(config, raiz = process.cwd()) {
+  const ruta = config.rutas?.personaje || null;
+  const archivo = ruta ? path.join(raiz, ruta) : null;
+  return archivo && fs.existsSync(archivo) ? hashTexto(fs.readFileSync(archivo).toString("base64")) : null;
 }
 
 // --- Carrusel (perfil editorial): una imagen 1080x1350 por diapositiva con templates/carrusel.html --------------------
