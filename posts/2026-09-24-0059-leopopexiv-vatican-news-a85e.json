@@ -1,7 +1,7 @@
 {
   "id": "2026-09-24-0059-leopopexiv-vatican-news-a85e",
   "cuenta": "leopopexiv",
-  "estado": "programado",
+  "estado": "publicado",
   "formato": "frase",
   "frase": {
     "texto": "I appeal to everyone's sense of responsibility. Let everyone feel personally involved in the lives of these young people, who must always be protected and cared for.",
@@ -37,7 +37,11 @@
   },
   "ilustracion": null,
   "programado": "2026-09-25T13:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "17936403744384371",
+    "permalink": "https://www.instagram.com/p/DduN8b5m-aD/",
+    "fecha": "2026-09-25T19:31:57.671Z"
+  },
   "error": null,
   "creado": "2026-09-24T04:59:17.245Z",
   "actualizado": "2026-09-25T19:31:57.671Z",
@@ -50,16 +54,15 @@
         "imagenHash": "68f132ad12cdae07",
         "imagenSha": "6dd2011aab89e592c63a3d1e9a983d08f27ba89b"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-09-25T19:31:57.671Z",
-        "actualizado": "2026-09-25T19:31:57.671Z",
-        "contenedorId": "18104725484081176"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "17936403744384371",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/DduN8b5m-aD/",
+        "fecha": "2026-09-25T19:31:57.671Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
