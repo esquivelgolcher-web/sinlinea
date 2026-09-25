@@ -31,7 +31,7 @@
   },
   "ilustracion": {
     "descripcion": "Fachada de un edificio de junta comunal panameña con una patrulla policial estacionada al frente, el edificio en el tercio superior derecho, zona izquierda y central despejadas.",
-    "usar": false,
+    "usar": true,
     "ruta": null,
     "hashDescripcion": null,
     "proveedor": null,
@@ -43,10 +43,10 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-25T14:15:15.512Z",
-  "actualizado": "2026-09-25T14:15:15.512Z",
+  "actualizado": "2026-09-25T14:25:26.586Z",
   "plantilla": "dato",
   "dato": {
     "cifra": "$8 millones",
-    "frase": "habrían sido desviados de fondos para obras sociales en la comuna"
+    "frase": "habrían sido desviados de fondos para obras sociales en la Belisario Porras"
   }
 }
