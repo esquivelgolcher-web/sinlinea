@@ -1,7 +1,7 @@
 {
   "id": "2026-09-25-0103-leopopexiv-vatican-news-7794",
   "cuenta": "leopopexiv",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/pope/news/2026-09/pope-climate-crisis-not-only-environmental-challenge-but-justice.html",
@@ -38,9 +38,26 @@
     "generada": "2026-09-25T05:03:38.442Z",
     "error": null
   },
-  "programado": null,
+  "programado": "2026-09-27T09:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-25T05:03:38.442Z",
-  "actualizado": "2026-09-25T05:03:38.442Z"
+  "actualizado": "2026-09-25T12:20:31.995Z",
+  "destinos": {
+    "instagram": {
+      "texto": "Pope Leo XIV told members of the Pontifical Academy of Sciences, gathered for their Plenary Session in the Vatican's Clementine Hall, that the climate crisis is 'not just an environmental challenge, but a matter of justice.' He called for scientific and technological progress to be matched by 'a corresponding growth in responsibility,' especially as climate shocks become more frequent. Source: Vatican News, Sept 24, 2026.\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #ClimateJustice #CareForCreation #PontificalAcademyOfSciences",
+      "aprobado": {
+        "fecha": "2026-09-25T12:20:31.995Z",
+        "hashPieza": "68b7e376e339980c",
+        "imagenHash": "da7f7815fec75113",
+        "imagenSha": "51474a8283c7d47d769192e84de8221d5186b7df"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
