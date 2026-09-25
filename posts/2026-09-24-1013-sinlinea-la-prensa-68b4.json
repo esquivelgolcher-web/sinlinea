@@ -1,7 +1,7 @@
 {
   "id": "2026-09-24-1013-sinlinea-la-prensa-68b4",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "La Prensa",
     "url": "https://www.prensa.com/judiciales/cae-red-que-captaba-a-jovenes-panamenos-para-enviarlos-al-conflicto-armado-en-rusia/",
@@ -43,6 +43,6 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-24T15:13:10.090Z",
-  "actualizado": "2026-09-24T15:20:44.516Z",
+  "actualizado": "2026-09-25T12:21:21.303Z",
   "plantilla": "titular"
 }
