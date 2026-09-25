@@ -1,0 +1,52 @@
+{
+  "id": "2026-09-25-0927-sinlinea-la-estrella-36c3",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/mundo/america/mas-de-11-toneladas-de-cocaina-son-decomisadas-en-operativos-al-sur-de-panama-KI25961964",
+    "titulo": "Más de 11 toneladas de cocaína son decomisadas en operativos al sur de Panamá",
+    "publicado": "2026-09-24T19:06:00.000Z"
+  },
+  "categoria": "SEGURIDAD",
+  "titular": "Decomisan 11 toneladas de cocaína al sur de Panamá",
+  "bajada": "La operación Pacific Viper interceptó dos cargamentos en el Pacífico y detuvo a 13 sospechosos.",
+  "caption": "Dos embarcaciones cargadas de droga fueron detenidas en aguas cercanas a Panamá, parte de una operación internacional contra el narcotráfico en el Pacífico. El país vuelve a aparecer como punto de paso de estos cargamentos, lo que reabre la conversación sobre seguridad en nuestras costas. ¿Qué más se necesita para frenar estas rutas?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Seguridad",
+    "#Narcotráfico",
+    "#GuardiaCostera",
+    "#PacificViper"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-09-25-0927-sinlinea-la-estrella-36c3.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-25-0927-sinlinea-la-estrella-36c3.jpg",
+    "hash": "297bdb65f57384ff",
+    "version": 11,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-09-25T14:28:23.567Z"
+  },
+  "ilustracion": {
+    "descripcion": "Vista aérea de una lancha rápida interceptada en aguas del océano Pacífico, con un buque guardacostas cercano, la embarcación ubicada en el tercio superior derecho, mar abierto y despejado en el centro e izquierda.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-25-0927-sinlinea-la-estrella-36c3.jpg",
+    "hashDescripcion": "9cebe34d1b4dfb83",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-25T14:27:40.110Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-25T14:27:40.110Z",
+  "actualizado": "2026-09-25T14:27:40.110Z",
+  "plantilla": "foto",
+  "dato": {
+    "cifra": "11,456 kg",
+    "frase": "de cocaína fueron decomisados en tres operativos del Pacífico Oriental"
+  }
+}

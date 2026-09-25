@@ -1,0 +1,44 @@
+{
+  "id": "2026-09-25-0927-lawebazone-tendencias-d-52db",
+  "cuenta": "lawebazone",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Tendencias de Argentina",
+    "url": "https://www.lanacion.com.ar/sociedad/un-avion-de-aerolineas-argentinas-que-iba-a-madrid-tuvo-que-volver-a-ezeiza-nid25092026/",
+    "titulo": "aeronave",
+    "publicado": "2026-09-25T13:30:00.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "El vuelo a Madrid que se arrepintió a mitad de camino",
+  "bajada": "Un avión de Aerolíneas Argentinas rumbo a Madrid debió regresar a Ezeiza",
+  "caption": "Hay vuelos que se cancelan y hay vuelos que directamente se lo piensan mejor a mitad de camino. El avión que iba a Madrid se ve que extrañó Ezeiza y volvió sin avisar. Así todos, un día nos damos cuenta de que no queremos llegar a donde íbamos.",
+  "hashtags": [
+    "#Aerolineas",
+    "#VueloExpress",
+    "#Ezeiza"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-09-25-0927-lawebazone-tendencias-d-52db.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-25-0927-lawebazone-tendencias-d-52db.jpg",
+    "hash": "4baa75e46757f222",
+    "version": 11,
+    "estilo": "9fd322fb9927e571",
+    "renderizada": "2026-09-25T14:29:16.430Z"
+  },
+  "ilustracion": {
+    "descripcion": "Pista de aeropuerto al atardecer con un avión comercial en el tercio superior derecho, zona izquierda y central despejadas, sin personas visibles.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-25T14:27:40.110Z",
+  "actualizado": "2026-09-25T14:27:40.110Z"
+}

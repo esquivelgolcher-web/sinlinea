@@ -1,0 +1,52 @@
+{
+  "id": "2026-09-25-0927-sinlinea-la-prensa-f594",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/politica/a-escondidas-la-asamblea-se-aprueba-cuatro-partidas-presupuestarias-por-321-millones/",
+    "titulo": "A escondidas, la Asamblea se aprueba cuatro partidas presupuestarias por $32.1 millones",
+    "publicado": "2026-09-24T19:03:44.000Z"
+  },
+  "categoria": "POLÍTICA",
+  "titular": "Asamblea aprueba $32.1 millones sin transmisión en vivo",
+  "bajada": "Comisión de Presupuesto avaló traslados de partidas sin agenda pública ni independientes presentes",
+  "caption": "Mientras algunos diputados llegaban a la hora convocada, otros ya habían aprobado casi todos los traslados de partida sin que la sesión se transmitiera por los canales oficiales del Legislativo. La falta de transparencia en el manejo de fondos públicos vuelve a quedar expuesta. ¿Confías en cómo se maneja el presupuesto de la Asamblea?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Asamblea",
+    "#Presupuesto",
+    "#Transparencia",
+    "#Política"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-09-25-0927-sinlinea-la-prensa-f594.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-25-0927-sinlinea-la-prensa-f594.jpg",
+    "hash": "20a68286d90baa34",
+    "version": 2,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-09-25T14:28:26.317Z"
+  },
+  "ilustracion": {
+    "descripcion": "Interior del hemiciclo de la Asamblea Nacional de Panamá con curules vacías y luces encendidas en horas de la mañana, ambiente de sesión discreta, el atril y el estrado ubicados en el tercio superior derecho, izquierda y centro despejados.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-25T14:27:40.110Z",
+  "actualizado": "2026-09-25T14:27:40.110Z",
+  "plantilla": "dato",
+  "dato": {
+    "cifra": "$32.1 millones",
+    "frase": "en traslados de partidas fueron aprobados sin transmisión en vivo"
+  }
+}

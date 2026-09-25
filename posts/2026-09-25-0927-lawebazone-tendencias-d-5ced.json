@@ -1,0 +1,44 @@
+{
+  "id": "2026-09-25-0927-lawebazone-tendencias-d-5ced",
+  "cuenta": "lawebazone",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Tendencias de México",
+    "url": "https://www.telemundo.com/deportes/el-pelotazo/video/argentina-se-alista-para-la-despedida-de-messi-de-la-seleccion-el-pelotazo-tmvo13227308",
+    "titulo": "amistosos",
+    "publicado": "2026-09-25T11:10:00.000Z"
+  },
+  "categoria": "DEPORTES",
+  "titular": "Argentina ya practica cómo despedir a Messi sin llorar",
+  "bajada": "La selección se prepara para el amistoso homenaje al capitán antes del Mundial",
+  "caption": "Ya empezaron los ensayos para la despedida de Messi y se nota que nadie tiene el pañuelo listo. Va a ser el partido más visto de la historia y el más llorado también, ojo con el rímel ese día.",
+  "hashtags": [
+    "#Messi",
+    "#SeleccionArgentina",
+    "#GraciasLeo"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-09-25-0927-lawebazone-tendencias-d-5ced.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-25-0927-lawebazone-tendencias-d-5ced.jpg",
+    "hash": "2475fccb3f6765dd",
+    "version": 11,
+    "estilo": "9fd322fb9927e571",
+    "renderizada": "2026-09-25T14:29:16.198Z"
+  },
+  "ilustracion": {
+    "descripcion": "Estadio de fútbol iluminado de noche con una camiseta albiceleste colgada en el tercio superior derecho, zona izquierda y central despejadas.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-25T14:27:40.110Z",
+  "actualizado": "2026-09-25T14:27:40.110Z"
+}
