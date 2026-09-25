@@ -1,0 +1,49 @@
+{
+  "id": "2026-09-25-0934-sinlinea-glosa-0c00",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "formato": "glosa",
+  "glosa": {
+    "versos": [
+      "Ganar dos hoy da cosecha,",
+      "te da licencia sin drama:",
+      "y el pueblo se queda en cama,",
+      "mientras el cargo aprovecha."
+    ],
+    "esquema": "ABBA",
+    "sobre": {
+      "id": "2026-09-25-0907-sinlinea-la-prensa-8326",
+      "titular": "Asamblea aprueba reforma para ejercer dos cargos electos"
+    }
+  },
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/politica/diputados-aprobaron-reforma-electoral-que-permitiria-ejercer-dos-cargos-a-la-vez/",
+    "titulo": "Diputados aprobaron reforma electoral que permitiría ejercer dos cargos a la vez",
+    "publicado": "2026-09-25T05:02:00.000Z"
+  },
+  "categoria": "POLÍTICA",
+  "titular": "Ganar dos hoy da cosecha,",
+  "bajada": "Sobre: Asamblea aprueba reforma para ejercer dos cargos electos",
+  "caption": "Ganar dos hoy da cosecha,\nte da licencia sin drama:\ny el pueblo se queda en cama,\nmientras el cargo aprovecha.\n\nSobre: Asamblea aprueba reforma para ejercer dos cargos electos · La Prensa\n\n#Panamá #Glosa #LaGarzaMaría",
+  "hashtags": [
+    "#Panamá",
+    "#Glosa",
+    "#LaGarzaMaría"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-09-25-0934-sinlinea-glosa-0c00.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-25-0934-sinlinea-glosa-0c00.jpg",
+    "hash": "ae581788adfd09fe",
+    "version": 1,
+    "estilo": "df55592d998f5ba3",
+    "renderizada": "2026-09-25T14:35:37.716Z"
+  },
+  "ilustracion": null,
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-25T14:34:41.785Z",
+  "actualizado": "2026-09-25T14:34:41.785Z"
+}
