@@ -244,6 +244,7 @@ function cuentaParaPanel(c) {
     marca: { ...(cfg.marca || {}), colores: { ...COLORES_POR_DEFECTO, ...(cfg.marca?.colores || {}) } },
     franjas: cfg.franjas || FRANJAS_POR_DEFECTO,
     automatico: { generar: true, publicar: true, ...(cfg.automatico || {}) },
+    glosas: { activo: cfg.glosas?.activo === true, personaje: { ...(cfg.glosas?.personaje || {}) } },
     conexiones: cfg.conexiones || {},
     instagram: cfg.instagram || {}, // solo origen y nombres de secretos (nunca valores): las redes nuevas exigen modo Environment
     archivada: cfg.archivada === true,
@@ -581,6 +582,25 @@ function tarjeta({ post, sha }) {
       acciones.append(boton("Regenerar ilustración", "", regenerarIlustracion));
       acciones.append(boton("Descartar", "peligro", (p) => descartar(p, ahoraIso())));
     }
+  }
+  // Glosa a petición: sobre cualquier noticia de la cuenta (borrador, programada o publicada), La Garza escribe la
+  // cuarteta en una corrida aparte y la deja en Borradores. Solo en cuentas con las glosas activas.
+  const cfgGlosas = configDeCuenta(cuentaDe(post)).glosas;
+  if (cfgGlosas?.activo && formatoDe(post) === "post" && !post.glosa && ["borrador", "programado", "publicado"].includes(post.estado) && !soloLectura()) {
+    const nombre = cfgGlosas.personaje?.nombre || "La Garza";
+    const botonGlosa = el("button", { type: "button", class: "boton", text: `Pedir glosa a ${nombre}` });
+    botonGlosa.addEventListener("click", async () => {
+      botonGlosa.disabled = true;
+      try {
+        const r = await estado.almacen.lanzarGeneracion(cuentaDe(post), { glosa: post.id });
+        avisarAqui(r.nota);
+      } catch (err) {
+        avisarAqui(`No se pudo pedir la glosa: ${err.message}`);
+      } finally {
+        botonGlosa.disabled = false;
+      }
+    });
+    acciones.append(botonGlosa);
   }
   // Pieza ya publicada: se le pueden añadir destinos nuevos con el mismo diálogo de aprobación (texto, imagen y hora);
   // las entregas publicadas u omitidas no cambian.

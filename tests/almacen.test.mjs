@@ -91,6 +91,15 @@ test("(panel) lanzarGeneracion lanza el workflow Generar borradores para la cuen
   await assert.rejects(() => a.lanzarGeneracion("x"), /Actions/);
 });
 
+test("(glosas) lanzarGeneracion con una noticia pide solo la glosa de La Garza sobre ella", async () => {
+  const f = fetchGitHub([{ status: 204, json: {} }]);
+  const a = crearAlmacenGitHub({ token: "t", owner: "o", repo: "r", fetchImpl: f.impl });
+  const r = await a.lanzarGeneracion("sinlinea", { glosa: "2026-09-25-1000-sinlinea-la-prensa-ab12" });
+  assert.equal(r.ok, true);
+  assert.match(r.nota, /glosa/i);
+  assert.deepEqual(f.llamadas[0].cuerpo, { ref: "main", inputs: { cuenta: "sinlinea", forzar: "true", glosa: "2026-09-25-1000-sinlinea-la-prensa-ab12" } });
+});
+
 test("(maestro) leerSecretosActualizados consulta solo metadatos de los secretos (fecha de actualización) y distingue inexistente de sin permiso", async () => {
   const f = fetchGitHub([
     { status: 200, json: { name: "IG_ACCESS_TOKEN", updated_at: "2026-09-08T16:43:18Z" } },

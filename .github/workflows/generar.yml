@@ -12,6 +12,10 @@ on:
         description: "Id de la cuenta (vacío = todas las que tengan la generación encendida)"
         required: false
         type: string
+      glosa:
+        description: "Id de la noticia de esa cuenta sobre la que La Garza escribe una glosa (solo con cuenta; nada más se genera)"
+        required: false
+        default: ""
       forzar:
         description: "true = una generación única para esa cuenta aunque automatico.generar esté apagado"
         required: false
@@ -72,8 +76,11 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           CUENTA: ${{ inputs.cuenta }}
           FORZAR: ${{ inputs.forzar }}
+          GLOSA: ${{ inputs.glosa }}
         run: |
-          if [ -n "$CUENTA" ] && [ "$FORZAR" = "true" ]; then
+          if [ -n "$CUENTA" ] && [ -n "$GLOSA" ]; then
+            node src/generar.mjs --cuenta "$CUENTA" --glosa "$GLOSA"
+          elif [ -n "$CUENTA" ] && [ "$FORZAR" = "true" ]; then
             node src/generar.mjs --cuenta "$CUENTA" --forzar
           elif [ -n "$CUENTA" ]; then
             node src/generar.mjs --cuenta "$CUENTA"

@@ -353,6 +353,6 @@ export function resumenParaPanel(cuentas) {
     zonaHoraria: principal.zonaHoraria,
     franjas: principal.franjas,
     marca: principal.marca,
-    cuentas: cuentas.map((c) => ({ id: c.cuenta, nombre: c.nombre, idioma: c.idioma, zonaHoraria: c.zonaHoraria, marca: c.marca, franjas: c.franjas, automatico: c.automatico, archivada: c.archivada === true })),
+    cuentas: cuentas.map((c) => ({ id: c.cuenta, nombre: c.nombre, idioma: c.idioma, zonaHoraria: c.zonaHoraria, marca: c.marca, franjas: c.franjas, automatico: c.automatico, archivada: c.archivada === true, glosas: { activo: c.glosas?.activo === true, personaje: { ...(c.glosas?.personaje || {}) } } })),
   };
 }

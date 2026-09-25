@@ -302,6 +302,10 @@ como cualquier pieza.
   reescribirlos; si un verso queda cojo, el panel no te deja guardar hasta arreglarlo.
 - **De qué se ríe y de qué no.** Del acto público: un gasto, una promesa, una contradicción. Nunca de muertes,
   víctimas, delitos contra personas, enfermedad o desastres, ni de la vida privada de nadie.
+- **Pedirla sobre una noticia concreta.** En la tarjeta de cualquier noticia de Sin Línea (en borrador, programada o
+  publicada) hay un botón **«Pedir glosa a La Garza María»**. Lanza una corrida que escribe solo esa glosa y la deja
+  en Borradores en dos a cinco minutos; no cuenta para el cupo del día. Si la noticia no está en el panel, créala
+  antes con «Nuevo borrador» y luego pide la glosa desde su tarjeta.
 - **El personaje.** Nombre y cargo se cambian en «Editar» → «Glosas». El dibujo es el archivo `garza.png` de la
   carpeta de la cuenta en GitHub; si lo cambias por uno tuyo, las glosas se vuelven a dibujar solas.
 

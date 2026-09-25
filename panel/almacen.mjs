@@ -147,8 +147,8 @@ export function crearAlmacenLocal() {
       return { ok: true, nota: j.nota || "En local se marca como pendiente; el workflow solo corre en GitHub." };
     },
     // La generación corre en GitHub Actions; en local solo se explica dónde lanzarla.
-    async lanzarGeneracion(cuenta) {
-      return { ok: false, nota: `En local no se lanzan corridas: la generación corre en GitHub (Actions → Generar borradores → Run workflow con cuenta = ${cuenta}).` };
+    async lanzarGeneracion(cuenta, { glosa = null } = {}) {
+      return { ok: false, nota: `En local no se lanzan corridas: la generación corre en GitHub (Actions → Generar borradores → Run workflow con cuenta = ${cuenta}${glosa ? ` y glosa = ${glosa}` : ""}).` };
     },
   };
 }
@@ -434,15 +434,17 @@ export function crearAlmacenGitHub({ token, owner, repo, rama = "main", fetchImp
     },
     // Corrida única de generación para una cuenta (aunque su generación automática esté en pausa). Necesita el permiso
     // Actions (lectura y escritura) en el token del panel; los borradores llegan por el commit del workflow.
-    async lanzarGeneracion(cuenta) {
+    // Con `glosa` (id de una noticia de la cuenta), la corrida solo escribe la glosa de La Garza sobre esa noticia.
+    async lanzarGeneracion(cuenta, { glosa = null } = {}) {
       const res = await pedir(`${api}/actions/workflows/generar.yml/dispatches`, {
         method: "POST", headers: cabeceras({ "content-type": "application/json" }),
-        body: JSON.stringify({ ref: rama, inputs: { cuenta, forzar: "true" } }),
+        body: JSON.stringify({ ref: rama, inputs: { cuenta, forzar: "true", ...(glosa ? { glosa } : {}) } }),
       });
       if (res.status === 403 || res.status === 404 || res.status === 401) {
         throw new Error(`El token del panel no puede lanzar workflows (GitHub respondió ${res.status}): necesita el permiso Actions (lectura y escritura) además de Contents; se añade editando el token en GitHub sin cambiar su valor. Mientras tanto, lánzalo a mano: Actions → Generar borradores → Run workflow con cuenta = ${cuenta}.`);
       }
       if (!res.ok) throw new Error(`GitHub respondió ${res.status} al lanzar Generar borradores`);
+      if (glosa) return { ok: true, nota: "La glosa está en marcha: aparece en Borradores en 2 a 5 minutos (recarga la página). Si la cuarteta no cumple la forma o la noticia no da para humor, la corrida termina sin pieza y lo dice en Actions." };
       return { ok: true, nota: `Generar borradores está en marcha para ${cuenta}. Si hay noticias nuevas que encajen con la línea editorial, los borradores aparecen aquí en 2 a 5 minutos (recarga la página); si no las hay, la corrida termina sin piezas.` };
     },
   };

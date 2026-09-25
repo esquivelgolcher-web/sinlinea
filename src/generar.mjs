@@ -247,7 +247,9 @@ export async function ejecutarGenerarFrases({ config, raiz = process.cwd(), ahor
 // Glosa del día: la cuarteta de La Garza sobre una noticia reciente de la propia cuenta (borrador, programada o
 // publicada, dentro de glosas.horasVentana). Cupo propio. Claude escribe; la métrica y la rima se comprueban aquí, con
 // un reintento que le devuelve los errores. Todo sale como borrador: ninguna glosa se programa ni se publica sola.
-export async function ejecutarGenerarGlosas({ config, raiz = process.cwd(), ahora = new Date(), escribirGlosa: escribir, renderGlosa, log = console, dryRun = false }) {
+// `sobreId`: petición expresa del operador (botón del panel) sobre esa noticia de la cuenta; no cuenta el cupo ni la
+// ventana, y vale aunque la noticia ya tenga glosa.
+export async function ejecutarGenerarGlosas({ config, raiz = process.cwd(), ahora = new Date(), escribirGlosa: escribir, renderGlosa, log = console, dryRun = false, sobreId = null }) {
   const cuenta = config.cuenta || CUENTA_LEGADO;
   const g = config.glosas || {};
   if (!g.activo) return { creadas: [], motivo: "glosas-desactivadas" };
@@ -260,20 +262,32 @@ export async function ejecutarGenerarGlosas({ config, raiz = process.cwd(), ahor
   const dir = path.join(raiz, "posts");
   const dirSalida = dryRun ? path.join(raiz, "temp", "dry-run", "posts") : dir;
   const posts = leerPosts(dir, { cuentaPorDefecto: config.cuentaPrincipal || CUENTA_LEGADO }).filter((p) => p.cuenta === cuenta);
-  const cupo = (g.porDia || 1) - glosasCreadasHoy(posts, ahora, zona);
-  if (cupo <= 0) {
-    log.info(`Cuenta ${cuenta}: cupo diario de glosas agotado (${g.porDia || 1}).`);
-    return { creadas: [], motivo: "cupo-glosas" };
-  }
-  const desde = ahora.getTime() - (g.horasVentana || 48) * 3600000;
-  const glosadas = noticiasGlosadas(posts);
-  const noticias = posts
-    .filter((p) => (p.formato || "post") === "post" && ["borrador", "programado", "publicado"].includes(p.estado) && Date.parse(p.creado) >= desde && !glosadas.has(p.id))
-    .sort((a, b) => String(b.creado).localeCompare(String(a.creado)))
-    .slice(0, 8);
-  if (!noticias.length) {
-    log.info(`Cuenta ${cuenta}: sin noticias recientes que glosar.`);
-    return { creadas: [], motivo: "sin-noticias" };
+  const esNoticia = (p) => (p.formato || "post") === "post" && ["borrador", "programado", "publicado"].includes(p.estado);
+  let noticias;
+  if (sobreId) {
+    const pedida = posts.find((p) => p.id === sobreId && esNoticia(p));
+    if (!pedida) {
+      log.warn(`Cuenta ${cuenta}: no hay una noticia ${sobreId} de esta cuenta (en borrador, programada o publicada) sobre la que escribir la glosa.`);
+      return { creadas: [], motivo: "noticia-no-encontrada" };
+    }
+    log.info(`Cuenta ${cuenta}: glosa a petición sobre "${pedida.titular}".`);
+    noticias = [pedida];
+  } else {
+    const cupo = (g.porDia || 1) - glosasCreadasHoy(posts, ahora, zona);
+    if (cupo <= 0) {
+      log.info(`Cuenta ${cuenta}: cupo diario de glosas agotado (${g.porDia || 1}).`);
+      return { creadas: [], motivo: "cupo-glosas" };
+    }
+    const desde = ahora.getTime() - (g.horasVentana || 48) * 3600000;
+    const glosadas = noticiasGlosadas(posts);
+    noticias = posts
+      .filter((p) => esNoticia(p) && Date.parse(p.creado) >= desde && !glosadas.has(p.id))
+      .sort((a, b) => String(b.creado).localeCompare(String(a.creado)))
+      .slice(0, 8);
+    if (!noticias.length) {
+      log.info(`Cuenta ${cuenta}: sin noticias recientes que glosar.`);
+      return { creadas: [], motivo: "sin-noticias" };
+    }
   }
   const editorialMd = fs.readFileSync(path.join(raiz, config.rutas?.editorial || path.join("prompts", "editorial.md")), "utf8");
   const personaje = g.personaje || {};
@@ -317,8 +331,9 @@ export async function ejecutarGenerarGlosas({ config, raiz = process.cwd(), ahor
 // (estilo de ilustración, idioma); si no se pasan, se usan `ilustrador` y `acortar` tal cual.
 // `soloCuenta`: procesa una sola cuenta. `forzar` (solo con `soloCuenta`): una generación única aunque su
 // `automatico.generar` esté apagado; la configuración no cambia y las demás cuentas no se tocan.
-export async function generarCuentas({ configuracion, raiz = process.cwd(), ahora = new Date(), fetchText, client, render, renderCarrusel = null, log = console, dryRun = false, ilustrador = null, guardar = guardarIlustracion, acortar = null, ilustradorDe = null, acortarDe = null, soloCuenta = null, forzar = false, renderFrase = null, leerArticulo = null, extraerFrase = null, extraerFraseDe = null, renderGlosa = null, escribirGlosaDe = null }) {
+export async function generarCuentas({ configuracion, raiz = process.cwd(), ahora = new Date(), fetchText, client, render, renderCarrusel = null, log = console, dryRun = false, ilustrador = null, guardar = guardarIlustracion, acortar = null, ilustradorDe = null, acortarDe = null, soloCuenta = null, forzar = false, renderFrase = null, leerArticulo = null, extraerFrase = null, extraerFraseDe = null, renderGlosa = null, escribirGlosaDe = null, glosaSobre = null }) {
   if (forzar && !soloCuenta) throw new Error("--forzar exige --cuenta <id>: la generación forzada es siempre de una sola cuenta");
+  if (glosaSobre && !soloCuenta) throw new Error("--glosa exige --cuenta <id>: la glosa a petición es siempre de una sola cuenta");
   const resultados = {};
   for (const e of configuracion.errores || []) {
     if (soloCuenta && e.cuenta !== soloCuenta) continue;
@@ -328,8 +343,21 @@ export async function generarCuentas({ configuracion, raiz = process.cwd(), ahor
   for (const cuentaConfig of configuracion.cuentas) {
     if (soloCuenta && cuentaConfig.cuenta !== soloCuenta) continue;
     if (cuentaConfig.archivada) { resultados[cuentaConfig.cuenta] = { creados: [], motivo: "archivada" }; log.info(`Cuenta ${cuentaConfig.cuenta}: archivada, se omite.`); continue; }
-    const config = forzar ? { ...cuentaConfig, automatico: { ...(cuentaConfig.automatico || {}), generar: true } } : cuentaConfig;
+    const config = forzar || glosaSobre ? { ...cuentaConfig, automatico: { ...(cuentaConfig.automatico || {}), generar: true } } : cuentaConfig;
     if (forzar) log.info(`Cuenta ${config.cuenta}: generación única forzada (la generación automática sigue como estaba).`);
+    // Glosa a petición: solo la glosa sobre esa noticia; ni noticias nuevas ni frases.
+    if (glosaSobre) {
+      try {
+        if (!renderGlosa || !escribirGlosaDe) throw new Error("la glosa a petición necesita el render y el redactor de glosas");
+        if (!config.glosas?.activo) throw new Error(`la cuenta ${config.cuenta} no tiene las glosas activas: enciéndelas en el formulario de la cuenta`);
+        resultados[config.cuenta] = { creados: [], motivo: "solo-glosa", glosas: await ejecutarGenerarGlosas({ config, raiz, ahora, renderGlosa, log, dryRun, escribirGlosa: escribirGlosaDe(config), sobreId: glosaSobre }) };
+      } catch (err) {
+        const mensaje = ocultarSecretos(err.message);
+        resultados[config.cuenta] = { error: mensaje };
+        (log.error || log.warn)(`Cuenta ${config.cuenta}: falló la glosa a petición (${mensaje}).`);
+      }
+      continue;
+    }
     try {
       log.info(`Cuenta ${config.cuenta}: generando…`);
       resultados[config.cuenta] = await ejecutarGenerar({
@@ -362,6 +390,8 @@ async function main() {
   const forzar = process.argv.includes("--forzar");
   const i = process.argv.indexOf("--cuenta");
   const soloCuenta = i >= 0 ? String(process.argv[i + 1] || "").trim() || null : null;
+  const j = process.argv.indexOf("--glosa");
+  const glosaSobre = j >= 0 ? String(process.argv[j + 1] || "").trim() || null : null;
   const configuracion = cargarConfiguracion();
   const global = configuracion.global;
   if (!process.env.ANTHROPIC_API_KEY) throw new Error("Falta la variable de entorno ANTHROPIC_API_KEY");
@@ -371,7 +401,7 @@ async function main() {
   const navegador = await abrirNavegador();
   try {
     const r = await generarCuentas({
-      configuracion, fetchText: fetchTextReal, client, dryRun, soloCuenta, forzar,
+      configuracion, fetchText: fetchTextReal, client, dryRun, soloCuenta, forzar, glosaSobre,
       render: (post, o) => renderizarPost(post, { ...o, navegador }),
       renderCarrusel: (post, o) => renderizarCarrusel(post, { ...o, navegador }),
       renderFrase: (post, o) => renderizarFrase(post, { ...o, navegador }),

@@ -211,3 +211,12 @@ test("(métricas) Verificar admite la sonda de métricas de UNA cuenta (entrada 
   assert.equal(/run:.*\$\{\{\s*inputs\./.test(texto), false);
   assert.equal(/git push|git commit/.test(texto), false);
 });
+
+test("(glosas) generar.yml acepta la noticia de la glosa a petición como entrada, por env, y la pasa como --glosa", () => {
+  const v = wf("generar");
+  assert.ok(v.on.workflow_dispatch.inputs.glosa, "entrada glosa");
+  const texto = leer("generar");
+  assert.match(texto, /GLOSA: \$\{\{ inputs\.glosa \}\}/);
+  assert.match(texto, /node src\/generar\.mjs --cuenta "\$CUENTA" --glosa "\$GLOSA"/);
+  assert.equal(/run:.*\$\{\{\s*inputs\./.test(texto), false, "la entrada va por env, no interpolada en run:");
+});

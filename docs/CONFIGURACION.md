@@ -660,6 +660,10 @@ cuenta en `cuentas/<id>/config.json` o desde el formulario de la cuenta (apartad
   privada, el físico ni la familia de nadie. Si ninguna noticia sirve, Claude devuelve nada y no se escribe.
 - **Cupo propio.** `porDia` (1 a 3) glosas al día, contadas en la zona horaria de la cuenta, aparte del cupo de
   noticias. Con el cupo agotado o sin noticias recientes no se llama a Claude.
+- **A petición.** El botón «Pedir glosa a <personaje>» de la tarjeta de una noticia lanza `Generar borradores` con
+  las entradas `cuenta` y `glosa` (el id de la noticia); la corrida ejecuta `node src/generar.mjs --cuenta <id>
+  --glosa <post>` y escribe solo esa glosa, sin cupo ni ventana y aunque la noticia ya tenga una. No genera noticias
+  ni frases. Exige el permiso Actions (lectura y escritura) en el token del panel, como «Generar ahora».
 - **La imagen.** `templates/garza.html`, 1080×1350 sobre el color de acento: globo del color principal con los
   cuatro versos (cada uno en una línea; el remate en el acento), el personaje a la derecha hablando hacia el globo,
   la noticia debajo y la placa con el nombre y el cargo junto a las patas. Sin chip de sección ni ilustración

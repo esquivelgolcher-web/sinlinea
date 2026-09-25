@@ -166,3 +166,42 @@ test("(glosas) escribirGlosa: el personaje, las reglas de la cuarteta y las noti
   const ninguna = { messages: { parse: async () => ({ stop_reason: "end_turn", parsed_output: { indice: null, versos: [], porQue: "solo hay tragedias" } }) } };
   assert.equal(await escribirGlosa({ client: ninguna, config, editorialMd: "x", noticias, personaje }), null);
 });
+
+test("(glosas) a petición (sobreId): esa noticia y solo esa, aunque sea vieja, ya tenga glosa o el cupo esté agotado; un id desconocido no escribe nada", async () => {
+  const vieja = noticia(2, { creado: new Date(ahora.getTime() - 72 * 3600000).toISOString(), estado: "publicado", publicacion: { idMedia: "1", permalink: "https://www.instagram.com/p/x/", fecha: ahora.toISOString() } });
+  const { raiz, config, dir } = raizTemporal({ activo: true, porDia: 1 }, [noticia(1), vieja]);
+  // Gasta el cupo del día con una glosa normal sobre la noticia 1.
+  await ejecutarGenerarGlosas({ config, raiz, ahora, escribirGlosa: escritorDe([{ indice: 0, versos, porQue: "x" }]).escribir, renderGlosa, log });
+  const escritor = escritorDe([{ indice: 0, versos, porQue: "x" }]);
+  const r = await ejecutarGenerarGlosas({ config, raiz, ahora, escribirGlosa: escritor.escribir, renderGlosa, log, sobreId: vieja.id });
+  assert.equal(r.motivo, "ok");
+  assert.deepEqual(escritor.llamadas[0].noticias.map((n) => n.titular), ["Noticia número 2 de la cuenta"], "solo la noticia pedida, aunque tenga tres días");
+  assert.equal(leerPosts(dir).filter((p) => p.formato === "glosa").length, 2, "la petición no cuenta el cupo");
+  const otraVez = await ejecutarGenerarGlosas({ config, raiz, ahora, escribirGlosa: escritorDe([{ indice: 0, versos, porQue: "x" }]).escribir, renderGlosa, log, sobreId: vieja.id });
+  assert.equal(otraVez.motivo, "ok", "pedida otra vez, se escribe otra vez");
+  const avisos = [];
+  let pedido = false;
+  const nada = await ejecutarGenerarGlosas({ config, raiz, ahora, escribirGlosa: async () => { pedido = true; return null; }, renderGlosa, log: { ...log, warn: (m) => avisos.push(m) }, sobreId: base.id.slice(0, -4) + "ffff" });
+  assert.equal(nada.motivo, "noticia-no-encontrada");
+  assert.equal(pedido, false);
+  assert.ok(avisos.some((m) => /no hay una noticia/.test(m)));
+});
+
+test("(glosas) generarCuentas con glosaSobre solo escribe esa glosa: sin noticias nuevas ni frases, aunque la generación automática esté apagada", async () => {
+  const { raiz } = raizTemporal({ activo: true });
+  const rutaPr = path.join(raiz, "cuentas/prueba/config.json");
+  fs.writeFileSync(rutaPr, JSON.stringify({ ...JSON.parse(fs.readFileSync(rutaPr, "utf8")), automatico: { generar: false, publicar: false } }, null, 2));
+  const configuracion = cargarConfiguracion(raiz);
+  let claudeNoticias = 0;
+  const client = { messages: { parse: async () => { claudeNoticias++; return { stop_reason: "end_turn", usage: {}, parsed_output: { descartados: [], seleccion: [] } }; } } };
+  const r = await generarCuentas({
+    configuracion, raiz, ahora, fetchText: async () => "<rss><channel></channel></rss>", client, render: renderGlosa, renderGlosa, log,
+    soloCuenta: "prueba", glosaSobre: noticia(1).id,
+    escribirGlosaDe: () => async () => ({ indice: 0, versos, porQue: "x" }),
+  });
+  assert.equal(claudeNoticias, 0, "no se redactan noticias");
+  assert.equal(r.resultados.prueba.motivo, "solo-glosa");
+  assert.equal(r.resultados.prueba.glosas.creadas.length, 1);
+  assert.equal(r.resultados.sinlinea, undefined);
+  await assert.rejects(() => generarCuentas({ configuracion, raiz, ahora, fetchText: async () => "", client, render: renderGlosa, renderGlosa, log, glosaSobre: noticia(1).id, escribirGlosaDe: () => async () => null }), /--cuenta/);
+});

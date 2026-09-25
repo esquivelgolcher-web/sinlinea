@@ -32,6 +32,8 @@ async function montar(prefijo) {
   const ruta = path.join(raiz, "cuentas/prueba/config.json");
   fs.writeFileSync(ruta, JSON.stringify({ ...JSON.parse(fs.readFileSync(ruta, "utf8")), glosas: { activo: true, porDia: 1, personaje: { nombre: "La Garza María", cargo: "Comentarista del Palacio" } } }, null, 2) + "\n");
   fs.writeFileSync(path.join(raiz, "posts", `${glosa.id}.json`), JSON.stringify(conImagen(glosa), null, 2));
+  const noticia = { ...base0, id: id("a001"), cuenta: "prueba", estado: "borrador", titular: "Ministerios gastan $1.5 millones en alquiler de camionetas", programado: null };
+  fs.writeFileSync(path.join(raiz, "posts", `${noticia.id}.json`), JSON.stringify(conImagen(noticia), null, 2));
   const servidor = crearServidor({ raiz });
   await new Promise((r) => servidor.listen(0, "127.0.0.1", r));
   return { raiz, servidor, base: `http://127.0.0.1:${servidor.address().port}` };
@@ -65,6 +67,14 @@ test("(glosas) la tarjeta muestra la cuarteta con sílabas y rima, rechaza un ve
     assert.equal(await t.locator("input.verso-1").inputValue(), versos[0]);
     assert.match(await t.locator(".bloque-glosa .nota").first().innerText(), /Cuarteta ABBA/);
     assert.equal(await t.locator("label.solo-foto").count(), 0, "una glosa no lleva escena de ilustración");
+    assert.equal(await t.getByRole("button", { name: /Pedir glosa/ }).count(), 0, "una glosa no pide otra glosa");
+
+    // La noticia sí ofrece pedir la glosa a La Garza María; en local, el panel explica dónde corre.
+    const n = page.locator(`.tarjeta[data-id="${id("a001")}"]`);
+    const pedir = n.getByRole("button", { name: "Pedir glosa a La Garza María" });
+    assert.equal(await pedir.count(), 1);
+    await pedir.click();
+    await page.waitForFunction((pid) => /glosa = /.test(document.querySelector(`.tarjeta[data-id="${pid}"] .aviso-tarjeta`)?.textContent || ""), id("a001"));
 
     // Un verso de nueve sílabas: aviso en rojo y Guardar bloqueado.
     await t.locator("input.verso-1").fill("Trece ministerios andan hoy");
