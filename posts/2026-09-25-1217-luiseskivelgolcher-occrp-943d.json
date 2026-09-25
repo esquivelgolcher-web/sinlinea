@@ -1,0 +1,114 @@
+{
+  "id": "2026-09-25-1217-luiseskivelgolcher-occrp-943d",
+  "cuenta": "luiseskivelgolcher",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "OCCRP",
+    "url": "https://www.occrp.org/en/news/france-corruption-cases-in-the-police-force-surged-in-2025",
+    "titulo": "Internal Watchdog says Data Leaks and Bribery Push French Police Misconduct Cases to Five-Year High",
+    "publicado": "2026-09-25T14:22:00.000Z"
+  },
+  "categoria": "SEGURIDAD",
+  "titular": "Corrupción en policía francesa sube 45% en un año",
+  "bajada": "Consultas indebidas a bases de datos policiales crecieron 80% en 2025, según informe interno",
+  "caption": "Un informe interno de la Inspección General de la Policía Nacional de Francia (IGPN) registró 341 casos de violación de integridad en 2025, un aumento de 45% frente a los 234 casos del año anterior, según publicó OCCRP el 25 de septiembre de 2026. El mayor salto ocurrió en las consultas no autorizadas a bases de datos policiales, que subieron 80%: agentes que revisan información sensible sin justificación legítima, un problema directo de privacidad y control de acceso a datos personales. Los casos de corrupción crecieron 33% y las filtraciones de secreto profesional, 25%. Stéphane Hardouin, jefe de la IGPN, reconoció el alza. El organismo abrió 235 investigaciones judiciales, pero, según confirmó la Dirección de la Policía Nacional a OCCRP, la IGPN no tiene poder disciplinario propio, por lo que se desconoce cuántos casos terminaron en sanción real. Este resumen se basa en una sola fuente periodística.",
+  "hashtags": [
+    "#Francia",
+    "#Corrupción",
+    "#Privacidad",
+    "#Vigilancia",
+    "#DatosPersonales"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-09-25-1217-luiseskivelgolcher-occrp-943d.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-25-1217-luiseskivelgolcher-occrp-943d.jpg",
+    "hash": "d93d36b0ad06b1ae",
+    "version": 11,
+    "estilo": "dc8c8fa3edf501fd",
+    "renderizada": "2026-09-25T17:17:31.215Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada de una comisaría de policía francesa de noche, con el logo institucional desenfocado; el edificio queda en el tercio superior derecho, la zona izquierda y central despejada",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-25-1217-luiseskivelgolcher-occrp-943d.jpg",
+    "hashDescripcion": "dad39523d21602f1",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-25T17:17:04.996Z",
+    "error": null,
+    "procedencia": "generada"
+  },
+  "formato": "post",
+  "fuentes": [
+    {
+      "rol": "principal",
+      "medio": "OCCRP",
+      "autor": null,
+      "url": "https://www.occrp.org/en/news/france-corruption-cases-in-the-police-force-surged-in-2025",
+      "canonica": "https://www.occrp.org/en/news/france-corruption-cases-in-the-police-force-surged-in-2025",
+      "idioma": "en",
+      "publicado": "2026-09-25T14:22:00.000Z",
+      "actualizado": null,
+      "fechaHecho": null,
+      "consultado": "2026-09-25T17:17:04.996Z",
+      "alcance": "completo",
+      "textoRecuperado": {
+        "parrafos": 26,
+        "caracteres": 3870,
+        "enviados": 3920
+      },
+      "fuentesPrimarias": [
+        "https://www.police-nationale.interieur.gouv.fr/nous-decouvrir/notre-organisation/organisation/linspection-generale-de-police-nationale-igpn",
+        "https://www.police-nationale.interieur.gouv.fr/actualite/deontologie-est-culture-professionnelle-entretien-avec-stephane-hardouin-directeur-de-ligpn"
+      ],
+      "licenciaMedios": null
+    }
+  ],
+  "afirmaciones": [
+    {
+      "texto": "Los casos de violación de integridad en la Policía Nacional francesa subieron 45% entre 2024 y 2025, alcanzando 341 casos",
+      "tipo": "hecho",
+      "fuente": "https://www.occrp.org/en/news/france-corruption-cases-in-the-police-force-surged-in-2025",
+      "contrastada": false
+    },
+    {
+      "texto": "Las consultas no autorizadas a bases de datos policiales aumentaron 80%",
+      "tipo": "hecho",
+      "fuente": "https://www.occrp.org/en/news/france-corruption-cases-in-the-police-force-surged-in-2025",
+      "contrastada": false
+    },
+    {
+      "texto": "La IGPN no tiene poder disciplinario y se desconoce cuántos casos terminaron en sanción o condena",
+      "tipo": "hecho",
+      "fuente": "https://www.police-nationale.interieur.gouv.fr/nous-decouvrir/notre-organisation/organisation/linspection-generale-de-police-nationale-igpn",
+      "contrastada": false
+    }
+  ],
+  "angulo": "Uso indebido de bases de datos policiales como problema de privacidad y falta de sanción interna",
+  "atribucion": "OCCRP, 25 de septiembre de 2026",
+  "puntuacion": {
+    "total": 64,
+    "componentes": {
+      "afinidad": 18,
+      "interes": 15,
+      "evidencia": 12,
+      "actualidad": 15,
+      "visual": 4
+    }
+  },
+  "alertas": [
+    "fuente-unica"
+  ],
+  "carrusel": null,
+  "reel": null,
+  "revision": {
+    "estado": "pendiente",
+    "notas": []
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-25T17:17:04.996Z",
+  "actualizado": "2026-09-25T17:17:04.996Z"
+}
