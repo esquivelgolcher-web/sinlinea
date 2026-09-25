@@ -1,7 +1,7 @@
 {
   "id": "2026-09-24-1217-lawebazone-tendencias-d-7ff6",
   "cuenta": "lawebazone",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "Tendencias de Colombia",
     "url": "https://centrodeinformacion.manizales.gov.co/resultados-de-la-loteria-de-manizales-miercoles-23-de-septiembre-de-2026/",
@@ -41,5 +41,5 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-24T17:17:04.444Z",
-  "actualizado": "2026-09-24T17:17:04.444Z"
+  "actualizado": "2026-09-25T12:43:42.025Z"
 }
