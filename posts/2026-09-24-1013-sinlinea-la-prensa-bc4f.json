@@ -1,7 +1,7 @@
 {
   "id": "2026-09-24-1013-sinlinea-la-prensa-bc4f",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "La Prensa",
     "url": "https://www.prensa.com/deportes/panama-tendra-tres-arbitros-en-la-copa-del-mundo-sub-17-catar-2026/",
@@ -43,6 +43,6 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-24T15:13:10.090Z",
-  "actualizado": "2026-09-24T15:13:10.090Z",
+  "actualizado": "2026-09-25T12:21:12.999Z",
   "plantilla": "foto"
 }
