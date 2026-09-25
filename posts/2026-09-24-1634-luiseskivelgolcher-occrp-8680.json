@@ -1,7 +1,7 @@
 {
   "id": "2026-09-24-1634-luiseskivelgolcher-occrp-8680",
   "cuenta": "luiseskivelgolcher",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "OCCRP",
     "url": "https://www.occrp.org/en/news/us-charges-tech-ceo-russian-over-hidden-ownership",
@@ -244,25 +244,15 @@
           "c4315a49999f0fbc20175dac4bc928f13968480b"
         ]
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-09-25T19:30:06.701Z",
-        "actualizado": "2026-09-25T19:30:06.701Z",
-        "contenedorId": "17990638089100604",
-        "hijos": [
-          "17990637924100604",
-          "17990637948100604",
-          "17990637969100604",
-          "17990637990100604",
-          "17990638020100604",
-          "17990638041100604",
-          "17990638062100604"
-        ]
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18008369996970992",
+        "idPublicacion": null,
+        "permalink": "https://www.threads.com/@luisegolcher/post/DduN4DNiVYi",
+        "fecha": "2026-09-25T19:30:06.701Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
