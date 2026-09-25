@@ -87,6 +87,12 @@ export function esOctosilabo(verso) {
 
 // Clave de rima consonante: desde la vocal tónica de la última palabra hasta el final, sin tildes ni signos.
 // En un diptongo, la clave empieza en la vocal que suena (la fuerte, o la débil con tilde).
+// La rima se compara como suena en Panamá: seseo (z, ce, ci → s), b y v iguales, yeísmo (ll → y), ge/gi → j y h muda
+// (salvo en ch). "voz" rima con "dos" y "cabe" con "nave"; "hecho" sigue sin rimar con "eco".
+function sonido(clave) {
+  return clave.replace(/z/g, "s").replace(/c([ei])/g, "s$1").replace(/v/g, "b").replace(/ll/g, "y").replace(/g([ei])/g, "j$1").replace(/(^|[^c])h/g, "$1");
+}
+
 export function claveDeRima(palabraOVerso) {
   const palabras = palabrasDe(palabraOVerso);
   const p = fonetica(palabras[palabras.length - 1] || "");
@@ -96,7 +102,7 @@ export function claveDeRima(palabraOVerso) {
   const silabaTonica = total - tonicaDesdeElFinal(p);
   const enTonica = v.filter((x) => x.silaba === silabaTonica);
   const nucleo = enTonica.find((x) => esFuerte(x.c)) || enTonica[0];
-  return p.slice(nucleo.i).normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/ü/g, "u");
+  return sonido(p.slice(nucleo.i).normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/ü/g, "u"));
 }
 
 // Esquema de la cuarteta: ABBA (1 con 4, 2 con 3) o ABAB (1 con 3, 2 con 4). Las dos rimas tienen que ser distintas.

@@ -292,15 +292,15 @@ export async function ejecutarGenerarGlosas({ config, raiz = process.cwd(), ahor
   const editorialMd = fs.readFileSync(path.join(raiz, config.rutas?.editorial || path.join("prompts", "editorial.md")), "utf8");
   const personaje = g.personaje || {};
   const lista = noticias.map((n) => ({ titular: n.titular, bajada: n.bajada, caption: n.caption, categoria: n.categoria, medio: n.fuente?.medio }));
-  let propuesta = await escribir({ config, editorialMd, noticias: lista, personaje });
+  let propuesta = await escribir({ config, editorialMd, noticias: lista, personaje, log });
   if (!propuesta) {
     log.info(`Cuenta ${cuenta}: Claude no vio ninguna noticia apta para una glosa.`);
     return { creadas: [], motivo: "sin-glosa" };
   }
   let errores = erroresDeGlosa(propuesta.versos);
   if (errores.length) {
-    log.info(`Cuenta ${cuenta}: la cuarteta no cumple la forma (${errores.join("; ")}); se pide corregir.`);
-    const otra = await escribir({ config, editorialMd, noticias: lista, personaje, errores, versosAnteriores: propuesta.versos });
+    log.info(`Cuenta ${cuenta}: la cuarteta no cumple la forma (${errores.join("; ")}); se pide corregir. Versos: ${propuesta.versos.join(" / ")}`);
+    const otra = await escribir({ config, editorialMd, noticias: lista, personaje, errores, versosAnteriores: propuesta.versos, log });
     if (!otra) {
       log.info(`Cuenta ${cuenta}: Claude no corrigió la glosa; no se escribe nada.`);
       return { creadas: [], motivo: "sin-glosa" };
@@ -308,7 +308,7 @@ export async function ejecutarGenerarGlosas({ config, raiz = process.cwd(), ahor
     propuesta = otra;
     errores = erroresDeGlosa(propuesta.versos);
     if (errores.length) {
-      log.warn(`Cuenta ${cuenta}: glosa descartada, sigue sin cumplir la forma (${errores.join("; ")}).`);
+      log.warn(`Cuenta ${cuenta}: glosa descartada, sigue sin cumplir la forma (${errores.join("; ")}). Versos: ${propuesta.versos.join(" / ")}`);
       return { creadas: [], motivo: "glosa-invalida" };
     }
   }

@@ -43,6 +43,15 @@ test("(métrica) clave de rima consonante: desde la vocal tónica hasta el final
   assert.equal(claveDeRima("pájaro"), "ajaro");
 });
 
+test("(métrica) la rima consonante suena como en Panamá: seseo, b/v, ll/y, g/j y h muda no la rompen", () => {
+  for (const [a, b] of [["voz", "dos"], ["hace", "pase"], ["cabe", "nave"], ["calle", "ensaye"], ["exige", "dije"], ["prohíbe", "recibe"], ["arroz", "Dios"]]) {
+    assert.equal(claveDeRima(a), claveDeRima(b), `${a} / ${b}`);
+  }
+  assert.notEqual(claveDeRima("hecho"), claveDeRima("eco"), "ch sigue siendo distinta de c");
+  assert.notEqual(claveDeRima("perro"), claveDeRima("pero"), "rr sigue siendo distinta de r");
+  assert.equal(esquemaDeRima(["nos prometieron a dos", "la quincena no rindió", "y el que manda, con su voz", "dice que todo mejoró"]), "ABAB");
+});
+
 test("(métrica) esquema de rima de la cuarteta: ABBA, ABAB o ninguno", () => {
   assert.equal(esquemaDeRima(["Trece ministerios andan", "en camioneta alquilada;", "el pueblo a pie, sin más nada,", "pagando lo que ellos mandan."]), "ABBA");
   assert.equal(esquemaDeRima(["Nueve artículos vetó", "Mulino de un reglamento;", "y en la Asamblea, el lamento:", "¿quién manda aquí, tú o yo?"]), "ABBA");

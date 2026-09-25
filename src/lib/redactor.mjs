@@ -228,7 +228,7 @@ export function construirUsuarioGlosa({ noticias, errores = [], versosAnteriores
 
 // Devuelve { indice, versos, porQue } o null si ninguna noticia sirve. Quien llama comprueba la métrica y la rima
 // (src/lib/metrica.mjs) y puede volver a pedir con `errores` y `versosAnteriores`: nada se guarda sin cumplir la forma.
-export async function escribirGlosa({ client, config, editorialMd, noticias, personaje = {}, errores = [], versosAnteriores = [] }) {
+export async function escribirGlosa({ client, config, editorialMd, noticias, personaje = {}, errores = [], versosAnteriores = [], log = null }) {
   if (!noticias?.length) return null;
   const res = await client.messages.parse({
     model: config.claude.modelo,
@@ -240,7 +240,10 @@ export async function escribirGlosa({ client, config, editorialMd, noticias, per
   });
   if (res.stop_reason === "refusal") throw new Error(`Claude rechazó la solicitud: ${res.stop_details?.explanation || "sin explicación"}`);
   const s = res.parsed_output;
-  if (!s || s.indice === null || !Number.isInteger(s.indice) || !noticias[s.indice] || !Array.isArray(s.versos) || !s.versos.length) return null;
+  if (!s || s.indice === null || !Number.isInteger(s.indice) || !noticias[s.indice] || !Array.isArray(s.versos) || !s.versos.length) {
+    log?.info?.(`La Garza calla. Motivo de Claude: ${String(s?.porQue || "").trim() || "no lo dio"}.`);
+    return null;
+  }
   return { indice: s.indice, versos: s.versos.map((v) => String(v).trim()), porQue: String(s.porQue || "").trim() };
 }
 

@@ -650,7 +650,8 @@ cuenta en `cuentas/<id>/config.json` o desde el formulario de la cuenta (apartad
 - **La forma se comprueba, no se confía.** `src/lib/metrica.mjs` cuenta las sílabas de cada verso con las reglas
   del verso en español (diptongos, hiatos, u muda de que/gui, sinalefa opcional entre palabras, una sílaba más si
   el verso acaba en aguda y una menos si acaba en esdrújula) y exige ocho por verso; comprueba la rima consonante
-  desde la vocal tónica y que la cuarteta sea ABBA o ABAB. Claude recibe una vez sus errores para corregir; si la
+  desde la vocal tónica, como suena en Panamá (seseo: "voz" rima con "dos"; b y v iguales; ll e y iguales; h muda),
+  y que la cuarteta sea ABBA o ABAB. Claude recibe una vez sus errores para corregir; si la
   segunda cuarteta tampoco cumple, se descarta con aviso y no llega al panel.
 - **La materia son las noticias de la cuenta.** Solo posts de la propia cuenta (borrador, programado o publicado)
   de las últimas `horasVentana` horas, nunca descartados, y ninguna noticia se glosa dos veces. La glosa hereda la

@@ -108,8 +108,10 @@ test("(glosas) una cuarteta coja se devuelve a Claude con sus errores una vez; s
   const coja = ["Trece ministerios andan hoy", ...versos.slice(1)];
   const { raiz, config, dir } = raizTemporal({ activo: true });
   const escritor = escritorDe([{ indice: 0, versos: coja, porQue: "x" }, { indice: 0, versos, porQue: "x" }]);
-  const r = await ejecutarGenerarGlosas({ config, raiz, ahora, escribirGlosa: escritor.escribir, renderGlosa, log });
+  const notas = [];
+  const r = await ejecutarGenerarGlosas({ config, raiz, ahora, escribirGlosa: escritor.escribir, renderGlosa, log: { ...log, info: (m) => notas.push(m) } });
   assert.equal(r.motivo, "ok");
+  assert.ok(notas.some((m) => /se pide corregir/.test(m) && m.includes(coja.join(" / "))), "el registro muestra los versos rechazados para poder revisarlos");
   assert.equal(escritor.llamadas.length, 2);
   assert.match(escritor.llamadas[1].errores[0], /verso 1 tiene 10 sílabas/);
   assert.deepEqual(escritor.llamadas[1].versosAnteriores, coja);
@@ -164,7 +166,9 @@ test("(glosas) escribirGlosa: el personaje, las reglas de la cuarteta y las noti
   assert.match(peticiones[1].messages[0].content, /10 sílabas/);
   assert.match(peticiones[1].messages[0].content, /Trece ministerios andan hoy/);
   const ninguna = { messages: { parse: async () => ({ stop_reason: "end_turn", parsed_output: { indice: null, versos: [], porQue: "solo hay tragedias" } }) } };
-  assert.equal(await escribirGlosa({ client: ninguna, config, editorialMd: "x", noticias, personaje }), null);
+  const registro = [];
+  assert.equal(await escribirGlosa({ client: ninguna, config, editorialMd: "x", noticias, personaje, log: { info: (m) => registro.push(m) } }), null);
+  assert.ok(registro.some((m) => /solo hay tragedias/.test(m)), "cuando calla, el motivo queda en el registro de la corrida");
 });
 
 test("(glosas) a petición (sobreId): esa noticia y solo esa, aunque sea vieja, ya tenga glosa o el cupo esté agotado; un id desconocido no escribe nada", async () => {
