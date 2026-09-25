@@ -1,7 +1,7 @@
 {
   "id": "2026-09-24-0852-sinlinea-la-prensa-db7c",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "La Prensa",
     "url": "https://www.prensa.com/politica/las-secuelas-de-la-guerra-entre-rusia-y-ucrania-seis-panamenos-muertos-y-15-desaparecidos/",
@@ -43,5 +43,5 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-24T13:52:44.706Z",
-  "actualizado": "2026-09-24T13:52:44.706Z"
+  "actualizado": "2026-09-25T12:20:50.673Z"
 }
