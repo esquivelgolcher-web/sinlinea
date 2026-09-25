@@ -1,7 +1,7 @@
 {
   "id": "2026-09-21-1910-sinlinea-la-prensa-1e90",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "La Prensa",
     "url": "https://www.prensa.com/politica/comenzo-la-discusion-del-proyecto-que-reforma-los-circuitos-electorales/",
@@ -43,5 +43,5 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-22T00:10:12.185Z",
-  "actualizado": "2026-09-22T00:10:12.185Z"
+  "actualizado": "2026-09-25T12:21:02.369Z"
 }
