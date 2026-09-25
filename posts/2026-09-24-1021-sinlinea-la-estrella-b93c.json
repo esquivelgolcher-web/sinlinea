@@ -1,7 +1,7 @@
 {
   "id": "2026-09-24-1021-sinlinea-la-estrella-b93c",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "La Estrella de Panamá",
     "url": "https://www.laestrella.com.pa/panama/nacional/muerte-de-nino-en-pedasi-dictan-arresto-domiciliario-a-madre-EK25942273",
@@ -43,6 +43,6 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-24T15:21:45.132Z",
-  "actualizado": "2026-09-24T15:21:45.132Z",
+  "actualizado": "2026-09-25T12:33:57.565Z",
   "plantilla": "foto"
 }
