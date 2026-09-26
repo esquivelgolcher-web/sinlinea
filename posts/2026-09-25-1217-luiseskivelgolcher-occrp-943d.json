@@ -1,7 +1,7 @@
 {
   "id": "2026-09-25-1217-luiseskivelgolcher-occrp-943d",
   "cuenta": "luiseskivelgolcher",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "OCCRP",
     "url": "https://www.occrp.org/en/news/france-corruption-cases-in-the-police-force-surged-in-2025",
@@ -164,16 +164,15 @@
         "imagenHash": "d93d36b0ad06b1ae",
         "imagenSha": "dfb8cf5bf6d31c5ffc8c67b4f516bc84dcbdcda6"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-09-26T19:40:40.157Z",
-        "actualizado": "2026-09-26T19:40:40.157Z",
-        "contenedorId": "17990774109100604"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18102842072457520",
+        "idPublicacion": null,
+        "permalink": "https://www.threads.com/@luisegolcher/post/DdwzyVnnxgS",
+        "fecha": "2026-09-26T19:40:40.157Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
