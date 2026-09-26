@@ -1,7 +1,7 @@
 {
   "id": "2026-09-24-0059-leopopexiv-vatican-news-35be",
   "cuenta": "leopopexiv",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/pope/news/2026-09/pope-leo-appeal-world-day-migrants-refugees-children.html",
@@ -39,7 +39,11 @@
     "error": null
   },
   "programado": "2026-09-25T18:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "17881512558529466",
+    "permalink": "https://www.instagram.com/p/Ddu2W5LlLmj/",
+    "fecha": "2026-09-26T01:25:05.668Z"
+  },
   "error": null,
   "creado": "2026-09-24T04:59:17.245Z",
   "actualizado": "2026-09-26T01:25:05.668Z",
@@ -52,16 +56,15 @@
         "imagenHash": "d1194c57a311d33d",
         "imagenSha": "3c1b2f351258f61fb7d98b78797686fea27817e3"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-09-26T01:25:05.668Z",
-        "actualizado": "2026-09-26T01:25:05.668Z",
-        "contenedorId": "18104772902081176"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "17881512558529466",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/Ddu2W5LlLmj/",
+        "fecha": "2026-09-26T01:25:05.668Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
