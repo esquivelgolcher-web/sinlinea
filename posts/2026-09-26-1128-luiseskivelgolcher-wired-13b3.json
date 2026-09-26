@@ -1,0 +1,211 @@
+{
+  "id": "2026-09-26-1128-luiseskivelgolcher-wired-13b3",
+  "cuenta": "luiseskivelgolcher",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "WIRED",
+    "url": "https://www.wired.com/story/kernel-panic-old-timey-credit-card-scams/",
+    "titulo": "Old-School Credit Card Scams Are Far From Dead",
+    "publicado": "2026-09-26T12:00:00.000Z"
+  },
+  "categoria": "SEGURIDAD",
+  "titular": "Estafas con tarjetas por correo resurgen en Europa",
+  "bajada": "Cartas falsas con QR piden 'activar' tarjetas nuevas y roban datos bancarios reales",
+  "caption": "Mientras la inteligencia artificial multiplica las estafas digitales, un truco viejo sigue funcionando: cartas falsas que llegan al buzón con una supuesta tarjeta de crédito nueva. Según WIRED, Portugal, Francia y Alemania han tenido oleadas de este fraude, donde las víctimas escanean un código QR para 'activar' la tarjeta y terminan entregando sus datos bancarios reales a un sitio falso. Un asesor de banca digital le dijo a la publicación que la tarjeta física genera la confianza que hace caer a la gente. En paralelo, EE.UU. acusó a dos ciudadanos rumanos por clonar tarjetas de asistencia alimentaria (SNAP) que aún usan banda magnética, una tecnología más vieja y vulnerable que el chip. Las autoridades estiman pérdidas por skimming de más de 1.000 millones de dólares al año solo en ese país. ¿Sigues revisando cada carta bancaria que llega a tu casa?",
+  "hashtags": [
+    "#Ciberseguridad",
+    "#Fraude",
+    "#Privacidad",
+    "#Bancos"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-09-26-1128-luiseskivelgolcher-wired-13b3.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-26-1128-luiseskivelgolcher-wired-13b3.jpg",
+    "hash": "7802812a31d5b3cc",
+    "version": 11,
+    "estilo": "dc8c8fa3edf501fd",
+    "renderizada": "2026-09-26T16:29:30.428Z"
+  },
+  "ilustracion": {
+    "descripcion": "Buzón de correo residencial con un sobre bancario asomando, en una calle europea al atardecer; el sobre y el buzón quedan en el tercio superior derecho, con la calle despejada a la izquierda y al centro.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-26-1128-luiseskivelgolcher-wired-13b3.jpg",
+    "hashDescripcion": "951cf8e9564c89d7",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-26T16:28:48.712Z",
+    "error": null,
+    "procedencia": "generada"
+  },
+  "formato": "carrusel",
+  "fuentes": [
+    {
+      "rol": "principal",
+      "medio": "WIRED",
+      "autor": "Lily Hay Newman",
+      "url": "https://www.wired.com/story/kernel-panic-old-timey-credit-card-scams/",
+      "canonica": "https://www.wired.com/story/kernel-panic-old-timey-credit-card-scams/",
+      "idioma": "en",
+      "publicado": "2026-09-26T12:00:00.000Z",
+      "actualizado": "2026-09-26T12:00:00.000Z",
+      "fechaHecho": null,
+      "consultado": "2026-09-26T16:28:48.712Z",
+      "alcance": "completo",
+      "textoRecuperado": {
+        "parrafos": 19,
+        "caracteres": 6274,
+        "enviados": 3893
+      },
+      "fuentesPrimarias": [
+        "https://www.rivieraradio.mc/article/french-police-warn-of-fake-bank-card-qr-code-scam-5HjdSNS_2/",
+        "https://www.fbi.gov/how-we-can-help-you/common-frauds-and-scams/skimming",
+        "https://www.mastercard.com/global/en/news-and-trends/stories/2021/swiping-left-on-magnetic-stripes.html",
+        "https://www.ftc.gov/news-events/news/press-releases/2026/06/ftc-data-show-people-reported-losing-3-point-5-billion-imposter-scams-2025",
+        "http://www.aboutads.info"
+      ],
+      "licenciaMedios": null
+    }
+  ],
+  "afirmaciones": [
+    {
+      "texto": "Portugal, Francia y Alemania han tenido oleadas de estafas con tarjetas de crédito falsas enviadas por correo en años recientes",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/kernel-panic-old-timey-credit-card-scams/",
+      "contrastada": false
+    },
+    {
+      "texto": "La tarjeta física falsa funciona como un 'token' que genera la confianza necesaria para que la víctima caiga en el engaño",
+      "tipo": "opinion",
+      "fuente": "https://www.wired.com/story/kernel-panic-old-timey-credit-card-scams/",
+      "contrastada": false
+    },
+    {
+      "texto": "El costo de producir una tarjeta falsa personalizada bajó gracias a la inteligencia artificial, que copia diseños a partir de una imagen",
+      "tipo": "opinion",
+      "fuente": "https://www.wired.com/story/kernel-panic-old-timey-credit-card-scams/",
+      "contrastada": false
+    },
+    {
+      "texto": "La Fiscalía del Distrito Norte de Alabama acusó a dos ciudadanos rumanos por clonar tarjetas de beneficios EBT del programa SNAP",
+      "tipo": "denuncia",
+      "fuente": "https://www.wired.com/story/kernel-panic-old-timey-credit-card-scams/",
+      "contrastada": false
+    },
+    {
+      "texto": "Las pérdidas por fraude con 'skimmers' superan los 1.000 millones de dólares al año en Estados Unidos, según un fiscal federal",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/kernel-panic-old-timey-credit-card-scams/",
+      "contrastada": false
+    },
+    {
+      "texto": "Decenas de estados de EE.UU. todavía usan tarjetas de banda magnética para distribuir beneficios sociales, lo que facilita la clonación",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/kernel-panic-old-timey-credit-card-scams/",
+      "contrastada": false
+    }
+  ],
+  "angulo": "Cómo un fraude analógico sigue vigente pese al auge de las estafas con inteligencia artificial",
+  "atribucion": "WIRED, Lily Hay Newman, 26 de septiembre de 2026",
+  "puntuacion": {
+    "total": 74,
+    "componentes": {
+      "afinidad": 21,
+      "interes": 18,
+      "evidencia": 14,
+      "actualidad": 15,
+      "visual": 6
+    }
+  },
+  "alertas": [
+    "fuente-unica"
+  ],
+  "carrusel": {
+    "diapositivas": [
+      {
+        "titulo": "Las estafas con tarjetas de correo aún engañan en 2026",
+        "texto": "Pese a la inteligencia artificial, un fraude de los años 90 sigue robando dinero en Europa y EE.UU., según WIRED."
+      },
+      {
+        "titulo": "Cartas falsas con tarjetas 'nuevas'",
+        "texto": "Portugal, Francia y Alemania han recibido oleadas de sobres con tarjetas falsas que avisan de un vencimiento inminente."
+      },
+      {
+        "titulo": "Un QR que abre la puerta al banco falso",
+        "texto": "Al escanear el código para 'activar' la tarjeta, la víctima llega a un sitio falso y entrega sus datos bancarios reales."
+      },
+      {
+        "titulo": "También afecta a beneficios sociales",
+        "texto": "En Alabama, dos ciudadanos rumanos fueron acusados de clonar tarjetas EBT del programa SNAP con banda magnética."
+      },
+      {
+        "titulo": "Un problema de tecnología vieja",
+        "texto": "Decenas de estados de EE.UU. siguen usando tarjetas de banda magnética, más fáciles de clonar que las de chip."
+      },
+      {
+        "titulo": "Miles de millones en pérdidas cada año",
+        "texto": "El fraude con 'skimmers' supera los 1.000 millones de dólares anuales solo en Estados Unidos, según un fiscal federal."
+      },
+      {
+        "titulo": "La tecnología vieja no desaparece, se adapta",
+        "texto": "Según WIRED (Lily Hay Newman, 26 de septiembre de 2026), la IA abarata copiar diseños de tarjetas y mantiene vivo el fraude físico."
+      }
+    ],
+    "imagenes": [
+      {
+        "numero": 1,
+        "ruta": "public/img/2026-09-26-1128-luiseskivelgolcher-wired-13b3-01.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-26-1128-luiseskivelgolcher-wired-13b3-01.jpg",
+        "hash": "268ac85ac4f8c9f0"
+      },
+      {
+        "numero": 2,
+        "ruta": "public/img/2026-09-26-1128-luiseskivelgolcher-wired-13b3-02.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-26-1128-luiseskivelgolcher-wired-13b3-02.jpg",
+        "hash": "7f96642466e72d6a"
+      },
+      {
+        "numero": 3,
+        "ruta": "public/img/2026-09-26-1128-luiseskivelgolcher-wired-13b3-03.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-26-1128-luiseskivelgolcher-wired-13b3-03.jpg",
+        "hash": "ddd88b36a775a194"
+      },
+      {
+        "numero": 4,
+        "ruta": "public/img/2026-09-26-1128-luiseskivelgolcher-wired-13b3-04.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-26-1128-luiseskivelgolcher-wired-13b3-04.jpg",
+        "hash": "351dff8f908119fd"
+      },
+      {
+        "numero": 5,
+        "ruta": "public/img/2026-09-26-1128-luiseskivelgolcher-wired-13b3-05.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-26-1128-luiseskivelgolcher-wired-13b3-05.jpg",
+        "hash": "0be7e639ca3e9cf3"
+      },
+      {
+        "numero": 6,
+        "ruta": "public/img/2026-09-26-1128-luiseskivelgolcher-wired-13b3-06.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-26-1128-luiseskivelgolcher-wired-13b3-06.jpg",
+        "hash": "e520f374b9ed2d7e"
+      },
+      {
+        "numero": 7,
+        "ruta": "public/img/2026-09-26-1128-luiseskivelgolcher-wired-13b3-07.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-26-1128-luiseskivelgolcher-wired-13b3-07.jpg",
+        "hash": "d8e9b249259016cb"
+      }
+    ],
+    "hash": "01e5c986da950118",
+    "version": 2
+  },
+  "reel": null,
+  "revision": {
+    "estado": "pendiente",
+    "notas": []
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-26T16:28:48.712Z",
+  "actualizado": "2026-09-26T16:28:48.712Z"
+}
