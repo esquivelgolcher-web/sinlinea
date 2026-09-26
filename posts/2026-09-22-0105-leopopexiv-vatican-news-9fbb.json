@@ -43,7 +43,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-22T05:05:18.479Z",
-  "actualizado": "2026-09-24T08:26:18.953Z",
+  "actualizado": "2026-09-26T19:41:42.804Z",
   "destinos": {
     "instagram": {
       "texto": "The Holy See Press Office has released the official programme, logos and mottos for Pope Leo XIV's upcoming Apostolic Journey to Uruguay, Argentina and Peru, set to take place from November 6 to 17. Source: Vatican News, Sept. 21, 2026.\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #ApostolicJourney #Uruguay #Argentina #Peru",
@@ -56,7 +56,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-09-26T19:41:42.804Z",
+        "actualizado": "2026-09-26T19:41:42.804Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
