@@ -1,7 +1,7 @@
 {
   "id": "2026-09-25-1217-luiseskivelgolcher-occrp-943d",
   "cuenta": "luiseskivelgolcher",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "OCCRP",
     "url": "https://www.occrp.org/en/news/france-corruption-cases-in-the-police-force-surged-in-2025",
@@ -106,9 +106,56 @@
     "estado": "pendiente",
     "notas": []
   },
-  "programado": null,
+  "programado": "2026-09-26T12:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-25T17:17:04.996Z",
-  "actualizado": "2026-09-25T17:17:04.996Z"
+  "actualizado": "2026-09-26T08:28:49.008Z",
+  "destinos": {
+    "instagram": {
+      "texto": "Un informe interno de la Inspección General de la Policía Nacional de Francia (IGPN) registró 341 casos de violación de integridad en 2025, un aumento de 45% frente a los 234 casos del año anterior, según publicó OCCRP el 25 de septiembre de 2026. El mayor salto ocurrió en las consultas no autorizadas a bases de datos policiales, que subieron 80%: agentes que revisan información sensible sin justificación legítima, un problema directo de privacidad y control de acceso a datos personales. Los casos de corrupción crecieron 33% y las filtraciones de secreto profesional, 25%. Stéphane Hardouin, jefe de la IGPN, reconoció el alza. El organismo abrió 235 investigaciones judiciales, pero, según confirmó la Dirección de la Policía Nacional a OCCRP, la IGPN no tiene poder disciplinario propio, por lo que se desconoce cuántos casos terminaron en sanción real. Este resumen se basa en una sola fuente periodística.\n\nFuente: OCCRP\n\n#Francia #Corrupción #Privacidad #Vigilancia #DatosPersonales",
+      "aprobado": {
+        "fecha": "2026-09-26T08:28:49.008Z",
+        "hashPieza": "300eef0352a4b93d",
+        "imagenHash": "d93d36b0ad06b1ae",
+        "imagenSha": "dfb8cf5bf6d31c5ffc8c67b4f516bc84dcbdcda6"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    },
+    "facebook": {
+      "texto": "Un informe interno de la Inspección General de la Policía Nacional de Francia (IGPN) registró 341 casos de violación de integridad en 2025, un aumento de 45% frente a los 234 casos del año anterior, según publicó OCCRP el 25 de septiembre de 2026. El mayor salto ocurrió en las consultas no autorizadas a bases de datos policiales, que subieron 80%: agentes que revisan información sensible sin justificación legítima, un problema directo de privacidad y control de acceso a datos personales. Los casos de corrupción crecieron 33% y las filtraciones de secreto profesional, 25%. Stéphane Hardouin, jefe de la IGPN, reconoció el alza. El organismo abrió 235 investigaciones judiciales, pero, según confirmó la Dirección de la Policía Nacional a OCCRP, la IGPN no tiene poder disciplinario propio, por lo que se desconoce cuántos casos terminaron en sanción real. Este resumen se basa en una sola fuente periodística.\n\nFuente: OCCRP",
+      "aprobado": {
+        "fecha": "2026-09-26T08:28:49.008Z",
+        "hashPieza": "300eef0352a4b93d",
+        "imagenHash": "d93d36b0ad06b1ae",
+        "imagenSha": "dfb8cf5bf6d31c5ffc8c67b4f516bc84dcbdcda6"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    },
+    "threads": {
+      "texto": "Corrupción en policía francesa sube 45% en un año\n\nConsultas indebidas a bases de datos policiales crecieron 80% en 2025, según informe interno\n\nSegún OCCRP (25 de septiembre de 2026)",
+      "aprobado": {
+        "fecha": "2026-09-26T08:28:49.008Z",
+        "hashPieza": "300eef0352a4b93d",
+        "imagenHash": "d93d36b0ad06b1ae",
+        "imagenSha": "dfb8cf5bf6d31c5ffc8c67b4f516bc84dcbdcda6"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
