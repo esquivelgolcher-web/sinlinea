@@ -1,7 +1,7 @@
 {
   "id": "2026-09-26-0106-leopopexiv-vatican-news-6725",
   "cuenta": "leopopexiv",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/pope/news/2026-09/notre-dame-welcomes-pope-leo-xiv.html",
@@ -38,9 +38,26 @@
     "generada": "2026-09-26T05:06:05.929Z",
     "error": null
   },
-  "programado": null,
+  "programado": "2026-09-27T18:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-26T05:06:05.929Z",
-  "actualizado": "2026-09-26T05:06:05.929Z"
+  "actualizado": "2026-09-26T08:28:35.465Z",
+  "destinos": {
+    "instagram": {
+      "texto": "Pope Leo XIV became the first Pope to enter Notre Dame Cathedral since the devastating 2019 fire, visiting during his Apostolic Journey to France. Source: Vatican News, Sept. 25, 2026.\n\nFuente: Vatican News\n\n#PopeLeoXIV #NotreDame #Vatican #Paris #CatholicChurch",
+      "aprobado": {
+        "fecha": "2026-09-26T08:28:35.465Z",
+        "hashPieza": "05680a3ad37aadb8",
+        "imagenHash": "5ff5ceb6cb5307b0",
+        "imagenSha": "dcec5f5e5eb92d35e0a7f64165b62874766e3938"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
