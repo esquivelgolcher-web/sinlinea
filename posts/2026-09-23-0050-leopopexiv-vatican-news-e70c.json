@@ -42,7 +42,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-23T04:50:43.070Z",
-  "actualizado": "2026-09-24T08:26:14.501Z",
+  "actualizado": "2026-09-26T16:40:17.313Z",
   "destinos": {
     "instagram": {
       "texto": "Pope Leo XIV will present the 2026 Ratzinger Prize to American theologian Dr John Cavadini on December 19 at the Apostolic Palace, recognizing his scholarly work on Patristics and St Augustine. Source: Vatican News, Sept 22, 2026.\n\nFuente: Vatican News\n\n#PopeLeoXIV #RatzingerPrize #Vatican #Theology #StAugustine",
@@ -55,7 +55,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-09-26T16:40:17.313Z",
+        "actualizado": "2026-09-26T16:40:17.313Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
