@@ -1,0 +1,45 @@
+{
+  "id": "2026-09-26-0006-lawebazone-tendencias-d-f972",
+  "cuenta": "lawebazone",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Tendencias de México",
+    "url": "https://www.chivasfemenil.mx/es/noticias/41514/Chivas-Femenil-se-impone-a-Cruz-Azul-y-liga-triunfos-en-el-AP26",
+    "titulo": "cruz azul - guadalajara",
+    "publicado": "2026-09-26T03:30:00.000Z"
+  },
+  "categoria": "DEPORTES",
+  "titular": "Hasta las Chivas Femenil le ganan a Cruz Azul",
+  "bajada": "Chivas Femenil venció a Cruz Azul y sigue con racha ganadora en el Apertura 2026",
+  "caption": "Cruz Azul encontró la manera de perder hasta en la rama femenil. En cualquier torneo, en cualquier cancha, el equipo encuentra el camino más creativo para no ganar. Es casi un talento.",
+  "hashtags": [
+    "#CruzAzul",
+    "#Chivas",
+    "#FutbolMexicano",
+    "#LigaMXFemenil"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-09-26-0006-lawebazone-tendencias-d-f972.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-26-0006-lawebazone-tendencias-d-f972.jpg",
+    "hash": "2da553b5617e4baf",
+    "version": 11,
+    "estilo": "9fd322fb9927e571",
+    "renderizada": "2026-09-26T05:07:41.201Z"
+  },
+  "ilustracion": {
+    "descripcion": "Cancha de fútbol femenino iluminada de noche, marcador electrónico visible en el fondo, balón en el centro del campo, gradas coloridas en el tercio superior derecho, zona izquierda y central despejadas.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-26T05:06:05.929Z",
+  "actualizado": "2026-09-26T05:06:05.929Z"
+}

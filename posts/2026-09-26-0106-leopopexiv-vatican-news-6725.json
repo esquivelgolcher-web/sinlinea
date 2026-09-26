@@ -1,0 +1,46 @@
+{
+  "id": "2026-09-26-0106-leopopexiv-vatican-news-6725",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-09/notre-dame-welcomes-pope-leo-xiv.html",
+    "titulo": "Report from the Cathedral of Notre Dame in Paris with Pope Leo",
+    "publicado": "2026-09-25T22:50:00.000Z"
+  },
+  "categoria": "INTERNACIONAL",
+  "titular": "Pope Leo XIV enters Notre Dame after 2019 fire",
+  "bajada": "First pontiff to step inside the cathedral since the blaze that shook Paris",
+  "caption": "Pope Leo XIV became the first Pope to enter Notre Dame Cathedral since the devastating 2019 fire, visiting during his Apostolic Journey to France. Source: Vatican News, Sept. 25, 2026.",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#NotreDame",
+    "#Vatican",
+    "#Paris",
+    "#CatholicChurch"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-09-26-0106-leopopexiv-vatican-news-6725.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-26-0106-leopopexiv-vatican-news-6725.jpg",
+    "hash": "5ff5ceb6cb5307b0",
+    "version": 11,
+    "estilo": "32cba508d6c2290e",
+    "renderizada": "2026-09-26T05:07:13.617Z"
+  },
+  "ilustracion": {
+    "descripcion": "Illuminated facade of Notre Dame Cathedral at dusk, restored stone towers glowing, a robed pope figure entering the doorway in the upper right third, left and center open and clear",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-26-0106-leopopexiv-vatican-news-6725.jpg",
+    "hashDescripcion": "17869b60a61fafc2",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-26T05:06:05.929Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-26T05:06:05.929Z",
+  "actualizado": "2026-09-26T05:06:05.929Z"
+}

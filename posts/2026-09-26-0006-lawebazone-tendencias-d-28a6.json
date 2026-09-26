@@ -1,0 +1,44 @@
+{
+  "id": "2026-09-26-0006-lawebazone-tendencias-d-28a6",
+  "cuenta": "lawebazone",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Tendencias de Colombia",
+    "url": "https://colombia.as.com/futbol/santa-fe-empata-con-union-magdalena-y-clasifica-a-octavos-de-copa-betplay-f202609-n/",
+    "titulo": "unión magdalena - santa fe",
+    "publicado": "2026-09-26T01:30:00.000Z"
+  },
+  "categoria": "DEPORTES",
+  "titular": "Santa Fe empata y avanza igual en la Copa",
+  "bajada": "Independiente Santa Fe igualó con Unión Magdalena y clasificó a octavos de la Copa BetPlay",
+  "caption": "Empatar y seguir avanzando: el sueño de cualquiera que odia arriesgar. Santa Fe lo logró en la Copa BetPlay y ahora nadie puede decir que perdió el tiempo.",
+  "hashtags": [
+    "#CopaBetPlay",
+    "#SantaFe",
+    "#FutbolColombiano"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-09-26-0006-lawebazone-tendencias-d-28a6.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-26-0006-lawebazone-tendencias-d-28a6.jpg",
+    "hash": "dc1d62ec5fc45712",
+    "version": 11,
+    "estilo": "9fd322fb9927e571",
+    "renderizada": "2026-09-26T05:07:41.464Z"
+  },
+  "ilustracion": {
+    "descripcion": "Estadio de fútbol colombiano al anochecer con luces encendidas, marcador de empate en pantalla gigante en el tercio superior derecho, cancha vacía en primer plano despejada.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-26T05:06:05.929Z",
+  "actualizado": "2026-09-26T05:06:05.929Z"
+}

@@ -1,0 +1,49 @@
+{
+  "id": "2026-09-26-0006-sinlinea-glosa-40f4",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "formato": "glosa",
+  "glosa": {
+    "versos": [
+      "Aprobaron sin testigo",
+      "diputados a su gusto",
+      "repartiendo lo no justo",
+      "y el pueblo, sin abrigo"
+    ],
+    "esquema": "ABBA",
+    "sobre": {
+      "id": "2026-09-25-0927-sinlinea-la-prensa-f594",
+      "titular": "Asamblea aprueba $32.1 millones sin transmisión en vivo"
+    }
+  },
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/politica/a-escondidas-la-asamblea-se-aprueba-cuatro-partidas-presupuestarias-por-321-millones/",
+    "titulo": "A escondidas, la Asamblea se aprueba cuatro partidas presupuestarias por $32.1 millones",
+    "publicado": "2026-09-24T19:03:44.000Z"
+  },
+  "categoria": "POLÍTICA",
+  "titular": "Aprobaron sin testigo",
+  "bajada": "Sobre: Asamblea aprueba $32.1 millones sin transmisión en vivo",
+  "caption": "Aprobaron sin testigo\ndiputados a su gusto\nrepartiendo lo no justo\ny el pueblo, sin abrigo\n\nSobre: Asamblea aprueba $32.1 millones sin transmisión en vivo · La Prensa\n\n#Panamá #Glosa #LaGarzaMaría",
+  "hashtags": [
+    "#Panamá",
+    "#Glosa",
+    "#LaGarzaMaría"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-09-26-0006-sinlinea-glosa-40f4.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-26-0006-sinlinea-glosa-40f4.jpg",
+    "hash": "80285e3cf240480a",
+    "version": 1,
+    "estilo": "df55592d998f5ba3",
+    "renderizada": "2026-09-26T05:06:53.606Z"
+  },
+  "ilustracion": null,
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-26T05:06:05.929Z",
+  "actualizado": "2026-09-26T05:06:05.929Z"
+}

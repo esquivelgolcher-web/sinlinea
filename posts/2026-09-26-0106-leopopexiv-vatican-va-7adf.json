@@ -1,0 +1,44 @@
+{
+  "id": "2026-09-26-0106-leopopexiv-vatican-va-7adf",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "formato": "frase",
+  "frase": {
+    "texto": "Who am I to judge?",
+    "autor": "Pope Francis",
+    "fuente": "Press conference on the return flight from Rio de Janeiro",
+    "anio": 2013,
+    "url": "https://www.vatican.va/content/francesco/en/speeches/2013/july/documents/papa-francesco_20130728_gmg-conferenza-stampa.html",
+    "origen": "banco"
+  },
+  "fuente": {
+    "medio": "Vatican.va",
+    "url": "https://www.vatican.va/content/francesco/en/speeches/2013/july/documents/papa-francesco_20130728_gmg-conferenza-stampa.html",
+    "titulo": "Press conference on the return flight from Rio de Janeiro",
+    "publicado": "2013-01-01T00:00:00.000Z"
+  },
+  "categoria": "CULTURA",
+  "titular": "Pope Francis",
+  "bajada": "Press conference on the return flight from Rio de Janeiro · 2013",
+  "caption": "“Who am I to judge?”\n\n— Pope Francis, Press conference on the return flight from Rio de Janeiro (2013)\n\n#PopeLeoXIV #Vatican #CatholicChurch",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Vatican",
+    "#CatholicChurch"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-09-26-0106-leopopexiv-vatican-va-7adf.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-26-0106-leopopexiv-vatican-va-7adf.jpg",
+    "hash": "4e6542f61acf1bd0",
+    "version": 1,
+    "estilo": "28c21995920a45b7",
+    "renderizada": "2026-09-26T05:07:17.084Z"
+  },
+  "ilustracion": null,
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-26T05:06:05.929Z",
+  "actualizado": "2026-09-26T05:06:05.929Z"
+}
