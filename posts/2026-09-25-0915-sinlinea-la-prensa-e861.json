@@ -1,7 +1,7 @@
 {
   "id": "2026-09-25-0915-sinlinea-la-prensa-e861",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "La Prensa",
     "url": "https://www.prensa.com/judiciales/caso-de-8-millones-en-belisario-porras-ya-suma-15-imputados-por-peculado/",
@@ -43,7 +43,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-25T14:15:15.512Z",
-  "actualizado": "2026-09-25T14:26:16.566Z",
+  "actualizado": "2026-09-26T13:53:06.751Z",
   "plantilla": "dato",
   "dato": {
     "cifra": "$8 millones",
