@@ -1,7 +1,7 @@
 {
   "id": "2026-09-23-0050-leopopexiv-vatican-news-e70c",
   "cuenta": "leopopexiv",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/vatican-city/news/2026-09/american-theologian-john-cavadini-receive-2026-ratzinger-prize.html",
@@ -39,7 +39,11 @@
     "error": null
   },
   "programado": "2026-09-26T09:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "18147803533552537",
+    "permalink": "https://www.instagram.com/p/DdwfF3MkV71/",
+    "fecha": "2026-09-26T16:40:17.313Z"
+  },
   "error": null,
   "creado": "2026-09-23T04:50:43.070Z",
   "actualizado": "2026-09-26T16:40:17.313Z",
@@ -52,16 +56,15 @@
         "imagenHash": "4b1e9d4dc1b87eaf",
         "imagenSha": "370a396a69271e76055c5f0b5087563294bd9a7a"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-09-26T16:40:17.313Z",
-        "actualizado": "2026-09-26T16:40:17.313Z",
-        "contenedorId": "18104938952081176"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18147803533552537",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/DdwfF3MkV71/",
+        "fecha": "2026-09-26T16:40:17.313Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
