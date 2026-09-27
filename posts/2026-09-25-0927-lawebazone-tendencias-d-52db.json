@@ -1,7 +1,7 @@
 {
   "id": "2026-09-25-0927-lawebazone-tendencias-d-52db",
   "cuenta": "lawebazone",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "Tendencias de Argentina",
     "url": "https://www.lanacion.com.ar/sociedad/un-avion-de-aerolineas-argentinas-que-iba-a-madrid-tuvo-que-volver-a-ezeiza-nid25092026/",
@@ -40,5 +40,5 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-25T14:27:40.110Z",
-  "actualizado": "2026-09-25T14:27:40.110Z"
+  "actualizado": "2026-09-27T10:34:36.879Z"
 }
