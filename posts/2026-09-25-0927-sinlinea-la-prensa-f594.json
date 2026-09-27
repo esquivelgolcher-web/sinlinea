@@ -1,7 +1,7 @@
 {
   "id": "2026-09-25-0927-sinlinea-la-prensa-f594",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "La Prensa",
     "url": "https://www.prensa.com/politica/a-escondidas-la-asamblea-se-aprueba-cuatro-partidas-presupuestarias-por-321-millones/",
@@ -43,7 +43,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-25T14:27:40.110Z",
-  "actualizado": "2026-09-25T14:27:40.110Z",
+  "actualizado": "2026-09-27T07:40:47.293Z",
   "plantilla": "dato",
   "dato": {
     "cifra": "$32.1 millones",
