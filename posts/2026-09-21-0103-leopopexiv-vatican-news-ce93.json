@@ -1,7 +1,7 @@
 {
   "id": "2026-09-21-0103-leopopexiv-vatican-news-ce93",
   "cuenta": "leopopexiv",
-  "estado": "programado",
+  "estado": "publicado",
   "formato": "frase",
   "frase": {
     "texto": "I am following with great concern the humanitarian crisis unfolding in parts of Somalia, where episodes of violence and extreme weather events are worsening the already precarious living conditions of the population, particularly women and children",
@@ -37,7 +37,11 @@
   },
   "ilustracion": null,
   "programado": "2026-09-26T18:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "18143497570584726",
+    "permalink": "https://www.instagram.com/p/DdxaUoYETfp/",
+    "fecha": "2026-09-27T01:17:51.378Z"
+  },
   "error": null,
   "creado": "2026-09-21T05:03:54.169Z",
   "actualizado": "2026-09-27T01:17:51.378Z",
@@ -50,16 +54,15 @@
         "imagenHash": "38b53d4376bd0145",
         "imagenSha": "8c60c68f1e4913781ff2e78546b398bbbc0b7b88"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-09-27T01:17:51.378Z",
-        "actualizado": "2026-09-27T01:17:51.378Z",
-        "contenedorId": "18105010772081176"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18143497570584726",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/DdxaUoYETfp/",
+        "fecha": "2026-09-27T01:17:51.378Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
