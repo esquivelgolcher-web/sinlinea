@@ -1,0 +1,48 @@
+{
+  "id": "2026-09-27-1625-sinlinea-la-estrella-c9f4",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/instrumentadores-quirurgicos-amenazan-con-paro-nacional-por-acuerdo-css-udelas-DG26026014",
+    "titulo": "Instrumentadores quirúrgicos amenazan con paro nacional por acuerdo CSS-UDELAS",
+    "publicado": "2026-09-27T16:07:00.000Z"
+  },
+  "categoria": "SALUD",
+  "titular": "Instrumentadores quirúrgicos amenazan con paro nacional",
+  "bajada": "El gremio rechaza acuerdo CSS-UDELAS que los obliga a estudiar enfermería para conservar su empleo",
+  "caption": "Un paro de instrumentadores quirúrgicos podría afectar cirugías en hospitales públicos y privados de todo el país. El gremio dice que el acuerdo CSS-UDELAS los obliga a cursar una carrera técnica en pocas semanas, bajo amenaza de perder su trabajo. La presidenta del gremio ya prepara una demanda. ¿Debe la CSS revisar este acuerdo antes de que afecte a los pacientes?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#CSS",
+    "#Salud",
+    "#HuelgaMédica",
+    "#UDELAS"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-09-27-1625-sinlinea-la-estrella-c9f4.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-27-1625-sinlinea-la-estrella-c9f4.jpg",
+    "hash": "e5f06340a4c1109a",
+    "version": 11,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-09-27T21:25:37.759Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada de un hospital público panameño con personal de salud caminando; una instrumentadora quirúrgica con uniforme queda en el tercio superior derecho, zona izquierda y central despejadas, estilo ilustración editorial",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-27-1625-sinlinea-la-estrella-c9f4.jpg",
+    "hashDescripcion": "8de1dd48c83f6a9e",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-27T21:25:08.899Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-27T21:25:08.899Z",
+  "actualizado": "2026-09-27T21:25:08.899Z",
+  "plantilla": "foto"
+}

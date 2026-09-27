@@ -1,0 +1,48 @@
+{
+  "id": "2026-09-27-1625-sinlinea-la-estrella-db2b",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/no-somos-extorsionadores-campesinos-de-rio-indio-rechazan-discurso-de-mulino-en-la-onu-FH26030467",
+    "titulo": "‘No somos extorsionadores’: Campesinos de Río Indio rechazan discurso de Mulino en la ONU",
+    "publicado": "2026-09-27T18:52:00.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "Campesinos de Río Indio marchan y responden a Mulino",
+  "bajada": "Cientos rechazaron ser llamados 'extorsionadores' y denunciaron a la ACP y al Ministerio de Seguridad",
+  "caption": "Cientos de campesinos de comunidades amenazadas por el proyecto de embalse de Río Indio marcharon a pie y a caballo hasta el puente de Tres Hermanas. Rechazaron las declaraciones del presidente Mulino en la ONU y denunciaron infiltración de agentes encubiertos en sus reuniones. El conflicto por el agua y la tierra sigue sin resolverse. ¿Qué opinas del manejo de este proyecto por parte del Gobierno?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#RíoIndio",
+    "#ACP",
+    "#Campesinos",
+    "#Mulino"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-09-27-1625-sinlinea-la-estrella-db2b.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-27-1625-sinlinea-la-estrella-db2b.jpg",
+    "hash": "7d5ef7df9f3476cd",
+    "version": 2,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-09-27T21:25:38.005Z"
+  },
+  "ilustracion": {
+    "descripcion": "Camino rural cerca de un río panameño con campesinos marchando a pie y a caballo; un grupo con pancartas queda en el tercio superior derecho, zona izquierda y central despejadas, estilo ilustración editorial",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-27T21:25:08.899Z",
+  "actualizado": "2026-09-27T21:25:08.899Z",
+  "plantilla": "titular"
+}
