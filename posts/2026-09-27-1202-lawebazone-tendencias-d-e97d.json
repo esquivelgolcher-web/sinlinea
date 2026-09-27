@@ -1,0 +1,45 @@
+{
+  "id": "2026-09-27-1202-lawebazone-tendencias-d-e97d",
+  "cuenta": "lawebazone",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Tendencias de Argentina",
+    "url": "https://tn.com.ar/deportes/formula-1/2026/09/27/la-prensa-extranjera-destrozo-a-franco-colapinto-tras-su-duro-error-en-baku-hizo-algo-estupido/",
+    "titulo": "fórmula 1",
+    "publicado": "2026-09-27T16:00:00.000Z"
+  },
+  "categoria": "DEPORTES",
+  "titular": "Colapinto la vuelve a liar y el mundo entero opina",
+  "bajada": "La prensa internacional criticó el error del piloto argentino en el GP de Bakú de F1",
+  "caption": "Un error en la pista y ya media prensa deportiva del planeta se puso a analizar la vida de Colapinto. Así es la F1: manejás a 300 km/h pero la crítica te llega igual de rápido.",
+  "hashtags": [
+    "#F1",
+    "#Colapinto",
+    "#Bakú",
+    "#Fórmula1"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-09-27-1202-lawebazone-tendencias-d-e97d.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-27-1202-lawebazone-tendencias-d-e97d.jpg",
+    "hash": "cf3033f3b04ff6a1",
+    "version": 11,
+    "estilo": "9fd322fb9927e571",
+    "renderizada": "2026-09-27T17:03:01.798Z"
+  },
+  "ilustracion": {
+    "descripcion": "Circuito callejero de Bakú al atardecer, monoplaza de Fórmula 1 detenido junto al muro de contención, con banderines de carrera en el tercio superior derecho, zona izquierda despejada.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-27T17:02:04.936Z",
+  "actualizado": "2026-09-27T17:02:04.936Z"
+}

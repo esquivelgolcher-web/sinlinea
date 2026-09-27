@@ -1,0 +1,48 @@
+{
+  "id": "2026-09-27-1202-sinlinea-la-estrella-5314",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/sicarios-en-moto-matan-a-joven-en-minisuper-de-santa-rita-IG26021009",
+    "titulo": "Sicarios en moto matan a joven en minisúper de Santa Rita",
+    "publicado": "2026-09-27T12:46:00.000Z"
+  },
+  "categoria": "SEGURIDAD",
+  "titular": "Sicarios en moto matan a joven en minisúper de Santa Rita",
+  "bajada": "Jonathan Pérez, de 36 años, murió baleado en Ernesto Córdoba; su tío resultó herido.",
+  "caption": "Un hombre fue asesinado a tiros mientras compraba comida en un minisúper del sector de Santa Rita, frente a clientes y vecinos. Los sicarios huyeron en motocicleta tras el ataque. Este hecho se suma a una serie de episodios violentos que mantienen en alerta a la ciudadanía. ¿Qué tan segura sientes tu comunidad hoy?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Seguridad",
+    "#SantaRita",
+    "#Violencia",
+    "#ErnestoCórdoba"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-09-27-1202-sinlinea-la-estrella-5314.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-27-1202-sinlinea-la-estrella-5314.jpg",
+    "hash": "afbeebaeafa8e5c4",
+    "version": 2,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-09-27T17:02:38.768Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada nocturna de un minisúper de barrio en Panamá con luces encendidas y la calle vacía, transmitiendo tensión. El establecimiento queda en el tercio superior derecho, con la zona izquierda y central despejadas, estilo ilustración editorial.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-27T17:02:04.936Z",
+  "actualizado": "2026-09-27T17:02:04.936Z",
+  "plantilla": "titular"
+}

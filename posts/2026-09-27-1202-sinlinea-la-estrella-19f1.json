@@ -1,0 +1,48 @@
+{
+  "id": "2026-09-27-1202-sinlinea-la-estrella-19f1",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/gremios-empresariales-piden-corregir-el-rumbo-de-las-reformas-electorales-AG26021504",
+    "titulo": "Gremios empresariales piden corregir el rumbo de las reformas electorales",
+    "publicado": "2026-09-27T12:53:00.000Z"
+  },
+  "categoria": "POLÍTICA",
+  "titular": "Gremios piden corregir reformas al Código Electoral",
+  "bajada": "Apede y Cciap piden más diálogo antes de que la Ley 699 avance en el pleno de la Asamblea.",
+  "caption": "Las reformas electorales que se debaten en la Asamblea tocan reglas clave para las elecciones de 2029: financiamiento privado, libre postulación y el rol del Tribunal Electoral. Empresarios piden que estos cambios se discutan con más participación ciudadana. ¿Debería la Asamblea abrir el debate a más sectores antes de votar?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#ReformasElectorales",
+    "#Asamblea",
+    "#Elecciones2029",
+    "#TribunalElectoral"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-09-27-1202-sinlinea-la-estrella-19f1.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-27-1202-sinlinea-la-estrella-19f1.jpg",
+    "hash": "9afde3e5b637621b",
+    "version": 11,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-09-27T17:02:38.508Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada del Palacio Justo Arosemena, sede de la Asamblea Nacional de Panamá, al atardecer, con banderas panameñas ondeando. El edificio queda en el tercio superior derecho, dejando despejada la zona izquierda y central, estilo ilustración editorial.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-27-1202-sinlinea-la-estrella-19f1.jpg",
+    "hashDescripcion": "a30008905a7daac2",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-27T17:02:04.936Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-27T17:02:04.936Z",
+  "actualizado": "2026-09-27T17:02:04.936Z",
+  "plantilla": "foto"
+}
