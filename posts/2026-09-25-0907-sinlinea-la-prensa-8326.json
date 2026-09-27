@@ -1,7 +1,7 @@
 {
   "id": "2026-09-25-0907-sinlinea-la-prensa-8326",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "La Prensa",
     "url": "https://www.prensa.com/politica/diputados-aprobaron-reforma-electoral-que-permitiria-ejercer-dos-cargos-a-la-vez/",
@@ -43,6 +43,6 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-25T14:07:16.720Z",
-  "actualizado": "2026-09-25T14:07:16.720Z",
+  "actualizado": "2026-09-27T07:41:00.969Z",
   "plantilla": "titular"
 }
