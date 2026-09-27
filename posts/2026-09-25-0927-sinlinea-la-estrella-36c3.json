@@ -1,7 +1,7 @@
 {
   "id": "2026-09-25-0927-sinlinea-la-estrella-36c3",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "La Estrella de Panamá",
     "url": "https://www.laestrella.com.pa/mundo/america/mas-de-11-toneladas-de-cocaina-son-decomisadas-en-operativos-al-sur-de-panama-KI25961964",
@@ -43,7 +43,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-25T14:27:40.110Z",
-  "actualizado": "2026-09-25T14:27:40.110Z",
+  "actualizado": "2026-09-27T07:41:09.845Z",
   "plantilla": "foto",
   "dato": {
     "cifra": "11,456 kg",
