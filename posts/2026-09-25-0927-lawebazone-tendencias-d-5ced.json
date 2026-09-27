@@ -1,7 +1,7 @@
 {
   "id": "2026-09-25-0927-lawebazone-tendencias-d-5ced",
   "cuenta": "lawebazone",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "Tendencias de México",
     "url": "https://www.telemundo.com/deportes/el-pelotazo/video/argentina-se-alista-para-la-despedida-de-messi-de-la-seleccion-el-pelotazo-tmvo13227308",
@@ -36,9 +36,26 @@
     "generada": null,
     "error": null
   },
-  "programado": null,
+  "programado": "2026-09-27T11:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-25T14:27:40.110Z",
-  "actualizado": "2026-09-25T14:27:40.110Z"
+  "actualizado": "2026-09-27T10:34:27.842Z",
+  "destinos": {
+    "instagram": {
+      "texto": "Ya empezaron los ensayos para la despedida de Messi y se nota que nadie tiene el pañuelo listo. Va a ser el partido más visto de la historia y el más llorado también, ojo con el rímel ese día.\n\nFuente: Tendencias de México\n\n#Messi #SeleccionArgentina #GraciasLeo",
+      "aprobado": {
+        "fecha": "2026-09-27T10:34:27.842Z",
+        "hashPieza": "88b9cd75fce4effb",
+        "imagenHash": "2475fccb3f6765dd",
+        "imagenSha": "1258947092f962ec3c82729cead04f28b3f8f7e7"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
