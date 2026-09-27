@@ -1,7 +1,7 @@
 {
   "id": "2026-09-26-1128-luiseskivelgolcher-wired-13b3",
   "cuenta": "luiseskivelgolcher",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "WIRED",
     "url": "https://www.wired.com/story/kernel-panic-old-timey-credit-card-scams/",
@@ -259,25 +259,15 @@
           "0ae00fa81d32e6dcde98be674006af18f7c76c1f"
         ]
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-09-27T17:54:55.903Z",
-        "actualizado": "2026-09-27T17:54:55.903Z",
-        "contenedorId": "17990901936100604",
-        "hijos": [
-          "17990901750100604",
-          "17990901771100604",
-          "17990901792100604",
-          "17990901816100604",
-          "17990901849100604",
-          "17990901885100604",
-          "17990901909100604"
-        ]
+      "estado": "publicado",
+      "publicacion": {
+        "id": "17876208777630624",
+        "idPublicacion": null,
+        "permalink": "https://www.threads.com/@luisegolcher/post/DdzMkm-mAXo",
+        "fecha": "2026-09-27T17:54:55.903Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
