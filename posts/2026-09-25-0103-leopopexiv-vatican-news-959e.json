@@ -1,7 +1,7 @@
 {
   "id": "2026-09-25-0103-leopopexiv-vatican-news-959e",
   "cuenta": "leopopexiv",
-  "estado": "programado",
+  "estado": "publicado",
   "formato": "frase",
   "frase": {
     "texto": "I was called to tell this story (the Gospel). I never tire of telling it. I never tire of improving my telling of it. I love my calling.",
@@ -37,7 +37,11 @@
   },
   "ilustracion": null,
   "programado": "2026-09-27T13:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "18127525264764826",
+    "permalink": "https://www.instagram.com/p/DdzjSguFJA-/",
+    "fecha": "2026-09-27T21:14:41.718Z"
+  },
   "error": null,
   "creado": "2026-09-25T05:03:38.442Z",
   "actualizado": "2026-09-27T21:14:41.718Z",
@@ -50,16 +54,15 @@
         "imagenHash": "a06f5d2a6471b1b8",
         "imagenSha": "6bb6dd5992b4c055e021b67a1d620de6792131f3"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-09-27T21:14:41.718Z",
-        "actualizado": "2026-09-27T21:14:41.718Z",
-        "contenedorId": "18105220064081176"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18127525264764826",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/DdzjSguFJA-/",
+        "fecha": "2026-09-27T21:14:41.718Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
