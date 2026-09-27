@@ -40,7 +40,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-25T05:03:38.442Z",
-  "actualizado": "2026-09-25T12:20:38.177Z",
+  "actualizado": "2026-09-27T21:14:41.718Z",
   "destinos": {
     "instagram": {
       "texto": "“I was called to tell this story (the Gospel). I never tire of telling it. I never tire of improving my telling of it. I love my calling.”\n\n— Archbishop Fulton J. Sheen, Anécdota citada por el Cardenal Tagle en la homilía de beatificación (2026)\n\nVia Vatican News, 24 September 2026\n\n#PopeLeoXIV #Vatican #CatholicChurch\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #CatholicChurch",
@@ -53,7 +53,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-09-27T21:14:41.718Z",
+        "actualizado": "2026-09-27T21:14:41.718Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
