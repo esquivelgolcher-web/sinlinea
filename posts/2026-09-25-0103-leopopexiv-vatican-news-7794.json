@@ -1,7 +1,7 @@
 {
   "id": "2026-09-25-0103-leopopexiv-vatican-news-7794",
   "cuenta": "leopopexiv",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/pope/news/2026-09/pope-climate-crisis-not-only-environmental-challenge-but-justice.html",
@@ -39,7 +39,11 @@
     "error": null
   },
   "programado": "2026-09-27T09:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "18107497138906715",
+    "permalink": "https://www.instagram.com/p/DdzMo3XGUbX/",
+    "fecha": "2026-09-27T17:56:43.919Z"
+  },
   "error": null,
   "creado": "2026-09-25T05:03:38.442Z",
   "actualizado": "2026-09-27T17:56:43.919Z",
@@ -52,16 +56,15 @@
         "imagenHash": "da7f7815fec75113",
         "imagenSha": "51474a8283c7d47d769192e84de8221d5186b7df"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-09-27T17:56:43.919Z",
-        "actualizado": "2026-09-27T17:56:43.919Z",
-        "contenedorId": "18105186740081176"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18107497138906715",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/DdzMo3XGUbX/",
+        "fecha": "2026-09-27T17:56:43.919Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
