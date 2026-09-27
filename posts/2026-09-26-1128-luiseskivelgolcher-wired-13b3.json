@@ -203,16 +203,16 @@
     "estado": "pendiente",
     "notas": []
   },
-  "programado": "2026-09-27T09:00:00-05:00",
+  "programado": "2026-09-27T12:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-26T16:28:48.712Z",
-  "actualizado": "2026-09-27T07:40:23.568Z",
+  "actualizado": "2026-09-27T07:40:28.364Z",
   "destinos": {
     "instagram": {
       "texto": "Mientras la inteligencia artificial multiplica las estafas digitales, un truco viejo sigue funcionando: cartas falsas que llegan al buzón con una supuesta tarjeta de crédito nueva. Según WIRED, Portugal, Francia y Alemania han tenido oleadas de este fraude, donde las víctimas escanean un código QR para 'activar' la tarjeta y terminan entregando sus datos bancarios reales a un sitio falso. Un asesor de banca digital le dijo a la publicación que la tarjeta física genera la confianza que hace caer a la gente. En paralelo, EE.UU. acusó a dos ciudadanos rumanos por clonar tarjetas de asistencia alimentaria (SNAP) que aún usan banda magnética, una tecnología más vieja y vulnerable que el chip. Las autoridades estiman pérdidas por skimming de más de 1.000 millones de dólares al año solo en ese país. ¿Sigues revisando cada carta bancaria que llega a tu casa?\n\nFuente: WIRED\n\n#Ciberseguridad #Fraude #Privacidad #Bancos",
       "aprobado": {
-        "fecha": "2026-09-27T07:40:23.568Z",
+        "fecha": "2026-09-27T07:40:28.364Z",
         "hashPieza": "8895bd3403fc8492",
         "imagenHash": "7802812a31d5b3cc",
         "imagenSha": "808e9dc501bb2b383d84339361bc392a3f4d47b7",
@@ -236,7 +236,7 @@
     "threads": {
       "texto": "Estafas con tarjetas por correo resurgen en Europa\n\nCartas falsas con QR piden 'activar' tarjetas nuevas y roban datos bancarios reales\n\nSegún WIRED (26 de septiembre de 2026)",
       "aprobado": {
-        "fecha": "2026-09-27T07:40:23.568Z",
+        "fecha": "2026-09-27T07:40:28.364Z",
         "hashPieza": "8895bd3403fc8492",
         "imagenHash": "7802812a31d5b3cc",
         "imagenSha": "808e9dc501bb2b383d84339361bc392a3f4d47b7",
