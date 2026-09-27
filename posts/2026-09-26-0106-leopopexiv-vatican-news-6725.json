@@ -1,7 +1,7 @@
 {
   "id": "2026-09-26-0106-leopopexiv-vatican-news-6725",
   "cuenta": "leopopexiv",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/pope/news/2026-09/notre-dame-welcomes-pope-leo-xiv.html",
@@ -39,7 +39,11 @@
     "error": null
   },
   "programado": "2026-09-27T18:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "18104998223358489",
+    "permalink": "https://www.instagram.com/p/Ddz1l7wj7mG/",
+    "fecha": "2026-09-27T23:54:36.289Z"
+  },
   "error": null,
   "creado": "2026-09-26T05:06:05.929Z",
   "actualizado": "2026-09-27T23:54:36.289Z",
@@ -52,16 +56,15 @@
         "imagenHash": "5ff5ceb6cb5307b0",
         "imagenSha": "dcec5f5e5eb92d35e0a7f64165b62874766e3938"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-09-27T23:54:36.289Z",
-        "actualizado": "2026-09-27T23:54:36.289Z",
-        "contenedorId": "18105243650081176"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18104998223358489",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/Ddz1l7wj7mG/",
+        "fecha": "2026-09-27T23:54:36.289Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
