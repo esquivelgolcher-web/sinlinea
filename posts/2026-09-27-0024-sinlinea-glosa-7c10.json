@@ -1,0 +1,49 @@
+{
+  "id": "2026-09-27-0024-sinlinea-glosa-7c10",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "formato": "glosa",
+  "glosa": {
+    "versos": [
+      "Pa'l agua piden un mundo",
+      "pero dan menos que nada",
+      "sigue seca la quebrada",
+      "el hueco es bien profundo"
+    ],
+    "esquema": "ABBA",
+    "sobre": {
+      "id": "2026-09-25-0907-sinlinea-la-prensa-c50f",
+      "titular": "Panamá invierte solo 35% de lo necesario en agua"
+    }
+  },
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/sociedad/la-crisis-silenciosa-del-agua-panama-necesita-invertir-1000-millones-al-ano-durante-una-decada/",
+    "titulo": "La crisis del agua: Panamá necesita invertir $1,000 millones al año durante una década",
+    "publicado": "2026-09-25T05:04:00.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "Pa'l agua piden un mundo",
+  "bajada": "Sobre: Panamá invierte solo 35% de lo necesario en agua",
+  "caption": "Pa'l agua piden un mundo\npero dan menos que nada\nsigue seca la quebrada\nel hueco es bien profundo\n\nSobre: Panamá invierte solo 35% de lo necesario en agua · La Prensa\n\n#Panamá #Glosa #LaGarzaMaría",
+  "hashtags": [
+    "#Panamá",
+    "#Glosa",
+    "#LaGarzaMaría"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-09-27-0024-sinlinea-glosa-7c10.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-27-0024-sinlinea-glosa-7c10.jpg",
+    "hash": "002450a8470be82a",
+    "version": 1,
+    "estilo": "df55592d998f5ba3",
+    "renderizada": "2026-09-27T05:25:41.931Z"
+  },
+  "ilustracion": null,
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-27T05:24:23.758Z",
+  "actualizado": "2026-09-27T05:24:23.758Z"
+}

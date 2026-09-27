@@ -1,0 +1,47 @@
+{
+  "id": "2026-09-27-0124-leopopexiv-vatican-news-412b",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-09/in-lourdes-pope-leo-entrusts-france-to-the-virgin-mary.html",
+    "titulo": "In Lourdes, Pope Leo entrusts France to the Virgin Mary",
+    "publicado": "2026-09-26T19:08:00.000Z"
+  },
+  "categoria": "INTERNACIONAL",
+  "titular": "Pope Leo prays for France at Lourdes shrine",
+  "bajada": "He knelt at the Grotto of Massabielle, asking Mary for unity and comfort for the sick",
+  "caption": "Pope Leo XIV arrived in Lourdes and went directly to the Grotto of Massabielle, where he knelt in prayer before the statue of Our Lady. According to Vatican News, he asked for 'the gift of fraternal harmony' for France and entrusted to Mary the prayers of the sick and suffering, before thousands of faithful gathered at the shrine. Source: Vatican News, Sept 26, 2026.",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Lourdes",
+    "#Vatican",
+    "#CatholicChurch",
+    "#France",
+    "#OurLadyOfLourdes"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-09-27-0124-leopopexiv-vatican-news-412b.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-27-0124-leopopexiv-vatican-news-412b.jpg",
+    "hash": "e6e5f287311ef9ed",
+    "version": 11,
+    "estilo": "32cba508d6c2290e",
+    "renderizada": "2026-09-27T05:26:07.303Z"
+  },
+  "ilustracion": {
+    "descripcion": "Stone grotto shrine with candles and a statue niche in soft evening light; a robed pilgrim figure kneels in prayer, positioned in the upper right third, left and center open",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-27-0124-leopopexiv-vatican-news-412b.jpg",
+    "hashDescripcion": "48e3a5e80beff70e",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-27T05:24:23.758Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-27T05:24:23.758Z",
+  "actualizado": "2026-09-27T05:24:23.758Z"
+}
