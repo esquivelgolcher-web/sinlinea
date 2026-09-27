@@ -1,7 +1,7 @@
 {
   "id": "2026-09-25-0915-sinlinea-la-prensa-0954",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "La Prensa",
     "url": "https://www.prensa.com/economia/aprueban-en-segundo-debate-presupuesto-del-canal-de-panama/",
@@ -43,6 +43,6 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-25T14:15:15.512Z",
-  "actualizado": "2026-09-25T14:15:15.512Z",
+  "actualizado": "2026-09-27T07:41:03.073Z",
   "plantilla": "foto"
 }
