@@ -42,7 +42,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-25T05:03:38.442Z",
-  "actualizado": "2026-09-25T12:20:31.995Z",
+  "actualizado": "2026-09-27T17:56:43.919Z",
   "destinos": {
     "instagram": {
       "texto": "Pope Leo XIV told members of the Pontifical Academy of Sciences, gathered for their Plenary Session in the Vatican's Clementine Hall, that the climate crisis is 'not just an environmental challenge, but a matter of justice.' He called for scientific and technological progress to be matched by 'a corresponding growth in responsibility,' especially as climate shocks become more frequent. Source: Vatican News, Sept 24, 2026.\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #ClimateJustice #CareForCreation #PontificalAcademyOfSciences",
@@ -55,7 +55,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-09-27T17:56:43.919Z",
+        "actualizado": "2026-09-27T17:56:43.919Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
