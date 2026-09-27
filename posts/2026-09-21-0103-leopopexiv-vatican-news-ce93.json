@@ -40,7 +40,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-21T05:03:54.169Z",
-  "actualizado": "2026-09-24T08:26:22.731Z",
+  "actualizado": "2026-09-27T01:17:51.378Z",
   "destinos": {
     "instagram": {
       "texto": "“I am following with great concern the humanitarian crisis unfolding in parts of Somalia, where episodes of violence and extreme weather events are worsening the already precarious living conditions of the population, particularly women and children”\n\n— Pope Leo XIV, Angelus (2026)\n\nVia Vatican News, 20 September 2026\n\n#PopeLeoXIV #Vatican #CatholicChurch\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #CatholicChurch",
@@ -53,7 +53,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-09-27T01:17:51.378Z",
+        "actualizado": "2026-09-27T01:17:51.378Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
