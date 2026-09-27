@@ -1,0 +1,52 @@
+{
+  "id": "2026-09-27-0709-sinlinea-la-prensa-6d40",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/economia/pasajes-mas-caros-el-combustible-de-aviones-se-dispara-y-presiona-a-las-aerolineas/",
+    "titulo": "¿Pasajes más caros? El combustible de aviones se dispara y presiona a las aerolíneas",
+    "publicado": "2026-09-27T05:00:00.000Z"
+  },
+  "categoria": "ECONOMÍA",
+  "titular": "Combustible de aviones se dispara y podría encarecer pasajes",
+  "bajada": "El jet fuel llegó a $194.90 por barril, alza que las aerolíneas podrían trasladar al boleto.",
+  "caption": "Si estás pensando en comprar un pasaje aéreo, esto te interesa. El combustible para aviones subió más del doble en un año, presionado por las tensiones en Medio Oriente.\n\nLas aerolíneas cubren parte del golpe con contratos anticipados, pero el impacto puede llegar tarde o temprano al bolsillo del pasajero, ya que el combustible representa hasta la mitad de sus costos operativos.\n\n¿Has notado ya cambios en el precio de tus vuelos?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Economía",
+    "#Aerolíneas",
+    "#CostoDeVida",
+    "#Combustible"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-09-27-0709-sinlinea-la-prensa-6d40.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-27-0709-sinlinea-la-prensa-6d40.jpg",
+    "hash": "827e45bdc42f54ef",
+    "version": 11,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-09-27T12:10:16.902Z"
+  },
+  "ilustracion": {
+    "descripcion": "Pista de aeropuerto con un avión comercial estacionado siendo abastecido de combustible, avión en el tercio superior derecho, zona izquierda y central despejadas, cielo despejado de fondo.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-27-0709-sinlinea-la-prensa-6d40.jpg",
+    "hashDescripcion": "6283a49723b57499",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-27T12:09:35.290Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-27T12:09:35.290Z",
+  "actualizado": "2026-09-27T12:09:35.290Z",
+  "plantilla": "foto",
+  "dato": {
+    "cifra": "$194.90",
+    "frase": "cuesta ahora el barril de combustible de aviación tras cinco semanas de aumentos"
+  }
+}

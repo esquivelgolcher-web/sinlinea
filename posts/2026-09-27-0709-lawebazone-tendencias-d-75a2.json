@@ -1,0 +1,45 @@
+{
+  "id": "2026-09-27-0709-lawebazone-tendencias-d-75a2",
+  "cuenta": "lawebazone",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Tendencias de Argentina",
+    "url": "https://tn.com.ar/sociedad/2026/09/27/tormentas-chaparrones-y-rafagas-de-hasta-50-kmh-asi-estara-el-tiempo-hoy-en-el-amba/",
+    "titulo": "clima",
+    "publicado": "2026-09-27T10:10:00.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "El AMBA otra vez con drama de tormenta y viento a 50 km/h",
+  "bajada": "Se esperan chaparrones y ráfagas fuertes durante la jornada en Buenos Aires y alrededores",
+  "caption": "Cada vez que anuncian tormenta en el AMBA es como si viniera un huracán, y termina siendo una llovizna con paraguas roto incluido. Igual ya sabemos: toca cancelar planes 'por las dudas'.",
+  "hashtags": [
+    "#AMBA",
+    "#Clima",
+    "#BuenosAires",
+    "#Humor"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-09-27-0709-lawebazone-tendencias-d-75a2.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-27-0709-lawebazone-tendencias-d-75a2.jpg",
+    "hash": "5d84052b27b283b9",
+    "version": 11,
+    "estilo": "9fd322fb9927e571",
+    "renderizada": "2026-09-27T12:10:40.104Z"
+  },
+  "ilustracion": {
+    "descripcion": "Cielo nublado sobre una avenida porteña con paraguas volando por el viento, nube oscura en el tercio superior derecho, calle despejada al frente.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-27T12:09:35.290Z",
+  "actualizado": "2026-09-27T12:09:35.290Z"
+}
