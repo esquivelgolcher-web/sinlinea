@@ -1,0 +1,44 @@
+{
+  "id": "2026-09-28-0905-lawebazone-tendencias-d-825f",
+  "cuenta": "lawebazone",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Tendencias de México",
+    "url": "https://www.nmas.com.mx/sociedad/educacion/hay-suspension-clases-sep-lunes-28-de-septiembre-2-octubre-2026-fechas-quienes-descansan/",
+    "titulo": "sep suspende clases mañana",
+    "publicado": "2026-09-28T12:00:00.000Z"
+  },
+  "categoria": "EDUCACIÓN",
+  "titular": "Suspenden clases y los papás ya están calculando el caos",
+  "bajada": "Por el mal tiempo se cancelan clases en varias zonas de México hasta el 2 de octubre",
+  "caption": "Para los chicos es la mejor noticia del año, para los papás es una semana de improvisar quién cuida a quién. El clima decide, la logística familiar sufre.",
+  "hashtags": [
+    "#sinClases",
+    "#papásEnCrisis",
+    "#lluvia"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-09-28-0905-lawebazone-tendencias-d-825f.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-28-0905-lawebazone-tendencias-d-825f.jpg",
+    "hash": "77a64726d260bbf0",
+    "version": 11,
+    "estilo": "9fd322fb9927e571",
+    "renderizada": "2026-09-28T14:07:04.151Z"
+  },
+  "ilustracion": {
+    "descripcion": "Una mochila escolar y un paraguas apoyados junto a una ventana con lluvia, ubicados en el tercio superior derecho sobre fondo despejado.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-28T14:05:23.779Z",
+  "actualizado": "2026-09-28T14:05:23.779Z"
+}

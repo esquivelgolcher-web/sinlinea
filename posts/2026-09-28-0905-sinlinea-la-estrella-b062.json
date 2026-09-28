@@ -1,0 +1,52 @@
+{
+  "id": "2026-09-28-0905-sinlinea-la-estrella-b062",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/deportes/hazana-panamena-16-medallas-y-records-en-los-suramericanos-santa-fe-2026-BH26034533",
+    "titulo": "Hazaña panameña: 16 medallas y récords en los Suramericanos Santa Fe 2026",
+    "publicado": "2026-09-28T05:00:00.000Z"
+  },
+  "categoria": "DEPORTES",
+  "titular": "Panamá logra su mejor medallero histórico en Suramericanos",
+  "bajada": "La delegación panameña sumó 16 medallas en Santa Fe 2026, su mayor cosecha desde que integra la Odesur.",
+  "caption": "Con cinco oros, tres platas y ocho bronces, los atletas panameños hicieron historia en los Juegos Suramericanos de Santa Fe 2026, superando todos los registros desde 1994. El atletismo fue la disciplina que más triunfos aportó a la delegación. Este resultado también asegura cupos para Lima 2027. ¿Cuál fue tu medalla favorita de esta edición?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Deportes",
+    "#Suramericanos2026",
+    "#Atletismo",
+    "#Lima2027"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-09-28-0905-sinlinea-la-estrella-b062.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-28-0905-sinlinea-la-estrella-b062.jpg",
+    "hash": "5ac279f21542dbfc",
+    "version": 11,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-09-28T14:05:58.155Z"
+  },
+  "ilustracion": {
+    "descripcion": "Estadio de atletismo con gradas llenas y una bandera de Panamá ondeando en el tercio superior derecho, pista despejada en el centro y la izquierda.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-28-0905-sinlinea-la-estrella-b062.jpg",
+    "hashDescripcion": "996798337af43645",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-28T14:05:23.779Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-28T14:05:23.779Z",
+  "actualizado": "2026-09-28T14:05:23.779Z",
+  "plantilla": "foto",
+  "dato": {
+    "cifra": "16 medallas",
+    "frase": "es el total logrado por Panamá, su mejor marca histórica en los Suramericanos"
+  }
+}

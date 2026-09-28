@@ -1,0 +1,52 @@
+{
+  "id": "2026-09-28-0905-sinlinea-la-estrella-3aee",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/contraloria-refrenda-obra-del-mop-con-fianza-menor-a-la-normativa-GH26033489",
+    "titulo": "Contraloría refrenda obra del MOP con fianza menor a la normativa",
+    "publicado": "2026-09-28T03:00:00.000Z"
+  },
+  "categoria": "POLÍTICA",
+  "titular": "Contraloría avala fianza menor a la exigida a obra del MOP",
+  "bajada": "Aprobaron fianza del 37% para la ampliación de la Vía España, bajo el 50% que exige la ley",
+  "caption": "La Contraloría dio luz verde a una obra millonaria del MOP con una garantía menor a la que exige la normativa, mientras ese ministerio ya enfrenta cuestionamientos por contrataciones directas. Se trata de $107.9 millones en juego para la ampliación de carriles de MiBus en la Vía España. ¿Debería la Contraloría explicar por qué aceptó una fianza inferior al mínimo legal?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Contraloría",
+    "#MOP",
+    "#ViaEspaña",
+    "#Transparencia"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-09-28-0905-sinlinea-la-estrella-3aee.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-28-0905-sinlinea-la-estrella-3aee.jpg",
+    "hash": "370a00a4827ce382",
+    "version": 2,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-09-28T14:05:53.775Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada de un edificio de gobierno panameño con banderas de Panamá, el letrero de Contraloría General en el tercio superior derecho, zona izquierda y central despejadas.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-28T14:05:23.779Z",
+  "actualizado": "2026-09-28T14:05:23.779Z",
+  "plantilla": "dato",
+  "dato": {
+    "cifra": "37%",
+    "frase": "es la fianza aprobada frente al 50% mínimo que exige la normativa"
+  }
+}

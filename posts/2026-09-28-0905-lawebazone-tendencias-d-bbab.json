@@ -1,0 +1,44 @@
+{
+  "id": "2026-09-28-0905-lawebazone-tendencias-d-bbab",
+  "cuenta": "lawebazone",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Tendencias de Argentina",
+    "url": "https://www.infobae.com/sociedad/2026/09/28/calendario-2026-cuando-es-el-proximo-feriado-en-argentina/",
+    "titulo": "feriados 2026",
+    "publicado": "2026-09-28T12:50:00.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "Todo argentino ya busca el próximo feriado",
+  "bajada": "Se conoció el calendario de feriados 2026 y arrancó la cacería del finde largo",
+  "caption": "No importa qué mes sea, el deporte nacional es abrir el calendario y calcular cuántos días quedan para el próximo feriado. Ya lo estás haciendo ahora mismo, no mientas.",
+  "hashtags": [
+    "#feriado",
+    "#calendario2026",
+    "#findeLargo"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-09-28-0905-lawebazone-tendencias-d-bbab.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-28-0905-lawebazone-tendencias-d-bbab.jpg",
+    "hash": "e6994c6251a86a64",
+    "version": 11,
+    "estilo": "9fd322fb9927e571",
+    "renderizada": "2026-09-28T14:07:03.892Z"
+  },
+  "ilustracion": {
+    "descripcion": "Un almanaque de pared con un día marcado en rojo con un círculo, colocado en el tercio superior derecho sobre un fondo despejado de oficina.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-28T14:05:23.779Z",
+  "actualizado": "2026-09-28T14:05:23.779Z"
+}
