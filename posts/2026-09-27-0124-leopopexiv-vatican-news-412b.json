@@ -1,7 +1,7 @@
 {
   "id": "2026-09-27-0124-leopopexiv-vatican-news-412b",
   "cuenta": "leopopexiv",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/pope/news/2026-09/in-lourdes-pope-leo-entrusts-france-to-the-virgin-mary.html",
@@ -39,9 +39,26 @@
     "generada": "2026-09-27T05:24:23.758Z",
     "error": null
   },
-  "programado": null,
+  "programado": "2026-09-28T09:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-27T05:24:23.758Z",
-  "actualizado": "2026-09-27T05:24:23.758Z"
+  "actualizado": "2026-09-28T08:10:10.542Z",
+  "destinos": {
+    "instagram": {
+      "texto": "Pope Leo XIV arrived in Lourdes and went directly to the Grotto of Massabielle, where he knelt in prayer before the statue of Our Lady. According to Vatican News, he asked for 'the gift of fraternal harmony' for France and entrusted to Mary the prayers of the sick and suffering, before thousands of faithful gathered at the shrine. Source: Vatican News, Sept 26, 2026.\n\nFuente: Vatican News\n\n#PopeLeoXIV #Lourdes #Vatican #CatholicChurch #France #OurLadyOfLourdes",
+      "aprobado": {
+        "fecha": "2026-09-28T08:10:10.542Z",
+        "hashPieza": "2a74b9a113d4a3a7",
+        "imagenHash": "e6e5f287311ef9ed",
+        "imagenSha": "752b6b601add40be9da2ba2c161660d2f7bbc6f2"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
