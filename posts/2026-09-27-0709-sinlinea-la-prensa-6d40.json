@@ -1,7 +1,7 @@
 {
   "id": "2026-09-27-0709-sinlinea-la-prensa-6d40",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "La Prensa",
     "url": "https://www.prensa.com/economia/pasajes-mas-caros-el-combustible-de-aviones-se-dispara-y-presiona-a-las-aerolineas/",
@@ -43,7 +43,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-27T12:09:35.290Z",
-  "actualizado": "2026-09-27T12:09:35.290Z",
+  "actualizado": "2026-09-28T08:12:34.019Z",
   "plantilla": "foto",
   "dato": {
     "cifra": "$194.90",
