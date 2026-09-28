@@ -1,7 +1,7 @@
 {
   "id": "2026-09-28-0131-leopopexiv-vatican-news-8ccb",
   "cuenta": "leopopexiv",
-  "estado": "borrador",
+  "estado": "programado",
   "formato": "frase",
   "frase": {
     "texto": "How moving it is to see the faithful people, from one generation to the next, responding with love and trust to the Virgin Mary’s tender invitation.",
@@ -36,9 +36,26 @@
     "renderizada": "2026-09-28T05:32:51.133Z"
   },
   "ilustracion": null,
-  "programado": null,
+  "programado": "2026-09-28T18:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-28T05:31:21.247Z",
-  "actualizado": "2026-09-28T05:31:21.247Z"
+  "actualizado": "2026-09-28T08:10:16.465Z",
+  "destinos": {
+    "instagram": {
+      "texto": "“How moving it is to see the faithful people, from one generation to the next, responding with love and trust to the Virgin Mary’s tender invitation.”\n\n— Pope Leo, Address at the torchlight Marian procession, Lourdes (2026)\n\nVia Vatican News, 27 September 2026\n\n#PopeLeoXIV #Vatican #CatholicChurch\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #CatholicChurch",
+      "aprobado": {
+        "fecha": "2026-09-28T08:10:16.465Z",
+        "hashPieza": "4ba08c1c43a6be42",
+        "imagenHash": "3b86d6cd92fedfa7",
+        "imagenSha": "fe3d6ec245182aaf84d110d62d15c6362f251a0c"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
