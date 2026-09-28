@@ -43,7 +43,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-27T05:24:23.758Z",
-  "actualizado": "2026-09-28T08:10:10.542Z",
+  "actualizado": "2026-09-28T19:35:40.415Z",
   "destinos": {
     "instagram": {
       "texto": "Pope Leo XIV arrived in Lourdes and went directly to the Grotto of Massabielle, where he knelt in prayer before the statue of Our Lady. According to Vatican News, he asked for 'the gift of fraternal harmony' for France and entrusted to Mary the prayers of the sick and suffering, before thousands of faithful gathered at the shrine. Source: Vatican News, Sept 26, 2026.\n\nFuente: Vatican News\n\n#PopeLeoXIV #Lourdes #Vatican #CatholicChurch #France #OurLadyOfLourdes",
@@ -56,7 +56,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-09-28T19:35:40.415Z",
+        "actualizado": "2026-09-28T19:35:40.415Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
