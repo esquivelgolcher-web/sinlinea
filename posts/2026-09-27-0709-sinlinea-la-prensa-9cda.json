@@ -1,7 +1,7 @@
 {
   "id": "2026-09-27-0709-sinlinea-la-prensa-9cda",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "La Prensa",
     "url": "https://www.prensa.com/sociedad/senacyt-advierte-riesgo-de-cierre-de-centros-de-investigacion-por-falta-de-fondos/",
@@ -43,7 +43,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-27T12:09:35.290Z",
-  "actualizado": "2026-09-27T12:09:35.290Z",
+  "actualizado": "2026-09-28T08:12:29.473Z",
   "plantilla": "dato",
   "dato": {
     "cifra": "22%",
