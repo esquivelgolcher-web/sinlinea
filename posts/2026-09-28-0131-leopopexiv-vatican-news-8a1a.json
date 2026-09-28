@@ -1,7 +1,7 @@
 {
   "id": "2026-09-28-0131-leopopexiv-vatican-news-8a1a",
   "cuenta": "leopopexiv",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/pope/news/2026-09/pope-leo-xiv-lourdes-france-encounter-abuse-victims.html",
@@ -38,9 +38,26 @@
     "generada": "2026-09-28T05:31:21.247Z",
     "error": null
   },
-  "programado": null,
+  "programado": "2026-09-28T13:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-28T05:31:21.247Z",
-  "actualizado": "2026-09-28T05:31:21.247Z"
+  "actualizado": "2026-09-28T08:10:13.718Z",
+  "destinos": {
+    "instagram": {
+      "texto": "During his visit to Lourdes, Pope Leo XIV met privately with seven survivors of clerical sexual abuse, telling them he is committed to ensuring \"this evil is not repeated\" and expressing his closeness to those carrying the wound of abuse. Source: Vatican News, Sept 27, 2026.\n\nFuente: Vatican News\n\n#PopeLeo #Lourdes #AbuseSurvivors #VaticanNews #CatholicChurch",
+      "aprobado": {
+        "fecha": "2026-09-28T08:10:13.718Z",
+        "hashPieza": "133957b4fb6dc86a",
+        "imagenHash": "a32b2d8b4f21a455",
+        "imagenSha": "ea989925c57d43e4bb603c102389af6bb26ee91d"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
