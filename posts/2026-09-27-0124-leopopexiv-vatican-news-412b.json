@@ -1,7 +1,7 @@
 {
   "id": "2026-09-27-0124-leopopexiv-vatican-news-412b",
   "cuenta": "leopopexiv",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/pope/news/2026-09/in-lourdes-pope-leo-entrusts-france-to-the-virgin-mary.html",
@@ -40,7 +40,11 @@
     "error": null
   },
   "programado": "2026-09-28T09:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "17946403497291170",
+    "permalink": "https://www.instagram.com/p/Dd18wKZFFQy/",
+    "fecha": "2026-09-28T19:35:40.415Z"
+  },
   "error": null,
   "creado": "2026-09-27T05:24:23.758Z",
   "actualizado": "2026-09-28T19:35:40.415Z",
@@ -53,16 +57,15 @@
         "imagenHash": "e6e5f287311ef9ed",
         "imagenSha": "752b6b601add40be9da2ba2c161660d2f7bbc6f2"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-09-28T19:35:40.415Z",
-        "actualizado": "2026-09-28T19:35:40.415Z",
-        "contenedorId": "18105432722081176"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "17946403497291170",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/Dd18wKZFFQy/",
+        "fecha": "2026-09-28T19:35:40.415Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
