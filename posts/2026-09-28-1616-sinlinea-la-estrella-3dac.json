@@ -1,0 +1,52 @@
+{
+  "id": "2026-09-28-1616-sinlinea-la-estrella-3dac",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/economia/canal-de-panama-eleva-a-33-los-transitos-y-el-calado-a-49-pies-por-mejores-condiciones-hidricas-NA26049352",
+    "titulo": "Canal de Panamá eleva a 33 los tránsitos y el calado a 49 pies por mejores condiciones hídricas",
+    "publicado": "2026-09-28T05:00:00.000Z"
+  },
+  "categoria": "ECONOMÍA",
+  "titular": "Canal de Panamá aumenta tránsitos y calado por lluvias favorables",
+  "bajada": "La ACP subirá a 33 los cupos diarios y a 49 pies el calado autorizado desde el 15 de octubre.",
+  "caption": "Las mejores condiciones hídricas en la cuenca del Canal permiten aumentar la capacidad de tránsito de buques, lo que representa más ingresos para el país.\n\nLa medida revierte restricciones impuestas meses atrás por la sequía y confirma que el nivel del lago Gatún se ha recuperado.\n\n¿Cree que estas medidas ayudarán a recuperar la confianza de las navieras internacionales?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#CanalDePanamá",
+    "#Economía",
+    "#ACP",
+    "#Comercio"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-09-28-1616-sinlinea-la-estrella-3dac.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-28-1616-sinlinea-la-estrella-3dac.jpg",
+    "hash": "47c309021341a8f8",
+    "version": 2,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-09-28T21:16:39.796Z"
+  },
+  "ilustracion": {
+    "descripcion": "Vista de las esclusas del Canal de Panamá con un buque de carga cruzando, el buque ubicado en el tercio superior derecho, zona izquierda y central despejada, ilustración editorial",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-28T21:16:08.372Z",
+  "actualizado": "2026-09-28T21:16:08.372Z",
+  "plantilla": "dato",
+  "dato": {
+    "cifra": "49 pies",
+    "frase": "será el calado máximo autorizado para los buques que transiten por las esclusas Neopanamax"
+  }
+}

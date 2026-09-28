@@ -1,0 +1,48 @@
+{
+  "id": "2026-09-28-1616-sinlinea-la-estrella-7774",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/economia/union-europea-podria-sacar-a-panama-de-su-lista-de-paraisos-fiscales-en-octubre-IA26047690",
+    "titulo": "Unión Europea podría sacar a Panamá de su lista de paraísos fiscales en octubre",
+    "publicado": "2026-09-28T18:28:00.000Z"
+  },
+  "categoria": "ECONOMÍA",
+  "titular": "UE evaluaría sacar a Panamá de lista de paraísos fiscales",
+  "bajada": "El bloque europeo decidiría en octubre en Luxemburgo excluir al país tras reformas de transparencia fiscal.",
+  "caption": "Panamá podría dejar atrás años de señalamientos internacionales sobre su sistema financiero. El Gobierno atribuye el posible cambio a la Ley de Sustancia Económica aprobada este año.\n\nLa salida de la lista afectaría directamente la forma en que bancos y empresas panameñas operan con contrapartes europeas.\n\n¿Cree que estas reformas realmente mejoran la transparencia del sistema financiero panameño?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#UniónEuropea",
+    "#Economía",
+    "#ParaísosFiscales",
+    "#SistemaFinanciero"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-09-28-1616-sinlinea-la-estrella-7774.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-28-1616-sinlinea-la-estrella-7774.jpg",
+    "hash": "6e540027e676beb1",
+    "version": 2,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-09-28T21:16:39.481Z"
+  },
+  "ilustracion": {
+    "descripcion": "Vista panorámica del distrito bancario de la ciudad de Panamá con edificios financieros, el elemento principal (un edificio bancario emblemático) ubicado en el tercio superior derecho, zona izquierda y central despejada, ilustración editorial",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-28T21:16:08.372Z",
+  "actualizado": "2026-09-28T21:16:08.372Z",
+  "plantilla": "titular"
+}
