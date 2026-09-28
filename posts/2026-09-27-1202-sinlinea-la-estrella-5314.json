@@ -1,7 +1,7 @@
 {
   "id": "2026-09-27-1202-sinlinea-la-estrella-5314",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "La Estrella de Panamá",
     "url": "https://www.laestrella.com.pa/panama/nacional/sicarios-en-moto-matan-a-joven-en-minisuper-de-santa-rita-IG26021009",
@@ -39,10 +39,27 @@
     "generada": null,
     "error": null
   },
-  "programado": null,
+  "programado": "2026-09-28T09:30:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-27T17:02:04.936Z",
-  "actualizado": "2026-09-27T17:02:04.936Z",
-  "plantilla": "titular"
+  "actualizado": "2026-09-28T08:11:30.679Z",
+  "plantilla": "titular",
+  "destinos": {
+    "instagram": {
+      "texto": "Un hombre fue asesinado a tiros mientras compraba comida en un minisúper del sector de Santa Rita, frente a clientes y vecinos. Los sicarios huyeron en motocicleta tras el ataque. Este hecho se suma a una serie de episodios violentos que mantienen en alerta a la ciudadanía. ¿Qué tan segura sientes tu comunidad hoy?\n\nFuente: La Estrella de Panamá\n\n#Panamá #SinLínea #Seguridad #SantaRita #Violencia #ErnestoCórdoba",
+      "aprobado": {
+        "fecha": "2026-09-28T08:11:30.679Z",
+        "hashPieza": "f48a7ffe8fc9cbd0",
+        "imagenHash": "afbeebaeafa8e5c4",
+        "imagenSha": "e585a5cbe1a854504b8ce06d460999dc29a06c58"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
