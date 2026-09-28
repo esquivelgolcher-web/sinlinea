@@ -42,7 +42,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-28T05:31:21.247Z",
-  "actualizado": "2026-09-28T08:10:13.718Z",
+  "actualizado": "2026-09-28T19:35:40.415Z",
   "destinos": {
     "instagram": {
       "texto": "During his visit to Lourdes, Pope Leo XIV met privately with seven survivors of clerical sexual abuse, telling them he is committed to ensuring \"this evil is not repeated\" and expressing his closeness to those carrying the wound of abuse. Source: Vatican News, Sept 27, 2026.\n\nFuente: Vatican News\n\n#PopeLeo #Lourdes #AbuseSurvivors #VaticanNews #CatholicChurch",
@@ -55,7 +55,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-09-28T19:35:40.415Z",
+        "actualizado": "2026-09-28T19:35:40.415Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
