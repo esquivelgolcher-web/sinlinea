@@ -1,7 +1,7 @@
 {
   "id": "2026-09-27-1202-sinlinea-la-estrella-19f1",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "La Estrella de Panamá",
     "url": "https://www.laestrella.com.pa/panama/nacional/gremios-empresariales-piden-corregir-el-rumbo-de-las-reformas-electorales-AG26021504",
@@ -39,10 +39,27 @@
     "generada": "2026-09-27T17:02:04.936Z",
     "error": null
   },
-  "programado": null,
+  "programado": "2026-09-28T07:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-27T17:02:04.936Z",
-  "actualizado": "2026-09-27T17:02:04.936Z",
-  "plantilla": "foto"
+  "actualizado": "2026-09-28T08:11:10.004Z",
+  "plantilla": "foto",
+  "destinos": {
+    "instagram": {
+      "texto": "Las reformas electorales que se debaten en la Asamblea tocan reglas clave para las elecciones de 2029: financiamiento privado, libre postulación y el rol del Tribunal Electoral. Empresarios piden que estos cambios se discutan con más participación ciudadana. ¿Debería la Asamblea abrir el debate a más sectores antes de votar?\n\nFuente: La Estrella de Panamá\n\n#Panamá #SinLínea #ReformasElectorales #Asamblea #Elecciones2029 #TribunalElectoral",
+      "aprobado": {
+        "fecha": "2026-09-28T08:11:10.004Z",
+        "hashPieza": "22a8b621c722dfd7",
+        "imagenHash": "9afde3e5b637621b",
+        "imagenSha": "dbf4c33cf02891ecb9eede24d89580f4673f5220"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
