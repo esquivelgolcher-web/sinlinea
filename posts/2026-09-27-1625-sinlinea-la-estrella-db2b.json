@@ -1,7 +1,7 @@
 {
   "id": "2026-09-27-1625-sinlinea-la-estrella-db2b",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "La Estrella de Panamá",
     "url": "https://www.laestrella.com.pa/panama/nacional/no-somos-extorsionadores-campesinos-de-rio-indio-rechazan-discurso-de-mulino-en-la-onu-FH26030467",
@@ -39,10 +39,27 @@
     "generada": null,
     "error": null
   },
-  "programado": null,
+  "programado": "2026-09-28T14:30:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-27T21:25:08.899Z",
-  "actualizado": "2026-09-27T21:25:08.899Z",
-  "plantilla": "titular"
+  "actualizado": "2026-09-28T08:12:17.302Z",
+  "plantilla": "titular",
+  "destinos": {
+    "instagram": {
+      "texto": "Cientos de campesinos de comunidades amenazadas por el proyecto de embalse de Río Indio marcharon a pie y a caballo hasta el puente de Tres Hermanas. Rechazaron las declaraciones del presidente Mulino en la ONU y denunciaron infiltración de agentes encubiertos en sus reuniones. El conflicto por el agua y la tierra sigue sin resolverse. ¿Qué opinas del manejo de este proyecto por parte del Gobierno?\n\nFuente: La Estrella de Panamá\n\n#Panamá #SinLínea #RíoIndio #ACP #Campesinos #Mulino",
+      "aprobado": {
+        "fecha": "2026-09-28T08:12:17.302Z",
+        "hashPieza": "a0346c0d1baa44ef",
+        "imagenHash": "7d5ef7df9f3476cd",
+        "imagenSha": "a22a2b5df126fda8137d9c124a95ac491840f34c"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
