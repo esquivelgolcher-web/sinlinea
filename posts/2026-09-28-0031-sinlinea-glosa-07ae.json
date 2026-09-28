@@ -1,0 +1,49 @@
+{
+  "id": "2026-09-28-0031-sinlinea-glosa-07ae",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "formato": "glosa",
+  "glosa": {
+    "versos": [
+      "Por cursar enfermería,",
+      "dejan su oficio brincando;",
+      "el bisturí va quedando",
+      "solo, como hasta este día."
+    ],
+    "esquema": "ABBA",
+    "sobre": {
+      "id": "2026-09-27-1625-sinlinea-la-estrella-c9f4",
+      "titular": "Instrumentadores quirúrgicos amenazan con paro nacional"
+    }
+  },
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/instrumentadores-quirurgicos-amenazan-con-paro-nacional-por-acuerdo-css-udelas-DG26026014",
+    "titulo": "Instrumentadores quirúrgicos amenazan con paro nacional por acuerdo CSS-UDELAS",
+    "publicado": "2026-09-27T16:07:00.000Z"
+  },
+  "categoria": "SALUD",
+  "titular": "Por cursar enfermería,",
+  "bajada": "Sobre: Instrumentadores quirúrgicos amenazan con paro nacional",
+  "caption": "Por cursar enfermería,\ndejan su oficio brincando;\nel bisturí va quedando\nsolo, como hasta este día.\n\nSobre: Instrumentadores quirúrgicos amenazan con paro nacional · La Estrella de Panamá\n\n#Panamá #Glosa #LaGarzaMaría",
+  "hashtags": [
+    "#Panamá",
+    "#Glosa",
+    "#LaGarzaMaría"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-09-28-0031-sinlinea-glosa-07ae.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-28-0031-sinlinea-glosa-07ae.jpg",
+    "hash": "946193915d1af633",
+    "version": 1,
+    "estilo": "df55592d998f5ba3",
+    "renderizada": "2026-09-28T05:32:20.561Z"
+  },
+  "ilustracion": null,
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-28T05:31:21.247Z",
+  "actualizado": "2026-09-28T05:31:21.247Z"
+}

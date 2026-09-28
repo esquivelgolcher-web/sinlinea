@@ -1,0 +1,46 @@
+{
+  "id": "2026-09-28-0131-leopopexiv-vatican-news-8a1a",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-09/pope-leo-xiv-lourdes-france-encounter-abuse-victims.html",
+    "titulo": "Pope to abuse victims: I am committed to ensuring this evil is not repeated",
+    "publicado": "2026-09-27T18:38:00.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "Pope Leo meets abuse victims in Lourdes",
+  "bajada": "He vows the Church will work to ensure such harm is never repeated",
+  "caption": "During his visit to Lourdes, Pope Leo XIV met privately with seven survivors of clerical sexual abuse, telling them he is committed to ensuring \"this evil is not repeated\" and expressing his closeness to those carrying the wound of abuse. Source: Vatican News, Sept 27, 2026.",
+  "hashtags": [
+    "#PopeLeo",
+    "#Lourdes",
+    "#AbuseSurvivors",
+    "#VaticanNews",
+    "#CatholicChurch"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-09-28-0131-leopopexiv-vatican-news-8a1a.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-28-0131-leopopexiv-vatican-news-8a1a.jpg",
+    "hash": "a32b2d8b4f21a455",
+    "version": 11,
+    "estilo": "32cba508d6c2290e",
+    "renderizada": "2026-09-28T05:32:46.598Z"
+  },
+  "ilustracion": {
+    "descripcion": "A quiet chapel corridor at the Lourdes shrine, soft candlelight, empty wooden pews in the foreground, a solitary figure in white papal vestments seen from behind in the upper right, walking toward a small side room.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-28-0131-leopopexiv-vatican-news-8a1a.jpg",
+    "hashDescripcion": "f6cc03ac73bcafe6",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-28T05:31:21.247Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-28T05:31:21.247Z",
+  "actualizado": "2026-09-28T05:31:21.247Z"
+}

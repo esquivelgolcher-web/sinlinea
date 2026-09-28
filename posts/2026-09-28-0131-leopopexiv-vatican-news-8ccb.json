@@ -1,0 +1,44 @@
+{
+  "id": "2026-09-28-0131-leopopexiv-vatican-news-8ccb",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "formato": "frase",
+  "frase": {
+    "texto": "How moving it is to see the faithful people, from one generation to the next, responding with love and trust to the Virgin Mary’s tender invitation.",
+    "autor": "Pope Leo",
+    "fuente": "Address at the torchlight Marian procession, Lourdes",
+    "anio": 2026,
+    "url": "https://www.vaticannews.va/en/pope/news/2026-09/pope-leo-xiv-candlelit-procession-lourdes-prayer.html",
+    "origen": "texto"
+  },
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-09/pope-leo-xiv-candlelit-procession-lourdes-prayer.html",
+    "titulo": "Pope Leo a 'pilgrim among pilgrims' in Lourdes - Vatican News",
+    "publicado": "2026-09-27T22:38:51.742+02:00"
+  },
+  "categoria": "CULTURA",
+  "titular": "Pope Leo",
+  "bajada": "Address at the torchlight Marian procession, Lourdes · 2026",
+  "caption": "“How moving it is to see the faithful people, from one generation to the next, responding with love and trust to the Virgin Mary’s tender invitation.”\n\n— Pope Leo, Address at the torchlight Marian procession, Lourdes (2026)\n\nVia Vatican News, 27 September 2026\n\n#PopeLeoXIV #Vatican #CatholicChurch",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Vatican",
+    "#CatholicChurch"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-09-28-0131-leopopexiv-vatican-news-8ccb.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-28-0131-leopopexiv-vatican-news-8ccb.jpg",
+    "hash": "3b86d6cd92fedfa7",
+    "version": 1,
+    "estilo": "28c21995920a45b7",
+    "renderizada": "2026-09-28T05:32:51.133Z"
+  },
+  "ilustracion": null,
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-28T05:31:21.247Z",
+  "actualizado": "2026-09-28T05:31:21.247Z"
+}
