@@ -1,7 +1,7 @@
 {
   "id": "2026-09-27-1625-sinlinea-la-estrella-c9f4",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "La Estrella de Panamá",
     "url": "https://www.laestrella.com.pa/panama/nacional/instrumentadores-quirurgicos-amenazan-con-paro-nacional-por-acuerdo-css-udelas-DG26026014",
@@ -39,10 +39,27 @@
     "generada": "2026-09-27T21:25:08.899Z",
     "error": null
   },
-  "programado": null,
+  "programado": "2026-09-28T12:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-27T21:25:08.899Z",
-  "actualizado": "2026-09-27T21:25:08.899Z",
-  "plantilla": "foto"
+  "actualizado": "2026-09-28T08:11:48.673Z",
+  "plantilla": "foto",
+  "destinos": {
+    "instagram": {
+      "texto": "Un paro de instrumentadores quirúrgicos podría afectar cirugías en hospitales públicos y privados de todo el país. El gremio dice que el acuerdo CSS-UDELAS los obliga a cursar una carrera técnica en pocas semanas, bajo amenaza de perder su trabajo. La presidenta del gremio ya prepara una demanda. ¿Debe la CSS revisar este acuerdo antes de que afecte a los pacientes?\n\nFuente: La Estrella de Panamá\n\n#Panamá #SinLínea #CSS #Salud #HuelgaMédica #UDELAS",
+      "aprobado": {
+        "fecha": "2026-09-28T08:11:48.673Z",
+        "hashPieza": "ce355a347f16fe5e",
+        "imagenHash": "e5f06340a4c1109a",
+        "imagenSha": "1ce8324408dba102ff286d583791a23a3281c6ae"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
