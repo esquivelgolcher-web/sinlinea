@@ -1,7 +1,7 @@
 {
   "id": "2026-09-29-0555-leopopexiv-vatican-news-4120",
   "cuenta": "leopopexiv",
-  "estado": "borrador",
+  "estado": "programado",
   "formato": "frase",
   "frase": {
     "texto": "There's a particular responsibility of the Church to walk with them and to help them seek healing.",
@@ -36,9 +36,26 @@
     "renderizada": "2026-09-29T09:58:03.380Z"
   },
   "ilustracion": null,
-  "programado": null,
+  "programado": "2026-09-29T09:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-29T09:55:43.490Z",
-  "actualizado": "2026-09-29T09:55:43.490Z"
+  "actualizado": "2026-09-29T12:38:33.922Z",
+  "destinos": {
+    "instagram": {
+      "texto": "“There's a particular responsibility of the Church to walk with them and to help them seek healing.”\n\n— Pope Leo XIV, In-flight press conference from France to Rome (2026)\n\nVia Vatican News, 28 September 2026\n\n#PopeLeoXIV #Vatican #CatholicChurch\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #CatholicChurch",
+      "aprobado": {
+        "fecha": "2026-09-29T12:38:33.922Z",
+        "hashPieza": "929c9fe0fec871ca",
+        "imagenHash": "9bdf7d30bd79a442",
+        "imagenSha": "55b5741193e1b66f8c3e5598eaa99e4d0cd79f3e"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
