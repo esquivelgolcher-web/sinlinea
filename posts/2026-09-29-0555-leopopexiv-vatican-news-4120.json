@@ -1,7 +1,7 @@
 {
   "id": "2026-09-29-0555-leopopexiv-vatican-news-4120",
   "cuenta": "leopopexiv",
-  "estado": "programado",
+  "estado": "publicado",
   "formato": "frase",
   "frase": {
     "texto": "There's a particular responsibility of the Church to walk with them and to help them seek healing.",
@@ -37,7 +37,11 @@
   },
   "ilustracion": null,
   "programado": "2026-09-29T09:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "18112451486152407",
+    "permalink": "https://www.instagram.com/p/Dd4cesEmT6U/",
+    "fecha": "2026-09-29T18:51:21.707Z"
+  },
   "error": null,
   "creado": "2026-09-29T09:55:43.490Z",
   "actualizado": "2026-09-29T18:51:21.707Z",
@@ -50,16 +54,15 @@
         "imagenHash": "9bdf7d30bd79a442",
         "imagenSha": "55b5741193e1b66f8c3e5598eaa99e4d0cd79f3e"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-09-29T18:51:21.707Z",
-        "actualizado": "2026-09-29T18:51:21.707Z",
-        "contenedorId": "18105637772081176"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18112451486152407",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/Dd4cesEmT6U/",
+        "fecha": "2026-09-29T18:51:21.707Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
