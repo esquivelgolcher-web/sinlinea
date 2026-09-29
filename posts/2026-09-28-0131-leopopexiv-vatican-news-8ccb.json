@@ -1,7 +1,7 @@
 {
   "id": "2026-09-28-0131-leopopexiv-vatican-news-8ccb",
   "cuenta": "leopopexiv",
-  "estado": "programado",
+  "estado": "publicado",
   "formato": "frase",
   "frase": {
     "texto": "How moving it is to see the faithful people, from one generation to the next, responding with love and trust to the Virgin Mary’s tender invitation.",
@@ -37,7 +37,11 @@
   },
   "ilustracion": null,
   "programado": "2026-09-28T18:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "18059873720788182",
+    "permalink": "https://www.instagram.com/p/Dd2dO0PGjwd/",
+    "fecha": "2026-09-29T00:19:27.419Z"
+  },
   "error": null,
   "creado": "2026-09-28T05:31:21.247Z",
   "actualizado": "2026-09-29T00:19:27.419Z",
@@ -50,16 +54,15 @@
         "imagenHash": "3b86d6cd92fedfa7",
         "imagenSha": "fe3d6ec245182aaf84d110d62d15c6362f251a0c"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-09-29T00:19:27.419Z",
-        "actualizado": "2026-09-29T00:19:27.419Z",
-        "contenedorId": "18105465884081176"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18059873720788182",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/Dd2dO0PGjwd/",
+        "fecha": "2026-09-29T00:19:27.419Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
