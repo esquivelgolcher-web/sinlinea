@@ -1,7 +1,7 @@
 {
   "id": "2026-09-29-0555-leopopexiv-vatican-news-ce73",
   "cuenta": "leopopexiv",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/pope/news/2026-09/pope-leo-xiv-press-conference-apostolic-journey-france.html",
@@ -38,9 +38,26 @@
     "generada": "2026-09-29T09:55:43.490Z",
     "error": null
   },
-  "programado": null,
+  "programado": "2026-09-29T09:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-29T09:55:43.490Z",
-  "actualizado": "2026-09-29T09:55:43.490Z"
+  "actualizado": "2026-09-29T12:38:36.105Z",
+  "destinos": {
+    "instagram": {
+      "texto": "Aboard the flight from Metz to Rome, Pope Leo XIV told journalists that wars are senseless and urged Russia and Ukraine to sit down and talk. He said the Church 'continues to raise her voice in proclaiming the Gospel,' adding that while a few grow rich from the arms industry, those billions could instead solve problems like world hunger. Source: Vatican News, Sept. 28, 2026.\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #Peace #RussiaUkraine #CatholicChurch",
+      "aprobado": {
+        "fecha": "2026-09-29T12:38:36.105Z",
+        "hashPieza": "4766a52eb3c041d0",
+        "imagenHash": "86cfce936ceb4d09",
+        "imagenSha": "613824320ef68b022a512565f5eb487e12f5ee03"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
