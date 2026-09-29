@@ -1,0 +1,49 @@
+{
+  "id": "2026-09-29-0455-sinlinea-glosa-2849",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "formato": "glosa",
+  "glosa": {
+    "versos": [
+      "La Contraloría avala",
+      "una fianza que no alcanza;",
+      "sin fianza no hay confianza,",
+      "mientras el MOP se resbala."
+    ],
+    "esquema": "ABBA",
+    "sobre": {
+      "id": "2026-09-28-0905-sinlinea-la-estrella-3aee",
+      "titular": "Contraloría avala fianza menor a la exigida a obra del MOP"
+    }
+  },
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/contraloria-refrenda-obra-del-mop-con-fianza-menor-a-la-normativa-GH26033489",
+    "titulo": "Contraloría refrenda obra del MOP con fianza menor a la normativa",
+    "publicado": "2026-09-28T03:00:00.000Z"
+  },
+  "categoria": "POLÍTICA",
+  "titular": "La Contraloría avala",
+  "bajada": "Sobre: Contraloría avala fianza menor a la exigida a obra del MOP",
+  "caption": "La Contraloría avala\nuna fianza que no alcanza;\nsin fianza no hay confianza,\nmientras el MOP se resbala.\n\nSobre: Contraloría avala fianza menor a la exigida a obra del MOP · La Estrella de Panamá\n\n#Panamá #Glosa #LaGarzaMaría",
+  "hashtags": [
+    "#Panamá",
+    "#Glosa",
+    "#LaGarzaMaría"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-09-29-0455-sinlinea-glosa-2849.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-29-0455-sinlinea-glosa-2849.jpg",
+    "hash": "5a56236bbe6afeb1",
+    "version": 1,
+    "estilo": "df55592d998f5ba3",
+    "renderizada": "2026-09-29T09:57:34.353Z"
+  },
+  "ilustracion": null,
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-29T09:55:43.490Z",
+  "actualizado": "2026-09-29T09:55:43.490Z"
+}

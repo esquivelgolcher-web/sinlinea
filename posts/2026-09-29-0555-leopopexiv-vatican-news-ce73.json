@@ -1,0 +1,46 @@
+{
+  "id": "2026-09-29-0555-leopopexiv-vatican-news-ce73",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-09/pope-leo-xiv-press-conference-apostolic-journey-france.html",
+    "titulo": "Pope: Wars are senseless; Russia and Ukraine should sit down to talk",
+    "publicado": "2026-09-28T20:00:00.000Z"
+  },
+  "categoria": "INTERNACIONAL",
+  "titular": "Pope Leo XIV urges Russia and Ukraine to talk",
+  "bajada": "Speaking to reporters after his France trip, he called war senseless and criticized arms profits",
+  "caption": "Aboard the flight from Metz to Rome, Pope Leo XIV told journalists that wars are senseless and urged Russia and Ukraine to sit down and talk. He said the Church 'continues to raise her voice in proclaiming the Gospel,' adding that while a few grow rich from the arms industry, those billions could instead solve problems like world hunger. Source: Vatican News, Sept. 28, 2026.",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Vatican",
+    "#Peace",
+    "#RussiaUkraine",
+    "#CatholicChurch"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-09-29-0555-leopopexiv-vatican-news-ce73.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-29-0555-leopopexiv-vatican-news-ce73.jpg",
+    "hash": "86cfce936ceb4d09",
+    "version": 11,
+    "estilo": "32cba508d6c2290e",
+    "renderizada": "2026-09-29T09:57:59.196Z"
+  },
+  "ilustracion": {
+    "descripcion": "A dove and an olive branch rest on a wooden table beside a small globe, soft natural light, with a subtle airplane window silhouette in the upper right corner; left and center areas remain open and uncluttered.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-29-0555-leopopexiv-vatican-news-ce73.jpg",
+    "hashDescripcion": "5f97c39e5f9fa590",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-29T09:55:43.490Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-29T09:55:43.490Z",
+  "actualizado": "2026-09-29T09:55:43.490Z"
+}
