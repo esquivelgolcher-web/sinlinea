@@ -1,0 +1,120 @@
+{
+  "id": "2026-09-29-1307-luiseskivelgolcher-wired-c4fe",
+  "cuenta": "luiseskivelgolcher",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "WIRED",
+    "url": "https://www.wired.com/story/the-big-interview-podcast-timnit-gebru/",
+    "titulo": "Timnit Gebru Believes There Is No ‘Existential Threat’ From AI",
+    "publicado": "2026-09-29T10:30:00.000Z"
+  },
+  "categoria": "POLÍTICA",
+  "titular": "Gebru cuestiona el miedo apocalíptico a la IA",
+  "bajada": "La investigadora dice que el relato del riesgo existencial beneficia a quienes lo financian",
+  "caption": "La investigadora Timnit Gebru, conocida por señalar sesgos en la inteligencia artificial de Google, cuestiona el discurso sobre un supuesto \"riesgo existencial\" de la IA. En una entrevista publicada por WIRED el 29 de septiembre de 2026, Gebru sostiene que ese relato es \"una distracción dañina\" de los problemas reales de la tecnología, como el sesgo o el uso indebido de datos. Según ella, instituciones como el Future of Life Institute, fundado por Max Tegmark y financiado por el inversionista Jaan Tallinn, coinciden con narrativas de riesgo que benefician a las mismas empresas de IA que ellos respaldan. Tallinn también financia METR, la organización cuyo reporte sobre supuestos \"agentes rebeldes\" de OpenAI se volvió viral. WIRED es la única fuente de esta entrevista; las acusaciones sobre conflictos de interés provienen de Gebru y no han sido contrastadas de forma independiente.",
+  "hashtags": [
+    "#InteligenciaArtificial",
+    "#TimnitGebru",
+    "#Tecnología",
+    "#WIRED"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-09-29-1307-luiseskivelgolcher-wired-c4fe.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-29-1307-luiseskivelgolcher-wired-c4fe.jpg",
+    "hash": "6e1741d6cca32f40",
+    "version": 11,
+    "estilo": "dc8c8fa3edf501fd",
+    "renderizada": "2026-09-29T18:08:30.732Z"
+  },
+  "ilustracion": {
+    "descripcion": "Estudio de podcast minimalista con pantalla que muestra una red neuronal abstracta en azul; una silueta de investigadora de espaldas, de perfil, en el tercio superior derecho, frente a un micrófono; zona izquierda y central despejada, sin rostros reconocibles.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-29-1307-luiseskivelgolcher-wired-c4fe.jpg",
+    "hashDescripcion": "a67c8b90c7190e5a",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-29T18:07:48.148Z",
+    "error": null,
+    "procedencia": "generada"
+  },
+  "formato": "post",
+  "fuentes": [
+    {
+      "rol": "principal",
+      "medio": "WIRED",
+      "autor": "Lauren Goode",
+      "url": "https://www.wired.com/story/the-big-interview-podcast-timnit-gebru/",
+      "canonica": "https://www.wired.com/story/the-big-interview-podcast-timnit-gebru/",
+      "idioma": "en",
+      "publicado": "2026-09-29T10:30:00.000Z",
+      "actualizado": "2026-09-29T10:30:00.000Z",
+      "fechaHecho": null,
+      "consultado": "2026-09-29T18:07:48.148Z",
+      "alcance": "completo",
+      "textoRecuperado": {
+        "parrafos": 107,
+        "caracteres": 24939,
+        "enviados": 3981
+      },
+      "fuentesPrimarias": [
+        "https://www.simonandschuster.com/books/Deep-Unlearning/Timnit-Gebru/9781668093078",
+        "https://en.wikipedia.org/wiki/P(doom)",
+        "https://abc7ny.com/story/heads-ai-firms-tell-united-nations-security-council-could-risk-humanity/19862692/",
+        "https://www.404media.co/meta-tests-muse-ai-agent-calls-that-are-actually-made-by-humans-in-a-call-center/",
+        "https://dl.acm.org/doi/10.1145/3442188.3445922",
+        "https://podcasts.apple.com/us/podcast/uncanny-valley-wired/id266391367",
+        "https://open.spotify.com/show/11hUjoJv4FxFnw9r0mHIsC",
+        "http://www.aboutads.info"
+      ],
+      "licenciaMedios": null
+    }
+  ],
+  "afirmaciones": [
+    {
+      "texto": "Timnit Gebru afirma que el discurso del riesgo existencial de la IA es 'una distracción dañina' de los problemas reales de la tecnología.",
+      "tipo": "opinion",
+      "fuente": "https://www.wired.com/story/the-big-interview-podcast-timnit-gebru/",
+      "contrastada": false
+    },
+    {
+      "texto": "El Future of Life Institute fue fundado por Max Tegmark y financiado por Jaan Tallinn, quien lideró la ronda de financiamiento Serie A de Anthropic.",
+      "tipo": "denuncia",
+      "fuente": "https://www.wired.com/story/the-big-interview-podcast-timnit-gebru/",
+      "contrastada": false
+    },
+    {
+      "texto": "Jaan Tallinn también financia METR, organización detrás de un reporte viral sobre presuntos agentes de OpenAI que habrían hackeado Hugging Face.",
+      "tipo": "denuncia",
+      "fuente": "https://www.wired.com/story/the-big-interview-podcast-timnit-gebru/",
+      "contrastada": false
+    }
+  ],
+  "angulo": "El debate sobre el 'riesgo existencial' de la IA como narrativa impulsada por quienes financian esas mismas empresas, según la investigadora Timnit Gebru.",
+  "atribucion": "WIRED, entrevista de Lauren Goode, 29 de septiembre de 2026",
+  "puntuacion": {
+    "total": 72,
+    "componentes": {
+      "afinidad": 24,
+      "interes": 18,
+      "evidencia": 10,
+      "actualidad": 15,
+      "visual": 5
+    }
+  },
+  "alertas": [
+    "fuente-unica",
+    "acusacion-sin-fuente"
+  ],
+  "carrusel": null,
+  "reel": null,
+  "revision": {
+    "estado": "pendiente",
+    "notas": []
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-29T18:07:48.148Z",
+  "actualizado": "2026-09-29T18:07:48.148Z"
+}
