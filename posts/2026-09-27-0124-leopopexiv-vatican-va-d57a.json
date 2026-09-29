@@ -40,7 +40,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-27T05:24:23.758Z",
-  "actualizado": "2026-09-29T12:38:38.232Z",
+  "actualizado": "2026-09-29T18:51:21.707Z",
   "destinos": {
     "instagram": {
       "texto": "“I prefer a Church which is bruised, hurting and dirty because it has been out on the streets, rather than a Church which is unhealthy from being confined and from clinging to its own security.”\n\n— Pope Francis, Evangelii gaudium, 49 (2013)\n\n#PopeLeoXIV #Vatican #CatholicChurch\n\nFuente: Vatican.va\n\n#PopeLeoXIV #Vatican #CatholicChurch",
@@ -53,7 +53,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-09-29T18:51:21.707Z",
+        "actualizado": "2026-09-29T18:51:21.707Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
