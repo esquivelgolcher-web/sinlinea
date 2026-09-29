@@ -1,7 +1,7 @@
 {
   "id": "2026-09-29-0555-leopopexiv-vatican-news-ce73",
   "cuenta": "leopopexiv",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/pope/news/2026-09/pope-leo-xiv-press-conference-apostolic-journey-france.html",
@@ -39,7 +39,11 @@
     "error": null
   },
   "programado": "2026-09-29T09:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "18121297345820088",
+    "permalink": "https://www.instagram.com/p/Dd4cg7jGQcH/",
+    "fecha": "2026-09-29T18:51:21.707Z"
+  },
   "error": null,
   "creado": "2026-09-29T09:55:43.490Z",
   "actualizado": "2026-09-29T18:51:21.707Z",
@@ -52,16 +56,15 @@
         "imagenHash": "86cfce936ceb4d09",
         "imagenSha": "613824320ef68b022a512565f5eb487e12f5ee03"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-09-29T18:51:21.707Z",
-        "actualizado": "2026-09-29T18:51:21.707Z",
-        "contenedorId": "18105637805081176"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18121297345820088",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/Dd4cg7jGQcH/",
+        "fecha": "2026-09-29T18:51:21.707Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
