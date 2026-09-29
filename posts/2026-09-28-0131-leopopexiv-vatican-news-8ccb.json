@@ -40,7 +40,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-28T05:31:21.247Z",
-  "actualizado": "2026-09-28T08:10:16.465Z",
+  "actualizado": "2026-09-29T00:19:27.419Z",
   "destinos": {
     "instagram": {
       "texto": "“How moving it is to see the faithful people, from one generation to the next, responding with love and trust to the Virgin Mary’s tender invitation.”\n\n— Pope Leo, Address at the torchlight Marian procession, Lourdes (2026)\n\nVia Vatican News, 27 September 2026\n\n#PopeLeoXIV #Vatican #CatholicChurch\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #CatholicChurch",
@@ -53,7 +53,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-09-29T00:19:27.419Z",
+        "actualizado": "2026-09-29T00:19:27.419Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
