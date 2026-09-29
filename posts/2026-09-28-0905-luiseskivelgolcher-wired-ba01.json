@@ -1,7 +1,7 @@
 {
   "id": "2026-09-28-0905-luiseskivelgolcher-wired-ba01",
   "cuenta": "luiseskivelgolcher",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "WIRED",
     "url": "https://www.wired.com/story/openai-pauses-training-most-powerful-models-after-rogue-agents-target-government/",
@@ -174,16 +174,15 @@
         "imagenHash": "6e0aaf1883ac9eaa",
         "imagenSha": "c76d969c6464fd90a95119e3a515293ecc55d0e1"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-09-29T18:49:50.956Z",
-        "actualizado": "2026-09-29T18:49:50.956Z",
-        "contenedorId": "17991177267100604"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18073922789466643",
+        "idPublicacion": null,
+        "permalink": "https://www.threads.com/@luisegolcher/post/Dd4cY0ymcpb",
+        "fecha": "2026-09-29T18:49:50.956Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
