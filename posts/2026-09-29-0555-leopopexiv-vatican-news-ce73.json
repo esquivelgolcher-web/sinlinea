@@ -42,7 +42,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-29T09:55:43.490Z",
-  "actualizado": "2026-09-29T12:38:36.105Z",
+  "actualizado": "2026-09-29T18:51:21.707Z",
   "destinos": {
     "instagram": {
       "texto": "Aboard the flight from Metz to Rome, Pope Leo XIV told journalists that wars are senseless and urged Russia and Ukraine to sit down and talk. He said the Church 'continues to raise her voice in proclaiming the Gospel,' adding that while a few grow rich from the arms industry, those billions could instead solve problems like world hunger. Source: Vatican News, Sept. 28, 2026.\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #Peace #RussiaUkraine #CatholicChurch",
@@ -55,7 +55,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-09-29T18:51:21.707Z",
+        "actualizado": "2026-09-29T18:51:21.707Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
