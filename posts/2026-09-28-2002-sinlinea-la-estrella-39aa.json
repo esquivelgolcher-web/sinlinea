@@ -1,0 +1,52 @@
+{
+  "id": "2026-09-28-2002-sinlinea-la-estrella-39aa",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/metro-de-panama-y-doppelmayr-firman-contrato-para-construir-el-teleferico-de-panama-y-san-miguelito-JB26057781",
+    "titulo": "Metro de Panamá y Doppelmayr firman contrato para construir el Teleférico de Panamá y San Miguelito",
+    "publicado": "2026-09-28T20:06:00.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "Firman contrato para el teleférico de San Miguelito",
+  "bajada": "Metro de Panamá y Doppelmayr formalizan el proyecto que unirá seis estaciones en 6.6 kilómetros.",
+  "caption": "El contrato para construir el teleférico de Panamá y San Miguelito ya está firmado y pasará a la Contraloría para su refrendo. El sistema busca aliviar la movilidad de miles de residentes que hoy pierden horas en el tráfico. Se conectará con la Línea 2 del Metro y la red de transporte masivo. ¿Crees que este proyecto mejorará realmente tu traslado diario?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Teleférico",
+    "#SanMiguelito",
+    "#Movilidad",
+    "#MetroDePanamá"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-09-28-2002-sinlinea-la-estrella-39aa.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-28-2002-sinlinea-la-estrella-39aa.jpg",
+    "hash": "36166dc3ce33ff61",
+    "version": 2,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-09-29T01:03:16.892Z"
+  },
+  "ilustracion": {
+    "descripcion": "Vista de una estación de teleférico en construcción sobre un cerro de San Miguelito, con cabinas suspendidas en el tercio superior derecho; la zona izquierda y central del cielo despejadas.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-29T01:02:38.500Z",
+  "actualizado": "2026-09-29T01:02:38.500Z",
+  "plantilla": "dato",
+  "dato": {
+    "cifra": "6.6 km",
+    "frase": "medirá el sistema de teleférico con seis estaciones"
+  }
+}

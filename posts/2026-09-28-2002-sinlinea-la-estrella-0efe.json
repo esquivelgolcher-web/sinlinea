@@ -1,0 +1,52 @@
+{
+  "id": "2026-09-28-2002-sinlinea-la-estrella-0efe",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/economia/deuda-publica-de-panama-alcanzara-62-mil-millones-en-2026-y-64-mil-millones-en-2027-segun-mef-OB26055913",
+    "titulo": "Deuda pública de Panamá alcanzará $62 mil millones en 2026 y $64 mil millones en 2027, según MEF",
+    "publicado": "2026-09-28T21:40:00.000Z"
+  },
+  "categoria": "ECONOMÍA",
+  "titular": "Deuda pública de Panamá seguirá subiendo hasta 2027",
+  "bajada": "El MEF proyecta que el ritmo de crecimiento de la deuda se desacelerará en los próximos años.",
+  "caption": "El ministro de Economía, Felipe Chapman, reconoció ante la Asamblea que la deuda pública seguirá creciendo mientras exista déficit fiscal. La cifra pasó de $53,737 millones en 2024 a $61,526 millones a junio de 2026. El Gobierno dice que busca frenar ese ritmo, pero no hay fecha para lograrlo. ¿Confías en que el plan del MEF controle la deuda del país?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Economía",
+    "#DeudaPública",
+    "#MEF",
+    "#Asamblea"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-09-28-2002-sinlinea-la-estrella-0efe.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-28-2002-sinlinea-la-estrella-0efe.jpg",
+    "hash": "58ffa2b58b663e27",
+    "version": 11,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-09-29T01:03:21.706Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada del Ministerio de Economía y Finanzas de Panamá bajo un cielo despejado, con un funcionario en traje formal en el tercio superior derecho; zona izquierda y central despejadas.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-28-2002-sinlinea-la-estrella-0efe.jpg",
+    "hashDescripcion": "d7427b93b8092101",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-29T01:02:38.500Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-29T01:02:38.500Z",
+  "actualizado": "2026-09-29T01:02:38.500Z",
+  "plantilla": "foto",
+  "dato": {
+    "cifra": "$61,526 M",
+    "frase": "era el saldo de la deuda pública a junio de 2026"
+  }
+}
