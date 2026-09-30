@@ -1,7 +1,7 @@
 {
   "id": "2026-09-30-0139-leopopexiv-vatican-news-f04e",
   "cuenta": "leopopexiv",
-  "estado": "programado",
+  "estado": "publicado",
   "formato": "frase",
   "frase": {
     "texto": "transparency, integrity and accountability in economic and financial activities are indispensable elements of good administration and service to the common good",
@@ -37,7 +37,11 @@
   },
   "ilustracion": null,
   "programado": "2026-09-30T09:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "17994145596039742",
+    "permalink": "https://www.instagram.com/p/Dd6oRF-kYio/",
+    "fecha": "2026-09-30T15:12:31.996Z"
+  },
   "error": null,
   "creado": "2026-09-30T05:39:33.862Z",
   "actualizado": "2026-09-30T15:12:31.996Z",
@@ -50,16 +54,15 @@
         "imagenHash": "ac33cd913a6d7b03",
         "imagenSha": "d948404c676417310484853bcf3f700fae0463e1"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-09-30T15:12:31.996Z",
-        "actualizado": "2026-09-30T15:12:31.996Z",
-        "contenedorId": "18105806138081176"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "17994145596039742",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/Dd6oRF-kYio/",
+        "fecha": "2026-09-30T15:12:31.996Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
