@@ -1,7 +1,7 @@
 {
   "id": "2026-09-28-1616-sinlinea-la-estrella-7774",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "La Estrella de Panamá",
     "url": "https://www.laestrella.com.pa/economia/union-europea-podria-sacar-a-panama-de-su-lista-de-paraisos-fiscales-en-octubre-IA26047690",
@@ -43,6 +43,6 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-28T21:16:08.372Z",
-  "actualizado": "2026-09-28T21:16:08.372Z",
+  "actualizado": "2026-09-30T11:19:56.404Z",
   "plantilla": "titular"
 }
