@@ -1,7 +1,7 @@
 {
   "id": "2026-09-28-0905-sinlinea-la-estrella-b062",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "La Estrella de Panamá",
     "url": "https://www.laestrella.com.pa/deportes/hazana-panamena-16-medallas-y-records-en-los-suramericanos-santa-fe-2026-BH26034533",
@@ -43,7 +43,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-28T14:05:23.779Z",
-  "actualizado": "2026-09-28T14:05:23.779Z",
+  "actualizado": "2026-09-30T11:19:49.454Z",
   "plantilla": "foto",
   "dato": {
     "cifra": "16 medallas",
