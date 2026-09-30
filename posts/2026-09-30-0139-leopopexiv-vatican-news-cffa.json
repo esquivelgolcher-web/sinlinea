@@ -42,7 +42,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-30T05:39:33.862Z",
-  "actualizado": "2026-09-30T11:19:37.086Z",
+  "actualizado": "2026-09-30T15:12:31.996Z",
   "destinos": {
     "instagram": {
       "texto": "Vatican tribunals have determined with 'moral certainty' that the late Argentine priest Carlos Miguel Buela, founder of the Institutes of the Incarnate Word, committed abuse against several people, in violation of Church law. Source: Vatican News, Sept 29, 2026.\n\nFuente: Vatican News\n\n#Vatican #CatholicChurch #AbuseInquiry #HolySee #ChurchReform",
@@ -55,7 +55,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-09-30T15:12:31.996Z",
+        "actualizado": "2026-09-30T15:12:31.996Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
