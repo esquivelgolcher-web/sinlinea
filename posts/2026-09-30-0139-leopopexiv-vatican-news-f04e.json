@@ -40,7 +40,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-30T05:39:33.862Z",
-  "actualizado": "2026-09-30T11:19:39.370Z",
+  "actualizado": "2026-09-30T15:12:31.996Z",
   "destinos": {
     "instagram": {
       "texto": "“transparency, integrity and accountability in economic and financial activities are indispensable elements of good administration and service to the common good”\n\n— Pope Leo XIV, Chirograph of June 25, 2026 (2026)\n\nVia Vatican News, 29 September 2026\n\n#PopeLeoXIV #Vatican #CatholicChurch\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #CatholicChurch",
@@ -53,7 +53,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-09-30T15:12:31.996Z",
+        "actualizado": "2026-09-30T15:12:31.996Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
