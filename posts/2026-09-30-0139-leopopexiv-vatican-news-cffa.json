@@ -1,7 +1,7 @@
 {
   "id": "2026-09-30-0139-leopopexiv-vatican-news-cffa",
   "cuenta": "leopopexiv",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/vatican-city/news/2026-09/vatican-trial-affirms-abuse-founder-institutes-incarnate-word.html",
@@ -39,7 +39,11 @@
     "error": null
   },
   "programado": "2026-09-30T09:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "18099092306543565",
+    "permalink": "https://www.instagram.com/p/Dd6oO6BEeKk/",
+    "fecha": "2026-09-30T15:12:31.996Z"
+  },
   "error": null,
   "creado": "2026-09-30T05:39:33.862Z",
   "actualizado": "2026-09-30T15:12:31.996Z",
@@ -52,16 +56,15 @@
         "imagenHash": "39fa209a9b57ff64",
         "imagenSha": "2c57a6ef78de70ebc9be6b5df8b3927dcce98c0b"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-09-30T15:12:31.996Z",
-        "actualizado": "2026-09-30T15:12:31.996Z",
-        "contenedorId": "18105806081081176"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18099092306543565",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/Dd6oO6BEeKk/",
+        "fecha": "2026-09-30T15:12:31.996Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
