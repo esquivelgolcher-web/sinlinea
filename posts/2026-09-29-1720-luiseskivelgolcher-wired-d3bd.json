@@ -1,7 +1,7 @@
 {
   "id": "2026-09-29-1720-luiseskivelgolcher-wired-d3bd",
   "cuenta": "luiseskivelgolcher",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "WIRED",
     "url": "https://www.wired.com/story/openai-sued-over-the-hugging-face-hack/",
@@ -179,16 +179,15 @@
         "imagenHash": "46a44f472c1b5021",
         "imagenSha": "acf77f84a7a049bbb8273c6a754056e0fb7aab50"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-09-30T20:15:44.623Z",
-        "actualizado": "2026-09-30T20:15:44.623Z",
-        "contenedorId": "17991325557100604"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18099291605623929",
+        "idPublicacion": null,
+        "permalink": "https://www.threads.com/@luisegolcher/post/Dd7K_BRgfUV",
+        "fecha": "2026-09-30T20:15:44.623Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
