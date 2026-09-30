@@ -1,0 +1,46 @@
+{
+  "id": "2026-09-30-0139-leopopexiv-vatican-news-cffa",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/vatican-city/news/2026-09/vatican-trial-affirms-abuse-founder-institutes-incarnate-word.html",
+    "titulo": "Founder of Institutes of the Incarnate Word found guilty of abuse",
+    "publicado": "2026-09-29T15:18:00.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "Vatican tribunal finds IVE founder guilty of abuse",
+  "bajada": "Church tribunals reach 'moral certainty' on late Fr. Carlos Miguel Buela's guilt",
+  "caption": "Vatican tribunals have determined with 'moral certainty' that the late Argentine priest Carlos Miguel Buela, founder of the Institutes of the Incarnate Word, committed abuse against several people, in violation of Church law. Source: Vatican News, Sept 29, 2026.",
+  "hashtags": [
+    "#Vatican",
+    "#CatholicChurch",
+    "#AbuseInquiry",
+    "#HolySee",
+    "#ChurchReform"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-09-30-0139-leopopexiv-vatican-news-cffa.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-30-0139-leopopexiv-vatican-news-cffa.jpg",
+    "hash": "39fa209a9b57ff64",
+    "version": 11,
+    "estilo": "32cba508d6c2290e",
+    "renderizada": "2026-09-30T05:40:30.313Z"
+  },
+  "ilustracion": {
+    "descripcion": "Exterior of a solemn Vatican tribunal building at dusk, ornate stone facade with closed wooden doors, empty courtyard in foreground, subject placed in upper right third, left and center clear",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-30-0139-leopopexiv-vatican-news-cffa.jpg",
+    "hashDescripcion": "e1b14cae0eb4c184",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-30T05:39:33.862Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-30T05:39:33.862Z",
+  "actualizado": "2026-09-30T05:39:33.862Z"
+}

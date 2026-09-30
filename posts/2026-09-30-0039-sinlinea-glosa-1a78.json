@@ -1,0 +1,49 @@
+{
+  "id": "2026-09-30-0039-sinlinea-glosa-1a78",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "formato": "glosa",
+  "glosa": {
+    "versos": [
+      "La deuda sigue creciendo",
+      "y el MEF nunca dice cuándo",
+      "seguirá su gasto blando",
+      "y el pueblo lo va sufriendo"
+    ],
+    "esquema": "ABBA",
+    "sobre": {
+      "id": "2026-09-28-2002-sinlinea-la-estrella-0efe",
+      "titular": "Deuda pública de Panamá seguirá subiendo hasta 2027"
+    }
+  },
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/economia/deuda-publica-de-panama-alcanzara-62-mil-millones-en-2026-y-64-mil-millones-en-2027-segun-mef-OB26055913",
+    "titulo": "Deuda pública de Panamá alcanzará $62 mil millones en 2026 y $64 mil millones en 2027, según MEF",
+    "publicado": "2026-09-28T21:40:00.000Z"
+  },
+  "categoria": "ECONOMÍA",
+  "titular": "La deuda sigue creciendo",
+  "bajada": "Sobre: Deuda pública de Panamá seguirá subiendo hasta 2027",
+  "caption": "La deuda sigue creciendo\ny el MEF nunca dice cuándo\nseguirá su gasto blando\ny el pueblo lo va sufriendo\n\nSobre: Deuda pública de Panamá seguirá subiendo hasta 2027 · La Estrella de Panamá\n\n#Panamá #Glosa #LaGarzaMaría",
+  "hashtags": [
+    "#Panamá",
+    "#Glosa",
+    "#LaGarzaMaría"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-09-30-0039-sinlinea-glosa-1a78.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-30-0039-sinlinea-glosa-1a78.jpg",
+    "hash": "4d9093a0af6740be",
+    "version": 1,
+    "estilo": "df55592d998f5ba3",
+    "renderizada": "2026-09-30T05:40:04.762Z"
+  },
+  "ilustracion": null,
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-30T05:39:33.862Z",
+  "actualizado": "2026-09-30T05:39:33.862Z"
+}
