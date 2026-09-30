@@ -1,7 +1,7 @@
 {
   "id": "2026-09-30-0139-leopopexiv-vatican-news-cffa",
   "cuenta": "leopopexiv",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/vatican-city/news/2026-09/vatican-trial-affirms-abuse-founder-institutes-incarnate-word.html",
@@ -38,9 +38,26 @@
     "generada": "2026-09-30T05:39:33.862Z",
     "error": null
   },
-  "programado": null,
+  "programado": "2026-09-30T09:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-30T05:39:33.862Z",
-  "actualizado": "2026-09-30T05:39:33.862Z"
+  "actualizado": "2026-09-30T11:19:37.086Z",
+  "destinos": {
+    "instagram": {
+      "texto": "Vatican tribunals have determined with 'moral certainty' that the late Argentine priest Carlos Miguel Buela, founder of the Institutes of the Incarnate Word, committed abuse against several people, in violation of Church law. Source: Vatican News, Sept 29, 2026.\n\nFuente: Vatican News\n\n#Vatican #CatholicChurch #AbuseInquiry #HolySee #ChurchReform",
+      "aprobado": {
+        "fecha": "2026-09-30T11:19:37.086Z",
+        "hashPieza": "67e98ab6cbfe6608",
+        "imagenHash": "39fa209a9b57ff64",
+        "imagenSha": "2c57a6ef78de70ebc9be6b5df8b3927dcce98c0b"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
