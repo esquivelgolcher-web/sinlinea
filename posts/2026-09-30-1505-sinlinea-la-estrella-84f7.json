@@ -1,0 +1,48 @@
+{
+  "id": "2026-09-30-1505-sinlinea-la-estrella-84f7",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/first-quantum-esta-dispuesta-a-negociar-con-el-gobierno-tras-recomendaciones-de-cobre-panama-EE26111544",
+    "titulo": "First Quantum está dispuesta a negociar con el Gobierno tras recomendaciones de Cobre Panamá",
+    "publicado": "2026-09-30T16:56:00.000Z"
+  },
+  "categoria": "ECONOMÍA",
+  "titular": "First Quantum se abre a negociar futuro de Cobre Panamá",
+  "bajada": "La minera aceptó explorar un cierre ordenado y sin costo para el país, según recomendó una comisión estatal.",
+  "caption": "La empresa detrás de Cobre Panamá dijo que está dispuesta a sentarse con el Gobierno tras el informe que recomienda un cierre ordenado de la mina. De por medio están miles de empleos, arbitrajes internacionales pendientes y el futuro ambiental de Donoso. ¿Debe el Estado negociar con la minera o insistir en el cierre definitivo?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#CobrePanamá",
+    "#FirstQuantum",
+    "#Minería",
+    "#Economía"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-09-30-1505-sinlinea-la-estrella-84f7.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-30-1505-sinlinea-la-estrella-84f7.jpg",
+    "hash": "5d227cac350e9b4e",
+    "version": 2,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-09-30T20:06:20.099Z"
+  },
+  "ilustracion": {
+    "descripcion": "Vista general de una planta minera industrial rodeada de vegetación tropical en Panamá, con maquinaria y estructuras metálicas en el tercio superior derecho; zona izquierda y central despejada, sin personas ni texto, estilo ilustración editorial.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-30T20:05:41.361Z",
+  "actualizado": "2026-09-30T20:05:41.361Z",
+  "plantilla": "titular"
+}

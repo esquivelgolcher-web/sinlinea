@@ -1,0 +1,120 @@
+{
+  "id": "2026-09-30-1505-luiseskivelgolcher-occrp-a859",
+  "cuenta": "luiseskivelgolcher",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "OCCRP",
+    "url": "https://www.occrp.org/en/news/dutch-police-arrest-alleged-member-of-hacking-group-that-targeted-fbi",
+    "titulo": "Dutch Police Arrest Alleged Member of Hacking Group that Targeted FBI",
+    "publicado": "2026-09-30T14:07:00.000Z"
+  },
+  "categoria": "SEGURIDAD",
+  "titular": "Holanda arresta a sospechoso del grupo hacker ShinyHunters",
+  "bajada": "En su laptop hallaron planes para dos asesinatos, ajenos al caso de los hackeos",
+  "caption": "La policía de los Países Bajos anunció el arresto de un joven de 24 años señalado como integrante de ShinyHunters, un grupo de ciberdelincuencia vinculado a varias filtraciones masivas de datos, incluido el hackeo la semana pasada a un sitio web del FBI, la agencia federal de investigación de Estados Unidos, según reportó OCCRP. Según el comunicado policial, en la laptop del detenido encontraron información que muestra que organizaba dos asesinatos en el extranjero, un plan que las autoridades dijeron que \"no está relacionado\" con la investigación sobre el grupo hacker. La policía no reveló la identidad del sospechoso. En un video difundido por el FBI, el subdirector de su división cibernética, Brett Leatherman, se dirigió directamente a los demás miembros de ShinyHunters: \"Ya se enteraron del arresto de su colega\", les dijo, e instó a entregarse a las autoridades. El caso ilustra cómo estos grupos combinan delitos informáticos con otras actividades criminales.",
+  "hashtags": [
+    "#Ciberseguridad",
+    "#ShinyHunters",
+    "#Hackeo",
+    "#FBI"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-09-30-1505-luiseskivelgolcher-occrp-a859.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-30-1505-luiseskivelgolcher-occrp-a859.jpg",
+    "hash": "8e26e18e0ddf6e2c",
+    "version": 11,
+    "estilo": "dc8c8fa3edf501fd",
+    "renderizada": "2026-09-30T20:06:51.692Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada de una comisaría de policía holandesa de noche, con luces azules de patrulla encendidas, el edificio institucional en el tercio superior derecho y la zona izquierda y central despejada.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-30-1505-luiseskivelgolcher-occrp-a859.jpg",
+    "hashDescripcion": "9f24ffe8cf4b5bfa",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-09-30T20:05:41.361Z",
+    "error": null,
+    "procedencia": "generada"
+  },
+  "formato": "post",
+  "fuentes": [
+    {
+      "rol": "principal",
+      "medio": "OCCRP",
+      "autor": null,
+      "url": "https://www.occrp.org/en/news/dutch-police-arrest-alleged-member-of-hacking-group-that-targeted-fbi",
+      "canonica": "https://www.occrp.org/en/news/dutch-police-arrest-alleged-member-of-hacking-group-that-targeted-fbi",
+      "idioma": "en",
+      "publicado": "2026-09-30T14:07:00.000Z",
+      "actualizado": null,
+      "fechaHecho": null,
+      "consultado": "2026-09-30T20:05:41.361Z",
+      "alcance": "completo",
+      "textoRecuperado": {
+        "parrafos": 18,
+        "caracteres": 2236,
+        "enviados": 2270
+      },
+      "fuentesPrimarias": [
+        "https://www.reuters.com/world/shinyhunters-hackers-say-they-breached-federal-bureau-investigation-no-immediate-2026-09-22/",
+        "https://www.politie.nl/nieuws/2026/september/29/11-verdachte-aangehouden-in-onderzoek-naar-hackersgroep-shinyhunters.html",
+        "https://www.fbi.gov/video-repository/shinyhunters-arrested-092926.mp4/view"
+      ],
+      "licenciaMedios": null
+    }
+  ],
+  "afirmaciones": [
+    {
+      "texto": "La policía holandesa arrestó a un joven de 24 años señalado como miembro de ShinyHunters",
+      "tipo": "hecho",
+      "fuente": "https://www.politie.nl/nieuws/2026/september/29/11-verdachte-aangehouden-in-onderzoek-naar-hackersgroep-shinyhunters.html",
+      "contrastada": true
+    },
+    {
+      "texto": "En la laptop del detenido se halló información sobre la organización de dos asesinatos en el extranjero, sin relación con el caso ShinyHunters",
+      "tipo": "hecho",
+      "fuente": "https://www.occrp.org/en/news/dutch-police-arrest-alleged-member-of-hacking-group-that-targeted-fbi",
+      "contrastada": true
+    },
+    {
+      "texto": "ShinyHunters hackeó un sitio web del FBI la semana anterior al arresto",
+      "tipo": "hecho",
+      "fuente": "https://www.reuters.com/world/shinyhunters-hackers-say-they-breached-federal-bureau-investigation-no-immediate-2026-09-22/",
+      "contrastada": true
+    },
+    {
+      "texto": "El FBI instó públicamente a los demás miembros del grupo a entregarse",
+      "tipo": "hecho",
+      "fuente": "https://www.fbi.gov/video-repository/shinyhunters-arrested-092926.mp4/view",
+      "contrastada": true
+    }
+  ],
+  "angulo": "Arresto policial vinculado a un grupo de ciberdelincuencia que hackeó al FBI y planeaba delitos violentos ajenos al caso.",
+  "atribucion": "OCCRP, con base en comunicado de la policía holandesa y declaraciones del FBI",
+  "puntuacion": {
+    "total": 81,
+    "componentes": {
+      "afinidad": 27,
+      "interes": 18,
+      "evidencia": 16,
+      "actualidad": 15,
+      "visual": 5
+    }
+  },
+  "alertas": [
+    "fuente-unica"
+  ],
+  "carrusel": null,
+  "reel": null,
+  "revision": {
+    "estado": "pendiente",
+    "notas": []
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-09-30T20:05:41.361Z",
+  "actualizado": "2026-09-30T20:05:41.361Z"
+}
