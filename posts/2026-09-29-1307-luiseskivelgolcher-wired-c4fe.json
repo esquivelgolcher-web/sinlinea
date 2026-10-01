@@ -116,7 +116,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-29T18:07:48.148Z",
-  "actualizado": "2026-09-30T11:19:33.077Z",
+  "actualizado": "2026-10-01T00:07:48.410Z",
   "destinos": {
     "instagram": {
       "texto": "La investigadora Timnit Gebru, conocida por señalar sesgos en la inteligencia artificial de Google, cuestiona el discurso sobre un supuesto \"riesgo existencial\" de la IA. En una entrevista publicada por WIRED el 29 de septiembre de 2026, Gebru sostiene que ese relato es \"una distracción dañina\" de los problemas reales de la tecnología, como el sesgo o el uso indebido de datos. Según ella, instituciones como el Future of Life Institute, fundado por Max Tegmark y financiado por el inversionista Jaan Tallinn, coinciden con narrativas de riesgo que benefician a las mismas empresas de IA que ellos respaldan. Tallinn también financia METR, la organización cuyo reporte sobre supuestos \"agentes rebeldes\" de OpenAI se volvió viral. WIRED es la única fuente de esta entrevista; las acusaciones sobre conflictos de interés provienen de Gebru y no han sido contrastadas de forma independiente.\n\nFuente: WIRED\n\n#InteligenciaArtificial #TimnitGebru #Tecnología #WIRED",
@@ -129,7 +129,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-10-01T00:07:48.410Z",
+        "actualizado": "2026-10-01T00:07:48.410Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     },
