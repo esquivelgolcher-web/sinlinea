@@ -1,7 +1,7 @@
 {
   "id": "2026-09-29-1307-luiseskivelgolcher-wired-c4fe",
   "cuenta": "luiseskivelgolcher",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "WIRED",
     "url": "https://www.wired.com/story/the-big-interview-podcast-timnit-gebru/",
@@ -170,16 +170,15 @@
         "imagenHash": "6e1741d6cca32f40",
         "imagenSha": "6118d69a47513eaa85ed57161b2274b5d14030a5"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-10-01T00:07:48.410Z",
-        "actualizado": "2026-10-01T00:07:48.410Z",
-        "contenedorId": "17991342513100604"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "17910134529549877",
+        "idPublicacion": null,
+        "permalink": "https://www.threads.com/@luisegolcher/post/Dd7liRokcnn",
+        "fecha": "2026-10-01T00:07:48.410Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
