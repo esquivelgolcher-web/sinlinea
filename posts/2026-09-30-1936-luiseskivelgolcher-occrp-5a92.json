@@ -1,0 +1,120 @@
+{
+  "id": "2026-09-30-1936-luiseskivelgolcher-occrp-5a92",
+  "cuenta": "luiseskivelgolcher",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "OCCRP",
+    "url": "https://www.occrp.org/en/news/the-us-blacklists-alleged-venezuelan-cyber-crime-mastermind",
+    "titulo": "The US Blacklists Alleged Venezuelan Cyber Crime Mastermind",
+    "publicado": "2026-09-30T21:38:00.000Z"
+  },
+  "categoria": "SEGURIDAD",
+  "titular": "EE.UU. sanciona a hacker ligado al Tren de Aragua",
+  "bajada": "Acusan a Canelón Aguirre de crear malware para vaciar cajeros automáticos",
+  "caption": "El Departamento del Tesoro de Estados Unidos incluyó el 30 de septiembre de 2026 a Aníbal Alexander Canelón Aguirre en su lista de sancionados financieros, según reportó OCCRP. El venezolano, conocido como \"El Ingeniero\" o \"Prometeo\", figura en la lista de los Diez Más Buscados del FBI y es señalado, en una acusación formal de la justicia estadounidense, de haber creado el malware usado para el \"jackpotting\": una técnica que fuerza a un cajero automático a expulsar todo su efectivo. Las autoridades sostienen que esa herramienta permitió al Tren de Aragua y a redes mexicanas robar millones de dólares desde enero de 2024. El director del FBI, Kash Patel, dijo ante el Senado que un fugitivo de esa lista fue capturado en Venezuela, pero no confirmó su identidad ni los detalles de la operación, y Canelón Aguirre seguía apareciendo como buscado esta semana. ¿Qué tan efectivas son estas sanciones cuando el sospechoso sigue prófugo?",
+  "hashtags": [
+    "#Ciberseguridad",
+    "#TrenDeAragua",
+    "#Fraude",
+    "#Venezuela"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-09-30-1936-luiseskivelgolcher-occrp-5a92.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-09-30-1936-luiseskivelgolcher-occrp-5a92.jpg",
+    "hash": "13de6df80379842e",
+    "version": 11,
+    "estilo": "dc8c8fa3edf501fd",
+    "renderizada": "2026-10-01T00:36:43.979Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada del Departamento del Tesoro de EE.UU. en Washington al atardecer, con un cajero automático genérico en primer plano; el edificio en el tercio superior derecho, resto de la escena despejado.",
+    "usar": true,
+    "ruta": "public/ilus/2026-09-30-1936-luiseskivelgolcher-occrp-5a92.jpg",
+    "hashDescripcion": "0191e374ee55eee6",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-01T00:36:12.137Z",
+    "error": null,
+    "procedencia": "generada"
+  },
+  "formato": "post",
+  "fuentes": [
+    {
+      "rol": "principal",
+      "medio": "OCCRP",
+      "autor": null,
+      "url": "https://www.occrp.org/en/news/the-us-blacklists-alleged-venezuelan-cyber-crime-mastermind",
+      "canonica": "https://www.occrp.org/en/news/the-us-blacklists-alleged-venezuelan-cyber-crime-mastermind",
+      "idioma": "en",
+      "publicado": "2026-09-30T21:38:00.000Z",
+      "actualizado": null,
+      "fechaHecho": null,
+      "consultado": "2026-10-01T00:36:12.137Z",
+      "alcance": "completo",
+      "textoRecuperado": {
+        "parrafos": 35,
+        "caracteres": 7111,
+        "enviados": 3599
+      },
+      "fuentesPrimarias": [
+        "https://ofac.treasury.gov/recent-actions/20260930",
+        "https://www.fbi.gov/wanted/topten"
+      ],
+      "licenciaMedios": null
+    }
+  ],
+  "afirmaciones": [
+    {
+      "texto": "El Departamento del Tesoro de EE.UU. incluyó a Aníbal Alexander Canelón Aguirre en una lista de sancionados financieros el 30 de septiembre de 2026.",
+      "tipo": "hecho",
+      "fuente": "https://www.occrp.org/en/news/the-us-blacklists-alleged-venezuelan-cyber-crime-mastermind",
+      "contrastada": true
+    },
+    {
+      "texto": "Canelón Aguirre es acusado por la justicia de EE.UU. de crear el malware que permitió vaciar cajeros automáticos mediante jackpotting, en beneficio del Tren de Aragua.",
+      "tipo": "denuncia",
+      "fuente": "https://www.occrp.org/en/news/the-us-blacklists-alleged-venezuelan-cyber-crime-mastermind",
+      "contrastada": false
+    },
+    {
+      "texto": "El director del FBI, Kash Patel, afirmó ante el Senado que un fugitivo de la lista de los Diez Más Buscados fue capturado en Venezuela.",
+      "tipo": "hecho",
+      "fuente": "https://www.occrp.org/en/news/the-us-blacklists-alleged-venezuelan-cyber-crime-mastermind",
+      "contrastada": false
+    },
+    {
+      "texto": "Pese al anuncio de Patel, Canelón Aguirre seguía figurando como prófugo en el sitio del FBI al cierre de esta nota.",
+      "tipo": "hipotesis",
+      "fuente": "https://www.fbi.gov/wanted/topten",
+      "contrastada": false
+    }
+  ],
+  "angulo": "Sanción financiera de EE.UU. a un presunto creador de malware vinculado al Tren de Aragua, con identidad y captura aún sin confirmar oficialmente.",
+  "atribucion": "OCCRP, con datos del Departamento del Tesoro de EE.UU. y el FBI",
+  "puntuacion": {
+    "total": 76,
+    "componentes": {
+      "afinidad": 24,
+      "interes": 18,
+      "evidencia": 14,
+      "actualidad": 15,
+      "visual": 5
+    }
+  },
+  "alertas": [
+    "evidencia-insuficiente",
+    "fuente-unica"
+  ],
+  "carrusel": null,
+  "reel": null,
+  "revision": {
+    "estado": "pendiente",
+    "notas": []
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-01T00:36:12.137Z",
+  "actualizado": "2026-10-01T00:36:12.137Z"
+}
