@@ -1,0 +1,222 @@
+{
+  "id": "2026-10-01-0514-luiseskivelgolcher-wired-53ed",
+  "cuenta": "luiseskivelgolcher",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "WIRED",
+    "url": "https://www.wired.com/story/the-secrets-of-the-us-spyware-king/",
+    "titulo": "The Secrets of a US Spyware King",
+    "publicado": "2026-10-01T09:30:00.000Z"
+  },
+  "categoria": "SEGURIDAD",
+  "titular": "Paragon reconoce que no detecta abusos de su spyware",
+  "bajada": "El CEO admitió a WIRED que la empresa no puede ver a quién espían sus clientes",
+  "caption": "Paragon Solutions se presentaba como la empresa de spyware \"responsable\": prometía nunca vender a regímenes autoritarios y cortar a clientes que abusaran de su herramienta Graphite, un software espía para teléfonos. Pero en una entrevista con WIRED, publicada el 1 de octubre de 2026, el CEO Andrew Boyd admitió algo clave: la compañía no tiene forma técnica de saber si un cliente usa el spyware contra blancos ilegítimos, porque no puede ver a quién apuntan ni qué datos extraen. Solo se entera si el cliente lo confiesa o si un tercero lo expone, como ocurrió en 2025 cuando WhatsApp denunció que Graphite infectó a más de 60 personas en 20 países, incluidos periodistas y activistas en Italia. El gobierno italiano negó mal uso. Paragon canceló igual los contratos con Italia, pero sin investigar si la denuncia era cierta. Según WIRED, tampoco existe un \"kill switch\" real para desactivar a un cliente: solo pueden cortarle las actualizaciones, y el sistema deja de funcionar en unas 12 horas. ¿Qué tan responsable puede ser una empresa de espionaje que admite no poder vigilar a sus propios clientes?",
+  "hashtags": [
+    "#Spyware",
+    "#Paragon",
+    "#Privacidad",
+    "#Ciberseguridad",
+    "#Vigilancia"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-10-01-0514-luiseskivelgolcher-wired-53ed.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-01-0514-luiseskivelgolcher-wired-53ed.jpg",
+    "hash": "0c2ffee1dca606df",
+    "version": 11,
+    "estilo": "dc8c8fa3edf501fd",
+    "renderizada": "2026-10-01T10:17:26.638Z"
+  },
+  "ilustracion": {
+    "descripcion": "Oficina corporativa genérica con pantallas apagadas y una silla vacía frente a un escritorio, luz azul tenue; el elemento principal (la silla y el escritorio) queda en el tercio superior derecho, zona izquierda y central despejadas.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-01-0514-luiseskivelgolcher-wired-53ed.jpg",
+    "hashDescripcion": "be70b74705609b01",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-01T10:14:53.402Z",
+    "error": null,
+    "procedencia": "generada"
+  },
+  "formato": "carrusel",
+  "fuentes": [
+    {
+      "rol": "principal",
+      "medio": "WIRED",
+      "autor": "Kim Zetter",
+      "url": "https://www.wired.com/story/the-secrets-of-the-us-spyware-king/",
+      "canonica": "https://www.wired.com/story/the-secrets-of-the-us-spyware-king/",
+      "idioma": "en",
+      "publicado": "2026-10-01T09:30:00.000Z",
+      "actualizado": "2026-10-01T09:30:00.000Z",
+      "fechaHecho": "2025-02-01",
+      "consultado": "2026-10-01T10:14:53.402Z",
+      "alcance": "completo",
+      "textoRecuperado": {
+        "parrafos": 54,
+        "caracteres": 20416,
+        "enviados": 3538
+      },
+      "fuentesPrimarias": [
+        "https://redlattice.com/about/",
+        "https://www.businesswire.com/news/home/20260928490789/en/REDLattice-Worldwide-Leading-Operational-Intelligence-Platform-for-the-U.S.-and-its-Allies-to-Become-Public-Company",
+        "https://www.theguardian.com/media/2025/jun/12/european-journalists-targeted-with-paragon-solutions-spyware-say-researchers",
+        "https://www.timesofisrael.com/italy-denies-spying-on-journalists-migrant-activists-using-israeli-spyware/",
+        "https://www.ynetnews.com/business/article/bkoncg0dkg",
+        "https://www.theguardian.com/technology/2025/feb/06/owner-of-spyware-used-in-alleged-whatsapp-breach-ends-contract-with-italy",
+        "https://documenti.camera.it/_dati/leg19/lavori/documentiparlamentari/IndiceETesti/034/004/INTERO.pdf?utm_source=chatgpt.com",
+        "https://www.timesofisrael.com/israel-okayed-sale-of-pegasus-phone-spying-tool-to-saudi-arabia-report/",
+        "https://www.nsogroup.com/wp-content/uploads/2025/02/2024-Transparency-and-Responsibility-Report.pdf",
+        "https://www.forbes.com/sites/thomasbrewster/2021/07/29/paragon-is-an-nso-competitor-and-an-american-funded-israeli-surveillance-startup-that-hacks-encrypted-apps-like-whatsapp-and-signal/",
+        "https://socprime.com/blog/spyware-group-candiru-targets-journalists-in-the-middle-east-with-devilstongue-malware/",
+        "https://www.commerce.gov/news/press-releases/2021/11/commerce-adds-nso-group-and-other-foreign-companies-entity-list",
+        "https://www.calcalistech.com/ctech/articles/0,7340,L-3923361,00.html",
+        "https://whitehouse.gov/wp-content/uploads/2023/03/Spyware-EO_BIS.pdf",
+        "https://www.nytimes.com/2022/12/08/us/politics/spyware-nso-pegasus-paragon.html",
+        "https://redlattice.com/",
+        "https://en.globes.co.il/en/article-spyware-co-paragon-leases-more-space-in-tel-aviv-tower-1001512124",
+        "https://www.wsj.com/tech/israeli-spyware-maker-nso-gets-new-owners-leadership-and-seeks-to-mend-reputation-166ac50e",
+        "https://www.calcalistech.com/ctechnews/article/r1er11mi61e",
+        "https://www.zetter-zeroday.com/pegasus-spyware-how-it-works-and/"
+      ],
+      "licenciaMedios": null
+    }
+  ],
+  "afirmaciones": [
+    {
+      "texto": "El CEO de Paragon, Andrew Boyd, dijo a WIRED que la empresa no tiene forma técnica de saber si sus clientes abusan del spyware, porque no puede ver a quién apuntan ni qué datos extraen",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/the-secrets-of-the-us-spyware-king/",
+      "contrastada": false
+    },
+    {
+      "texto": "WhatsApp denunció que el spyware Graphite de Paragon infectó a más de 60 personas en más de 20 países, incluidos periodistas y activistas",
+      "tipo": "denuncia",
+      "fuente": "https://www.theguardian.com/media/2025/jun/12/european-journalists-targeted-with-paragon-solutions-spyware-say-researchers",
+      "contrastada": false
+    },
+    {
+      "texto": "Las autoridades italianas negaron haber cometido abusos con el spyware",
+      "tipo": "denuncia",
+      "fuente": "https://www.timesofisrael.com/italy-denies-spying-on-journalists-migrant-activists-using-israeli-spyware/",
+      "contrastada": false
+    },
+    {
+      "texto": "Paragon canceló sus dos contratos con agencias de inteligencia italianas tras las acusaciones, sin haber investigado si eran ciertas",
+      "tipo": "hecho",
+      "fuente": "https://www.theguardian.com/technology/2025/feb/06/owner-of-spyware-used-in-alleged-whatsapp-breach-ends-contract-with-italy",
+      "contrastada": false
+    },
+    {
+      "texto": "Paragon no tiene un mecanismo para desactivar a un cliente de inmediato; solo puede cortarle el soporte y las actualizaciones, lo que inutiliza el sistema en unas 12 horas, según Boyd",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/the-secrets-of-the-us-spyware-king/",
+      "contrastada": false
+    }
+  ],
+  "angulo": "Un fabricante de spyware que se vendía como ético admite que no puede verificar si sus clientes espían a periodistas o activistas.",
+  "atribucion": "Según una entrevista de Kim Zetter para WIRED, publicada el 1 de octubre de 2026",
+  "puntuacion": {
+    "total": 86,
+    "componentes": {
+      "afinidad": 30,
+      "interes": 20,
+      "evidencia": 16,
+      "actualidad": 15,
+      "visual": 5
+    }
+  },
+  "alertas": [
+    "fuente-unica",
+    "hecho-antiguo"
+  ],
+  "carrusel": {
+    "diapositivas": [
+      {
+        "titulo": "Una empresa de spyware admite que no puede vigilar a sus propios clientes",
+        "texto": "El CEO de Paragon Solutions lo dijo sin rodeos a WIRED: no hay forma técnica de saber si sus clientes abusan del software espía Graphite."
+      },
+      {
+        "titulo": "¿Qué pasó?",
+        "texto": "WhatsApp denunció en 2025 que Graphite infectó los teléfonos de más de 60 personas en 20 países, entre ellas periodistas y activistas en Italia."
+      },
+      {
+        "titulo": "La defensa que no convence",
+        "texto": "Según Boyd, Paragon no ve a quién apuntan sus clientes ni qué datos extraen. Solo se entera por confesiones o denuncias externas, como la de WhatsApp."
+      },
+      {
+        "titulo": "Sin botón de apagado",
+        "texto": "Paragon no puede desactivar a un cliente al instante. Solo corta soporte y actualizaciones; el sistema falla en unas 12 horas, dice el CEO."
+      },
+      {
+        "titulo": "A quién afecta",
+        "texto": "Periodistas, activistas y disidentes son los blancos típicos de este tipo de spyware, según investigaciones previas del Citizen Lab de la Universidad de Toronto."
+      },
+      {
+        "titulo": "Lo que falta por saber",
+        "texto": "Italia negó las acusaciones y Paragon nunca las investigó a fondo. No se sabe si otros contratos, en otros países señalados por WhatsApp, siguen activos."
+      },
+      {
+        "titulo": "La fuente",
+        "texto": "Entrevista exclusiva de Kim Zetter para WIRED, publicada el 1 de octubre de 2026, con documentos y reportes cruzados de Citizen Lab y The Guardian."
+      }
+    ],
+    "imagenes": [
+      {
+        "numero": 1,
+        "ruta": "public/img/2026-10-01-0514-luiseskivelgolcher-wired-53ed-01.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-01-0514-luiseskivelgolcher-wired-53ed-01.jpg",
+        "hash": "b9b02fe9e32391f7"
+      },
+      {
+        "numero": 2,
+        "ruta": "public/img/2026-10-01-0514-luiseskivelgolcher-wired-53ed-02.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-01-0514-luiseskivelgolcher-wired-53ed-02.jpg",
+        "hash": "daa89eefaf5733f5"
+      },
+      {
+        "numero": 3,
+        "ruta": "public/img/2026-10-01-0514-luiseskivelgolcher-wired-53ed-03.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-01-0514-luiseskivelgolcher-wired-53ed-03.jpg",
+        "hash": "52d9c0d8f7290342"
+      },
+      {
+        "numero": 4,
+        "ruta": "public/img/2026-10-01-0514-luiseskivelgolcher-wired-53ed-04.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-01-0514-luiseskivelgolcher-wired-53ed-04.jpg",
+        "hash": "fe4bb79b120fd90d"
+      },
+      {
+        "numero": 5,
+        "ruta": "public/img/2026-10-01-0514-luiseskivelgolcher-wired-53ed-05.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-01-0514-luiseskivelgolcher-wired-53ed-05.jpg",
+        "hash": "ea1b632220b0450c"
+      },
+      {
+        "numero": 6,
+        "ruta": "public/img/2026-10-01-0514-luiseskivelgolcher-wired-53ed-06.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-01-0514-luiseskivelgolcher-wired-53ed-06.jpg",
+        "hash": "aaf7921a060a9d08"
+      },
+      {
+        "numero": 7,
+        "ruta": "public/img/2026-10-01-0514-luiseskivelgolcher-wired-53ed-07.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-01-0514-luiseskivelgolcher-wired-53ed-07.jpg",
+        "hash": "e25a4d8111b279cf"
+      }
+    ],
+    "hash": "31549e6b8a2870b5",
+    "version": 2
+  },
+  "reel": null,
+  "revision": {
+    "estado": "pendiente",
+    "notas": []
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-01T10:14:53.402Z",
+  "actualizado": "2026-10-01T10:14:53.402Z"
+}

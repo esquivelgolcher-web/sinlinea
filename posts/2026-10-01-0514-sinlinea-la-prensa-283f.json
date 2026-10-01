@@ -1,0 +1,51 @@
+{
+  "id": "2026-10-01-0514-sinlinea-la-prensa-283f",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/sociedad/mibus-tiene-306-autobuses-fuera-de-servicio-171-tienen-mas-de-15-anos/",
+    "titulo": "MiBus tiene 306 autobuses fuera de servicio; 171 tienen más de 15 años",
+    "publicado": "2026-10-01T05:00:00.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "306 autobuses de MiBus están fuera de servicio",
+  "bajada": "171 de ellos son unidades Gran Viale de 2010 con más de 900 mil kilómetros recorridos.",
+  "caption": "Más de una quinta parte de la flota de MiBus no está circulando, lo que afecta la frecuencia y calidad del servicio para miles de usuarios diarios. La empresa atribuye el problema al desgaste y al alto costo de reparar buses con más de 15 años de uso. ¿Has notado la falta de buses en tu ruta?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#MiBus",
+    "#TransportePúblico",
+    "#Movilidad"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-10-01-0514-sinlinea-la-prensa-283f.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-01-0514-sinlinea-la-prensa-283f.jpg",
+    "hash": "3bad1e9ced151ad2",
+    "version": 2,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-10-01T10:15:30.338Z"
+  },
+  "ilustracion": {
+    "descripcion": "Patio de buses de MiBus estacionados, algunos con signos de deterioro, elemento principal en el tercio superior derecho, zona izquierda y central despejada.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-01T10:14:53.402Z",
+  "actualizado": "2026-10-01T10:14:53.402Z",
+  "plantilla": "dato",
+  "dato": {
+    "cifra": "306",
+    "frase": "autobuses de mibus están fuera de servicio actualmente"
+  }
+}

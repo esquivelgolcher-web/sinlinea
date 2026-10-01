@@ -1,0 +1,49 @@
+{
+  "id": "2026-10-01-0514-sinlinea-glosa-a32d",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "formato": "glosa",
+  "glosa": {
+    "versos": [
+      "Cuarenta horas sudando",
+      "cuatrocientos trece mil",
+      "no llegan ni a un candil",
+      "el patrón sigue ganando"
+    ],
+    "esquema": "ABBA",
+    "sobre": {
+      "id": "2026-10-01-0514-sinlinea-la-estrella-3b94",
+      "titular": "Subempleo invisible se duplica en Panamá"
+    }
+  },
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/subempleo-invisible-duplica-dato-revela-la-precarizacion-de-los-trabajos-NH26123592",
+    "titulo": "Subempleo invisible duplica, dato revela la precarización de los trabajos",
+    "publicado": "2026-10-01T03:00:00.000Z"
+  },
+  "categoria": "ECONOMÍA",
+  "titular": "Cuarenta horas sudando",
+  "bajada": "Sobre: Subempleo invisible se duplica en Panamá",
+  "caption": "Cuarenta horas sudando\ncuatrocientos trece mil\nno llegan ni a un candil\nel patrón sigue ganando\n\nSobre: Subempleo invisible se duplica en Panamá · La Estrella de Panamá\n\n#Panamá #Glosa #LaGarzaMaría",
+  "hashtags": [
+    "#Panamá",
+    "#Glosa",
+    "#LaGarzaMaría"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-10-01-0514-sinlinea-glosa-a32d.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-01-0514-sinlinea-glosa-a32d.jpg",
+    "hash": "9101321c1dbd09ea",
+    "version": 1,
+    "estilo": "df55592d998f5ba3",
+    "renderizada": "2026-10-01T10:16:47.140Z"
+  },
+  "ilustracion": null,
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-01T10:14:53.402Z",
+  "actualizado": "2026-10-01T10:14:53.402Z"
+}

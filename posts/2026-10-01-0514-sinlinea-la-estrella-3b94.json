@@ -1,0 +1,52 @@
+{
+  "id": "2026-10-01-0514-sinlinea-la-estrella-3b94",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/subempleo-invisible-duplica-dato-revela-la-precarizacion-de-los-trabajos-NH26123592",
+    "titulo": "Subempleo invisible duplica, dato revela la precarización de los trabajos",
+    "publicado": "2026-10-01T03:00:00.000Z"
+  },
+  "categoria": "ECONOMÍA",
+  "titular": "Subempleo invisible se duplica en Panamá",
+  "bajada": "413,155 personas ganan menos del salario mínimo pese a trabajar más de 40 horas, según el INEC.",
+  "caption": "El dato revela que crecer en empleo no siempre significa mejorar la calidad de vida. Miles de panameños trabajan jornadas completas pero no alcanzan el salario mínimo, lo que golpea directamente el bolsillo de las familias. La economía crece, pero ¿a quién le está llegando ese crecimiento?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Empleo",
+    "#SubempleoInvisible",
+    "#Economía",
+    "#INEC"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-10-01-0514-sinlinea-la-estrella-3b94.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-01-0514-sinlinea-la-estrella-3b94.jpg",
+    "hash": "46a14d90f6f15aa6",
+    "version": 11,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-10-01T10:15:30.062Z"
+  },
+  "ilustracion": {
+    "descripcion": "Vista general de una calle comercial de Ciudad de Panamá con vendedores ambulantes y trabajadores informales, elemento principal en el tercio superior derecho, zona izquierda y central despejada.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-01-0514-sinlinea-la-estrella-3b94.jpg",
+    "hashDescripcion": "3052c09cab1310ea",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-01T10:14:53.402Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-01T10:14:53.402Z",
+  "actualizado": "2026-10-01T10:14:53.402Z",
+  "plantilla": "foto",
+  "dato": {
+    "cifra": "413,155",
+    "frase": "personas ganan menos del salario mínimo pese a trabajar jornada completa"
+  }
+}

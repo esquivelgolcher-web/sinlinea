@@ -1,0 +1,46 @@
+{
+  "id": "2026-10-01-0614-leopopexiv-vatican-news-8879",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-09/pope-appeals-for-dialogue-in-tigray-region.html",
+    "titulo": "Pope appeals for dialogue in Tigray region",
+    "publicado": "2026-09-30T10:11:00.000Z"
+  },
+  "categoria": "INTERNACIONAL",
+  "titular": "Pope Leo XIV calls for end to Tigray violence",
+  "bajada": "At the General Audience, he urged all sides to halt hostilities and pursue lasting peace",
+  "caption": "At the close of his General Audience, Pope Leo XIV appealed to all parties in Ethiopia's Tigray region to stop hostilities, saying only sincere commitment can build lasting peace. Source: Vatican News, Sept 30, 2026.",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Tigray",
+    "#Peace",
+    "#Vatican",
+    "#Ethiopia"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-10-01-0614-leopopexiv-vatican-news-8879.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-01-0614-leopopexiv-vatican-news-8879.jpg",
+    "hash": "2196d8e1add0488b",
+    "version": 11,
+    "estilo": "32cba508d6c2290e",
+    "renderizada": "2026-10-01T10:17:53.228Z"
+  },
+  "ilustracion": {
+    "descripcion": "A quiet Vatican audience hall with a simple wooden cross on a stand; a pope figure in white stands at a podium in the upper right third, left and center space open and calm.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-01-0614-leopopexiv-vatican-news-8879.jpg",
+    "hashDescripcion": "40d24a2558f6693b",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-01T10:14:53.402Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-01T10:14:53.402Z",
+  "actualizado": "2026-10-01T10:14:53.402Z"
+}
