@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "cuenta": "luiseskivelgolcher",
+  "publicaciones": {
+    "18062132990790237": {
+      "fecha": "2026-10-01T00:08:00.000Z",
+      "permalink": "https://www.instagram.com/p/Dd7lfKoER9U/",
+      "tipo": "IMAGE",
+      "origen": "sistema",
+      "post": "2026-09-29-1307-luiseskivelgolcher-wired-c4fe",
+      "categoria": "POLÍTICA",
+      "franja": "18:00",
+      "titulo": "La investigadora Timnit Gebru, conocida por señalar sesgos en la inteligencia artificial d",
+      "consultas": {
+        "2026-10-01T11:45:33.705Z": {
+          "acumulados": {
+            "meGusta": 1,
+            "comentarios": 0,
+            "reach": 150,
+            "views": 216,
+            "likes": 1,
+            "comments": 0,
+            "saved": 0,
+            "shares": 0,
+            "total_interactions": 1,
+            "profile_visits": 0,
+            "profile_activity": 0,
+            "follows": 0
+          },
+          "faltantes": {}
+        }
+      },
+      "ultimaConsulta": "2026-10-01T11:45:33.705Z"
+    }
+  }
+}
