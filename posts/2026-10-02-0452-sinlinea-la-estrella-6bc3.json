@@ -1,0 +1,48 @@
+{
+  "id": "2026-10-02-0452-sinlinea-la-estrella-6bc3",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/politica/reformas-electorales-abren-pulso-entre-te-y-asamblea-nacional-CA26153414",
+    "titulo": "Reformas electorales abren pulso entre TE y Asamblea Nacional",
+    "publicado": "2026-10-02T03:00:00.000Z"
+  },
+  "categoria": "POLÍTICA",
+  "titular": "TE choca con Asamblea por reforma al Código Electoral",
+  "bajada": "Los magistrados piden prudencia ante cambios que afectarían financiamiento y plazos electorales.",
+  "caption": "El Tribunal Electoral salió con un comunicado poco habitual para cuestionar los cambios que los diputados metieron al proyecto que reformará las reglas del juego para las elecciones de 2029. Habla de financiamiento privado, doble elección de cargos y plazos para funcionarios que aspiran a un puesto. No es un tema menor: de esto depende qué tan parejas sean las próximas elecciones. ¿Debería la Asamblea escuchar al TE antes de aprobar estos cambios?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#CódigoElectoral",
+    "#TribunalElectoral",
+    "#Asamblea",
+    "#Elecciones2029"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-10-02-0452-sinlinea-la-estrella-6bc3.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-02-0452-sinlinea-la-estrella-6bc3.jpg",
+    "hash": "0d7226aa9cfa6494",
+    "version": 11,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-10-02T09:53:02.671Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada del Tribunal Electoral de Panamá en un día nublado, con la bandera nacional ondeando; el edificio queda en el tercio superior derecho y la zona izquierda y central despejada",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-02-0452-sinlinea-la-estrella-6bc3.jpg",
+    "hashDescripcion": "0f46f9df49eb15b9",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-02T09:52:26.635Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-02T09:52:26.635Z",
+  "actualizado": "2026-10-02T09:52:26.635Z",
+  "plantilla": "foto"
+}

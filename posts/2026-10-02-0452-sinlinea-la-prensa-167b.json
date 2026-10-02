@@ -1,0 +1,52 @@
+{
+  "id": "2026-10-02-0452-sinlinea-la-prensa-167b",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/politica/ella-no-maneja-fondos-publicos-ministerio-de-la-presidencia-defiende-los-fondos-del-despacho-de-la-primera-dama/",
+    "titulo": "‘Ella no maneja fondos públicos’: Ministerio de la Presidencia defiende los fondos del despacho de la primera dama",
+    "publicado": "2026-10-02T05:00:00.000Z"
+  },
+  "categoria": "POLÍTICA",
+  "titular": "Gobierno defiende fondos del despacho de la primera dama",
+  "bajada": "El ministro Orillac asegura que Maricel Cohen no maneja fondos públicos y trabaja ad honorem.",
+  "caption": "En plena sustentación de presupuesto, un diputado suplente preguntó si tiene sentido mantener el despacho de la primera dama cuando el Mides podría hacer el mismo trabajo. El ministro de la Presidencia salió a defenderlo con cifras: casi $4.5 millones en inversiones para 2027. La pregunta de fondo sigue sobre la mesa: ¿duplicidad de funciones o trabajo complementario? ¿Tú qué opinas?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#PrimeraDama",
+    "#Presupuesto",
+    "#Asamblea",
+    "#Gobierno"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-10-02-0452-sinlinea-la-prensa-167b.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-02-0452-sinlinea-la-prensa-167b.jpg",
+    "hash": "4a4d372a38e34ebc",
+    "version": 2,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-10-02T09:53:03.031Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada del Palacio de las Garzas, sede de la Presidencia de Panamá, al atardecer, con el edificio ubicado en el tercio superior derecho y la zona izquierda y central despejada",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-02T09:52:26.635Z",
+  "actualizado": "2026-10-02T09:52:26.635Z",
+  "plantilla": "dato",
+  "dato": {
+    "cifra": "$4,489,000",
+    "frase": "es el presupuesto de inversiones previsto para el despacho en 2027"
+  }
+}

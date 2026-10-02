@@ -1,0 +1,47 @@
+{
+  "id": "2026-10-02-0552-leopopexiv-vatican-news-94f2",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/vatican-city/news/2026-10/zuppi-in-russia-strengthen-and-speed-up-checks-to-reunite.html",
+    "titulo": "Zuppi in Russia: Strengthen and speed up checks to reunite families",
+    "publicado": "2026-10-02T08:02:00.000Z"
+  },
+  "categoria": "INTERNACIONAL",
+  "titular": "Cardinal Zuppi returns from third Russia mission",
+  "bajada": "He pressed for faster checks to reunite Ukrainian families and missing children",
+  "caption": "Cardinal Matteo Zuppi has returned from Moscow after his third papal peace mission to Russia. He met Ukrainian prisoners of war and pushed for faster efforts to locate missing persons and return children to Ukraine. Source: Vatican News, Oct 2, 2026.",
+  "hashtags": [
+    "#Vatican",
+    "#PopeLeoXIV",
+    "#CardinalZuppi",
+    "#Ukraine",
+    "#Russia",
+    "#PeaceMission"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-10-02-0552-leopopexiv-vatican-news-94f2.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-02-0552-leopopexiv-vatican-news-94f2.jpg",
+    "hash": "b2fc440719a49a35",
+    "version": 11,
+    "estilo": "32cba508d6c2290e",
+    "renderizada": "2026-10-02T09:53:55.673Z"
+  },
+  "ilustracion": {
+    "descripcion": "A diplomatic meeting room with a long table and flags of the Holy See, a figure representing a cardinal envoy seen from behind in the upper right third, left and center space open.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-02-0552-leopopexiv-vatican-news-94f2.jpg",
+    "hashDescripcion": "daa6629ebb475104",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-02T09:52:26.635Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-02T09:52:26.635Z",
+  "actualizado": "2026-10-02T09:52:26.635Z"
+}
