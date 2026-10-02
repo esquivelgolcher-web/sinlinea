@@ -12,6 +12,17 @@
       "llamadas": 40,
       "completo": true,
       "motivoIncompleto": null
+    },
+    "2026-10-02T11:15:46.815Z": {
+      "perfil": {
+        "seguidores": 81224,
+        "seguidos": 393,
+        "publicaciones": 62
+      },
+      "permiso": "basico+insights",
+      "llamadas": 40,
+      "completo": true,
+      "motivoIncompleto": null
     }
   },
   "porDia": {
@@ -42,7 +53,7 @@
     "2026-09-29": {
       "valores": {
         "reach": 533,
-        "views": 121280,
+        "views": 121281,
         "accounts_engaged": 5234,
         "total_interactions": 9991,
         "likes": 4441,
@@ -61,12 +72,12 @@
         "follows_and_unfollows": "conjunto-vacio",
         "follower_count": "conjunto-vacio"
       },
-      "consultadoEn": "2026-10-01T11:45:33.705Z"
+      "consultadoEn": "2026-10-02T11:15:46.815Z"
     },
     "2026-09-30": {
       "valores": {
         "reach": 516,
-        "views": 65959,
+        "views": 65997,
         "accounts_engaged": 3010,
         "total_interactions": 5230,
         "likes": 2579,
@@ -85,7 +96,31 @@
         "follows_and_unfollows": "conjunto-vacio",
         "follower_count": "conjunto-vacio"
       },
-      "consultadoEn": "2026-10-01T11:45:33.705Z"
+      "consultadoEn": "2026-10-02T11:15:46.815Z"
+    },
+    "2026-10-01": {
+      "valores": {
+        "reach": 361,
+        "views": 15450,
+        "accounts_engaged": 703,
+        "total_interactions": 1494,
+        "likes": 598,
+        "comments": 90,
+        "shares": 379,
+        "saves": 48,
+        "reposts": 0,
+        "replies": 0,
+        "profile_links_taps": 0,
+        "follows_and_unfollows": null,
+        "follower_count": null,
+        "profile_views": 24,
+        "website_clicks": 0
+      },
+      "faltantes": {
+        "follows_and_unfollows": "conjunto-vacio",
+        "follower_count": "conjunto-vacio"
+      },
+      "consultadoEn": "2026-10-02T11:15:46.815Z"
     }
   }
 }
