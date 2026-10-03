@@ -1,0 +1,46 @@
+{
+  "id": "2026-10-03-0124-leopopexiv-vatican-news-a35a",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-10/pope-leo-the-church-needs-artists.html",
+    "titulo": "Pope Leo: the Church needs artists",
+    "publicado": "2026-10-02T11:04:00.000Z"
+  },
+  "categoria": "CULTURA",
+  "titular": "Pope Leo: Church needs artists in digital age",
+  "bajada": "He said artists help make the Gospel understandable amid search-engine culture",
+  "caption": "Pope Leo XIV told artists gathered for a Vatican meeting on culture that the Church needs their creativity, especially “in the age of search engines,” to help make the Gospel “accessible and understandable.” The address came during a gathering titled “The Art of Possibility: Weaving Together,” promoted by the Dicastery for Culture and Education. Source: Vatican News, Oct 2, 2026.",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Vatican",
+    "#CatholicChurch",
+    "#Art",
+    "#Culture"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-10-03-0124-leopopexiv-vatican-news-a35a.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-03-0124-leopopexiv-vatican-news-a35a.jpg",
+    "hash": "e338590133a741a3",
+    "version": 11,
+    "estilo": "32cba508d6c2290e",
+    "renderizada": "2026-10-03T05:25:38.963Z"
+  },
+  "ilustracion": {
+    "descripcion": "A quiet Vatican hall with easels and sculptures displayed, soft natural light, the pope figure greeting artists in the upper right third, left and center space open and calm.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-03-0124-leopopexiv-vatican-news-a35a.jpg",
+    "hashDescripcion": "d7d0aadb3b6ec76d",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-03T05:24:38.664Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-03T05:24:38.664Z",
+  "actualizado": "2026-10-03T05:24:38.664Z"
+}

@@ -1,0 +1,49 @@
+{
+  "id": "2026-10-03-0024-sinlinea-glosa-9c6e",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "formato": "glosa",
+  "glosa": {
+    "versos": [
+      "Trescientos buses parados",
+      "por el desgaste, se sabe",
+      "y el pueblo a pie no cabe",
+      "mientras ellos, bien sentados"
+    ],
+    "esquema": "ABBA",
+    "sobre": {
+      "id": "2026-10-01-0514-sinlinea-la-prensa-283f",
+      "titular": "306 autobuses de MiBus están fuera de servicio"
+    }
+  },
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/sociedad/mibus-tiene-306-autobuses-fuera-de-servicio-171-tienen-mas-de-15-anos/",
+    "titulo": "MiBus tiene 306 autobuses fuera de servicio; 171 tienen más de 15 años",
+    "publicado": "2026-10-01T05:00:00.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "Trescientos buses parados",
+  "bajada": "Sobre: 306 autobuses de MiBus están fuera de servicio",
+  "caption": "Trescientos buses parados\npor el desgaste, se sabe\ny el pueblo a pie no cabe\nmientras ellos, bien sentados\n\nSobre: 306 autobuses de MiBus están fuera de servicio · La Prensa\n\n#Panamá #Glosa #LaGarzaMaría",
+  "hashtags": [
+    "#Panamá",
+    "#Glosa",
+    "#LaGarzaMaría"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-10-03-0024-sinlinea-glosa-9c6e.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-03-0024-sinlinea-glosa-9c6e.jpg",
+    "hash": "96ee7bd93d2fa467",
+    "version": 1,
+    "estilo": "df55592d998f5ba3",
+    "renderizada": "2026-10-03T05:25:25.045Z"
+  },
+  "ilustracion": null,
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-03T05:24:38.664Z",
+  "actualizado": "2026-10-03T05:24:38.664Z"
+}
