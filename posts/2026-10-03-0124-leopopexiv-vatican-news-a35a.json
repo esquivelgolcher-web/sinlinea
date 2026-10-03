@@ -1,7 +1,7 @@
 {
   "id": "2026-10-03-0124-leopopexiv-vatican-news-a35a",
   "cuenta": "leopopexiv",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/pope/news/2026-10/pope-leo-the-church-needs-artists.html",
@@ -39,7 +39,11 @@
     "error": null
   },
   "programado": "2026-10-03T09:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "17972239260159112",
+    "permalink": "https://www.instagram.com/p/DeCW1cOnNAz/",
+    "fecha": "2026-10-03T15:14:27.171Z"
+  },
   "error": null,
   "creado": "2026-10-03T05:24:38.664Z",
   "actualizado": "2026-10-03T15:14:27.171Z",
@@ -52,16 +56,15 @@
         "imagenHash": "e338590133a741a3",
         "imagenSha": "03603d0aab0026b70bd301e5c98cf68b019cd657"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-10-03T15:14:27.171Z",
-        "actualizado": "2026-10-03T15:14:27.171Z",
-        "contenedorId": "18106483757081176"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "17972239260159112",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/DeCW1cOnNAz/",
+        "fecha": "2026-10-03T15:14:27.171Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
