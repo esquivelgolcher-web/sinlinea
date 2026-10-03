@@ -1,7 +1,7 @@
 {
   "id": "2026-10-03-0124-leopopexiv-vatican-news-a35a",
   "cuenta": "leopopexiv",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/pope/news/2026-10/pope-leo-the-church-needs-artists.html",
@@ -38,9 +38,26 @@
     "generada": "2026-10-03T05:24:38.664Z",
     "error": null
   },
-  "programado": null,
+  "programado": "2026-10-03T09:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-10-03T05:24:38.664Z",
-  "actualizado": "2026-10-03T05:24:38.664Z"
+  "actualizado": "2026-10-03T07:10:30.960Z",
+  "destinos": {
+    "instagram": {
+      "texto": "Pope Leo XIV told artists gathered for a Vatican meeting on culture that the Church needs their creativity, especially “in the age of search engines,” to help make the Gospel “accessible and understandable.” The address came during a gathering titled “The Art of Possibility: Weaving Together,” promoted by the Dicastery for Culture and Education. Source: Vatican News, Oct 2, 2026.\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #CatholicChurch #Art #Culture",
+      "aprobado": {
+        "fecha": "2026-10-03T07:10:30.960Z",
+        "hashPieza": "2661336efa82881c",
+        "imagenHash": "e338590133a741a3",
+        "imagenSha": "03603d0aab0026b70bd301e5c98cf68b019cd657"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
