@@ -1,0 +1,203 @@
+{
+  "id": "2026-10-03-0645-luiseskivelgolcher-wired-c9d6",
+  "cuenta": "luiseskivelgolcher",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "WIRED",
+    "url": "https://www.wired.com/story/ice-has-been-dumping-protester-photos-into-a-palantir-database/",
+    "titulo": "ICE Has Been Dumping Protester Photos Into a Palantir Database",
+    "publicado": "2026-10-02T19:52:36.876Z"
+  },
+  "categoria": "SEGURIDAD",
+  "titular": "ICE guardó fotos de manifestantes en base de Palantir",
+  "bajada": "Documentos judiciales destapan vigilancia a observadores en Maine",
+  "caption": "Un documento judicial parcialmente desclasificado señala que agentes de Homeland Security en Estados Unidos crearon expedientes sobre personas que solo observaban operativos migratorios en Maine, según reveló WIRED el 2 de octubre de 2026. Los registros —fotos, placas de auto y datos personales— habrían quedado guardados en el Investigative Case Management (ICM), un sistema de gestión de casos construido por la empresa de análisis de datos Palantir. Según la denuncia, un agente etiquetó a dos observadores como \"amenaza para las fuerzas del orden\" y pidió una búsqueda con reconocimiento facial, tecnología que identifica rostros a partir de imágenes. El Departamento de Seguridad Nacional calificó la demanda de \"sin fundamento\" y Palantir no respondió a solicitudes de comentario. Se trata de denuncias documentadas en una demanda colectiva, no de una condena judicial. ¿Debería existir un límite claro a lo que el gobierno puede registrar sobre quienes fiscalizan su actuación?",
+  "hashtags": [
+    "#Vigilancia",
+    "#Palantir",
+    "#ICE",
+    "#Privacidad",
+    "#EstadosUnidos"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-10-03-0645-luiseskivelgolcher-wired-c9d6.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-03-0645-luiseskivelgolcher-wired-c9d6.jpg",
+    "hash": "afbe72d2d4cdf10c",
+    "version": 11,
+    "estilo": "dc8c8fa3edf501fd",
+    "renderizada": "2026-10-03T11:46:50.072Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada de un edificio federal de Homeland Security en Washington D.C. con una cámara de vigilancia discreta en el tercio superior derecho; el resto del encuadre, despejado, estilo ilustración editorial sin personas.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-03-0645-luiseskivelgolcher-wired-c9d6.jpg",
+    "hashDescripcion": "4fad0957f18e4e59",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-03T11:45:24.885Z",
+    "error": null,
+    "procedencia": "generada"
+  },
+  "formato": "carrusel",
+  "fuentes": [
+    {
+      "rol": "principal",
+      "medio": "WIRED",
+      "autor": "Maddy Varner",
+      "url": "https://www.wired.com/story/ice-has-been-dumping-protester-photos-into-a-palantir-database/",
+      "canonica": "https://www.wired.com/story/ice-has-been-dumping-protester-photos-into-a-palantir-database/",
+      "idioma": "en",
+      "publicado": "2026-10-02T19:52:36.876Z",
+      "actualizado": "2026-10-02T19:52:36.876Z",
+      "fechaHecho": "2026-01-20",
+      "consultado": "2026-10-03T11:45:24.885Z",
+      "alcance": "completo",
+      "textoRecuperado": {
+        "parrafos": 22,
+        "caracteres": 6395,
+        "enviados": 3624
+      },
+      "fuentesPrimarias": [
+        "https://www.courtlistener.com/docket/72313728/132/hilton-v-noem/",
+        "https://www.dhs.gov/news/2026/01/21/ice-launches-operation-catch-day-targeting-worst-worst-criminal-illegal-aliens",
+        "https://storage.courtlistener.com/recap/gov.uscourts.med.69985/gov.uscourts.med.69985.117.0.pdf",
+        "https://www.dhs.gov/sites/default/files/publications/privacy-pia-ice-icm-june2016.pdf",
+        "https://www.dhs.gov/publication/tecs-system-cbp-primary-and-secondary-processing-tecs-national-sar-initiative",
+        "https://sam.gov/opp/7e20d6751a0e4a97be276139b8bcecad/view",
+        "https://sam.gov/opp/027b10d0cff3409c91d52d5cef37d576/view",
+        "https://sam.gov/opp/f71acee6010c423db4902446a59a690c/view",
+        "https://www.documentcloud.org/documents/28221052-lyons-response-to-frost-42126/",
+        "http://www.aboutads.info"
+      ],
+      "licenciaMedios": null
+    }
+  ],
+  "afirmaciones": [
+    {
+      "texto": "Agentes de DHS crearon expedientes con fotos, placas y otros datos de observadores de ICE y los guardaron en el sistema Investigative Case Management, construido por Palantir",
+      "tipo": "denuncia",
+      "fuente": "https://www.wired.com/story/ice-has-been-dumping-protester-photos-into-a-palantir-database/",
+      "contrastada": false
+    },
+    {
+      "texto": "Un agente etiquetó a dos observadores como \"amenaza para las fuerzas del orden, manifestante profesional\" y envió sus fotos para una búsqueda de reconocimiento facial",
+      "tipo": "denuncia",
+      "fuente": "https://storage.courtlistener.com/recap/gov.uscourts.med.69985/gov.uscourts.med.69985.117.0.pdf",
+      "contrastada": false
+    },
+    {
+      "texto": "Un agente llamó a una observadora identificándose solo como \"el Departamento de Seguridad Nacional\" y, según ella, mencionó un posible \"listado de terrorismo doméstico\"",
+      "tipo": "denuncia",
+      "fuente": "https://www.courtlistener.com/docket/72313728/132/hilton-v-noem/",
+      "contrastada": false
+    },
+    {
+      "texto": "El Departamento de Seguridad Nacional calificó la demanda de \"sin fundamento\" y negó la existencia de una base de datos de \"terroristas domésticos\"",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/ice-has-been-dumping-protester-photos-into-a-palantir-database/",
+      "contrastada": true
+    },
+    {
+      "texto": "Palantir no respondió a las solicitudes de comentario de WIRED",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/ice-has-been-dumping-protester-photos-into-a-palantir-database/",
+      "contrastada": true
+    }
+  ],
+  "angulo": "Cómo un sistema de datos construido por una empresa privada terminó usándose para vigilar a quienes fiscalizan a ICE, según documentos judiciales.",
+  "atribucion": "WIRED (Maddy Varner), con base en documentos judiciales desellados el 2 de octubre de 2026",
+  "puntuacion": {
+    "total": 82,
+    "componentes": {
+      "afinidad": 27,
+      "interes": 20,
+      "evidencia": 14,
+      "actualidad": 15,
+      "visual": 6
+    }
+  },
+  "alertas": [
+    "fuente-unica",
+    "acceso-parcial",
+    "hecho-antiguo"
+  ],
+  "carrusel": {
+    "diapositivas": [
+      {
+        "titulo": "¿Vigilaron a quienes solo observaban a ICE en Maine?",
+        "texto": "Documentos judiciales desellados el 2 de octubre de 2026 sugieren que sí, según reportó WIRED."
+      },
+      {
+        "titulo": "Qué ocurrió",
+        "texto": "Durante un operativo migratorio en Maine en enero de 2026, agentes de Homeland Security habrían fichado a personas que solo filmaban o presenciaban arrestos."
+      },
+      {
+        "titulo": "Dónde quedaron guardados los datos",
+        "texto": "Las fotos, placas y datos personales se habrían registrado en el Investigative Case Management (ICM), sistema que usa Homeland Security Investigations y que construyó Palantir."
+      },
+      {
+        "titulo": "A quién afecta",
+        "texto": "Al menos seis u ocho personas, según la demanda, habrían sido fichadas por ejercer su derecho a observar la actuación policial, dice la organización Protect Democracy."
+      },
+      {
+        "titulo": "Lo que falta por confirmar",
+        "texto": "Son denuncias de una demanda colectiva, no una condena. DHS niega la acusación central y Palantir no ha comentado."
+      },
+      {
+        "titulo": "El dato que queda sobre la mesa",
+        "texto": "Un sistema diseñado para investigar delitos terminó, según la demanda, usándose para vigilar a civiles que ejercían su derecho a fiscalizar al Estado. Fuente: WIRED, 2 de octubre de 2026."
+      }
+    ],
+    "imagenes": [
+      {
+        "numero": 1,
+        "ruta": "public/img/2026-10-03-0645-luiseskivelgolcher-wired-c9d6-01.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-03-0645-luiseskivelgolcher-wired-c9d6-01.jpg",
+        "hash": "b3929c16c916bf88"
+      },
+      {
+        "numero": 2,
+        "ruta": "public/img/2026-10-03-0645-luiseskivelgolcher-wired-c9d6-02.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-03-0645-luiseskivelgolcher-wired-c9d6-02.jpg",
+        "hash": "a058cb094757b9ab"
+      },
+      {
+        "numero": 3,
+        "ruta": "public/img/2026-10-03-0645-luiseskivelgolcher-wired-c9d6-03.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-03-0645-luiseskivelgolcher-wired-c9d6-03.jpg",
+        "hash": "d49b8f5eaf5a2434"
+      },
+      {
+        "numero": 4,
+        "ruta": "public/img/2026-10-03-0645-luiseskivelgolcher-wired-c9d6-04.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-03-0645-luiseskivelgolcher-wired-c9d6-04.jpg",
+        "hash": "26260f06e98ff114"
+      },
+      {
+        "numero": 5,
+        "ruta": "public/img/2026-10-03-0645-luiseskivelgolcher-wired-c9d6-05.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-03-0645-luiseskivelgolcher-wired-c9d6-05.jpg",
+        "hash": "8786975ae0b3ff64"
+      },
+      {
+        "numero": 6,
+        "ruta": "public/img/2026-10-03-0645-luiseskivelgolcher-wired-c9d6-06.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-03-0645-luiseskivelgolcher-wired-c9d6-06.jpg",
+        "hash": "0020a7ddc667827f"
+      }
+    ],
+    "hash": "430ff174ac9bf976",
+    "version": 2
+  },
+  "reel": null,
+  "revision": {
+    "estado": "pendiente",
+    "notas": []
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-03T11:45:24.885Z",
+  "actualizado": "2026-10-03T11:45:24.885Z"
+}

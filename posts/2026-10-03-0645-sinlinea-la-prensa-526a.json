@@ -1,0 +1,52 @@
+{
+  "id": "2026-10-03-0645-sinlinea-la-prensa-526a",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/sociedad/afectaciones-en-albrook-mall-el-centro-comercial-apunta-a-obras-cercanas-sin-especificarlas/",
+    "titulo": "Afectaciones en Albrook Mall: el centro comercial apunta a obras cercanas sin especificarlas",
+    "publicado": "2026-10-02T22:22:42.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "Albrook Mall admite grietas por obras cercanas al metro",
+  "bajada": "La administración del centro comercial reconoce asentamientos inducidos, sin precisar qué obra los causa.",
+  "caption": "Desde mayo se denuncian hundimientos y grietas en Albrook Mall, uno de los centros comerciales más visitados del país. La administración confirma el problema, pero evita mencionar directamente los trabajos de la Línea 3 del Metro que avanzan justo en esa zona. ¿Debe el Metro de Panamá dar explicaciones públicas sobre esto?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#AlbrookMall",
+    "#MetroDePanamá",
+    "#Línea3",
+    "#Infraestructura"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-10-03-0645-sinlinea-la-prensa-526a.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-03-0645-sinlinea-la-prensa-526a.jpg",
+    "hash": "6f89f7fac1f9a150",
+    "version": 11,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-10-03T11:45:54.378Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada exterior de un centro comercial panameño con andamios y cinta de seguridad en una esquina, de noche; la estructura queda en el tercio superior derecho y el resto de la imagen despejado.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-03-0645-sinlinea-la-prensa-526a.jpg",
+    "hashDescripcion": "5ef3d32f8cad3ce9",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-03T11:45:24.885Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-03T11:45:24.885Z",
+  "actualizado": "2026-10-03T11:45:24.885Z",
+  "plantilla": "foto",
+  "dato": {
+    "cifra": "10%",
+    "frase": "es la proporción del centro comercial que presenta afectaciones, según su directora"
+  }
+}
