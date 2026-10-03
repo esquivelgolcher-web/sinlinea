@@ -218,7 +218,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-01T10:14:53.402Z",
-  "actualizado": "2026-10-03T07:10:20.598Z",
+  "actualizado": "2026-10-03T18:48:36.031Z",
   "destinos": {
     "instagram": {
       "texto": "Paragon Solutions se presentaba como la empresa de spyware \"responsable\": prometía nunca vender a regímenes autoritarios y cortar a clientes que abusaran de su herramienta Graphite, un software espía para teléfonos. Pero en una entrevista con WIRED, publicada el 1 de octubre de 2026, el CEO Andrew Boyd admitió algo clave: la compañía no tiene forma técnica de saber si un cliente usa el spyware contra blancos ilegítimos, porque no puede ver a quién apuntan ni qué datos extraen. Solo se entera si el cliente lo confiesa o si un tercero lo expone, como ocurrió en 2025 cuando WhatsApp denunció que Graphite infectó a más de 60 personas en 20 países, incluidos periodistas y activistas en Italia. El gobierno italiano negó mal uso. Paragon canceló igual los contratos con Italia, pero sin investigar si la denuncia era cierta. Según WIRED, tampoco existe un \"kill switch\" real para desactivar a un cliente: solo pueden cortarle las actualizaciones, y el sistema deja de funcionar en unas 12 horas. ¿Qué tan responsable puede ser una empresa de espionaje que admite no poder vigilar a sus propios clientes?\n\nFuente: WIRED\n\n#Spyware #Paragon #Privacidad #Ciberseguridad #Vigilancia",
@@ -240,7 +240,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-10-03T18:48:36.031Z",
+        "actualizado": "2026-10-03T18:48:36.031Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     },
