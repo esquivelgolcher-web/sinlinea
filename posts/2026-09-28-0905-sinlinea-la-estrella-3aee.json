@@ -1,7 +1,7 @@
 {
   "id": "2026-09-28-0905-sinlinea-la-estrella-3aee",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "La Estrella de Panamá",
     "url": "https://www.laestrella.com.pa/panama/nacional/contraloria-refrenda-obra-del-mop-con-fianza-menor-a-la-normativa-GH26033489",
@@ -43,7 +43,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-28T14:05:23.779Z",
-  "actualizado": "2026-09-28T14:05:23.779Z",
+  "actualizado": "2026-10-03T07:13:25.044Z",
   "plantilla": "dato",
   "dato": {
     "cifra": "37%",
