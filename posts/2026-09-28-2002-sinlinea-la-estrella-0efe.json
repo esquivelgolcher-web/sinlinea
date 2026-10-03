@@ -1,7 +1,7 @@
 {
   "id": "2026-09-28-2002-sinlinea-la-estrella-0efe",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "La Estrella de Panamá",
     "url": "https://www.laestrella.com.pa/economia/deuda-publica-de-panama-alcanzara-62-mil-millones-en-2026-y-64-mil-millones-en-2027-segun-mef-OB26055913",
@@ -43,7 +43,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-29T01:02:38.500Z",
-  "actualizado": "2026-09-29T01:02:38.500Z",
+  "actualizado": "2026-10-03T07:13:14.398Z",
   "plantilla": "foto",
   "dato": {
     "cifra": "$61,526 M",
