@@ -1,7 +1,7 @@
 {
   "id": "2026-10-01-0614-leopopexiv-vatican-news-8879",
   "cuenta": "leopopexiv",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/pope/news/2026-09/pope-appeals-for-dialogue-in-tigray-region.html",
@@ -38,9 +38,26 @@
     "generada": "2026-10-01T10:14:53.402Z",
     "error": null
   },
-  "programado": null,
+  "programado": "2026-10-03T13:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-10-01T10:14:53.402Z",
-  "actualizado": "2026-10-01T10:14:53.402Z"
+  "actualizado": "2026-10-03T07:10:37.453Z",
+  "destinos": {
+    "instagram": {
+      "texto": "At the close of his General Audience, Pope Leo XIV appealed to all parties in Ethiopia's Tigray region to stop hostilities, saying only sincere commitment can build lasting peace. Source: Vatican News, Sept 30, 2026.\n\nFuente: Vatican News\n\n#PopeLeoXIV #Tigray #Peace #Vatican #Ethiopia",
+      "aprobado": {
+        "fecha": "2026-10-03T07:10:37.453Z",
+        "hashPieza": "8e935d8d41266b0f",
+        "imagenHash": "2196d8e1add0488b",
+        "imagenSha": "d5a041e1d595d1e5b83eeea261d42a08422bf1b3"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
