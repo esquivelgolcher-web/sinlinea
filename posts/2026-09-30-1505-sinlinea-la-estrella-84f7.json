@@ -1,7 +1,7 @@
 {
   "id": "2026-09-30-1505-sinlinea-la-estrella-84f7",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "La Estrella de Panamá",
     "url": "https://www.laestrella.com.pa/panama/nacional/first-quantum-esta-dispuesta-a-negociar-con-el-gobierno-tras-recomendaciones-de-cobre-panama-EE26111544",
@@ -43,6 +43,6 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-30T20:05:41.361Z",
-  "actualizado": "2026-09-30T20:05:41.361Z",
+  "actualizado": "2026-10-03T07:12:02.894Z",
   "plantilla": "titular"
 }
