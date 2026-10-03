@@ -45,9 +45,26 @@
             "follows": 0
           },
           "faltantes": {}
+        },
+        "2026-10-03T10:32:18.233Z": {
+          "acumulados": {
+            "meGusta": 1,
+            "comentarios": 0,
+            "reach": 225,
+            "views": 319,
+            "likes": 1,
+            "comments": 0,
+            "saved": 0,
+            "shares": 0,
+            "total_interactions": 1,
+            "profile_visits": 0,
+            "profile_activity": 0,
+            "follows": 0
+          },
+          "faltantes": {}
         }
       },
-      "ultimaConsulta": "2026-10-02T11:15:46.815Z"
+      "ultimaConsulta": "2026-10-03T10:32:18.233Z"
     }
   }
 }
