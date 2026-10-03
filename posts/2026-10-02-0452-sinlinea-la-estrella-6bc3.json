@@ -1,7 +1,7 @@
 {
   "id": "2026-10-02-0452-sinlinea-la-estrella-6bc3",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "La Estrella de Panamá",
     "url": "https://www.laestrella.com.pa/panama/politica/reformas-electorales-abren-pulso-entre-te-y-asamblea-nacional-CA26153414",
@@ -43,6 +43,6 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-02T09:52:26.635Z",
-  "actualizado": "2026-10-02T09:52:26.635Z",
+  "actualizado": "2026-10-03T07:10:55.652Z",
   "plantilla": "foto"
 }
