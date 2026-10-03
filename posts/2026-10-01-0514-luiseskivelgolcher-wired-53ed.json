@@ -1,7 +1,7 @@
 {
   "id": "2026-10-01-0514-luiseskivelgolcher-wired-53ed",
   "cuenta": "luiseskivelgolcher",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "WIRED",
     "url": "https://www.wired.com/story/the-secrets-of-the-us-spyware-king/",
@@ -270,25 +270,15 @@
           "bae76d3bb92f02806623847f94ca4de5b8bba9f7"
         ]
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-10-03T18:48:36.031Z",
-        "actualizado": "2026-10-03T18:48:36.031Z",
-        "contenedorId": "17991801858100604",
-        "hijos": [
-          "17991801708100604",
-          "17991801729100604",
-          "17991801750100604",
-          "17991801771100604",
-          "17991801792100604",
-          "17991801816100604",
-          "17991801837100604"
-        ]
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18107273948222181",
+        "idPublicacion": null,
+        "permalink": "https://www.threads.com/@luisegolcher/post/DeCvfzvGS92",
+        "fecha": "2026-10-03T18:48:36.031Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
