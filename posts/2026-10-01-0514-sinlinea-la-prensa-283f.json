@@ -1,7 +1,7 @@
 {
   "id": "2026-10-01-0514-sinlinea-la-prensa-283f",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "La Prensa",
     "url": "https://www.prensa.com/sociedad/mibus-tiene-306-autobuses-fuera-de-servicio-171-tienen-mas-de-15-anos/",
@@ -42,7 +42,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-01T10:14:53.402Z",
-  "actualizado": "2026-10-01T10:14:53.402Z",
+  "actualizado": "2026-10-03T07:11:43.984Z",
   "plantilla": "dato",
   "dato": {
     "cifra": "306",
