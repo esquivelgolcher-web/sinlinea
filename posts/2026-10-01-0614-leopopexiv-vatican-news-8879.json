@@ -1,7 +1,7 @@
 {
   "id": "2026-10-01-0614-leopopexiv-vatican-news-8879",
   "cuenta": "leopopexiv",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/pope/news/2026-09/pope-appeals-for-dialogue-in-tigray-region.html",
@@ -39,7 +39,11 @@
     "error": null
   },
   "programado": "2026-10-03T13:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "18107199770258514",
+    "permalink": "https://www.instagram.com/p/DeCvmgWGnFY/",
+    "fecha": "2026-10-03T18:50:39.853Z"
+  },
   "error": null,
   "creado": "2026-10-01T10:14:53.402Z",
   "actualizado": "2026-10-03T18:50:39.853Z",
@@ -52,16 +56,15 @@
         "imagenHash": "2196d8e1add0488b",
         "imagenSha": "d5a041e1d595d1e5b83eeea261d42a08422bf1b3"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-10-03T18:50:39.853Z",
-        "actualizado": "2026-10-03T18:50:39.853Z",
-        "contenedorId": "18106530902081176"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18107199770258514",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/DeCvmgWGnFY/",
+        "fecha": "2026-10-03T18:50:39.853Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
