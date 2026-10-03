@@ -1,7 +1,7 @@
 {
   "id": "2026-09-28-1616-sinlinea-la-estrella-3dac",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "La Estrella de Panamá",
     "url": "https://www.laestrella.com.pa/economia/canal-de-panama-eleva-a-33-los-transitos-y-el-calado-a-49-pies-por-mejores-condiciones-hidricas-NA26049352",
@@ -43,7 +43,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-28T21:16:08.372Z",
-  "actualizado": "2026-09-28T21:16:08.372Z",
+  "actualizado": "2026-10-03T07:13:21.288Z",
   "plantilla": "dato",
   "dato": {
     "cifra": "49 pies",
