@@ -40,7 +40,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-02T09:52:26.635Z",
-  "actualizado": "2026-10-03T07:10:35.122Z",
+  "actualizado": "2026-10-03T18:50:39.853Z",
   "destinos": {
     "instagram": {
       "texto": "“Fifty million ‘Hail Marys’ rising to Heaven from every part of the world and in every language, asking for peace, joining together like one enormous Rosary, embracing all the continents, peoples, and nations of the world.”\n\n— Pope Leo XIV, Mensaje a los niños en el Rosario en los Jardines Vaticanos (2026)\n\nVia Vatican News, 1 October 2026\n\n#PopeLeoXIV #Vatican #CatholicChurch\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #CatholicChurch",
@@ -53,7 +53,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-10-03T18:50:39.853Z",
+        "actualizado": "2026-10-03T18:50:39.853Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
