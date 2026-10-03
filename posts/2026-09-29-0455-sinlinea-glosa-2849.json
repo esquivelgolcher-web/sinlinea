@@ -1,7 +1,7 @@
 {
   "id": "2026-09-29-0455-sinlinea-glosa-2849",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "formato": "glosa",
   "glosa": {
     "versos": [
@@ -45,5 +45,5 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-29T09:55:43.490Z",
-  "actualizado": "2026-09-29T09:55:43.490Z"
+  "actualizado": "2026-10-03T07:12:53.961Z"
 }
