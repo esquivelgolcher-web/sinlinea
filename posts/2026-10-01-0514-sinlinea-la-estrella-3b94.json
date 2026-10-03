@@ -1,7 +1,7 @@
 {
   "id": "2026-10-01-0514-sinlinea-la-estrella-3b94",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "La Estrella de Panamá",
     "url": "https://www.laestrella.com.pa/panama/nacional/subempleo-invisible-duplica-dato-revela-la-precarizacion-de-los-trabajos-NH26123592",
@@ -43,7 +43,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-01T10:14:53.402Z",
-  "actualizado": "2026-10-01T10:14:53.402Z",
+  "actualizado": "2026-10-03T07:11:26.272Z",
   "plantilla": "foto",
   "dato": {
     "cifra": "413,155",
