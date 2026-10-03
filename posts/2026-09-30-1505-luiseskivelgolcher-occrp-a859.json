@@ -1,7 +1,7 @@
 {
   "id": "2026-09-30-1505-luiseskivelgolcher-occrp-a859",
   "cuenta": "luiseskivelgolcher",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "OCCRP",
     "url": "https://www.occrp.org/en/news/dutch-police-arrest-alleged-member-of-hacking-group-that-targeted-fbi",
@@ -112,9 +112,56 @@
     "estado": "pendiente",
     "notas": []
   },
-  "programado": null,
+  "programado": "2026-10-03T18:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-09-30T20:05:41.361Z",
-  "actualizado": "2026-09-30T20:05:41.361Z"
+  "actualizado": "2026-10-03T07:10:25.775Z",
+  "destinos": {
+    "instagram": {
+      "texto": "La policía de los Países Bajos anunció el arresto de un joven de 24 años señalado como integrante de ShinyHunters, un grupo de ciberdelincuencia vinculado a varias filtraciones masivas de datos, incluido el hackeo la semana pasada a un sitio web del FBI, la agencia federal de investigación de Estados Unidos, según reportó OCCRP. Según el comunicado policial, en la laptop del detenido encontraron información que muestra que organizaba dos asesinatos en el extranjero, un plan que las autoridades dijeron que \"no está relacionado\" con la investigación sobre el grupo hacker. La policía no reveló la identidad del sospechoso. En un video difundido por el FBI, el subdirector de su división cibernética, Brett Leatherman, se dirigió directamente a los demás miembros de ShinyHunters: \"Ya se enteraron del arresto de su colega\", les dijo, e instó a entregarse a las autoridades. El caso ilustra cómo estos grupos combinan delitos informáticos con otras actividades criminales.\n\nFuente: OCCRP\n\n#Ciberseguridad #ShinyHunters #Hackeo #FBI",
+      "aprobado": {
+        "fecha": "2026-10-03T07:10:25.775Z",
+        "hashPieza": "1eacfa3c3cfdaf0e",
+        "imagenHash": "8e26e18e0ddf6e2c",
+        "imagenSha": "94fc99e8e4a425055c903d7e5d3fda183cc30d27"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    },
+    "facebook": {
+      "texto": "La policía de los Países Bajos anunció el arresto de un joven de 24 años señalado como integrante de ShinyHunters, un grupo de ciberdelincuencia vinculado a varias filtraciones masivas de datos, incluido el hackeo la semana pasada a un sitio web del FBI, la agencia federal de investigación de Estados Unidos, según reportó OCCRP. Según el comunicado policial, en la laptop del detenido encontraron información que muestra que organizaba dos asesinatos en el extranjero, un plan que las autoridades dijeron que \"no está relacionado\" con la investigación sobre el grupo hacker. La policía no reveló la identidad del sospechoso. En un video difundido por el FBI, el subdirector de su división cibernética, Brett Leatherman, se dirigió directamente a los demás miembros de ShinyHunters: \"Ya se enteraron del arresto de su colega\", les dijo, e instó a entregarse a las autoridades. El caso ilustra cómo estos grupos combinan delitos informáticos con otras actividades criminales.\n\nFuente: OCCRP",
+      "aprobado": {
+        "fecha": "2026-10-03T07:10:25.775Z",
+        "hashPieza": "1eacfa3c3cfdaf0e",
+        "imagenHash": "8e26e18e0ddf6e2c",
+        "imagenSha": "94fc99e8e4a425055c903d7e5d3fda183cc30d27"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    },
+    "threads": {
+      "texto": "Holanda arresta a sospechoso del grupo hacker ShinyHunters\n\nEn su laptop hallaron planes para dos asesinatos, ajenos al caso de los hackeos\n\nSegún OCCRP (30 de septiembre de 2026)",
+      "aprobado": {
+        "fecha": "2026-10-03T07:10:25.775Z",
+        "hashPieza": "1eacfa3c3cfdaf0e",
+        "imagenHash": "8e26e18e0ddf6e2c",
+        "imagenSha": "94fc99e8e4a425055c903d7e5d3fda183cc30d27"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
