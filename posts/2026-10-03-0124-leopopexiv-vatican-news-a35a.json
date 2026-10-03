@@ -42,7 +42,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-03T05:24:38.664Z",
-  "actualizado": "2026-10-03T07:10:30.960Z",
+  "actualizado": "2026-10-03T15:14:27.171Z",
   "destinos": {
     "instagram": {
       "texto": "Pope Leo XIV told artists gathered for a Vatican meeting on culture that the Church needs their creativity, especially “in the age of search engines,” to help make the Gospel “accessible and understandable.” The address came during a gathering titled “The Art of Possibility: Weaving Together,” promoted by the Dicastery for Culture and Education. Source: Vatican News, Oct 2, 2026.\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #CatholicChurch #Art #Culture",
@@ -55,7 +55,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-10-03T15:14:27.171Z",
+        "actualizado": "2026-10-03T15:14:27.171Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
