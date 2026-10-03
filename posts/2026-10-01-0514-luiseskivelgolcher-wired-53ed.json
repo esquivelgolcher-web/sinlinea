@@ -1,7 +1,7 @@
 {
   "id": "2026-10-01-0514-luiseskivelgolcher-wired-53ed",
   "cuenta": "luiseskivelgolcher",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "WIRED",
     "url": "https://www.wired.com/story/the-secrets-of-the-us-spyware-king/",
@@ -214,9 +214,59 @@
     "estado": "pendiente",
     "notas": []
   },
-  "programado": null,
+  "programado": "2026-10-03T12:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-10-01T10:14:53.402Z",
-  "actualizado": "2026-10-01T10:14:53.402Z"
+  "actualizado": "2026-10-03T07:10:20.598Z",
+  "destinos": {
+    "instagram": {
+      "texto": "Paragon Solutions se presentaba como la empresa de spyware \"responsable\": prometía nunca vender a regímenes autoritarios y cortar a clientes que abusaran de su herramienta Graphite, un software espía para teléfonos. Pero en una entrevista con WIRED, publicada el 1 de octubre de 2026, el CEO Andrew Boyd admitió algo clave: la compañía no tiene forma técnica de saber si un cliente usa el spyware contra blancos ilegítimos, porque no puede ver a quién apuntan ni qué datos extraen. Solo se entera si el cliente lo confiesa o si un tercero lo expone, como ocurrió en 2025 cuando WhatsApp denunció que Graphite infectó a más de 60 personas en 20 países, incluidos periodistas y activistas en Italia. El gobierno italiano negó mal uso. Paragon canceló igual los contratos con Italia, pero sin investigar si la denuncia era cierta. Según WIRED, tampoco existe un \"kill switch\" real para desactivar a un cliente: solo pueden cortarle las actualizaciones, y el sistema deja de funcionar en unas 12 horas. ¿Qué tan responsable puede ser una empresa de espionaje que admite no poder vigilar a sus propios clientes?\n\nFuente: WIRED\n\n#Spyware #Paragon #Privacidad #Ciberseguridad #Vigilancia",
+      "aprobado": {
+        "fecha": "2026-10-03T07:10:20.598Z",
+        "hashPieza": "3e6ba4330bf19a55",
+        "imagenHash": "0c2ffee1dca606df",
+        "imagenSha": "b3c17fc5b854f253c261c6870d7149a1e477f061",
+        "imagenesSha": [
+          "99c30e327d9162744396bc8954c4748bb44b17d2",
+          "2be8cc58f6eed141a3f08ca931cc784ae2e92ce6",
+          "0f0c3d0ec85d5d2d43c088894070839757588f4b",
+          "531085644ab1dd2a92d87ca65b3a0f5491a0e6e4",
+          "7076969b65a97857f5f87245e8c62f7a620e3cb4",
+          "483f515c96d48e55f1d05b191273c56ec4ab339b",
+          "bae76d3bb92f02806623847f94ca4de5b8bba9f7"
+        ]
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    },
+    "threads": {
+      "texto": "Paragon reconoce que no detecta abusos de su spyware\n\nEl CEO admitió a WIRED que la empresa no puede ver a quién espían sus clientes\n\nSegún WIRED (1 de octubre de 2026)",
+      "aprobado": {
+        "fecha": "2026-10-03T07:10:20.598Z",
+        "hashPieza": "3e6ba4330bf19a55",
+        "imagenHash": "0c2ffee1dca606df",
+        "imagenSha": "b3c17fc5b854f253c261c6870d7149a1e477f061",
+        "imagenesSha": [
+          "99c30e327d9162744396bc8954c4748bb44b17d2",
+          "2be8cc58f6eed141a3f08ca931cc784ae2e92ce6",
+          "0f0c3d0ec85d5d2d43c088894070839757588f4b",
+          "531085644ab1dd2a92d87ca65b3a0f5491a0e6e4",
+          "7076969b65a97857f5f87245e8c62f7a620e3cb4",
+          "483f515c96d48e55f1d05b191273c56ec4ab339b",
+          "bae76d3bb92f02806623847f94ca4de5b8bba9f7"
+        ]
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
