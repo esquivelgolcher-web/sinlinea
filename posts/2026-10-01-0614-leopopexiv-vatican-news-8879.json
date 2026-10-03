@@ -42,7 +42,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-01T10:14:53.402Z",
-  "actualizado": "2026-10-03T07:10:37.453Z",
+  "actualizado": "2026-10-03T18:50:39.853Z",
   "destinos": {
     "instagram": {
       "texto": "At the close of his General Audience, Pope Leo XIV appealed to all parties in Ethiopia's Tigray region to stop hostilities, saying only sincere commitment can build lasting peace. Source: Vatican News, Sept 30, 2026.\n\nFuente: Vatican News\n\n#PopeLeoXIV #Tigray #Peace #Vatican #Ethiopia",
@@ -55,7 +55,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-10-03T18:50:39.853Z",
+        "actualizado": "2026-10-03T18:50:39.853Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
