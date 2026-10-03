@@ -1,7 +1,7 @@
 {
   "id": "2026-10-02-0552-leopopexiv-vatican-news-94f2",
   "cuenta": "leopopexiv",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/vatican-city/news/2026-10/zuppi-in-russia-strengthen-and-speed-up-checks-to-reunite.html",
@@ -39,9 +39,26 @@
     "generada": "2026-10-02T09:52:26.635Z",
     "error": null
   },
-  "programado": null,
+  "programado": "2026-10-04T09:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-10-02T09:52:26.635Z",
-  "actualizado": "2026-10-02T09:52:26.635Z"
+  "actualizado": "2026-10-03T07:10:42.897Z",
+  "destinos": {
+    "instagram": {
+      "texto": "Cardinal Matteo Zuppi has returned from Moscow after his third papal peace mission to Russia. He met Ukrainian prisoners of war and pushed for faster efforts to locate missing persons and return children to Ukraine. Source: Vatican News, Oct 2, 2026.\n\nFuente: Vatican News\n\n#Vatican #PopeLeoXIV #CardinalZuppi #Ukraine #Russia #PeaceMission",
+      "aprobado": {
+        "fecha": "2026-10-03T07:10:42.897Z",
+        "hashPieza": "02ab8da962fd41a7",
+        "imagenHash": "b2fc440719a49a35",
+        "imagenSha": "65c77c587983117bc62645ece1cac34b2dd49a16"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
