@@ -1,0 +1,52 @@
+{
+  "id": "2026-10-03-1127-sinlinea-la-estrella-d041",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/dengue-deja-19-muertos-en-panama-minsa-reporta-9055-casos-hasta-septiembre-CN26188903",
+    "titulo": "Dengue deja 19 muertos en Panamá; Minsa reporta 9,055 casos hasta septiembre",
+    "publicado": "2026-10-03T13:26:00.000Z"
+  },
+  "categoria": "SALUD",
+  "titular": "Dengue deja 19 muertos en Panamá hasta septiembre",
+  "bajada": "El Minsa reporta 9,055 casos este año; Colón y la región Metropolitana concentran más contagios.",
+  "caption": "El dengue sigue siendo una amenaza real para las familias panameñas, pese a la baja de casos frente al año pasado. Colón, Bocas del Toro y Los Santos registran más muertes, y más de mil personas han sido hospitalizadas. ¿Qué medidas de fumigación y prevención se están tomando en tu comunidad?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Dengue",
+    "#Salud",
+    "#Minsa",
+    "#Colón"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-10-03-1127-sinlinea-la-estrella-d041.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-03-1127-sinlinea-la-estrella-d041.jpg",
+    "hash": "fd9872304fb388de",
+    "version": 11,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-10-03T16:27:46.590Z"
+  },
+  "ilustracion": {
+    "descripcion": "Sala de un centro de salud panameño con afiches sobre prevención del dengue y un mosquitero junto a una camilla; el afiche informativo queda en el tercio superior derecho, zona izquierda y central despejadas.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-03-1127-sinlinea-la-estrella-d041.jpg",
+    "hashDescripcion": "c145845466152332",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-03T16:27:13.253Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-03T16:27:13.253Z",
+  "actualizado": "2026-10-03T16:27:13.253Z",
+  "plantilla": "foto",
+  "dato": {
+    "cifra": "9,055",
+    "frase": "casos de dengue se han acumulado en Panamá en lo que va del año"
+  }
+}

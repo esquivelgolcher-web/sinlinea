@@ -1,0 +1,52 @@
+{
+  "id": "2026-10-03-1127-sinlinea-la-prensa-a426",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/sociedad/examen-de-estupefacientes-para-la-licencia-lo-que-debes-saber-sobre-su-nueva-vigencia/",
+    "titulo": "Examen de estupefacientes para la licencia: lo que debes saber sobre su nueva vigencia",
+    "publicado": "2026-10-02T21:34:49.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "Examen antidrogas para licencia ahora vence en 30 días",
+  "bajada": "La ATTT redujo de seis meses a un mes la vigencia del examen de estupefacientes para trámites de licencia.",
+  "caption": "Si vas a sacar o renovar tu licencia de conducir, toma nota: el resultado de la prueba de estupefacientes ya no te sirve por seis meses, sino solo por 30 días calendario. La medida busca evitar pruebas desactualizadas, según la ATTT. ¿Te afecta este nuevo plazo para tu trámite?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Tránsito",
+    "#Licencia",
+    "#ATTT",
+    "#Sertracen"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-10-03-1127-sinlinea-la-prensa-a426.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-03-1127-sinlinea-la-prensa-a426.jpg",
+    "hash": "bbb7c212e97e1128",
+    "version": 2,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-10-03T16:27:46.864Z"
+  },
+  "ilustracion": {
+    "descripcion": "Ventanilla de atención al público en una oficina de trámites de licencias de conducir en Panamá, con un empleado atendiendo a un usuario frente a un mostrador; el mostrador de atención queda en el tercio superior derecho, zona izquierda y central despejadas.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-03T16:27:13.253Z",
+  "actualizado": "2026-10-03T16:27:13.253Z",
+  "plantilla": "dato",
+  "dato": {
+    "cifra": "30 días",
+    "frase": "es el nuevo plazo de vigencia del examen de estupefacientes para trámites de licencia"
+  }
+}

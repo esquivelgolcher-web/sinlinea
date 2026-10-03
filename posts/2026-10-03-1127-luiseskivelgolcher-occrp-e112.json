@@ -1,0 +1,201 @@
+{
+  "id": "2026-10-03-1127-luiseskivelgolcher-occrp-e112",
+  "cuenta": "luiseskivelgolcher",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "OCCRP",
+    "url": "https://www.occrp.org/en/news/amnesty-report-documents-moroccos-sustained-spyware-campaign-against-civil-society",
+    "titulo": "Amnesty Report Documents Morocco's Sustained Spyware Campaign Against Civil Society",
+    "publicado": "2026-10-01T18:50:00.000Z"
+  },
+  "categoria": "SEGURIDAD",
+  "titular": "Amnistía documenta 20 años de espionaje en Marruecos",
+  "bajada": "Pegasus y otras herramientas se usaron contra activistas desde 2017, según el informe",
+  "caption": "Amnistía Internacional publicó un informe que documenta cómo el gobierno de Marruecos usó el programa espía israelí Pegasus, de NSO Group, contra defensores de derechos humanos entre 2017 y 2021, con indicios de que la práctica continuó después. Pegasus es un software que puede infectar un teléfono sin que la persona haga clic en nada (lo que se llama un \"exploit de cero clic\") y copiar mensajes, fotos y ubicación. Según el reporte, el servicio de inteligencia interno marroquí (DGST) contrató herramientas similares desde 2009, incluida la firma italiana Hacking Team. Una investigación previa de OCCRP y Forbidden Stories, con el testimonio de un informante que trabajó en los servicios secretos marroquíes, sostiene que el gobierno usó una empresa intermediaria para contratar con NSO Group y evitar dejar un rastro directo. El gobierno de Marruecos no respondió a la solicitud de comentario de OCCRP. ¿Qué otros países han comprado estas mismas herramientas de vigilancia?",
+  "hashtags": [
+    "#Pegasus",
+    "#Espionaje",
+    "#Marruecos",
+    "#Ciberseguridad",
+    "#DerechosHumanos"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-10-03-1127-luiseskivelgolcher-occrp-e112.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-03-1127-luiseskivelgolcher-occrp-e112.jpg",
+    "hash": "dd613ab9590877ef",
+    "version": 11,
+    "estilo": "dc8c8fa3edf501fd",
+    "renderizada": "2026-10-03T16:28:20.334Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada institucional genérica de un edificio gubernamental norafricano al atardecer, sin rótulos ni banderas identificables; el edificio queda en el tercio superior derecho y la zona izquierda y central despejada",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-03-1127-luiseskivelgolcher-occrp-e112.jpg",
+    "hashDescripcion": "7cfb4f43a03a0699",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-03T16:27:13.253Z",
+    "error": null,
+    "procedencia": "generada"
+  },
+  "formato": "carrusel",
+  "fuentes": [
+    {
+      "rol": "principal",
+      "medio": "OCCRP",
+      "autor": "OCCRP",
+      "url": "https://www.occrp.org/en/news/amnesty-report-documents-moroccos-sustained-spyware-campaign-against-civil-society",
+      "canonica": "https://www.occrp.org/en/news/amnesty-report-documents-moroccos-sustained-spyware-campaign-against-civil-society",
+      "idioma": "en",
+      "publicado": "2026-10-01T18:50:00.000Z",
+      "actualizado": null,
+      "fechaHecho": "2026-10-01",
+      "consultado": "2026-10-03T16:27:13.253Z",
+      "alcance": "completo",
+      "textoRecuperado": {
+        "parrafos": 34,
+        "caracteres": 7566,
+        "enviados": 3910
+      },
+      "fuentesPrimarias": [
+        "https://www.amnesty.org/en/documents/mde29/1447/2026/en/",
+        "https://forbiddenstories.org/projects_posts/pegasus-project-inside-moroccos-spying-machine/",
+        "https://www.maghreb-intelligence.com/decryptage-affaire-pegasus-les-zones-dombre-du-nouveau-recit-de-forbidden-stories-sur-le-maroc/",
+        "https://barlamane.com/%D9%87%D9%84-%D9%87%D9%8A-%D8%B5%D8%AF%D9%81%D8%A9-forbidden-stories-%D8%AA%D8%B9%D9%8A%D8%AF-%D8%A5%D8%AD%D9%8A%D8%A7%D8%A1-%D9%85%D9%84%D9%81-%D8%A8%D9%8A%D8%BA%D8%A7%D8%B3%D9%88%D8%B3-%D8%A8%D8%A7/",
+        "https://fr.le360.ma/politique/la-nouvelle-enquete-pegasus-de-forbidden-stories-a-lepreuve-du-fact-checking_T44YXPANWFG5ZLBBLEUSWYIN6Q/"
+      ],
+      "licenciaMedios": null
+    }
+  ],
+  "afirmaciones": [
+    {
+      "texto": "El gobierno marroquí usó Pegasus contra la sociedad civil entre 2017 y 2021, con posibles usos posteriores",
+      "tipo": "denuncia",
+      "fuente": "https://www.occrp.org/en/news/amnesty-report-documents-moroccos-sustained-spyware-campaign-against-civil-society",
+      "contrastada": true
+    },
+    {
+      "texto": "Los servicios de inteligencia marroquíes contrataron a la firma Hacking Team desde al menos 2009",
+      "tipo": "hecho",
+      "fuente": "https://www.occrp.org/en/news/amnesty-report-documents-moroccos-sustained-spyware-campaign-against-civil-society",
+      "contrastada": true
+    },
+    {
+      "texto": "Marruecos usó una empresa intermediaria para contratar con NSO Group y evitar un rastro directo con el Estado",
+      "tipo": "denuncia",
+      "fuente": "https://www.occrp.org/en/news/amnesty-report-documents-moroccos-sustained-spyware-campaign-against-civil-society",
+      "contrastada": false
+    },
+    {
+      "texto": "El gobierno de Marruecos no respondió a la solicitud de comentario de OCCRP",
+      "tipo": "hecho",
+      "fuente": "https://www.occrp.org/en/news/amnesty-report-documents-moroccos-sustained-spyware-campaign-against-civil-society",
+      "contrastada": true
+    }
+  ],
+  "angulo": "Un informe de Amnistía Internacional documenta dos décadas de espionaje estatal con Pegasus y otras herramientas contra activistas y periodistas en Marruecos",
+  "atribucion": "Amnistía Internacional, OCCRP",
+  "puntuacion": {
+    "total": 84,
+    "componentes": {
+      "afinidad": 30,
+      "interes": 20,
+      "evidencia": 16,
+      "actualidad": 12,
+      "visual": 6
+    }
+  },
+  "alertas": [
+    "hecho-antiguo",
+    "fuente-unica"
+  ],
+  "carrusel": {
+    "diapositivas": [
+      {
+        "titulo": "¿Veinte años espiando a quienes critican al poder?",
+        "texto": "Amnistía Internacional documenta un patrón sostenido de vigilancia estatal contra activistas en Marruecos."
+      },
+      {
+        "titulo": "Qué encontró Amnistía Internacional",
+        "texto": "El informe, publicado el 1 de octubre de 2026, usa evidencia forense para confirmar que la agencia DGST compró y usó Pegasus desde 2017."
+      },
+      {
+        "titulo": "De los clics a la infección sin clics",
+        "texto": "Las herramientas evolucionaron: de enlaces de phishing que exigían un clic a exploits de cero clic, que infectan el teléfono sin ninguna acción de la víctima."
+      },
+      {
+        "titulo": "No fue solo Pegasus",
+        "texto": "Amnistía también documenta el uso de Eagle (Amesys), el sistema de Hacking Team y FinSpy (Gamma Group) desde hace casi dos décadas."
+      },
+      {
+        "titulo": "Periodistas y defensores, el blanco principal",
+        "texto": "Según el reporte, la sociedad civil fue el objetivo principal desde el inicio del uso de Pegasus por parte de Marruecos en 2017."
+      },
+      {
+        "titulo": "Un intermediario para borrar el rastro",
+        "texto": "Un informante de los servicios secretos marroquíes dijo a OCCRP que el gobierno usó una empresa privada para contratar con NSO Group sin dejar huella directa."
+      },
+      {
+        "titulo": "El gobierno marroquí no respondió",
+        "texto": "Fuentes: Amnistía Internacional y OCCRP, en colaboración con Forbidden Stories."
+      }
+    ],
+    "imagenes": [
+      {
+        "numero": 1,
+        "ruta": "public/img/2026-10-03-1127-luiseskivelgolcher-occrp-e112-01.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-03-1127-luiseskivelgolcher-occrp-e112-01.jpg",
+        "hash": "9ea2f04dea9ad5d7"
+      },
+      {
+        "numero": 2,
+        "ruta": "public/img/2026-10-03-1127-luiseskivelgolcher-occrp-e112-02.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-03-1127-luiseskivelgolcher-occrp-e112-02.jpg",
+        "hash": "9b0f080e9cd6b7f4"
+      },
+      {
+        "numero": 3,
+        "ruta": "public/img/2026-10-03-1127-luiseskivelgolcher-occrp-e112-03.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-03-1127-luiseskivelgolcher-occrp-e112-03.jpg",
+        "hash": "9683a66013767eae"
+      },
+      {
+        "numero": 4,
+        "ruta": "public/img/2026-10-03-1127-luiseskivelgolcher-occrp-e112-04.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-03-1127-luiseskivelgolcher-occrp-e112-04.jpg",
+        "hash": "53095717ee4d6f95"
+      },
+      {
+        "numero": 5,
+        "ruta": "public/img/2026-10-03-1127-luiseskivelgolcher-occrp-e112-05.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-03-1127-luiseskivelgolcher-occrp-e112-05.jpg",
+        "hash": "22f6dec1ef01a797"
+      },
+      {
+        "numero": 6,
+        "ruta": "public/img/2026-10-03-1127-luiseskivelgolcher-occrp-e112-06.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-03-1127-luiseskivelgolcher-occrp-e112-06.jpg",
+        "hash": "9b1751a8e58e8136"
+      },
+      {
+        "numero": 7,
+        "ruta": "public/img/2026-10-03-1127-luiseskivelgolcher-occrp-e112-07.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-03-1127-luiseskivelgolcher-occrp-e112-07.jpg",
+        "hash": "184055d2b62bb224"
+      }
+    ],
+    "hash": "c9d1691bebfdae5d",
+    "version": 2
+  },
+  "reel": null,
+  "revision": {
+    "estado": "pendiente",
+    "notas": []
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-03T16:27:13.253Z",
+  "actualizado": "2026-10-03T16:27:13.253Z"
+}
