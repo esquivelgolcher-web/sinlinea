@@ -1,7 +1,7 @@
 {
   "id": "2026-09-28-2002-sinlinea-la-estrella-39aa",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "La Estrella de Panamá",
     "url": "https://www.laestrella.com.pa/panama/nacional/metro-de-panama-y-doppelmayr-firman-contrato-para-construir-el-teleferico-de-panama-y-san-miguelito-JB26057781",
@@ -43,7 +43,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-29T01:02:38.500Z",
-  "actualizado": "2026-09-29T01:02:38.500Z",
+  "actualizado": "2026-10-03T07:13:18.532Z",
   "plantilla": "dato",
   "dato": {
     "cifra": "6.6 km",
