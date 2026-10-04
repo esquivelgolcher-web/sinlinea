@@ -1,7 +1,7 @@
 {
   "id": "2026-10-03-1127-luiseskivelgolcher-occrp-e112",
   "cuenta": "luiseskivelgolcher",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "OCCRP",
     "url": "https://www.occrp.org/en/news/amnesty-report-documents-moroccos-sustained-spyware-campaign-against-civil-society",
@@ -249,25 +249,15 @@
           "9aee31390a174764c897bffc4390ae3f50959021"
         ]
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-10-04T18:19:25.901Z",
-        "actualizado": "2026-10-04T18:19:25.901Z",
-        "contenedorId": "17991938577100604",
-        "hijos": [
-          "17991938406100604",
-          "17991938439100604",
-          "17991938463100604",
-          "17991938484100604",
-          "17991938508100604",
-          "17991938532100604",
-          "17991938553100604"
-        ]
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18042653081828633",
+        "idPublicacion": null,
+        "permalink": "https://www.threads.com/@luisegolcher/post/DeFQ8afj5e3",
+        "fecha": "2026-10-04T18:19:25.901Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
