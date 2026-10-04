@@ -1,7 +1,7 @@
 {
   "id": "2026-10-03-0645-luiseskivelgolcher-wired-c9d6",
   "cuenta": "luiseskivelgolcher",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "WIRED",
     "url": "https://www.wired.com/story/ice-has-been-dumping-protester-photos-into-a-palantir-database/",
@@ -249,24 +249,15 @@
           "4a8081d9e1b6056ba5784cea5dee05acc185f17f"
         ]
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-10-04T18:19:25.901Z",
-        "actualizado": "2026-10-04T18:19:25.901Z",
-        "contenedorId": "17991939012100604",
-        "hijos": [
-          "17991938775100604",
-          "17991938802100604",
-          "17991938829100604",
-          "17991938853100604",
-          "17991938886100604",
-          "17991938985100604"
-        ]
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18030245957892525",
+        "idPublicacion": null,
+        "permalink": "https://www.threads.com/@luisegolcher/post/DeFRGJTjza5",
+        "fecha": "2026-10-04T18:19:25.901Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
