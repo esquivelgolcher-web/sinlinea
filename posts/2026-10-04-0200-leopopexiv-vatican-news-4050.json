@@ -1,7 +1,7 @@
 {
   "id": "2026-10-04-0200-leopopexiv-vatican-news-4050",
   "cuenta": "leopopexiv",
-  "estado": "borrador",
+  "estado": "programado",
   "formato": "frase",
   "frase": {
     "texto": "Make this heartfelt supplication of Jesus your own",
@@ -36,9 +36,26 @@
     "renderizada": "2026-10-04T06:01:19.779Z"
   },
   "ilustracion": null,
-  "programado": null,
+  "programado": "2026-10-04T18:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-10-04T06:00:27.786Z",
-  "actualizado": "2026-10-04T06:00:27.786Z"
+  "actualizado": "2026-10-04T15:45:29.556Z",
+  "destinos": {
+    "instagram": {
+      "texto": "“Make this heartfelt supplication of Jesus your own”\n\n— Pope Leo XIV, Address to the Pontifical Teutonic College of Santa Maria in Campo Santo (2026)\n\nVia Vatican News, 3 October 2026\n\n#PopeLeoXIV #Vatican #CatholicChurch\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #CatholicChurch",
+      "aprobado": {
+        "fecha": "2026-10-04T15:45:29.556Z",
+        "hashPieza": "fdd486bff8a4f36d",
+        "imagenHash": "7bb875108e0934e6",
+        "imagenSha": "5908697e7fa02465bec2014d0bf6e9ac50298d52"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
