@@ -1,7 +1,7 @@
 {
   "id": "2026-10-03-1127-luiseskivelgolcher-occrp-e112",
   "cuenta": "luiseskivelgolcher",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "OCCRP",
     "url": "https://www.occrp.org/en/news/amnesty-report-documents-moroccos-sustained-spyware-campaign-against-civil-society",
@@ -193,9 +193,59 @@
     "estado": "pendiente",
     "notas": []
   },
-  "programado": null,
+  "programado": "2026-10-04T12:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-10-03T16:27:13.253Z",
-  "actualizado": "2026-10-03T16:27:13.253Z"
+  "actualizado": "2026-10-04T15:45:19.458Z",
+  "destinos": {
+    "instagram": {
+      "texto": "Amnistía Internacional publicó un informe que documenta cómo el gobierno de Marruecos usó el programa espía israelí Pegasus, de NSO Group, contra defensores de derechos humanos entre 2017 y 2021, con indicios de que la práctica continuó después. Pegasus es un software que puede infectar un teléfono sin que la persona haga clic en nada (lo que se llama un \"exploit de cero clic\") y copiar mensajes, fotos y ubicación. Según el reporte, el servicio de inteligencia interno marroquí (DGST) contrató herramientas similares desde 2009, incluida la firma italiana Hacking Team. Una investigación previa de OCCRP y Forbidden Stories, con el testimonio de un informante que trabajó en los servicios secretos marroquíes, sostiene que el gobierno usó una empresa intermediaria para contratar con NSO Group y evitar dejar un rastro directo. El gobierno de Marruecos no respondió a la solicitud de comentario de OCCRP. ¿Qué otros países han comprado estas mismas herramientas de vigilancia?\n\nFuente: OCCRP\n\n#Pegasus #Espionaje #Marruecos #Ciberseguridad #DerechosHumanos",
+      "aprobado": {
+        "fecha": "2026-10-04T15:45:19.458Z",
+        "hashPieza": "5eb40f568a4539cc",
+        "imagenHash": "dd613ab9590877ef",
+        "imagenSha": "2c690c42d6c5140bcf63a2e5f7825cd0ec052baf",
+        "imagenesSha": [
+          "ff6680848b892cc1a768cf9b269f39704c5cbcda",
+          "2e0b031eacb9eaacde478dc8043f4e4dd5b7f95e",
+          "f00378111918bbe650894c0a3e5b13a9605dacdb",
+          "5a19310fa9e7185fca426163ce7327ecb76fc4b9",
+          "ec6093eccf24410207e9469a5b8c586689344089",
+          "f5802ee54ccba103fb991d45cfe168d272b6dab5",
+          "9aee31390a174764c897bffc4390ae3f50959021"
+        ]
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    },
+    "threads": {
+      "texto": "Amnistía documenta 20 años de espionaje en Marruecos\n\nPegasus y otras herramientas se usaron contra activistas desde 2017, según el informe\n\nSegún OCCRP (1 de octubre de 2026)",
+      "aprobado": {
+        "fecha": "2026-10-04T15:45:19.458Z",
+        "hashPieza": "5eb40f568a4539cc",
+        "imagenHash": "dd613ab9590877ef",
+        "imagenSha": "2c690c42d6c5140bcf63a2e5f7825cd0ec052baf",
+        "imagenesSha": [
+          "ff6680848b892cc1a768cf9b269f39704c5cbcda",
+          "2e0b031eacb9eaacde478dc8043f4e4dd5b7f95e",
+          "f00378111918bbe650894c0a3e5b13a9605dacdb",
+          "5a19310fa9e7185fca426163ce7327ecb76fc4b9",
+          "ec6093eccf24410207e9469a5b8c586689344089",
+          "f5802ee54ccba103fb991d45cfe168d272b6dab5",
+          "9aee31390a174764c897bffc4390ae3f50959021"
+        ]
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
