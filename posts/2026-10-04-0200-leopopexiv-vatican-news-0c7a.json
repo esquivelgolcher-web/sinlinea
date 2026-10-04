@@ -1,7 +1,7 @@
 {
   "id": "2026-10-04-0200-leopopexiv-vatican-news-0c7a",
   "cuenta": "leopopexiv",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/vatican-city/news/2026-10/pope-appoints-cardinal-gambetti-as-new-archbishop-chieti-vasto.html",
@@ -38,9 +38,26 @@
     "generada": "2026-10-04T06:00:27.786Z",
     "error": null
   },
-  "programado": null,
+  "programado": "2026-10-04T13:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-10-04T06:00:27.786Z",
-  "actualizado": "2026-10-04T06:00:27.786Z"
+  "actualizado": "2026-10-04T15:45:26.341Z",
+  "destinos": {
+    "instagram": {
+      "texto": "Pope Leo XIV has appointed Cardinal Mauro Gambetti, 60, a Conventual Franciscan, as the new Archbishop of Chieti-Vasto, after accepting the resignation of Archbishop Bruno Forte, 77. Gambetti has served as Vicar General for Vatican City and Archpriest of St. Peter's Basilica since 2021, and was previously Custos of the Sacred Convent of St. Francis in Assisi. Source: Vatican News, Oct 3, 2026.\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #CardinalGambetti #ChietiVasto #CatholicChurch",
+      "aprobado": {
+        "fecha": "2026-10-04T15:45:26.341Z",
+        "hashPieza": "c0b663c080f732a6",
+        "imagenHash": "f6e872d77a64a68d",
+        "imagenSha": "b19495aa184b690f9822c102f45f84cb8a7190cb"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
