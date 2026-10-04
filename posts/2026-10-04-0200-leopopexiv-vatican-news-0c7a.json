@@ -1,7 +1,7 @@
 {
   "id": "2026-10-04-0200-leopopexiv-vatican-news-0c7a",
   "cuenta": "leopopexiv",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/vatican-city/news/2026-10/pope-appoints-cardinal-gambetti-as-new-archbishop-chieti-vasto.html",
@@ -39,7 +39,11 @@
     "error": null
   },
   "programado": "2026-10-04T13:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "18118645477762114",
+    "permalink": "https://www.instagram.com/p/DeFRKrjmZOq/",
+    "fecha": "2026-10-04T18:22:39.390Z"
+  },
   "error": null,
   "creado": "2026-10-04T06:00:27.786Z",
   "actualizado": "2026-10-04T18:22:39.390Z",
@@ -52,16 +56,15 @@
         "imagenHash": "f6e872d77a64a68d",
         "imagenSha": "b19495aa184b690f9822c102f45f84cb8a7190cb"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-10-04T18:22:39.390Z",
-        "actualizado": "2026-10-04T18:22:39.390Z",
-        "contenedorId": "18106750772081176"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18118645477762114",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/DeFRKrjmZOq/",
+        "fecha": "2026-10-04T18:22:39.390Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
