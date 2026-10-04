@@ -42,7 +42,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-04T06:00:27.786Z",
-  "actualizado": "2026-10-04T15:45:26.341Z",
+  "actualizado": "2026-10-04T18:22:39.390Z",
   "destinos": {
     "instagram": {
       "texto": "Pope Leo XIV has appointed Cardinal Mauro Gambetti, 60, a Conventual Franciscan, as the new Archbishop of Chieti-Vasto, after accepting the resignation of Archbishop Bruno Forte, 77. Gambetti has served as Vicar General for Vatican City and Archpriest of St. Peter's Basilica since 2021, and was previously Custos of the Sacred Convent of St. Francis in Assisi. Source: Vatican News, Oct 3, 2026.\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #CardinalGambetti #ChietiVasto #CatholicChurch",
@@ -55,7 +55,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-10-04T18:22:39.390Z",
+        "actualizado": "2026-10-04T18:22:39.390Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
