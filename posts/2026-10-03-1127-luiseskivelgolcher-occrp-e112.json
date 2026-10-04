@@ -197,7 +197,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-03T16:27:13.253Z",
-  "actualizado": "2026-10-04T15:45:19.458Z",
+  "actualizado": "2026-10-04T18:19:25.901Z",
   "destinos": {
     "instagram": {
       "texto": "Amnistía Internacional publicó un informe que documenta cómo el gobierno de Marruecos usó el programa espía israelí Pegasus, de NSO Group, contra defensores de derechos humanos entre 2017 y 2021, con indicios de que la práctica continuó después. Pegasus es un software que puede infectar un teléfono sin que la persona haga clic en nada (lo que se llama un \"exploit de cero clic\") y copiar mensajes, fotos y ubicación. Según el reporte, el servicio de inteligencia interno marroquí (DGST) contrató herramientas similares desde 2009, incluida la firma italiana Hacking Team. Una investigación previa de OCCRP y Forbidden Stories, con el testimonio de un informante que trabajó en los servicios secretos marroquíes, sostiene que el gobierno usó una empresa intermediaria para contratar con NSO Group y evitar dejar un rastro directo. El gobierno de Marruecos no respondió a la solicitud de comentario de OCCRP. ¿Qué otros países han comprado estas mismas herramientas de vigilancia?\n\nFuente: OCCRP\n\n#Pegasus #Espionaje #Marruecos #Ciberseguridad #DerechosHumanos",
@@ -219,7 +219,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-10-04T18:19:25.901Z",
+        "actualizado": "2026-10-04T18:19:25.901Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     },
