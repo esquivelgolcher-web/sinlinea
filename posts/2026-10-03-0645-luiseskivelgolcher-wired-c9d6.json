@@ -199,7 +199,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-03T11:45:24.885Z",
-  "actualizado": "2026-10-04T15:45:22.693Z",
+  "actualizado": "2026-10-04T18:19:25.901Z",
   "destinos": {
     "instagram": {
       "texto": "Un documento judicial parcialmente desclasificado señala que agentes de Homeland Security en Estados Unidos crearon expedientes sobre personas que solo observaban operativos migratorios en Maine, según reveló WIRED el 2 de octubre de 2026. Los registros —fotos, placas de auto y datos personales— habrían quedado guardados en el Investigative Case Management (ICM), un sistema de gestión de casos construido por la empresa de análisis de datos Palantir. Según la denuncia, un agente etiquetó a dos observadores como \"amenaza para las fuerzas del orden\" y pidió una búsqueda con reconocimiento facial, tecnología que identifica rostros a partir de imágenes. El Departamento de Seguridad Nacional calificó la demanda de \"sin fundamento\" y Palantir no respondió a solicitudes de comentario. Se trata de denuncias documentadas en una demanda colectiva, no de una condena judicial. ¿Debería existir un límite claro a lo que el gobierno puede registrar sobre quienes fiscalizan su actuación?\n\nFuente: WIRED\n\n#Vigilancia #Palantir #ICE #Privacidad #EstadosUnidos",
@@ -220,7 +220,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-10-04T18:19:25.901Z",
+        "actualizado": "2026-10-04T18:19:25.901Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     },
