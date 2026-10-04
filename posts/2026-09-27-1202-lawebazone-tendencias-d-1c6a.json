@@ -1,7 +1,7 @@
 {
   "id": "2026-09-27-1202-lawebazone-tendencias-d-1c6a",
   "cuenta": "lawebazone",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "Tendencias de México",
     "url": "https://www.espn.com.mx/futbol/nota/_/id/17302565/noruega-vs-portugal-nations-league-equipo-fecha-hora-tv-en-vivo",
@@ -41,5 +41,5 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-27T17:02:04.936Z",
-  "actualizado": "2026-09-27T17:02:04.936Z"
+  "actualizado": "2026-10-04T15:45:51.761Z"
 }
