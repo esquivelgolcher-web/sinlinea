@@ -40,7 +40,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-01T10:14:53.402Z",
-  "actualizado": "2026-10-03T07:10:38.893Z",
+  "actualizado": "2026-10-04T01:58:14.693Z",
   "destinos": {
     "instagram": {
       "texto": "“Humanity still has the ability to work together in building our common home.”\n\n— Pope Francis, Laudato si', 13 (2015)\n\n#PopeLeoXIV #Vatican #CatholicChurch\n\nFuente: Vatican.va\n\n#PopeLeoXIV #Vatican #CatholicChurch",
@@ -53,7 +53,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-10-04T01:58:14.693Z",
+        "actualizado": "2026-10-04T01:58:14.693Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
