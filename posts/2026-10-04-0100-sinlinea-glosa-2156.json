@@ -1,0 +1,49 @@
+{
+  "id": "2026-10-04-0100-sinlinea-glosa-2156",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "formato": "glosa",
+  "glosa": {
+    "versos": [
+      "Meco terminó primero",
+      "y pide plata de sobra",
+      "con la fama que la cobra",
+      "y de premio, más dinero"
+    ],
+    "esquema": "ABBA",
+    "sobre": {
+      "id": "2026-10-03-0645-sinlinea-la-prensa-ab42",
+      "titular": "Meco reclama $20 millones al MOP por obra vial"
+    }
+  },
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/politica/meco-reclama-bonificacion-de-20-millones-al-mop-por-la-entrega-anticipada-de-la-carretera-vigui-san-felix/",
+    "titulo": "Meco reclama bonificación de $20 millones al MOP por la entrega ‘anticipada’ de la carretera Viguí-San Félix",
+    "publicado": "2026-10-03T05:00:00.000Z"
+  },
+  "categoria": "POLÍTICA",
+  "titular": "Meco terminó primero",
+  "bajada": "Sobre: Meco reclama $20 millones al MOP por obra vial",
+  "caption": "Meco terminó primero\ny pide plata de sobra\ncon la fama que la cobra\ny de premio, más dinero\n\nSobre: Meco reclama $20 millones al MOP por obra vial · La Prensa\n\n#Panamá #Glosa #LaGarzaMaría",
+  "hashtags": [
+    "#Panamá",
+    "#Glosa",
+    "#LaGarzaMaría"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-10-04-0100-sinlinea-glosa-2156.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-04-0100-sinlinea-glosa-2156.jpg",
+    "hash": "149557527c9b1dc8",
+    "version": 1,
+    "estilo": "df55592d998f5ba3",
+    "renderizada": "2026-10-04T06:01:00.660Z"
+  },
+  "ilustracion": null,
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-04T06:00:27.786Z",
+  "actualizado": "2026-10-04T06:00:27.786Z"
+}

@@ -1,0 +1,46 @@
+{
+  "id": "2026-10-04-0200-leopopexiv-vatican-news-0c7a",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/vatican-city/news/2026-10/pope-appoints-cardinal-gambetti-as-new-archbishop-chieti-vasto.html",
+    "titulo": "Pope appoints Cardinal Gambetti as new Archbishop of Chieti-Vasto",
+    "publicado": "2026-10-03T10:37:00.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "Pope Leo XIV names new Archbishop of Chieti-Vasto",
+  "bajada": "Cardinal Mauro Gambetti succeeds Archbishop Bruno Forte in the Abruzzo archdiocese",
+  "caption": "Pope Leo XIV has appointed Cardinal Mauro Gambetti, 60, a Conventual Franciscan, as the new Archbishop of Chieti-Vasto, after accepting the resignation of Archbishop Bruno Forte, 77. Gambetti has served as Vicar General for Vatican City and Archpriest of St. Peter's Basilica since 2021, and was previously Custos of the Sacred Convent of St. Francis in Assisi. Source: Vatican News, Oct 3, 2026.",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Vatican",
+    "#CardinalGambetti",
+    "#ChietiVasto",
+    "#CatholicChurch"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-10-04-0200-leopopexiv-vatican-news-0c7a.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-04-0200-leopopexiv-vatican-news-0c7a.jpg",
+    "hash": "f6e872d77a64a68d",
+    "version": 11,
+    "estilo": "32cba508d6c2290e",
+    "renderizada": "2026-10-04T06:01:16.452Z"
+  },
+  "ilustracion": {
+    "descripcion": "Exterior of a stone Italian cathedral in the Abruzzo region at dusk, a bishop figure in traditional vestments standing on the steps in the upper right third, left and center of the frame open and empty.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-04-0200-leopopexiv-vatican-news-0c7a.jpg",
+    "hashDescripcion": "36a988e2e2292290",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-04T06:00:27.786Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-04T06:00:27.786Z",
+  "actualizado": "2026-10-04T06:00:27.786Z"
+}
