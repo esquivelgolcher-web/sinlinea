@@ -1,0 +1,52 @@
+{
+  "id": "2026-10-04-0728-sinlinea-la-prensa-c6f1",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/economia/el-desempleo-a-la-escala-del-estadio-rommel-fernandez-que-esta-pasando-en-la-cancha/",
+    "titulo": "El desempleo a la escala del Rommel Fernández; ¿qué está pasando en la cancha?",
+    "publicado": "2026-10-04T05:08:43.000Z"
+  },
+  "categoria": "ECONOMÍA",
+  "titular": "Desempleo baja a 8.5%, pero persisten dudas en la calle",
+  "bajada": "La tasa cayó desde 10.4%, según la Encuesta de Mercado Laboral, aunque analistas piden matizar el dato",
+  "caption": "El Gobierno celebró la baja del desempleo, pero muchos panameños sienten que esa mejora no se refleja en su día a día. Analistas y trabajadores cuestionan qué hay detrás de la cifra oficial. ¿Usted ha sentido esa mejora en el mercado laboral?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Empleo",
+    "#Economía",
+    "#Desempleo",
+    "#MercadoLaboral"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-10-04-0728-sinlinea-la-prensa-c6f1.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-04-0728-sinlinea-la-prensa-c6f1.jpg",
+    "hash": "eebaf5630fe244dd",
+    "version": 11,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-10-04T12:29:02.037Z"
+  },
+  "ilustracion": {
+    "descripcion": "Vista general de una zona comercial concurrida de la ciudad de Panamá con personas caminando, un letrero genérico de 'se solicita personal' en el tercio superior derecho; zona izquierda y central despejadas.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-04-0728-sinlinea-la-prensa-c6f1.jpg",
+    "hashDescripcion": "a88a5177e9fb7155",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-04T12:28:29.565Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-04T12:28:29.565Z",
+  "actualizado": "2026-10-04T12:28:29.565Z",
+  "plantilla": "foto",
+  "dato": {
+    "cifra": "8.5%",
+    "frase": "es la nueva tasa de desempleo, frente al 10.4% anterior"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "id": "2026-10-04-0728-sinlinea-la-prensa-01e6",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/politica/latinobarometro-2026-el-apoyo-a-la-democracia-cae-9-puntos-en-panama/",
+    "titulo": "Latinobarómetro 2026: Apoyo a la democracia cae 9 puntos en Panamá",
+    "publicado": "2026-10-04T05:00:00.000Z"
+  },
+  "categoria": "POLÍTICA",
+  "titular": "Apoyo a la democracia cae 9 puntos en Panamá",
+  "bajada": "Latinobarómetro 2026 revela la mayor caída regional tras un cambio de gobierno, según la encuesta.",
+  "caption": "El respaldo a la democracia en Panamá bajó de 54% a 45% en apenas dos años, la caída más fuerte entre los países que cambiaron de gobierno recientemente. El estudio también revela que solo 14% de los panameños sienten que el Estado ha hecho algo por ellos y su familia. ¿Por qué cree que ha bajado tanto la confianza?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Democracia",
+    "#Latinobarómetro",
+    "#Política",
+    "#Gobierno"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-10-04-0728-sinlinea-la-prensa-01e6.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-04-0728-sinlinea-la-prensa-01e6.jpg",
+    "hash": "462f0977305399f9",
+    "version": 2,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-10-04T12:28:54.891Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada del Palacio de las Garzas en Panamá al atardecer, con una bandera panameña ondeando en el tercio superior derecho; zona izquierda y central despejadas.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-04T12:28:29.565Z",
+  "actualizado": "2026-10-04T12:28:29.565Z",
+  "plantilla": "dato",
+  "dato": {
+    "cifra": "45%",
+    "frase": "de los panameños respalda la democracia, frente al 54% registrado en 2024"
+  }
+}
