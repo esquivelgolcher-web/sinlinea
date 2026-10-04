@@ -1,0 +1,44 @@
+{
+  "id": "2026-10-04-1339-lawebazone-tendencias-d-293c",
+  "cuenta": "lawebazone",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Tendencias de Colombia",
+    "url": "https://www.elcolombiano.com/deportes/david-alonso-moto-2-gran-premio-de-japon-resultado-EE41897267",
+    "titulo": "david alonso",
+    "publicado": "2026-10-04T18:20:00.000Z"
+  },
+  "categoria": "DEPORTES",
+  "titular": "David Alonso se quedó a un pasito del podio en Japón",
+  "bajada": "El colombiano terminó cuarto en Moto2 pero sigue peleando el tercer puesto general",
+  "caption": "Esa sensación de llegar cuarto cuando el podio estaba ahí nomás, a un suspiro. David Alonso lo sabe bien, pero sigue firme peleando su lugar en la tabla general. El que persevera, alcanza... o al menos eso dicen.",
+  "hashtags": [
+    "#Moto2",
+    "#DavidAlonso",
+    "#casiquedacasi"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-10-04-1339-lawebazone-tendencias-d-293c.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-04-1339-lawebazone-tendencias-d-293c.jpg",
+    "hash": "91ec104e4d8cf4d4",
+    "version": 11,
+    "estilo": "9fd322fb9927e571",
+    "renderizada": "2026-10-04T18:40:15.075Z"
+  },
+  "ilustracion": {
+    "descripcion": "Pista de motociclismo con una moto de carreras detenida en boxes al atardecer, bandera a cuadros en el tercio superior derecho, pista despejada a la izquierda.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-04T18:39:53.576Z",
+  "actualizado": "2026-10-04T18:39:53.576Z"
+}

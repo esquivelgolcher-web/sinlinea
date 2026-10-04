@@ -1,0 +1,44 @@
+{
+  "id": "2026-10-04-1339-lawebazone-tendencias-d-a460",
+  "cuenta": "lawebazone",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Tendencias de México",
+    "url": "https://www.vietnam.vn/es/tran-maroc-vs-ghana-bi-huy",
+    "titulo": "marruecos vs",
+    "publicado": "2026-10-04T18:20:00.000Z"
+  },
+  "categoria": "DEPORTES",
+  "titular": "Cancelan Marruecos vs Ghana y nadie dio explicación clara",
+  "bajada": "El amistoso entre ambas selecciones se suspendió sin mayores detalles oficiales",
+  "caption": "Así nomás, sin aviso previo ni nada: el amistoso entre Marruecos y Ghana se cancela y deja a medio continente con las palomitas listas. Literal la sensación de cuando planeas algo con amigos y a última hora todos se bajan.",
+  "hashtags": [
+    "#futbol",
+    "#amistosointernacional",
+    "#plancancelado"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-10-04-1339-lawebazone-tendencias-d-a460.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-04-1339-lawebazone-tendencias-d-a460.jpg",
+    "hash": "d1f564d0319b8dba",
+    "version": 11,
+    "estilo": "9fd322fb9927e571",
+    "renderizada": "2026-10-04T18:40:14.776Z"
+  },
+  "ilustracion": {
+    "descripcion": "Estadio de fútbol vacío al atardecer con las luces encendidas y una pelota abandonada en el centro del campo, cancha despejada a la izquierda, graderías vacías en el tercio superior derecho.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-04T18:39:53.576Z",
+  "actualizado": "2026-10-04T18:39:53.576Z"
+}
