@@ -1,7 +1,7 @@
 {
   "id": "2026-09-25-0915-lawebazone-tendencias-d-3242",
   "cuenta": "lawebazone",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "Tendencias de Argentina",
     "url": "https://www.infobae.com/deportes/2026/09/25/la-vuelta-al-limite-de-franco-colapinto-para-avanzar-a-q3-con-el-tiempo-cumplido-y-la-euforia-por-radio/",
@@ -41,5 +41,5 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-25T14:15:15.512Z",
-  "actualizado": "2026-09-25T14:15:15.512Z"
+  "actualizado": "2026-10-04T15:45:40.241Z"
 }
