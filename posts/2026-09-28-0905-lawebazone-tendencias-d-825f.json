@@ -1,7 +1,7 @@
 {
   "id": "2026-09-28-0905-lawebazone-tendencias-d-825f",
   "cuenta": "lawebazone",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "Tendencias de México",
     "url": "https://www.nmas.com.mx/sociedad/educacion/hay-suspension-clases-sep-lunes-28-de-septiembre-2-octubre-2026-fechas-quienes-descansan/",
@@ -40,5 +40,5 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-28T14:05:23.779Z",
-  "actualizado": "2026-09-28T14:05:23.779Z"
+  "actualizado": "2026-10-04T15:45:32.882Z"
 }
