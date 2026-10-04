@@ -1,0 +1,45 @@
+{
+  "id": "2026-10-04-1858-lawebazone-tendencias-d-1012",
+  "cuenta": "lawebazone",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Tendencias de México",
+    "url": "https://www.rayados.com/es/noticias/21622/rayados-vence-al-toluca-en-partido-amistoso-en-houston",
+    "titulo": "antonio mohamed",
+    "publicado": "2026-10-04T23:20:00.000Z"
+  },
+  "categoria": "DEPORTES",
+  "titular": "Rayados y Toluca se agarran en pleno partido \"amistoso\"",
+  "bajada": "Monterrey venció a Toluca en un duelo de pretemporada jugado en Houston, Texas",
+  "caption": "El clásico mexicano ya ni espera a que arranque la liga: ahora se exporta hasta Estados Unidos y sigue sin tener nada de amistoso. Antonio Mohamed debe estar pensando que ni de gira se libra del Toluca.",
+  "hashtags": [
+    "#Rayados",
+    "#Toluca",
+    "#FutbolMexicano",
+    "#Houston"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-10-04-1858-lawebazone-tendencias-d-1012.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-04-1858-lawebazone-tendencias-d-1012.jpg",
+    "hash": "ec85157f1e300759",
+    "version": 11,
+    "estilo": "9fd322fb9927e571",
+    "renderizada": "2026-10-04T23:59:21.923Z"
+  },
+  "ilustracion": {
+    "descripcion": "Estadio de fútbol iluminado de noche con gradas llenas, balón en el centro del campo; silueta de entrenador con gorra junto a la banca en el tercio superior derecho, zona izquierda despejada.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-04T23:58:56.577Z",
+  "actualizado": "2026-10-04T23:58:56.577Z"
+}

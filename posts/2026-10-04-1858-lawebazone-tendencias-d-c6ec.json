@@ -1,0 +1,44 @@
+{
+  "id": "2026-10-04-1858-lawebazone-tendencias-d-c6ec",
+  "cuenta": "lawebazone",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Tendencias de Colombia",
+    "url": "https://www.vanguardia.com/area-metropolitana/bucaramanga/2026/10/04/en-bucaramanga-surgen-dudas-y-criticas-por-proyecto-de-zonas-de-parqueo-en-vias-publicas/",
+    "titulo": "bucaramanga",
+    "publicado": "2026-10-04T23:30:00.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "Bucaramanga quiere cobrarte hasta por parquear en tu cuadra",
+  "bajada": "La alcaldía estudia zonas de parqueo en vías públicas y ya genera dudas y críticas",
+  "caption": "Ahora resulta que hasta para dejar el carro frente a tu casa vas a necesitar presupuesto aparte. En Bucaramanga el parqueo se está poniendo tan caro como el arriendo y la gente ya empezó a reclamar.",
+  "hashtags": [
+    "#Bucaramanga",
+    "#Parqueo",
+    "#ColombiaMemes"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-10-04-1858-lawebazone-tendencias-d-c6ec.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-04-1858-lawebazone-tendencias-d-c6ec.jpg",
+    "hash": "65d3532899ec1452",
+    "version": 11,
+    "estilo": "9fd322fb9927e571",
+    "renderizada": "2026-10-04T23:59:22.186Z"
+  },
+  "ilustracion": {
+    "descripcion": "Calle residencial con autos estacionados junto a la acera y señales de tránsito; un letrero de zona de parqueo pintado en el pavimento en el tercio superior derecho, calle despejada a la izquierda.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-04T23:58:56.577Z",
+  "actualizado": "2026-10-04T23:58:56.577Z"
+}
