@@ -1,7 +1,7 @@
 {
   "id": "2026-09-27-0709-lawebazone-tendencias-d-75a2",
   "cuenta": "lawebazone",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "Tendencias de Argentina",
     "url": "https://tn.com.ar/sociedad/2026/09/27/tormentas-chaparrones-y-rafagas-de-hasta-50-kmh-asi-estara-el-tiempo-hoy-en-el-amba/",
@@ -41,5 +41,5 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-27T12:09:35.290Z",
-  "actualizado": "2026-09-27T12:09:35.290Z"
+  "actualizado": "2026-10-04T15:45:45.518Z"
 }
