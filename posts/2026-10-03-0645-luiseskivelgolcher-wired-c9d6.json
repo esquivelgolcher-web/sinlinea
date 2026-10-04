@@ -1,7 +1,7 @@
 {
   "id": "2026-10-03-0645-luiseskivelgolcher-wired-c9d6",
   "cuenta": "luiseskivelgolcher",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "WIRED",
     "url": "https://www.wired.com/story/ice-has-been-dumping-protester-photos-into-a-palantir-database/",
@@ -195,9 +195,57 @@
     "estado": "pendiente",
     "notas": []
   },
-  "programado": null,
+  "programado": "2026-10-04T12:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-10-03T11:45:24.885Z",
-  "actualizado": "2026-10-03T11:45:24.885Z"
+  "actualizado": "2026-10-04T15:45:22.693Z",
+  "destinos": {
+    "instagram": {
+      "texto": "Un documento judicial parcialmente desclasificado señala que agentes de Homeland Security en Estados Unidos crearon expedientes sobre personas que solo observaban operativos migratorios en Maine, según reveló WIRED el 2 de octubre de 2026. Los registros —fotos, placas de auto y datos personales— habrían quedado guardados en el Investigative Case Management (ICM), un sistema de gestión de casos construido por la empresa de análisis de datos Palantir. Según la denuncia, un agente etiquetó a dos observadores como \"amenaza para las fuerzas del orden\" y pidió una búsqueda con reconocimiento facial, tecnología que identifica rostros a partir de imágenes. El Departamento de Seguridad Nacional calificó la demanda de \"sin fundamento\" y Palantir no respondió a solicitudes de comentario. Se trata de denuncias documentadas en una demanda colectiva, no de una condena judicial. ¿Debería existir un límite claro a lo que el gobierno puede registrar sobre quienes fiscalizan su actuación?\n\nFuente: WIRED\n\n#Vigilancia #Palantir #ICE #Privacidad #EstadosUnidos",
+      "aprobado": {
+        "fecha": "2026-10-04T15:45:22.693Z",
+        "hashPieza": "1bfa64ce074dce30",
+        "imagenHash": "afbe72d2d4cdf10c",
+        "imagenSha": "3cafa716d765aad1e52face318451203e9b70a37",
+        "imagenesSha": [
+          "e8381edee236c96a2136b7e31f08d20175b30a09",
+          "fc506c1b7f1cfebc34fca12104316752f323e0fa",
+          "e1da9342760eb3bb627e0629e336314cc00e7f0a",
+          "966440e34d571bbbf6bb38179db54aa457dcf4d9",
+          "34cad73d1c47366fc4002a978febf06b87363c13",
+          "4a8081d9e1b6056ba5784cea5dee05acc185f17f"
+        ]
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    },
+    "threads": {
+      "texto": "ICE guardó fotos de manifestantes en base de Palantir\n\nDocumentos judiciales destapan vigilancia a observadores en Maine\n\nSegún WIRED (2 de octubre de 2026)",
+      "aprobado": {
+        "fecha": "2026-10-04T15:45:22.693Z",
+        "hashPieza": "1bfa64ce074dce30",
+        "imagenHash": "afbe72d2d4cdf10c",
+        "imagenSha": "3cafa716d765aad1e52face318451203e9b70a37",
+        "imagenesSha": [
+          "e8381edee236c96a2136b7e31f08d20175b30a09",
+          "fc506c1b7f1cfebc34fca12104316752f323e0fa",
+          "e1da9342760eb3bb627e0629e336314cc00e7f0a",
+          "966440e34d571bbbf6bb38179db54aa457dcf4d9",
+          "34cad73d1c47366fc4002a978febf06b87363c13",
+          "4a8081d9e1b6056ba5784cea5dee05acc185f17f"
+        ]
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
