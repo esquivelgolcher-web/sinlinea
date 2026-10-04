@@ -1,7 +1,7 @@
 {
   "id": "2026-10-02-0552-leopopexiv-vatican-news-94f2",
   "cuenta": "leopopexiv",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/vatican-city/news/2026-10/zuppi-in-russia-strengthen-and-speed-up-checks-to-reunite.html",
@@ -40,7 +40,11 @@
     "error": null
   },
   "programado": "2026-10-04T09:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "18115968322967322",
+    "permalink": "https://www.instagram.com/p/DeE1VHrkelT/",
+    "fecha": "2026-10-04T14:19:24.231Z"
+  },
   "error": null,
   "creado": "2026-10-02T09:52:26.635Z",
   "actualizado": "2026-10-04T14:19:24.231Z",
@@ -53,16 +57,15 @@
         "imagenHash": "b2fc440719a49a35",
         "imagenSha": "65c77c587983117bc62645ece1cac34b2dd49a16"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-10-04T14:19:24.231Z",
-        "actualizado": "2026-10-04T14:19:24.231Z",
-        "contenedorId": "18106702670081176"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18115968322967322",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/DeE1VHrkelT/",
+        "fecha": "2026-10-04T14:19:24.231Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
