@@ -116,7 +116,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-30T20:05:41.361Z",
-  "actualizado": "2026-10-03T07:10:25.775Z",
+  "actualizado": "2026-10-04T01:56:33.180Z",
   "destinos": {
     "instagram": {
       "texto": "La policía de los Países Bajos anunció el arresto de un joven de 24 años señalado como integrante de ShinyHunters, un grupo de ciberdelincuencia vinculado a varias filtraciones masivas de datos, incluido el hackeo la semana pasada a un sitio web del FBI, la agencia federal de investigación de Estados Unidos, según reportó OCCRP. Según el comunicado policial, en la laptop del detenido encontraron información que muestra que organizaba dos asesinatos en el extranjero, un plan que las autoridades dijeron que \"no está relacionado\" con la investigación sobre el grupo hacker. La policía no reveló la identidad del sospechoso. En un video difundido por el FBI, el subdirector de su división cibernética, Brett Leatherman, se dirigió directamente a los demás miembros de ShinyHunters: \"Ya se enteraron del arresto de su colega\", les dijo, e instó a entregarse a las autoridades. El caso ilustra cómo estos grupos combinan delitos informáticos con otras actividades criminales.\n\nFuente: OCCRP\n\n#Ciberseguridad #ShinyHunters #Hackeo #FBI",
@@ -129,7 +129,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-10-04T01:56:33.180Z",
+        "actualizado": "2026-10-04T01:56:33.180Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     },
