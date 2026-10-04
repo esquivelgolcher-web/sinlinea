@@ -43,7 +43,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-02T09:52:26.635Z",
-  "actualizado": "2026-10-03T07:10:42.897Z",
+  "actualizado": "2026-10-04T14:19:24.231Z",
   "destinos": {
     "instagram": {
       "texto": "Cardinal Matteo Zuppi has returned from Moscow after his third papal peace mission to Russia. He met Ukrainian prisoners of war and pushed for faster efforts to locate missing persons and return children to Ukraine. Source: Vatican News, Oct 2, 2026.\n\nFuente: Vatican News\n\n#Vatican #PopeLeoXIV #CardinalZuppi #Ukraine #Russia #PeaceMission",
@@ -56,7 +56,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-10-04T14:19:24.231Z",
+        "actualizado": "2026-10-04T14:19:24.231Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
