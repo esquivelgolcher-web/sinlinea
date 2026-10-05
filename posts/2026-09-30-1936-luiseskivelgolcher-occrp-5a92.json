@@ -1,7 +1,7 @@
 {
   "id": "2026-09-30-1936-luiseskivelgolcher-occrp-5a92",
   "cuenta": "luiseskivelgolcher",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "OCCRP",
     "url": "https://www.occrp.org/en/news/the-us-blacklists-alleged-venezuelan-cyber-crime-mastermind",
@@ -170,16 +170,15 @@
         "imagenHash": "13de6df80379842e",
         "imagenSha": "a4760a7199b288f9d8065b739e26d4229f9ff7ac"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-10-05T22:29:25.037Z",
-        "actualizado": "2026-10-05T22:29:25.037Z",
-        "contenedorId": "17992097877100604"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18092085539652167",
+        "idPublicacion": null,
+        "permalink": "https://www.threads.com/@luisegolcher/post/DeISQZykZE1",
+        "fecha": "2026-10-05T22:29:25.037Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
