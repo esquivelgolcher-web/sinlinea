@@ -40,7 +40,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-05T05:49:23.956Z",
-  "actualizado": "2026-10-05T07:43:45.137Z",
+  "actualizado": "2026-10-05T15:50:09.906Z",
   "destinos": {
     "instagram": {
       "texto": "“I wholeheartedly thank all the boys and girls who are joining in this prayer in so many parts of the world. Let us all follow their example, invoking the intercession of the Virgin Mary so that peoples may be freed from the scourge of war.”\n\n— Pope Leo XIV, Angelus (2026)\n\nVia Vatican News, 4 October 2026\n\n#PopeLeoXIV #Vatican #CatholicChurch\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #CatholicChurch",
@@ -53,7 +53,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-10-05T15:50:09.906Z",
+        "actualizado": "2026-10-05T15:50:09.906Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
