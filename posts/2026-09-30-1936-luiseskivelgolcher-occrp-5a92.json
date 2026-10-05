@@ -116,7 +116,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-01T00:36:12.137Z",
-  "actualizado": "2026-10-05T06:48:11.159Z",
+  "actualizado": "2026-10-05T22:29:25.037Z",
   "destinos": {
     "instagram": {
       "texto": "El Departamento del Tesoro de Estados Unidos incluyó el 30 de septiembre de 2026 a Aníbal Alexander Canelón Aguirre en su lista de sancionados financieros, según reportó OCCRP. El venezolano, conocido como \"El Ingeniero\" o \"Prometeo\", figura en la lista de los Diez Más Buscados del FBI y es señalado, en una acusación formal de la justicia estadounidense, de haber creado el malware usado para el \"jackpotting\": una técnica que fuerza a un cajero automático a expulsar todo su efectivo. Las autoridades sostienen que esa herramienta permitió al Tren de Aragua y a redes mexicanas robar millones de dólares desde enero de 2024. El director del FBI, Kash Patel, dijo ante el Senado que un fugitivo de esa lista fue capturado en Venezuela, pero no confirmó su identidad ni los detalles de la operación, y Canelón Aguirre seguía apareciendo como buscado esta semana. ¿Qué tan efectivas son estas sanciones cuando el sospechoso sigue prófugo?\n\nFuente: OCCRP\n\n#Ciberseguridad #TrenDeAragua #Fraude #Venezuela",
@@ -129,7 +129,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-10-05T22:29:25.037Z",
+        "actualizado": "2026-10-05T22:29:25.037Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     },
