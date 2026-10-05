@@ -79,9 +79,26 @@
             "follows": 0
           },
           "faltantes": {}
+        },
+        "2026-10-05T12:31:05.836Z": {
+          "acumulados": {
+            "meGusta": 3,
+            "comentarios": 0,
+            "reach": 243,
+            "views": 345,
+            "likes": 3,
+            "comments": 0,
+            "saved": 0,
+            "shares": 0,
+            "total_interactions": 3,
+            "profile_visits": 0,
+            "profile_activity": 0,
+            "follows": 0
+          },
+          "faltantes": {}
         }
       },
-      "ultimaConsulta": "2026-10-04T11:13:30.326Z"
+      "ultimaConsulta": "2026-10-05T12:31:05.836Z"
     },
     "18130022212615246": {
       "fecha": "2026-10-04T01:56:46.000Z",
@@ -109,9 +126,26 @@
             "follows": 0
           },
           "faltantes": {}
+        },
+        "2026-10-05T12:31:05.836Z": {
+          "acumulados": {
+            "meGusta": 4,
+            "comentarios": 0,
+            "reach": 1382,
+            "views": 2064,
+            "likes": 4,
+            "comments": 0,
+            "saved": 0,
+            "shares": 2,
+            "total_interactions": 6,
+            "profile_visits": 2,
+            "profile_activity": 0,
+            "follows": 0
+          },
+          "faltantes": {}
         }
       },
-      "ultimaConsulta": "2026-10-04T11:13:30.326Z"
+      "ultimaConsulta": "2026-10-05T12:31:05.836Z"
     },
     "18625446571005499": {
       "fecha": "2026-10-03T18:49:20.000Z",
@@ -139,9 +173,86 @@
             "follows": 0
           },
           "faltantes": {}
+        },
+        "2026-10-05T12:31:05.836Z": {
+          "acumulados": {
+            "meGusta": 6,
+            "comentarios": 0,
+            "reach": 580,
+            "views": 1089,
+            "likes": 6,
+            "comments": 0,
+            "saved": 0,
+            "shares": 1,
+            "total_interactions": 7,
+            "profile_visits": 1,
+            "profile_activity": 0,
+            "follows": 0
+          },
+          "faltantes": {}
         }
       },
-      "ultimaConsulta": "2026-10-04T11:13:30.326Z"
+      "ultimaConsulta": "2026-10-05T12:31:05.836Z"
+    },
+    "17897277204396805": {
+      "fecha": "2026-10-04T18:21:34.000Z",
+      "permalink": "https://www.instagram.com/p/DeFRBd-j3Um/",
+      "tipo": "CAROUSEL_ALBUM",
+      "origen": "sistema",
+      "post": "2026-10-03-0645-luiseskivelgolcher-wired-c9d6",
+      "categoria": "SEGURIDAD",
+      "franja": "12:00",
+      "titulo": "Un documento judicial parcialmente desclasificado señala que agentes de Homeland Security ",
+      "consultas": {
+        "2026-10-05T12:31:05.836Z": {
+          "acumulados": {
+            "meGusta": 0,
+            "comentarios": 0,
+            "reach": 293,
+            "views": 563,
+            "likes": 0,
+            "comments": 0,
+            "saved": 1,
+            "shares": 1,
+            "total_interactions": 2,
+            "profile_visits": 0,
+            "profile_activity": 0,
+            "follows": 0
+          },
+          "faltantes": {}
+        }
+      },
+      "ultimaConsulta": "2026-10-05T12:31:05.836Z"
+    },
+    "17948305200295660": {
+      "fecha": "2026-10-04T18:20:05.000Z",
+      "permalink": "https://www.instagram.com/p/DeFQ2qLjwr-/",
+      "tipo": "CAROUSEL_ALBUM",
+      "origen": "sistema",
+      "post": "2026-10-03-1127-luiseskivelgolcher-occrp-e112",
+      "categoria": "SEGURIDAD",
+      "franja": "12:00",
+      "titulo": "Amnistía Internacional publicó un informe que documenta cómo el gobierno de Marruecos usó ",
+      "consultas": {
+        "2026-10-05T12:31:05.836Z": {
+          "acumulados": {
+            "meGusta": 2,
+            "comentarios": 0,
+            "reach": 488,
+            "views": 839,
+            "likes": 2,
+            "comments": 0,
+            "saved": 0,
+            "shares": 0,
+            "total_interactions": 2,
+            "profile_visits": 0,
+            "profile_activity": 0,
+            "follows": 0
+          },
+          "faltantes": {}
+        }
+      },
+      "ultimaConsulta": "2026-10-05T12:31:05.836Z"
     }
   }
 }
