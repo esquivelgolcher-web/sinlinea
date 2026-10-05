@@ -1,7 +1,7 @@
 {
   "id": "2026-09-27-0709-lawebazone-tendencias-d-38f2",
   "cuenta": "lawebazone",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "Tendencias de Colombia",
     "url": "https://redmas.com.co/tendencias/no-mucho-mas-presidente-de-tiendas-d1-rompe-el-silencio-sobre-realidad-del-querido-supermercado-en-colombia-20260925-0046.html",
@@ -41,5 +41,5 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-27T12:09:35.290Z",
-  "actualizado": "2026-09-27T12:09:35.290Z"
+  "actualizado": "2026-10-05T07:44:09.712Z"
 }
