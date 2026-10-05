@@ -1,7 +1,7 @@
 {
   "id": "2026-10-04-1339-lawebazone-tendencias-d-293c",
   "cuenta": "lawebazone",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "Tendencias de Colombia",
     "url": "https://www.elcolombiano.com/deportes/david-alonso-moto-2-gran-premio-de-japon-resultado-EE41897267",
@@ -36,9 +36,26 @@
     "generada": null,
     "error": null
   },
-  "programado": null,
+  "programado": "2026-10-05T11:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-10-04T18:39:53.576Z",
-  "actualizado": "2026-10-04T18:39:53.576Z"
+  "actualizado": "2026-10-05T07:44:02.442Z",
+  "destinos": {
+    "instagram": {
+      "texto": "Esa sensación de llegar cuarto cuando el podio estaba ahí nomás, a un suspiro. David Alonso lo sabe bien, pero sigue firme peleando su lugar en la tabla general. El que persevera, alcanza... o al menos eso dicen.\n\nFuente: Tendencias de Colombia\n\n#Moto2 #DavidAlonso #casiquedacasi",
+      "aprobado": {
+        "fecha": "2026-10-05T07:44:02.442Z",
+        "hashPieza": "a0cd9bd36681d189",
+        "imagenHash": "91ec104e4d8cf4d4",
+        "imagenSha": "f923e9bc9688511605d1ff8b4c9e815227b54bb3"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
