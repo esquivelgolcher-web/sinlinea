@@ -1,0 +1,130 @@
+{
+  "id": "2026-10-05-0950-luiseskivelgolcher-efe-verifica-76e7",
+  "cuenta": "luiseskivelgolcher",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "EFE Verifica",
+    "url": "https://verifica.efe.com/no-son-manifestantes-en-la-puerta-del-sol-cantando-sobre-okupaciones-es-un-video-manipulado-con-ia/",
+    "titulo": "Los protestantes en Sol no cantaron que van a ocupar casas",
+    "publicado": "2026-10-05T06:00:00.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "Video de protesta en Madrid fue alterado con IA",
+  "bajada": "EFE Verifica halló que el audio viral sobre okupar casas fue generado artificialmente",
+  "caption": "Un video que circula en X, Instagram y TikTok muestra a manifestantes acampados en la Puerta del Sol, en Madrid, cantando sobre okupar viviendas sin pagar. Pero ese audio no existe en la grabación original. Según EFE Verifica, una búsqueda inversa encontró la versión sin editar, subida el 28 de septiembre, con una letra distinta sobre defender casas frente a los desalojos. La herramienta de detección Hive calculó un 99.6% de probabilidad de que el canto difundido fuera generado con inteligencia artificial, un software que crea voces o sonidos sintéticos a partir de datos. La cuenta que publicó la versión manipulada se identifica a sí misma como un estudio creativo de IA. El episodio ocurre mientras continúan en España las protestas por la crisis de vivienda, tras el desahucio de una anciana de 87 años en septiembre. ¿Qué tan fácil es distinguir hoy un audio real de uno generado por IA?",
+  "hashtags": [
+    "#Desinformación",
+    "#InteligenciaArtificial",
+    "#Deepfake",
+    "#EFEVerifica",
+    "#España"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-10-05-0950-luiseskivelgolcher-efe-verifica-76e7.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-05-0950-luiseskivelgolcher-efe-verifica-76e7.jpg",
+    "hash": "2c389c1aa7b2d2dc",
+    "version": 11,
+    "estilo": "dc8c8fa3edf501fd",
+    "renderizada": "2026-10-05T14:51:26.492Z"
+  },
+  "ilustracion": {
+    "descripcion": "Ilustración de la Puerta del Sol en Madrid con carpas de un campamento en la zona inferior izquierda; en el tercio superior derecho, una onda sonora digital estilizada que simboliza el análisis de audio por IA. Zona central e izquierda despejadas, sin rostros reconocibles ni texto.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-05-0950-luiseskivelgolcher-efe-verifica-76e7.jpg",
+    "hashDescripcion": "7cb3f67e4edac1e4",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-05T14:50:44.860Z",
+    "error": null,
+    "procedencia": "generada"
+  },
+  "formato": "post",
+  "fuentes": [
+    {
+      "rol": "principal",
+      "medio": "EFE Verifica",
+      "autor": "Andrés F. Suárez Clavijo",
+      "url": "https://verifica.efe.com/no-son-manifestantes-en-la-puerta-del-sol-cantando-sobre-okupaciones-es-un-video-manipulado-con-ia/",
+      "canonica": "https://verifica.efe.com/no-son-manifestantes-en-la-puerta-del-sol-cantando-sobre-okupaciones-es-un-video-manipulado-con-ia/",
+      "idioma": "es",
+      "publicado": "2026-10-05T06:00:00.000Z",
+      "actualizado": "2026-10-05T07:53:52.000Z",
+      "fechaHecho": "2026-09-28",
+      "consultado": "2026-10-05T14:50:44.860Z",
+      "alcance": "completo",
+      "textoRecuperado": {
+        "parrafos": 21,
+        "caracteres": 4679,
+        "enviados": 3992
+      },
+      "fuentesPrimarias": [
+        "https://megalodon.jp/2026-1001-2320-20/https://x.com:443/Saul_N_Lab/status/2104889284595687789?s=20",
+        "https://megalodon.jp/2026-1001-2320-24/https://www.instagram.com:443/reels/Dd3FUG2PgWx/",
+        "https://megalodon.jp/2026-1001-2320-22/https://www.tiktok.com:443/@saulnlab/video/7690724247626452246",
+        "https://hivedetect.ai/Wx9dal",
+        "https://megalodon.jp/2026-1002-1917-10/https://www.instagram.com:443/saulnlab/reels/",
+        "https://megalodon.jp/2026-1002-1917-12/https://saulnlab.com:443/?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAcGRvZgJzcnRjBmFwcF9pZA85MzY2MTk3NDMzOTI0NTkAAaeXMedtFU8etdNnaM4GqZtC-Ig2Ks1jxkJ5LyXfmyCiP3esiuGdktdFZvXGKQ_aem_XNZBZwJTSpl22MYOhAzapA",
+        "https://efe.com/espana/2026-09-29/abogada-maricarmen-casa-preacuerdo/",
+        "https://efe.com/espana/2026-10-02/congreso-manifestantes-vivienda-sindicato-inquilinas/",
+        "https://megalodon.jp/2026-1002-0125-15/https://www.instagram.com:443/p/DdztCNZtIHY/",
+        "https://megalodon.jp/2026-1002-0125-18/https://x.com:443/voz_populi/status/2104618477256335760",
+        "https://hivedetect.ai/",
+        "https://efe.com"
+      ],
+      "licenciaMedios": null
+    }
+  ],
+  "afirmaciones": [
+    {
+      "texto": "El audio del video viral que muestra a manifestantes cantando sobre okupar casas fue generado con inteligencia artificial.",
+      "tipo": "hecho",
+      "fuente": "https://verifica.efe.com/no-son-manifestantes-en-la-puerta-del-sol-cantando-sobre-okupaciones-es-un-video-manipulado-con-ia/",
+      "contrastada": true
+    },
+    {
+      "texto": "La herramienta de detección Hive encontró una probabilidad de 99.6% de que el canto fuera generado artificialmente.",
+      "tipo": "hecho",
+      "fuente": "https://hivedetect.ai/Wx9dal",
+      "contrastada": true
+    },
+    {
+      "texto": "El video original, subido el 28 de septiembre, no contiene el audio manipulado que circula en redes.",
+      "tipo": "hecho",
+      "fuente": "https://verifica.efe.com/no-son-manifestantes-en-la-puerta-del-sol-cantando-sobre-okupaciones-es-un-video-manipulado-con-ia/",
+      "contrastada": true
+    },
+    {
+      "texto": "La cuenta que difundió la versión manipulada se autodenomina un estudio o laboratorio creativo de inteligencia artificial.",
+      "tipo": "hecho",
+      "fuente": "https://verifica.efe.com/no-son-manifestantes-en-la-puerta-del-sol-cantando-sobre-okupaciones-es-un-video-manipulado-con-ia/",
+      "contrastada": true
+    }
+  ],
+  "angulo": "Verificación de un video manipulado con IA que circuló como si mostrara a manifestantes reales cantando consignas sobre okupación ilegal de viviendas.",
+  "atribucion": "EFE Verifica",
+  "puntuacion": {
+    "total": 75,
+    "componentes": {
+      "afinidad": 21,
+      "interes": 15,
+      "evidencia": 18,
+      "actualidad": 15,
+      "visual": 6
+    }
+  },
+  "alertas": [
+    "fuente-unica"
+  ],
+  "carrusel": null,
+  "reel": null,
+  "revision": {
+    "estado": "pendiente",
+    "notas": []
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-05T14:50:44.860Z",
+  "actualizado": "2026-10-05T14:50:44.860Z"
+}

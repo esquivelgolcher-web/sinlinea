@@ -1,0 +1,45 @@
+{
+  "id": "2026-10-05-0950-lawebazone-tendencias-d-a2c3",
+  "cuenta": "lawebazone",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Tendencias de Colombia",
+    "url": "https://www.atptour.com/en/news/shanghai-2026-draw-preview",
+    "titulo": "djokovic",
+    "publicado": "2026-10-05T13:00:00.000Z"
+  },
+  "categoria": "DEPORTES",
+  "titular": "A Djokovic y Zverev les tocó pelear por el mismo boleto",
+  "bajada": "El sorteo de Shanghái dejó a ambos tenistas en la misma mitad del cuadro, junto a Alcaraz como rival a evitar",
+  "caption": "El sorteo de Shanghái hizo lo que todo fan de tenis teme: metió a dos monstruos en la misma mitad del cuadro. Mientras tanto Alcaraz mira desde el otro lado como quien se salva de pagar la cuenta en grupo.",
+  "hashtags": [
+    "#Tenis",
+    "#Shanghai",
+    "#Djokovic",
+    "#Zverev"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-10-05-0950-lawebazone-tendencias-d-a2c3.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-05-0950-lawebazone-tendencias-d-a2c3.jpg",
+    "hash": "5c427954448f48fe",
+    "version": 11,
+    "estilo": "9fd322fb9927e571",
+    "renderizada": "2026-10-05T14:51:47.421Z"
+  },
+  "ilustracion": {
+    "descripcion": "Una cancha de tenis vacía con el marcador electrónico apagado en el fondo, y dos raquetas apoyadas una junto a otra en el tercio superior derecho, zona izquierda despejada",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-05T14:50:44.860Z",
+  "actualizado": "2026-10-05T14:50:44.860Z"
+}

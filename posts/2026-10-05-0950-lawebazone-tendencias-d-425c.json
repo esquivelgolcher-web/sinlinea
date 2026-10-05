@@ -1,0 +1,45 @@
+{
+  "id": "2026-10-05-0950-lawebazone-tendencias-d-425c",
+  "cuenta": "lawebazone",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Tendencias de México",
+    "url": "https://www.univision.com/famosos/camila-fernandez-embarazada-alejandro-fernandez-abuelo",
+    "titulo": "camila fernández",
+    "publicado": "2026-10-05T12:30:00.000Z"
+  },
+  "categoria": "CULTURA",
+  "titular": "Alejandro Fernández será abuelo otra vez y ya perdió la cuenta",
+  "bajada": "Camila Fernández espera un nuevo bebé, el segundo nieto que recibe el cantante este año",
+  "caption": "Mientras nosotros seguimos pagando el crédito del celular, Alejandro Fernández ya va por otro nieto. A este paso el apellido Fernández necesita su propio censo. Felicidades a la familia, que crece más rápido que la fila del Buen Fin.",
+  "hashtags": [
+    "#AlejandroFernandez",
+    "#CamilaFernandez",
+    "#FamiliaNumerosa",
+    "#Abuelo"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-10-05-0950-lawebazone-tendencias-d-425c.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-05-0950-lawebazone-tendencias-d-425c.jpg",
+    "hash": "6483ff11a078a47b",
+    "version": 11,
+    "estilo": "9fd322fb9927e571",
+    "renderizada": "2026-10-05T14:51:47.156Z"
+  },
+  "ilustracion": {
+    "descripcion": "Una cuna de bebé decorada con globos y un sombrero de mariachi pequeño apoyado al lado, en una sala cálida; la cuna aparece en el tercio superior derecho, el resto del espacio despejado",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-05T14:50:44.860Z",
+  "actualizado": "2026-10-05T14:50:44.860Z"
+}
