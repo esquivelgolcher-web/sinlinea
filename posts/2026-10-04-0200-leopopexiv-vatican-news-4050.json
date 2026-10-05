@@ -1,7 +1,7 @@
 {
   "id": "2026-10-04-0200-leopopexiv-vatican-news-4050",
   "cuenta": "leopopexiv",
-  "estado": "programado",
+  "estado": "publicado",
   "formato": "frase",
   "frase": {
     "texto": "Make this heartfelt supplication of Jesus your own",
@@ -37,7 +37,11 @@
   },
   "ilustracion": null,
   "programado": "2026-10-04T18:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "17911421694501199",
+    "permalink": "https://www.instagram.com/p/DeF8gC_o1ZQ/",
+    "fecha": "2026-10-05T00:41:17.334Z"
+  },
   "error": null,
   "creado": "2026-10-04T06:00:27.786Z",
   "actualizado": "2026-10-05T00:41:17.334Z",
@@ -50,16 +54,15 @@
         "imagenHash": "7bb875108e0934e6",
         "imagenSha": "5908697e7fa02465bec2014d0bf6e9ac50298d52"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-10-05T00:41:17.334Z",
-        "actualizado": "2026-10-05T00:41:17.334Z",
-        "contenedorId": "18106792910081176"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "17911421694501199",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/DeF8gC_o1ZQ/",
+        "fecha": "2026-10-05T00:41:17.334Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
