@@ -1,0 +1,44 @@
+{
+  "id": "2026-10-05-1703-lawebazone-tendencias-d-51c9",
+  "cuenta": "lawebazone",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Tendencias de Colombia",
+    "url": "https://www.eltiempo.com/deportes/futbol-internacional/colombia-vs-peru-hora-y-donde-ver-en-vivo-el-ultimo-partido-de-la-seleccion-colombia-en-la-fecha-fifa-3591251",
+    "titulo": "colombia vs peru",
+    "publicado": "2026-10-05T21:30:00.000Z"
+  },
+  "categoria": "DEPORTES",
+  "titular": "Colombia vs Perú y ya sabemos quién gana: el streaming",
+  "bajada": "La Selección Colombia juega amistoso ante Perú en la fecha FIFA de octubre",
+  "caption": "Otra vez a buscar en qué canal transmiten, si con VPN, si hay que pagar algo o si toca verlo de reojo en el trabajo. El verdadero clásico de cada partido de la Selección.",
+  "hashtags": [
+    "#SeleccionColombia",
+    "#ColombiaVsPeru",
+    "#FechaFifa"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-10-05-1703-lawebazone-tendencias-d-51c9.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-05-1703-lawebazone-tendencias-d-51c9.jpg",
+    "hash": "69c4180aee9a2354",
+    "version": 11,
+    "estilo": "9fd322fb9927e571",
+    "renderizada": "2026-10-05T22:04:43.362Z"
+  },
+  "ilustracion": {
+    "descripcion": "Televisor encendido en una sala con la camiseta de la Selección Colombia colgada cerca, balón de fútbol en el tercio superior derecho, resto del cuadro despejado.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-05T22:03:39.745Z",
+  "actualizado": "2026-10-05T22:03:39.745Z"
+}

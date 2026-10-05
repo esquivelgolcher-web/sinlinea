@@ -1,0 +1,44 @@
+{
+  "id": "2026-10-05-1703-lawebazone-tendencias-d-072a",
+  "cuenta": "lawebazone",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Tendencias de Colombia",
+    "url": "https://www.elcolombiano.com/negocios/rui-nuevo-sisben-entrada-operacion-diciembre-2027-IO41927690",
+    "titulo": "sisben",
+    "publicado": "2026-10-05T21:20:00.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "El nuevo Sisbén se vuelve a aplazar, ahora hasta 2027",
+  "bajada": "El Gobierno pospone de nuevo la entrada en vigencia del RUI, que reemplazará al Sisbén",
+  "caption": "El nuevo sistema que iba a reemplazar al Sisbén ya tiene más aplazamientos que promesa de año nuevo. A este ritmo nos va a tocar explicárselo a nuestros nietos.",
+  "hashtags": [
+    "#Sisben",
+    "#Tramites",
+    "#Colombia"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-10-05-1703-lawebazone-tendencias-d-072a.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-05-1703-lawebazone-tendencias-d-072a.jpg",
+    "hash": "d170061a4082d450",
+    "version": 11,
+    "estilo": "9fd322fb9927e571",
+    "renderizada": "2026-10-05T22:04:43.633Z"
+  },
+  "ilustracion": {
+    "descripcion": "Ventanilla de oficina pública con carpetas apiladas y un cartel de 'próxima fecha' en blanco, en el tercio superior derecho, resto del cuadro despejado.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-05T22:03:39.745Z",
+  "actualizado": "2026-10-05T22:03:39.745Z"
+}

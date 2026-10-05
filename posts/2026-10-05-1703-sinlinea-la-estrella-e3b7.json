@@ -1,0 +1,48 @@
+{
+  "id": "2026-10-05-1703-sinlinea-la-estrella-e3b7",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/economia/semana-clave-la-ue-decidiria-si-retira-a-panama-de-su-lista-negra-HC26242317",
+    "titulo": "Semana clave: la UE decidiría si retira a Panamá de su lista negra",
+    "publicado": "2026-10-05T21:10:00.000Z"
+  },
+  "categoria": "ECONOMÍA",
+  "titular": "UE evaluaría sacar a Panamá de lista fiscal negra",
+  "bajada": "Ministros de Hacienda se reúnen el viernes en Luxemburgo para decidir sobre paraísos fiscales",
+  "caption": "Panamá podría salir por completo de la lista de jurisdicciones no cooperativas de la Unión Europea, tras aprobar la ley de sustancia económica. La decisión se toma este viernes en Luxemburgo y afectaría directamente la reputación financiera del país. ¿Crees que esto mejorará la imagen de Panamá ante el mundo?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#UniónEuropea",
+    "#ListaNegra",
+    "#Economía",
+    "#CentroFinanciero"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-10-05-1703-sinlinea-la-estrella-e3b7.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-05-1703-sinlinea-la-estrella-e3b7.jpg",
+    "hash": "5a5b6824d6262b16",
+    "version": 2,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-10-05T22:04:11.751Z"
+  },
+  "ilustracion": {
+    "descripcion": "Edificio institucional europeo con banderas de la Unión Europea ondeando, en el tercio superior derecho; zona izquierda y central despejada, estilo ilustración editorial.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-05T22:03:39.745Z",
+  "actualizado": "2026-10-05T22:03:39.745Z",
+  "plantilla": "titular"
+}

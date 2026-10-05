@@ -1,0 +1,48 @@
+{
+  "id": "2026-10-05-1703-sinlinea-la-estrella-d668",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/fundacion-libertad-ciudadana-pide-devolver-a-primer-debate-reformas-electorales-y-alerta-sobre-retrocesos-CC26243212",
+    "titulo": "Fundación Libertad Ciudadana pide devolver a primer debate reformas electorales y alerta sobre ‘retrocesos’",
+    "publicado": "2026-10-05T19:25:00.000Z"
+  },
+  "categoria": "POLÍTICA",
+  "titular": "Piden devolver a primer debate reformas al Código Electoral",
+  "bajada": "Libertad Ciudadana alertó sobre retrocesos en transparencia y fiscalización del financiamiento político.",
+  "caption": "La Fundación Libertad Ciudadana pidió a la presidenta de la Asamblea, Shirley Castañedas, reabrir la discusión del proyecto que reforma el Código Electoral. Advierten que algunos cambios reducen la fiscalización y suben los topes de financiamiento de campañas. Las reglas electorales afectan a todos los panameños: ¿debería ampliarse el debate antes de aprobarlas?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#AsambleaNacional",
+    "#ReformaElectoral",
+    "#Transparencia",
+    "#Política"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-10-05-1703-sinlinea-la-estrella-d668.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-05-1703-sinlinea-la-estrella-d668.jpg",
+    "hash": "219f827985b113e3",
+    "version": 11,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-10-05T22:04:16.495Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada del Palacio Legislativo de la Asamblea Nacional de Panamá bajo un cielo despejado, edificio en el tercio superior derecho, zona izquierda y central despejada.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-05-1703-sinlinea-la-estrella-d668.jpg",
+    "hashDescripcion": "0b22d006fc7015dc",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-05T22:03:39.745Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-05T22:03:39.745Z",
+  "actualizado": "2026-10-05T22:03:39.745Z",
+  "plantilla": "foto"
+}
