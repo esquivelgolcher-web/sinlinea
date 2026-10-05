@@ -1,7 +1,7 @@
 {
   "id": "2026-10-05-0149-leopopexiv-vatican-news-faaf",
   "cuenta": "leopopexiv",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/pope/news/2026-10/pope-may-we-pray-for-intercession-virgin-mary-for-world-peace.html",
@@ -39,9 +39,26 @@
     "generada": "2026-10-05T05:49:23.956Z",
     "error": null
   },
-  "programado": null,
+  "programado": "2026-10-05T13:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-10-05T05:49:23.956Z",
-  "actualizado": "2026-10-05T05:49:23.956Z"
+  "actualizado": "2026-10-05T07:43:48.929Z",
+  "destinos": {
+    "instagram": {
+      "texto": "After the Angelus, Pope Leo XIV invited the faithful to continue praying the Rosary for peace, joining Aid to the Church in Need's initiative, with special intention for the Holy Land and victims of violence. He also expressed joy over tributes to Saint Francis of Assisi and announced a new period of synodal discernment on the family, to take place at the Vatican ten years after Pope Francis's apostolic exhortation Amoris Laetitia. Source: Vatican News, Oct 4, 2026.\n\nFuente: Vatican News\n\n#PopeLeo #Vatican #Angelus #Family #AmorisLaetitia #CatholicChurch",
+      "aprobado": {
+        "fecha": "2026-10-05T07:43:48.929Z",
+        "hashPieza": "5af98547923f7a69",
+        "imagenHash": "5fdd34bc1506cf62",
+        "imagenSha": "e6d61d6d5cec77f31e333c7ca7c3cf7053f3424c"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
