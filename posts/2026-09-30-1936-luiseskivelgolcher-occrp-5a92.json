@@ -113,7 +113,11 @@
     "notas": []
   },
   "programado": "2026-10-05T12:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "17936096754383083",
+    "permalink": "https://www.instagram.com/p/DeISND-kfCh/",
+    "fecha": "2026-10-05T22:29:25.037Z"
+  },
   "error": null,
   "creado": "2026-10-01T00:36:12.137Z",
   "actualizado": "2026-10-05T22:29:25.037Z",
@@ -126,16 +130,15 @@
         "imagenHash": "13de6df80379842e",
         "imagenSha": "a4760a7199b288f9d8065b739e26d4229f9ff7ac"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-10-05T22:29:25.037Z",
-        "actualizado": "2026-10-05T22:29:25.037Z",
-        "contenedorId": "18598338655064913"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "17936096754383083",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/DeISND-kfCh/",
+        "fecha": "2026-10-05T22:29:25.037Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     },
