@@ -43,7 +43,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-05T05:49:23.956Z",
-  "actualizado": "2026-10-05T07:43:48.929Z",
+  "actualizado": "2026-10-05T22:30:29.702Z",
   "destinos": {
     "instagram": {
       "texto": "After the Angelus, Pope Leo XIV invited the faithful to continue praying the Rosary for peace, joining Aid to the Church in Need's initiative, with special intention for the Holy Land and victims of violence. He also expressed joy over tributes to Saint Francis of Assisi and announced a new period of synodal discernment on the family, to take place at the Vatican ten years after Pope Francis's apostolic exhortation Amoris Laetitia. Source: Vatican News, Oct 4, 2026.\n\nFuente: Vatican News\n\n#PopeLeo #Vatican #Angelus #Family #AmorisLaetitia #CatholicChurch",
@@ -56,7 +56,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-10-05T22:30:29.702Z",
+        "actualizado": "2026-10-05T22:30:29.702Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
