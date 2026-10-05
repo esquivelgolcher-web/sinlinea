@@ -1,0 +1,47 @@
+{
+  "id": "2026-10-05-0149-leopopexiv-vatican-news-faaf",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-10/pope-may-we-pray-for-intercession-virgin-mary-for-world-peace.html",
+    "titulo": "Pope: May we pray for the intercession of the Virgin Mary for world peace",
+    "publicado": "2026-10-04T10:40:00.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "Pope Leo announces synod on family life",
+  "bajada": "Ten years after Amoris Laetitia, Vatican to host discernment on the family",
+  "caption": "After the Angelus, Pope Leo XIV invited the faithful to continue praying the Rosary for peace, joining Aid to the Church in Need's initiative, with special intention for the Holy Land and victims of violence. He also expressed joy over tributes to Saint Francis of Assisi and announced a new period of synodal discernment on the family, to take place at the Vatican ten years after Pope Francis's apostolic exhortation Amoris Laetitia. Source: Vatican News, Oct 4, 2026.",
+  "hashtags": [
+    "#PopeLeo",
+    "#Vatican",
+    "#Angelus",
+    "#Family",
+    "#AmorisLaetitia",
+    "#CatholicChurch"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-10-05-0149-leopopexiv-vatican-news-faaf.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-05-0149-leopopexiv-vatican-news-faaf.jpg",
+    "hash": "5fdd34bc1506cf62",
+    "version": 11,
+    "estilo": "32cba508d6c2290e",
+    "renderizada": "2026-10-05T05:51:05.870Z"
+  },
+  "ilustracion": {
+    "descripcion": "St Peter's Square at midday, the papal apartment window visible in the upper right third, a rosary resting on an open book in the empty foreground, soft autumn light, left and center uncluttered",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-05-0149-leopopexiv-vatican-news-faaf.jpg",
+    "hashDescripcion": "0d42e8461d55b138",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-05T05:49:23.956Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-05T05:49:23.956Z",
+  "actualizado": "2026-10-05T05:49:23.956Z"
+}
