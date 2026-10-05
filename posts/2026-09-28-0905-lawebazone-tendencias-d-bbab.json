@@ -1,7 +1,7 @@
 {
   "id": "2026-09-28-0905-lawebazone-tendencias-d-bbab",
   "cuenta": "lawebazone",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "Tendencias de Argentina",
     "url": "https://www.infobae.com/sociedad/2026/09/28/calendario-2026-cuando-es-el-proximo-feriado-en-argentina/",
@@ -40,5 +40,5 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-09-28T14:05:23.779Z",
-  "actualizado": "2026-09-28T14:05:23.779Z"
+  "actualizado": "2026-10-05T07:44:07.691Z"
 }
