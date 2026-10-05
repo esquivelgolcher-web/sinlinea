@@ -1,7 +1,7 @@
 {
   "id": "2026-10-04-1858-lawebazone-tendencias-d-1012",
   "cuenta": "lawebazone",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "Tendencias de México",
     "url": "https://www.rayados.com/es/noticias/21622/rayados-vence-al-toluca-en-partido-amistoso-en-houston",
@@ -41,5 +41,5 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-04T23:58:56.577Z",
-  "actualizado": "2026-10-04T23:58:56.577Z"
+  "actualizado": "2026-10-05T07:43:53.650Z"
 }
