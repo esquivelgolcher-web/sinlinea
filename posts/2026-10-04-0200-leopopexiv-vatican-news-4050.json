@@ -40,7 +40,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-04T06:00:27.786Z",
-  "actualizado": "2026-10-04T15:45:29.556Z",
+  "actualizado": "2026-10-05T00:41:17.334Z",
   "destinos": {
     "instagram": {
       "texto": "“Make this heartfelt supplication of Jesus your own”\n\n— Pope Leo XIV, Address to the Pontifical Teutonic College of Santa Maria in Campo Santo (2026)\n\nVia Vatican News, 3 October 2026\n\n#PopeLeoXIV #Vatican #CatholicChurch\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #CatholicChurch",
@@ -53,7 +53,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-10-05T00:41:17.334Z",
+        "actualizado": "2026-10-05T00:41:17.334Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
