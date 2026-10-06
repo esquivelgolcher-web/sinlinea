@@ -96,9 +96,26 @@
             "follows": 0
           },
           "faltantes": {}
+        },
+        "2026-10-06T12:10:21.474Z": {
+          "acumulados": {
+            "meGusta": 3,
+            "comentarios": 0,
+            "reach": 246,
+            "views": 350,
+            "likes": 3,
+            "comments": 0,
+            "saved": 0,
+            "shares": 0,
+            "total_interactions": 3,
+            "profile_visits": 0,
+            "profile_activity": 0,
+            "follows": 0
+          },
+          "faltantes": {}
         }
       },
-      "ultimaConsulta": "2026-10-05T12:31:05.836Z"
+      "ultimaConsulta": "2026-10-06T12:10:21.474Z"
     },
     "18130022212615246": {
       "fecha": "2026-10-04T01:56:46.000Z",
@@ -143,9 +160,26 @@
             "follows": 0
           },
           "faltantes": {}
+        },
+        "2026-10-06T12:10:21.474Z": {
+          "acumulados": {
+            "meGusta": 4,
+            "comentarios": 0,
+            "reach": 1560,
+            "views": 2325,
+            "likes": 4,
+            "comments": 0,
+            "saved": 0,
+            "shares": 2,
+            "total_interactions": 6,
+            "profile_visits": 2,
+            "profile_activity": 0,
+            "follows": 0
+          },
+          "faltantes": {}
         }
       },
-      "ultimaConsulta": "2026-10-05T12:31:05.836Z"
+      "ultimaConsulta": "2026-10-06T12:10:21.474Z"
     },
     "18625446571005499": {
       "fecha": "2026-10-03T18:49:20.000Z",
@@ -190,9 +224,26 @@
             "follows": 0
           },
           "faltantes": {}
+        },
+        "2026-10-06T12:10:21.474Z": {
+          "acumulados": {
+            "meGusta": 7,
+            "comentarios": 0,
+            "reach": 624,
+            "views": 1160,
+            "likes": 7,
+            "comments": 0,
+            "saved": 1,
+            "shares": 1,
+            "total_interactions": 9,
+            "profile_visits": 2,
+            "profile_activity": 0,
+            "follows": 0
+          },
+          "faltantes": {}
         }
       },
-      "ultimaConsulta": "2026-10-05T12:31:05.836Z"
+      "ultimaConsulta": "2026-10-06T12:10:21.474Z"
     },
     "17897277204396805": {
       "fecha": "2026-10-04T18:21:34.000Z",
@@ -220,9 +271,26 @@
             "follows": 0
           },
           "faltantes": {}
+        },
+        "2026-10-06T12:10:21.474Z": {
+          "acumulados": {
+            "meGusta": 0,
+            "comentarios": 0,
+            "reach": 361,
+            "views": 679,
+            "likes": 0,
+            "comments": 0,
+            "saved": 1,
+            "shares": 1,
+            "total_interactions": 2,
+            "profile_visits": 0,
+            "profile_activity": 0,
+            "follows": 0
+          },
+          "faltantes": {}
         }
       },
-      "ultimaConsulta": "2026-10-05T12:31:05.836Z"
+      "ultimaConsulta": "2026-10-06T12:10:21.474Z"
     },
     "17948305200295660": {
       "fecha": "2026-10-04T18:20:05.000Z",
@@ -250,9 +318,56 @@
             "follows": 0
           },
           "faltantes": {}
+        },
+        "2026-10-06T12:10:21.474Z": {
+          "acumulados": {
+            "meGusta": 2,
+            "comentarios": 0,
+            "reach": 588,
+            "views": 1025,
+            "likes": 2,
+            "comments": 0,
+            "saved": 0,
+            "shares": 0,
+            "total_interactions": 2,
+            "profile_visits": 0,
+            "profile_activity": 0,
+            "follows": 0
+          },
+          "faltantes": {}
         }
       },
-      "ultimaConsulta": "2026-10-05T12:31:05.836Z"
+      "ultimaConsulta": "2026-10-06T12:10:21.474Z"
+    },
+    "17936096754383083": {
+      "fecha": "2026-10-05T22:29:39.000Z",
+      "permalink": "https://www.instagram.com/p/DeISND-kfCh/",
+      "tipo": "IMAGE",
+      "origen": "sistema",
+      "post": "2026-09-30-1936-luiseskivelgolcher-occrp-5a92",
+      "categoria": "SEGURIDAD",
+      "franja": "12:00",
+      "titulo": "El Departamento del Tesoro de Estados Unidos incluyó el 30 de septiembre de 2026 a Aníbal ",
+      "consultas": {
+        "2026-10-06T12:10:21.474Z": {
+          "acumulados": {
+            "meGusta": 0,
+            "comentarios": 0,
+            "reach": 230,
+            "views": 343,
+            "likes": 0,
+            "comments": 0,
+            "saved": 0,
+            "shares": 0,
+            "total_interactions": 0,
+            "profile_visits": 0,
+            "profile_activity": 0,
+            "follows": 0
+          },
+          "faltantes": {}
+        }
+      },
+      "ultimaConsulta": "2026-10-06T12:10:21.474Z"
     }
   }
 }
