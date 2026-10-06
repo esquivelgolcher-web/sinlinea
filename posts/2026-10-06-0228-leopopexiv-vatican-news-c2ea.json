@@ -1,7 +1,7 @@
 {
   "id": "2026-10-06-0228-leopopexiv-vatican-news-c2ea",
   "cuenta": "leopopexiv",
-  "estado": "borrador",
+  "estado": "programado",
   "formato": "frase",
   "frase": {
     "texto": "Since learning the painful news of the deaths of Maysa and Mary, I have been praying to God for them, for their families and for the entire community of Gaza. How long, O Lord?",
@@ -36,9 +36,26 @@
     "renderizada": "2026-10-06T06:30:59.146Z"
   },
   "ilustracion": null,
-  "programado": null,
+  "programado": "2026-10-06T13:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-10-06T06:28:45.144Z",
-  "actualizado": "2026-10-06T06:28:45.144Z"
+  "actualizado": "2026-10-06T09:12:37.905Z",
+  "destinos": {
+    "instagram": {
+      "texto": "“Since learning the painful news of the deaths of Maysa and Mary, I have been praying to God for them, for their families and for the entire community of Gaza. How long, O Lord?”\n\n— Pope Leo XIV, Message to Fr. Gabriel Romanelli, parish priest of Holy Family Church in Gaza (2026)\n\nVia Vatican News, 5 October 2026\n\n#PopeLeoXIV #Vatican #CatholicChurch\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #CatholicChurch",
+      "aprobado": {
+        "fecha": "2026-10-06T09:12:37.905Z",
+        "hashPieza": "99ff15bf6bbdb029",
+        "imagenHash": "42f596125f215694",
+        "imagenSha": "93dd6c3abf863b96b98e631a51a34f378384c79c"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
