@@ -1,0 +1,49 @@
+{
+  "id": "2026-10-06-0128-sinlinea-glosa-2e8c",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "formato": "glosa",
+  "glosa": {
+    "versos": [
+      "Salud mandó su dinero",
+      "y casi nada a la gente",
+      "la planilla fue el presente",
+      "sin trato de enfermero"
+    ],
+    "esquema": "ABBA",
+    "sobre": {
+      "id": "2026-10-06-0128-sinlinea-la-prensa-68d8",
+      "titular": "Asamblea usa fondos de Salud para pagar su planilla"
+    }
+  },
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/politica/millones-de-dolares-destinados-a-salud-terminan-financiando-la-abultada-planilla-de-la-asamblea/",
+    "titulo": "Millones de dólares destinados a salud terminan financiando la abultada planilla de la Asamblea",
+    "publicado": "2026-10-06T05:04:00.000Z"
+  },
+  "categoria": "POLÍTICA",
+  "titular": "Salud mandó su dinero",
+  "bajada": "Sobre: Asamblea usa fondos de Salud para pagar su planilla",
+  "caption": "Salud mandó su dinero\ny casi nada a la gente\nla planilla fue el presente\nsin trato de enfermero\n\nSobre: Asamblea usa fondos de Salud para pagar su planilla · La Prensa\n\n#Panamá #Glosa #LaGarzaMaría",
+  "hashtags": [
+    "#Panamá",
+    "#Glosa",
+    "#LaGarzaMaría"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-10-06-0128-sinlinea-glosa-2e8c.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-06-0128-sinlinea-glosa-2e8c.jpg",
+    "hash": "1cfa2fe963495ce7",
+    "version": 1,
+    "estilo": "df55592d998f5ba3",
+    "renderizada": "2026-10-06T06:30:20.658Z"
+  },
+  "ilustracion": null,
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-06T06:28:45.144Z",
+  "actualizado": "2026-10-06T06:28:45.144Z"
+}

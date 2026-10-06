@@ -1,0 +1,46 @@
+{
+  "id": "2026-10-06-0228-leopopexiv-vatican-news-9934",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-10/pope-leo-xiv-message-gaza-parish-priest-romanelli.html",
+    "titulo": "Pope Leo prays for Gaza victims: ‘How long, O Lord?’",
+    "publicado": "2026-10-05T13:32:00.000Z"
+  },
+  "categoria": "INTERNACIONAL",
+  "titular": "Pope Leo mourns Gaza strike victims at parish",
+  "bajada": "Message sent after Israeli strike kills five, including two Christian women, at Holy Family Church",
+  "caption": "Pope Leo XIV sent a message of condolence to the parish priest of Holy Family Catholic Church in Gaza City after an Israeli strike killed five people, including two Christian women. In his message, the Pope prayed for the victims, asking: 'How long, O Lord?' Source: Vatican News, Oct 5, 2026.",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Gaza",
+    "#HolyFamilyChurch",
+    "#VaticanNews",
+    "#PrayForPeace"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-10-06-0228-leopopexiv-vatican-news-9934.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-06-0228-leopopexiv-vatican-news-9934.jpg",
+    "hash": "867d0a094b5cfc1b",
+    "version": 11,
+    "estilo": "32cba508d6c2290e",
+    "renderizada": "2026-10-06T06:30:54.019Z"
+  },
+  "ilustracion": {
+    "descripcion": "Exterior of a stone church in Gaza at dusk, damaged wall visible, a lit candle in the foreground; empty courtyard in the left and center, church facade in upper right third.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-06-0228-leopopexiv-vatican-news-9934.jpg",
+    "hashDescripcion": "f70bcb3330c2224d",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-06T06:28:45.144Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-06T06:28:45.144Z",
+  "actualizado": "2026-10-06T06:28:45.144Z"
+}

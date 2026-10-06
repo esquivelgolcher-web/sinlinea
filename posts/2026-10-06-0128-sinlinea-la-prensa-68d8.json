@@ -1,0 +1,52 @@
+{
+  "id": "2026-10-06-0128-sinlinea-la-prensa-68d8",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/politica/millones-de-dolares-destinados-a-salud-terminan-financiando-la-abultada-planilla-de-la-asamblea/",
+    "titulo": "Millones de dólares destinados a salud terminan financiando la abultada planilla de la Asamblea",
+    "publicado": "2026-10-06T05:04:00.000Z"
+  },
+  "categoria": "POLÍTICA",
+  "titular": "Asamblea usa fondos de Salud para pagar su planilla",
+  "bajada": "El Minsa trasladó $17.1 millones a la Asamblea; el 95.4% se destinó a pago de personal.",
+  "caption": "Mientras el presupuesto de Salud debería llegar a hospitales y centros de atención, millones terminaron cubriendo la planilla de la Asamblea, que ya suma 6,487 funcionarios. La diputada Janine Prado denunció que el gasto favorece el clientelismo en lugar de la austeridad. ¿Debería priorizarse la salud pública sobre el gasto legislativo?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Asamblea",
+    "#Salud",
+    "#Presupuesto",
+    "#Transparencia"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-10-06-0128-sinlinea-la-prensa-68d8.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-06-0128-sinlinea-la-prensa-68d8.jpg",
+    "hash": "0d2c5d84e2c3b232",
+    "version": 2,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-10-06T06:29:23.805Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada del Palacio Legislativo de Panamá bajo un cielo despejado, con el edificio en el tercio superior derecho y la zona izquierda y central de la imagen despejada",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-06T06:28:45.144Z",
+  "actualizado": "2026-10-06T06:28:45.144Z",
+  "plantilla": "dato",
+  "dato": {
+    "cifra": "95.4%",
+    "frase": "de los fondos trasladados del Minsa se usó para pagar personal de la Asamblea"
+  }
+}

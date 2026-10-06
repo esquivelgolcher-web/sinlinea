@@ -1,0 +1,48 @@
+{
+  "id": "2026-10-06-0128-sinlinea-la-prensa-5eb3",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/sociedad/contrato-del-teleferico-de-san-miguelito-fue-refrendado-la-obra-tomara-30-meses/",
+    "titulo": "Contrato del Teleférico de San Miguelito fue refrendado, la obra tomará 30 meses",
+    "publicado": "2026-10-06T01:36:50.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "Contraloría refrenda contrato del teleférico de San Miguelito",
+  "bajada": "La obra de $255.2 millones conectará con la Línea 2 del Metro y tomará 30 meses.",
+  "caption": "El proyecto promete aliviar la movilidad de miles de personas en San Miguelito, con 6.6 kilómetros de recorrido y seis estaciones conectadas al Metro. El ministro Orillac dijo que busca 'llevar mejores días' a la zona. ¿Cambiará esta obra tu forma de moverte por la ciudad?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#SanMiguelito",
+    "#Teleférico",
+    "#Metro",
+    "#Transporte"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-10-06-0128-sinlinea-la-prensa-5eb3.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-06-0128-sinlinea-la-prensa-5eb3.jpg",
+    "hash": "798b2408d07e2d86",
+    "version": 11,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-10-06T06:29:29.007Z"
+  },
+  "ilustracion": {
+    "descripcion": "Vista de los cerros de San Miguelito con cabinas de teleférico en construcción en el tercio superior derecho, cielo despejado y la zona izquierda y central de la imagen despejada",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-06-0128-sinlinea-la-prensa-5eb3.jpg",
+    "hashDescripcion": "ba41e7143289e0fe",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-06T06:28:45.144Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-06T06:28:45.144Z",
+  "actualizado": "2026-10-06T06:28:45.144Z",
+  "plantilla": "foto"
+}

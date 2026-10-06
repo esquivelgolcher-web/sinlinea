@@ -1,0 +1,44 @@
+{
+  "id": "2026-10-06-0128-lawebazone-tendencias-d-82e2",
+  "cuenta": "lawebazone",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Tendencias de Colombia",
+    "url": "https://www.espn.com.co/futbol/mundial/nota/_/id/17344151/salio-el-line-up-los-artistas-que-cantaran-en-la-despedida-de-messi-de-la-seleccion-argentina",
+    "titulo": "argentina vs benin",
+    "publicado": "2026-10-06T05:20:00.000Z"
+  },
+  "categoria": "DEPORTES",
+  "titular": "Ya anunciaron el line up del llanto colectivo por Messi",
+  "bajada": "Se confirmaron los artistas que cantarán en la despedida de Messi de la Selección Argentina",
+  "caption": "Todavía no empieza el partido y ya estamos buscando pañuelos. Encima le pusieron banda sonora para que el llanto sea en formato concierto.",
+  "hashtags": [
+    "#Messi",
+    "#Argentina",
+    "#Despedida"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-10-06-0128-lawebazone-tendencias-d-82e2.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-06-0128-lawebazone-tendencias-d-82e2.jpg",
+    "hash": "975c8048fc7856b6",
+    "version": 11,
+    "estilo": "9fd322fb9927e571",
+    "renderizada": "2026-10-06T06:31:24.420Z"
+  },
+  "ilustracion": {
+    "descripcion": "Estadio de fútbol argentino lleno, escenario con instrumentos musicales montado en la cancha, bandera celeste y blanca ondeando en el tercio superior derecho, campo despejado al centro e izquierda.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-06T06:28:45.144Z",
+  "actualizado": "2026-10-06T06:28:45.144Z"
+}

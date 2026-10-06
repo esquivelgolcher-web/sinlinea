@@ -1,0 +1,44 @@
+{
+  "id": "2026-10-06-0128-lawebazone-tendencias-d-17ad",
+  "cuenta": "lawebazone",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Tendencias de México",
+    "url": "https://cnnespanol.cnn.com/2026/10/05/clima-y-tiempo/sistema-tropical-golfo-escenarios-trax",
+    "titulo": "ciclón tropical",
+    "publicado": "2026-10-06T04:30:00.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "Posible ciclón en el Golfo y ya todos llenando la tina",
+  "bajada": "Expertos analizan si se formará un sistema tropical en el Golfo de México esta semana",
+  "caption": "Apenas dicen 'posible ciclón' y ya hay fila en el súper por agua y atún. Total, nunca se sabe si va a llover o si vamos a sobrevivir a punta de sardinas.",
+  "hashtags": [
+    "#Huracán",
+    "#México",
+    "#Prevención"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-10-06-0128-lawebazone-tendencias-d-17ad.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-06-0128-lawebazone-tendencias-d-17ad.jpg",
+    "hash": "bf73d8dfb3176865",
+    "version": 11,
+    "estilo": "9fd322fb9927e571",
+    "renderizada": "2026-10-06T06:31:24.672Z"
+  },
+  "ilustracion": {
+    "descripcion": "Estantería de supermercado con botellones de agua y latas de atún casi vacía, nubes grises visibles por una ventana en el tercio superior derecho, pasillo despejado al frente.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-06T06:28:45.144Z",
+  "actualizado": "2026-10-06T06:28:45.144Z"
+}
