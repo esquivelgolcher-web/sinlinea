@@ -126,7 +126,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-05T14:50:44.860Z",
-  "actualizado": "2026-10-06T09:12:44.658Z",
+  "actualizado": "2026-10-06T21:10:54.336Z",
   "destinos": {
     "instagram": {
       "texto": "Un video que circula en X, Instagram y TikTok muestra a manifestantes acampados en la Puerta del Sol, en Madrid, cantando sobre okupar viviendas sin pagar. Pero ese audio no existe en la grabación original. Según EFE Verifica, una búsqueda inversa encontró la versión sin editar, subida el 28 de septiembre, con una letra distinta sobre defender casas frente a los desalojos. La herramienta de detección Hive calculó un 99.6% de probabilidad de que el canto difundido fuera generado con inteligencia artificial, un software que crea voces o sonidos sintéticos a partir de datos. La cuenta que publicó la versión manipulada se identifica a sí misma como un estudio creativo de IA. El episodio ocurre mientras continúan en España las protestas por la crisis de vivienda, tras el desahucio de una anciana de 87 años en septiembre. ¿Qué tan fácil es distinguir hoy un audio real de uno generado por IA?\n\nFuente: EFE Verifica\n\n#Desinformación #InteligenciaArtificial #Deepfake #EFEVerifica #España",
@@ -139,7 +139,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-10-06T21:10:54.336Z",
+        "actualizado": "2026-10-06T21:10:54.336Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     },
