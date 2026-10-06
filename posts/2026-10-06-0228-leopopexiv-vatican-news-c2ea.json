@@ -40,7 +40,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-06T06:28:45.144Z",
-  "actualizado": "2026-10-06T09:12:37.905Z",
+  "actualizado": "2026-10-06T21:11:51.125Z",
   "destinos": {
     "instagram": {
       "texto": "“Since learning the painful news of the deaths of Maysa and Mary, I have been praying to God for them, for their families and for the entire community of Gaza. How long, O Lord?”\n\n— Pope Leo XIV, Message to Fr. Gabriel Romanelli, parish priest of Holy Family Church in Gaza (2026)\n\nVia Vatican News, 5 October 2026\n\n#PopeLeoXIV #Vatican #CatholicChurch\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #CatholicChurch",
@@ -53,7 +53,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-10-06T21:11:51.125Z",
+        "actualizado": "2026-10-06T21:11:51.125Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
