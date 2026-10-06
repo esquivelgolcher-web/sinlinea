@@ -1,7 +1,7 @@
 {
   "id": "2026-10-06-0228-leopopexiv-vatican-news-9934",
   "cuenta": "leopopexiv",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/pope/news/2026-10/pope-leo-xiv-message-gaza-parish-priest-romanelli.html",
@@ -39,7 +39,11 @@
     "error": null
   },
   "programado": "2026-10-06T09:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "18116741606103303",
+    "permalink": "https://www.instagram.com/p/DeKL_uZlYwR/",
+    "fecha": "2026-10-06T16:13:41.180Z"
+  },
   "error": null,
   "creado": "2026-10-06T06:28:45.144Z",
   "actualizado": "2026-10-06T16:13:41.180Z",
@@ -52,16 +56,15 @@
         "imagenHash": "867d0a094b5cfc1b",
         "imagenSha": "d19571bcd7c22794071c24507916c7a2bdd3f419"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-10-06T16:13:41.180Z",
-        "actualizado": "2026-10-06T16:13:41.180Z",
-        "contenedorId": "18107139167081176"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18116741606103303",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/DeKL_uZlYwR/",
+        "fecha": "2026-10-06T16:13:41.180Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
