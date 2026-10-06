@@ -1,7 +1,7 @@
 {
   "id": "2026-10-06-0228-leopopexiv-vatican-news-c2ea",
   "cuenta": "leopopexiv",
-  "estado": "programado",
+  "estado": "publicado",
   "formato": "frase",
   "frase": {
     "texto": "Since learning the painful news of the deaths of Maysa and Mary, I have been praying to God for them, for their families and for the entire community of Gaza. How long, O Lord?",
@@ -37,7 +37,11 @@
   },
   "ilustracion": null,
   "programado": "2026-10-06T13:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "18093825842163325",
+    "permalink": "https://www.instagram.com/p/DeKuH3jI5Ro/",
+    "fecha": "2026-10-06T21:11:51.125Z"
+  },
   "error": null,
   "creado": "2026-10-06T06:28:45.144Z",
   "actualizado": "2026-10-06T21:11:51.125Z",
@@ -50,16 +54,15 @@
         "imagenHash": "42f596125f215694",
         "imagenSha": "93dd6c3abf863b96b98e631a51a34f378384c79c"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-10-06T21:11:51.125Z",
-        "actualizado": "2026-10-06T21:11:51.125Z",
-        "contenedorId": "18107181620081176"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18093825842163325",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/DeKuH3jI5Ro/",
+        "fecha": "2026-10-06T21:11:51.125Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
