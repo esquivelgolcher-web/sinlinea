@@ -1,7 +1,7 @@
 {
   "id": "2026-10-05-0950-luiseskivelgolcher-efe-verifica-76e7",
   "cuenta": "luiseskivelgolcher",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "EFE Verifica",
     "url": "https://verifica.efe.com/no-son-manifestantes-en-la-puerta-del-sol-cantando-sobre-okupaciones-es-un-video-manipulado-con-ia/",
@@ -180,16 +180,15 @@
         "imagenHash": "2c389c1aa7b2d2dc",
         "imagenSha": "d8c0a952d5e1a0f13e59000c57e3e43fe0e7dd3b"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-10-06T21:10:54.336Z",
-        "actualizado": "2026-10-06T21:10:54.336Z",
-        "contenedorId": "17992217622100604"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "17912646963285610",
+        "idPublicacion": null,
+        "permalink": "https://www.threads.com/@luisegolcher/post/DeKuDXQFFnm",
+        "fecha": "2026-10-06T21:10:54.336Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
