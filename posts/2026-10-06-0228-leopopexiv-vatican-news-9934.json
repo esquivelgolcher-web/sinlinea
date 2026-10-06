@@ -1,7 +1,7 @@
 {
   "id": "2026-10-06-0228-leopopexiv-vatican-news-9934",
   "cuenta": "leopopexiv",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/pope/news/2026-10/pope-leo-xiv-message-gaza-parish-priest-romanelli.html",
@@ -38,9 +38,26 @@
     "generada": "2026-10-06T06:28:45.144Z",
     "error": null
   },
-  "programado": null,
+  "programado": "2026-10-06T09:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-10-06T06:28:45.144Z",
-  "actualizado": "2026-10-06T06:28:45.144Z"
+  "actualizado": "2026-10-06T09:12:34.369Z",
+  "destinos": {
+    "instagram": {
+      "texto": "Pope Leo XIV sent a message of condolence to the parish priest of Holy Family Catholic Church in Gaza City after an Israeli strike killed five people, including two Christian women. In his message, the Pope prayed for the victims, asking: 'How long, O Lord?' Source: Vatican News, Oct 5, 2026.\n\nFuente: Vatican News\n\n#PopeLeoXIV #Gaza #HolyFamilyChurch #VaticanNews #PrayForPeace",
+      "aprobado": {
+        "fecha": "2026-10-06T09:12:34.369Z",
+        "hashPieza": "4b2f2c33865c50c5",
+        "imagenHash": "867d0a094b5cfc1b",
+        "imagenSha": "d19571bcd7c22794071c24507916c7a2bdd3f419"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
