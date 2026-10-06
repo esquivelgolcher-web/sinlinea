@@ -1,0 +1,121 @@
+{
+  "id": "2026-10-06-1741-luiseskivelgolcher-wired-7395",
+  "cuenta": "luiseskivelgolcher",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "WIRED",
+    "url": "https://www.wired.com/story/mike-rogers-is-watching-you-new-ad-blitz-from-abdul-el-sayed-attacks-surveillance-support/",
+    "titulo": "‘Mike Rogers Is Watching You’: New Ad Blitz From Abdul El-Sayed Attacks Surveillance Support",
+    "publicado": "2026-10-06T17:39:48.344Z"
+  },
+  "categoria": "POLÍTICA",
+  "titular": "El-Sayed ataca a Rogers por su historial de vigilancia",
+  "bajada": "Campaña al Senado de Michigan usa el apoyo de su rival a leyes de vigilancia como arma electoral",
+  "caption": "El candidato demócrata al Senado por Michigan, Abdul El-Sayed, lanzó una campaña publicitaria contra su rival republicano Mike Rogers por su historial legislativo de respaldo a la vigilancia masiva, según reportó WIRED el 6 de octubre de 2026. Los anuncios citan el apoyo de Rogers a la Ley Patriota de 2001, que permitió recolectar datos telefónicos sin orden judicial, y un proyecto de ley de 2011 que habría permitido a empresas compartir correos con la Agencia de Seguridad Nacional (NSA). La estrategia aprovecha el creciente rechazo ciudadano a las cámaras Flock, un sistema de reconocimiento de placas usado por policías en EE.UU., tras casos de abuso documentados. Un portavoz de Rogers respondió que su candidato \"se opone enérgicamente\" al uso sin control de esas cámaras. El caso ilustra cómo la vigilancia tecnológica se volvió tema central en campañas electorales de EE.UU. ¿Puede el historial de un legislador sobre privacidad definir una elección reñida?",
+  "hashtags": [
+    "#Vigilancia",
+    "#Privacidad",
+    "#EEUU",
+    "#Elecciones"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-10-06-1741-luiseskivelgolcher-wired-7395.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-06-1741-luiseskivelgolcher-wired-7395.jpg",
+    "hash": "326592de69342650",
+    "version": 11,
+    "estilo": "dc8c8fa3edf501fd",
+    "renderizada": "2026-10-06T22:41:59.019Z"
+  },
+  "ilustracion": {
+    "descripcion": "Valla publicitaria junto a una carretera de Michigan con un ícono estilizado de una cámara de vigilancia sobre un mapa del estado, elemento principal en el tercio superior derecho, izquierda y centro despejados.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-06-1741-luiseskivelgolcher-wired-7395.jpg",
+    "hashDescripcion": "d512b154c627247e",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-06T22:41:17.853Z",
+    "error": null,
+    "procedencia": "generada"
+  },
+  "formato": "post",
+  "fuentes": [
+    {
+      "rol": "principal",
+      "medio": "WIRED",
+      "autor": "Hugo Lowell",
+      "url": "https://www.wired.com/story/mike-rogers-is-watching-you-new-ad-blitz-from-abdul-el-sayed-attacks-surveillance-support/",
+      "canonica": "https://www.wired.com/story/mike-rogers-is-watching-you-new-ad-blitz-from-abdul-el-sayed-attacks-surveillance-support/",
+      "idioma": "en",
+      "publicado": "2026-10-06T17:39:48.344Z",
+      "actualizado": "2026-10-06T17:39:48.344Z",
+      "fechaHecho": "2026-10-06",
+      "consultado": "2026-10-06T22:41:17.853Z",
+      "alcance": "completo",
+      "textoRecuperado": {
+        "parrafos": 21,
+        "caracteres": 4204,
+        "enviados": 3897
+      },
+      "fuentesPrimarias": [
+        "https://mikeiswatching.com/",
+        "https://abcnews.com/Politics/flock-cameras-becoming-issue-midterm-elections/story?id=136090655",
+        "https://www.axios.com/2026/08/19/gop-data-center-memo-ai-election",
+        "http://www.aboutads.info"
+      ],
+      "licenciaMedios": null
+    }
+  ],
+  "afirmaciones": [
+    {
+      "texto": "Abdul El-Sayed lanzó una campaña publicitaria contra Mike Rogers por su historial de apoyo a la vigilancia masiva del gobierno.",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/mike-rogers-is-watching-you-new-ad-blitz-from-abdul-el-sayed-attacks-surveillance-support/",
+      "contrastada": true
+    },
+    {
+      "texto": "El anuncio vincula a Rogers con la Ley Patriota de 2001, que permitió la recolección de datos telefónicos de estadounidenses sin orden judicial.",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/mike-rogers-is-watching-you-new-ad-blitz-from-abdul-el-sayed-attacks-surveillance-support/",
+      "contrastada": true
+    },
+    {
+      "texto": "En 2011, Rogers introdujo un proyecto de ley que habría permitido a empresas compartir correos electrónicos con la NSA.",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/mike-rogers-is-watching-you-new-ad-blitz-from-abdul-el-sayed-attacks-surveillance-support/",
+      "contrastada": true
+    },
+    {
+      "texto": "Un portavoz de la campaña de Rogers afirmó que este se opone 'enérgicamente' al uso sin control de las cámaras Flock.",
+      "tipo": "opinion",
+      "fuente": "https://www.wired.com/story/mike-rogers-is-watching-you-new-ad-blitz-from-abdul-el-sayed-attacks-surveillance-support/",
+      "contrastada": true
+    }
+  ],
+  "angulo": "Uso político del historial legislativo sobre vigilancia masiva en una campaña al Senado de EE.UU.",
+  "atribucion": "Según WIRED (Hugo Lowell), 6 de octubre de 2026",
+  "puntuacion": {
+    "total": 73,
+    "componentes": {
+      "afinidad": 24,
+      "interes": 15,
+      "evidencia": 14,
+      "actualidad": 15,
+      "visual": 5
+    }
+  },
+  "alertas": [
+    "fuente-unica"
+  ],
+  "carrusel": null,
+  "reel": null,
+  "revision": {
+    "estado": "pendiente",
+    "notas": []
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-06T22:41:17.853Z",
+  "actualizado": "2026-10-06T22:41:17.853Z"
+}
