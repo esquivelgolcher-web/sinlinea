@@ -1,0 +1,44 @@
+{
+  "id": "2026-10-06-1100-lawebazone-tendencias-d-1b9d",
+  "cuenta": "lawebazone",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Tendencias de México",
+    "url": "https://www.informacion.es/finanzas-personales/2026/10/06/cuidar-padres-mayores-no-garantiza-mas-herencia-dv-135065120.html",
+    "titulo": "herencia",
+    "publicado": "2026-10-06T15:50:00.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "Abogada pone fin a la pelea familiar número 1",
+  "bajada": "Especialista en herencias aclara que cuidar a los padres no da más derecho a heredar",
+  "caption": "Noticia que va a generar debate en el chat familiar: una abogada especialista en herencias dice que ser el hijo que más cuidó a los papás no te da derecho a una tajada más grande. Prepárense para el grupo de WhatsApp familiar en llamas.",
+  "hashtags": [
+    "#herencia",
+    "#familia",
+    "#humor"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-10-06-1100-lawebazone-tendencias-d-1b9d.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-06-1100-lawebazone-tendencias-d-1b9d.jpg",
+    "hash": "8433f55c3958e9ca",
+    "version": 11,
+    "estilo": "9fd322fb9927e571",
+    "renderizada": "2026-10-06T16:01:21.263Z"
+  },
+  "ilustracion": {
+    "descripcion": "Mesa de un despacho de abogados con papeles y una balanza pequeña de adorno, en tercio superior derecho; izquierda y centro despejados.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-06T16:00:25.353Z",
+  "actualizado": "2026-10-06T16:00:25.353Z"
+}

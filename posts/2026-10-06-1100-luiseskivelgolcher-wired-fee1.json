@@ -1,0 +1,118 @@
+{
+  "id": "2026-10-06-1100-luiseskivelgolcher-wired-fee1",
+  "cuenta": "luiseskivelgolcher",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "WIRED",
+    "url": "https://www.wired.com/story/icann-top-level-domains-meow/",
+    "titulo": "The Internet Runs on Cats and Porn. It’s About to Get Cattier and Pornier",
+    "publicado": "2026-10-06T10:00:00.000Z"
+  },
+  "categoria": "INTERNACIONAL",
+  "titular": "ICANN prepara cientos de nuevos dominios de internet",
+  "bajada": "La ventana para pedir dominios como .meow o .fart cerró el 12 de agosto, según WIRED",
+  "caption": "Por primera vez desde 2012, cualquiera pudo solicitar un nuevo dominio de nivel superior, la parte de una dirección web que va después del punto, como .com o .shop. Según reportó WIRED tras asistir a la reunión ICANN86 en Sevilla, la ventana para pedir estos nuevos \"strings\" (así llaman en la jerga a las palabras que se vuelven dominios) cerró el 12 de agosto de 2026. ICANN, el organismo privado sin fines de lucro que administra estas reglas desde 1999, decide quién puede vender direcciones web y bajo qué condiciones, aunque declaró que no censura contenido: en 2022 rechazó un pedido de Ucrania para bloquear los dominios rusos .ru. El negocio es millonario: en 2012, Google pagó 25 millones de dólares en una subasta de ICANN para quedarse con .app, superando a una docena de empresas, incluida Amazon. Cada vez que alguien registra un dominio .app, Google cobra como \"registry\" y la empresa registradora se queda con la diferencia. Un mecanismo técnico que, según WIRED, decide buena parte de cómo se organiza y se monetiza internet.",
+  "hashtags": [
+    "#Internet",
+    "#ICANN",
+    "#Tecnología",
+    "#Dominios",
+    "#WIRED"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-10-06-1100-luiseskivelgolcher-wired-fee1.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-06-1100-luiseskivelgolcher-wired-fee1.jpg",
+    "hash": "5f9d6fd8b129b0ae",
+    "version": 11,
+    "estilo": "dc8c8fa3edf501fd",
+    "renderizada": "2026-10-06T16:01:00.317Z"
+  },
+  "ilustracion": {
+    "descripcion": "Sala de conferencias internacional con pantallas y banderas de países, ambiente de reunión técnica; un letrero genérico de organización queda en el tercio superior derecho, zona izquierda y central despejadas",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-06-1100-luiseskivelgolcher-wired-fee1.jpg",
+    "hashDescripcion": "6de89f89f0455e77",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-06T16:00:25.353Z",
+    "error": null,
+    "procedencia": "generada"
+  },
+  "formato": "post",
+  "fuentes": [
+    {
+      "rol": "principal",
+      "medio": "WIRED",
+      "autor": "Pete Millspaugh",
+      "url": "https://www.wired.com/story/icann-top-level-domains-meow/",
+      "canonica": "https://www.wired.com/story/icann-top-level-domains-meow/",
+      "idioma": "en",
+      "publicado": "2026-10-06T10:00:00.000Z",
+      "actualizado": "2026-10-06T10:00:00.000Z",
+      "fechaHecho": "2026-08-12",
+      "consultado": "2026-10-06T16:00:25.353Z",
+      "alcance": "completo",
+      "textoRecuperado": {
+        "parrafos": 45,
+        "caracteres": 26013,
+        "enviados": 3343
+      },
+      "fuentesPrimarias": [
+        "https://www.dotcom.press/tld-wiki",
+        "https://domainincite.com/31448-salesforce-to-apply-for-a-dot-brand",
+        "https://www.npr.org/sections/money/2016/10/14/497958151/episode-729-when-subaru-came-out",
+        "https://www.cruz.senate.gov/newsroom/press-releases/sen-cruz-releases-video-highlighting-dangers-of-obama-and-039s-internet-giveaway",
+        "http://www.aboutads.info"
+      ],
+      "licenciaMedios": null
+    }
+  ],
+  "afirmaciones": [
+    {
+      "texto": "La ventana para solicitar nuevos dominios de nivel superior cerró el 12 de agosto de 2026, la primera oportunidad desde 2012",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/icann-top-level-domains-meow/",
+      "contrastada": true
+    },
+    {
+      "texto": "En 2012, Google pagó 25 millones de dólares en una subasta de ICANN para obtener el dominio .app, superando a varios postores incluido Amazon",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/icann-top-level-domains-meow/",
+      "contrastada": true
+    },
+    {
+      "texto": "En 2022, Ucrania pidió a ICANN bloquear los dominios rusos .ru y la organización lo rechazó citando su política de no censurar contenido",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/icann-top-level-domains-meow/",
+      "contrastada": false
+    }
+  ],
+  "angulo": "Cómo un organismo poco conocido decide las reglas del internet que usamos todos los días",
+  "atribucion": "Según reportaje de WIRED firmado por Pete Millspaugh, 6 de octubre de 2026",
+  "puntuacion": {
+    "total": 72,
+    "componentes": {
+      "afinidad": 21,
+      "interes": 15,
+      "evidencia": 16,
+      "actualidad": 15,
+      "visual": 5
+    }
+  },
+  "alertas": [
+    "fuente-unica",
+    "hecho-antiguo"
+  ],
+  "carrusel": null,
+  "reel": null,
+  "revision": {
+    "estado": "pendiente",
+    "notas": []
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-06T16:00:25.353Z",
+  "actualizado": "2026-10-06T16:00:25.353Z"
+}

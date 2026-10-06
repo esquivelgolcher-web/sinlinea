@@ -1,0 +1,44 @@
+{
+  "id": "2026-10-06-1100-lawebazone-tendencias-d-0c5f",
+  "cuenta": "lawebazone",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Tendencias de México",
+    "url": "https://www.espn.com.mx/futbol/mundial/nota/_/id/17342766/benin-jugador-tijani-espera-disfrutar-despedida-messi-argentina-amistoso",
+    "titulo": "benin",
+    "publicado": "2026-10-06T15:20:00.000Z"
+  },
+  "categoria": "DEPORTES",
+  "titular": "Jugador de Benín prefiere ver a Messi antes que marcarlo",
+  "bajada": "El futbolista africano dice que Messi 'es el Dios del fútbol' y disfruta más que defiende",
+  "caption": "Hay rivales que juegan para ganar y hay rivales que juegan para sacarse una selfie mental. Este jugador de Benín admitió que prefiere disfrutar a Messi antes que marcarlo, y la verdad, lo entendemos perfectamente.",
+  "hashtags": [
+    "#Messi",
+    "#futbol",
+    "#GOAT"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-10-06-1100-lawebazone-tendencias-d-0c5f.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-06-1100-lawebazone-tendencias-d-0c5f.jpg",
+    "hash": "c5482e91c23b5c0f",
+    "version": 11,
+    "estilo": "9fd322fb9927e571",
+    "renderizada": "2026-10-06T16:01:21.490Z"
+  },
+  "ilustracion": {
+    "descripcion": "Cancha de fútbol al atardecer con una pelota en el centro del campo, jugador de espaldas en tercio superior derecho; izquierda y centro despejados.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-06T16:00:25.353Z",
+  "actualizado": "2026-10-06T16:00:25.353Z"
+}
