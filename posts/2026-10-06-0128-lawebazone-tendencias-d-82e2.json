@@ -1,7 +1,7 @@
 {
   "id": "2026-10-06-0128-lawebazone-tendencias-d-82e2",
   "cuenta": "lawebazone",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "Tendencias de Colombia",
     "url": "https://www.espn.com.co/futbol/mundial/nota/_/id/17344151/salio-el-line-up-los-artistas-que-cantaran-en-la-despedida-de-messi-de-la-seleccion-argentina",
@@ -40,5 +40,5 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-06T06:28:45.144Z",
-  "actualizado": "2026-10-06T06:28:45.144Z"
+  "actualizado": "2026-10-06T09:12:22.867Z"
 }
