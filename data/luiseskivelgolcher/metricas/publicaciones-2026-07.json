@@ -683,9 +683,33 @@
             "profile_activity": "metrica-no-soportada",
             "follows": "metrica-no-soportada"
           }
+        },
+        "2026-10-07T11:56:06.883Z": {
+          "acumulados": {
+            "meGusta": 7,
+            "comentarios": 0,
+            "reach": 316,
+            "views": 390,
+            "likes": 7,
+            "comments": 0,
+            "saved": 1,
+            "shares": 0,
+            "total_interactions": 9,
+            "ig_reels_avg_watch_time": 8436,
+            "ig_reels_video_view_total_time": 2682924,
+            "reels_skip_rate": 58.1,
+            "profile_visits": null,
+            "profile_activity": null,
+            "follows": null
+          },
+          "faltantes": {
+            "profile_visits": "metrica-no-soportada",
+            "profile_activity": "metrica-no-soportada",
+            "follows": "metrica-no-soportada"
+          }
         }
       },
-      "ultimaConsulta": "2026-10-06T12:10:21.474Z"
+      "ultimaConsulta": "2026-10-07T11:56:06.883Z"
     },
     "18112160272984034": {
       "fecha": "2026-07-23T21:29:22.000Z",
@@ -1368,9 +1392,33 @@
             "profile_activity": "metrica-no-soportada",
             "follows": "metrica-no-soportada"
           }
+        },
+        "2026-10-07T11:56:06.883Z": {
+          "acumulados": {
+            "meGusta": 209,
+            "comentarios": 25,
+            "reach": 3094,
+            "views": 4198,
+            "likes": 209,
+            "comments": 25,
+            "saved": 11,
+            "shares": 118,
+            "total_interactions": 390,
+            "ig_reels_avg_watch_time": 23282,
+            "ig_reels_video_view_total_time": 73737180,
+            "reels_skip_rate": 39.4,
+            "profile_visits": null,
+            "profile_activity": null,
+            "follows": null
+          },
+          "faltantes": {
+            "profile_visits": "metrica-no-soportada",
+            "profile_activity": "metrica-no-soportada",
+            "follows": "metrica-no-soportada"
+          }
         }
       },
-      "ultimaConsulta": "2026-10-06T12:10:21.474Z"
+      "ultimaConsulta": "2026-10-07T11:56:06.883Z"
     },
     "17923166007397714": {
       "fecha": "2026-07-23T14:59:32.000Z",
