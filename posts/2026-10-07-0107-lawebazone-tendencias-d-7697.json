@@ -1,0 +1,45 @@
+{
+  "id": "2026-10-07-0107-lawebazone-tendencias-d-7697",
+  "cuenta": "lawebazone",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Tendencias de México",
+    "url": "https://www.sinembargo.mx/4881997/hoy-no-circula-martes-evita-multas-y-corralon-este-6-de-octubre-en-cdmx-y-edomex/",
+    "titulo": "multas edomex",
+    "publicado": "2026-10-07T04:20:00.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "Hoy No Circula: el deporte nacional de revisar la placa",
+  "bajada": "Automovilistas de CdMx y Edomex corren contra el reloj para no caer en multa o corralón",
+  "caption": "Todas las mañanas igual: primero el café, después el noticiero, y antes de salir el ritual sagrado de revisar si hoy te toca o no circular. Algún día lo van a meter a los Juegos Olímpicos.",
+  "hashtags": [
+    "#HoyNoCircula",
+    "#CDMX",
+    "#Edomex",
+    "#TráficoCotidiano"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-10-07-0107-lawebazone-tendencias-d-7697.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-07-0107-lawebazone-tendencias-d-7697.jpg",
+    "hash": "a5abff3e541cd128",
+    "version": 11,
+    "estilo": "9fd322fb9927e571",
+    "renderizada": "2026-10-07T06:10:17.744Z"
+  },
+  "ilustracion": {
+    "descripcion": "Calle de Ciudad de México con tráfico detenido al amanecer, un auto con la placa visible en el tercio superior derecho, resto de la avenida despejada",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-07T06:07:37.170Z",
+  "actualizado": "2026-10-07T06:07:37.170Z"
+}

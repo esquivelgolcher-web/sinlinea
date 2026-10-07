@@ -1,0 +1,49 @@
+{
+  "id": "2026-10-07-0107-sinlinea-glosa-43cc",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "formato": "glosa",
+  "glosa": {
+    "versos": [
+      "La nave oficial no vuela",
+      "varada lejos de aquí;",
+      "y Mulino viajó así,",
+      "mientras el gasto se cuela."
+    ],
+    "esquema": "ABBA",
+    "sobre": {
+      "id": "2026-10-07-0107-sinlinea-la-prensa-5119",
+      "titular": "Mulino habría volado en jet chárter rumbo a Vietnam"
+    }
+  },
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/politica/con-el-avion-presidencial-fuera-de-servicio-mulino-habria-recurrido-a-un-vuelo-charter/",
+    "titulo": "Con el avión presidencial fuera de servicio, Mulino habría recurrido a un vuelo chárter",
+    "publicado": "2026-10-07T01:35:00.000Z"
+  },
+  "categoria": "POLÍTICA",
+  "titular": "La nave oficial no vuela",
+  "bajada": "Sobre: Mulino habría volado en jet chárter rumbo a Vietnam",
+  "caption": "La nave oficial no vuela\nvarada lejos de aquí;\ny Mulino viajó así,\nmientras el gasto se cuela.\n\nSobre: Mulino habría volado en jet chárter rumbo a Vietnam · La Prensa\n\n#Panamá #Glosa #LaGarzaMaría",
+  "hashtags": [
+    "#Panamá",
+    "#Glosa",
+    "#LaGarzaMaría"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-10-07-0107-sinlinea-glosa-43cc.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-07-0107-sinlinea-glosa-43cc.jpg",
+    "hash": "03f035c23211729c",
+    "version": 1,
+    "estilo": "df55592d998f5ba3",
+    "renderizada": "2026-10-07T06:09:33.582Z"
+  },
+  "ilustracion": null,
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-07T06:07:37.170Z",
+  "actualizado": "2026-10-07T06:07:37.170Z"
+}

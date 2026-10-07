@@ -1,0 +1,52 @@
+{
+  "id": "2026-10-07-0107-sinlinea-la-prensa-5119",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/politica/con-el-avion-presidencial-fuera-de-servicio-mulino-habria-recurrido-a-un-vuelo-charter/",
+    "titulo": "Con el avión presidencial fuera de servicio, Mulino habría recurrido a un vuelo chárter",
+    "publicado": "2026-10-07T01:35:00.000Z"
+  },
+  "categoria": "POLÍTICA",
+  "titular": "Mulino habría volado en jet chárter rumbo a Vietnam",
+  "bajada": "El avión presidencial sigue fuera de servicio en Dallas; el vuelo privado costaría hasta $38,500",
+  "caption": "Mientras la nave oficial permanece varada en un hangar de Texas, el mandatario habría recurrido a un avión privado para llegar a Hanói. El gasto, calculado por un diputado, contrasta con el discurso de austeridad del Gobierno. La Presidencia aún no ha respondido sobre el tema. ¿Es razonable este gasto en medio de los recortes que pide el Ejecutivo?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Mulino",
+    "#GastoPúblico",
+    "#Transparencia",
+    "#Vietnam"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-10-07-0107-sinlinea-la-prensa-5119.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-07-0107-sinlinea-la-prensa-5119.jpg",
+    "hash": "185b8d82dbb66db8",
+    "version": 2,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-10-07T06:08:19.831Z"
+  },
+  "ilustracion": {
+    "descripcion": "Pista de aeropuerto internacional con un jet privado estacionado junto a una alfombra roja protocolar, bajo cielo despejado; la aeronave queda en el tercio superior derecho, zona izquierda y central despejadas, ilustración editorial sin personas reconocibles",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-07T06:07:37.170Z",
+  "actualizado": "2026-10-07T06:07:37.170Z",
+  "plantilla": "dato",
+  "dato": {
+    "cifra": "$38,500",
+    "frase": "costaría el vuelo chárter entre Singapur y Vietnam, según cálculo de un diputado"
+  }
+}

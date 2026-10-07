@@ -1,0 +1,46 @@
+{
+  "id": "2026-10-07-0207-leopopexiv-vatican-news-9cc6",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-10/pope-leo-assisi-40-years-john-paul-2-religions-peace-prayer.html",
+    "titulo": "Pope Leo to visit Assisi 40 years after historic prayer meeting",
+    "publicado": "2026-10-06T16:20:00.000Z"
+  },
+  "categoria": "INTERNACIONAL",
+  "titular": "Pope Leo to join Assisi peace prayer",
+  "bajada": "40th interreligious gathering in Assisi, continuing a tradition started by John Paul II",
+  "caption": "Pope Leo XIV will travel to Assisi from October 25-27 for the 40th annual interreligious peace prayer meeting, a tradition begun by Pope St John Paul II in 1986. Source: Vatican News, Oct 6, 2026.",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Assisi",
+    "#InterfaithPeace",
+    "#Vatican",
+    "#JohnPaulII"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-10-07-0207-leopopexiv-vatican-news-9cc6.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-07-0207-leopopexiv-vatican-news-9cc6.jpg",
+    "hash": "bbb444324543ee38",
+    "version": 11,
+    "estilo": "32cba508d6c2290e",
+    "renderizada": "2026-10-07T06:09:54.377Z"
+  },
+  "ilustracion": {
+    "descripcion": "The Basilica of St Francis in Assisi at dusk, with doves flying near its facade; a robed pontifical figure walks toward the entrance, placed in the upper right third, left and center open.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-07-0207-leopopexiv-vatican-news-9cc6.jpg",
+    "hashDescripcion": "c8492ae3667e24b5",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-07T06:07:37.170Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-07T06:07:37.170Z",
+  "actualizado": "2026-10-07T06:07:37.170Z"
+}
