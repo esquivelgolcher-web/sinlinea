@@ -1,7 +1,7 @@
 {
   "id": "2026-10-04-0728-sinlinea-la-prensa-c6f1",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "La Prensa",
     "url": "https://www.prensa.com/economia/el-desempleo-a-la-escala-del-estadio-rommel-fernandez-que-esta-pasando-en-la-cancha/",
@@ -43,7 +43,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-04T12:28:29.565Z",
-  "actualizado": "2026-10-04T12:28:29.565Z",
+  "actualizado": "2026-10-07T08:27:08.696Z",
   "plantilla": "foto",
   "dato": {
     "cifra": "8.5%",
