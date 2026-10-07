@@ -1,0 +1,45 @@
+{
+  "id": "2026-10-07-0832-lawebazone-tendencias-d-88d2",
+  "cuenta": "lawebazone",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Tendencias de Argentina",
+    "url": "https://www.lecturas.com/actualidad/simeone-propietario-180-pisos-madrid-si-me-preguntasen-donde-voy-a-vivir-cuando-deje-entrenar-logicamente-responderia-argentina-donde-si-no-es-mi-pais_199517",
+    "titulo": "diego simeone",
+    "publicado": "2026-10-07T12:40:00.000Z"
+  },
+  "categoria": "DEPORTES",
+  "titular": "Simeone tiene 180 pisos en Madrid pero el corazón en Argentina",
+  "bajada": "El Cholo reveló que es dueño de 180 propiedades en la capital española",
+  "caption": "Che Cholo, con 180 pisos en Madrid ya podés abrir una inmobiliaria y dejar el fútbol. Igual el corazón sigue en Argentina, como el de todos cuando preguntan dónde vas a vivir cuando te jubiles.",
+  "hashtags": [
+    "#Simeone",
+    "#ElCholo",
+    "#Argentina",
+    "#Fútbol"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-10-07-0832-lawebazone-tendencias-d-88d2.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-07-0832-lawebazone-tendencias-d-88d2.jpg",
+    "hash": "f788abf34d76f915",
+    "version": 11,
+    "estilo": "9fd322fb9927e571",
+    "renderizada": "2026-10-07T13:33:40.412Z"
+  },
+  "ilustracion": {
+    "descripcion": "Un entrenador de fútbol con campera deportiva mira el horizonte de una ciudad europea con edificios de apartamentos, en el tercio superior derecho, estilo ilustración editorial, de espaldas, zona izquierda despejada.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-07T13:32:38.637Z",
+  "actualizado": "2026-10-07T13:32:38.637Z"
+}

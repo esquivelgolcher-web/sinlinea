@@ -1,0 +1,209 @@
+{
+  "id": "2026-10-07-0832-luiseskivelgolcher-wired-b7ca",
+  "cuenta": "luiseskivelgolcher",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "WIRED",
+    "url": "https://www.wired.com/story/mysterious-nonprofit-spacexai-national-design-studio-elon-musk-doge/",
+    "titulo": "A Mysterious Nonprofit Run by SpaceXAI’s Top Lawyer Is Paying the Salaries of Government Workers",
+    "publicado": "2026-10-07T10:30:00.000Z"
+  },
+  "categoria": "INVESTIGACIÓN",
+  "titular": "ONG opaca paga sueldos de personal en Washington",
+  "bajada": "WIRED halló vínculos entre el Estudio Nacional de Diseño y una fundación ligada a SpaceX",
+  "caption": "Una investigación de WIRED, firmada por Vittoria Elliott y publicada el 7 de octubre de 2026, encontró que al menos dos integrantes del Estudio Nacional de Diseño (National Design Studio o NDS), la oficina que rediseña sitios web del gobierno de Estados Unidos, en realidad cobran su sueldo de una fundación privada, America by Design Foundation. Según documentos revisados por WIRED, esa fundación la dirige James Burnham, abogado general de SpaceXAI, la empresa de inteligencia artificial de Elon Musk. No se sabe quién la financia ni cuánto dinero maneja. El NDS surgió tras la salida de Musk del llamado Departamento de Eficiencia Gubernamental (DOGE) y comparte varios de sus antiguos integrantes. Expertos en política pública citados por WIRED advierten que la falta de claridad sobre quién paga a funcionarios que trabajan dentro del gobierno es preocupante, sobre todo cuando hay movimiento constante entre el sector privado y el público.",
+  "hashtags": [
+    "#Vigilancia",
+    "#EEUU",
+    "#Tecnología",
+    "#Transparencia",
+    "#SpaceX"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-10-07-0832-luiseskivelgolcher-wired-b7ca.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-07-0832-luiseskivelgolcher-wired-b7ca.jpg",
+    "hash": "8e17eed9ca79840f",
+    "version": 11,
+    "estilo": "dc8c8fa3edf501fd",
+    "renderizada": "2026-10-07T13:33:15.134Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada institucional de un edificio federal de Washington con columnas clásicas al atardecer; el elemento arquitectónico principal queda en el tercio superior derecho y la zona izquierda y central despejada",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-07-0832-luiseskivelgolcher-wired-b7ca.jpg",
+    "hashDescripcion": "586f37f9414565ff",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-07T13:32:38.637Z",
+    "error": null,
+    "procedencia": "generada"
+  },
+  "formato": "carrusel",
+  "fuentes": [
+    {
+      "rol": "principal",
+      "medio": "WIRED",
+      "autor": "Vittoria Elliott",
+      "url": "https://www.wired.com/story/mysterious-nonprofit-spacexai-national-design-studio-elon-musk-doge/",
+      "canonica": "https://www.wired.com/story/mysterious-nonprofit-spacexai-national-design-studio-elon-musk-doge/",
+      "idioma": "en",
+      "publicado": "2026-10-07T10:30:00.000Z",
+      "actualizado": "2026-10-07T10:30:00.000Z",
+      "fechaHecho": null,
+      "consultado": "2026-10-07T13:32:38.637Z",
+      "alcance": "completo",
+      "textoRecuperado": {
+        "parrafos": 33,
+        "caracteres": 12627,
+        "enviados": 3845
+      },
+      "fuentesPrimarias": [
+        "https://www.whitehouse.gov/presidential-actions/2025/08/improving-our-nation-through-better-design/",
+        "https://realfood.gov/",
+        "https://www.opm.gov/policy-data-oversight/hiring-information/intergovernment-personnel-act/",
+        "https://www.washingtonsun.com/trump-white-house/trump-aides-ai-takeover-america-gov-passport-direct-file",
+        "https://america.gov/",
+        "https://www.theguardian.com/us-news/2026/jun/28/government-website-visitor-tracking-surveillance-fears",
+        "https://apps.irs.gov/pub/epostcard/dl/FinalLetter_39-3963343_AMERICABYDESIGNFOUNDATION_09052025_00.pdf",
+        "https://fedsoc.org/bio/james-burnham",
+        "https://www.wsj.com/business/telecom/spacex-is-racking-up-wins-in-washington-a8bac5f5",
+        "https://news.bloomberglaw.com/business-and-practice/capital-flows-into-litigation-funds-with-social-justice-impact",
+        "https://www.opm.gov/policy-data-oversight/pay-leave/salaries-wages/salary-tables/pdf/2026/DCB.pdf",
+        "https://www.uscis.gov/tools/reports-and-studies/h-1b-employer-data-hub",
+        "https://www.theguardian.com/us-news/2025/dec/14/gaza-rebuild-us-contractors",
+        "http://www.aboutads.info"
+      ],
+      "licenciaMedios": null
+    }
+  ],
+  "afirmaciones": [
+    {
+      "texto": "Al menos dos miembros del NDS, Amittai Groot y John Cafazza, están empleados por America by Design Foundation y prestados a la Oficina de Gestión de Personal (OPM), según documentos revisados por WIRED",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/mysterious-nonprofit-spacexai-national-design-studio-elon-musk-doge/",
+      "contrastada": true
+    },
+    {
+      "texto": "James Burnham, abogado general de SpaceXAI y exintegrante de DOGE, dirige America by Design Foundation",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/mysterious-nonprofit-spacexai-national-design-studio-elon-musk-doge/",
+      "contrastada": true
+    },
+    {
+      "texto": "No se sabe quién financia la fundación ni cuánto dinero tiene",
+      "tipo": "hipotesis",
+      "fuente": "https://www.wired.com/story/mysterious-nonprofit-spacexai-national-design-studio-elon-musk-doge/",
+      "contrastada": false
+    },
+    {
+      "texto": "La falta de transparencia sobre quién emplea y paga a este personal es preocupante, especialmente por el vaivén entre el sector privado y el público",
+      "tipo": "opinion",
+      "fuente": "https://www.wired.com/story/mysterious-nonprofit-spacexai-national-design-studio-elon-musk-doge/",
+      "contrastada": false
+    }
+  ],
+  "angulo": "Transparencia y conflicto de interés en el uso de personal privado dentro de una oficina federal de EE.UU.",
+  "atribucion": "WIRED (Vittoria Elliott), 7 de octubre de 2026",
+  "puntuacion": {
+    "total": 79,
+    "componentes": {
+      "afinidad": 27,
+      "interes": 18,
+      "evidencia": 14,
+      "actualidad": 15,
+      "visual": 5
+    }
+  },
+  "alertas": [
+    "fuente-unica"
+  ],
+  "carrusel": {
+    "diapositivas": [
+      {
+        "titulo": "¿Quién paga realmente al Estudio Nacional de Diseño?",
+        "texto": "Una fundación poco conocida cubre el sueldo de al menos dos funcionarios que trabajan dentro del gobierno de EE.UU."
+      },
+      {
+        "titulo": "El sucesor de DOGE",
+        "texto": "Tras la salida de Elon Musk de DOGE en 2025, varios de sus integrantes pasaron al Estudio Nacional de Diseño (NDS), que rediseña sitios como TrumpRx."
+      },
+      {
+        "titulo": "Documentos revisados por WIRED",
+        "texto": "Amittai Groot y John Cafazza figuran como empleados de America by Design Foundation mientras trabajan prestados a la Oficina de Gestión de Personal."
+      },
+      {
+        "titulo": "Un abogado de SpaceX al mando",
+        "texto": "La fundación la dirige James Burnham, abogado general de SpaceXAI y exmiembro de DOGE, según WIRED."
+      },
+      {
+        "titulo": "Una zona gris legal",
+        "texto": "El mecanismo usa la Ley de Personal Intergubernamental, pensada para traer especialistas de universidades, no de empresas tecnológicas."
+      },
+      {
+        "titulo": "Lo que falta por saber",
+        "texto": "No se sabe quién financia la fundación ni cuánto dinero maneja. WIRED no obtuvo respuesta de los involucrados."
+      },
+      {
+        "titulo": "Vigilar quién maneja el gobierno digital",
+        "texto": "Investigación de Vittoria Elliott para WIRED, publicada el 7 de octubre de 2026. Enlace completo en la fuente."
+      }
+    ],
+    "imagenes": [
+      {
+        "numero": 1,
+        "ruta": "public/img/2026-10-07-0832-luiseskivelgolcher-wired-b7ca-01.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-07-0832-luiseskivelgolcher-wired-b7ca-01.jpg",
+        "hash": "c68f29db4ca54f3d"
+      },
+      {
+        "numero": 2,
+        "ruta": "public/img/2026-10-07-0832-luiseskivelgolcher-wired-b7ca-02.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-07-0832-luiseskivelgolcher-wired-b7ca-02.jpg",
+        "hash": "a43f2604fe0480ea"
+      },
+      {
+        "numero": 3,
+        "ruta": "public/img/2026-10-07-0832-luiseskivelgolcher-wired-b7ca-03.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-07-0832-luiseskivelgolcher-wired-b7ca-03.jpg",
+        "hash": "2b7289eb49636459"
+      },
+      {
+        "numero": 4,
+        "ruta": "public/img/2026-10-07-0832-luiseskivelgolcher-wired-b7ca-04.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-07-0832-luiseskivelgolcher-wired-b7ca-04.jpg",
+        "hash": "1d9ce0f4b8a8e08a"
+      },
+      {
+        "numero": 5,
+        "ruta": "public/img/2026-10-07-0832-luiseskivelgolcher-wired-b7ca-05.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-07-0832-luiseskivelgolcher-wired-b7ca-05.jpg",
+        "hash": "f0bc7f494cc63687"
+      },
+      {
+        "numero": 6,
+        "ruta": "public/img/2026-10-07-0832-luiseskivelgolcher-wired-b7ca-06.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-07-0832-luiseskivelgolcher-wired-b7ca-06.jpg",
+        "hash": "e44c677e288f7038"
+      },
+      {
+        "numero": 7,
+        "ruta": "public/img/2026-10-07-0832-luiseskivelgolcher-wired-b7ca-07.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-07-0832-luiseskivelgolcher-wired-b7ca-07.jpg",
+        "hash": "ce985ad0c7aa681a"
+      }
+    ],
+    "hash": "3e19ed706547586a",
+    "version": 2
+  },
+  "reel": null,
+  "revision": {
+    "estado": "pendiente",
+    "notas": []
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-07T13:32:38.637Z",
+  "actualizado": "2026-10-07T13:32:38.637Z"
+}

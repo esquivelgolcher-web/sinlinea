@@ -1,0 +1,44 @@
+{
+  "id": "2026-10-07-0832-lawebazone-tendencias-d-6e41",
+  "cuenta": "lawebazone",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Tendencias de Chile",
+    "url": "https://pepenoticias.cl/inacap-abierto-reunio-a-mas-de-1-000-estudiantes-y-a-la-comunidad-en-una-jornada-de-orientacion-vocacional/",
+    "titulo": "inacap",
+    "publicado": "2026-10-07T12:20:00.000Z"
+  },
+  "categoria": "EDUCACIÓN",
+  "titular": "Elegir carrera es más difícil que elegir qué ver en Netflix",
+  "bajada": "Más de 1.000 estudiantes asistieron a la feria de orientación vocacional de INACAP",
+  "caption": "Mil estudiantes se juntaron a ver qué carrera elegir y seguro la mitad salió más confundida que cuando entró. Clásico: entrás a mirar stands y terminás anotado en algo que ni sabías que existía.",
+  "hashtags": [
+    "#OrientaciónVocacional",
+    "#Estudiantes",
+    "#Universidad"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-10-07-0832-lawebazone-tendencias-d-6e41.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-07-0832-lawebazone-tendencias-d-6e41.jpg",
+    "hash": "17a4416736ba5f5d",
+    "version": 11,
+    "estilo": "9fd322fb9927e571",
+    "renderizada": "2026-10-07T13:33:40.677Z"
+  },
+  "ilustracion": {
+    "descripcion": "Patio de una feria educativa con stands y carteles genéricos, estudiantes conversando, grupo principal en el tercio superior derecho, zona izquierda y central despejadas.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-07T13:32:38.637Z",
+  "actualizado": "2026-10-07T13:32:38.637Z"
+}
