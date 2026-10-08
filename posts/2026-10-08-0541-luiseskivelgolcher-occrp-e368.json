@@ -1,7 +1,7 @@
 {
   "id": "2026-10-08-0541-luiseskivelgolcher-occrp-e368",
   "cuenta": "luiseskivelgolcher",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "OCCRP",
     "url": "https://www.occrp.org/en/news/azerbaijan-denies-link-to-espionage-case-involving-former-german-spy-chief",
@@ -115,9 +115,56 @@
     "estado": "pendiente",
     "notas": []
   },
-  "programado": null,
+  "programado": "2026-10-09T12:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-10-08T10:41:54.386Z",
-  "actualizado": "2026-10-08T10:41:54.386Z"
+  "actualizado": "2026-10-08T17:29:17.878Z",
+  "destinos": {
+    "instagram": {
+      "texto": "La Fiscalía Federal de Alemania confirmó el 6 de octubre de 2026 el arresto de August Hanning, quien presidió el servicio de inteligencia BND (el servicio federal de inteligencia alemán) entre 1998 y 2005, junto a su exjefe de gabinete, identificado solo como Manfred D. Los fiscales los acusan de traición y espionaje: habrían obtenido casi dos mil documentos, muchos clasificados, a cambio de dinero, entre 2010 y 2022, para elaborar \"análisis\" vendidos a servicios de inteligencia extranjeros. El propio comunicado oficial aclara que no está establecido si ese material llegó a su destinatario final. Horas después, la revista alemana Der Spiegel reportó que el cliente habría sido un funcionario de inteligencia de Azerbaiyán, una afirmación que el Consejo de Medios de ese país rechazó el miércoles, calificándola de \"campaña de difamación\" contra las relaciones bilaterales. El abogado de Hanning dice que su cliente es procesado injustamente. ¿Qué tan vulnerable es el aparato de inteligencia europeo a este tipo de filtraciones internas?\n\nFuente: OCCRP\n\n#Espionaje #Alemania #BND #Inteligencia #Azerbaiyán",
+      "aprobado": {
+        "fecha": "2026-10-08T17:29:17.878Z",
+        "hashPieza": "780d621f717c8af9",
+        "imagenHash": "997e04bfaff9b535",
+        "imagenSha": "3de0cf8a4a7b6e1a3994cb9c12deb064f9dc59bc"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    },
+    "facebook": {
+      "texto": "La Fiscalía Federal de Alemania confirmó el 6 de octubre de 2026 el arresto de August Hanning, quien presidió el servicio de inteligencia BND (el servicio federal de inteligencia alemán) entre 1998 y 2005, junto a su exjefe de gabinete, identificado solo como Manfred D. Los fiscales los acusan de traición y espionaje: habrían obtenido casi dos mil documentos, muchos clasificados, a cambio de dinero, entre 2010 y 2022, para elaborar \"análisis\" vendidos a servicios de inteligencia extranjeros. El propio comunicado oficial aclara que no está establecido si ese material llegó a su destinatario final. Horas después, la revista alemana Der Spiegel reportó que el cliente habría sido un funcionario de inteligencia de Azerbaiyán, una afirmación que el Consejo de Medios de ese país rechazó el miércoles, calificándola de \"campaña de difamación\" contra las relaciones bilaterales. El abogado de Hanning dice que su cliente es procesado injustamente. ¿Qué tan vulnerable es el aparato de inteligencia europeo a este tipo de filtraciones internas?\n\nFuente: OCCRP",
+      "aprobado": {
+        "fecha": "2026-10-08T17:29:17.878Z",
+        "hashPieza": "780d621f717c8af9",
+        "imagenHash": "997e04bfaff9b535",
+        "imagenSha": "3de0cf8a4a7b6e1a3994cb9c12deb064f9dc59bc"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    },
+    "threads": {
+      "texto": "Arrestan a exjefe del espionaje alemán por filtrar secretos\n\nAzerbaiyán niega vínculo en el caso que investiga la fiscalía alemana\n\nSegún OCCRP (7 de octubre de 2026)",
+      "aprobado": {
+        "fecha": "2026-10-08T17:29:17.878Z",
+        "hashPieza": "780d621f717c8af9",
+        "imagenHash": "997e04bfaff9b535",
+        "imagenSha": "3de0cf8a4a7b6e1a3994cb9c12deb064f9dc59bc"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
