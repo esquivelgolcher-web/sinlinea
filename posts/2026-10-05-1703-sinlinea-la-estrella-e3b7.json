@@ -1,7 +1,7 @@
 {
   "id": "2026-10-05-1703-sinlinea-la-estrella-e3b7",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "La Estrella de Panamá",
     "url": "https://www.laestrella.com.pa/economia/semana-clave-la-ue-decidiria-si-retira-a-panama-de-su-lista-negra-HC26242317",
@@ -43,6 +43,6 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-05T22:03:39.745Z",
-  "actualizado": "2026-10-05T22:03:39.745Z",
+  "actualizado": "2026-10-08T05:48:27.924Z",
   "plantilla": "titular"
 }
