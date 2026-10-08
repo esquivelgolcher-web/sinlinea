@@ -1,7 +1,7 @@
 {
   "id": "2026-10-06-1741-luiseskivelgolcher-wired-7395",
   "cuenta": "luiseskivelgolcher",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "WIRED",
     "url": "https://www.wired.com/story/mike-rogers-is-watching-you-new-ad-blitz-from-abdul-el-sayed-attacks-surveillance-support/",
@@ -113,9 +113,56 @@
     "estado": "pendiente",
     "notas": []
   },
-  "programado": null,
+  "programado": "2026-10-08T12:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-10-06T22:41:17.853Z",
-  "actualizado": "2026-10-06T22:41:17.853Z"
+  "actualizado": "2026-10-08T05:39:48.124Z",
+  "destinos": {
+    "instagram": {
+      "texto": "El candidato demócrata al Senado por Michigan, Abdul El-Sayed, lanzó una campaña publicitaria contra su rival republicano Mike Rogers por su historial legislativo de respaldo a la vigilancia masiva, según reportó WIRED el 6 de octubre de 2026. Los anuncios citan el apoyo de Rogers a la Ley Patriota de 2001, que permitió recolectar datos telefónicos sin orden judicial, y un proyecto de ley de 2011 que habría permitido a empresas compartir correos con la Agencia de Seguridad Nacional (NSA). La estrategia aprovecha el creciente rechazo ciudadano a las cámaras Flock, un sistema de reconocimiento de placas usado por policías en EE.UU., tras casos de abuso documentados. Un portavoz de Rogers respondió que su candidato \"se opone enérgicamente\" al uso sin control de esas cámaras. El caso ilustra cómo la vigilancia tecnológica se volvió tema central en campañas electorales de EE.UU. ¿Puede el historial de un legislador sobre privacidad definir una elección reñida?\n\nFuente: WIRED\n\n#Vigilancia #Privacidad #EEUU #Elecciones",
+      "aprobado": {
+        "fecha": "2026-10-08T05:39:48.124Z",
+        "hashPieza": "b3c65922bb4df85c",
+        "imagenHash": "326592de69342650",
+        "imagenSha": "f47fd5449c9f8dfc9d189102a73e196fe81c8f11"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    },
+    "facebook": {
+      "texto": "El candidato demócrata al Senado por Michigan, Abdul El-Sayed, lanzó una campaña publicitaria contra su rival republicano Mike Rogers por su historial legislativo de respaldo a la vigilancia masiva, según reportó WIRED el 6 de octubre de 2026. Los anuncios citan el apoyo de Rogers a la Ley Patriota de 2001, que permitió recolectar datos telefónicos sin orden judicial, y un proyecto de ley de 2011 que habría permitido a empresas compartir correos con la Agencia de Seguridad Nacional (NSA). La estrategia aprovecha el creciente rechazo ciudadano a las cámaras Flock, un sistema de reconocimiento de placas usado por policías en EE.UU., tras casos de abuso documentados. Un portavoz de Rogers respondió que su candidato \"se opone enérgicamente\" al uso sin control de esas cámaras. El caso ilustra cómo la vigilancia tecnológica se volvió tema central en campañas electorales de EE.UU. ¿Puede el historial de un legislador sobre privacidad definir una elección reñida?\n\nFuente: WIRED",
+      "aprobado": {
+        "fecha": "2026-10-08T05:39:48.124Z",
+        "hashPieza": "b3c65922bb4df85c",
+        "imagenHash": "326592de69342650",
+        "imagenSha": "f47fd5449c9f8dfc9d189102a73e196fe81c8f11"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    },
+    "threads": {
+      "texto": "El-Sayed ataca a Rogers por su historial de vigilancia\n\nCampaña al Senado de Michigan usa el apoyo de su rival a leyes de vigilancia como arma electoral\n\nSegún WIRED (6 de octubre de 2026)",
+      "aprobado": {
+        "fecha": "2026-10-08T05:39:48.124Z",
+        "hashPieza": "b3c65922bb4df85c",
+        "imagenHash": "326592de69342650",
+        "imagenSha": "f47fd5449c9f8dfc9d189102a73e196fe81c8f11"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
