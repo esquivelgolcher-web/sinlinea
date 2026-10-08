@@ -1,7 +1,7 @@
 {
   "id": "2026-10-07-0832-luiseskivelgolcher-wired-b7ca",
   "cuenta": "luiseskivelgolcher",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "WIRED",
     "url": "https://www.wired.com/story/mysterious-nonprofit-spacexai-national-design-studio-elon-musk-doge/",
@@ -257,25 +257,15 @@
           "60f3e583c9f10c1a5fd3a63bd9a22d4e4c61d3bd"
         ]
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-10-08T20:38:20.085Z",
-        "actualizado": "2026-10-08T20:38:20.085Z",
-        "contenedorId": "17992479924100604",
-        "hijos": [
-          "17992479750100604",
-          "17992479786100604",
-          "17992479816100604",
-          "17992479837100604",
-          "17992479858100604",
-          "17992479879100604",
-          "17992479900100604"
-        ]
+      "estado": "publicado",
+      "publicacion": {
+        "id": "17991214002061561",
+        "idPublicacion": null,
+        "permalink": "https://www.threads.com/@luisegolcher/post/DeP0Bewj1T3",
+        "fecha": "2026-10-08T20:38:20.085Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
