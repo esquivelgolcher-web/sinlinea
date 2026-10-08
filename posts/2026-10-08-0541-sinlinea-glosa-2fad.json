@@ -1,0 +1,49 @@
+{
+  "id": "2026-10-08-0541-sinlinea-glosa-2fad",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "formato": "glosa",
+  "glosa": {
+    "versos": [
+      "Doce manos en la plata,",
+      "nueve millones no vuelven,",
+      "pero nunca se resuelven,",
+      "y nadie suelta la rata."
+    ],
+    "esquema": "ABBA",
+    "sobre": {
+      "id": "2026-10-08-0541-sinlinea-la-prensa-8d32",
+      "titular": "12 exfuncionarios de Cortizo investigados por $9.7 millones"
+    }
+  },
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/judiciales/12-exfuncionarios-del-gobierno-de-cortizo-y-casi-10-millones-bajo-investigacion-por-patrimonio-injustificado/",
+    "titulo": "12 exfuncionarios del gobierno de Cortizo y casi $10 millones bajo investigación por patrimonio injustificado",
+    "publicado": "2026-10-08T05:05:00.000Z"
+  },
+  "categoria": "INVESTIGACIÓN",
+  "titular": "Doce manos en la plata,",
+  "bajada": "Sobre: 12 exfuncionarios de Cortizo investigados por $9.7 millones",
+  "caption": "Doce manos en la plata,\nnueve millones no vuelven,\npero nunca se resuelven,\ny nadie suelta la rata.\n\nSobre: 12 exfuncionarios de Cortizo investigados por $9.7 millones · La Prensa\n\n#Panamá #Glosa #LaGarzaMaría",
+  "hashtags": [
+    "#Panamá",
+    "#Glosa",
+    "#LaGarzaMaría"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-10-08-0541-sinlinea-glosa-2fad.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-08-0541-sinlinea-glosa-2fad.jpg",
+    "hash": "19b1457e923a942c",
+    "version": 1,
+    "estilo": "df55592d998f5ba3",
+    "renderizada": "2026-10-08T10:43:11.563Z"
+  },
+  "ilustracion": null,
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-08T10:41:54.386Z",
+  "actualizado": "2026-10-08T10:41:54.386Z"
+}

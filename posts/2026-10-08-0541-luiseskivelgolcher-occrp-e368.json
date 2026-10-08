@@ -1,0 +1,123 @@
+{
+  "id": "2026-10-08-0541-luiseskivelgolcher-occrp-e368",
+  "cuenta": "luiseskivelgolcher",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "OCCRP",
+    "url": "https://www.occrp.org/en/news/azerbaijan-denies-link-to-espionage-case-involving-former-german-spy-chief",
+    "titulo": "Azerbaijan Denies Link to Espionage Case Involving Former German Spy Chief",
+    "publicado": "2026-10-07T18:31:00.000Z"
+  },
+  "categoria": "SEGURIDAD",
+  "titular": "Arrestan a exjefe del espionaje alemán por filtrar secretos",
+  "bajada": "Azerbaiyán niega vínculo en el caso que investiga la fiscalía alemana",
+  "caption": "La Fiscalía Federal de Alemania confirmó el 6 de octubre de 2026 el arresto de August Hanning, quien presidió el servicio de inteligencia BND (el servicio federal de inteligencia alemán) entre 1998 y 2005, junto a su exjefe de gabinete, identificado solo como Manfred D. Los fiscales los acusan de traición y espionaje: habrían obtenido casi dos mil documentos, muchos clasificados, a cambio de dinero, entre 2010 y 2022, para elaborar \"análisis\" vendidos a servicios de inteligencia extranjeros. El propio comunicado oficial aclara que no está establecido si ese material llegó a su destinatario final. Horas después, la revista alemana Der Spiegel reportó que el cliente habría sido un funcionario de inteligencia de Azerbaiyán, una afirmación que el Consejo de Medios de ese país rechazó el miércoles, calificándola de \"campaña de difamación\" contra las relaciones bilaterales. El abogado de Hanning dice que su cliente es procesado injustamente. ¿Qué tan vulnerable es el aparato de inteligencia europeo a este tipo de filtraciones internas?",
+  "hashtags": [
+    "#Espionaje",
+    "#Alemania",
+    "#BND",
+    "#Inteligencia",
+    "#Azerbaiyán"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-10-08-0541-luiseskivelgolcher-occrp-e368.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-08-0541-luiseskivelgolcher-occrp-e368.jpg",
+    "hash": "997e04bfaff9b535",
+    "version": 11,
+    "estilo": "dc8c8fa3edf501fd",
+    "renderizada": "2026-10-08T10:43:54.140Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada del edificio de la Fiscalía Federal de Alemania en Karlsruhe bajo un cielo nublado, con su escudo institucional en la entrada; el edificio ocupa el tercio superior derecho, dejando despejada la zona izquierda y central.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-08-0541-luiseskivelgolcher-occrp-e368.jpg",
+    "hashDescripcion": "9d68253b32651e01",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-08T10:41:54.386Z",
+    "error": null,
+    "procedencia": "generada"
+  },
+  "formato": "post",
+  "fuentes": [
+    {
+      "rol": "principal",
+      "medio": "OCCRP",
+      "autor": "OCCRP",
+      "url": "https://www.occrp.org/en/news/azerbaijan-denies-link-to-espionage-case-involving-former-german-spy-chief",
+      "canonica": "https://www.occrp.org/en/news/azerbaijan-denies-link-to-espionage-case-involving-former-german-spy-chief",
+      "idioma": "en",
+      "publicado": "2026-10-07T18:31:00.000Z",
+      "actualizado": null,
+      "fechaHecho": null,
+      "consultado": "2026-10-08T10:41:54.386Z",
+      "alcance": "completo",
+      "textoRecuperado": {
+        "parrafos": 24,
+        "caracteres": 3296,
+        "enviados": 3342
+      },
+      "fuentesPrimarias": [
+        "https://media.gov.az/statement-by-the-media-and-broadcasting-council-of-the-republic-of-azerbaijan/",
+        "https://www.generalbundesanwalt.de/SharedDocs/Pressemitteilungen/DE/2026/Pressemitteilung-vom-06-10-2026.html",
+        "https://www.spiegel.de/panorama/justiz/ex-bnd-chef-hanning-soll-analyse-fuer-geheimdienst-von-aserbaidschan-erstellt-haben-a-4ad08c35-eaa5-47cc-a253-8fa459771e40",
+        "https://www.spiegel.de/panorama/justiz/august-hanning-ex-bnd-praesident-kommt-wegen-spionageverdachts-in-u-haft-a-754c461c-56c6-465d-8ba5-6793bb89f6a5"
+      ],
+      "licenciaMedios": null
+    }
+  ],
+  "afirmaciones": [
+    {
+      "texto": "La Fiscalía Federal de Alemania arrestó el 6 de octubre de 2026 a August Hanning, expresidente del BND (1998-2005), y a su exjefe de gabinete, acusados de traición y espionaje por obtener casi dos mil documentos clasificados a cambio de dinero entre 2010 y 2022.",
+      "tipo": "hecho",
+      "fuente": "https://www.generalbundesanwalt.de/SharedDocs/Pressemitteilungen/DE/2026/Pressemitteilung-vom-06-10-2026.html",
+      "contrastada": true
+    },
+    {
+      "texto": "Der Spiegel reportó que el cliente que habría recibido un análisis con secretos de Estado era un empleado de la inteligencia de Azerbaiyán.",
+      "tipo": "denuncia",
+      "fuente": "https://www.spiegel.de/panorama/justiz/ex-bnd-chef-hanning-soll-analyse-fuer-geheimdienst-von-aserbaidschan-erstellt-haben-a-4ad08c35-eaa5-47cc-a253-8fa459771e40",
+      "contrastada": false
+    },
+    {
+      "texto": "El Consejo de Medios y Radiodifusión de Azerbaiyán calificó el reporte de 'desinformación' y parte de una 'campaña de difamación' contra el país.",
+      "tipo": "opinion",
+      "fuente": "https://media.gov.az/statement-by-the-media-and-broadcasting-council-of-the-republic-of-azerbaijan/",
+      "contrastada": false
+    },
+    {
+      "texto": "El abogado de Hanning afirmó que su cliente es procesado injustamente y negó que haya transmitido información clasificada.",
+      "tipo": "opinion",
+      "fuente": "https://www.spiegel.de/panorama/justiz/august-hanning-ex-bnd-praesident-kommt-wegen-spionageverdachts-in-u-haft-a-754c461c-56c6-465d-8ba5-6793bb89f6a5",
+      "contrastada": false
+    }
+  ],
+  "angulo": "Un expresidente del servicio de inteligencia alemán es arrestado por presuntamente vender secretos de Estado; Azerbaiyán niega estar vinculado al caso.",
+  "atribucion": "OCCRP, con base en el comunicado de la Fiscalía Federal de Alemania y el reporte de Der Spiegel",
+  "puntuacion": {
+    "total": 71,
+    "componentes": {
+      "afinidad": 24,
+      "interes": 15,
+      "evidencia": 12,
+      "actualidad": 15,
+      "visual": 5
+    }
+  },
+  "alertas": [
+    "evidencia-insuficiente",
+    "fuente-unica"
+  ],
+  "carrusel": null,
+  "reel": null,
+  "revision": {
+    "estado": "pendiente",
+    "notas": []
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-08T10:41:54.386Z",
+  "actualizado": "2026-10-08T10:41:54.386Z"
+}

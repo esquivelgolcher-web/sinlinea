@@ -1,0 +1,48 @@
+{
+  "id": "2026-10-08-0541-sinlinea-la-prensa-39bc",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/sociedad/que-relacion-tiene-la-delincuencia-con-la-basura-en-san-miguelito/",
+    "titulo": "¿Qué relación tiene la delincuencia con la basura en San Miguelito?",
+    "publicado": "2026-10-08T05:03:00.000Z"
+  },
+  "categoria": "SEGURIDAD",
+  "titular": "Basura en San Miguelito sirve de escondite a pandillas",
+  "bajada": "La alcaldesa Irma Hernández vincula los vertederos clandestinos con el ocultamiento de drogas en el distrito.",
+  "caption": "En San Miguelito, el distrito más poblado del país, los montones de basura dejados en la calle no son solo un problema de aseo: también se convierten en escondites para que las pandillas oculten drogas. Así lo reconoció la propia alcaldesa, Irma Hernández, al hablar del ciclo entre la falta de espacios para depositar desechos y la inseguridad. ¿Qué solución le ve usted a este problema en su comunidad?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#SanMiguelito",
+    "#Basura",
+    "#Seguridad",
+    "#Pandillas"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-10-08-0541-sinlinea-la-prensa-39bc.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-08-0541-sinlinea-la-prensa-39bc.jpg",
+    "hash": "21fd0e8bafdd29b9",
+    "version": 2,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-10-08T10:42:43.157Z"
+  },
+  "ilustracion": {
+    "descripcion": "Calle de San Miguelito con un vertedero clandestino de basura y contenedores desbordados en primer plano; una patrulla policial pasando al fondo, ubicada en el tercio superior derecho, zona izquierda y central despejadas.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-08T10:41:54.386Z",
+  "actualizado": "2026-10-08T10:41:54.386Z",
+  "plantilla": "titular"
+}

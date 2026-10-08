@@ -1,0 +1,53 @@
+{
+  "id": "2026-10-08-0541-sinlinea-la-prensa-8d32",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/judiciales/12-exfuncionarios-del-gobierno-de-cortizo-y-casi-10-millones-bajo-investigacion-por-patrimonio-injustificado/",
+    "titulo": "12 exfuncionarios del gobierno de Cortizo y casi $10 millones bajo investigación por patrimonio injustificado",
+    "publicado": "2026-10-08T05:05:00.000Z"
+  },
+  "categoria": "INVESTIGACIÓN",
+  "titular": "12 exfuncionarios de Cortizo investigados por $9.7 millones",
+  "bajada": "Contraloría y Ministerio Público revisan patrimonio no sustentado de altos cargos del gobierno 2019-2024.",
+  "caption": "Ya son 12 los exfuncionarios del gobierno de Cortizo bajo la lupa por presunto enriquecimiento injustificado, con un monto que roza los $9.7 millones. Entre ellos hay exdirectores y un exvicepresidente con medidas cautelares. Son personas que un día manejaron fondos públicos y ahora deben explicar de dónde salió su fortuna. ¿Cree que estas investigaciones realmente llegarán hasta el final?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Corrupción",
+    "#CSS",
+    "#Cortizo",
+    "#Justicia",
+    "#MinisterioPúblico"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-10-08-0541-sinlinea-la-prensa-8d32.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-08-0541-sinlinea-la-prensa-8d32.jpg",
+    "hash": "939f0817a53bfd21",
+    "version": 11,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-10-08T10:42:42.814Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada del edificio del Ministerio Público en la ciudad de Panamá, con una balanza de la justicia visible; silueta de un hombre con maletín saliendo, ubicada en el tercio superior derecho, zona izquierda y central despejadas.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-08-0541-sinlinea-la-prensa-8d32.jpg",
+    "hashDescripcion": "5c2eb18dfea167f3",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-08T10:41:54.386Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-08T10:41:54.386Z",
+  "actualizado": "2026-10-08T10:41:54.386Z",
+  "plantilla": "foto",
+  "dato": {
+    "cifra": "$9.7 millones",
+    "frase": "suman los 12 exfuncionarios de Cortizo investigados por patrimonio injustificado"
+  }
+}

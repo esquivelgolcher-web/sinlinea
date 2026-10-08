@@ -1,0 +1,47 @@
+{
+  "id": "2026-10-08-0641-leopopexiv-vatican-news-4835",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-10/pope-general-audience-rosary-virgin-mary-peace-prayer.html",
+    "titulo": "Pope: Mary is ‘safe refuge’ amidst life’s difficulties",
+    "publicado": "2026-10-07T09:50:00.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "Pope Leo XIV calls Mary a refuge in hard times",
+  "bajada": "At General Audience, he renews appeal to pray the Rosary for peace this October",
+  "caption": "At this week's General Audience, Pope Leo XIV described Mary as a 'safe refuge' amid life's difficulties and renewed his invitation to pray the Rosary, echoing an appeal he made earlier in Lourdes for peace in the world. Source: Vatican News, Oct 7, 2026.",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Vatican",
+    "#GeneralAudience",
+    "#Rosary",
+    "#Prayer",
+    "#Peace"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-10-08-0641-leopopexiv-vatican-news-4835.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-08-0641-leopopexiv-vatican-news-4835.jpg",
+    "hash": "49b41f9805b3a28a",
+    "version": 11,
+    "estilo": "32cba508d6c2290e",
+    "renderizada": "2026-10-08T10:44:10.886Z"
+  },
+  "ilustracion": {
+    "descripcion": "St. Peter's Square during a general audience, the pope seen from a distance at a podium in the upper right third, open space left and center, soft morning light",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-08-0641-leopopexiv-vatican-news-4835.jpg",
+    "hashDescripcion": "d9708a6d90c0c31f",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-08T10:41:54.386Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-08T10:41:54.386Z",
+  "actualizado": "2026-10-08T10:41:54.386Z"
+}
