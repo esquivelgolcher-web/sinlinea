@@ -1,7 +1,7 @@
 {
   "id": "2026-10-07-0107-sinlinea-glosa-43cc",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "formato": "glosa",
   "glosa": {
     "versos": [
@@ -45,5 +45,5 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-07T06:07:37.170Z",
-  "actualizado": "2026-10-07T06:07:37.170Z"
+  "actualizado": "2026-10-08T05:41:09.548Z"
 }
