@@ -205,7 +205,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-07T13:32:38.637Z",
-  "actualizado": "2026-10-08T05:39:47.047Z",
+  "actualizado": "2026-10-08T20:38:20.085Z",
   "destinos": {
     "instagram": {
       "texto": "Una investigación de WIRED, firmada por Vittoria Elliott y publicada el 7 de octubre de 2026, encontró que al menos dos integrantes del Estudio Nacional de Diseño (National Design Studio o NDS), la oficina que rediseña sitios web del gobierno de Estados Unidos, en realidad cobran su sueldo de una fundación privada, America by Design Foundation. Según documentos revisados por WIRED, esa fundación la dirige James Burnham, abogado general de SpaceXAI, la empresa de inteligencia artificial de Elon Musk. No se sabe quién la financia ni cuánto dinero maneja. El NDS surgió tras la salida de Musk del llamado Departamento de Eficiencia Gubernamental (DOGE) y comparte varios de sus antiguos integrantes. Expertos en política pública citados por WIRED advierten que la falta de claridad sobre quién paga a funcionarios que trabajan dentro del gobierno es preocupante, sobre todo cuando hay movimiento constante entre el sector privado y el público.\n\nFuente: WIRED\n\n#Vigilancia #EEUU #Tecnología #Transparencia #SpaceX",
@@ -227,7 +227,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-10-08T20:38:20.085Z",
+        "actualizado": "2026-10-08T20:38:20.085Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     },
