@@ -42,7 +42,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-07T06:07:37.170Z",
-  "actualizado": "2026-10-08T05:39:56.671Z",
+  "actualizado": "2026-10-08T14:51:17.667Z",
   "destinos": {
     "instagram": {
       "texto": "Pope Leo XIV will travel to Assisi from October 25-27 for the 40th annual interreligious peace prayer meeting, a tradition begun by Pope St John Paul II in 1986. Source: Vatican News, Oct 6, 2026.\n\nFuente: Vatican News\n\n#PopeLeoXIV #Assisi #InterfaithPeace #Vatican #JohnPaulII",
@@ -55,7 +55,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-10-08T14:51:17.667Z",
+        "actualizado": "2026-10-08T14:51:17.667Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
