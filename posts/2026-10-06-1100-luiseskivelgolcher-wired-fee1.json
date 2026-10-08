@@ -1,7 +1,7 @@
 {
   "id": "2026-10-06-1100-luiseskivelgolcher-wired-fee1",
   "cuenta": "luiseskivelgolcher",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "WIRED",
     "url": "https://www.wired.com/story/icann-top-level-domains-meow/",
@@ -110,9 +110,56 @@
     "estado": "pendiente",
     "notas": []
   },
-  "programado": null,
+  "programado": "2026-10-08T18:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-10-06T16:00:25.353Z",
-  "actualizado": "2026-10-06T16:00:25.353Z"
+  "actualizado": "2026-10-08T05:39:51.523Z",
+  "destinos": {
+    "instagram": {
+      "texto": "Por primera vez desde 2012, cualquiera pudo solicitar un nuevo dominio de nivel superior, la parte de una dirección web que va después del punto, como .com o .shop. Según reportó WIRED tras asistir a la reunión ICANN86 en Sevilla, la ventana para pedir estos nuevos \"strings\" (así llaman en la jerga a las palabras que se vuelven dominios) cerró el 12 de agosto de 2026. ICANN, el organismo privado sin fines de lucro que administra estas reglas desde 1999, decide quién puede vender direcciones web y bajo qué condiciones, aunque declaró que no censura contenido: en 2022 rechazó un pedido de Ucrania para bloquear los dominios rusos .ru. El negocio es millonario: en 2012, Google pagó 25 millones de dólares en una subasta de ICANN para quedarse con .app, superando a una docena de empresas, incluida Amazon. Cada vez que alguien registra un dominio .app, Google cobra como \"registry\" y la empresa registradora se queda con la diferencia. Un mecanismo técnico que, según WIRED, decide buena parte de cómo se organiza y se monetiza internet.\n\nFuente: WIRED\n\n#Internet #ICANN #Tecnología #Dominios #WIRED",
+      "aprobado": {
+        "fecha": "2026-10-08T05:39:51.523Z",
+        "hashPieza": "f2be295e509fd850",
+        "imagenHash": "5f9d6fd8b129b0ae",
+        "imagenSha": "0f1a8ff2b1071ba08a071a0e83f0abaef67aa023"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    },
+    "facebook": {
+      "texto": "Por primera vez desde 2012, cualquiera pudo solicitar un nuevo dominio de nivel superior, la parte de una dirección web que va después del punto, como .com o .shop. Según reportó WIRED tras asistir a la reunión ICANN86 en Sevilla, la ventana para pedir estos nuevos \"strings\" (así llaman en la jerga a las palabras que se vuelven dominios) cerró el 12 de agosto de 2026. ICANN, el organismo privado sin fines de lucro que administra estas reglas desde 1999, decide quién puede vender direcciones web y bajo qué condiciones, aunque declaró que no censura contenido: en 2022 rechazó un pedido de Ucrania para bloquear los dominios rusos .ru. El negocio es millonario: en 2012, Google pagó 25 millones de dólares en una subasta de ICANN para quedarse con .app, superando a una docena de empresas, incluida Amazon. Cada vez que alguien registra un dominio .app, Google cobra como \"registry\" y la empresa registradora se queda con la diferencia. Un mecanismo técnico que, según WIRED, decide buena parte de cómo se organiza y se monetiza internet.\n\nFuente: WIRED",
+      "aprobado": {
+        "fecha": "2026-10-08T05:39:51.523Z",
+        "hashPieza": "f2be295e509fd850",
+        "imagenHash": "5f9d6fd8b129b0ae",
+        "imagenSha": "0f1a8ff2b1071ba08a071a0e83f0abaef67aa023"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    },
+    "threads": {
+      "texto": "ICANN prepara cientos de nuevos dominios de internet\n\nLa ventana para pedir dominios como .meow o .fart cerró el 12 de agosto, según WIRED\n\nSegún WIRED (6 de octubre de 2026)",
+      "aprobado": {
+        "fecha": "2026-10-08T05:39:51.523Z",
+        "hashPieza": "f2be295e509fd850",
+        "imagenHash": "5f9d6fd8b129b0ae",
+        "imagenSha": "0f1a8ff2b1071ba08a071a0e83f0abaef67aa023"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
