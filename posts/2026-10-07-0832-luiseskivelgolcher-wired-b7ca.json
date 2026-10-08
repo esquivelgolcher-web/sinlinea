@@ -1,7 +1,7 @@
 {
   "id": "2026-10-07-0832-luiseskivelgolcher-wired-b7ca",
   "cuenta": "luiseskivelgolcher",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "WIRED",
     "url": "https://www.wired.com/story/mysterious-nonprofit-spacexai-national-design-studio-elon-musk-doge/",
@@ -201,9 +201,59 @@
     "estado": "pendiente",
     "notas": []
   },
-  "programado": null,
+  "programado": "2026-10-08T12:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-10-07T13:32:38.637Z",
-  "actualizado": "2026-10-07T13:32:38.637Z"
+  "actualizado": "2026-10-08T05:39:47.047Z",
+  "destinos": {
+    "instagram": {
+      "texto": "Una investigación de WIRED, firmada por Vittoria Elliott y publicada el 7 de octubre de 2026, encontró que al menos dos integrantes del Estudio Nacional de Diseño (National Design Studio o NDS), la oficina que rediseña sitios web del gobierno de Estados Unidos, en realidad cobran su sueldo de una fundación privada, America by Design Foundation. Según documentos revisados por WIRED, esa fundación la dirige James Burnham, abogado general de SpaceXAI, la empresa de inteligencia artificial de Elon Musk. No se sabe quién la financia ni cuánto dinero maneja. El NDS surgió tras la salida de Musk del llamado Departamento de Eficiencia Gubernamental (DOGE) y comparte varios de sus antiguos integrantes. Expertos en política pública citados por WIRED advierten que la falta de claridad sobre quién paga a funcionarios que trabajan dentro del gobierno es preocupante, sobre todo cuando hay movimiento constante entre el sector privado y el público.\n\nFuente: WIRED\n\n#Vigilancia #EEUU #Tecnología #Transparencia #SpaceX",
+      "aprobado": {
+        "fecha": "2026-10-08T05:39:47.047Z",
+        "hashPieza": "3f75e277c82243a5",
+        "imagenHash": "8e17eed9ca79840f",
+        "imagenSha": "174380d221e47625802d5e0bc0b14809c3e014b0",
+        "imagenesSha": [
+          "7d19b36f532816d1c460d59b173530aeea54c468",
+          "bb2c843776d8a1f9434495d4acca309d64e10e7d",
+          "b930d42ad4128def4469b5b0ef3b82efe64a6930",
+          "e21990dadeec595ddfdc089d51149e153a2e7a4d",
+          "bfed62a13644758b9ababd0ed3f8691530b4a52a",
+          "e5a1949244b7d26e8d8413ac24ff976017218952",
+          "60f3e583c9f10c1a5fd3a63bd9a22d4e4c61d3bd"
+        ]
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    },
+    "threads": {
+      "texto": "ONG opaca paga sueldos de personal en Washington\n\nWIRED halló vínculos entre el Estudio Nacional de Diseño y una fundación ligada a SpaceX\n\nSegún WIRED (7 de octubre de 2026)",
+      "aprobado": {
+        "fecha": "2026-10-08T05:39:47.047Z",
+        "hashPieza": "3f75e277c82243a5",
+        "imagenHash": "8e17eed9ca79840f",
+        "imagenSha": "174380d221e47625802d5e0bc0b14809c3e014b0",
+        "imagenesSha": [
+          "7d19b36f532816d1c460d59b173530aeea54c468",
+          "bb2c843776d8a1f9434495d4acca309d64e10e7d",
+          "b930d42ad4128def4469b5b0ef3b82efe64a6930",
+          "e21990dadeec595ddfdc089d51149e153a2e7a4d",
+          "bfed62a13644758b9ababd0ed3f8691530b4a52a",
+          "e5a1949244b7d26e8d8413ac24ff976017218952",
+          "60f3e583c9f10c1a5fd3a63bd9a22d4e4c61d3bd"
+        ]
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
