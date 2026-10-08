@@ -1,7 +1,7 @@
 {
   "id": "2026-10-06-0128-sinlinea-glosa-2e8c",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "formato": "glosa",
   "glosa": {
     "versos": [
@@ -45,5 +45,5 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-06T06:28:45.144Z",
-  "actualizado": "2026-10-06T06:28:45.144Z"
+  "actualizado": "2026-10-08T05:41:19.482Z"
 }
