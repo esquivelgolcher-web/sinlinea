@@ -1,7 +1,7 @@
 {
   "id": "2026-10-07-0207-leopopexiv-vatican-news-9cc6",
   "cuenta": "leopopexiv",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/pope/news/2026-10/pope-leo-assisi-40-years-john-paul-2-religions-peace-prayer.html",
@@ -38,9 +38,26 @@
     "generada": "2026-10-07T06:07:37.170Z",
     "error": null
   },
-  "programado": null,
+  "programado": "2026-10-08T09:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-10-07T06:07:37.170Z",
-  "actualizado": "2026-10-07T06:07:37.170Z"
+  "actualizado": "2026-10-08T05:39:56.671Z",
+  "destinos": {
+    "instagram": {
+      "texto": "Pope Leo XIV will travel to Assisi from October 25-27 for the 40th annual interreligious peace prayer meeting, a tradition begun by Pope St John Paul II in 1986. Source: Vatican News, Oct 6, 2026.\n\nFuente: Vatican News\n\n#PopeLeoXIV #Assisi #InterfaithPeace #Vatican #JohnPaulII",
+      "aprobado": {
+        "fecha": "2026-10-08T05:39:56.671Z",
+        "hashPieza": "5028bdc0de20499e",
+        "imagenHash": "bbb444324543ee38",
+        "imagenSha": "560364638217779b13b661301d307176a730e3da"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
