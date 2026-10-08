@@ -1,7 +1,7 @@
 {
   "id": "2026-10-07-0207-leopopexiv-vatican-va-000c",
   "cuenta": "leopopexiv",
-  "estado": "programado",
+  "estado": "publicado",
   "formato": "frase",
   "frase": {
     "texto": "God loves us, God loves you all, and evil will not prevail.",
@@ -37,7 +37,11 @@
   },
   "ilustracion": null,
   "programado": "2026-10-08T13:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "18094620902152144",
+    "permalink": "https://www.instagram.com/p/DeP0LLPj1-4/",
+    "fecha": "2026-10-08T20:40:57.897Z"
+  },
   "error": null,
   "creado": "2026-10-07T06:07:37.170Z",
   "actualizado": "2026-10-08T20:40:57.897Z",
@@ -50,16 +54,15 @@
         "imagenHash": "40f1e6c6c3121e0c",
         "imagenSha": "3e547237dac44a034803dd9e96ef4d21eab62418"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-10-08T20:40:57.897Z",
-        "actualizado": "2026-10-08T20:40:57.897Z",
-        "contenedorId": "18107589479081176"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18094620902152144",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/DeP0LLPj1-4/",
+        "fecha": "2026-10-08T20:40:57.897Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
