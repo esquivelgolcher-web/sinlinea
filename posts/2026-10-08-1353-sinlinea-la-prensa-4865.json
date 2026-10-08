@@ -1,0 +1,52 @@
+{
+  "id": "2026-10-08-1353-sinlinea-la-prensa-4865",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/judiciales/decomisan-mas-de-11-mil-municiones-de-fusil-en-colon/",
+    "titulo": "Decomisan más de 11 mil municiones de fusil en Colón",
+    "publicado": "2026-10-08T15:06:59.000Z"
+  },
+  "categoria": "SEGURIDAD",
+  "titular": "Decomisan más de 11 mil municiones en Colón",
+  "bajada": "Las balas estaban enterradas en tanques plásticos en Portobelo; también se incautaron dos pistolas.",
+  "caption": "Un operativo de la Policía Nacional y el Ministerio Público halló 11,402 municiones calibre 5.56 enterradas en siete tanques plásticos en Portobelo, Colón. Los agentes tuvieron que cavar con palas para sacarlas. El hallazgo también incluyó dos pistolas y seis proveedores. ¿Qué opinas de este tipo de operativos contra el tráfico de armas?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Colón",
+    "#Seguridad",
+    "#PolicíaNacional",
+    "#Portobelo"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-10-08-1353-sinlinea-la-prensa-4865.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-08-1353-sinlinea-la-prensa-4865.jpg",
+    "hash": "9db7446d85eeb9e3",
+    "version": 11,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-10-08T18:54:06.587Z"
+  },
+  "ilustracion": {
+    "descripcion": "Zona rural de Portobelo, Colón, con tanques plásticos semienterrados junto a palas, el área policial acordonada en el tercio superior derecho y la zona izquierda y central despejada",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-08-1353-sinlinea-la-prensa-4865.jpg",
+    "hashDescripcion": "8773990a6c81e550",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-08T18:53:27.771Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-08T18:53:27.771Z",
+  "actualizado": "2026-10-08T18:53:27.771Z",
+  "plantilla": "foto",
+  "dato": {
+    "cifra": "11,402",
+    "frase": "municiones calibre 5.56 fueron halladas enterradas en tanques plásticos"
+  }
+}

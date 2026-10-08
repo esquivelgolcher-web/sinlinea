@@ -1,0 +1,128 @@
+{
+  "id": "2026-10-08-1353-luiseskivelgolcher-wired-809a",
+  "cuenta": "luiseskivelgolcher",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "WIRED",
+    "url": "https://www.wired.com/story/the-pentagon-hopes-to-speed-up-kill-chain-ai-buys-with-5-minute-videos/",
+    "titulo": "The Pentagon Hopes to Speed Up ‘Kill Chain’ AI Buys With 5-Minute Videos",
+    "publicado": "2026-10-07T15:34:33.446Z"
+  },
+  "categoria": "INVESTIGACIÓN",
+  "titular": "Pentágono compra IA militar con videos de 5 minutos",
+  "bajada": "Tradewinds agiliza contratos con OpenAI, Anthropic y Google para uso militar",
+  "caption": "El Pentágono tiene un programa llamado Tradewinds que acelera la compra de inteligencia artificial —sistemas que procesan datos para tomar decisiones automatizadas— para fines militares. Según reportó WIRED el 7 de octubre de 2026, empresas como OpenAI, Anthropic y Google presentan videos de máximo cinco minutos mostrando sus productos; un panel los evalúa y, si los aprueba, quedan como opción “post-competitiva”, lo que permite a funcionarios saltarse meses de trámites. En algunos casos, el Departamento de Defensa adjudicó contratos en menos de una semana. Este año el programa busca específicamente IA que ayude a identificar objetivos militares, según el artículo. Los llamados “acuerdos de otro tipo” (OT) permiten gastar hasta 500 millones de dólares sin avisar al Congreso. La senadora Joni Ernst advirtió a WIRED sobre falta de supervisión y transparencia en este mecanismo. OpenAI, Anthropic y Google no respondieron a la solicitud de comentario del medio. ¿Debería el gasto militar en IA tener más control público?",
+  "hashtags": [
+    "#InteligenciaArtificial",
+    "#Pentágono",
+    "#ContratosPúblicos",
+    "#Tecnología",
+    "#WIRED"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-10-08-1353-luiseskivelgolcher-wired-809a.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-08-1353-luiseskivelgolcher-wired-809a.jpg",
+    "hash": "c3a532c39c818cdd",
+    "version": 11,
+    "estilo": "dc8c8fa3edf501fd",
+    "renderizada": "2026-10-08T18:54:55.634Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada del Pentágono en Washington al atardecer, con líneas de luz digital abstractas que sugieren redes de datos en el tercio superior derecho; la zona izquierda y central del encuadre queda despejada y sin texto.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-08-1353-luiseskivelgolcher-wired-809a.jpg",
+    "hashDescripcion": "981d04954e1f9fb3",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-08T18:53:27.771Z",
+    "error": null,
+    "procedencia": "generada"
+  },
+  "formato": "post",
+  "fuentes": [
+    {
+      "rol": "principal",
+      "medio": "WIRED",
+      "autor": "Maddy Varner",
+      "url": "https://www.wired.com/story/the-pentagon-hopes-to-speed-up-kill-chain-ai-buys-with-5-minute-videos/",
+      "canonica": "https://www.wired.com/story/the-pentagon-hopes-to-speed-up-kill-chain-ai-buys-with-5-minute-videos/",
+      "idioma": "en",
+      "publicado": "2026-10-07T15:34:33.446Z",
+      "actualizado": "2026-10-07T15:34:33.446Z",
+      "fechaHecho": null,
+      "consultado": "2026-10-08T18:53:27.771Z",
+      "alcance": "completo",
+      "textoRecuperado": {
+        "parrafos": 28,
+        "caracteres": 8092,
+        "enviados": 3914
+      },
+      "fuentesPrimarias": [
+        "https://www.tradewindai.com/tw-marketplace",
+        "https://www.whitehouse.gov/wp-content/uploads/2026/04/budget_fy2027.pdf",
+        "https://www.documentcloud.org/documents/28693102-tsmannouncementv10apr2026/",
+        "https://www.documentcloud.org/documents/28693104-tradewindsmarketplaceannouncementrevision6/",
+        "https://media.defense.gov/2026/Jan/12/2003855671/-1/-1/0/ARTIFICIAL-INTELLIGENCE-STRATEGY-FOR-THE-DEPARTMENT-OF-WAR.PDF",
+        "https://www.ycombinator.com/rfs",
+        "https://uscode.house.gov/view.xhtml?req=(title:10%20section:4022%20edition:prelim)",
+        "https://www.wbur.org/onpoint/2023/03/01/the-last-supper-how-a-1993-pentagon-dinner-reshaped-the-defense-industry",
+        "https://cloud.google.com/blog/topics/public-sector/google-public-sector-awarded-200-million-contract-to-accelerate-ai-and-cloud-capabilities-across-department-of-defenses-chief-digital-and-artificial-intelligence-office-cdao",
+        "http://www.aboutads.info"
+      ],
+      "licenciaMedios": null
+    }
+  ],
+  "afirmaciones": [
+    {
+      "texto": "El Departamento de Defensa acepta videos de hasta cinco minutos para evaluar productos de IA dentro del programa Tradewinds.",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/the-pentagon-hopes-to-speed-up-kill-chain-ai-buys-with-5-minute-videos/",
+      "contrastada": false
+    },
+    {
+      "texto": "OpenAI, Anthropic y Google figuran como participantes listados en el programa Tradewinds.",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/the-pentagon-hopes-to-speed-up-kill-chain-ai-buys-with-5-minute-videos/",
+      "contrastada": false
+    },
+    {
+      "texto": "El Pentágono puede gastar hasta 500 millones de dólares en un acuerdo de \"otro tipo\" (OT) sin notificar al Congreso.",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/the-pentagon-hopes-to-speed-up-kill-chain-ai-buys-with-5-minute-videos/",
+      "contrastada": false
+    },
+    {
+      "texto": "La senadora Joni Ernst advirtió que estos acuerdos presentan costos cuestionables, manejo deficiente de información restringida y falta de supervisión.",
+      "tipo": "opinion",
+      "fuente": "https://www.wired.com/story/the-pentagon-hopes-to-speed-up-kill-chain-ai-buys-with-5-minute-videos/",
+      "contrastada": false
+    }
+  ],
+  "angulo": "Cómo un programa de adquisiciones poco conocido facilita contratos militares de IA con pocas garantías de supervisión.",
+  "atribucion": "Según reportó WIRED (Maddy Varner), 7 de octubre de 2026",
+  "puntuacion": {
+    "total": 74,
+    "componentes": {
+      "afinidad": 27,
+      "interes": 18,
+      "evidencia": 12,
+      "actualidad": 12,
+      "visual": 5
+    }
+  },
+  "alertas": [
+    "fuente-unica"
+  ],
+  "carrusel": null,
+  "reel": null,
+  "revision": {
+    "estado": "pendiente",
+    "notas": []
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-08T18:53:27.771Z",
+  "actualizado": "2026-10-08T18:53:27.771Z"
+}

@@ -1,0 +1,52 @@
+{
+  "id": "2026-10-08-1353-sinlinea-la-estrella-776d",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/politica/diputadas-presentan-informe-de-minoria-y-cuestionan-cambios-en-la-reforma-electoral-FF26323996",
+    "titulo": "Diputadas presentan informe de minoría y cuestionan cambios en la reforma electoral",
+    "publicado": "2026-10-08T14:52:00.000Z"
+  },
+  "categoria": "POLÍTICA",
+  "titular": "Diputadas piden frenar reforma electoral por firmas",
+  "bajada": "Brenes y Chandler alertan que proyecto 699 sube 50% los requisitos para partidos y candidaturas",
+  "caption": "Un informe de minoría presentado en la Asamblea cuestiona que la reforma al Código Electoral suba en 50% las firmas necesarias para inscribir partidos o candidaturas por libre postulación, mientras el electorado creció solo 15.8% entre 2019 y 2024. Las diputadas piden discutir un texto alternativo en segundo debate. ¿Debería la Asamblea revisar estos cambios antes de aprobarlos?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#ReformaElectoral",
+    "#AsambleaNacional",
+    "#CódigoElectoral",
+    "#Política"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-10-08-1353-sinlinea-la-estrella-776d.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-08-1353-sinlinea-la-estrella-776d.jpg",
+    "hash": "e49d7864f0e262d2",
+    "version": 2,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-10-08T18:54:01.866Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada de la Asamblea Nacional de Panamá con pilares clásicos, bandera panameña ondeando, el edificio ubicado en el tercio superior derecho y la zona izquierda y central despejada",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-08T18:53:27.771Z",
+  "actualizado": "2026-10-08T18:53:27.771Z",
+  "plantilla": "dato",
+  "dato": {
+    "cifra": "50%",
+    "frase": "más firmas se exigirían para inscribir partidos o candidaturas por libre postulación"
+  }
+}
