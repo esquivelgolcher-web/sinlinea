@@ -1,7 +1,7 @@
 {
   "id": "2026-10-05-0049-sinlinea-glosa-139a",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "formato": "glosa",
   "glosa": {
     "versos": [
@@ -45,5 +45,5 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-05T05:49:23.956Z",
-  "actualizado": "2026-10-05T05:49:23.956Z"
+  "actualizado": "2026-10-08T05:46:12.446Z"
 }
