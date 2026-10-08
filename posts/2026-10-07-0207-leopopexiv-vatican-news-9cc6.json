@@ -1,7 +1,7 @@
 {
   "id": "2026-10-07-0207-leopopexiv-vatican-news-9cc6",
   "cuenta": "leopopexiv",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/pope/news/2026-10/pope-leo-assisi-40-years-john-paul-2-religions-peace-prayer.html",
@@ -39,7 +39,11 @@
     "error": null
   },
   "programado": "2026-10-08T09:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "17881316157629143",
+    "permalink": "https://www.instagram.com/p/DePMKQEFiBS/",
+    "fecha": "2026-10-08T14:51:17.667Z"
+  },
   "error": null,
   "creado": "2026-10-07T06:07:37.170Z",
   "actualizado": "2026-10-08T14:51:17.667Z",
@@ -52,16 +56,15 @@
         "imagenHash": "bbb444324543ee38",
         "imagenSha": "560364638217779b13b661301d307176a730e3da"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-10-08T14:51:17.667Z",
-        "actualizado": "2026-10-08T14:51:17.667Z",
-        "contenedorId": "18107533760081176"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "17881316157629143",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/DePMKQEFiBS/",
+        "fecha": "2026-10-08T14:51:17.667Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
