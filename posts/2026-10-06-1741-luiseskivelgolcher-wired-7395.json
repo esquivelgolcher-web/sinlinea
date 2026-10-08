@@ -117,7 +117,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-06T22:41:17.853Z",
-  "actualizado": "2026-10-08T05:39:48.124Z",
+  "actualizado": "2026-10-08T20:38:20.085Z",
   "destinos": {
     "instagram": {
       "texto": "El candidato demócrata al Senado por Michigan, Abdul El-Sayed, lanzó una campaña publicitaria contra su rival republicano Mike Rogers por su historial legislativo de respaldo a la vigilancia masiva, según reportó WIRED el 6 de octubre de 2026. Los anuncios citan el apoyo de Rogers a la Ley Patriota de 2001, que permitió recolectar datos telefónicos sin orden judicial, y un proyecto de ley de 2011 que habría permitido a empresas compartir correos con la Agencia de Seguridad Nacional (NSA). La estrategia aprovecha el creciente rechazo ciudadano a las cámaras Flock, un sistema de reconocimiento de placas usado por policías en EE.UU., tras casos de abuso documentados. Un portavoz de Rogers respondió que su candidato \"se opone enérgicamente\" al uso sin control de esas cámaras. El caso ilustra cómo la vigilancia tecnológica se volvió tema central en campañas electorales de EE.UU. ¿Puede el historial de un legislador sobre privacidad definir una elección reñida?\n\nFuente: WIRED\n\n#Vigilancia #Privacidad #EEUU #Elecciones",
@@ -130,7 +130,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-10-08T20:38:20.085Z",
+        "actualizado": "2026-10-08T20:38:20.085Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     },
