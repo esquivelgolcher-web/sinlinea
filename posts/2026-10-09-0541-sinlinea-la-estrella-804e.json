@@ -1,0 +1,52 @@
+{
+  "id": "2026-10-09-0541-sinlinea-la-estrella-804e",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/trasladan-6-millones-de-escuelas-al-mantenimiento-de-helicopteros-HE26335839",
+    "titulo": "Trasladan $6 millones de escuelas al mantenimiento de helicópteros",
+    "publicado": "2026-10-09T03:00:00.000Z"
+  },
+  "categoria": "POLÍTICA",
+  "titular": "Asamblea traslada $6 millones de escuelas a helicópteros",
+  "bajada": "La Comisión de Presupuesto movió fondos del Meduca al Minseg para mantener 14 helicópteros del Senan.",
+  "caption": "Seis millones de dólares que iban a obras escolares terminarán en el mantenimiento de helicópteros de seguridad. La justificación: esos fondos no se iban a ejecutar este año. Pero la pregunta de fondo queda sin responder: ¿qué pasa con las escuelas que esperaban esa plata? ¿Te parece correcto este tipo de traslados de presupuesto?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Educación",
+    "#Presupuesto",
+    "#AsambleaNacional",
+    "#Seguridad"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-10-09-0541-sinlinea-la-estrella-804e.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-09-0541-sinlinea-la-estrella-804e.jpg",
+    "hash": "68df15dc17cb47de",
+    "version": 11,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-10-09T10:41:35.584Z"
+  },
+  "ilustracion": {
+    "descripcion": "Pasillo de un aula vacía con pupitres en primer plano a la izquierda y, en el tercio superior derecho, la silueta de un helicóptero estacionado en una base aérea, estilo ilustración editorial.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-09-0541-sinlinea-la-estrella-804e.jpg",
+    "hashDescripcion": "c83c708884e58b9a",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-09T10:41:00.505Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-09T10:41:00.505Z",
+  "actualizado": "2026-10-09T10:41:00.505Z",
+  "plantilla": "foto",
+  "dato": {
+    "cifra": "$6 millones",
+    "frase": "fueron trasladados del Meduca al Minseg para mantenimiento de helicópteros"
+  }
+}

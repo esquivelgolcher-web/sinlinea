@@ -1,0 +1,46 @@
+{
+  "id": "2026-10-09-0641-leopopexiv-vatican-news-2909",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-10/pope-pontifical-universities-inaugauration-academic-year.html",
+    "titulo": "Pope: Posing questions is 'essential' part of the journey of faith",
+    "publicado": "2026-10-08T17:36:00.000Z"
+  },
+  "categoria": "EDUCACIÓN",
+  "titular": "Pope Leo XIV: questioning strengthens faith",
+  "bajada": "At Mass opening the academic year, he urged students to seek truth through reason",
+  "caption": "Pope Leo XIV presided over the Mass opening the academic year of the Pontifical Universities, telling students and professors that asking questions is an essential part of the journey of faith and that truth is sought together through the use of reason. Source: Vatican News, Oct 8, 2026.",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Vatican",
+    "#Faith",
+    "#CatholicEducation",
+    "#PontificalUniversities"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-10-09-0641-leopopexiv-vatican-news-2909.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-09-0641-leopopexiv-vatican-news-2909.jpg",
+    "hash": "edf1b1fecf2b809c",
+    "version": 11,
+    "estilo": "32cba508d6c2290e",
+    "renderizada": "2026-10-09T10:44:02.752Z"
+  },
+  "ilustracion": {
+    "descripcion": "A grand university lecture hall with wooden pews and tall windows; a figure in white papal vestments stands at a lectern in the upper right third, left and center space open and calm.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-09-0641-leopopexiv-vatican-news-2909.jpg",
+    "hashDescripcion": "7489a6601b725582",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-09T10:41:00.505Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-09T10:41:00.505Z",
+  "actualizado": "2026-10-09T10:41:00.505Z"
+}

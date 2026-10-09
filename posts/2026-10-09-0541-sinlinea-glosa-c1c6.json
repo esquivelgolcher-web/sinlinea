@@ -1,0 +1,49 @@
+{
+  "id": "2026-10-09-0541-sinlinea-glosa-c1c6",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "formato": "glosa",
+  "glosa": {
+    "versos": [
+      "Le quitan a la escuela",
+      "seis millones, nada menos,",
+      "para que el Senán vuela,",
+      "los niños sin libros buenos."
+    ],
+    "esquema": "ABAB",
+    "sobre": {
+      "id": "2026-10-09-0541-sinlinea-la-estrella-804e",
+      "titular": "Asamblea traslada $6 millones de escuelas a helicópteros"
+    }
+  },
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/trasladan-6-millones-de-escuelas-al-mantenimiento-de-helicopteros-HE26335839",
+    "titulo": "Trasladan $6 millones de escuelas al mantenimiento de helicópteros",
+    "publicado": "2026-10-09T03:00:00.000Z"
+  },
+  "categoria": "POLÍTICA",
+  "titular": "Le quitan a la escuela",
+  "bajada": "Sobre: Asamblea traslada $6 millones de escuelas a helicópteros",
+  "caption": "Le quitan a la escuela\nseis millones, nada menos,\npara que el Senán vuela,\nlos niños sin libros buenos.\n\nSobre: Asamblea traslada $6 millones de escuelas a helicópteros · La Estrella de Panamá\n\n#Panamá #Glosa #LaGarzaMaría",
+  "hashtags": [
+    "#Panamá",
+    "#Glosa",
+    "#LaGarzaMaría"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-10-09-0541-sinlinea-glosa-c1c6.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-09-0541-sinlinea-glosa-c1c6.jpg",
+    "hash": "4d124d89de79f08b",
+    "version": 1,
+    "estilo": "df55592d998f5ba3",
+    "renderizada": "2026-10-09T10:42:51.178Z"
+  },
+  "ilustracion": null,
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-09T10:41:00.505Z",
+  "actualizado": "2026-10-09T10:41:00.505Z"
+}

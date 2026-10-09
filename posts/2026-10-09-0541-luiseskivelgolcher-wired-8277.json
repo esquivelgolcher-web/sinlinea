@@ -1,0 +1,210 @@
+{
+  "id": "2026-10-09-0541-luiseskivelgolcher-wired-8277",
+  "cuenta": "luiseskivelgolcher",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "WIRED",
+    "url": "https://www.wired.com/story/ice-emails-discuss-using-palantir-supported-tool-to-investigate-voter-fraud/",
+    "titulo": "ICE Emails Discuss Using Palantir-Supported Tool to Investigate Voter Fraud",
+    "publicado": "2026-10-08T22:40:11.731Z"
+  },
+  "categoria": "SEGURIDAD",
+  "titular": "ICE evaluó usar ELITE para investigar fraude electoral",
+  "bajada": "Documentos de FOIA muestran el plan dentro de una agencia de inmigración",
+  "caption": "Documentos obtenidos por la organización legal Democracy Forward, mediante una solicitud de acceso a información pública (FOIA), muestran que el brazo investigativo de ICE exploró usar ELITE —una herramienta con apoyo de Palantir, la empresa de análisis de datos— para cruzar información de registros electorales. ELITE normalmente sirve para ubicar objetivos de deportación, según reportó 404 Media. Un correo interno fechado el 26 de mayo menciona el \"ingreso de datos de registro de votantes procesados\" al sistema. Un vocero de Palantir le dijo a WIRED que esos datos \"nunca se han integrado\" a ELITE. Los documentos también revelan que DHS investigó a más de 150 organizaciones sin fines de lucro buscando evidencia de que ayudaban a inmigrantes sin ciudadanía a registrarse para votar. Toda la evidencia disponible indica que el voto de personas no ciudadanas es extremadamente raro en Estados Unidos. ¿Hasta dónde debería llegar una agencia de inmigración en la vigilancia del proceso electoral?",
+  "hashtags": [
+    "#Vigilancia",
+    "#Palantir",
+    "#ICE",
+    "#Privacidad",
+    "#EstadosUnidos"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-10-09-0541-luiseskivelgolcher-wired-8277.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-09-0541-luiseskivelgolcher-wired-8277.jpg",
+    "hash": "cb0da2b7600a18fd",
+    "version": 11,
+    "estilo": "dc8c8fa3edf501fd",
+    "renderizada": "2026-10-09T10:43:41.044Z"
+  },
+  "ilustracion": {
+    "descripcion": "Interior de un centro de datos gubernamental con servidores iluminados en azul y una bandera de Estados Unidos al fondo; el servidor principal queda en el tercio superior derecho, con la zona izquierda y central despejadas.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-09-0541-luiseskivelgolcher-wired-8277.jpg",
+    "hashDescripcion": "42b497f62c9b6d18",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-09T10:41:00.505Z",
+    "error": null,
+    "procedencia": "generada"
+  },
+  "formato": "carrusel",
+  "fuentes": [
+    {
+      "rol": "principal",
+      "medio": "WIRED",
+      "autor": "David Gilbert",
+      "url": "https://www.wired.com/story/ice-emails-discuss-using-palantir-supported-tool-to-investigate-voter-fraud/",
+      "canonica": "https://www.wired.com/story/ice-emails-discuss-using-palantir-supported-tool-to-investigate-voter-fraud/",
+      "idioma": "en",
+      "publicado": "2026-10-08T22:40:11.731Z",
+      "actualizado": "2026-10-08T22:40:11.731Z",
+      "fechaHecho": "2026-05-26",
+      "consultado": "2026-10-09T10:41:00.505Z",
+      "alcance": "completo",
+      "textoRecuperado": {
+        "parrafos": 27,
+        "caracteres": 6224,
+        "enviados": 3961
+      },
+      "fuentesPrimarias": [
+        "https://democracyforward.org/wp-content/uploads/2026/10/EMBARGO-DFF-DHS-ICE-26-0510-0511-0512-LIT-A_.pdf",
+        "https://www.nytimes.com/2026/10/07/us/politics/trump-voter-registration-noncitizens-investigation.html?eafs_enabled=false",
+        "https://www.ice.gov/partnerships-centers/innovation-lab",
+        "https://www.404media.co/elite-the-palantir-app-ice-uses-to-find-neighborhoods-to-raid/",
+        "https://apnews.com/article/homeland-security-justice-department-midterms-noncitizen-voting-09b8391612fc87676267a254c55eaee8",
+        "https://www.justice.gov/opa/pr/justice-department-announces-charges-involving-16-aliens-election-crimes",
+        "https://www.democrats.senate.gov/imo/media/doc/091326_-_senate_whistleblower_letter_dhs_uscis_combined_signedpdf.pdf",
+        "http://www.aboutads.info"
+      ],
+      "licenciaMedios": null
+    }
+  ],
+  "afirmaciones": [
+    {
+      "texto": "Un correo interno de HSI del 26 de mayo de 2026 menciona el ingreso de datos de registros de votantes al sistema ELITE",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/ice-emails-discuss-using-palantir-supported-tool-to-investigate-voter-fraud/",
+      "contrastada": true
+    },
+    {
+      "texto": "Un vocero de Palantir afirma que los datos de registro de votantes nunca se han integrado a ELITE",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/ice-emails-discuss-using-palantir-supported-tool-to-investigate-voter-fraud/",
+      "contrastada": true
+    },
+    {
+      "texto": "DHS investigó a más de 150 organizaciones sin fines de lucro buscando evidencia de que ayudan a no ciudadanos a registrarse para votar",
+      "tipo": "denuncia",
+      "fuente": "https://www.wired.com/story/ice-emails-discuss-using-palantir-supported-tool-to-investigate-voter-fraud/",
+      "contrastada": false
+    },
+    {
+      "texto": "ELITE es una herramienta usada por ICE para ubicar objetivos de deportación y asignarles un puntaje de confianza sobre su dirección actual",
+      "tipo": "hecho",
+      "fuente": "https://www.404media.co/elite-the-palantir-app-ice-uses-to-find-neighborhoods-to-raid/",
+      "contrastada": true
+    },
+    {
+      "texto": "Toda la evidencia disponible muestra que el voto de personas no ciudadanas es extremadamente raro en Estados Unidos",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/ice-emails-discuss-using-palantir-supported-tool-to-investigate-voter-fraud/",
+      "contrastada": true
+    }
+  ],
+  "angulo": "Uso político de una herramienta de vigilancia migratoria para investigar el proceso electoral, según documentos oficiales obtenidos por FOIA.",
+  "atribucion": "Documentos obtenidos por Democracy Forward vía FOIA; reportaje de David Gilbert para WIRED, 8 de octubre de 2026.",
+  "puntuacion": {
+    "total": 83,
+    "componentes": {
+      "afinidad": 27,
+      "interes": 20,
+      "evidencia": 16,
+      "actualidad": 15,
+      "visual": 5
+    }
+  },
+  "alertas": [
+    "fuente-unica",
+    "hecho-antiguo"
+  ],
+  "carrusel": {
+    "diapositivas": [
+      {
+        "titulo": "¿Usó ICE una herramienta de vigilancia contra votantes?",
+        "texto": "Documentos de FOIA muestran que la agencia exploró cruzar datos de registros electorales con un sistema creado para ubicar a inmigrantes."
+      },
+      {
+        "titulo": "Qué ocurrió",
+        "texto": "Un correo interno de mayo de 2026 habla de ingresar datos de registro de votantes al sistema ELITE, usado por ICE para investigaciones."
+      },
+      {
+        "titulo": "Cómo funciona ELITE",
+        "texto": "ELITE, con apoyo técnico de Palantir, permite a agentes de ICE mapear objetivos de deportación y ver un puntaje de confianza sobre su dirección."
+      },
+      {
+        "titulo": "A quién afecta",
+        "texto": "DHS investigó a más de 150 organizaciones sin fines de lucro buscando pruebas de que ayudaban a inmigrantes a registrarse para votar."
+      },
+      {
+        "titulo": "Lo que Palantir y ICE responden",
+        "texto": "Palantir dice que los datos de votantes nunca se integraron a ELITE. ICE no confirma ni niega métodos de investigación específicos."
+      },
+      {
+        "titulo": "El contexto que falta",
+        "texto": "Toda la evidencia disponible muestra que el voto de personas no ciudadanas es extremadamente raro en las elecciones de Estados Unidos."
+      },
+      {
+        "titulo": "Una herramienta migratoria, un objetivo electoral",
+        "texto": "Según Democracy Forward, los documentos revelan cómo una tecnología de deportación se acercó al terreno del voto. Fuente: WIRED, 8 de octubre de 2026."
+      }
+    ],
+    "imagenes": [
+      {
+        "numero": 1,
+        "ruta": "public/img/2026-10-09-0541-luiseskivelgolcher-wired-8277-01.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-09-0541-luiseskivelgolcher-wired-8277-01.jpg",
+        "hash": "eac2cbfdf992f0b7"
+      },
+      {
+        "numero": 2,
+        "ruta": "public/img/2026-10-09-0541-luiseskivelgolcher-wired-8277-02.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-09-0541-luiseskivelgolcher-wired-8277-02.jpg",
+        "hash": "82d01b7a698a8840"
+      },
+      {
+        "numero": 3,
+        "ruta": "public/img/2026-10-09-0541-luiseskivelgolcher-wired-8277-03.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-09-0541-luiseskivelgolcher-wired-8277-03.jpg",
+        "hash": "50aefd64abacd06e"
+      },
+      {
+        "numero": 4,
+        "ruta": "public/img/2026-10-09-0541-luiseskivelgolcher-wired-8277-04.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-09-0541-luiseskivelgolcher-wired-8277-04.jpg",
+        "hash": "691c28f92dd76f23"
+      },
+      {
+        "numero": 5,
+        "ruta": "public/img/2026-10-09-0541-luiseskivelgolcher-wired-8277-05.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-09-0541-luiseskivelgolcher-wired-8277-05.jpg",
+        "hash": "7ca61811e95c1413"
+      },
+      {
+        "numero": 6,
+        "ruta": "public/img/2026-10-09-0541-luiseskivelgolcher-wired-8277-06.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-09-0541-luiseskivelgolcher-wired-8277-06.jpg",
+        "hash": "6155aa571090677d"
+      },
+      {
+        "numero": 7,
+        "ruta": "public/img/2026-10-09-0541-luiseskivelgolcher-wired-8277-07.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-09-0541-luiseskivelgolcher-wired-8277-07.jpg",
+        "hash": "f930e1cb3693667d"
+      }
+    ],
+    "hash": "429ff1296fabdf1b",
+    "version": 2
+  },
+  "reel": null,
+  "revision": {
+    "estado": "pendiente",
+    "notas": []
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-09T10:41:00.505Z",
+  "actualizado": "2026-10-09T10:41:00.505Z"
+}
