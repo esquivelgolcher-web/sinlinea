@@ -1,0 +1,205 @@
+{
+  "id": "2026-10-09-1324-luiseskivelgolcher-occrp-61b4",
+  "cuenta": "luiseskivelgolcher",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "OCCRP",
+    "url": "https://www.occrp.org/en/news/lithuanian-minister-condemns-intimidation-campaign-against-investigative-reporters",
+    "titulo": "Lithuanian Minister Condemns Intimidation Campaign against Investigative Reporters",
+    "publicado": "2026-10-09T12:21:00.000Z"
+  },
+  "categoria": "INVESTIGACIÓN",
+  "titular": "Periodistas lituanos, acosados tras destapar fraude cripto",
+  "bajada": "OCCRP y 15min vincularon a Bankera con 45 millones movidos a un banco offshore en Vanuatu",
+  "caption": "Una investigación conjunta de OCCRP y el medio lituano 15min reveló que más de 45 millones de euros recaudados por la firma cripto Bankera entre 2017 y 2018 terminaron en Pacific Private Bank, un banco offshore en Vanuatu comprado por los propios fundadores de Bankera. Tras la publicación, en abril de 2025, los periodistas del caso enfrentaron una campaña de acoso: vigilancia en eventos públicos, recolección de datos personales y decenas de denuncias regulatorias presentadas por personas vinculadas a la empresa. El ministro de Cultura lituano, Lukas Alsys, calificó cualquier intimidación a periodistas como «completamente intolerable». Bankera niega haber orquestado el acoso. En septiembre de 2026, las autoridades lituanas nombraron formalmente como sospechosos a los tres cofundadores de la empresa por presunta disipación ilícita de al menos 49 millones de dólares. Ninguno ha sido condenado. ¿Hasta dónde puede llegar la presión contra el periodismo que investiga fraude financiero digital?",
+  "hashtags": [
+    "#Cripto",
+    "#Periodismo",
+    "#OCCRP",
+    "#Lituania",
+    "#Fraude"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-10-09-1324-luiseskivelgolcher-occrp-61b4.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-09-1324-luiseskivelgolcher-occrp-61b4.jpg",
+    "hash": "5eadbff5b9def3a7",
+    "version": 11,
+    "estilo": "dc8c8fa3edf501fd",
+    "renderizada": "2026-10-09T18:24:58.165Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada de un edificio de oficinas financieras en una ciudad báltica al atardecer, con una ilustración editorial de una pantalla de computadora y gráficos financieros abstractos en el tercio superior derecho; zona izquierda y central despejadas.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-09-1324-luiseskivelgolcher-occrp-61b4.jpg",
+    "hashDescripcion": "f8f140a8e4f4fd8a",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-09T18:24:02.159Z",
+    "error": null,
+    "procedencia": "generada"
+  },
+  "formato": "carrusel",
+  "fuentes": [
+    {
+      "rol": "principal",
+      "medio": "OCCRP",
+      "autor": null,
+      "url": "https://www.occrp.org/en/news/lithuanian-minister-condemns-intimidation-campaign-against-investigative-reporters",
+      "canonica": "https://www.occrp.org/en/news/lithuanian-minister-condemns-intimidation-campaign-against-investigative-reporters",
+      "idioma": "en",
+      "publicado": "2026-10-09T12:21:00.000Z",
+      "actualizado": null,
+      "fechaHecho": null,
+      "consultado": "2026-10-09T18:24:02.159Z",
+      "alcance": "completo",
+      "textoRecuperado": {
+        "parrafos": 24,
+        "caracteres": 4482,
+        "enviados": 3952
+      },
+      "fuentesPrimarias": [
+        "https://www.15min.lt/kultura/naujiena/naujienos/lukas-alsys-smerkia-15min-zurnalistu-ir-redaktoriu-persekiojima-po-tyrimo-apie-bankera-1770-2780256",
+        "https://www.15min.lt/naujiena/aktualu/lietuva/po-tyrimo-apie-bankera-siurkstus-spaudimas-15min-zurnalistams-sureagavo-ziniasklaidos-organizacijos-56-2775216",
+        "https://www.lrt.lt/naujienos/lietuvoje/2/3073404/ziniasklaidos-organizacijos-smerkia-daroma-spaudima-15min-del-tyrimo-apie-bankera"
+      ],
+      "licenciaMedios": null
+    }
+  ],
+  "afirmaciones": [
+    {
+      "texto": "Más de 45 millones de euros recaudados en la venta de tokens de Bankera en 2017-2018 fueron transferidos a Pacific Private Bank, en Vanuatu, adquirido por los cofundadores de la empresa",
+      "tipo": "hecho",
+      "fuente": "https://www.occrp.org/en/news/lithuanian-minister-condemns-intimidation-campaign-against-investigative-reporters",
+      "contrastada": true
+    },
+    {
+      "texto": "Periodistas de 15min fueron vigilados, sufrieron una campaña de desprestigio y recibieron decenas de denuncias regulatorias tras publicar la investigación",
+      "tipo": "denuncia",
+      "fuente": "https://www.15min.lt/naujiena/aktualu/lietuva/po-tyrimo-apie-bankera-siurkstus-spaudimas-15min-zurnalistams-sureagavo-ziniasklaidos-organizacijos-56-2775216",
+      "contrastada": false
+    },
+    {
+      "texto": "El ministro de Cultura lituano, Lukas Alsys, condenó la persecución de periodistas y pidió a las autoridades 'sacar conclusiones'",
+      "tipo": "hecho",
+      "fuente": "https://www.occrp.org/en/news/lithuanian-minister-condemns-intimidation-campaign-against-investigative-reporters",
+      "contrastada": true
+    },
+    {
+      "texto": "En septiembre de 2026 las autoridades lituanas nombraron formalmente sospechosos a los tres cofundadores de Bankera por presunta disipación ilícita de al menos 49 millones de dólares",
+      "tipo": "hecho",
+      "fuente": "https://www.occrp.org/en/news/lithuanian-minister-condemns-intimidation-campaign-against-investigative-reporters",
+      "contrastada": true
+    },
+    {
+      "texto": "Bankera niega haber orquestado la campaña de acoso contra los periodistas",
+      "tipo": "opinion",
+      "fuente": "https://www.lrt.lt/naujienos/lietuvoje/2/3073404/ziniasklaidos-organizacijos-smerkia-daroma-spaudima-15min-del-tyrimo-apie-bankera",
+      "contrastada": false
+    }
+  ],
+  "angulo": "Investigación periodística conjunta sobre fraude cripto y la represalia posterior contra los reporteros que la publicaron.",
+  "atribucion": "OCCRP y 15min (Lituania)",
+  "puntuacion": {
+    "total": 78,
+    "componentes": {
+      "afinidad": 24,
+      "interes": 18,
+      "evidencia": 16,
+      "actualidad": 15,
+      "visual": 5
+    }
+  },
+  "alertas": [
+    "acusacion-sin-fuente",
+    "fuente-unica"
+  ],
+  "carrusel": {
+    "diapositivas": [
+      {
+        "titulo": "¿Qué pasa cuando el periodismo destapa un fraude cripto?",
+        "texto": "En Lituania, una investigación sobre la empresa Bankera terminó con sus reporteros vigilados y acosados."
+      },
+      {
+        "titulo": "El hallazgo: 45 millones de euros en un banco offshore",
+        "texto": "OCCRP y 15min revelaron que fondos del token de Bankera (2017-2018) fueron a Pacific Private Bank, en Vanuatu, propiedad de los fundadores."
+      },
+      {
+        "titulo": "La evidencia: préstamos y lujo con el dinero de los inversores",
+        "texto": "Documentos mostraron que el banco otorgó préstamos millonarios a los fundadores, usados para comprar propiedades de lujo, según la investigación."
+      },
+      {
+        "titulo": "La respuesta: vigilancia y denuncias contra los periodistas",
+        "texto": "Según 15min, actores desconocidos recolectaron datos de los reporteros y sus familias y los siguieron en eventos públicos tras la publicación."
+      },
+      {
+        "titulo": "Un patrón que preocupa a la prensa lituana",
+        "texto": "Organizaciones de periodistas calificaron la ofensiva de SLAPP: demandas y denuncias diseñadas para agotar y silenciar a medios críticos."
+      },
+      {
+        "titulo": "Lo que falta por saber",
+        "texto": "Bankera niega haber ordenado el acoso y dice que las quejas regulatorias responden a coberturas que considera injustas. La fiscalía investiga ambos frentes."
+      },
+      {
+        "titulo": "Sospechosos formales, sin condena todavía",
+        "texto": "Los tres cofundadores de Bankera fueron nombrados sospechosos en septiembre de 2026 por presunta disipación de 49 millones de dólares. Fuente: OCCRP y 15min."
+      }
+    ],
+    "imagenes": [
+      {
+        "numero": 1,
+        "ruta": "public/img/2026-10-09-1324-luiseskivelgolcher-occrp-61b4-01.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-09-1324-luiseskivelgolcher-occrp-61b4-01.jpg",
+        "hash": "68bc40d73e1b9495"
+      },
+      {
+        "numero": 2,
+        "ruta": "public/img/2026-10-09-1324-luiseskivelgolcher-occrp-61b4-02.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-09-1324-luiseskivelgolcher-occrp-61b4-02.jpg",
+        "hash": "9b6a3e183230e822"
+      },
+      {
+        "numero": 3,
+        "ruta": "public/img/2026-10-09-1324-luiseskivelgolcher-occrp-61b4-03.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-09-1324-luiseskivelgolcher-occrp-61b4-03.jpg",
+        "hash": "20461778782322c6"
+      },
+      {
+        "numero": 4,
+        "ruta": "public/img/2026-10-09-1324-luiseskivelgolcher-occrp-61b4-04.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-09-1324-luiseskivelgolcher-occrp-61b4-04.jpg",
+        "hash": "f3feb9df3ed40735"
+      },
+      {
+        "numero": 5,
+        "ruta": "public/img/2026-10-09-1324-luiseskivelgolcher-occrp-61b4-05.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-09-1324-luiseskivelgolcher-occrp-61b4-05.jpg",
+        "hash": "3a4f82f82c5860b2"
+      },
+      {
+        "numero": 6,
+        "ruta": "public/img/2026-10-09-1324-luiseskivelgolcher-occrp-61b4-06.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-09-1324-luiseskivelgolcher-occrp-61b4-06.jpg",
+        "hash": "4745d0159b6e33bb"
+      },
+      {
+        "numero": 7,
+        "ruta": "public/img/2026-10-09-1324-luiseskivelgolcher-occrp-61b4-07.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-09-1324-luiseskivelgolcher-occrp-61b4-07.jpg",
+        "hash": "5dd9802db8cf9847"
+      }
+    ],
+    "hash": "1292904ac35e8c38",
+    "version": 2
+  },
+  "reel": null,
+  "revision": {
+    "estado": "pendiente",
+    "notas": []
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-09T18:24:02.159Z",
+  "actualizado": "2026-10-09T18:24:02.159Z"
+}
