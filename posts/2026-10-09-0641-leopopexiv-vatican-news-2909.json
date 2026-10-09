@@ -42,7 +42,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-09T10:41:00.505Z",
-  "actualizado": "2026-10-09T11:17:13.713Z",
+  "actualizado": "2026-10-09T15:13:28.332Z",
   "destinos": {
     "instagram": {
       "texto": "Pope Leo XIV presided over the Mass opening the academic year of the Pontifical Universities, telling students and professors that asking questions is an essential part of the journey of faith and that truth is sought together through the use of reason. Source: Vatican News, Oct 8, 2026.\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #Faith #CatholicEducation #PontificalUniversities",
@@ -55,7 +55,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-10-09T15:13:28.332Z",
+        "actualizado": "2026-10-09T15:13:28.332Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
