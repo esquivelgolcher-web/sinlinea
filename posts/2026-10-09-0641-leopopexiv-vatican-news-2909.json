@@ -1,7 +1,7 @@
 {
   "id": "2026-10-09-0641-leopopexiv-vatican-news-2909",
   "cuenta": "leopopexiv",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/pope/news/2026-10/pope-pontifical-universities-inaugauration-academic-year.html",
@@ -38,9 +38,26 @@
     "generada": "2026-10-09T10:41:00.505Z",
     "error": null
   },
-  "programado": null,
+  "programado": "2026-10-09T09:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-10-09T10:41:00.505Z",
-  "actualizado": "2026-10-09T10:41:00.505Z"
+  "actualizado": "2026-10-09T11:17:13.713Z",
+  "destinos": {
+    "instagram": {
+      "texto": "Pope Leo XIV presided over the Mass opening the academic year of the Pontifical Universities, telling students and professors that asking questions is an essential part of the journey of faith and that truth is sought together through the use of reason. Source: Vatican News, Oct 8, 2026.\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #Faith #CatholicEducation #PontificalUniversities",
+      "aprobado": {
+        "fecha": "2026-10-09T11:17:13.713Z",
+        "hashPieza": "337e3d52fb408cc0",
+        "imagenHash": "edf1b1fecf2b809c",
+        "imagenSha": "6407a2c50942e822720f41d26081569433a579bc"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
