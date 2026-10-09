@@ -153,16 +153,15 @@
         "imagenHash": "997e04bfaff9b535",
         "imagenSha": "3de0cf8a4a7b6e1a3994cb9c12deb064f9dc59bc"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-10-09T20:17:41.961Z",
-        "actualizado": "2026-10-09T20:17:41.961Z",
-        "contenedorId": "122113724895483833"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "122113724895483833",
+        "idPublicacion": "1365602693299887_122113725015483833",
+        "permalink": "https://www.facebook.com/122093183247483833/posts/122113725015483833",
+        "fecha": "2026-10-09T20:17:41.961Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     },
