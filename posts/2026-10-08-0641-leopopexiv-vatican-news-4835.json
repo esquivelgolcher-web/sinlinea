@@ -1,7 +1,7 @@
 {
   "id": "2026-10-08-0641-leopopexiv-vatican-news-4835",
   "cuenta": "leopopexiv",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/pope/news/2026-10/pope-general-audience-rosary-virgin-mary-peace-prayer.html",
@@ -39,9 +39,26 @@
     "generada": "2026-10-08T10:41:54.386Z",
     "error": null
   },
-  "programado": null,
+  "programado": "2026-10-09T18:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-10-08T10:41:54.386Z",
-  "actualizado": "2026-10-08T10:41:54.386Z"
+  "actualizado": "2026-10-09T11:17:23.120Z",
+  "destinos": {
+    "instagram": {
+      "texto": "At this week's General Audience, Pope Leo XIV described Mary as a 'safe refuge' amid life's difficulties and renewed his invitation to pray the Rosary, echoing an appeal he made earlier in Lourdes for peace in the world. Source: Vatican News, Oct 7, 2026.\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #GeneralAudience #Rosary #Prayer #Peace",
+      "aprobado": {
+        "fecha": "2026-10-09T11:17:23.120Z",
+        "hashPieza": "bf2bc9c97120dfa7",
+        "imagenHash": "49b41f9805b3a28a",
+        "imagenSha": "d56e87aa0589c8d2cccbdf1901fa9114979498d5"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
