@@ -119,7 +119,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-08T10:41:54.386Z",
-  "actualizado": "2026-10-08T17:29:17.878Z",
+  "actualizado": "2026-10-09T20:17:41.961Z",
   "destinos": {
     "instagram": {
       "texto": "La Fiscalía Federal de Alemania confirmó el 6 de octubre de 2026 el arresto de August Hanning, quien presidió el servicio de inteligencia BND (el servicio federal de inteligencia alemán) entre 1998 y 2005, junto a su exjefe de gabinete, identificado solo como Manfred D. Los fiscales los acusan de traición y espionaje: habrían obtenido casi dos mil documentos, muchos clasificados, a cambio de dinero, entre 2010 y 2022, para elaborar \"análisis\" vendidos a servicios de inteligencia extranjeros. El propio comunicado oficial aclara que no está establecido si ese material llegó a su destinatario final. Horas después, la revista alemana Der Spiegel reportó que el cliente habría sido un funcionario de inteligencia de Azerbaiyán, una afirmación que el Consejo de Medios de ese país rechazó el miércoles, calificándola de \"campaña de difamación\" contra las relaciones bilaterales. El abogado de Hanning dice que su cliente es procesado injustamente. ¿Qué tan vulnerable es el aparato de inteligencia europeo a este tipo de filtraciones internas?\n\nFuente: OCCRP\n\n#Espionaje #Alemania #BND #Inteligencia #Azerbaiyán",
@@ -132,7 +132,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-10-09T20:17:41.961Z",
+        "actualizado": "2026-10-09T20:17:41.961Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     },
