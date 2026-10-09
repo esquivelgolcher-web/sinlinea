@@ -1,7 +1,7 @@
 {
   "id": "2026-10-08-0641-leopopexiv-vatican-va-7adf",
   "cuenta": "leopopexiv",
-  "estado": "programado",
+  "estado": "publicado",
   "formato": "frase",
   "frase": {
     "texto": "Who am I to judge?",
@@ -37,7 +37,11 @@
   },
   "ilustracion": null,
   "programado": "2026-10-09T13:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "18114893195470615",
+    "permalink": "https://www.instagram.com/p/DeSWbO4IM6i/",
+    "fecha": "2026-10-09T20:18:44.086Z"
+  },
   "error": null,
   "creado": "2026-10-08T10:41:54.386Z",
   "actualizado": "2026-10-09T20:18:44.086Z",
@@ -50,16 +54,15 @@
         "imagenHash": "4e6542f61acf1bd0",
         "imagenSha": "17594bd5f64383b2e5e050df1e22d98d380e57a7"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-10-09T20:18:44.086Z",
-        "actualizado": "2026-10-09T20:18:44.086Z",
-        "contenedorId": "18107787179081176"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18114893195470615",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/DeSWbO4IM6i/",
+        "fecha": "2026-10-09T20:18:44.086Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
