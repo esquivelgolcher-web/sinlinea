@@ -1,7 +1,7 @@
 {
   "id": "2026-10-06-1100-luiseskivelgolcher-wired-fee1",
   "cuenta": "luiseskivelgolcher",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "WIRED",
     "url": "https://www.wired.com/story/icann-top-level-domains-meow/",
@@ -168,16 +168,15 @@
         "imagenHash": "5f9d6fd8b129b0ae",
         "imagenSha": "0f1a8ff2b1071ba08a071a0e83f0abaef67aa023"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-10-09T01:08:38.560Z",
-        "actualizado": "2026-10-09T01:08:38.560Z",
-        "contenedorId": "17992499394100604"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "17874158190594730",
+        "idPublicacion": null,
+        "permalink": "https://www.threads.com/@luisegolcher/post/DeQS24-keVL",
+        "fecha": "2026-10-09T01:08:38.560Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
