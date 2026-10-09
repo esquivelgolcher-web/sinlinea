@@ -1,7 +1,7 @@
 {
   "id": "2026-10-09-0641-leopopexiv-vatican-news-2909",
   "cuenta": "leopopexiv",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/pope/news/2026-10/pope-pontifical-universities-inaugauration-academic-year.html",
@@ -39,7 +39,11 @@
     "error": null
   },
   "programado": "2026-10-09T09:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "18018290927928652",
+    "permalink": "https://www.instagram.com/p/DeRzfbcG1p3/",
+    "fecha": "2026-10-09T15:13:28.332Z"
+  },
   "error": null,
   "creado": "2026-10-09T10:41:00.505Z",
   "actualizado": "2026-10-09T15:13:28.332Z",
@@ -52,16 +56,15 @@
         "imagenHash": "edf1b1fecf2b809c",
         "imagenSha": "6407a2c50942e822720f41d26081569433a579bc"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-10-09T15:13:28.332Z",
-        "actualizado": "2026-10-09T15:13:28.332Z",
-        "contenedorId": "18107739671081176"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18018290927928652",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/DeRzfbcG1p3/",
+        "fecha": "2026-10-09T15:13:28.332Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
