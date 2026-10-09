@@ -1,7 +1,7 @@
 {
   "id": "2026-10-08-0541-luiseskivelgolcher-occrp-e368",
   "cuenta": "luiseskivelgolcher",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "OCCRP",
     "url": "https://www.occrp.org/en/news/azerbaijan-denies-link-to-espionage-case-involving-former-german-spy-chief",
@@ -173,16 +173,15 @@
         "imagenHash": "997e04bfaff9b535",
         "imagenSha": "3de0cf8a4a7b6e1a3994cb9c12deb064f9dc59bc"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-10-09T20:17:41.961Z",
-        "actualizado": "2026-10-09T20:17:41.961Z",
-        "contenedorId": "17992613388100604"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "17901760845598243",
+        "idPublicacion": null,
+        "permalink": "https://www.threads.com/@luisegolcher/post/DeSWW0cAX0g",
+        "fecha": "2026-10-09T20:17:41.961Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
