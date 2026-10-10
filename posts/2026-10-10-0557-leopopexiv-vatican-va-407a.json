@@ -1,0 +1,44 @@
+{
+  "id": "2026-10-10-0557-leopopexiv-vatican-va-407a",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "formato": "frase",
+  "frase": {
+    "texto": "No one is saved alone; we can only be saved together.",
+    "autor": "Pope Francis",
+    "fuente": "Fratelli tutti, 32",
+    "anio": 2020,
+    "url": "https://www.vatican.va/content/francesco/en/encyclicals/documents/papa-francesco_20201003_enciclica-fratelli-tutti.html",
+    "origen": "banco"
+  },
+  "fuente": {
+    "medio": "Vatican.va",
+    "url": "https://www.vatican.va/content/francesco/en/encyclicals/documents/papa-francesco_20201003_enciclica-fratelli-tutti.html",
+    "titulo": "Fratelli tutti, 32",
+    "publicado": "2020-01-01T00:00:00.000Z"
+  },
+  "categoria": "CULTURA",
+  "titular": "Pope Francis",
+  "bajada": "Fratelli tutti, 32 · 2020",
+  "caption": "“No one is saved alone; we can only be saved together.”\n\n— Pope Francis, Fratelli tutti, 32 (2020)\n\n#PopeLeoXIV #Vatican #CatholicChurch",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Vatican",
+    "#CatholicChurch"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-10-10-0557-leopopexiv-vatican-va-407a.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-10-0557-leopopexiv-vatican-va-407a.jpg",
+    "hash": "0a73b38bf5bd6e89",
+    "version": 1,
+    "estilo": "28c21995920a45b7",
+    "renderizada": "2026-10-10T09:58:50.697Z"
+  },
+  "ilustracion": null,
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-10T09:57:05.816Z",
+  "actualizado": "2026-10-10T09:57:05.816Z"
+}

@@ -1,0 +1,49 @@
+{
+  "id": "2026-10-10-0457-sinlinea-glosa-df3b",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "formato": "glosa",
+  "glosa": {
+    "versos": [
+      "Diez millones cuesta el ave",
+      "que el Minseg ya pagará;",
+      "el secreto hasta allá,",
+      "mientras el pueblo no cabe."
+    ],
+    "esquema": "ABBA",
+    "sobre": {
+      "id": "2026-10-09-0541-sinlinea-la-prensa-3da6",
+      "titular": "Panamá pagará $10.2 millones por helicóptero para la Presidencia"
+    }
+  },
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/unidad-investigativa/un-helicoptero-vip-para-el-escuadron-presidencial/",
+    "titulo": "Un helicóptero VIP para el Escuadrón Presidencial",
+    "publicado": "2026-10-09T05:05:00.000Z"
+  },
+  "categoria": "POLÍTICA",
+  "titular": "Diez millones cuesta el ave",
+  "bajada": "Sobre: Panamá pagará $10.2 millones por helicóptero para la Presidencia",
+  "caption": "Diez millones cuesta el ave\nque el Minseg ya pagará;\nel secreto hasta allá,\nmientras el pueblo no cabe.\n\nSobre: Panamá pagará $10.2 millones por helicóptero para la Presidencia · La Prensa\n\n#Panamá #Glosa #LaGarzaMaría",
+  "hashtags": [
+    "#Panamá",
+    "#Glosa",
+    "#LaGarzaMaría"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-10-10-0457-sinlinea-glosa-df3b.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-10-0457-sinlinea-glosa-df3b.jpg",
+    "hash": "2f96ca29d88060a7",
+    "version": 1,
+    "estilo": "df55592d998f5ba3",
+    "renderizada": "2026-10-10T09:58:30.550Z"
+  },
+  "ilustracion": null,
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-10T09:57:05.816Z",
+  "actualizado": "2026-10-10T09:57:05.816Z"
+}

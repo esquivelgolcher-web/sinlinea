@@ -1,0 +1,46 @@
+{
+  "id": "2026-10-10-0557-leopopexiv-vatican-news-f540",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-10/cardinal-tagle-elected-new-dean-of-college-of-cardinals.html",
+    "titulo": "Cardinal Tagle elected new Dean of College of Cardinals",
+    "publicado": "2026-10-09T10:59:00.000Z"
+  },
+  "categoria": "INTERNACIONAL",
+  "titular": "Cardinal Tagle named Dean of Cardinals",
+  "bajada": "Filipino cardinal succeeds 92-year-old Cardinal Re in top College role",
+  "caption": "Cardinal Luis Antonio Tagle, Pro-Prefect of the Dicastery for Evangelization, has been elected Dean of the College of Cardinals, succeeding 92-year-old Cardinal Giovanni Battista Re. Source: Vatican News, Oct 9, 2026.",
+  "hashtags": [
+    "#CardinalTagle",
+    "#CollegeOfCardinals",
+    "#Vatican",
+    "#CatholicChurch",
+    "#VaticanNews"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-10-10-0557-leopopexiv-vatican-news-f540.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-10-0557-leopopexiv-vatican-news-f540.jpg",
+    "hash": "23609ee851b0184e",
+    "version": 11,
+    "estilo": "32cba508d6c2290e",
+    "renderizada": "2026-10-10T09:58:48.076Z"
+  },
+  "ilustracion": {
+    "descripcion": "Interior of St. Peter's Basilica with rows of empty cardinal seats, a ceremonial red biretta resting on a chair in the upper right third, left and center space open and calm.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-10-0557-leopopexiv-vatican-news-f540.jpg",
+    "hashDescripcion": "7b5e2ddd14d0735f",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-10T09:57:05.816Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-10T09:57:05.816Z",
+  "actualizado": "2026-10-10T09:57:05.816Z"
+}
