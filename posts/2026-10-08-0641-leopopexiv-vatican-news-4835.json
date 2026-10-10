@@ -1,7 +1,7 @@
 {
   "id": "2026-10-08-0641-leopopexiv-vatican-news-4835",
   "cuenta": "leopopexiv",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/pope/news/2026-10/pope-general-audience-rosary-virgin-mary-peace-prayer.html",
@@ -40,7 +40,11 @@
     "error": null
   },
   "programado": "2026-10-09T18:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "18116017696952334",
+    "permalink": "https://www.instagram.com/p/DeSxsMwCeti/",
+    "fecha": "2026-10-10T00:16:59.224Z"
+  },
   "error": null,
   "creado": "2026-10-08T10:41:54.386Z",
   "actualizado": "2026-10-10T00:16:59.224Z",
@@ -53,16 +57,15 @@
         "imagenHash": "49b41f9805b3a28a",
         "imagenSha": "d56e87aa0589c8d2cccbdf1901fa9114979498d5"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-10-10T00:16:59.224Z",
-        "actualizado": "2026-10-10T00:16:59.224Z",
-        "contenedorId": "18107809256081176"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18116017696952334",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/DeSxsMwCeti/",
+        "fecha": "2026-10-10T00:16:59.224Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
