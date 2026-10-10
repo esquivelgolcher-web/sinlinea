@@ -43,7 +43,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-08T10:41:54.386Z",
-  "actualizado": "2026-10-09T11:17:23.120Z",
+  "actualizado": "2026-10-10T00:16:59.224Z",
   "destinos": {
     "instagram": {
       "texto": "At this week's General Audience, Pope Leo XIV described Mary as a 'safe refuge' amid life's difficulties and renewed his invitation to pray the Rosary, echoing an appeal he made earlier in Lourdes for peace in the world. Source: Vatican News, Oct 7, 2026.\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #GeneralAudience #Rosary #Prayer #Peace",
@@ -56,7 +56,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-10-10T00:16:59.224Z",
+        "actualizado": "2026-10-10T00:16:59.224Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
