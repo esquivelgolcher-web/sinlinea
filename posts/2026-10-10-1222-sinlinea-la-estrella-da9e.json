@@ -1,0 +1,52 @@
+{
+  "id": "2026-10-10-1222-sinlinea-la-estrella-da9e",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/mas-del-50-de-las-viviendas-de-mandinga-en-pese-quedaron-destruidas-dice-diputado-varela-KP26382989",
+    "titulo": "Más del 50% de las viviendas de Mandinga, en Pesé, quedaron destruidas, dice diputado Varela",
+    "publicado": "2026-10-10T15:11:00.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "Más del 50% de viviendas de Mandinga quedó destruida",
+  "bajada": "Diputado Varela halló familias durmiendo en hamacas en Pesé tras el terremoto del viernes.",
+  "caption": "En Mandinga, Pesé, más de la mitad de las casas quedaron inhabitables tras el sismo del viernes. Familias duermen en hamacas y ranchos improvisados, compartiendo comida en una cocina comunitaria. Adultos mayores no pueden acceder a medicamentos para la presión y la insulina porque quedaron atrapados en sus viviendas. ¿Qué tan rápido debería llegar la ayuda a estas comunidades?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Terremoto",
+    "#Pesé",
+    "#Herrera",
+    "#Mandinga"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-10-10-1222-sinlinea-la-estrella-da9e.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-10-1222-sinlinea-la-estrella-da9e.jpg",
+    "hash": "3c4a65e8300b1936",
+    "version": 2,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-10-10T17:23:14.320Z"
+  },
+  "ilustracion": {
+    "descripcion": "Viviendas rurales con techos caídos y paredes agrietadas en una comunidad de Herrera, con hamacas colgadas afuera; el daño principal se ubica en el tercio superior derecho, zona izquierda y central despejadas.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-10T17:22:41.781Z",
+  "actualizado": "2026-10-10T17:22:41.781Z",
+  "plantilla": "dato",
+  "dato": {
+    "cifra": "50%",
+    "frase": "de las viviendas de Mandinga quedaron destruidas tras el terremoto"
+  }
+}

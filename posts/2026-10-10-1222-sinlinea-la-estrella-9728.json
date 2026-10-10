@@ -1,0 +1,52 @@
+{
+  "id": "2026-10-10-1222-sinlinea-la-estrella-9728",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/cerca-de-70-pacientes-son-atendidos-en-carpas-tras-danos-en-hospital-de-penonome-EA26379184",
+    "titulo": "Cerca de 70 pacientes son atendidos en carpas tras daños en hospital de Penonomé",
+    "publicado": "2026-10-10T13:22:00.000Z"
+  },
+  "categoria": "SALUD",
+  "titular": "Setenta pacientes son atendidos en carpas en Penonomé",
+  "bajada": "El Minsa habilitó hospitales modulares tras daños al hospital de Penonomé por el sismo.",
+  "caption": "El hospital de Penonomé sufrió afectaciones por el terremoto de magnitud 7.5 y ahora cerca de 70 pacientes reciben atención en carpas con aire acondicionado. El Minsa evalúa qué estructuras pueden seguir usándose mientras llegan más insumos a la zona. ¿Debería el Gobierno acelerar la reconstrucción de hospitales en provincias afectadas?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Terremoto",
+    "#Salud",
+    "#Penonomé",
+    "#Coclé"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-10-10-1222-sinlinea-la-estrella-9728.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-10-1222-sinlinea-la-estrella-9728.jpg",
+    "hash": "995b3e19cfeb3373",
+    "version": 11,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-10-10T17:23:19.090Z"
+  },
+  "ilustracion": {
+    "descripcion": "Carpas médicas blancas instaladas en el patio de un hospital provincial, con personal de salud en batas moviéndose entre ellas; las carpas quedan en el tercio superior derecho, con la zona izquierda y central despejadas.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-10-1222-sinlinea-la-estrella-9728.jpg",
+    "hashDescripcion": "0053b0fae0928e50",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-10T17:22:41.781Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-10T17:22:41.781Z",
+  "actualizado": "2026-10-10T17:22:41.781Z",
+  "plantilla": "foto",
+  "dato": {
+    "cifra": "70",
+    "frase": "pacientes son atendidos en carpas habilitadas en Penonomé"
+  }
+}
