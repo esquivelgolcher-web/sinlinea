@@ -1,0 +1,52 @@
+{
+  "id": "2026-10-10-1649-sinlinea-la-estrella-ccd4",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/mulino-panama-no-se-va-a-parar-tras-el-terremoto-de-magnitud-75-CO26391535",
+    "titulo": "Mulino: ‘Panamá no se va a parar’ tras el terremoto de magnitud 7.5",
+    "publicado": "2026-10-10T18:31:00.000Z"
+  },
+  "categoria": "POLÍTICA",
+  "titular": "Mulino: Metro y Metrobús volverán a operar el lunes",
+  "bajada": "El presidente aseguró que el país no se detiene tras el sismo y anunció recursos para los afectados.",
+  "caption": "El presidente José Raúl Mulino dijo que de aquí al lunes se restablecerá el servicio de Metro y Metrobús, claves para mover a un millón de personas al día entre Panamá y Panamá Oeste. También confirmó que el Gabinete aprobó recursos para atender a los damnificados del terremoto. ¿Crees que el transporte volverá a la normalidad a tiempo?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Terremoto",
+    "#Mulino",
+    "#Metro",
+    "#Metrobús"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-10-10-1649-sinlinea-la-estrella-ccd4.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-10-1649-sinlinea-la-estrella-ccd4.jpg",
+    "hash": "5074c48ea43c1674",
+    "version": 11,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-10-10T21:50:27.137Z"
+  },
+  "ilustracion": {
+    "descripcion": "Estación del Metro de Panamá vacía con las puertas cerradas al atardecer, un bus de Metrobús estacionado al fondo; el tren o bus principal ubicado en el tercio superior derecho, con el andén despejado a la izquierda y el centro.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-10-1649-sinlinea-la-estrella-ccd4.jpg",
+    "hashDescripcion": "503f8bb15fb26897",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-10T21:49:44.567Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-10T21:49:44.567Z",
+  "actualizado": "2026-10-10T21:49:44.567Z",
+  "plantilla": "foto",
+  "dato": {
+    "cifra": "1 millón",
+    "frase": "de personas se movilizan a diario entre Panamá y Panamá Oeste con Metro y Metrobús"
+  }
+}

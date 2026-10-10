@@ -1,0 +1,52 @@
+{
+  "id": "2026-10-10-1649-sinlinea-la-estrella-367f",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/no-hemos-recibido-ni-visita-ni-ayuda-de-nadie-autoridades-de-los-santos-y-veraguas-claman-por-auxilio-tras-el-sismo-KP26387418",
+    "titulo": "‘No hemos recibido ni visita ni ayuda de nadie’: autoridades de Los Santos y Veraguas claman por auxilio tras el sismo",
+    "publicado": "2026-10-10T16:25:00.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "Los Santos y Veraguas piden auxilio tras el sismo",
+  "bajada": "Comunidades rurales del sur del país siguen sin agua, refugio ni ayuda del Gobierno un día después.",
+  "caption": "A 24 horas del terremoto, familias de La Miel, Bajo Corral y otras comunidades de Los Santos y Veraguas duermen a la intemperie por temor a nuevos derrumbes. Representantes locales denuncian que no han recibido visita ni ayuda de las autoridades, mientras los caminos de producción permanecen cerrados. ¿Está llegando la ayuda a donde más se necesita?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Terremoto",
+    "#LosSantos",
+    "#Veraguas",
+    "#Emergencia"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-10-10-1649-sinlinea-la-estrella-367f.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-10-1649-sinlinea-la-estrella-367f.jpg",
+    "hash": "c883cedffe0327e5",
+    "version": 2,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-10-10T21:50:27.489Z"
+  },
+  "ilustracion": {
+    "descripcion": "Camino rural de tierra agrietado y bloqueado por escombros en una zona montañosa de Azuero, con casas de techo caído al fondo; el derrumbe principal ubicado en el tercio superior derecho y el camino despejado a la izquierda y el centro.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-10T21:49:44.567Z",
+  "actualizado": "2026-10-10T21:49:44.567Z",
+  "plantilla": "dato",
+  "dato": {
+    "cifra": "95%",
+    "frase": "de las viviendas en La Miel de Las Tablas resultaron afectadas por el sismo"
+  }
+}
