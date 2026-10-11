@@ -1,0 +1,48 @@
+{
+  "id": "2026-10-11-0759-sinlinea-la-prensa-5aa3",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/mundo/el-papa-leon-xiv-sera-operado-de-un-nodulo-en-el-pulmon-en-fase-inicial/",
+    "titulo": "El papa León XIV será operado de un nódulo en el pulmón en fase inicial",
+    "publicado": "2026-10-11T12:05:49.000Z"
+  },
+  "categoria": "INTERNACIONAL",
+  "titular": "Papa León XIV será operado de un nódulo pulmonar",
+  "bajada": "La cirugía está prevista para los próximos días, con una semana de hospitalización.",
+  "caption": "El Vaticano confirmó que el papa León XIV será intervenido para extirpar un nódulo pulmonar detectado en fase inicial. El propio pontífice lo anunció tras el Ángelus y pidió las oraciones de los fieles. ¿Qué opina sobre la salud de los líderes religiosos a nivel mundial?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Vaticano",
+    "#PapaLeónXIV",
+    "#Salud",
+    "#Internacional"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-10-11-0759-sinlinea-la-prensa-5aa3.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-11-0759-sinlinea-la-prensa-5aa3.jpg",
+    "hash": "2954a29b464ac98d",
+    "version": 11,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-10-11T13:00:17.103Z"
+  },
+  "ilustracion": {
+    "descripcion": "El papa León XIV saluda desde el balcón del Palacio Apostólico en el Vaticano, en estilo de ilustración editorial, ubicado en el tercio superior derecho, con la plaza de San Pedro despejada al frente.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-11-0759-sinlinea-la-prensa-5aa3.jpg",
+    "hashDescripcion": "e19e2cb810f6935e",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-11T12:59:38.068Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-11T12:59:38.068Z",
+  "actualizado": "2026-10-11T12:59:38.068Z",
+  "plantilla": "foto"
+}

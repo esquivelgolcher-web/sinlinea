@@ -1,0 +1,52 @@
+{
+  "id": "2026-10-11-0759-sinlinea-la-prensa-bba6",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/economia/100-millones-para-la-emergencia-y-la-flexibilizacion-de-los-limites-del-deficit/",
+    "titulo": "$100 millones para la emergencia y la flexibilización de los límites del déficit",
+    "publicado": "2026-10-11T05:04:00.000Z"
+  },
+  "categoria": "ECONOMÍA",
+  "titular": "Gobierno declara emergencia por el terremoto",
+  "bajada": "El Gabinete autoriza $100 millones y pide a la Asamblea suspender límites fiscales.",
+  "caption": "El Consejo de Gabinete declaró estado de emergencia nacional tras el sismo del viernes, con una partida especial de $100 millones para que las instituciones compren sin licitación. Además pedirá a la Asamblea suspender temporalmente los topes de gasto fiscal. ¿Cree que este dinero llegará a quienes más lo necesitan?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Terremoto",
+    "#Emergencia",
+    "#Economía",
+    "#Gobierno"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-10-11-0759-sinlinea-la-prensa-bba6.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-11-0759-sinlinea-la-prensa-bba6.jpg",
+    "hash": "c823960cde7f997a",
+    "version": 2,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-10-11T13:00:11.702Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada del Ministerio de Economía y Finanzas de Panamá con la bandera nacional ondeando, edificio ubicado en el tercio superior derecho, zona izquierda y central despejadas.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-11T12:59:38.068Z",
+  "actualizado": "2026-10-11T12:59:38.068Z",
+  "plantilla": "dato",
+  "dato": {
+    "cifra": "$100 millones",
+    "frase": "se destinan a compras de emergencia sin licitación tras el sismo"
+  }
+}

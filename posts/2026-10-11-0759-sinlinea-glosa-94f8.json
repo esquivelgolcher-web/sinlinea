@@ -1,0 +1,49 @@
+{
+  "id": "2026-10-11-0759-sinlinea-glosa-94f8",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "formato": "glosa",
+  "glosa": {
+    "versos": [
+      "Cien millones de contado",
+      "sin pedir licitación,",
+      "y buscan aprobación",
+      "mas el pueblo, olvidado."
+    ],
+    "esquema": "ABBA",
+    "sobre": {
+      "id": "2026-10-11-0759-sinlinea-la-prensa-bba6",
+      "titular": "Gobierno declara emergencia por el terremoto"
+    }
+  },
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/economia/100-millones-para-la-emergencia-y-la-flexibilizacion-de-los-limites-del-deficit/",
+    "titulo": "$100 millones para la emergencia y la flexibilización de los límites del déficit",
+    "publicado": "2026-10-11T05:04:00.000Z"
+  },
+  "categoria": "ECONOMÍA",
+  "titular": "Cien millones de contado",
+  "bajada": "Sobre: Gobierno declara emergencia por el terremoto",
+  "caption": "Cien millones de contado\nsin pedir licitación,\ny buscan aprobación\nmas el pueblo, olvidado.\n\nSobre: Gobierno declara emergencia por el terremoto · La Prensa\n\n#Panamá #Glosa #LaGarzaMaría",
+  "hashtags": [
+    "#Panamá",
+    "#Glosa",
+    "#LaGarzaMaría"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-10-11-0759-sinlinea-glosa-94f8.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-11-0759-sinlinea-glosa-94f8.jpg",
+    "hash": "1c96f6d3235167f5",
+    "version": 1,
+    "estilo": "df55592d998f5ba3",
+    "renderizada": "2026-10-11T13:01:11.688Z"
+  },
+  "ilustracion": null,
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-11T12:59:38.068Z",
+  "actualizado": "2026-10-11T12:59:38.068Z"
+}
