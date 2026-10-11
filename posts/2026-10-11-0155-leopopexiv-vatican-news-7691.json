@@ -1,0 +1,46 @@
+{
+  "id": "2026-10-11-0155-leopopexiv-vatican-news-7691",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-10/pope-leo-xiv-tweet-death-penalty-inadmissible-dignity-person.html",
+    "titulo": "Pope Leo XIV rejects death penalty as attack on dignity of human person",
+    "publicado": "2026-10-10T11:31:27.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "Pope Leo XIV: death penalty an attack on human dignity",
+  "bajada": "He says justice and the common good can be served without capital punishment",
+  "caption": "Pope Leo XIV reaffirmed the Catholic Church's rejection of the death penalty, stating that the common good can be \"safeguarded and the requirements of justice can be met without recourse to capital punishment.\" Source: Vatican News, Oct 10, 2026.",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Vatican",
+    "#DeathPenalty",
+    "#HumanDignity",
+    "#CatholicChurch"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-10-11-0155-leopopexiv-vatican-news-7691.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-11-0155-leopopexiv-vatican-news-7691.jpg",
+    "hash": "50ca2cf865fb067e",
+    "version": 11,
+    "estilo": "32cba508d6c2290e",
+    "renderizada": "2026-10-11T05:55:39.013Z"
+  },
+  "ilustracion": {
+    "descripcion": "A solemn Vatican hall with tall arched windows and soft light; a robed papal figure stands at a lectern in the upper right, left and center space open and calm.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-11-0155-leopopexiv-vatican-news-7691.jpg",
+    "hashDescripcion": "ddb8ab002e9d46a2",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-11T05:55:17.299Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-11T05:55:17.299Z",
+  "actualizado": "2026-10-11T05:55:17.299Z"
+}
