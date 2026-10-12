@@ -1,7 +1,7 @@
 {
   "id": "2026-10-09-0541-sinlinea-la-estrella-804e",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "La Estrella de Panamá",
     "url": "https://www.laestrella.com.pa/panama/nacional/trasladan-6-millones-de-escuelas-al-mantenimiento-de-helicopteros-HE26335839",
@@ -43,7 +43,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-09T10:41:00.505Z",
-  "actualizado": "2026-10-09T10:41:00.505Z",
+  "actualizado": "2026-10-12T11:33:44.100Z",
   "plantilla": "foto",
   "dato": {
     "cifra": "$6 millones",
