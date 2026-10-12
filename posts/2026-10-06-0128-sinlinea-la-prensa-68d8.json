@@ -1,7 +1,7 @@
 {
   "id": "2026-10-06-0128-sinlinea-la-prensa-68d8",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "La Prensa",
     "url": "https://www.prensa.com/politica/millones-de-dolares-destinados-a-salud-terminan-financiando-la-abultada-planilla-de-la-asamblea/",
@@ -43,7 +43,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-06T06:28:45.144Z",
-  "actualizado": "2026-10-06T06:28:45.144Z",
+  "actualizado": "2026-10-12T12:04:20.310Z",
   "plantilla": "dato",
   "dato": {
     "cifra": "95.4%",
