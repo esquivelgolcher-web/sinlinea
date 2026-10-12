@@ -1,7 +1,7 @@
 {
   "id": "2026-10-09-0541-sinlinea-la-prensa-3da6",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "La Prensa",
     "url": "https://www.prensa.com/unidad-investigativa/un-helicoptero-vip-para-el-escuadron-presidencial/",
@@ -43,7 +43,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-09T10:41:00.505Z",
-  "actualizado": "2026-10-09T10:41:00.505Z",
+  "actualizado": "2026-10-12T12:04:08.875Z",
   "plantilla": "dato",
   "dato": {
     "cifra": "$10.2 millones",
