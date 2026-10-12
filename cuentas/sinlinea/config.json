@@ -63,7 +63,7 @@
     "usuarioIdSecreto": "IG_USER_ID"
   },
   "glosas": {
-    "activo": true,
+    "activo": false,
     "porDia": 1,
     "horasVentana": 48,
     "hashtags": [
