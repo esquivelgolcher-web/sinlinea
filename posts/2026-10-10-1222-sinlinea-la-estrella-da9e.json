@@ -1,7 +1,7 @@
 {
   "id": "2026-10-10-1222-sinlinea-la-estrella-da9e",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "La Estrella de Panamá",
     "url": "https://www.laestrella.com.pa/panama/nacional/mas-del-50-de-las-viviendas-de-mandinga-en-pese-quedaron-destruidas-dice-diputado-varela-KP26382989",
@@ -43,7 +43,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-10T17:22:41.781Z",
-  "actualizado": "2026-10-10T17:22:41.781Z",
+  "actualizado": "2026-10-12T11:39:25.133Z",
   "plantilla": "dato",
   "dato": {
     "cifra": "50%",
