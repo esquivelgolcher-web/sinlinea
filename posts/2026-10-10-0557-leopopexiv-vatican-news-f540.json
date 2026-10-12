@@ -1,7 +1,7 @@
 {
   "id": "2026-10-10-0557-leopopexiv-vatican-news-f540",
   "cuenta": "leopopexiv",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/pope/news/2026-10/cardinal-tagle-elected-new-dean-of-college-of-cardinals.html",
@@ -38,9 +38,26 @@
     "generada": "2026-10-10T09:57:05.816Z",
     "error": null
   },
-  "programado": null,
+  "programado": "2026-10-13T09:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-10-10T09:57:05.816Z",
-  "actualizado": "2026-10-12T08:31:26.311Z"
+  "actualizado": "2026-10-12T12:00:48.567Z",
+  "destinos": {
+    "instagram": {
+      "texto": "Cardinal Luis Antonio Tagle, Pro-Prefect of the Dicastery for Evangelization, has been elected Dean of the College of Cardinals, succeeding 92-year-old Cardinal Giovanni Battista Re. Source: Vatican News, Oct 9, 2026.\n\nFuente: Vatican News\n\n#CardinalTagle #CollegeOfCardinals #Vatican #CatholicChurch #VaticanNews",
+      "aprobado": {
+        "fecha": "2026-10-12T12:00:48.567Z",
+        "hashPieza": "2f4e98a3c1da9afd",
+        "imagenHash": "23609ee851b0184e",
+        "imagenSha": "edd290fd7d346391cfc728e3039cf90a1601d0fc"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
