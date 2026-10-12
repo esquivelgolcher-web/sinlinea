@@ -1,7 +1,7 @@
 {
   "id": "2026-10-08-1353-sinlinea-la-estrella-776d",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "La Estrella de Panamá",
     "url": "https://www.laestrella.com.pa/panama/politica/diputadas-presentan-informe-de-minoria-y-cuestionan-cambios-en-la-reforma-electoral-FF26323996",
@@ -43,7 +43,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-08T18:53:27.771Z",
-  "actualizado": "2026-10-08T18:53:27.771Z",
+  "actualizado": "2026-10-12T11:39:29.966Z",
   "plantilla": "dato",
   "dato": {
     "cifra": "50%",
