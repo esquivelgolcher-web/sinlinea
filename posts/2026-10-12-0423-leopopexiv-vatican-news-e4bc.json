@@ -1,7 +1,7 @@
 {
   "id": "2026-10-12-0423-leopopexiv-vatican-news-e4bc",
   "cuenta": "leopopexiv",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/pope/news/2026-10/pope-leo-xiv-to-undergo-surgery-remove-nodule-lung.html",
@@ -38,9 +38,26 @@
     "generada": "2026-10-12T08:23:58.200Z",
     "error": null
   },
-  "programado": null,
+  "programado": "2026-10-12T13:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-10-12T08:23:58.200Z",
-  "actualizado": "2026-10-12T08:31:26.311Z"
+  "actualizado": "2026-10-12T12:00:42.901Z",
+  "destinos": {
+    "instagram": {
+      "texto": "Pope Leo XIV has announced he will undergo surgery in the coming days to remove a localized nodule in his lung, describing it as being at a very early stage and well-localized. The procedure will take place at Rome's Gemelli Hospital. Source: Vatican News, Oct. 11, 2026.\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #GemelliHospital #VaticanNews #CatholicChurch",
+      "aprobado": {
+        "fecha": "2026-10-12T12:00:42.901Z",
+        "hashPieza": "14d86e931a0d0ba5",
+        "imagenHash": "329b49fb89ecb359",
+        "imagenSha": "e00fe81e3628a7619fa25508afcae35a368543cc"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
