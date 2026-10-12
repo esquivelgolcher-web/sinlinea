@@ -1,7 +1,7 @@
 {
   "id": "2026-10-12-0423-leopopexiv-vatican-news-e4bc",
   "cuenta": "leopopexiv",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/pope/news/2026-10/pope-leo-xiv-to-undergo-surgery-remove-nodule-lung.html",
@@ -39,7 +39,11 @@
     "error": null
   },
   "programado": "2026-10-12T13:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "18103409039213085",
+    "permalink": "https://www.instagram.com/p/DeZ-B3-j_u2/",
+    "fecha": "2026-10-12T19:19:12.310Z"
+  },
   "error": null,
   "creado": "2026-10-12T08:23:58.200Z",
   "actualizado": "2026-10-12T19:19:12.310Z",
@@ -52,16 +56,15 @@
         "imagenHash": "329b49fb89ecb359",
         "imagenSha": "e00fe81e3628a7619fa25508afcae35a368543cc"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-10-12T19:19:12.310Z",
-        "actualizado": "2026-10-12T19:19:12.310Z",
-        "contenedorId": "18108416537081176"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18103409039213085",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/DeZ-B3-j_u2/",
+        "fecha": "2026-10-12T19:19:12.310Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
