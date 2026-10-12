@@ -1,7 +1,7 @@
 {
   "id": "2026-10-07-0107-sinlinea-la-estrella-ab12",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "La Estrella de Panamá",
     "url": "https://www.laestrella.com.pa/panama/nacional/operacion-muralla-lleva-a-lau-cortes-ante-la-justicia-BO26282737",
@@ -43,7 +43,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-07T06:07:37.170Z",
-  "actualizado": "2026-10-07T06:07:37.170Z",
+  "actualizado": "2026-10-12T11:33:58.177Z",
   "plantilla": "foto",
   "dato": {
     "cifra": "$122,253",
