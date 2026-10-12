@@ -1,7 +1,7 @@
 {
   "id": "2026-10-11-0759-sinlinea-la-prensa-bba6",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "La Prensa",
     "url": "https://www.prensa.com/economia/100-millones-para-la-emergencia-y-la-flexibilizacion-de-los-limites-del-deficit/",
@@ -43,7 +43,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-11T12:59:38.068Z",
-  "actualizado": "2026-10-11T12:59:38.068Z",
+  "actualizado": "2026-10-12T12:02:05.643Z",
   "plantilla": "dato",
   "dato": {
     "cifra": "$100 millones",
