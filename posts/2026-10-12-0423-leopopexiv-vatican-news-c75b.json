@@ -1,7 +1,7 @@
 {
   "id": "2026-10-12-0423-leopopexiv-vatican-news-c75b",
   "cuenta": "leopopexiv",
-  "estado": "programado",
+  "estado": "publicado",
   "formato": "frase",
   "frase": {
     "texto": "It is as genuine as the work, the smiles, the tears, the handshakes, and the acts of kindness that fill our days. It is a gift of God for the salvation of the world.",
@@ -37,7 +37,11 @@
   },
   "ilustracion": null,
   "programado": "2026-10-12T13:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "18396929335161353",
+    "permalink": "https://www.instagram.com/p/DeZ-AN2Dy7c/",
+    "fecha": "2026-10-12T19:19:12.310Z"
+  },
   "error": null,
   "creado": "2026-10-12T08:23:58.200Z",
   "actualizado": "2026-10-12T19:19:12.310Z",
@@ -50,16 +54,15 @@
         "imagenHash": "1c2a33fda7d49213",
         "imagenSha": "7f533dbcd5ad6267c16b17395812317a6aaba4e1"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-10-12T19:19:12.310Z",
-        "actualizado": "2026-10-12T19:19:12.310Z",
-        "contenedorId": "18108416510081176"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18396929335161353",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/DeZ-AN2Dy7c/",
+        "fecha": "2026-10-12T19:19:12.310Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
