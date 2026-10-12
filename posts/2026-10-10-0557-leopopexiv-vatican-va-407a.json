@@ -1,7 +1,7 @@
 {
   "id": "2026-10-10-0557-leopopexiv-vatican-va-407a",
   "cuenta": "leopopexiv",
-  "estado": "borrador",
+  "estado": "programado",
   "formato": "frase",
   "frase": {
     "texto": "No one is saved alone; we can only be saved together.",
@@ -36,9 +36,26 @@
     "renderizada": "2026-10-10T09:58:50.697Z"
   },
   "ilustracion": null,
-  "programado": null,
+  "programado": "2026-10-12T09:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-10-10T09:57:05.816Z",
-  "actualizado": "2026-10-10T09:57:05.816Z"
+  "actualizado": "2026-10-12T08:19:02.765Z",
+  "destinos": {
+    "instagram": {
+      "texto": "“No one is saved alone; we can only be saved together.”\n\n— Pope Francis, Fratelli tutti, 32 (2020)\n\n#PopeLeoXIV #Vatican #CatholicChurch\n\nFuente: Vatican.va\n\n#PopeLeoXIV #Vatican #CatholicChurch",
+      "aprobado": {
+        "fecha": "2026-10-12T08:19:02.765Z",
+        "hashPieza": "5978613355baa1e5",
+        "imagenHash": "0a73b38bf5bd6e89",
+        "imagenSha": "e5670fc0c5a79b837e34f36ccc329f663231d1a4"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
