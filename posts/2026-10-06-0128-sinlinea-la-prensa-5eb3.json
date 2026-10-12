@@ -1,7 +1,7 @@
 {
   "id": "2026-10-06-0128-sinlinea-la-prensa-5eb3",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "La Prensa",
     "url": "https://www.prensa.com/sociedad/contrato-del-teleferico-de-san-miguelito-fue-refrendado-la-obra-tomara-30-meses/",
@@ -43,6 +43,6 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-06T06:28:45.144Z",
-  "actualizado": "2026-10-06T06:28:45.144Z",
+  "actualizado": "2026-10-12T11:34:02.074Z",
   "plantilla": "foto"
 }
