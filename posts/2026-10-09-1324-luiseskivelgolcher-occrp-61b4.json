@@ -1,7 +1,7 @@
 {
   "id": "2026-10-09-1324-luiseskivelgolcher-occrp-61b4",
   "cuenta": "luiseskivelgolcher",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "OCCRP",
     "url": "https://www.occrp.org/en/news/lithuanian-minister-condemns-intimidation-campaign-against-investigative-reporters",
@@ -197,9 +197,59 @@
     "estado": "pendiente",
     "notas": []
   },
-  "programado": null,
+  "programado": "2026-10-12T12:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-10-09T18:24:02.159Z",
-  "actualizado": "2026-10-09T18:24:02.159Z"
+  "actualizado": "2026-10-12T08:19:16.421Z",
+  "destinos": {
+    "instagram": {
+      "texto": "Una investigación conjunta de OCCRP y el medio lituano 15min reveló que más de 45 millones de euros recaudados por la firma cripto Bankera entre 2017 y 2018 terminaron en Pacific Private Bank, un banco offshore en Vanuatu comprado por los propios fundadores de Bankera. Tras la publicación, en abril de 2025, los periodistas del caso enfrentaron una campaña de acoso: vigilancia en eventos públicos, recolección de datos personales y decenas de denuncias regulatorias presentadas por personas vinculadas a la empresa. El ministro de Cultura lituano, Lukas Alsys, calificó cualquier intimidación a periodistas como «completamente intolerable». Bankera niega haber orquestado el acoso. En septiembre de 2026, las autoridades lituanas nombraron formalmente como sospechosos a los tres cofundadores de la empresa por presunta disipación ilícita de al menos 49 millones de dólares. Ninguno ha sido condenado. ¿Hasta dónde puede llegar la presión contra el periodismo que investiga fraude financiero digital?\n\nFuente: OCCRP\n\n#Cripto #Periodismo #OCCRP #Lituania #Fraude",
+      "aprobado": {
+        "fecha": "2026-10-12T08:19:16.421Z",
+        "hashPieza": "cd2240f8d08b19be",
+        "imagenHash": "5eadbff5b9def3a7",
+        "imagenSha": "697ce1cec1227dce19af075d6ccd305d447c9f60",
+        "imagenesSha": [
+          "14b6ae2418641a4ccfdb0d45ac245c0f94b32119",
+          "e08595a316f720918e25e81086d6a6c8fea3fb18",
+          "8782737ca6eb45ff51581dfe6279216026a42bbf",
+          "787b14a9060aa880ca6da3397b1117f93111b118",
+          "08f59b64a2bd2a30a6cac18d9bd3f7b8279a0fc1",
+          "cd4c4985537f32dfc44669cd67a0bfbd8165ab99",
+          "9227159e41561fd4bb4a3b395b22c04e271a7793"
+        ]
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    },
+    "threads": {
+      "texto": "Periodistas lituanos, acosados tras destapar fraude cripto\n\nOCCRP y 15min vincularon a Bankera con 45 millones movidos a un banco offshore en Vanuatu\n\nSegún OCCRP (9 de octubre de 2026)",
+      "aprobado": {
+        "fecha": "2026-10-12T08:19:16.421Z",
+        "hashPieza": "cd2240f8d08b19be",
+        "imagenHash": "5eadbff5b9def3a7",
+        "imagenSha": "697ce1cec1227dce19af075d6ccd305d447c9f60",
+        "imagenesSha": [
+          "14b6ae2418641a4ccfdb0d45ac245c0f94b32119",
+          "e08595a316f720918e25e81086d6a6c8fea3fb18",
+          "8782737ca6eb45ff51581dfe6279216026a42bbf",
+          "787b14a9060aa880ca6da3397b1117f93111b118",
+          "08f59b64a2bd2a30a6cac18d9bd3f7b8279a0fc1",
+          "cd4c4985537f32dfc44669cd67a0bfbd8165ab99",
+          "9227159e41561fd4bb4a3b395b22c04e271a7793"
+        ]
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
