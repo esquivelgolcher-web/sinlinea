@@ -1,7 +1,7 @@
 {
   "id": "2026-10-11-0155-leopopexiv-vatican-news-7691",
   "cuenta": "leopopexiv",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/pope/news/2026-10/pope-leo-xiv-tweet-death-penalty-inadmissible-dignity-person.html",
@@ -38,9 +38,26 @@
     "generada": "2026-10-11T05:55:17.299Z",
     "error": null
   },
-  "programado": null,
+  "programado": "2026-10-12T18:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-10-11T05:55:17.299Z",
-  "actualizado": "2026-10-12T08:31:26.311Z"
+  "actualizado": "2026-10-12T12:00:45.121Z",
+  "destinos": {
+    "instagram": {
+      "texto": "Pope Leo XIV reaffirmed the Catholic Church's rejection of the death penalty, stating that the common good can be \"safeguarded and the requirements of justice can be met without recourse to capital punishment.\" Source: Vatican News, Oct 10, 2026.\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #DeathPenalty #HumanDignity #CatholicChurch",
+      "aprobado": {
+        "fecha": "2026-10-12T12:00:45.121Z",
+        "hashPieza": "b9391ed620806818",
+        "imagenHash": "50ca2cf865fb067e",
+        "imagenSha": "db64dee12f237cc297dd2ef09d3a34211c92b48b"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
