@@ -124,7 +124,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-08T18:53:27.771Z",
-  "actualizado": "2026-10-12T08:19:41.031Z",
+  "actualizado": "2026-10-12T19:16:07.921Z",
   "destinos": {
     "instagram": {
       "texto": "El Pentágono tiene un programa llamado Tradewinds que acelera la compra de inteligencia artificial —sistemas que procesan datos para tomar decisiones automatizadas— para fines militares. Según reportó WIRED el 7 de octubre de 2026, empresas como OpenAI, Anthropic y Google presentan videos de máximo cinco minutos mostrando sus productos; un panel los evalúa y, si los aprueba, quedan como opción “post-competitiva”, lo que permite a funcionarios saltarse meses de trámites. En algunos casos, el Departamento de Defensa adjudicó contratos en menos de una semana. Este año el programa busca específicamente IA que ayude a identificar objetivos militares, según el artículo. Los llamados “acuerdos de otro tipo” (OT) permiten gastar hasta 500 millones de dólares sin avisar al Congreso. La senadora Joni Ernst advirtió a WIRED sobre falta de supervisión y transparencia en este mecanismo. OpenAI, Anthropic y Google no respondieron a la solicitud de comentario del medio. ¿Debería el gasto militar en IA tener más control público?\n\nFuente: WIRED\n\n#InteligenciaArtificial #Pentágono #ContratosPúblicos #Tecnología #WIRED",
@@ -152,7 +152,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-10-12T19:16:07.921Z",
+        "actualizado": "2026-10-12T19:16:07.921Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     },
