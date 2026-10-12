@@ -1,7 +1,7 @@
 {
   "id": "2026-10-09-0541-luiseskivelgolcher-wired-8277",
   "cuenta": "luiseskivelgolcher",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "WIRED",
     "url": "https://www.wired.com/story/ice-emails-discuss-using-palantir-supported-tool-to-investigate-voter-fraud/",
@@ -202,9 +202,59 @@
     "estado": "pendiente",
     "notas": []
   },
-  "programado": null,
+  "programado": "2026-10-12T07:05:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-10-09T10:41:00.505Z",
-  "actualizado": "2026-10-09T10:41:00.505Z"
+  "actualizado": "2026-10-12T08:19:28.919Z",
+  "destinos": {
+    "instagram": {
+      "texto": "Documentos obtenidos por la organización legal Democracy Forward, mediante una solicitud de acceso a información pública (FOIA), muestran que el brazo investigativo de ICE exploró usar ELITE —una herramienta con apoyo de Palantir, la empresa de análisis de datos— para cruzar información de registros electorales. ELITE normalmente sirve para ubicar objetivos de deportación, según reportó 404 Media. Un correo interno fechado el 26 de mayo menciona el \"ingreso de datos de registro de votantes procesados\" al sistema. Un vocero de Palantir le dijo a WIRED que esos datos \"nunca se han integrado\" a ELITE. Los documentos también revelan que DHS investigó a más de 150 organizaciones sin fines de lucro buscando evidencia de que ayudaban a inmigrantes sin ciudadanía a registrarse para votar. Toda la evidencia disponible indica que el voto de personas no ciudadanas es extremadamente raro en Estados Unidos. ¿Hasta dónde debería llegar una agencia de inmigración en la vigilancia del proceso electoral?\n\nFuente: WIRED\n\n#Vigilancia #Palantir #ICE #Privacidad #EstadosUnidos",
+      "aprobado": {
+        "fecha": "2026-10-12T08:19:28.919Z",
+        "hashPieza": "c08d0008d10c6af2",
+        "imagenHash": "cb0da2b7600a18fd",
+        "imagenSha": "b2ffbf85778c2909db17a71aa32aba3e565a7e88",
+        "imagenesSha": [
+          "7bb8a411b8282fa7d90cbf76f646ea359b0b7999",
+          "f54cc1053213ac17840120494eb544d920f452ed",
+          "d5d175bf42ac31b6f625edb1f1d09ac258746502",
+          "d146664c0f33103b3285aa59ac749aac840be1c3",
+          "78a736570b900a0c6735d5d8f8e39359d3a92903",
+          "e071f91546fe138dac1a17fe7e80d7f4dce84386",
+          "bc80135c8e6d150b52a68e47c62ba50be03a2771"
+        ]
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    },
+    "threads": {
+      "texto": "ICE evaluó usar ELITE para investigar fraude electoral\n\nDocumentos de FOIA muestran el plan dentro de una agencia de inmigración\n\nSegún WIRED (8 de octubre de 2026)",
+      "aprobado": {
+        "fecha": "2026-10-12T08:19:28.919Z",
+        "hashPieza": "c08d0008d10c6af2",
+        "imagenHash": "cb0da2b7600a18fd",
+        "imagenSha": "b2ffbf85778c2909db17a71aa32aba3e565a7e88",
+        "imagenesSha": [
+          "7bb8a411b8282fa7d90cbf76f646ea359b0b7999",
+          "f54cc1053213ac17840120494eb544d920f452ed",
+          "d5d175bf42ac31b6f625edb1f1d09ac258746502",
+          "d146664c0f33103b3285aa59ac749aac840be1c3",
+          "78a736570b900a0c6735d5d8f8e39359d3a92903",
+          "e071f91546fe138dac1a17fe7e80d7f4dce84386",
+          "bc80135c8e6d150b52a68e47c62ba50be03a2771"
+        ]
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
