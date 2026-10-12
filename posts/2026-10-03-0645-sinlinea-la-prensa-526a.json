@@ -1,7 +1,7 @@
 {
   "id": "2026-10-03-0645-sinlinea-la-prensa-526a",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "La Prensa",
     "url": "https://www.prensa.com/sociedad/afectaciones-en-albrook-mall-el-centro-comercial-apunta-a-obras-cercanas-sin-especificarlas/",
@@ -43,7 +43,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-03T11:45:24.885Z",
-  "actualizado": "2026-10-03T11:45:24.885Z",
+  "actualizado": "2026-10-12T11:34:17.151Z",
   "plantilla": "foto",
   "dato": {
     "cifra": "10%",
