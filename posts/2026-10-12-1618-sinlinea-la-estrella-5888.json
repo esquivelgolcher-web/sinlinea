@@ -1,0 +1,52 @@
+{
+  "id": "2026-10-12-1618-sinlinea-la-estrella-5888",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/casos-de-dengue-disminuyen-20-en-panama-pero-el-minsa-pide-mantener-la-prevencion-ID26437348",
+    "titulo": "Casos de dengue disminuyen 20% en Panamá, pero el Minsa pide mantener la prevención",
+    "publicado": "2026-10-12T15:47:00.000Z"
+  },
+  "categoria": "SALUD",
+  "titular": "Casos de dengue bajan 20% en Panamá este año",
+  "bajada": "El Minsa reporta 9,679 casos hasta septiembre, pero pide mantener la prevención en todo el país.",
+  "caption": "Aunque los contagios de dengue bajaron frente a 2025, el Minsa advierte que la amenaza no ha desaparecido. Colón y la región Metropolitana concentran la mayoría de los casos, y los niños de 10 a 14 años son los más afectados. La prevención sigue siendo clave para evitar un repunte. ¿Has eliminado criaderos en tu casa esta semana?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Salud",
+    "#Dengue",
+    "#Minsa",
+    "#PrevenciónSalud"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-10-12-1618-sinlinea-la-estrella-5888.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-12-1618-sinlinea-la-estrella-5888.jpg",
+    "hash": "a9b09cbd86fae603",
+    "version": 11,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-10-12T21:19:22.201Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fumigador de salud pública panameño rociando insecticida en un patio residencial bajo el sol, con tanques de agua tapados cerca; el elemento principal queda en el tercio superior derecho, zona izquierda y central despejadas.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-12-1618-sinlinea-la-estrella-5888.jpg",
+    "hashDescripcion": "6e1a1f8285fb3c50",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-12T21:18:44.024Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-12T21:18:44.024Z",
+  "actualizado": "2026-10-12T21:18:44.024Z",
+  "plantilla": "foto",
+  "dato": {
+    "cifra": "20%",
+    "frase": "menos casos de dengue se registraron en Panamá frente al año anterior"
+  }
+}

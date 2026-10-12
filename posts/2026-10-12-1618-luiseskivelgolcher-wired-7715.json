@@ -1,0 +1,115 @@
+{
+  "id": "2026-10-12-1618-luiseskivelgolcher-wired-7715",
+  "cuenta": "luiseskivelgolcher",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "WIRED",
+    "url": "https://www.wired.com/story/feds-got-warrants-to-use-fake-cell-towers-to-hunt-down-don-lemons-producer/",
+    "titulo": "Feds Got Warrants to Use Fake Cell Towers to Hunt Down Don Lemon’s Producer",
+    "publicado": "2026-10-12T11:00:00.000Z"
+  },
+  "categoria": "INVESTIGACIÓN",
+  "titular": "EE.UU. usó antenas falsas contra periodistas",
+  "bajada": "Documentos judiciales muestran órdenes para rastrear a un productor de Don Lemon y dos reporteros más.",
+  "caption": "Un tribunal autorizó a agentes federales de Estados Unidos usar un simulador de antena de telefonía (un aparato que imita una torre celular para localizar e interceptar señales de teléfonos cercanos) para ubicar a Jerome Richardson, un exestudiante que ayudó a producir la cobertura de Don Lemon sobre una protesta contra ICE en una iglesia de Saint Paul, Minnesota, el 18 de enero de 2026. Según documentos judiciales revisados por WIRED, jueces de Minnesota y Pensilvania firmaron las órdenes el 30 y 31 de enero. Las autoridades también pidieron simuladores contra la periodista Georgia Fort y el entonces candidato al Senado estatal Jamael Lundy, aunque no está claro si los jueces aprobaron esas solicitudes ni si el dispositivo llegó a usarse. Cooper Quintin, de la Electronic Frontier Foundation, calificó el caso como 'un ataque atroz a la Primera Enmienda'. Esta información proviene de una sola fuente hasta ahora: el reportaje de WIRED. ¿Hasta dónde puede llegar la vigilancia estatal para perseguir a quienes cubren una protesta?",
+  "hashtags": [
+    "#Vigilancia",
+    "#Periodismo",
+    "#Privacidad",
+    "#CiberSeguridad",
+    "#EstadosUnidos"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-10-12-1618-luiseskivelgolcher-wired-7715.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-12-1618-luiseskivelgolcher-wired-7715.jpg",
+    "hash": "82632e3a91fd1960",
+    "version": 11,
+    "estilo": "dc8c8fa3edf501fd",
+    "renderizada": "2026-10-12T21:20:05.684Z"
+  },
+  "ilustracion": {
+    "descripcion": "Antena de telecomunicaciones genérica recortada contra un cielo urbano al atardecer, ubicada en el tercio superior derecho; la zona izquierda y central de la imagen queda despejada, sin texto ni logotipos, con tratamiento de ilustración editorial.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-12-1618-luiseskivelgolcher-wired-7715.jpg",
+    "hashDescripcion": "397be60d8d7f27e7",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-12T21:18:44.024Z",
+    "error": null,
+    "procedencia": "generada"
+  },
+  "formato": "post",
+  "fuentes": [
+    {
+      "rol": "principal",
+      "medio": "WIRED",
+      "autor": "Dhruv Mehrotra",
+      "url": "https://www.wired.com/story/feds-got-warrants-to-use-fake-cell-towers-to-hunt-down-don-lemons-producer/",
+      "canonica": "https://www.wired.com/story/feds-got-warrants-to-use-fake-cell-towers-to-hunt-down-don-lemons-producer/",
+      "idioma": "en",
+      "publicado": "2026-10-12T11:00:00.000Z",
+      "actualizado": "2026-10-12T11:00:00.000Z",
+      "fechaHecho": "2026-01-30",
+      "consultado": "2026-10-12T21:18:44.024Z",
+      "alcance": "completo",
+      "textoRecuperado": {
+        "parrafos": 27,
+        "caracteres": 8825,
+        "enviados": 3406
+      },
+      "fuentesPrimarias": [
+        "https://oversight.house.gov/wp-content/uploads/2015/10/15-3959-S2-DHS-Signed-Policy-Directive-047-02-Use-of-Cell-Site-Simulator-Tech.pdf",
+        "http://www.aboutads.info"
+      ],
+      "licenciaMedios": null
+    }
+  ],
+  "afirmaciones": [
+    {
+      "texto": "Jueces de Minnesota y Pensilvania firmaron órdenes el 30 y 31 de enero de 2026 para usar un simulador de antena celular y ubicar a Jerome Richardson.",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/feds-got-warrants-to-use-fake-cell-towers-to-hunt-down-don-lemons-producer/",
+      "contrastada": false
+    },
+    {
+      "texto": "Agentes también solicitaron simuladores contra la periodista Georgia Fort y el candidato Jamael Lundy, sin confirmación de aprobación o uso.",
+      "tipo": "denuncia",
+      "fuente": "https://www.wired.com/story/feds-got-warrants-to-use-fake-cell-towers-to-hunt-down-don-lemons-producer/",
+      "contrastada": false
+    },
+    {
+      "texto": "El uso de un simulador de antena contra la prensa es 'un ataque atroz a la Primera Enmienda', según Cooper Quintin de la EFF.",
+      "tipo": "opinion",
+      "fuente": "https://www.wired.com/story/feds-got-warrants-to-use-fake-cell-towers-to-hunt-down-don-lemons-producer/",
+      "contrastada": false
+    }
+  ],
+  "angulo": "Uso de simuladores de antena celular contra periodistas y un candidato político, según documentos judiciales revisados por WIRED.",
+  "atribucion": "WIRED (Dhruv Mehrotra)",
+  "puntuacion": {
+    "total": 79,
+    "componentes": {
+      "afinidad": 27,
+      "interes": 20,
+      "evidencia": 12,
+      "actualidad": 15,
+      "visual": 5
+    }
+  },
+  "alertas": [
+    "fuente-unica",
+    "hecho-antiguo"
+  ],
+  "carrusel": null,
+  "reel": null,
+  "revision": {
+    "estado": "pendiente",
+    "notas": []
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-12T21:18:44.024Z",
+  "actualizado": "2026-10-12T21:18:44.024Z"
+}

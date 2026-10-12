@@ -1,0 +1,52 @@
+{
+  "id": "2026-10-12-1618-sinlinea-la-estrella-b8d2",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/ministro-de-salud-responde-a-la-protesta-de-pacientes-renales-y-asegura-que-los-405-estan-reubicados-FD26437929",
+    "titulo": "Ministro de Salud responde a la protesta de pacientes renales y asegura que los 405 están reubicados",
+    "publicado": "2026-10-12T15:40:00.000Z"
+  },
+  "categoria": "SALUD",
+  "titular": "Minsa reubica a 405 pacientes renales tras cierre",
+  "bajada": "El ministro de Salud respondió a protesta en avenida Balboa por suspensión de hemodiálisis",
+  "caption": "Pacientes de hemodiálisis bloquearon la avenida Balboa exigiendo respuestas sobre sus tratamientos tras el cierre del edificio de Maternidad del Santo Tomás. El Minsa asegura que ya todos fueron reubicados, pero la incertidumbre y el miedo siguen entre quienes dependen de este servicio para vivir. ¿Conoces a alguien afectado por estos cierres?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Salud",
+    "#CajaDeSeguroSocial",
+    "#HemodiálisisPanamá",
+    "#Terremoto"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-10-12-1618-sinlinea-la-estrella-b8d2.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-12-1618-sinlinea-la-estrella-b8d2.jpg",
+    "hash": "7ae809089716f8d2",
+    "version": 2,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-10-12T21:19:17.693Z"
+  },
+  "ilustracion": {
+    "descripcion": "Pasillo de un hospital público panameño con camillas y personal médico en movimiento, un cartel de hemodiálisis en la pared; el elemento principal queda en el tercio superior derecho, zona izquierda y central despejadas.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-12T21:18:44.024Z",
+  "actualizado": "2026-10-12T21:18:44.024Z",
+  "plantilla": "dato",
+  "dato": {
+    "cifra": "405",
+    "frase": "pacientes de hemodiálisis fueron reubicados tras el cierre del servicio"
+  }
+}
