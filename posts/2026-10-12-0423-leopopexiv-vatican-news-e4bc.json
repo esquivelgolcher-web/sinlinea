@@ -1,0 +1,46 @@
+{
+  "id": "2026-10-12-0423-leopopexiv-vatican-news-e4bc",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-10/pope-leo-xiv-to-undergo-surgery-remove-nodule-lung.html",
+    "titulo": "Pope Leo: I will undergo surgery soon to remove nodule in my lung",
+    "publicado": "2026-10-11T10:16:00.000Z"
+  },
+  "categoria": "SALUD",
+  "titular": "Pope Leo XIV to undergo lung nodule surgery",
+  "bajada": "Vatican says nodule is at early stage; operation set at Rome's Gemelli Hospital",
+  "caption": "Pope Leo XIV has announced he will undergo surgery in the coming days to remove a localized nodule in his lung, describing it as being at a very early stage and well-localized. The procedure will take place at Rome's Gemelli Hospital. Source: Vatican News, Oct. 11, 2026.",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Vatican",
+    "#GemelliHospital",
+    "#VaticanNews",
+    "#CatholicChurch"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-10-12-0423-leopopexiv-vatican-news-e4bc.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-12-0423-leopopexiv-vatican-news-e4bc.jpg",
+    "hash": "329b49fb89ecb359",
+    "version": 11,
+    "estilo": "32cba508d6c2290e",
+    "renderizada": "2026-10-12T08:25:06.790Z"
+  },
+  "ilustracion": {
+    "descripcion": "Exterior of Rome's Gemelli Hospital at dusk, a solitary figure in white papal attire glimpsed entering through a side door, positioned in the upper right third, left and center space open and calm.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-12-0423-leopopexiv-vatican-news-e4bc.jpg",
+    "hashDescripcion": "a3be6db7abe23d31",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-12T08:23:58.200Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-12T08:23:58.200Z",
+  "actualizado": "2026-10-12T08:23:58.200Z"
+}

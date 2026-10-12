@@ -1,0 +1,44 @@
+{
+  "id": "2026-10-12-0423-leopopexiv-vatican-news-c75b",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "formato": "frase",
+  "frase": {
+    "texto": "It is as genuine as the work, the smiles, the tears, the handshakes, and the acts of kindness that fill our days. It is a gift of God for the salvation of the world.",
+    "autor": "Pope Leo XIV",
+    "fuente": "Angelus",
+    "anio": 2026,
+    "url": "https://www.vaticannews.va/en/pope/news/2026-10/pope-leo-xiv-angelus-christian-joy-salvation.html",
+    "origen": "texto"
+  },
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-10/pope-leo-xiv-angelus-christian-joy-salvation.html",
+    "titulo": "Pope at Angelus: Christian joy is ‘gift of God for world’s salvation’ - Vatican News",
+    "publicado": "2026-10-11T12:21:00.000+02:00"
+  },
+  "categoria": "CULTURA",
+  "titular": "Pope Leo XIV",
+  "bajada": "Angelus · 2026",
+  "caption": "“It is as genuine as the work, the smiles, the tears, the handshakes, and the acts of kindness that fill our days. It is a gift of God for the salvation of the world.”\n\n— Pope Leo XIV, Angelus (2026)\n\nVia Vatican News, 11 October 2026\n\n#PopeLeoXIV #Vatican #CatholicChurch",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Vatican",
+    "#CatholicChurch"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-10-12-0423-leopopexiv-vatican-news-c75b.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-12-0423-leopopexiv-vatican-news-c75b.jpg",
+    "hash": "1c2a33fda7d49213",
+    "version": 1,
+    "estilo": "28c21995920a45b7",
+    "renderizada": "2026-10-12T08:25:10.846Z"
+  },
+  "ilustracion": null,
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-12T08:23:58.200Z",
+  "actualizado": "2026-10-12T08:23:58.200Z"
+}

@@ -1,0 +1,204 @@
+{
+  "id": "2026-10-12-0323-luiseskivelgolcher-wired-39d2",
+  "cuenta": "luiseskivelgolcher",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "WIRED",
+    "url": "https://www.wired.com/story/ai-is-getting-really-good-at-messing-with-cybercriminals/",
+    "titulo": "AI Is Getting Really Good at Messing With Cybercriminals",
+    "publicado": "2026-10-10T12:00:00.000Z"
+  },
+  "categoria": "SEGURIDAD",
+  "titular": "IA engaña a estafadores con víctimas falsas",
+  "bajada": "Apate usa bots con IA para hacerse pasar por víctimas y agotar el tiempo de los estafadores",
+  "caption": "Una empresa australiana llamada Apate construye desde hace dos años un sistema que desvía llamadas de estafadores hacia bots de inteligencia artificial entrenados para sostener la conversación sin caer en el engaño, según reportó WIRED el 10 de octubre de 2026. El fundador, Dali Kaafar, dice que la plataforma —usada por bancos y apoyada por telecomunicadoras— tiene unos 350,000 bots y ha recopilado más de 250,000 datos sobre estafadores, desde URLs falsas hasta cuentas de \"mulas\" de dinero. Las llamadas, según él, pueden durar más de dos horas. Estas cifras provienen de la propia empresa y no hay verificación independiente en el reportaje. Mientras tanto, los fraudes digitales siguen multiplicándose: cada año se inician miles de millones de mensajes y llamadas fraudulentas. ¿Puede la IA frenar una industria criminal que opera a escala industrial?",
+  "hashtags": [
+    "#Ciberseguridad",
+    "#IA",
+    "#FraudeDigital",
+    "#Privacidad"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-10-12-0323-luiseskivelgolcher-wired-39d2.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-12-0323-luiseskivelgolcher-wired-39d2.jpg",
+    "hash": "45c1170421412512",
+    "version": 11,
+    "estilo": "dc8c8fa3edf501fd",
+    "renderizada": "2026-10-12T08:24:49.089Z"
+  },
+  "ilustracion": {
+    "descripcion": "Ilustración editorial de un teléfono inteligente con un ícono abstracto de inteligencia artificial iluminado en la pantalla, sobre fondo oscuro con tonos azules; el teléfono queda en el tercio superior derecho y la zona izquierda y central permanecen despejadas.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-12-0323-luiseskivelgolcher-wired-39d2.jpg",
+    "hashDescripcion": "8b4814cf6118a3c5",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-12T08:23:58.200Z",
+    "error": null,
+    "procedencia": "generada"
+  },
+  "formato": "carrusel",
+  "fuentes": [
+    {
+      "rol": "principal",
+      "medio": "WIRED",
+      "autor": "Lily Hay Newman",
+      "url": "https://www.wired.com/story/ai-is-getting-really-good-at-messing-with-cybercriminals/",
+      "canonica": "https://www.wired.com/story/ai-is-getting-really-good-at-messing-with-cybercriminals/",
+      "idioma": "en",
+      "publicado": "2026-10-10T12:00:00.000Z",
+      "actualizado": "2026-10-10T12:00:00.000Z",
+      "fechaHecho": null,
+      "consultado": "2026-10-12T08:23:58.200Z",
+      "alcance": "completo",
+      "textoRecuperado": {
+        "parrafos": 19,
+        "caracteres": 6263,
+        "enviados": 3927
+      },
+      "fuentesPrimarias": [
+        "https://news.virginmediao2.co.uk/o2s-ai-granny-daisy-unveils-what-shes-learnt-from-her-time-on-the-phone-to-scammers-and-what-you-can-do-to-ruin-their-day/",
+        "https://www.iarpa.gov/research-programs/rescind",
+        "https://honeyval.xyz/",
+        "http://www.aboutads.info"
+      ],
+      "licenciaMedios": null
+    }
+  ],
+  "afirmaciones": [
+    {
+      "texto": "Apate construyó un sistema que desvía llamadas de estafadores hacia bots de IA entrenados para mantener la conversación sin caer en el engaño.",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/ai-is-getting-really-good-at-messing-with-cybercriminals/",
+      "contrastada": false
+    },
+    {
+      "texto": "La plataforma tiene alrededor de 350,000 bots y es usada por bancos con apoyo de empresas de telecomunicaciones.",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/ai-is-getting-really-good-at-messing-with-cybercriminals/",
+      "contrastada": false
+    },
+    {
+      "texto": "La empresa dice haber recopilado más de 250,000 piezas de información sobre estafadores en tiempo real.",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/ai-is-getting-really-good-at-messing-with-cybercriminals/",
+      "contrastada": false
+    },
+    {
+      "texto": "Según su fundador, las llamadas de Apate con estafadores suelen durar más de dos horas.",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/ai-is-getting-really-good-at-messing-with-cybercriminals/",
+      "contrastada": false
+    },
+    {
+      "texto": "\"Un minuto que un estafador habla con un bot es un minuto donde probablemente se salvan cientos o miles de posibles víctimas\", según el fundador de Apate.",
+      "tipo": "opinion",
+      "fuente": "https://www.wired.com/story/ai-is-getting-really-good-at-messing-with-cybercriminals/",
+      "contrastada": false
+    }
+  ],
+  "angulo": "Cómo empresas usan bots de IA para desperdiciar el tiempo de los estafadores telefónicos, según un reportaje de WIRED basado en datos aportados por la propia compañía.",
+  "atribucion": "WIRED (Lily Hay Newman), 10 de octubre de 2026",
+  "puntuacion": {
+    "total": 74,
+    "componentes": {
+      "afinidad": 27,
+      "interes": 18,
+      "evidencia": 10,
+      "actualidad": 12,
+      "visual": 7
+    }
+  },
+  "alertas": [
+    "fuente-unica"
+  ],
+  "carrusel": {
+    "diapositivas": [
+      {
+        "titulo": "¿Puede una IA aburrir a un estafador hasta cansarlo?",
+        "texto": "Una empresa australiana entrena bots de inteligencia artificial para hacerse pasar por víctimas de fraude telefónico."
+      },
+      {
+        "titulo": "Víctimas falsas, tiempo real",
+        "texto": "Apate desvía llamadas de estafadores hacia bots con distintas personalidades que sostienen la conversación sin caer en la trampa, según WIRED."
+      },
+      {
+        "titulo": "Un ejército de bots",
+        "texto": "La compañía dice tener unos 350,000 bots que contestan llamadas, se infiltran en chats de estafa y responden mensajes de texto."
+      },
+      {
+        "titulo": "Datos que delatan al estafador",
+        "texto": "Apate afirma haber reunido más de 250,000 datos sobre fraudes: URLs falsas, cuentas de \"mulas\" de dinero y números bancarios."
+      },
+      {
+        "titulo": "¿A quién beneficia?",
+        "texto": "Bancos y telecomunicadoras usan el sistema; cada minuto que un bot entretiene a un estafador es, según la empresa, tiempo que no se usa contra una persona real."
+      },
+      {
+        "titulo": "Lo que falta verificar",
+        "texto": "Las cifras de bots y datos recopilados provienen de la propia empresa; WIRED no reporta una verificación independiente de esos números."
+      },
+      {
+        "titulo": "El fraude sigue creciendo",
+        "texto": "Pese a estas herramientas, los estafadores inician miles de millones de llamadas y mensajes cada año. Fuente: WIRED, 10 de octubre de 2026."
+      }
+    ],
+    "imagenes": [
+      {
+        "numero": 1,
+        "ruta": "public/img/2026-10-12-0323-luiseskivelgolcher-wired-39d2-01.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-12-0323-luiseskivelgolcher-wired-39d2-01.jpg",
+        "hash": "44e833216215cbaf"
+      },
+      {
+        "numero": 2,
+        "ruta": "public/img/2026-10-12-0323-luiseskivelgolcher-wired-39d2-02.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-12-0323-luiseskivelgolcher-wired-39d2-02.jpg",
+        "hash": "2109376b3da8c171"
+      },
+      {
+        "numero": 3,
+        "ruta": "public/img/2026-10-12-0323-luiseskivelgolcher-wired-39d2-03.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-12-0323-luiseskivelgolcher-wired-39d2-03.jpg",
+        "hash": "5924264a959c9088"
+      },
+      {
+        "numero": 4,
+        "ruta": "public/img/2026-10-12-0323-luiseskivelgolcher-wired-39d2-04.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-12-0323-luiseskivelgolcher-wired-39d2-04.jpg",
+        "hash": "90aa4b4e53df5c38"
+      },
+      {
+        "numero": 5,
+        "ruta": "public/img/2026-10-12-0323-luiseskivelgolcher-wired-39d2-05.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-12-0323-luiseskivelgolcher-wired-39d2-05.jpg",
+        "hash": "d955f978f223738a"
+      },
+      {
+        "numero": 6,
+        "ruta": "public/img/2026-10-12-0323-luiseskivelgolcher-wired-39d2-06.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-12-0323-luiseskivelgolcher-wired-39d2-06.jpg",
+        "hash": "327e0664789a8cea"
+      },
+      {
+        "numero": 7,
+        "ruta": "public/img/2026-10-12-0323-luiseskivelgolcher-wired-39d2-07.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-12-0323-luiseskivelgolcher-wired-39d2-07.jpg",
+        "hash": "f83314a63116f72c"
+      }
+    ],
+    "hash": "c10cc8eba1087159",
+    "version": 2
+  },
+  "reel": null,
+  "revision": {
+    "estado": "pendiente",
+    "notas": []
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-12T08:23:58.200Z",
+  "actualizado": "2026-10-12T08:23:58.200Z"
+}
