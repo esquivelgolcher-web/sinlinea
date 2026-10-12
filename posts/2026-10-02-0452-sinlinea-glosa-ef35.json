@@ -1,7 +1,7 @@
 {
   "id": "2026-10-02-0452-sinlinea-glosa-ef35",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "formato": "glosa",
   "glosa": {
     "versos": [
@@ -45,5 +45,5 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-02T09:52:26.635Z",
-  "actualizado": "2026-10-12T08:31:26.311Z"
+  "actualizado": "2026-10-12T11:34:21.173Z"
 }
