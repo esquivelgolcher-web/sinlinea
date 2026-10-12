@@ -1,7 +1,7 @@
 {
   "id": "2026-10-10-1649-sinlinea-la-estrella-ccd4",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "La Estrella de Panamá",
     "url": "https://www.laestrella.com.pa/panama/nacional/mulino-panama-no-se-va-a-parar-tras-el-terremoto-de-magnitud-75-CO26391535",
@@ -39,14 +39,31 @@
     "generada": "2026-10-10T21:49:44.567Z",
     "error": null
   },
-  "programado": null,
+  "programado": "2026-10-12T09:30:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-10-10T21:49:44.567Z",
-  "actualizado": "2026-10-10T21:49:44.567Z",
+  "actualizado": "2026-10-12T11:39:17.375Z",
   "plantilla": "foto",
   "dato": {
     "cifra": "1 millón",
     "frase": "de personas se movilizan a diario entre Panamá y Panamá Oeste con Metro y Metrobús"
+  },
+  "destinos": {
+    "instagram": {
+      "texto": "El presidente José Raúl Mulino dijo que de aquí al lunes se restablecerá el servicio de Metro y Metrobús, claves para mover a un millón de personas al día entre Panamá y Panamá Oeste. También confirmó que el Gabinete aprobó recursos para atender a los damnificados del terremoto. ¿Crees que el transporte volverá a la normalidad a tiempo?\n\nFuente: La Estrella de Panamá\n\n#Panamá #SinLínea #Terremoto #Mulino #Metro #Metrobús",
+      "aprobado": {
+        "fecha": "2026-10-12T11:39:17.375Z",
+        "hashPieza": "2b6758772a055321",
+        "imagenHash": "5074c48ea43c1674",
+        "imagenSha": "6ae1003e4b47123711f9f93b421fe08df9fcd37e"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
   }
 }
