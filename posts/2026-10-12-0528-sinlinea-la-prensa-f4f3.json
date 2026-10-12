@@ -1,0 +1,48 @@
+{
+  "id": "2026-10-12-0528-sinlinea-la-prensa-f4f3",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/judiciales/el-procurador-advierte-que-en-la-asamblea-hay-un-proyecto-que-pone-en-riesgo-la-eficacia-de-las-investigaciones-penales/",
+    "titulo": "El procurador advierte que en la Asamblea hay un proyecto que pone en riesgo la ‘eficacia’ de las investigaciones penales",
+    "publicado": "2026-10-12T05:02:00.000Z"
+  },
+  "categoria": "POLÍTICA",
+  "titular": "Procurador alerta sobre proyecto que debilita investigaciones",
+  "bajada": "Luis Carlos Gómez objetó cambios al Código Procesal Penal que, según él, favorecen la impunidad.",
+  "caption": "El procurador de la Nación advirtió que un proyecto en la Asamblea podría dejar sin respuesta efectiva las denuncias de miles de víctimas. La iniciativa, impulsada por un diputado que es abogado del expresidente Martinelli, modificaría tres artículos clave del proceso penal. La discusión ya avanza en comisión. ¿Qué opinas sobre estos cambios?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Justicia",
+    "#AsambleaNacional",
+    "#Impunidad",
+    "#CódigoPenal"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-10-12-0528-sinlinea-la-prensa-f4f3.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-12-0528-sinlinea-la-prensa-f4f3.jpg",
+    "hash": "8159459c8b331166",
+    "version": 2,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-10-12T10:28:52.947Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada del Palacio de Justicia de Panamá bajo cielo despejado, con una balanza de la justicia visible, el edificio queda en el tercio superior derecho, zona izquierda y central despejada, ilustración editorial",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-12T10:28:14.112Z",
+  "actualizado": "2026-10-12T10:28:14.112Z",
+  "plantilla": "titular"
+}

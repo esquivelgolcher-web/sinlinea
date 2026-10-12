@@ -1,0 +1,52 @@
+{
+  "id": "2026-10-12-0528-sinlinea-la-prensa-802e",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/politica/gobierno-acumula-cinco-emergencias-y-360-millones-para-contrataciones-por-via-excepcional/",
+    "titulo": "Gobierno acumula cinco emergencias y $360 millones para contrataciones por vía excepcional",
+    "publicado": "2026-10-12T05:11:56.000Z"
+  },
+  "categoria": "POLÍTICA",
+  "titular": "Gobierno acumula $360 millones en emergencias sin licitar",
+  "bajada": "Cinco declaratorias desde 2024 permiten compras excepcionales; dos siguen vigentes con $180 millones.",
+  "caption": "El Gobierno ha usado cinco veces la figura de emergencia nacional para saltarse la licitación pública en compras y obras. Hoy tiene $180 millones disponibles para gastar sin los controles habituales de la ley de contrataciones. Esa flexibilidad, pensada para crisis, se ha vuelto una herramienta recurrente. ¿Debería haber más control sobre estos fondos?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Gobierno",
+    "#Transparencia",
+    "#GastoPúblico",
+    "#Emergencia"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-10-12-0528-sinlinea-la-prensa-802e.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-12-0528-sinlinea-la-prensa-802e.jpg",
+    "hash": "b867455eb7fc89d0",
+    "version": 11,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-10-12T10:28:50.917Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada del Ministerio de Economía y Finanzas de Panamá con documentos y carpetas sobre un escritorio en primer plano, el edificio institucional queda en el tercio superior derecho, zona izquierda y central despejada, ilustración editorial",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-12-0528-sinlinea-la-prensa-802e.jpg",
+    "hashDescripcion": "a5ef6a6c6cb69676",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-12T10:28:14.112Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-12T10:28:14.112Z",
+  "actualizado": "2026-10-12T10:28:14.112Z",
+  "plantilla": "foto",
+  "dato": {
+    "cifra": "$360 millones",
+    "frase": "han sido habilitados por el Gobierno en cinco declaratorias de emergencia desde 2024"
+  }
+}
