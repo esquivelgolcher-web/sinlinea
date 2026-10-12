@@ -1,7 +1,7 @@
 {
   "id": "2026-10-08-0541-sinlinea-la-prensa-39bc",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "La Prensa",
     "url": "https://www.prensa.com/sociedad/que-relacion-tiene-la-delincuencia-con-la-basura-en-san-miguelito/",
@@ -43,6 +43,6 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-08T10:41:54.386Z",
-  "actualizado": "2026-10-08T10:41:54.386Z",
+  "actualizado": "2026-10-12T12:04:13.971Z",
   "plantilla": "titular"
 }
