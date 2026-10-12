@@ -1,7 +1,7 @@
 {
   "id": "2026-10-10-1649-sinlinea-la-estrella-367f",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "La Estrella de Panamá",
     "url": "https://www.laestrella.com.pa/panama/nacional/no-hemos-recibido-ni-visita-ni-ayuda-de-nadie-autoridades-de-los-santos-y-veraguas-claman-por-auxilio-tras-el-sismo-KP26387418",
@@ -43,7 +43,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-10T21:49:44.567Z",
-  "actualizado": "2026-10-10T21:49:44.567Z",
+  "actualizado": "2026-10-12T12:04:01.650Z",
   "plantilla": "dato",
   "dato": {
     "cifra": "95%",
