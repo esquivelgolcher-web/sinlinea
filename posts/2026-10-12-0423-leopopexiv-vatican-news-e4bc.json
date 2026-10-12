@@ -42,7 +42,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-12T08:23:58.200Z",
-  "actualizado": "2026-10-12T12:00:42.901Z",
+  "actualizado": "2026-10-12T19:19:12.310Z",
   "destinos": {
     "instagram": {
       "texto": "Pope Leo XIV has announced he will undergo surgery in the coming days to remove a localized nodule in his lung, describing it as being at a very early stage and well-localized. The procedure will take place at Rome's Gemelli Hospital. Source: Vatican News, Oct. 11, 2026.\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #GemelliHospital #VaticanNews #CatholicChurch",
@@ -55,7 +55,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-10-12T19:19:12.310Z",
+        "actualizado": "2026-10-12T19:19:12.310Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
