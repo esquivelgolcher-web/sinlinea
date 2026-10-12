@@ -1,7 +1,7 @@
 {
   "id": "2026-10-05-1703-sinlinea-la-estrella-d668",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "La Estrella de Panamá",
     "url": "https://www.laestrella.com.pa/panama/nacional/fundacion-libertad-ciudadana-pide-devolver-a-primer-debate-reformas-electorales-y-alerta-sobre-retrocesos-CC26243212",
@@ -43,6 +43,6 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-05T22:03:39.745Z",
-  "actualizado": "2026-10-05T22:03:39.745Z",
+  "actualizado": "2026-10-12T11:34:06.783Z",
   "plantilla": "foto"
 }
