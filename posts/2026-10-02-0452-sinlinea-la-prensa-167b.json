@@ -1,7 +1,7 @@
 {
   "id": "2026-10-02-0452-sinlinea-la-prensa-167b",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "La Prensa",
     "url": "https://www.prensa.com/politica/ella-no-maneja-fondos-publicos-ministerio-de-la-presidencia-defiende-los-fondos-del-despacho-de-la-primera-dama/",
@@ -43,7 +43,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-02T09:52:26.635Z",
-  "actualizado": "2026-10-02T09:52:26.635Z",
+  "actualizado": "2026-10-12T12:04:31.803Z",
   "plantilla": "dato",
   "dato": {
     "cifra": "$4,489,000",
