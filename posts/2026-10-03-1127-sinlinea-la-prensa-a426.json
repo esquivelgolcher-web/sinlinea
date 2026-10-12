@@ -1,7 +1,7 @@
 {
   "id": "2026-10-03-1127-sinlinea-la-prensa-a426",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "La Prensa",
     "url": "https://www.prensa.com/sociedad/examen-de-estupefacientes-para-la-licencia-lo-que-debes-saber-sobre-su-nueva-vigencia/",
@@ -43,7 +43,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-03T16:27:13.253Z",
-  "actualizado": "2026-10-03T16:27:13.253Z",
+  "actualizado": "2026-10-12T12:04:26.185Z",
   "plantilla": "dato",
   "dato": {
     "cifra": "30 días",
