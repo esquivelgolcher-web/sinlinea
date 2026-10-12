@@ -149,6 +149,8 @@ test("(M1) cargarConfiguracion carga todas las cuentas y reporta las inválidas 
 test("(M1) validarCuenta rechaza ids e idiomas inválidos y exige un id en cuentas/ del global", () => {
   const c = cargarCuenta(".", "sinlinea");
   assert.throws(() => validarCuenta({ ...c, idioma: "español" }, "sinlinea"), /idioma/);
+  assert.throws(() => validarCuenta({ ...c, marca: { ...c.marca, mostrarLogo: "no" } }, "sinlinea"), /marca\.mostrarLogo/);
+  assert.doesNotThrow(() => validarCuenta({ ...c, marca: { ...c.marca, mostrarLogo: false } }, "sinlinea"));
   assert.throws(() => validarCuenta(c, "Sin Linea"), /id de cuenta/);
   assert.throws(() => validarCuenta(c, "otra_cuenta"), /id de cuenta/);
   assert.doesNotThrow(() => validarCuenta({ ...c, idioma: "en" }, "otro-medio"));

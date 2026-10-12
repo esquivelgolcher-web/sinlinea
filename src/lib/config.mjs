@@ -131,6 +131,7 @@ function validarMarca(marca, archivo) {
   exigir(typeof marca?.lema === "string", "marca.lema es obligatorio", archivo);
   if (marca.mostrarFecha !== undefined) exigir(typeof marca.mostrarFecha === "boolean", "marca.mostrarFecha debe ser true o false", archivo);
   if (marca.mostrarCategoria !== undefined) exigir(typeof marca.mostrarCategoria === "boolean", "marca.mostrarCategoria debe ser true o false", archivo);
+  if (marca.mostrarLogo !== undefined) exigir(typeof marca.mostrarLogo === "boolean", "marca.mostrarLogo debe ser true o false", archivo);
   // Plantillas de imagen de la cuenta (foto, dato, titular). La foto siempre está: es la de reserva.
   if (marca.plantillas !== undefined) exigir(
     Array.isArray(marca.plantillas) && marca.plantillas.includes("foto") && marca.plantillas.every((p) => PLANTILLAS.includes(p)),

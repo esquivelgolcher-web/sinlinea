@@ -202,7 +202,7 @@ Todo lo cotidiano se hace desde el panel: revisar y aprobar borradores, elegir d
   **Tendencias** y apuntar a `https://trends.google.com/trending/rss?geo=XX`, con el código
   del país. Trae los diez temas más buscados del día con su contexto, para cuentas que
   comentan lo que está pasando en vez de informar.
-- **Quitar la fecha o la etiqueta de sección de las imágenes**: `marca.mostrarFecha` y `marca.mostrarCategoria` en `cuentas/<id>/config.json`. Al apagarlas, REGENERAR vuelve a dibujar solo las imágenes activas de esa cuenta; lo ya publicado no se toca.
+- **Quitar la fecha, la etiqueta de sección o el logo de las imágenes**: `marca.mostrarFecha`, `marca.mostrarCategoria` y `marca.mostrarLogo` en `cuentas/<id>/config.json`. Al apagarlas, REGENERAR vuelve a dibujar solo las imágenes activas de esa cuenta; lo ya publicado no se toca.
 - **Ajustar el perfil editorial y los límites de generación**: el bloque `perfil` (temas, pesos, mínimo, formatos), `generar.maxPorCorrida`, `maxBorradoresPorDia`, `maxBorradoresPendientes`, `ventanaPendientesHoras`, `candidatosMax` y `marca.mostrarFecha` se cambian en `cuentas/<id>/config.json` desde GitHub. El formulario de la cuenta sí cubre nombre, usuario, idioma, zona, franjas, fuentes, temas, tono, colores, logo, ilustraciones y conexiones.
 - **Generar un logo nuevo**: `npm run logo` en un ordenador.
 - **Cambiar el diseño de la imagen** (`templates/*.html`).

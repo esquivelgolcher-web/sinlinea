@@ -72,9 +72,9 @@
     img.className = "logo"; img.alt = ""; img.src = d.logoUrl;
     $("logo").replaceWith(img);
     await img.decode().catch(() => {});
-  } else {
+  } else if (d.iniciales) {
     $("logo").className = "logo-fallback";
-    $("logo").textContent = d.iniciales || "?";
+    $("logo").textContent = d.iniciales;
   }
   await document.fonts.ready;
   // La frase baja de 60 a 36 px hasta caber en 10 líneas sin cortar palabras; si aun así no cabe, la pieza falla con "frase".

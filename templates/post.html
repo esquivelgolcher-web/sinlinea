@@ -113,9 +113,9 @@
     img.src = d.logoUrl;
     $("logo").replaceWith(img);
     await img.decode().catch(() => {});
-  } else {
+  } else if (d.iniciales) {
     $("logo").className = "logo-fallback";
-    $("logo").textContent = d.iniciales || "?";
+    $("logo").textContent = d.iniciales;
   }
   await document.fonts.ready;
   // Reduce el tamaño de letra hasta que el texto quepa en las líneas permitidas sin cortar palabras.

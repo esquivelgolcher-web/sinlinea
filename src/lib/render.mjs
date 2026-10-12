@@ -51,10 +51,17 @@ export function iniciales(nombre) {
 // `formato`: la plantilla de la frase no dibuja ni la etiqueta de categoría ni el titular sobre ilustración, así que esas
 // dos opciones no entran en su sello (si entraran, cambiarlas obligaría a redibujar frases sin motivo). Las claves solo se
 // añaden cuando la cuenta se aparta del valor por defecto: así las demás cuentas conservan el sello que ya tenían.
+// marca.mostrarLogo=false: la cabecera no lleva logo ni iniciales de reserva (una cuenta sin logo legible prefiere nada).
+// Es el único sitio que decide qué marca recibe cada plantilla.
+export function marcaDeLogo(config, logoUrl) {
+  if (config.marca?.mostrarLogo === false) return { logoUrl: null, iniciales: "" };
+  return { logoUrl, iniciales: iniciales(config.marca?.nombre) };
+}
 export function estiloVisual(config, logoUrl, { formato = "post" } = {}) {
   const c = config.marca?.colores || {};
   const deLaImagen = formato !== "frase";
   return hashTexto(JSON.stringify({
+    ...(config.marca?.mostrarLogo === false ? { sinLogo: true } : {}),
     ...(deLaImagen && config.marca?.mostrarCategoria === false ? { categoria: false } : {}),
     ...(deLaImagen && colorTitular(config) !== (config.marca?.colores?.principal ?? "#FFD400") ? { titular: colorTitular(config) } : {}), principal: c.principal, acento: c.acento, oscuro: c.oscuro, claro: c.claro, logo: Boolean(logoUrl), forma: config.marca?.logoForma || "circulo", tamano: config.marca?.logoTamano || 120, rotulo: config.ilustraciones?.rotulo || "", fecha: config.marca?.mostrarFecha !== false }));
 }
@@ -69,7 +76,7 @@ const COLORES_POR_DEFECTO_RENDER = Object.freeze({ principal: "#FFD400", acento:
 export function datosDeRender(post, config, { logoUrl, ilustracionUrl = null }) {
   return {
     colores: config.marca?.colores ? { ...config.marca.colores } : undefined,
-    iniciales: iniciales(config.marca?.nombre),
+    ...marcaDeLogo(config, logoUrl),
     logoForma: config.marca?.logoForma || "circulo",
     logoTamano: config.marca?.logoTamano || 120,
     titular: post.titular,
@@ -83,7 +90,6 @@ export function datosDeRender(post, config, { logoUrl, ilustracionUrl = null }) 
     fecha: config.marca?.mostrarFecha === false ? "" : fechaCorta(post.creado, config.zonaHoraria),
     usuario: config.marca.usuario,
     lema: config.marca.lema,
-    logoUrl,
     ilustracionUrl,
     rotulo: config.ilustraciones.rotulo,
   };
@@ -169,7 +175,7 @@ export function datosDeTarjeta(post, config, { logoUrl }) {
   return {
     plantilla: plantillaDe(post),
     colores: config.marca?.colores ? { ...config.marca.colores } : undefined,
-    iniciales: iniciales(config.marca?.nombre),
+    ...marcaDeLogo(config, logoUrl),
     logoForma: config.marca?.logoForma || "circulo",
     logoTamano: config.marca?.logoTamano || 120,
     titular: post.titular,
@@ -180,7 +186,6 @@ export function datosDeTarjeta(post, config, { logoUrl }) {
     lema: config.marca.lema,
     cifra: post.dato?.cifra || "",
     frase: post.dato?.frase || "",
-    logoUrl,
   };
 }
 
@@ -228,7 +233,7 @@ export function datosDeFrase(post, config, { logoUrl }) {
   const nota = f.origen === "texto" && post.fuente?.medio ? `${String(config.idioma || "es").toLowerCase().startsWith("en") ? "Via" : "Vía"} ${post.fuente.medio}` : "";
   return {
     colores: config.marca?.colores ? { ...config.marca.colores } : undefined,
-    iniciales: iniciales(config.marca?.nombre),
+    ...marcaDeLogo(config, logoUrl),
     logoForma: config.marca?.logoForma || "circulo",
     logoTamano: Math.min(Number(config.marca?.logoTamano) || 96, 110),
     usuario: config.marca.usuario,
@@ -238,7 +243,6 @@ export function datosDeFrase(post, config, { logoUrl }) {
     anio: f.anio ? String(f.anio) : "",
     nota,
     serie: "",
-    logoUrl,
   };
 }
 
@@ -294,7 +298,7 @@ export function datosDeGlosa(post, config, { logoUrl, personajeUrl }) {
   const sobre = [post.glosa?.sobre?.titular, post.fuente?.medio].filter(Boolean).join(" · ");
   return {
     colores: config.marca?.colores ? { ...config.marca.colores } : undefined,
-    iniciales: iniciales(config.marca?.nombre),
+    ...marcaDeLogo(config, logoUrl),
     logoForma: config.marca?.logoForma || "circulo",
     logoTamano: config.marca?.logoTamano || 120,
     versos: (post.glosa?.versos || []).map((v) => String(v).trim()),
@@ -304,7 +308,6 @@ export function datosDeGlosa(post, config, { logoUrl, personajeUrl }) {
     fecha: config.marca?.mostrarFecha === false ? "" : fechaCorta(post.creado, config.zonaHoraria),
     usuario: config.marca.usuario,
     lema: config.marca.lema,
-    logoUrl,
     personajeUrl,
   };
 }
@@ -385,7 +388,7 @@ export function datosDeDiapositiva(post, config, indice, { logoUrl, ilustracionU
   if (!d) throw new Error(`El carrusel no tiene la diapositiva ${indice + 1}`);
   return {
     colores: config.marca?.colores ? { ...config.marca.colores } : undefined,
-    iniciales: iniciales(config.marca?.nombre),
+    ...marcaDeLogo(config, logoUrl),
     logoForma: config.marca?.logoForma || "circulo",
     logoTamano: Math.min(Number(config.marca?.logoTamano) || 90, 100),
     usuario: config.marca.usuario,
@@ -393,7 +396,6 @@ export function datosDeDiapositiva(post, config, indice, { logoUrl, ilustracionU
     categoria: config.marca?.mostrarCategoria === false ? "" : post.categoria,
     atribucion: post.atribucion || post.fuente?.medio || "",
     nota: d.tipo === "cierre" ? (config.ilustraciones?.rotulo ? `${config.ilustraciones.rotulo} en la portada` : "") : (d.tipo === "portada" ? "Desliza →" : ""),
-    logoUrl,
     ilustracionUrl: d.tipo === "portada" ? ilustracionUrl : null,
     ...d,
   };

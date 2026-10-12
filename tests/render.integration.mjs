@@ -43,16 +43,18 @@ async function medir(post, { ilustracionUrl = null, config = cfg, logoUrl = "cue
       const t = document.getElementById("titular");
       const b = document.getElementById("bajada");
       const px = (el) => parseFloat(getComputedStyle(el).fontSize);
+      const marca = document.querySelector("#post .logo") || document.querySelector("#post .logo-fallback");
       return {
         error: document.body.dataset.error || null,
         titularPx: px(t), titularLineas: Math.round(t.scrollHeight / px(t)), titularTop: r("titular").top,
         bajadaPx: px(b), bajadaLineas: Math.round(b.scrollHeight / (px(b) * 1.3)),
-        barraAlto: r("lema").height, logoAncho: (document.querySelector("#post .logo") || document.querySelector("#post .logo-fallback")).getBoundingClientRect().width,
+        barraAlto: r("lema").height, logoAncho: marca ? marca.getBoundingClientRect().width : 0,
+        chipDer: 1080 - r("categoria").right,
         barraColor: getComputedStyle(document.getElementById("lema")).backgroundColor,
         chipColor: getComputedStyle(document.getElementById("categoria")).backgroundColor,
         pieAbajo: 1350 - r("fuente").bottom,
         fondoColor: getComputedStyle(document.getElementById("post")).backgroundColor,
-        logoRadio: getComputedStyle(document.querySelector("#post .logo") || document.querySelector("#post .logo-fallback")).borderRadius,
+        logoRadio: marca ? getComputedStyle(marca).borderRadius : null,
         fallbackTexto: document.querySelector("#post .logo-fallback")?.textContent || null,
         fallbackColor: document.querySelector("#post .logo-fallback") ? getComputedStyle(document.querySelector("#post .logo-fallback")).backgroundColor : null,
         cuerpoIzq: r("titular").left, cuerpoDer: 1080 - r("titular").right,
@@ -212,4 +214,14 @@ test("(logo) marca.logoTamano fija el ancho del logo: 90 px en la cuenta persona
   assert.equal((await medir(base, { config: personal, logoUrl: "cuentas/luiseskivelgolcher/logo.png" })).logoAncho, 90);
   assert.equal((await medir(base, { config: personal, logoUrl: null })).logoAncho, 90, "también las iniciales de reserva");
   assert.equal((await medir(base)).logoAncho, 120);
+});
+
+test("(logo) marca.mostrarLogo=false: ni logo ni iniciales en la cabecera, y la etiqueta de sección sigue pegada al margen derecho", async () => {
+  const sinLogo = { ...cfg, marca: { ...cfg.marca, mostrarLogo: false } };
+  const m = await medir(base, { config: sinLogo });
+  assert.equal(m.error, null);
+  assert.equal(m.logoAncho, 0, "no se dibuja el logo aunque el archivo exista");
+  assert.equal(m.fallbackTexto, null, "ni las iniciales de reserva");
+  assert.equal(m.chipDer, 72, "la etiqueta no se corre a la izquierda");
+  assert.equal((await medir(base)).logoAncho, 120, "Sin Línea conserva su logo");
 });

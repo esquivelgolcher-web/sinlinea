@@ -73,8 +73,8 @@
   if (d.logoUrl) {
     const img = new Image(); img.className = "logo"; img.alt = ""; img.src = d.logoUrl;
     $("logo").replaceWith(img); cargas.push(img.decode().catch(() => {}));
-  } else {
-    $("logo").className = "logo-fallback"; $("logo").textContent = d.iniciales || "?";
+  } else if (d.iniciales) {
+    $("logo").className = "logo-fallback"; $("logo").textContent = d.iniciales;
   }
   if (d.personajeUrl) {
     const img = new Image(); img.className = "personaje"; img.alt = ""; img.src = d.personajeUrl;

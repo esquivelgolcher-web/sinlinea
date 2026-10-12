@@ -18,7 +18,8 @@
       "oscuro": "#202020",
       "claro": "#F5F0E6"
     },
-    "mostrarCategoria": false
+    "mostrarCategoria": false,
+    "mostrarLogo": false
   },
   "editorial": {
     "temas": [

@@ -1,3 +1,4 @@
+import { datosDeTarjeta, datosDeFrase, datosDeGlosa } from "../src/lib/render.mjs";
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
@@ -153,4 +154,28 @@ test("(sello) el de una frase no depende de la etiqueta de sección ni del color
   assert.notEqual(estiloVisual(conOpciones, null), estiloVisual(sinOpciones, null), "la imagen del post sí las refleja");
   // Cambiar los colores sí afecta a las frases: su tarjeta los usa.
   assert.notEqual(estiloVisual(conOpciones, null, { formato: "frase" }), estiloVisual(cfg, null, { formato: "frase" }));
+});
+
+test("(marca) marca.mostrarLogo=false quita el logo y las iniciales de reserva de todas las plantillas, y solo cambia el sello de esa cuenta", () => {
+  const sinLogo = { ...cfg, marca: { ...cfg.marca, mostrarLogo: false } };
+  const logoUrl = "cuentas/sinlinea/logo.png";
+  assert.equal(datosDeRender(post, cfg, { logoUrl }).logoUrl, logoUrl, "por defecto el logo va");
+  assert.notEqual(datosDeRender(post, cfg, { logoUrl: null }).iniciales, "", "y sin archivo van las iniciales");
+  const frase = { ...post, formato: "frase", frase: { texto: "x", autor: "y" } };
+  const glosa = { ...post, formato: "glosa", glosa: { versos: ["a", "b", "c", "d"], esquema: "ABBA", sobre: { id: post.id, titular: "t" } } };
+  const carrusel = { ...post, formato: "carrusel", carrusel: { diapositivas: [{ titulo: "A", texto: "a" }, { titulo: "B", texto: "b" }], imagenes: [] } };
+  const datos = [
+    datosDeRender(post, sinLogo, { logoUrl }),
+    datosDeTarjeta({ ...post, plantilla: "titular" }, sinLogo, { logoUrl }),
+    datosDeFrase(frase, sinLogo, { logoUrl }),
+    datosDeGlosa(glosa, sinLogo, { logoUrl, personajeUrl: null }),
+    datosDeDiapositiva(carrusel, sinLogo, 0, { logoUrl }),
+  ];
+  for (const d of datos) {
+    assert.equal(d.logoUrl, null, "apagado, la plantilla no recibe logo aunque el archivo exista");
+    assert.equal(d.iniciales, "", "ni iniciales de reserva");
+  }
+  assert.notEqual(estiloVisual(sinLogo, logoUrl), estiloVisual(cfg, logoUrl), "el sello cambia: REGENERAR redibuja esa cuenta");
+  assert.notEqual(estiloVisual(sinLogo, null, { formato: "frase" }), estiloVisual(cfg, null, { formato: "frase" }), "también en frases y glosas, que llevan logo");
+  assert.equal(estiloVisual(cfg, logoUrl), estiloVisual({ ...cfg, marca: { ...cfg.marca, mostrarLogo: true } }, logoUrl), "declararla en true no cambia nada de lo ya dibujado");
 });
