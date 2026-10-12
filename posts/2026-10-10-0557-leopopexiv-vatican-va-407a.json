@@ -40,7 +40,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-10T09:57:05.816Z",
-  "actualizado": "2026-10-12T08:31:26.311Z",
+  "actualizado": "2026-10-12T19:19:12.310Z",
   "destinos": {
     "instagram": {
       "texto": "“No one is saved alone; we can only be saved together.”\n\n— Pope Francis, Fratelli tutti, 32 (2020)\n\n#PopeLeoXIV #Vatican #CatholicChurch\n\nFuente: Vatican.va\n\n#PopeLeoXIV #Vatican #CatholicChurch",
@@ -55,7 +55,10 @@
       "error": null,
       "intento": null,
       "omitido": null,
-      "espera": null
+      "espera": {
+        "motivo": "imagen-cambiada",
+        "fecha": "2026-10-12T19:19:12.310Z"
+      }
     }
   }
 }
