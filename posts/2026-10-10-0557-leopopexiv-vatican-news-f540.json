@@ -1,7 +1,7 @@
 {
   "id": "2026-10-10-0557-leopopexiv-vatican-news-f540",
   "cuenta": "leopopexiv",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/pope/news/2026-10/cardinal-tagle-elected-new-dean-of-college-of-cardinals.html",
@@ -39,7 +39,11 @@
     "error": null
   },
   "programado": "2026-10-13T09:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "18178989850429608",
+    "permalink": "https://www.instagram.com/p/DecTm-rmjQn/",
+    "fecha": "2026-10-13T17:06:29.941Z"
+  },
   "error": null,
   "creado": "2026-10-10T09:57:05.816Z",
   "actualizado": "2026-10-13T17:06:29.941Z",
@@ -52,16 +56,15 @@
         "imagenHash": "23609ee851b0184e",
         "imagenSha": "edd290fd7d346391cfc728e3039cf90a1601d0fc"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-10-13T17:06:29.941Z",
-        "actualizado": "2026-10-13T17:06:29.941Z",
-        "contenedorId": "18108596642081176"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18178989850429608",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/DecTm-rmjQn/",
+        "fecha": "2026-10-13T17:06:29.941Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
