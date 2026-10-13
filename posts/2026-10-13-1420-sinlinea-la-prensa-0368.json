@@ -1,0 +1,52 @@
+{
+  "id": "2026-10-13-1420-sinlinea-la-prensa-0368",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/economia/mitradel-ordena-secuestro-de-cuentas-de-serviestiba/",
+    "titulo": "Mitradel ordena secuestro de cuentas de Serviestiba",
+    "publicado": "2026-10-13T18:18:42.000Z"
+  },
+  "categoria": "ECONOMÍA",
+  "titular": "Mitradel secuestra cuentas de Serviestiba por cierre",
+  "bajada": "La medida busca garantizar las prestaciones de 1,386 trabajadores portuarios en Balboa y Cristóbal.",
+  "caption": "Ante el anuncio de cierre de Serviestiba, el Mitradel actuó de oficio para asegurar que los trabajadores portuarios reciban lo que les corresponde. Muchos de ellos acumulan más de 15 años de servicio y hasta ahora la empresa no ha explicado cómo resolverá su situación laboral. ¿Qué pasará con los empleos de estos trabajadores de Colón?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Mitradel",
+    "#Empleo",
+    "#Puertos",
+    "#Colón"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-10-13-1420-sinlinea-la-prensa-0368.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-13-1420-sinlinea-la-prensa-0368.jpg",
+    "hash": "0d7cc0da53636f0c",
+    "version": 11,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-10-13T19:21:14.404Z"
+  },
+  "ilustracion": {
+    "descripcion": "Vista general de una terminal portuaria panameña con contenedores apilados y grúas pórtico al fondo; las grúas y contenedores quedan en el tercio superior derecho, zona izquierda y central despejadas",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-13-1420-sinlinea-la-prensa-0368.jpg",
+    "hashDescripcion": "268f1cf8cabbd6b6",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-13T19:20:41.011Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-13T19:20:41.011Z",
+  "actualizado": "2026-10-13T19:20:41.011Z",
+  "plantilla": "foto",
+  "dato": {
+    "cifra": "1,386",
+    "frase": "trabajadores portuarios están involucrados en el proceso de transición laboral"
+  }
+}

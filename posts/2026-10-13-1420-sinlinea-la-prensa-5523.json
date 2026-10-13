@@ -1,0 +1,52 @@
+{
+  "id": "2026-10-13-1420-sinlinea-la-prensa-5523",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/sociedad/7480-personas-afectadas-por-el-terremoto-en-panama-35-escuelas-colapsadas/",
+    "titulo": "7,480 personas afectadas por el terremoto en Panamá; 35 escuelas colapsadas",
+    "publicado": "2026-10-13T17:45:00.000Z"
+  },
+  "categoria": "EDUCACIÓN",
+  "titular": "35 escuelas colapsadas por sismo, según Meduca",
+  "bajada": "El terremoto del 9 de octubre dejó 7,480 afectados y comprometió a 422 estudiantes en Panamá.",
+  "caption": "El sismo de magnitud 7.5 no solo movió la tierra: dejó 35 centros educativos colapsados y otros 619 con daños, según el último balance de Meduca. Herrera es la provincia más golpeada, con 20 escuelas afectadas. El regreso a clases será gradual desde este miércoles, pero antes cada escuela debe pasar inspección. ¿Conoces alguna escuela de tu comunidad afectada por el terremoto?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Terremoto",
+    "#Educación",
+    "#Meduca",
+    "#Herrera"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-10-13-1420-sinlinea-la-prensa-5523.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-13-1420-sinlinea-la-prensa-5523.jpg",
+    "hash": "703129258974769f",
+    "version": 2,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-10-13T19:21:10.008Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada de una escuela pública panameña con grietas visibles en la pared, cinta de seguridad en la entrada; el edificio dañado queda en el tercio superior derecho, con la zona izquierda y central despejadas",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-13T19:20:41.011Z",
+  "actualizado": "2026-10-13T19:20:41.011Z",
+  "plantilla": "dato",
+  "dato": {
+    "cifra": "35",
+    "frase": "centros educativos quedaron colapsados tras el terremoto en Panamá"
+  }
+}

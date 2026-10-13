@@ -1,0 +1,195 @@
+{
+  "id": "2026-10-13-1420-luiseskivelgolcher-occrp-1641",
+  "cuenta": "luiseskivelgolcher",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "OCCRP",
+    "url": "https://www.occrp.org/en/news/hackers-turn-french-supermarket-refrigerators-into-furnaces",
+    "titulo": "Hackers Turn French Supermarket Refrigerators Into Furnaces",
+    "publicado": "2026-10-13T16:20:00.000Z"
+  },
+  "categoria": "SEGURIDAD",
+  "titular": "Hackeo sube a 50°C neveras de supermercados franceses",
+  "bajada": "Fiscalía de París investiga un ciberataque que arruinó alimentos y provocó incendios",
+  "caption": "La noche del 11 al 12 de octubre de 2026, un ciberataque tomó el control remoto de sistemas de refrigeración en cientos de supermercados de Francia, según documentó OCCRP. Los atacantes forzaron ciclos de descongelamiento hasta llevar los congeladores a 50°C, lo que echó a perder alimentos y provocó incendios en varias tiendas, incluidas cadenas como Carrefour, Monoprix y E.Leclerc. La fiscalía de París abrió una investigación criminal a cargo de la Oficina Antidelitos Informáticos. El método coincide con vulnerabilidades que la firma de seguridad industrial Claroty había advertido dos meses antes en controladores Danfoss, expuestos a internet. El grupo Mousquetaires reportó pérdidas millonarias y sospecha de \"interferencia externa\". CERT-FR, el centro francés de ciberseguridad, advirtió que los ataques podrían continuar. ¿Qué tan seguros están los sistemas que mantienen fría tu comida?",
+  "hashtags": [
+    "#Ciberseguridad",
+    "#Hackeo",
+    "#Francia",
+    "#OCCRP",
+    "#Infraestructura"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-10-13-1420-luiseskivelgolcher-occrp-1641.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-13-1420-luiseskivelgolcher-occrp-1641.jpg",
+    "hash": "b21687a646516a50",
+    "version": 11,
+    "estilo": "dc8c8fa3edf501fd",
+    "renderizada": "2026-10-13T19:22:02.413Z"
+  },
+  "ilustracion": {
+    "descripcion": "Pasillo de refrigerados de un supermercado de noche, vitrinas con alimentos y paneles de control con luces de alerta; el panel de control queda en el tercio superior derecho, la zona izquierda y central despejada, sin personas ni logotipos.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-13-1420-luiseskivelgolcher-occrp-1641.jpg",
+    "hashDescripcion": "d47377bfaaaacd65",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-13T19:20:41.011Z",
+    "error": null,
+    "procedencia": "generada"
+  },
+  "formato": "carrusel",
+  "fuentes": [
+    {
+      "rol": "principal",
+      "medio": "OCCRP",
+      "autor": null,
+      "url": "https://www.occrp.org/en/news/hackers-turn-french-supermarket-refrigerators-into-furnaces",
+      "canonica": "https://www.occrp.org/en/news/hackers-turn-french-supermarket-refrigerators-into-furnaces",
+      "idioma": "en",
+      "publicado": "2026-10-13T16:20:00.000Z",
+      "actualizado": null,
+      "fechaHecho": "2026-10-11",
+      "consultado": "2026-10-13T19:20:41.011Z",
+      "alcance": "completo",
+      "textoRecuperado": {
+        "parrafos": 28,
+        "caracteres": 5611,
+        "enviados": 3729
+      },
+      "fuentesPrimarias": [
+        "https://fr.claroty.com/team82/research/freeze-the-controller-defrost-the-food-uncovering-vulnerabilities-in-danfoss-refrigeration-controllers",
+        "https://www.danfoss.com/en/service-and-support/coordinated-vulnerability-disclosure/danfoss-security-advisories/dsa-2025-08-01/",
+        "https://claroty.com/blog/france-supermarket-hacks-expose-risks-of-internet-facing-refrigeration-systems?utm_campaign=6305453-%5BSocial%5D%20Rapid%20Response%20blogs&utm_content=387313065&utm_medium=social&utm_source=twitter",
+        "https://www.cert.ssi.gouv.fr/alerte/CERTFR-2026-ALE-012/"
+      ],
+      "licenciaMedios": null
+    }
+  ],
+  "afirmaciones": [
+    {
+      "texto": "Un ciberataque manipuló remotamente sistemas de refrigeración en cientos de supermercados franceses la noche del 11 al 12 de octubre de 2026, forzando temperaturas de hasta 50°C",
+      "tipo": "hecho",
+      "fuente": "https://www.occrp.org/en/news/hackers-turn-french-supermarket-refrigerators-into-furnaces",
+      "contrastada": true
+    },
+    {
+      "texto": "La fiscalía de París abrió una investigación criminal confiada a la Oficina Antidelitos Informáticos (OFAC)",
+      "tipo": "hecho",
+      "fuente": "https://www.occrp.org/en/news/hackers-turn-french-supermarket-refrigerators-into-furnaces",
+      "contrastada": true
+    },
+    {
+      "texto": "Claroty había advertido en agosto de 2026 sobre vulnerabilidades en controladores Danfoss que permitían manipular remotamente la temperatura",
+      "tipo": "hecho",
+      "fuente": "https://fr.claroty.com/team82/research/freeze-the-controller-defrost-the-food-uncovering-vulnerabilities-in-danfoss-refrigeration-controllers",
+      "contrastada": true
+    },
+    {
+      "texto": "El grupo Mousquetaires reportó 300 tiendas afectadas y pérdidas de millones de euros, y sospecha de interferencia externa",
+      "tipo": "denuncia",
+      "fuente": "https://www.occrp.org/en/news/hackers-turn-french-supermarket-refrigerators-into-furnaces",
+      "contrastada": false
+    },
+    {
+      "texto": "CERT-FR confirmó compromisos en controladores Danfoss AK-SM, AK-SC, Copeland XWEB y Dixell XWEB, y advirtió que los ataques podrían continuar",
+      "tipo": "hecho",
+      "fuente": "https://www.cert.ssi.gouv.fr/alerte/CERTFR-2026-ALE-012/",
+      "contrastada": true
+    }
+  ],
+  "angulo": "Una vulnerabilidad conocida en controladores industriales conectados a internet fue explotada para sabotear refrigeración comercial a escala nacional",
+  "atribucion": "OCCRP, con datos de CERT-FR, Claroty y declaraciones del grupo Mousquetaires",
+  "puntuacion": {
+    "total": 85,
+    "componentes": {
+      "afinidad": 27,
+      "interes": 20,
+      "evidencia": 16,
+      "actualidad": 15,
+      "visual": 7
+    }
+  },
+  "alertas": [
+    "fuente-unica"
+  ],
+  "carrusel": {
+    "diapositivas": [
+      {
+        "titulo": "Neveras de supermercados, hackeadas a 50°C",
+        "texto": "Un ciberataque tomó control remoto de sistemas de refrigeración en cientos de tiendas francesas la noche del 11 al 12 de octubre de 2026."
+      },
+      {
+        "titulo": "Qué ocurrió",
+        "texto": "Los atacantes forzaron ciclos de descongelamiento, dañando alimentos y provocando incendios en cadenas como Carrefour, Monoprix y E.Leclerc, según OCCRP."
+      },
+      {
+        "titulo": "Cómo lo hicieron",
+        "texto": "Explotaron controladores Danfoss conectados a internet. Claroty había advertido esta falla en agosto, dos meses antes del ataque."
+      },
+      {
+        "titulo": "A quién afecta",
+        "texto": "El grupo Mousquetaires reportó 300 tiendas comprometidas y pérdidas millonarias; calcula hasta tres semanas para restaurar sus sistemas."
+      },
+      {
+        "titulo": "Qué falta por saber",
+        "texto": "CERT-FR advierte que los ataques podrían seguir activos y que un simple reinicio no basta para equipos sin actualizar."
+      },
+      {
+        "titulo": "Una advertencia que no se escuchó",
+        "texto": "La falla era conocida desde agosto. La fiscalía de París investiga ahora el origen del ataque con la Oficina Antidelitos Informáticos."
+      }
+    ],
+    "imagenes": [
+      {
+        "numero": 1,
+        "ruta": "public/img/2026-10-13-1420-luiseskivelgolcher-occrp-1641-01.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-13-1420-luiseskivelgolcher-occrp-1641-01.jpg",
+        "hash": "fcd54a007f912fd6"
+      },
+      {
+        "numero": 2,
+        "ruta": "public/img/2026-10-13-1420-luiseskivelgolcher-occrp-1641-02.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-13-1420-luiseskivelgolcher-occrp-1641-02.jpg",
+        "hash": "f3036f85278602d3"
+      },
+      {
+        "numero": 3,
+        "ruta": "public/img/2026-10-13-1420-luiseskivelgolcher-occrp-1641-03.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-13-1420-luiseskivelgolcher-occrp-1641-03.jpg",
+        "hash": "06bac7f82a0d7a52"
+      },
+      {
+        "numero": 4,
+        "ruta": "public/img/2026-10-13-1420-luiseskivelgolcher-occrp-1641-04.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-13-1420-luiseskivelgolcher-occrp-1641-04.jpg",
+        "hash": "8a101549e24a4bf3"
+      },
+      {
+        "numero": 5,
+        "ruta": "public/img/2026-10-13-1420-luiseskivelgolcher-occrp-1641-05.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-13-1420-luiseskivelgolcher-occrp-1641-05.jpg",
+        "hash": "174fcfd79eb87549"
+      },
+      {
+        "numero": 6,
+        "ruta": "public/img/2026-10-13-1420-luiseskivelgolcher-occrp-1641-06.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-13-1420-luiseskivelgolcher-occrp-1641-06.jpg",
+        "hash": "57ba8f1636239818"
+      }
+    ],
+    "hash": "a52ad733cb912d3d",
+    "version": 2
+  },
+  "reel": null,
+  "revision": {
+    "estado": "pendiente",
+    "notas": []
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-13T19:20:41.011Z",
+  "actualizado": "2026-10-13T19:20:41.011Z"
+}
