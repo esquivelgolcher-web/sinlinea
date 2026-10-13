@@ -1,0 +1,53 @@
+{
+  "id": "2026-10-12-2137-sinlinea-la-prensa-9df5",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/politica/terremoto-en-panama-gobierno-actualiza-balance-de-danos/",
+    "titulo": "Terremoto en Panamá: 35 escuelas quedaron dañadas por completo; Salud destinará $61 millones para 67 hospitales afectados",
+    "publicado": "2026-10-12T23:18:40.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "Terremoto deja 35 escuelas destruidas y $61 millones para salud",
+  "bajada": "El sismo de 7.5 afectó colegios y 67 hospitales en Coclé, Herrera, Los Santos y Veraguas.",
+  "caption": "Más de 3,000 estudiantes se quedaron sin escuela y decenas de hospitales resultaron dañados tras el terremoto del viernes. El Gobierno ya destinó fondos para reparar la red de salud mientras Educación busca alternativas para que los alumnos no pierdan el año. ¿Cree que estas medidas serán suficientes para atender la emergencia?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Terremoto",
+    "#Educación",
+    "#Salud",
+    "#Herrera",
+    "#Veraguas"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-10-12-2137-sinlinea-la-prensa-9df5.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-12-2137-sinlinea-la-prensa-9df5.jpg",
+    "hash": "71d92b1adc36925c",
+    "version": 11,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-10-13T02:38:07.995Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada de una escuela pública panameña con grietas visibles en la pared, ubicada en el tercio superior derecho; cielo despejado y zona izquierda y central libres de elementos.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-12-2137-sinlinea-la-prensa-9df5.jpg",
+    "hashDescripcion": "3da699b2a51cebd0",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-13T02:37:28.624Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-13T02:37:28.624Z",
+  "actualizado": "2026-10-13T02:37:28.624Z",
+  "plantilla": "foto",
+  "dato": {
+    "cifra": "$61 millones",
+    "frase": "destinará el Minsa para reparar 67 hospitales afectados por el sismo"
+  }
+}

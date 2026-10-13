@@ -1,0 +1,48 @@
+{
+  "id": "2026-10-12-2137-sinlinea-la-prensa-b77d",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/politica/no-voy-a-seguir-tapando-cosas-de-mi-gobierno-diputado-de-gracia-denuncia-que-la-ayuda-no-llega-a-tonosi-por-rencillas-politicas/",
+    "titulo": "‘No voy a seguir tapando cosas de mi gobierno’: diputado De Gracia denuncia que la ayuda no llega a Tonosí por rencillas políticas",
+    "publicado": "2026-10-12T22:24:41.000Z"
+  },
+  "categoria": "POLÍTICA",
+  "titular": "Diputado denuncia desvío político en ayuda para Tonosí",
+  "bajada": "Ronald De Gracia acusa al COE de Las Tablas de favorecer a unas comunidades sobre otras tras el sismo.",
+  "caption": "Un diputado del propio partido de gobierno rompe el silencio y asegura que la ayuda humanitaria no llega igual a todas las comunidades afectadas por el terremoto. La denuncia pone en duda la coordinación del Centro de Operaciones de Emergencia en plena crisis. ¿Debería investigarse cómo se reparte la ayuda en las zonas golpeadas por el sismo?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Terremoto",
+    "#Política",
+    "#LosSantos",
+    "#Tonosí"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-10-12-2137-sinlinea-la-prensa-b77d.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-12-2137-sinlinea-la-prensa-b77d.jpg",
+    "hash": "820134e962566a1b",
+    "version": 2,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-10-13T02:38:08.250Z"
+  },
+  "ilustracion": {
+    "descripcion": "Vista general de un Centro de Operaciones de Emergencia con mapas y radios sobre una mesa, un funcionario de perfil en el tercio superior derecho revisando documentos, zona izquierda y central despejadas.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-13T02:37:28.624Z",
+  "actualizado": "2026-10-13T02:37:28.624Z",
+  "plantilla": "titular"
+}
