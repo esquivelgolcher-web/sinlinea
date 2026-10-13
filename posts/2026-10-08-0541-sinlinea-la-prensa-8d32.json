@@ -1,7 +1,7 @@
 {
   "id": "2026-10-08-0541-sinlinea-la-prensa-8d32",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "La Prensa",
     "url": "https://www.prensa.com/judiciales/12-exfuncionarios-del-gobierno-de-cortizo-y-casi-10-millones-bajo-investigacion-por-patrimonio-injustificado/",
@@ -44,7 +44,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-08T10:41:54.386Z",
-  "actualizado": "2026-10-08T10:41:54.386Z",
+  "actualizado": "2026-10-13T07:46:49.573Z",
   "plantilla": "foto",
   "dato": {
     "cifra": "$9.7 millones",
