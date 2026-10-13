@@ -1,7 +1,7 @@
 {
   "id": "2026-10-08-1353-sinlinea-la-prensa-4865",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "La Prensa",
     "url": "https://www.prensa.com/judiciales/decomisan-mas-de-11-mil-municiones-de-fusil-en-colon/",
@@ -43,7 +43,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-08T18:53:27.771Z",
-  "actualizado": "2026-10-08T18:53:27.771Z",
+  "actualizado": "2026-10-13T10:31:53.164Z",
   "plantilla": "foto",
   "dato": {
     "cifra": "11,402",
