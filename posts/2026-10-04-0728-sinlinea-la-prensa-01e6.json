@@ -1,7 +1,7 @@
 {
   "id": "2026-10-04-0728-sinlinea-la-prensa-01e6",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "La Prensa",
     "url": "https://www.prensa.com/politica/latinobarometro-2026-el-apoyo-a-la-democracia-cae-9-puntos-en-panama/",
@@ -43,7 +43,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-04T12:28:29.565Z",
-  "actualizado": "2026-10-04T12:28:29.565Z",
+  "actualizado": "2026-10-13T07:46:59.491Z",
   "plantilla": "dato",
   "dato": {
     "cifra": "45%",
