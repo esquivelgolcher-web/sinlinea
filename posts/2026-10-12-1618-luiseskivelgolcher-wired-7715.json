@@ -1,7 +1,7 @@
 {
   "id": "2026-10-12-1618-luiseskivelgolcher-wired-7715",
   "cuenta": "luiseskivelgolcher",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "WIRED",
     "url": "https://www.wired.com/story/feds-got-warrants-to-use-fake-cell-towers-to-hunt-down-don-lemons-producer/",
@@ -107,9 +107,56 @@
     "estado": "pendiente",
     "notas": []
   },
-  "programado": null,
+  "programado": "2026-10-13T12:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-10-12T21:18:44.024Z",
-  "actualizado": "2026-10-12T21:18:44.024Z"
+  "actualizado": "2026-10-13T10:00:38.950Z",
+  "destinos": {
+    "instagram": {
+      "texto": "Un tribunal autorizó a agentes federales de Estados Unidos usar un simulador de antena de telefonía (un aparato que imita una torre celular para localizar e interceptar señales de teléfonos cercanos) para ubicar a Jerome Richardson, un exestudiante que ayudó a producir la cobertura de Don Lemon sobre una protesta contra ICE en una iglesia de Saint Paul, Minnesota, el 18 de enero de 2026. Según documentos judiciales revisados por WIRED, jueces de Minnesota y Pensilvania firmaron las órdenes el 30 y 31 de enero. Las autoridades también pidieron simuladores contra la periodista Georgia Fort y el entonces candidato al Senado estatal Jamael Lundy, aunque no está claro si los jueces aprobaron esas solicitudes ni si el dispositivo llegó a usarse. Cooper Quintin, de la Electronic Frontier Foundation, calificó el caso como 'un ataque atroz a la Primera Enmienda'. Esta información proviene de una sola fuente hasta ahora: el reportaje de WIRED. ¿Hasta dónde puede llegar la vigilancia estatal para perseguir a quienes cubren una protesta?\n\nFuente: WIRED\n\n#Vigilancia #Periodismo #Privacidad #CiberSeguridad #EstadosUnidos",
+      "aprobado": {
+        "fecha": "2026-10-13T10:00:38.950Z",
+        "hashPieza": "dfd0b17c2bd20bb2",
+        "imagenHash": "82632e3a91fd1960",
+        "imagenSha": "5078c3a68f71713d2014cd112040e011c11840bb"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    },
+    "facebook": {
+      "texto": "Un tribunal autorizó a agentes federales de Estados Unidos usar un simulador de antena de telefonía (un aparato que imita una torre celular para localizar e interceptar señales de teléfonos cercanos) para ubicar a Jerome Richardson, un exestudiante que ayudó a producir la cobertura de Don Lemon sobre una protesta contra ICE en una iglesia de Saint Paul, Minnesota, el 18 de enero de 2026. Según documentos judiciales revisados por WIRED, jueces de Minnesota y Pensilvania firmaron las órdenes el 30 y 31 de enero. Las autoridades también pidieron simuladores contra la periodista Georgia Fort y el entonces candidato al Senado estatal Jamael Lundy, aunque no está claro si los jueces aprobaron esas solicitudes ni si el dispositivo llegó a usarse. Cooper Quintin, de la Electronic Frontier Foundation, calificó el caso como 'un ataque atroz a la Primera Enmienda'. Esta información proviene de una sola fuente hasta ahora: el reportaje de WIRED. ¿Hasta dónde puede llegar la vigilancia estatal para perseguir a quienes cubren una protesta?\n\nFuente: WIRED",
+      "aprobado": {
+        "fecha": "2026-10-13T10:00:38.950Z",
+        "hashPieza": "dfd0b17c2bd20bb2",
+        "imagenHash": "82632e3a91fd1960",
+        "imagenSha": "5078c3a68f71713d2014cd112040e011c11840bb"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    },
+    "threads": {
+      "texto": "EE.UU. usó antenas falsas contra periodistas\n\nDocumentos judiciales muestran órdenes para rastrear a un productor de Don Lemon y dos reporteros más.\n\nSegún WIRED (12 de octubre de 2026)",
+      "aprobado": {
+        "fecha": "2026-10-13T10:00:38.950Z",
+        "hashPieza": "dfd0b17c2bd20bb2",
+        "imagenHash": "82632e3a91fd1960",
+        "imagenSha": "5078c3a68f71713d2014cd112040e011c11840bb"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
