@@ -1,7 +1,7 @@
 {
   "id": "2026-10-12-0528-sinlinea-la-prensa-802e",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "La Prensa",
     "url": "https://www.prensa.com/politica/gobierno-acumula-cinco-emergencias-y-360-millones-para-contrataciones-por-via-excepcional/",
@@ -43,7 +43,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-12T10:28:14.112Z",
-  "actualizado": "2026-10-12T10:28:14.112Z",
+  "actualizado": "2026-10-13T10:31:49.086Z",
   "plantilla": "foto",
   "dato": {
     "cifra": "$360 millones",
