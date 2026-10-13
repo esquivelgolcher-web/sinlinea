@@ -40,7 +40,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-13T10:43:29.976Z",
-  "actualizado": "2026-10-13T10:59:17.753Z",
+  "actualizado": "2026-10-13T21:57:15.878Z",
   "destinos": {
     "instagram": {
       "texto": "“The death penalty is inadmissible because it is an attack on the inviolability and dignity of the person”\n\n— Pope Leo, Post on X, World Day Against the Death Penalty (2026)\n\nVia Vatican News, 13 October 2026\n\n#PopeLeoXIV #Vatican #CatholicChurch\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #CatholicChurch",
@@ -53,7 +53,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-10-13T21:57:15.878Z",
+        "actualizado": "2026-10-13T21:57:15.878Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
