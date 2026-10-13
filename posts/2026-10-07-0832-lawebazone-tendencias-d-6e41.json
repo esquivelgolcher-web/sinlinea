@@ -1,7 +1,7 @@
 {
   "id": "2026-10-07-0832-lawebazone-tendencias-d-6e41",
   "cuenta": "lawebazone",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "Tendencias de Chile",
     "url": "https://pepenoticias.cl/inacap-abierto-reunio-a-mas-de-1-000-estudiantes-y-a-la-comunidad-en-una-jornada-de-orientacion-vocacional/",
@@ -40,5 +40,5 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-07T13:32:38.637Z",
-  "actualizado": "2026-10-07T13:32:38.637Z"
+  "actualizado": "2026-10-13T10:00:48.224Z"
 }
