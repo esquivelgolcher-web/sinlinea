@@ -1,7 +1,7 @@
 {
   "id": "2026-10-13-0643-leopopexiv-vatican-news-4dba",
   "cuenta": "leopopexiv",
-  "estado": "programado",
+  "estado": "publicado",
   "formato": "frase",
   "frase": {
     "texto": "The death penalty is inadmissible because it is an attack on the inviolability and dignity of the person",
@@ -37,7 +37,11 @@
   },
   "ilustracion": null,
   "programado": "2026-10-13T13:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "18129160681846205",
+    "permalink": "https://www.instagram.com/p/Dec04lfD5cu/",
+    "fecha": "2026-10-13T21:57:15.878Z"
+  },
   "error": null,
   "creado": "2026-10-13T10:43:29.976Z",
   "actualizado": "2026-10-13T21:57:15.878Z",
@@ -50,16 +54,15 @@
         "imagenHash": "ec67473727029559",
         "imagenSha": "47cd37f8e94a13efe174e1c7d1ace521af0357f4"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-10-13T21:57:15.878Z",
-        "actualizado": "2026-10-13T21:57:15.878Z",
-        "contenedorId": "18108640781081176"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18129160681846205",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/Dec04lfD5cu/",
+        "fecha": "2026-10-13T21:57:15.878Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
