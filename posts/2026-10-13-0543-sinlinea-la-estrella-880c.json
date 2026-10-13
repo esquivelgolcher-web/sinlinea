@@ -1,0 +1,52 @@
+{
+  "id": "2026-10-13-0543-sinlinea-la-estrella-880c",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/mulino-se-dirige-al-pais-colegios-oficiales-seguiran-cerrados-NF26456380",
+    "titulo": "Mulino se dirige al país, colegios oficiales seguirán cerrados",
+    "publicado": "2026-10-13T03:00:00.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "Mulino reporta 6,174 afectados por el terremoto en el país",
+  "bajada": "El presidente anunció la construcción de viviendas tras evaluar 1,744 casas dañadas por el sismo del viernes.",
+  "caption": "El presidente Mulino se dirigió al país para dar un balance de los daños del terremoto: miles de familias siguen sin casa y el Gobierno promete construir nuevas viviendas con apoyo de la Policía Nacional. Mientras tanto, los colegios oficiales seguirán cerrados y la ayuda continúa llegando a las zonas más golpeadas. ¿Qué tan rápido crees que debería llegar esa ayuda a las familias afectadas?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Terremoto",
+    "#Mulino",
+    "#LosSantos",
+    "#AyudaHumanitaria"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-10-13-0543-sinlinea-la-estrella-880c.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-13-0543-sinlinea-la-estrella-880c.jpg",
+    "hash": "fc47a8721f4b02b0",
+    "version": 2,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-10-13T10:44:00.805Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada del Palacio de las Garzas al atardecer, con la bandera de Panamá ondeando; el edificio presidencial queda en el tercio superior derecho, el resto de la imagen despejado.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-13T10:43:29.976Z",
+  "actualizado": "2026-10-13T10:43:29.976Z",
+  "plantilla": "dato",
+  "dato": {
+    "cifra": "6,174",
+    "frase": "personas han sido afectadas según la evaluación de 1,744 viviendas tras el terremoto"
+  }
+}

@@ -1,0 +1,206 @@
+{
+  "id": "2026-10-13-0543-luiseskivelgolcher-wired-dfde",
+  "cuenta": "luiseskivelgolcher",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "WIRED",
+    "url": "https://www.wired.com/story/the-biggest-pro-ai-super-pac-network-has-poured-millions-into-nevada-shell-companies/",
+    "titulo": "The Biggest Pro-AI Super PAC Network Has Poured Millions Into Nevada Shell Companies",
+    "publicado": "2026-10-13T10:00:00.000Z"
+  },
+  "categoria": "POLÍTICA",
+  "titular": "PAC pro IA oculta millones en empresas fantasma de Nevada",
+  "bajada": "Leading the Future pagó $140 millones a firmas sin oficina ni empleados visibles",
+  "caption": "Una red de súper PACs a favor de la inteligencia artificial, respaldada por inversionistas de Silicon Valley, canalizó millones de dólares hacia cuatro empresas registradas en Nevada que, según documentos revisados por WIRED, no parecen existir más allá de un apartado postal. Lantern Production Consultants recibió cerca de 20 millones de dólares de Think Big, parte de la red Leading the Future, que ha recaudado más de 140 millones para influir en las elecciones legislativas de noviembre en Estados Unidos. El Campaign Legal Center denuncia que estas firmas son 'fachadas' para esconder a quién va el dinero realmente. Leading the Future niega haber violado la ley. La Comisión Federal Electoral no tiene quórum para resolver denuncias desde mayo de 2025, según el reportaje.",
+  "hashtags": [
+    "#InteligenciaArtificial",
+    "#DineroOscuro",
+    "#Elecciones",
+    "#Transparencia",
+    "#WIRED"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-10-13-0543-luiseskivelgolcher-wired-dfde.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-13-0543-luiseskivelgolcher-wired-dfde.jpg",
+    "hash": "8b689bf2552a6ed4",
+    "version": 11,
+    "estilo": "dc8c8fa3edf501fd",
+    "renderizada": "2026-10-13T10:44:43.614Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada de un centro comercial modesto en Sparks, Nevada, con locales genéricos y un apartado postal visible; el letrero del edificio queda en el tercio superior derecho, zona izquierda y central despejadas.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-13-0543-luiseskivelgolcher-wired-dfde.jpg",
+    "hashDescripcion": "45d1818e3a46d598",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-13T10:43:29.976Z",
+    "error": null,
+    "procedencia": "generada"
+  },
+  "formato": "carrusel",
+  "fuentes": [
+    {
+      "rol": "principal",
+      "medio": "WIRED",
+      "autor": "Tess Owen",
+      "url": "https://www.wired.com/story/the-biggest-pro-ai-super-pac-network-has-poured-millions-into-nevada-shell-companies/",
+      "canonica": "https://www.wired.com/story/the-biggest-pro-ai-super-pac-network-has-poured-millions-into-nevada-shell-companies/",
+      "idioma": "en",
+      "publicado": "2026-10-13T10:00:00.000Z",
+      "actualizado": "2026-10-13T10:00:00.000Z",
+      "fechaHecho": null,
+      "consultado": "2026-10-13T10:43:29.976Z",
+      "alcance": "completo",
+      "textoRecuperado": {
+        "parrafos": 22,
+        "caracteres": 7430,
+        "enviados": 3811
+      },
+      "fuentesPrimarias": [
+        "https://www.leadingthefuture.com/",
+        "https://www.washingtonsun.com/money/federal-election-commission-nominees-shutdown-trump",
+        "https://www.politico.com/news/2026/06/21/fec-republican-meddling-democratic-primaries-00969281",
+        "https://www.nytimes.com/2026/08/31/us/politics/the-least-transparent-midterm-how-dark-money-is-washing-over-the-2026-election.html",
+        "http://www.aboutads.info"
+      ],
+      "licenciaMedios": null
+    }
+  ],
+  "afirmaciones": [
+    {
+      "texto": "Lantern Production Consultants LLC ha recibido cerca de 20 millones de dólares de Think Big desde el año pasado.",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/the-biggest-pro-ai-super-pac-network-has-poured-millions-into-nevada-shell-companies/",
+      "contrastada": true
+    },
+    {
+      "texto": "La empresa no parece existir más allá de un apartado postal en un centro comercial de Sparks, Nevada.",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/the-biggest-pro-ai-super-pac-network-has-poured-millions-into-nevada-shell-companies/",
+      "contrastada": true
+    },
+    {
+      "texto": "El Campaign Legal Center alega que estas LLC son extensiones de los súper PACs y violan la ley federal de financiamiento de campañas.",
+      "tipo": "denuncia",
+      "fuente": "https://www.wired.com/story/the-biggest-pro-ai-super-pac-network-has-poured-millions-into-nevada-shell-companies/",
+      "contrastada": false
+    },
+    {
+      "texto": "Leading the Future afirma que cumple con todas las leyes aplicables.",
+      "tipo": "opinion",
+      "fuente": "https://www.wired.com/story/the-biggest-pro-ai-super-pac-network-has-poured-millions-into-nevada-shell-companies/",
+      "contrastada": false
+    },
+    {
+      "texto": "La Comisión Federal Electoral no tiene el quórum necesario para resolver denuncias desde mayo de 2025.",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/the-biggest-pro-ai-super-pac-network-has-poured-millions-into-nevada-shell-companies/",
+      "contrastada": true
+    }
+  ],
+  "angulo": "Cómo una red de súper PACs pro IA usa empresas sin presencia física en Nevada para mover decenas de millones de dólares hacia campañas electorales, según documentos de financiamiento revisados por WIRED.",
+  "atribucion": "WIRED (Tess Owen)",
+  "puntuacion": {
+    "total": 79,
+    "componentes": {
+      "afinidad": 24,
+      "interes": 18,
+      "evidencia": 16,
+      "actualidad": 15,
+      "visual": 6
+    }
+  },
+  "alertas": [
+    "fuente-unica"
+  ],
+  "carrusel": {
+    "diapositivas": [
+      {
+        "titulo": "¿Adónde van los millones de un súper PAC pro IA?",
+        "texto": "Cuatro empresas en Nevada reciben pagos millonarios de una red de súper PACs pro inteligencia artificial, pero no tienen oficina ni empleados visibles."
+      },
+      {
+        "titulo": "Un apartado postal como sede central",
+        "texto": "Lantern Production Consultants cobró cerca de 20 millones de dólares, pero su dirección registrada es un apartado postal en un centro comercial de Sparks, Nevada."
+      },
+      {
+        "titulo": "No es la única",
+        "texto": "Summit Ridge Media Group, Blue Horizon Compliance Consultants y Prusik Partners comparten direcciones con un centro de correo, una tienda Staples y un local comercial en Henderson."
+      },
+      {
+        "titulo": "Una denuncia ante el regulador electoral",
+        "texto": "El Campaign Legal Center presentó en mayo una queja ante la FEC, alegando que estas LLC funcionan como extensiones de los súper PACs para ocultar quién recibe el dinero."
+      },
+      {
+        "titulo": "La respuesta de Leading the Future",
+        "texto": "La red, que agrupa a Think Big y American Mission, asegura que cumple con la ley y acusa a otros grupos pro IA de estar detrás de la denuncia."
+      },
+      {
+        "titulo": "Un regulador sin poder para actuar",
+        "texto": "La FEC necesita cuatro comisionados para decidir sobre denuncias, pero no tiene quórum desde mayo de 2025, según documentos revisados por WIRED."
+      },
+      {
+        "titulo": "Más de 140 millones de dólares en juego",
+        "texto": "Leading the Future ha recaudado esa cifra para respaldar candidatos afines a la agenda de la industria de IA en las elecciones legislativas de noviembre. Fuente: WIRED."
+      }
+    ],
+    "imagenes": [
+      {
+        "numero": 1,
+        "ruta": "public/img/2026-10-13-0543-luiseskivelgolcher-wired-dfde-01.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-13-0543-luiseskivelgolcher-wired-dfde-01.jpg",
+        "hash": "b0e881ac366ebed2"
+      },
+      {
+        "numero": 2,
+        "ruta": "public/img/2026-10-13-0543-luiseskivelgolcher-wired-dfde-02.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-13-0543-luiseskivelgolcher-wired-dfde-02.jpg",
+        "hash": "0024f18f60522ccd"
+      },
+      {
+        "numero": 3,
+        "ruta": "public/img/2026-10-13-0543-luiseskivelgolcher-wired-dfde-03.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-13-0543-luiseskivelgolcher-wired-dfde-03.jpg",
+        "hash": "624708942a51a2fe"
+      },
+      {
+        "numero": 4,
+        "ruta": "public/img/2026-10-13-0543-luiseskivelgolcher-wired-dfde-04.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-13-0543-luiseskivelgolcher-wired-dfde-04.jpg",
+        "hash": "cda4193849f1fde6"
+      },
+      {
+        "numero": 5,
+        "ruta": "public/img/2026-10-13-0543-luiseskivelgolcher-wired-dfde-05.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-13-0543-luiseskivelgolcher-wired-dfde-05.jpg",
+        "hash": "842756b47d32050e"
+      },
+      {
+        "numero": 6,
+        "ruta": "public/img/2026-10-13-0543-luiseskivelgolcher-wired-dfde-06.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-13-0543-luiseskivelgolcher-wired-dfde-06.jpg",
+        "hash": "b67c47d0838fc826"
+      },
+      {
+        "numero": 7,
+        "ruta": "public/img/2026-10-13-0543-luiseskivelgolcher-wired-dfde-07.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-13-0543-luiseskivelgolcher-wired-dfde-07.jpg",
+        "hash": "1bc54cefef54e79d"
+      }
+    ],
+    "hash": "dc0465e8f54ee2d2",
+    "version": 2
+  },
+  "reel": null,
+  "revision": {
+    "estado": "pendiente",
+    "notas": []
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-13T10:43:29.976Z",
+  "actualizado": "2026-10-13T10:43:29.976Z"
+}

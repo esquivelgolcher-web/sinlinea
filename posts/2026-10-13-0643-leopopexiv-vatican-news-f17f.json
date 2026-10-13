@@ -1,0 +1,46 @@
+{
+  "id": "2026-10-13-0643-leopopexiv-vatican-news-f17f",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/world/news/2026-10/bill-gates-technology-is-a-world-in-need-of-governance.html",
+    "titulo": "Bill Gates: Technology is a world in need of governance",
+    "publicado": "2026-10-13T07:05:00.000Z"
+  },
+  "categoria": "INVESTIGACIÓN",
+  "titular": "Bill Gates: AI needs government oversight, not self-rule",
+  "bajada": "In a Vatican News interview, Gates urges harnessing AI for health, education and farming",
+  "caption": "Bill Gates told Vatican News that artificial intelligence cannot regulate itself and must be guided by governments, while highlighting its potential to improve healthcare, education and agriculture. Source: Vatican News, Oct 13, 2026.",
+  "hashtags": [
+    "#BillGates",
+    "#ArtificialIntelligence",
+    "#VaticanNews",
+    "#Technology",
+    "#AIethics"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-10-13-0643-leopopexiv-vatican-news-f17f.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-13-0643-leopopexiv-vatican-news-f17f.jpg",
+    "hash": "ed76da088b23240e",
+    "version": 11,
+    "estilo": "ab79cbbb3887cfa1",
+    "renderizada": "2026-10-13T10:45:04.667Z"
+  },
+  "ilustracion": {
+    "descripcion": "A modern office with a large window overlooking a city skyline at dusk, a laptop displaying abstract data charts on a desk in the upper right third, left and center space open and uncluttered.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-13-0643-leopopexiv-vatican-news-f17f.jpg",
+    "hashDescripcion": "8f4de5ceda4e6148",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-13T10:43:29.976Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-13T10:43:29.976Z",
+  "actualizado": "2026-10-13T10:43:29.976Z"
+}
