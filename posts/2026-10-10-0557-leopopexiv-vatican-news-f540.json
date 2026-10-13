@@ -42,7 +42,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-10T09:57:05.816Z",
-  "actualizado": "2026-10-12T12:00:48.567Z",
+  "actualizado": "2026-10-13T17:06:29.941Z",
   "destinos": {
     "instagram": {
       "texto": "Cardinal Luis Antonio Tagle, Pro-Prefect of the Dicastery for Evangelization, has been elected Dean of the College of Cardinals, succeeding 92-year-old Cardinal Giovanni Battista Re. Source: Vatican News, Oct 9, 2026.\n\nFuente: Vatican News\n\n#CardinalTagle #CollegeOfCardinals #Vatican #CatholicChurch #VaticanNews",
@@ -55,7 +55,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-10-13T17:06:29.941Z",
+        "actualizado": "2026-10-13T17:06:29.941Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
