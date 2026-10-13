@@ -1,7 +1,7 @@
 {
   "id": "2026-10-13-0643-leopopexiv-vatican-news-4dba",
   "cuenta": "leopopexiv",
-  "estado": "borrador",
+  "estado": "programado",
   "formato": "frase",
   "frase": {
     "texto": "The death penalty is inadmissible because it is an attack on the inviolability and dignity of the person",
@@ -36,9 +36,26 @@
     "renderizada": "2026-10-13T10:45:08.447Z"
   },
   "ilustracion": null,
-  "programado": null,
+  "programado": "2026-10-13T13:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-10-13T10:43:29.976Z",
-  "actualizado": "2026-10-13T10:43:29.976Z"
+  "actualizado": "2026-10-13T10:59:17.753Z",
+  "destinos": {
+    "instagram": {
+      "texto": "“The death penalty is inadmissible because it is an attack on the inviolability and dignity of the person”\n\n— Pope Leo, Post on X, World Day Against the Death Penalty (2026)\n\nVia Vatican News, 13 October 2026\n\n#PopeLeoXIV #Vatican #CatholicChurch\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #CatholicChurch",
+      "aprobado": {
+        "fecha": "2026-10-13T10:59:17.753Z",
+        "hashPieza": "31eab115d87421cf",
+        "imagenHash": "ec67473727029559",
+        "imagenSha": "47cd37f8e94a13efe174e1c7d1ace521af0357f4"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
