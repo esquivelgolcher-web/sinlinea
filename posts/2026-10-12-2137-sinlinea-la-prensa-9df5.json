@@ -1,7 +1,7 @@
 {
   "id": "2026-10-12-2137-sinlinea-la-prensa-9df5",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "La Prensa",
     "url": "https://www.prensa.com/politica/terremoto-en-panama-gobierno-actualiza-balance-de-danos/",
@@ -44,7 +44,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-13T02:37:28.624Z",
-  "actualizado": "2026-10-13T02:37:28.624Z",
+  "actualizado": "2026-10-13T07:52:35.398Z",
   "plantilla": "foto",
   "dato": {
     "cifra": "$61 millones",
