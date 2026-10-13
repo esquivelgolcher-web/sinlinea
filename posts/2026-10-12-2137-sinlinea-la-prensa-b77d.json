@@ -1,7 +1,7 @@
 {
   "id": "2026-10-12-2137-sinlinea-la-prensa-b77d",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "La Prensa",
     "url": "https://www.prensa.com/politica/no-voy-a-seguir-tapando-cosas-de-mi-gobierno-diputado-de-gracia-denuncia-que-la-ayuda-no-llega-a-tonosi-por-rencillas-politicas/",
@@ -43,6 +43,6 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-13T02:37:28.624Z",
-  "actualizado": "2026-10-13T02:37:28.624Z",
+  "actualizado": "2026-10-13T07:52:42.463Z",
   "plantilla": "titular"
 }
