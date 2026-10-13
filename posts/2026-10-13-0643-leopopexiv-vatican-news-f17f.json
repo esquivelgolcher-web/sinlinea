@@ -1,7 +1,7 @@
 {
   "id": "2026-10-13-0643-leopopexiv-vatican-news-f17f",
   "cuenta": "leopopexiv",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/world/news/2026-10/bill-gates-technology-is-a-world-in-need-of-governance.html",
@@ -38,9 +38,26 @@
     "generada": "2026-10-13T10:43:29.976Z",
     "error": null
   },
-  "programado": null,
+  "programado": "2026-10-13T18:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-10-13T10:43:29.976Z",
-  "actualizado": "2026-10-13T10:43:29.976Z"
+  "actualizado": "2026-10-13T10:59:21.464Z",
+  "destinos": {
+    "instagram": {
+      "texto": "Bill Gates told Vatican News that artificial intelligence cannot regulate itself and must be guided by governments, while highlighting its potential to improve healthcare, education and agriculture. Source: Vatican News, Oct 13, 2026.\n\nFuente: Vatican News\n\n#BillGates #ArtificialIntelligence #VaticanNews #Technology #AIethics",
+      "aprobado": {
+        "fecha": "2026-10-13T10:59:21.464Z",
+        "hashPieza": "6ea9288d60899433",
+        "imagenHash": "ed76da088b23240e",
+        "imagenSha": "7ad3518d73e628bc49acdf4c09e0d8f7b3d77b7b"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
