@@ -1,7 +1,7 @@
 {
   "id": "2026-10-10-1222-sinlinea-la-estrella-9728",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "La Estrella de Panamá",
     "url": "https://www.laestrella.com.pa/panama/nacional/cerca-de-70-pacientes-son-atendidos-en-carpas-tras-danos-en-hospital-de-penonome-EA26379184",
@@ -43,7 +43,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-10T17:22:41.781Z",
-  "actualizado": "2026-10-10T17:22:41.781Z",
+  "actualizado": "2026-10-13T07:51:12.434Z",
   "plantilla": "foto",
   "dato": {
     "cifra": "70",
