@@ -1,7 +1,7 @@
 {
   "id": "2026-10-07-0107-sinlinea-la-prensa-5119",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "La Prensa",
     "url": "https://www.prensa.com/politica/con-el-avion-presidencial-fuera-de-servicio-mulino-habria-recurrido-a-un-vuelo-charter/",
@@ -43,7 +43,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-07T06:07:37.170Z",
-  "actualizado": "2026-10-07T06:07:37.170Z",
+  "actualizado": "2026-10-13T07:46:55.621Z",
   "plantilla": "dato",
   "dato": {
     "cifra": "$38,500",
