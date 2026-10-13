@@ -1,7 +1,7 @@
 {
   "id": "2026-10-07-0107-lawebazone-tendencias-d-5ce2",
   "cuenta": "lawebazone",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "Tendencias de México",
     "url": "https://www.marca.com/mx/futbol/seleccion-mx/2026/10/07/aficionado-arremete-le-exige-alvaro-fidalgo-metan-pu-goles-trabajo.html",
@@ -41,5 +41,5 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-07T06:07:37.170Z",
-  "actualizado": "2026-10-07T06:07:37.170Z"
+  "actualizado": "2026-10-13T10:32:06.076Z"
 }
