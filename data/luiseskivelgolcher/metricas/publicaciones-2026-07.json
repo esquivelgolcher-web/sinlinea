@@ -779,9 +779,33 @@
             "profile_activity": "metrica-no-soportada",
             "follows": "metrica-no-soportada"
           }
+        },
+        "2026-10-14T10:28:38.605Z": {
+          "acumulados": {
+            "meGusta": 8,
+            "comentarios": 0,
+            "reach": 320,
+            "views": 393,
+            "likes": 8,
+            "comments": 0,
+            "saved": 1,
+            "shares": 0,
+            "total_interactions": 10,
+            "ig_reels_avg_watch_time": 8339,
+            "ig_reels_video_view_total_time": 2701857,
+            "reels_skip_rate": 58.2,
+            "profile_visits": null,
+            "profile_activity": null,
+            "follows": null
+          },
+          "faltantes": {
+            "profile_visits": "metrica-no-soportada",
+            "profile_activity": "metrica-no-soportada",
+            "follows": "metrica-no-soportada"
+          }
         }
       },
-      "ultimaConsulta": "2026-10-12T13:25:02.553Z"
+      "ultimaConsulta": "2026-10-14T10:28:38.605Z"
     },
     "18112160272984034": {
       "fecha": "2026-07-23T21:29:22.000Z",
@@ -2317,9 +2341,33 @@
             "profile_activity": "metrica-no-soportada",
             "follows": "metrica-no-soportada"
           }
+        },
+        "2026-10-14T10:28:38.605Z": {
+          "acumulados": {
+            "meGusta": 6,
+            "comentarios": 0,
+            "reach": 292,
+            "views": 364,
+            "likes": 6,
+            "comments": 0,
+            "saved": 0,
+            "shares": 0,
+            "total_interactions": 7,
+            "ig_reels_avg_watch_time": 5182,
+            "ig_reels_video_view_total_time": 1497779,
+            "reels_skip_rate": 74.8,
+            "profile_visits": null,
+            "profile_activity": null,
+            "follows": null
+          },
+          "faltantes": {
+            "profile_visits": "metrica-no-soportada",
+            "profile_activity": "metrica-no-soportada",
+            "follows": "metrica-no-soportada"
+          }
         }
       },
-      "ultimaConsulta": "2026-10-12T13:25:02.553Z"
+      "ultimaConsulta": "2026-10-14T10:28:38.605Z"
     }
   }
 }
