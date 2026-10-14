@@ -1,7 +1,7 @@
 {
   "id": "2026-10-12-1618-sinlinea-la-estrella-5888",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "La Estrella de Panamá",
     "url": "https://www.laestrella.com.pa/panama/nacional/casos-de-dengue-disminuyen-20-en-panama-pero-el-minsa-pide-mantener-la-prevencion-ID26437348",
@@ -43,7 +43,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-12T21:18:44.024Z",
-  "actualizado": "2026-10-12T21:18:44.024Z",
+  "actualizado": "2026-10-14T08:45:01.045Z",
   "plantilla": "foto",
   "dato": {
     "cifra": "20%",
