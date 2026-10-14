@@ -1,7 +1,7 @@
 {
   "id": "2026-10-14-0104-leopopexiv-vatican-news-0925",
   "cuenta": "leopopexiv",
-  "estado": "programado",
+  "estado": "publicado",
   "formato": "frase",
   "frase": {
     "texto": "caring for creation becomes an expression of humanity and solidarity",
@@ -37,7 +37,11 @@
   },
   "ilustracion": null,
   "programado": "2026-10-14T09:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "18128805322886409",
+    "permalink": "https://www.instagram.com/p/Dee-Iknmh5f/",
+    "fecha": "2026-10-14T17:56:34.734Z"
+  },
   "error": null,
   "creado": "2026-10-14T05:04:41.526Z",
   "actualizado": "2026-10-14T17:56:34.734Z",
@@ -50,16 +54,15 @@
         "imagenHash": "21194237789a4a49",
         "imagenSha": "0e1250e08e1dbf49105cc270c2723c1cd23d350b"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-10-14T17:56:34.734Z",
-        "actualizado": "2026-10-14T17:56:34.734Z",
-        "contenedorId": "18108814535081176"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18128805322886409",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/Dee-Iknmh5f/",
+        "fecha": "2026-10-14T17:56:34.734Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
