@@ -1,7 +1,7 @@
 {
   "id": "2026-10-14-0104-leopopexiv-vatican-news-0925",
   "cuenta": "leopopexiv",
-  "estado": "borrador",
+  "estado": "programado",
   "formato": "frase",
   "frase": {
     "texto": "caring for creation becomes an expression of humanity and solidarity",
@@ -36,9 +36,26 @@
     "renderizada": "2026-10-14T05:05:49.341Z"
   },
   "ilustracion": null,
-  "programado": null,
+  "programado": "2026-10-14T09:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-10-14T05:04:41.526Z",
-  "actualizado": "2026-10-14T05:04:41.526Z"
+  "actualizado": "2026-10-14T08:44:44.510Z",
+  "destinos": {
+    "instagram": {
+      "texto": "“caring for creation becomes an expression of humanity and solidarity”\n\n— Pope Leo XIV, Quoted in remarks at UN General Assembly debate on sustainable development (2026)\n\nVia Vatican News, 13 October 2026\n\n#PopeLeoXIV #Vatican #CatholicChurch\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #CatholicChurch",
+      "aprobado": {
+        "fecha": "2026-10-14T08:44:44.510Z",
+        "hashPieza": "e2693523babd5bd9",
+        "imagenHash": "21194237789a4a49",
+        "imagenSha": "0e1250e08e1dbf49105cc270c2723c1cd23d350b"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
