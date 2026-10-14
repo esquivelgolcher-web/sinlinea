@@ -42,7 +42,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-14T05:04:41.526Z",
-  "actualizado": "2026-10-14T08:44:48.321Z",
+  "actualizado": "2026-10-14T21:33:07.567Z",
   "destinos": {
     "instagram": {
       "texto": "Pope Leo XIV has undergone surgery at Rome's Gemelli Hospital, where doctors removed the lower lobe of his right lung, the Holy See Press Office confirmed. The operation followed the detection of a small, localized nodule reported earlier this week. Source: Vatican News, October 13, 2026.\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #GemelliHospital #HolySee #CatholicChurch",
@@ -55,7 +55,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-10-14T21:33:07.567Z",
+        "actualizado": "2026-10-14T21:33:07.567Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
