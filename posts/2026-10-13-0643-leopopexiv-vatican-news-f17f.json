@@ -42,7 +42,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-13T10:43:29.976Z",
-  "actualizado": "2026-10-13T10:59:21.464Z",
+  "actualizado": "2026-10-14T01:06:29.621Z",
   "destinos": {
     "instagram": {
       "texto": "Bill Gates told Vatican News that artificial intelligence cannot regulate itself and must be guided by governments, while highlighting its potential to improve healthcare, education and agriculture. Source: Vatican News, Oct 13, 2026.\n\nFuente: Vatican News\n\n#BillGates #ArtificialIntelligence #VaticanNews #Technology #AIethics",
@@ -55,7 +55,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-10-14T01:06:29.621Z",
+        "actualizado": "2026-10-14T01:06:29.621Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
