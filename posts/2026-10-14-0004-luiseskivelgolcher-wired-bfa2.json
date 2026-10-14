@@ -1,0 +1,193 @@
+{
+  "id": "2026-10-14-0004-luiseskivelgolcher-wired-bfa2",
+  "cuenta": "luiseskivelgolcher",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "WIRED",
+    "url": "https://www.wired.com/story/an-openai-employee-allegedly-used-a-chatbot-to-help-plant-a-recording-device-at-the-office/",
+    "titulo": "An OpenAI Employee Allegedly Used a Chatbot to Help Plant a Recording Device at the Office",
+    "publicado": "2026-10-13T23:17:59.678Z"
+  },
+  "categoria": "SEGURIDAD",
+  "titular": "Empleado de OpenAI escondió micrófono en sala ejecutiva",
+  "bajada": "Usó un chatbot interno para planear la vigilancia, según denuncia federal en EE.UU.",
+  "caption": "Un ingeniero de OpenAI escondió un dispositivo de grabación de audio dentro de papel higiénico, pegado detrás de un televisor en una sala de conferencias reservada para ejecutivos, según una denuncia penal revelada el 13 de octubre de 2026 y reportada por WIRED. El sospechoso, identificado como Abdulrahman Alfozan, habría usado durante semanas un \"agente de productividad\" y un chatbot interno de la empresa para planear la operación y preguntar por reuniones agendadas en esa sala, de acuerdo con el expediente judicial. OpenAI dice no tener indicios de que haya accedido a los pesos del modelo, el código fuente o datos de clientes. El motivo todavía no se conoce: ni los fiscales ni la empresa lo han explicado. Esto es una denuncia judicial, no una condena. ¿Qué tan seguras son las salas donde se decide el futuro de la inteligencia artificial?",
+  "hashtags": [
+    "#OpenAI",
+    "#Espionaje",
+    "#Ciberseguridad",
+    "#IA"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-10-14-0004-luiseskivelgolcher-wired-bfa2.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-14-0004-luiseskivelgolcher-wired-bfa2.jpg",
+    "hash": "2de3ecd54f2d190f",
+    "version": 11,
+    "estilo": "dc8c8fa3edf501fd",
+    "renderizada": "2026-10-14T05:05:27.458Z"
+  },
+  "ilustracion": {
+    "descripcion": "Sala de conferencias ejecutiva de una oficina tecnológica, con un televisor de pantalla plana en una pared y ventanales con vista a una ciudad al atardecer. El televisor con un pequeño dispositivo discreto queda en el tercio superior derecho; la zona izquierda y central de la imagen permanecen despejadas. Sin texto, sin logotipos, sin personas.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-14-0004-luiseskivelgolcher-wired-bfa2.jpg",
+    "hashDescripcion": "a8a44e06a7c1ce1c",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-14T05:04:41.526Z",
+    "error": null,
+    "procedencia": "generada"
+  },
+  "formato": "carrusel",
+  "fuentes": [
+    {
+      "rol": "principal",
+      "medio": "WIRED",
+      "autor": "Paresh Dave",
+      "url": "https://www.wired.com/story/an-openai-employee-allegedly-used-a-chatbot-to-help-plant-a-recording-device-at-the-office/",
+      "canonica": "https://www.wired.com/story/an-openai-employee-allegedly-used-a-chatbot-to-help-plant-a-recording-device-at-the-office/",
+      "idioma": "en",
+      "publicado": "2026-10-13T23:17:59.678Z",
+      "actualizado": "2026-10-13T23:17:59.678Z",
+      "fechaHecho": "2026-09-28",
+      "consultado": "2026-10-14T05:04:41.526Z",
+      "alcance": "completo",
+      "textoRecuperado": {
+        "parrafos": 23,
+        "caracteres": 5588,
+        "enviados": 3910
+      },
+      "fuentesPrimarias": [
+        "https://www.justice.gov/opa/pr/saudi-national-arrested-installing-surreptitious-audio-recording-device-openai",
+        "https://saudisiliconvalley.com/SaudiSiliconValleyTechConsulting.pdf",
+        "http://www.aboutads.info"
+      ],
+      "licenciaMedios": null
+    }
+  ],
+  "afirmaciones": [
+    {
+      "texto": "Un ingeniero de OpenAI ocultó un dispositivo de grabación de audio en papel higiénico, pegado detrás de un monitor en una sala de conferencias ejecutiva.",
+      "tipo": "denuncia",
+      "fuente": "https://www.justice.gov/opa/pr/saudi-national-arrested-installing-surreptitious-audio-recording-device-openai",
+      "contrastada": true
+    },
+    {
+      "texto": "El sospechoso usó un agente de productividad y un chatbot interno de OpenAI para planear la operación y consultar reuniones agendadas en la sala.",
+      "tipo": "denuncia",
+      "fuente": "https://www.wired.com/story/an-openai-employee-allegedly-used-a-chatbot-to-help-plant-a-recording-device-at-the-office/",
+      "contrastada": false
+    },
+    {
+      "texto": "OpenAI afirma no tener indicios de que el empleado haya accedido a pesos del modelo, código fuente o datos de clientes.",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/an-openai-employee-allegedly-used-a-chatbot-to-help-plant-a-recording-device-at-the-office/",
+      "contrastada": false
+    },
+    {
+      "texto": "El dispositivo hallado fue un Seeed XIAO ESP32-S3 Sense, de 13.99 dólares, con una tarjeta microSD cifrada que OpenAI no logró leer.",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/an-openai-employee-allegedly-used-a-chatbot-to-help-plant-a-recording-device-at-the-office/",
+      "contrastada": false
+    },
+    {
+      "texto": "El director del FBI, Kash Patel, dijo que el objetivo era capturar comunicaciones sobre la tecnología de superinteligencia de la empresa.",
+      "tipo": "opinion",
+      "fuente": "https://www.wired.com/story/an-openai-employee-allegedly-used-a-chatbot-to-help-plant-a-recording-device-at-the-office/",
+      "contrastada": false
+    }
+  ],
+  "angulo": "Un ingeniero de OpenAI habría usado chatbots internos para planear un micrófono oculto en una sala de ejecutivos, según documentos judiciales de EE.UU.",
+  "atribucion": "Según WIRED (Paresh Dave) y la denuncia penal del Departamento de Justicia de EE.UU.",
+  "puntuacion": {
+    "total": 82,
+    "componentes": {
+      "afinidad": 27,
+      "interes": 20,
+      "evidencia": 14,
+      "actualidad": 15,
+      "visual": 6
+    }
+  },
+  "alertas": [
+    "fuente-unica"
+  ],
+  "carrusel": {
+    "diapositivas": [
+      {
+        "titulo": "Un micrófono escondido en la sala de los ejecutivos de OpenAI",
+        "texto": "Un ingeniero habría ocultado un dispositivo de grabación en papel higiénico, pegado detrás de un televisor, según una denuncia judicial revelada el 13 de octubre de 2026."
+      },
+      {
+        "titulo": "¿Qué pasó?",
+        "texto": "OpenAI halló el dispositivo el 30 de septiembre durante una revisión de seguridad. Era usado para reuniones confidenciales de altos ejecutivos y socios externos."
+      },
+      {
+        "titulo": "Un chatbot como cómplice involuntario",
+        "texto": "Según la denuncia, el ingeniero usó un chatbot interno y un \"agente de productividad\" (una IA que organiza tareas) para ubicar reuniones y resolver dudas técnicas sobre el dispositivo."
+      },
+      {
+        "titulo": "El aparato era pequeño y barato",
+        "texto": "Se trata de un Seeed XIAO ESP32-S3 Sense, una placa del tamaño de un pulgar con micrófono y cámara, de 13.99 dólares. Su memoria estaba cifrada y OpenAI no pudo revisarla."
+      },
+      {
+        "titulo": "Lo que todavía no se sabe",
+        "texto": "Ni la fiscalía ni OpenAI han explicado el motivo. El sospechoso, de nacionalidad saudita, también asesoraba a empresas de Arabia Saudita, según su perfil profesional."
+      },
+      {
+        "titulo": "Una denuncia, no una condena",
+        "texto": "El acusado enfrenta un cargo por interceptar comunicaciones orales, con pena máxima de cinco años. Fue despedido el mismo día de su arresto. Según WIRED y documentos del Departamento de Justicia de EE.UU."
+      }
+    ],
+    "imagenes": [
+      {
+        "numero": 1,
+        "ruta": "public/img/2026-10-14-0004-luiseskivelgolcher-wired-bfa2-01.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-14-0004-luiseskivelgolcher-wired-bfa2-01.jpg",
+        "hash": "28ad9d753f40fdfb"
+      },
+      {
+        "numero": 2,
+        "ruta": "public/img/2026-10-14-0004-luiseskivelgolcher-wired-bfa2-02.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-14-0004-luiseskivelgolcher-wired-bfa2-02.jpg",
+        "hash": "019e7f384b7ab302"
+      },
+      {
+        "numero": 3,
+        "ruta": "public/img/2026-10-14-0004-luiseskivelgolcher-wired-bfa2-03.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-14-0004-luiseskivelgolcher-wired-bfa2-03.jpg",
+        "hash": "eb40aa747d9fd876"
+      },
+      {
+        "numero": 4,
+        "ruta": "public/img/2026-10-14-0004-luiseskivelgolcher-wired-bfa2-04.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-14-0004-luiseskivelgolcher-wired-bfa2-04.jpg",
+        "hash": "2930d48bd9e6d6c5"
+      },
+      {
+        "numero": 5,
+        "ruta": "public/img/2026-10-14-0004-luiseskivelgolcher-wired-bfa2-05.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-14-0004-luiseskivelgolcher-wired-bfa2-05.jpg",
+        "hash": "026627262547d754"
+      },
+      {
+        "numero": 6,
+        "ruta": "public/img/2026-10-14-0004-luiseskivelgolcher-wired-bfa2-06.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-14-0004-luiseskivelgolcher-wired-bfa2-06.jpg",
+        "hash": "82069bdda2f036fb"
+      }
+    ],
+    "hash": "a65c2a43d6fc836d",
+    "version": 2
+  },
+  "reel": null,
+  "revision": {
+    "estado": "pendiente",
+    "notas": []
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-14T05:04:41.526Z",
+  "actualizado": "2026-10-14T05:04:41.526Z"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "2026-10-14-0104-leopopexiv-vatican-news-0925",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "formato": "frase",
+  "frase": {
+    "texto": "caring for creation becomes an expression of humanity and solidarity",
+    "autor": "Pope Leo XIV",
+    "fuente": "Quoted in remarks at UN General Assembly debate on sustainable development",
+    "anio": 2026,
+    "url": "https://www.vaticannews.va/en/vatican-city/news/2026-10/holy-see-permanent-observer-un-sustainable-development.html",
+    "origen": "texto"
+  },
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/vatican-city/news/2026-10/holy-see-permanent-observer-un-sustainable-development.html",
+    "titulo": "Holy See: Sustainable development must address all dimensions - Vatican News",
+    "publicado": "2026-10-13T15:32:02.662+02:00"
+  },
+  "categoria": "CULTURA",
+  "titular": "Pope Leo XIV",
+  "bajada": "Quoted in remarks at UN General Assembly debate on sustainable development · 2026",
+  "caption": "“caring for creation becomes an expression of humanity and solidarity”\n\n— Pope Leo XIV, Quoted in remarks at UN General Assembly debate on sustainable development (2026)\n\nVia Vatican News, 13 October 2026\n\n#PopeLeoXIV #Vatican #CatholicChurch",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Vatican",
+    "#CatholicChurch"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-10-14-0104-leopopexiv-vatican-news-0925.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-14-0104-leopopexiv-vatican-news-0925.jpg",
+    "hash": "21194237789a4a49",
+    "version": 1,
+    "estilo": "d0642d12d70ac1fc",
+    "renderizada": "2026-10-14T05:05:49.341Z"
+  },
+  "ilustracion": null,
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-14T05:04:41.526Z",
+  "actualizado": "2026-10-14T05:04:41.526Z"
+}
