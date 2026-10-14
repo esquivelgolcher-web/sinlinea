@@ -1,7 +1,7 @@
 {
   "id": "2026-10-13-1420-luiseskivelgolcher-occrp-1641",
   "cuenta": "luiseskivelgolcher",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "OCCRP",
     "url": "https://www.occrp.org/en/news/hackers-turn-french-supermarket-refrigerators-into-furnaces",
@@ -187,9 +187,57 @@
     "estado": "pendiente",
     "notas": []
   },
-  "programado": null,
+  "programado": "2026-10-14T19:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-10-13T19:20:41.011Z",
-  "actualizado": "2026-10-13T19:20:41.011Z"
+  "actualizado": "2026-10-14T08:44:22.381Z",
+  "destinos": {
+    "instagram": {
+      "texto": "La noche del 11 al 12 de octubre de 2026, un ciberataque tomó el control remoto de sistemas de refrigeración en cientos de supermercados de Francia, según documentó OCCRP. Los atacantes forzaron ciclos de descongelamiento hasta llevar los congeladores a 50°C, lo que echó a perder alimentos y provocó incendios en varias tiendas, incluidas cadenas como Carrefour, Monoprix y E.Leclerc. La fiscalía de París abrió una investigación criminal a cargo de la Oficina Antidelitos Informáticos. El método coincide con vulnerabilidades que la firma de seguridad industrial Claroty había advertido dos meses antes en controladores Danfoss, expuestos a internet. El grupo Mousquetaires reportó pérdidas millonarias y sospecha de \"interferencia externa\". CERT-FR, el centro francés de ciberseguridad, advirtió que los ataques podrían continuar. ¿Qué tan seguros están los sistemas que mantienen fría tu comida?\n\nFuente: OCCRP\n\n#Ciberseguridad #Hackeo #Francia #OCCRP #Infraestructura",
+      "aprobado": {
+        "fecha": "2026-10-14T08:44:22.381Z",
+        "hashPieza": "1f8b2bff6d104569",
+        "imagenHash": "b21687a646516a50",
+        "imagenSha": "9832c71be7bef2b9367302a08ae067a2b6d1e7a5",
+        "imagenesSha": [
+          "9e6c09275226a381a995ad6adb634655f2846cdf",
+          "702dc1221682f2b72c503af3d3f3d510d973622e",
+          "5e448f42c2ab9a1d8b239cb18e1950b82500369b",
+          "2fce103749c9bea3b56a3b54abb00cf78ede4a04",
+          "3731679e6d3c6f02963889a3c26db68769648ddf",
+          "ec66b5f0c0c05be6ebbfde4c36fc3de12b315813"
+        ]
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    },
+    "threads": {
+      "texto": "Hackeo sube a 50°C neveras de supermercados franceses\n\nFiscalía de París investiga un ciberataque que arruinó alimentos y provocó incendios\n\nSegún OCCRP (13 de octubre de 2026)",
+      "aprobado": {
+        "fecha": "2026-10-14T08:44:22.381Z",
+        "hashPieza": "1f8b2bff6d104569",
+        "imagenHash": "b21687a646516a50",
+        "imagenSha": "9832c71be7bef2b9367302a08ae067a2b6d1e7a5",
+        "imagenesSha": [
+          "9e6c09275226a381a995ad6adb634655f2846cdf",
+          "702dc1221682f2b72c503af3d3f3d510d973622e",
+          "5e448f42c2ab9a1d8b239cb18e1950b82500369b",
+          "2fce103749c9bea3b56a3b54abb00cf78ede4a04",
+          "3731679e6d3c6f02963889a3c26db68769648ddf",
+          "ec66b5f0c0c05be6ebbfde4c36fc3de12b315813"
+        ]
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
