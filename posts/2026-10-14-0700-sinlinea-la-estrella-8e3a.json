@@ -1,0 +1,52 @@
+{
+  "id": "2026-10-14-0700-sinlinea-la-estrella-8e3a",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/economia/alerta-en-el-campo-arroz-garantizado-hasta-2027-pero-peligra-la-leche-y-la-carne-BI26484270",
+    "titulo": "Alerta en el campo: arroz garantizado hasta 2027, pero peligra la leche y la carne",
+    "publicado": "2026-10-14T05:00:00.000Z"
+  },
+  "categoria": "ECONOMÍA",
+  "titular": "Hay arroz asegurado hasta 2027, pero peligra leche y carne",
+  "bajada": "El terremoto dañó carreteras en Azuero y amenaza la cadena de suministro de leche y carne, advierten gremios.",
+  "caption": "Los productores de arroz confirman que el grano está garantizado hasta mediados de 2027, pero las grietas y hundimientos en las vías de Azuero complican el transporte de otros alimentos básicos. Gremios agropecuarios piden atención urgente a la infraestructura vial para evitar que la crisis llegue a la mesa de los panameños. ¿Has notado cambios en el precio o disponibilidad de alimentos tras el sismo?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Terremoto",
+    "#Economía",
+    "#Agro",
+    "#Azuero"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-10-14-0700-sinlinea-la-estrella-8e3a.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-14-0700-sinlinea-la-estrella-8e3a.jpg",
+    "hash": "9242867c2ecbae2a",
+    "version": 2,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-10-14T12:01:26.646Z"
+  },
+  "ilustracion": {
+    "descripcion": "Carretera rural agrietada en una zona agrícola de Azuero con camiones de carga a lo lejos, el tramo dañado en el tercio superior derecho, zona izquierda y central despejadas",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-14T12:00:54.195Z",
+  "actualizado": "2026-10-14T12:00:54.195Z",
+  "plantilla": "dato",
+  "dato": {
+    "cifra": "2027",
+    "frase": "es el año hasta el que el país tiene abastecimiento de arroz garantizado"
+  }
+}

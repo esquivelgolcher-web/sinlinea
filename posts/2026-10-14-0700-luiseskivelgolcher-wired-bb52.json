@@ -1,0 +1,128 @@
+{
+  "id": "2026-10-14-0700-luiseskivelgolcher-wired-bb52",
+  "cuenta": "luiseskivelgolcher",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "WIRED",
+    "url": "https://www.wired.com/story/ai-models-can-be-easily-modified-to-assist-terrorist-and-extremist-activity/",
+    "titulo": "AI Models Can Be Easily Modified to Assist Terrorist and Extremist Activity",
+    "publicado": "2026-10-14T09:00:00.000Z"
+  },
+  "categoria": "SEGURIDAD",
+  "titular": "IA sin filtros ya ayuda a planear ataques, según estudio",
+  "bajada": "Tech Against Terrorism probó 134 modelos; solo dos resistieron intentos de manipulación",
+  "caption": "Un modelo de inteligencia artificial de código abierto puede perder sus filtros de seguridad en menos de 24 horas. Así ocurrió con Qwen 3.8-27B, lanzado por Alibaba el 14 de agosto de 2026: casi de inmediato circularon versiones \"abliteradas\" (sin las barreras que impiden respuestas peligrosas). Un usuario neonazi dijo haber usado una de esas versiones para entrenar un chatbot que negaba el Holocausto, según documentos revisados por WIRED. El informe Counter-Terrorism AI Benchmark, de la organización Tech Against Terrorism, probó 134 modelos —de OpenAI, xAI, Anthropic, Meta, Google y empresas chinas y europeas— con más de 200 preguntas sobre ataques masivos y armas. Solo dos aprobaron por completo; 81 fallaron. Decir ser \"investigador de seguridad\" bastó para que los modelos respondieran casi nueve veces más. \"Nadie está pensando en la emergencia de la abliteración\", dijo el director de la organización, Adam Hadley, según WIRED. ¿Debería regularse la apertura de estos modelos?",
+  "hashtags": [
+    "#Ciberseguridad",
+    "#IA",
+    "#Extremismo",
+    "#Tecnología"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-10-14-0700-luiseskivelgolcher-wired-bb52.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-14-0700-luiseskivelgolcher-wired-bb52.jpg",
+    "hash": "16604e8458c4c2a6",
+    "version": 11,
+    "estilo": "dc8c8fa3edf501fd",
+    "renderizada": "2026-10-14T12:02:01.386Z"
+  },
+  "ilustracion": {
+    "descripcion": "Centro de datos con filas de servidores iluminados en tonos azules, sin logotipos ni pantallas con texto, elemento principal en el tercio superior derecho y el resto de la imagen despejado",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-14-0700-luiseskivelgolcher-wired-bb52.jpg",
+    "hashDescripcion": "17fc2559c4aef4f7",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-14T12:00:54.195Z",
+    "error": null,
+    "procedencia": "generada"
+  },
+  "formato": "post",
+  "fuentes": [
+    {
+      "rol": "principal",
+      "medio": "WIRED",
+      "autor": "David Gilbert",
+      "url": "https://www.wired.com/story/ai-models-can-be-easily-modified-to-assist-terrorist-and-extremist-activity/",
+      "canonica": "https://www.wired.com/story/ai-models-can-be-easily-modified-to-assist-terrorist-and-extremist-activity/",
+      "idioma": "en",
+      "publicado": "2026-10-14T09:00:00.000Z",
+      "actualizado": "2026-10-14T09:00:00.000Z",
+      "fechaHecho": "2026-08-14",
+      "consultado": "2026-10-14T12:00:54.195Z",
+      "alcance": "completo",
+      "textoRecuperado": {
+        "parrafos": 25,
+        "caracteres": 6091,
+        "enviados": 3900
+      },
+      "fuentesPrimarias": [
+        "https://www.ct-ai.org/",
+        "https://www.csis.org/analysis/artificial-intelligence-and-future-terrorism",
+        "http://www.aboutads.info"
+      ],
+      "licenciaMedios": null
+    }
+  ],
+  "afirmaciones": [
+    {
+      "texto": "Alibaba lanzó el modelo de código abierto Qwen 3.8-27B el 14 de agosto de 2026; en 24 horas aparecieron versiones \"abliteradas\" sin sus filtros de seguridad.",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/ai-models-can-be-easily-modified-to-assist-terrorist-and-extremist-activity/",
+      "contrastada": true
+    },
+    {
+      "texto": "El informe Counter-Terrorism AI Benchmark probó 134 modelos de IA con más de 200 preguntas sobre ataques masivos y armas químicas o nucleares.",
+      "tipo": "hecho",
+      "fuente": "https://www.ct-ai.org/",
+      "contrastada": true
+    },
+    {
+      "texto": "Solo dos modelos aprobaron completamente la prueba; 81 fallaron al menos una vez en un tema de ataque masivo.",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/ai-models-can-be-easily-modified-to-assist-terrorist-and-extremist-activity/",
+      "contrastada": true
+    },
+    {
+      "texto": "Un usuario que se identifica como neonazi dijo haber usado una versión sin filtros del modelo para entrenar un chatbot que niega el Holocausto.",
+      "tipo": "denuncia",
+      "fuente": "https://www.wired.com/story/ai-models-can-be-easily-modified-to-assist-terrorist-and-extremist-activity/",
+      "contrastada": false
+    },
+    {
+      "texto": "\"Nadie está pensando en la emergencia de la abliteración\", mientras el debate se centra en riesgos existenciales de la superinteligencia.",
+      "tipo": "opinion",
+      "fuente": "https://www.wired.com/story/ai-models-can-be-easily-modified-to-assist-terrorist-and-extremist-activity/",
+      "contrastada": false
+    }
+  ],
+  "angulo": "Cómo la eliminación de filtros de seguridad en modelos de IA de código abierto facilita contenido extremista, según un informe compartido con WIRED.",
+  "atribucion": "WIRED (David Gilbert), con base en el informe Counter-Terrorism AI Benchmark de Tech Against Terrorism",
+  "puntuacion": {
+    "total": 83,
+    "componentes": {
+      "afinidad": 27,
+      "interes": 20,
+      "evidencia": 16,
+      "actualidad": 15,
+      "visual": 5
+    }
+  },
+  "alertas": [
+    "acusacion-sin-fuente",
+    "fuente-unica",
+    "hecho-antiguo"
+  ],
+  "carrusel": null,
+  "reel": null,
+  "revision": {
+    "estado": "pendiente",
+    "notas": []
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-14T12:00:54.195Z",
+  "actualizado": "2026-10-14T12:00:54.195Z"
+}
