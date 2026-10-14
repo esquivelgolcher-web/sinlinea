@@ -1,7 +1,7 @@
 {
   "id": "2026-10-14-0104-leopopexiv-vatican-news-1968",
   "cuenta": "leopopexiv",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/pope/news/2026-10/pope-leo-surgery-gemelli-hospital-successful.html",
@@ -39,7 +39,11 @@
     "error": null
   },
   "programado": "2026-10-14T13:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "17989249542113656",
+    "permalink": "https://www.instagram.com/p/DefW6k4kn7k/",
+    "fecha": "2026-10-14T21:33:07.567Z"
+  },
   "error": null,
   "creado": "2026-10-14T05:04:41.526Z",
   "actualizado": "2026-10-14T21:33:07.567Z",
@@ -52,16 +56,15 @@
         "imagenHash": "e0802dccecb502d2",
         "imagenSha": "fd22abec087f34db64b552cd7974b81adcaa47a9"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-10-14T21:33:07.567Z",
-        "actualizado": "2026-10-14T21:33:07.567Z",
-        "contenedorId": "18108840947081176"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "17989249542113656",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/DefW6k4kn7k/",
+        "fecha": "2026-10-14T21:33:07.567Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
