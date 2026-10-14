@@ -1,7 +1,7 @@
 {
   "id": "2026-10-03-0645-sinlinea-la-prensa-ab42",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "La Prensa",
     "url": "https://www.prensa.com/politica/meco-reclama-bonificacion-de-20-millones-al-mop-por-la-entrega-anticipada-de-la-carretera-vigui-san-felix/",
@@ -43,7 +43,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-03T11:45:24.885Z",
-  "actualizado": "2026-10-03T11:45:24.885Z",
+  "actualizado": "2026-10-14T08:45:04.549Z",
   "plantilla": "dato",
   "dato": {
     "cifra": "$20 millones",
