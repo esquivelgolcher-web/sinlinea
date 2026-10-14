@@ -40,7 +40,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-14T05:04:41.526Z",
-  "actualizado": "2026-10-14T08:44:44.510Z",
+  "actualizado": "2026-10-14T17:56:34.734Z",
   "destinos": {
     "instagram": {
       "texto": "“caring for creation becomes an expression of humanity and solidarity”\n\n— Pope Leo XIV, Quoted in remarks at UN General Assembly debate on sustainable development (2026)\n\nVia Vatican News, 13 October 2026\n\n#PopeLeoXIV #Vatican #CatholicChurch\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #CatholicChurch",
@@ -53,7 +53,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-10-14T17:56:34.734Z",
+        "actualizado": "2026-10-14T17:56:34.734Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
