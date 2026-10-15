@@ -1,7 +1,7 @@
 {
   "id": "2026-10-15-0048-leopopexiv-vatican-news-90ff",
   "cuenta": "leopopexiv",
-  "estado": "borrador",
+  "estado": "programado",
   "formato": "frase",
   "frase": {
     "texto": "I encourage you to begin to share with your Episcopal Conferences and Dioceses what you have lived and received, and to continue proclaiming the Gospel with families, drawing on the richness of Amoris laetitia",
@@ -36,9 +36,26 @@
     "renderizada": "2026-10-15T04:49:16.298Z"
   },
   "ilustracion": null,
-  "programado": null,
+  "programado": "2026-10-15T09:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-10-15T04:48:52.770Z",
-  "actualizado": "2026-10-15T04:48:52.770Z"
+  "actualizado": "2026-10-15T10:31:44.381Z",
+  "destinos": {
+    "instagram": {
+      "texto": "“I encourage you to begin to share with your Episcopal Conferences and Dioceses what you have lived and received, and to continue proclaiming the Gospel with families, drawing on the richness of Amoris laetitia”\n\n— Pope Leo XIV, Mensaje de conclusión del encuentro sobre Amoris laetitia (2026)\n\nVia Vatican News, 14 October 2026\n\n#PopeLeoXIV #Vatican #CatholicChurch\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #CatholicChurch",
+      "aprobado": {
+        "fecha": "2026-10-15T10:31:44.381Z",
+        "hashPieza": "49aa3e846784e33e",
+        "imagenHash": "9b6c19b51233f07b",
+        "imagenSha": "15e48bbb144765583f8106745ffd1244b38ac145"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
