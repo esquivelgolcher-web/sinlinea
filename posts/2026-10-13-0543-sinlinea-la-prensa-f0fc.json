@@ -1,7 +1,7 @@
 {
   "id": "2026-10-13-0543-sinlinea-la-prensa-f0fc",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "La Prensa",
     "url": "https://www.prensa.com/judiciales/la-exsubdirectora-de-la-dgi-maritza-urena-sale-de-prision-y-pasa-a-arresto-domiciliario/",
@@ -43,7 +43,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-13T10:43:29.976Z",
-  "actualizado": "2026-10-13T10:43:29.976Z",
+  "actualizado": "2026-10-15T10:32:02.989Z",
   "plantilla": "foto",
   "dato": {
     "cifra": "$428 mil",
