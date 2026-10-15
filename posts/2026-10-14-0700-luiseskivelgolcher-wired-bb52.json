@@ -1,7 +1,7 @@
 {
   "id": "2026-10-14-0700-luiseskivelgolcher-wired-bb52",
   "cuenta": "luiseskivelgolcher",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "WIRED",
     "url": "https://www.wired.com/story/ai-models-can-be-easily-modified-to-assist-terrorist-and-extremist-activity/",
@@ -120,9 +120,56 @@
     "estado": "pendiente",
     "notas": []
   },
-  "programado": null,
+  "programado": "2026-10-15T07:05:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-10-14T12:00:54.195Z",
-  "actualizado": "2026-10-14T12:00:54.195Z"
+  "actualizado": "2026-10-15T10:31:22.573Z",
+  "destinos": {
+    "instagram": {
+      "texto": "Un modelo de inteligencia artificial de código abierto puede perder sus filtros de seguridad en menos de 24 horas. Así ocurrió con Qwen 3.8-27B, lanzado por Alibaba el 14 de agosto de 2026: casi de inmediato circularon versiones \"abliteradas\" (sin las barreras que impiden respuestas peligrosas). Un usuario neonazi dijo haber usado una de esas versiones para entrenar un chatbot que negaba el Holocausto, según documentos revisados por WIRED. El informe Counter-Terrorism AI Benchmark, de la organización Tech Against Terrorism, probó 134 modelos —de OpenAI, xAI, Anthropic, Meta, Google y empresas chinas y europeas— con más de 200 preguntas sobre ataques masivos y armas. Solo dos aprobaron por completo; 81 fallaron. Decir ser \"investigador de seguridad\" bastó para que los modelos respondieran casi nueve veces más. \"Nadie está pensando en la emergencia de la abliteración\", dijo el director de la organización, Adam Hadley, según WIRED. ¿Debería regularse la apertura de estos modelos?\n\nFuente: WIRED\n\n#Ciberseguridad #IA #Extremismo #Tecnología",
+      "aprobado": {
+        "fecha": "2026-10-15T10:31:22.573Z",
+        "hashPieza": "146bdcecf312e356",
+        "imagenHash": "16604e8458c4c2a6",
+        "imagenSha": "e2a87cc24e30a2ee73e0d730af8135943c0d513e"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    },
+    "facebook": {
+      "texto": "Un modelo de inteligencia artificial de código abierto puede perder sus filtros de seguridad en menos de 24 horas. Así ocurrió con Qwen 3.8-27B, lanzado por Alibaba el 14 de agosto de 2026: casi de inmediato circularon versiones \"abliteradas\" (sin las barreras que impiden respuestas peligrosas). Un usuario neonazi dijo haber usado una de esas versiones para entrenar un chatbot que negaba el Holocausto, según documentos revisados por WIRED. El informe Counter-Terrorism AI Benchmark, de la organización Tech Against Terrorism, probó 134 modelos —de OpenAI, xAI, Anthropic, Meta, Google y empresas chinas y europeas— con más de 200 preguntas sobre ataques masivos y armas. Solo dos aprobaron por completo; 81 fallaron. Decir ser \"investigador de seguridad\" bastó para que los modelos respondieran casi nueve veces más. \"Nadie está pensando en la emergencia de la abliteración\", dijo el director de la organización, Adam Hadley, según WIRED. ¿Debería regularse la apertura de estos modelos?\n\nFuente: WIRED",
+      "aprobado": {
+        "fecha": "2026-10-15T10:31:22.573Z",
+        "hashPieza": "146bdcecf312e356",
+        "imagenHash": "16604e8458c4c2a6",
+        "imagenSha": "e2a87cc24e30a2ee73e0d730af8135943c0d513e"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    },
+    "threads": {
+      "texto": "IA sin filtros ya ayuda a planear ataques, según estudio\n\nTech Against Terrorism probó 134 modelos; solo dos resistieron intentos de manipulación\n\nSegún WIRED (14 de octubre de 2026)",
+      "aprobado": {
+        "fecha": "2026-10-15T10:31:22.573Z",
+        "hashPieza": "146bdcecf312e356",
+        "imagenHash": "16604e8458c4c2a6",
+        "imagenSha": "e2a87cc24e30a2ee73e0d730af8135943c0d513e"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
