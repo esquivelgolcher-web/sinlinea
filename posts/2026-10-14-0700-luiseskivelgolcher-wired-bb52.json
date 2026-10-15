@@ -124,7 +124,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-14T12:00:54.195Z",
-  "actualizado": "2026-10-15T10:31:22.573Z",
+  "actualizado": "2026-10-15T15:18:13.175Z",
   "destinos": {
     "instagram": {
       "texto": "Un modelo de inteligencia artificial de código abierto puede perder sus filtros de seguridad en menos de 24 horas. Así ocurrió con Qwen 3.8-27B, lanzado por Alibaba el 14 de agosto de 2026: casi de inmediato circularon versiones \"abliteradas\" (sin las barreras que impiden respuestas peligrosas). Un usuario neonazi dijo haber usado una de esas versiones para entrenar un chatbot que negaba el Holocausto, según documentos revisados por WIRED. El informe Counter-Terrorism AI Benchmark, de la organización Tech Against Terrorism, probó 134 modelos —de OpenAI, xAI, Anthropic, Meta, Google y empresas chinas y europeas— con más de 200 preguntas sobre ataques masivos y armas. Solo dos aprobaron por completo; 81 fallaron. Decir ser \"investigador de seguridad\" bastó para que los modelos respondieran casi nueve veces más. \"Nadie está pensando en la emergencia de la abliteración\", dijo el director de la organización, Adam Hadley, según WIRED. ¿Debería regularse la apertura de estos modelos?\n\nFuente: WIRED\n\n#Ciberseguridad #IA #Extremismo #Tecnología",
@@ -152,7 +152,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-10-15T15:18:13.175Z",
+        "actualizado": "2026-10-15T15:18:13.175Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     },
