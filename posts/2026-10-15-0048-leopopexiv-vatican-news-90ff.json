@@ -40,7 +40,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-15T04:48:52.770Z",
-  "actualizado": "2026-10-15T10:31:44.381Z",
+  "actualizado": "2026-10-15T15:19:48.972Z",
   "destinos": {
     "instagram": {
       "texto": "“I encourage you to begin to share with your Episcopal Conferences and Dioceses what you have lived and received, and to continue proclaiming the Gospel with families, drawing on the richness of Amoris laetitia”\n\n— Pope Leo XIV, Mensaje de conclusión del encuentro sobre Amoris laetitia (2026)\n\nVia Vatican News, 14 October 2026\n\n#PopeLeoXIV #Vatican #CatholicChurch\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #CatholicChurch",
@@ -53,7 +53,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-10-15T15:19:48.972Z",
+        "actualizado": "2026-10-15T15:19:48.972Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
