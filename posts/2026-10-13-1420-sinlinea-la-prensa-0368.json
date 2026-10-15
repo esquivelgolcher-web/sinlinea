@@ -1,7 +1,7 @@
 {
   "id": "2026-10-13-1420-sinlinea-la-prensa-0368",
   "cuenta": "sinlinea",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "La Prensa",
     "url": "https://www.prensa.com/economia/mitradel-ordena-secuestro-de-cuentas-de-serviestiba/",
@@ -43,7 +43,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-13T19:20:41.011Z",
-  "actualizado": "2026-10-13T19:20:41.011Z",
+  "actualizado": "2026-10-15T10:31:57.523Z",
   "plantilla": "foto",
   "dato": {
     "cifra": "1,386",
