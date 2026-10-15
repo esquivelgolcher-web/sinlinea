@@ -1,7 +1,7 @@
 {
   "id": "2026-10-14-0004-luiseskivelgolcher-wired-bfa2",
   "cuenta": "luiseskivelgolcher",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "WIRED",
     "url": "https://www.wired.com/story/an-openai-employee-allegedly-used-a-chatbot-to-help-plant-a-recording-device-at-the-office/",
@@ -185,9 +185,57 @@
     "estado": "pendiente",
     "notas": []
   },
-  "programado": null,
+  "programado": "2026-10-15T09:05:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-10-14T05:04:41.526Z",
-  "actualizado": "2026-10-14T05:04:41.526Z"
+  "actualizado": "2026-10-15T10:31:39.626Z",
+  "destinos": {
+    "instagram": {
+      "texto": "Un ingeniero de OpenAI escondió un dispositivo de grabación de audio dentro de papel higiénico, pegado detrás de un televisor en una sala de conferencias reservada para ejecutivos, según una denuncia penal revelada el 13 de octubre de 2026 y reportada por WIRED. El sospechoso, identificado como Abdulrahman Alfozan, habría usado durante semanas un \"agente de productividad\" y un chatbot interno de la empresa para planear la operación y preguntar por reuniones agendadas en esa sala, de acuerdo con el expediente judicial. OpenAI dice no tener indicios de que haya accedido a los pesos del modelo, el código fuente o datos de clientes. El motivo todavía no se conoce: ni los fiscales ni la empresa lo han explicado. Esto es una denuncia judicial, no una condena. ¿Qué tan seguras son las salas donde se decide el futuro de la inteligencia artificial?\n\nFuente: WIRED\n\n#OpenAI #Espionaje #Ciberseguridad #IA",
+      "aprobado": {
+        "fecha": "2026-10-15T10:31:39.626Z",
+        "hashPieza": "2988a35ce0c3b876",
+        "imagenHash": "2de3ecd54f2d190f",
+        "imagenSha": "a2b4014d1314612f038d8fa0da3bc0a65a227667",
+        "imagenesSha": [
+          "ab0298d7f81a1eea9c0412dcd17dd36487ad3321",
+          "ee94111d59ade9781876af204d8aa326493104de",
+          "c177e99ae56b134e5187698d4cb399da7685c307",
+          "34e1fb81003fc7af48be1d29f5744e58500b61f2",
+          "44fa5a176f123633147a5a873e258571f1b6dc72",
+          "f42a9356746bd44b57d05b2bb75375b8442496d5"
+        ]
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    },
+    "threads": {
+      "texto": "Empleado de OpenAI escondió micrófono en sala ejecutiva\n\nUsó un chatbot interno para planear la vigilancia, según denuncia federal en EE.UU.\n\nSegún WIRED (13 de octubre de 2026)",
+      "aprobado": {
+        "fecha": "2026-10-15T10:31:39.626Z",
+        "hashPieza": "2988a35ce0c3b876",
+        "imagenHash": "2de3ecd54f2d190f",
+        "imagenSha": "a2b4014d1314612f038d8fa0da3bc0a65a227667",
+        "imagenesSha": [
+          "ab0298d7f81a1eea9c0412dcd17dd36487ad3321",
+          "ee94111d59ade9781876af204d8aa326493104de",
+          "c177e99ae56b134e5187698d4cb399da7685c307",
+          "34e1fb81003fc7af48be1d29f5744e58500b61f2",
+          "44fa5a176f123633147a5a873e258571f1b6dc72",
+          "f42a9356746bd44b57d05b2bb75375b8442496d5"
+        ]
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
