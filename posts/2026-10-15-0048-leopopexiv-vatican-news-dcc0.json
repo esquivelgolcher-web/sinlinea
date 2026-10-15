@@ -1,7 +1,7 @@
 {
   "id": "2026-10-15-0048-leopopexiv-vatican-news-dcc0",
   "cuenta": "leopopexiv",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/pope/news/2026-10/pope-leos-postoperative-recovery-positively-progressing.html",
@@ -38,9 +38,26 @@
     "generada": "2026-10-15T04:48:52.770Z",
     "error": null
   },
-  "programado": null,
+  "programado": "2026-10-15T13:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-10-15T04:48:52.770Z",
-  "actualizado": "2026-10-15T04:48:52.770Z"
+  "actualizado": "2026-10-15T10:31:48.249Z",
+  "destinos": {
+    "instagram": {
+      "texto": "The Holy See Press Office confirmed that Pope Leo XIV's postoperative recovery is progressing normally, after blood tests and a chest X-ray were carried out as scheduled following his surgery on Wednesday morning. Source: Vatican News, Oct 14, 2026.\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #HolySee #PapalHealth #VaticanNews",
+      "aprobado": {
+        "fecha": "2026-10-15T10:31:48.249Z",
+        "hashPieza": "6b3c7510d8eb91ae",
+        "imagenHash": "aaffde1369442785",
+        "imagenSha": "28bc14140cb0cfb27fafa3762972264e54f47711"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
