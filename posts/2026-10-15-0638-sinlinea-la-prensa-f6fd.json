@@ -1,0 +1,52 @@
+{
+  "id": "2026-10-15-0638-sinlinea-la-prensa-f6fd",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/politica/estados-unidos-inicia-despliegue-de-600-soldados-en-panama-por-campana-antidrogas-segun-new-york-times/",
+    "titulo": "La Embajada de Estados Unidos niega que 600 soldados vengan a Panamá",
+    "publicado": "2026-10-15T02:35:00.000Z"
+  },
+  "categoria": "POLÍTICA",
+  "titular": "EEUU niega envío de 600 soldados a Panamá",
+  "bajada": "La embajada desmintió el reporte y confirmó 120 militares en curso de entrenamiento selvático.",
+  "caption": "La Embajada de Estados Unidos calificó de falsa la información sobre el despliegue de 600 soldados en territorio panameño, difundida inicialmente por un medio internacional. Según la embajada, se trata de 120 militares que participan en un entrenamiento de dos semanas por invitación del Gobierno panameño. El tema reaviva el debate sobre la presencia militar extranjera en el país. ¿Qué opinas sobre la cooperación militar con Estados Unidos en Panamá?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#EstadosUnidos",
+    "#Seguridad",
+    "#RelacionesExteriores",
+    "#Militares"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-10-15-0638-sinlinea-la-prensa-f6fd.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-15-0638-sinlinea-la-prensa-f6fd.jpg",
+    "hash": "343df7d7143ed719",
+    "version": 2,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-10-15T11:38:46.202Z"
+  },
+  "ilustracion": {
+    "descripcion": "Entrada de una base de entrenamiento militar en una zona selvática de Panamá, con una bandera panameña ondeando en el tercio superior derecho; zona izquierda y central despejada, estilo ilustración editorial.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-15T11:38:06.035Z",
+  "actualizado": "2026-10-15T11:38:06.035Z",
+  "plantilla": "dato",
+  "dato": {
+    "cifra": "120",
+    "frase": "militares estadounidenses participan en el curso de entrenamiento en selva"
+  }
+}

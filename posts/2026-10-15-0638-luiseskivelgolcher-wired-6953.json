@@ -1,0 +1,202 @@
+{
+  "id": "2026-10-15-0638-luiseskivelgolcher-wired-6953",
+  "cuenta": "luiseskivelgolcher",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "WIRED",
+    "url": "https://www.wired.com/story/nightmare-scenario-zero-click-spyware-is-infecting-phones-via-targeted-ads/",
+    "titulo": "‘Nightmare Scenario’: Zero-Click Spyware Is Infecting Phones via Targeted Ads",
+    "publicado": "2026-10-15T10:00:00.000Z"
+  },
+  "categoria": "SEGURIDAD",
+  "titular": "Espían celulares con solo mostrar un anuncio",
+  "bajada": "Citizen Lab halló anuncios que instalan spyware sin que la víctima haga clic",
+  "caption": "Un anuncio digital puede bastar para infectar un teléfono sin que la persona haga clic en nada. Según una investigación de The Citizen Lab (Universidad de Toronto) publicada el 15 de octubre de 2026 y reportada por WIRED, una firma publicitaria registrada en Israel, Discover-Tech, distribuyó anuncios conectados a infraestructura del fabricante de software espía Candiru para infectar en secreto dispositivos. El llamado \"zero-click\" (ataque de cero clic) es una técnica que no requiere que la víctima toque nada: el software se instala solo. Citizen Lab documentó 45 dispositivos de la cadena Al Jazeera afectados entre 2024 y 2025. Google confirmó que, tras la investigación conjunta con Citizen Lab y la firma Confiant, expulsó a Discover-Tech de su plataforma publicitaria. Discover-Tech e Integrity Partners, vinculada a los activos de Candiru, no respondieron a las solicitudes de comentario de WIRED. Es la primera evidencia técnica pública de este tipo de ataque distribuido por publicidad en línea, según los investigadores. ¿Qué tan preparados estamos para un espionaje que no deja rastro visible?",
+  "hashtags": [
+    "#Ciberseguridad",
+    "#Spyware",
+    "#Privacidad",
+    "#Vigilancia",
+    "#Tecnología"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-10-15-0638-luiseskivelgolcher-wired-6953.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-15-0638-luiseskivelgolcher-wired-6953.jpg",
+    "hash": "2411f6febc22a1c0",
+    "version": 11,
+    "estilo": "dc8c8fa3edf501fd",
+    "renderizada": "2026-10-15T11:39:20.761Z"
+  },
+  "ilustracion": {
+    "descripcion": "Una pantalla de celular con un feed de anuncios genéricos sin texto, el dispositivo en el tercio superior derecho; a la izquierda y el centro, espacio despejado en tonos oscuros de alto contraste.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-15-0638-luiseskivelgolcher-wired-6953.jpg",
+    "hashDescripcion": "2ff90cd20feabad4",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-15T11:38:06.035Z",
+    "error": null,
+    "procedencia": "generada"
+  },
+  "formato": "carrusel",
+  "fuentes": [
+    {
+      "rol": "principal",
+      "medio": "WIRED",
+      "autor": "Matt Burgess",
+      "url": "https://www.wired.com/story/nightmare-scenario-zero-click-spyware-is-infecting-phones-via-targeted-ads/",
+      "canonica": "https://www.wired.com/story/nightmare-scenario-zero-click-spyware-is-infecting-phones-via-targeted-ads/",
+      "idioma": "en",
+      "publicado": "2026-10-15T10:00:00.000Z",
+      "actualizado": "2026-10-15T10:00:00.000Z",
+      "fechaHecho": "2026-10-15",
+      "consultado": "2026-10-15T11:38:06.035Z",
+      "alcance": "completo",
+      "textoRecuperado": {
+        "parrafos": 25,
+        "caracteres": 8269,
+        "enviados": 3910
+      },
+      "fuentesPrimarias": [
+        "https://www.haaretz.com/israel-news/2023-09-14/ty-article-magazine/.highlight/revealed-israeli-cyber-firms-developed-an-insane-new-spyware-tool-no-defense-exists/0000018a-93cb-de77-a98f-ffdf2fb60000",
+        "https://www.vice.com/en/article/the-nsa-and-cia-use-ad-blockers-because-online-advertising-is-so-dangerous/",
+        "https://www.calcalistech.com/ctechnews/article/r1er11mi61e",
+        "https://www.commerce.gov/news/press-releases/2021/11/commerce-adds-nso-group-and-other-foreign-companies-entity-list",
+        "https://iabeurope.eu/tcf-compliance-programmes/",
+        "https://www.amnesty.org/en/latest/news/2025/12/intellexa-spyware/",
+        "http://www.aboutads.info"
+      ],
+      "licenciaMedios": null
+    }
+  ],
+  "afirmaciones": [
+    {
+      "texto": "Citizen Lab documentó una campaña de anuncios, llamada 'AdFection', vinculada a infraestructura de la firma de spyware Candiru",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/nightmare-scenario-zero-click-spyware-is-infecting-phones-via-targeted-ads/",
+      "contrastada": true
+    },
+    {
+      "texto": "45 dispositivos de Al Jazeera fueron infectados entre 2024 y 2025 mediante anuncios dirigidos",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/nightmare-scenario-zero-click-spyware-is-infecting-phones-via-targeted-ads/",
+      "contrastada": true
+    },
+    {
+      "texto": "Google confirmó que bloqueó a Discover-Tech de sus plataformas tras la investigación conjunta",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/nightmare-scenario-zero-click-spyware-is-infecting-phones-via-targeted-ads/",
+      "contrastada": true
+    },
+    {
+      "texto": "Discover-Tech estaría conectada a servidores vinculados a Candiru",
+      "tipo": "denuncia",
+      "fuente": "https://www.wired.com/story/nightmare-scenario-zero-click-spyware-is-infecting-phones-via-targeted-ads/",
+      "contrastada": false
+    }
+  ],
+  "angulo": "Cómo un anuncio digital se convirtió en vector de espionaje sin que la víctima haga nada",
+  "atribucion": "The Citizen Lab (Universidad de Toronto), según reportó WIRED el 15 de octubre de 2026",
+  "puntuacion": {
+    "total": 87,
+    "componentes": {
+      "afinidad": 30,
+      "interes": 20,
+      "evidencia": 16,
+      "actualidad": 15,
+      "visual": 6
+    }
+  },
+  "alertas": [
+    "fuente-unica"
+  ],
+  "carrusel": {
+    "diapositivas": [
+      {
+        "titulo": "Un anuncio puede infectar tu celular sin que hagas clic",
+        "texto": "Citizen Lab reveló la primera evidencia técnica pública de spyware distribuido por publicidad digital, sin interacción de la víctima."
+      },
+      {
+        "titulo": "Qué encontraron los investigadores",
+        "texto": "Una firma de publicidad israelí, Discover-Tech, mostró anuncios conectados a servidores vinculados al fabricante de spyware Candiru."
+      },
+      {
+        "titulo": "Cómo funciona un ataque de 'cero clic'",
+        "texto": "El dispositivo se infecta solo con cargar el anuncio: no hace falta tocar nada ni ver el anuncio completo, según Citizen Lab."
+      },
+      {
+        "titulo": "A quién afectó, según la investigación",
+        "texto": "45 dispositivos de periodistas de Al Jazeera fueron comprometidos entre 2024 y 2025, de acuerdo con los registros analizados."
+      },
+      {
+        "titulo": "Lo que falta por saber",
+        "texto": "Discover-Tech e Integrity Partners, ligada a los activos de Candiru, no respondieron a WIRED. No hay confirmación de cuántas personas más fueron blanco."
+      },
+      {
+        "titulo": "La respuesta de Google",
+        "texto": "Google expulsó a Discover-Tech de su red publicitaria tras colaborar con Citizen Lab y la firma Confiant, confirmó la empresa."
+      },
+      {
+        "titulo": "Fuente y lo que puedes hacer",
+        "texto": "Investigación de The Citizen Lab, reportada por WIRED (15 de octubre de 2026). Bloquear anuncios en todos tus dispositivos reduce el riesgo."
+      }
+    ],
+    "imagenes": [
+      {
+        "numero": 1,
+        "ruta": "public/img/2026-10-15-0638-luiseskivelgolcher-wired-6953-01.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-15-0638-luiseskivelgolcher-wired-6953-01.jpg",
+        "hash": "e29099d109cdac8b"
+      },
+      {
+        "numero": 2,
+        "ruta": "public/img/2026-10-15-0638-luiseskivelgolcher-wired-6953-02.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-15-0638-luiseskivelgolcher-wired-6953-02.jpg",
+        "hash": "a6110e7763eaff85"
+      },
+      {
+        "numero": 3,
+        "ruta": "public/img/2026-10-15-0638-luiseskivelgolcher-wired-6953-03.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-15-0638-luiseskivelgolcher-wired-6953-03.jpg",
+        "hash": "02119bb5427dea8f"
+      },
+      {
+        "numero": 4,
+        "ruta": "public/img/2026-10-15-0638-luiseskivelgolcher-wired-6953-04.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-15-0638-luiseskivelgolcher-wired-6953-04.jpg",
+        "hash": "07b546070f54addd"
+      },
+      {
+        "numero": 5,
+        "ruta": "public/img/2026-10-15-0638-luiseskivelgolcher-wired-6953-05.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-15-0638-luiseskivelgolcher-wired-6953-05.jpg",
+        "hash": "82b4f5f46a73a606"
+      },
+      {
+        "numero": 6,
+        "ruta": "public/img/2026-10-15-0638-luiseskivelgolcher-wired-6953-06.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-15-0638-luiseskivelgolcher-wired-6953-06.jpg",
+        "hash": "6b2e8e46f1828918"
+      },
+      {
+        "numero": 7,
+        "ruta": "public/img/2026-10-15-0638-luiseskivelgolcher-wired-6953-07.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-15-0638-luiseskivelgolcher-wired-6953-07.jpg",
+        "hash": "02657bf669aa2c2c"
+      }
+    ],
+    "hash": "f7516c6b532f8415",
+    "version": 2
+  },
+  "reel": null,
+  "revision": {
+    "estado": "pendiente",
+    "notas": []
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-15T11:38:06.035Z",
+  "actualizado": "2026-10-15T11:38:06.035Z"
+}

@@ -1,0 +1,48 @@
+{
+  "id": "2026-10-15-0638-sinlinea-la-estrella-a5e8",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/jose-gabriel-carrizo-seguira-detenido-mientras-csj-revisa-amparos-de-garantias-FA26511747",
+    "titulo": "José Gabriel Carrizo seguirá detenido mientras CSJ revisa amparos de garantías",
+    "publicado": "2026-10-15T03:00:00.000Z"
+  },
+  "categoria": "POLÍTICA",
+  "titular": "Carrizo sigue detenido; CSJ revisa apelación",
+  "bajada": "Jueza mantiene la detención domiciliaria del exvicepresidente; la apelación se verá el 6 de noviembre.",
+  "caption": "El exvicepresidente José Gabriel Carrizo continúa bajo detención domiciliaria mientras avanza el proceso por presunto enriquecimiento injustificado durante su gestión pública. Su defensa pidió cambiar la medida a reporte periódico, pero el tribunal decidió mantenerla hasta que se resuelva la apelación. El caso toca un tema sensible para los panameños: la rendición de cuentas de quienes ocuparon altos cargos. ¿Debería flexibilizarse la medida mientras continúa la investigación?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Justicia",
+    "#Carrizo",
+    "#CorrupciónPanamá",
+    "#PolíticaPanamá"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-10-15-0638-sinlinea-la-estrella-a5e8.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-15-0638-sinlinea-la-estrella-a5e8.jpg",
+    "hash": "db415e3d71c1c59f",
+    "version": 2,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-10-15T11:38:45.988Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada del edificio del Sistema Penal Acusatorio en Plaza Ágora, Panamá, con balanza de la justicia visible en el tercio superior derecho; zona izquierda y central despejada, estilo ilustración editorial.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-15T11:38:06.035Z",
+  "actualizado": "2026-10-15T11:38:06.035Z",
+  "plantilla": "titular"
+}
