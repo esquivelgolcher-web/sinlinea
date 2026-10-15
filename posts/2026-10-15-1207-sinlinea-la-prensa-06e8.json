@@ -1,0 +1,52 @@
+{
+  "id": "2026-10-15-1207-sinlinea-la-prensa-06e8",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/economia/el-teleferico-de-san-miguelito-ya-tiene-luz-verde-para-su-construccion/",
+    "titulo": "El teleférico de San Miguelito ya tiene luz verde para su construcción",
+    "publicado": "2026-10-15T15:35:47.000Z"
+  },
+  "categoria": "ECONOMÍA",
+  "titular": "Teleférico de San Miguelito recibe luz verde para construirse",
+  "bajada": "Contrato de $255.2 millones iniciará obra que conectará con la Línea 2 del Metro",
+  "caption": "El proyecto que atravesará San Miguelito comenzó oficialmente su construcción tras la entrega de la orden de proceder. Tendrá seis estaciones y se conectará con la Línea 2 del Metro, lo que promete acercar a miles de personas a sus trabajos. ¿Cambiará este teleférico tu forma de moverte por la ciudad?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Teleférico",
+    "#SanMiguelito",
+    "#Metro",
+    "#Transporte"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-10-15-1207-sinlinea-la-prensa-06e8.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-15-1207-sinlinea-la-prensa-06e8.jpg",
+    "hash": "fef8c0005af70ede",
+    "version": 2,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-10-15T17:07:51.572Z"
+  },
+  "ilustracion": {
+    "descripcion": "Estructura de estación de teleférico en construcción sobre una colina urbana de San Miguelito, con la ciudad de Panamá al fondo, elemento principal en el tercio superior derecho, zona izquierda despejada",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-15T17:07:04.683Z",
+  "actualizado": "2026-10-15T17:07:04.683Z",
+  "plantilla": "dato",
+  "dato": {
+    "cifra": "2,000",
+    "frase": "pasajeros por hora podrá transportar el teleférico en cada sentido"
+  }
+}

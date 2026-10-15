@@ -1,0 +1,52 @@
+{
+  "id": "2026-10-15-1207-sinlinea-la-estrella-77ae",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/presidente-mulino-anuncia-ayuda-economica-para-damnificados-por-el-terremoto-ED26520325",
+    "titulo": "Presidente Mulino anuncia ayuda económica para damnificados por el terremoto",
+    "publicado": "2026-10-15T11:21:00.000Z"
+  },
+  "categoria": "POLÍTICA",
+  "titular": "Mulino anuncia fondos para damnificados del terremoto",
+  "bajada": "Representantes recibirán $10,000 y alcaldías $20,000 para atender a los afectados por el sismo",
+  "caption": "El Gobierno comenzó a depositar ayuda directa a juntas comunales y alcaldías para atender a las familias afectadas por el terremoto del 9 de octubre. El presidente aseguró que la Contraloría fiscalizará el uso de estos recursos. ¿Llegará esta ayuda a tiempo a las comunidades que más la necesitan?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Terremoto",
+    "#Damnificados",
+    "#Mulino",
+    "#AyudaEconómica"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-10-15-1207-sinlinea-la-estrella-77ae.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-15-1207-sinlinea-la-estrella-77ae.jpg",
+    "hash": "f150326c1786ad4a",
+    "version": 11,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-10-15T17:07:51.141Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada de una alcaldía panameña con la bandera nacional ondeando y una caja de ayuda humanitaria en primer plano, elemento principal en el tercio superior derecho, zona izquierda y central despejadas",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-15-1207-sinlinea-la-estrella-77ae.jpg",
+    "hashDescripcion": "3024ef8c1a2b4fd6",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-15T17:07:04.683Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-15T17:07:04.683Z",
+  "actualizado": "2026-10-15T17:07:04.683Z",
+  "plantilla": "foto",
+  "dato": {
+    "cifra": "$10,000",
+    "frase": "recibirá cada representante de corregimiento para ayudar a los damnificados"
+  }
+}
