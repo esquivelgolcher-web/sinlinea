@@ -42,7 +42,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-15T04:48:52.770Z",
-  "actualizado": "2026-10-15T10:31:48.249Z",
+  "actualizado": "2026-10-15T19:21:36.662Z",
   "destinos": {
     "instagram": {
       "texto": "The Holy See Press Office confirmed that Pope Leo XIV's postoperative recovery is progressing normally, after blood tests and a chest X-ray were carried out as scheduled following his surgery on Wednesday morning. Source: Vatican News, Oct 14, 2026.\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #HolySee #PapalHealth #VaticanNews",
@@ -55,7 +55,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-10-15T19:21:36.662Z",
+        "actualizado": "2026-10-15T19:21:36.662Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
