@@ -1,7 +1,7 @@
 {
   "id": "2026-10-15-0048-leopopexiv-vatican-news-dcc0",
   "cuenta": "leopopexiv",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/pope/news/2026-10/pope-leos-postoperative-recovery-positively-progressing.html",
@@ -39,7 +39,11 @@
     "error": null
   },
   "programado": "2026-10-15T13:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "17973327441166089",
+    "permalink": "https://www.instagram.com/p/DehsqL_iVP0/",
+    "fecha": "2026-10-15T19:21:36.662Z"
+  },
   "error": null,
   "creado": "2026-10-15T04:48:52.770Z",
   "actualizado": "2026-10-15T19:21:36.662Z",
@@ -52,16 +56,15 @@
         "imagenHash": "aaffde1369442785",
         "imagenSha": "28bc14140cb0cfb27fafa3762972264e54f47711"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-10-15T19:21:36.662Z",
-        "actualizado": "2026-10-15T19:21:36.662Z",
-        "contenedorId": "18109035401081176"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "17973327441166089",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/DehsqL_iVP0/",
+        "fecha": "2026-10-15T19:21:36.662Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
