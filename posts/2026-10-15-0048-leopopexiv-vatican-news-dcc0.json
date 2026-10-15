@@ -1,0 +1,46 @@
+{
+  "id": "2026-10-15-0048-leopopexiv-vatican-news-dcc0",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-10/pope-leos-postoperative-recovery-positively-progressing.html",
+    "titulo": "Pope Leo's postoperative recovery progressing well",
+    "publicado": "2026-10-14T13:38:00.000Z"
+  },
+  "categoria": "SALUD",
+  "titular": "Pope Leo's recovery progressing well, Vatican says",
+  "bajada": "Post-op blood tests and chest X-ray confirm normal healing after lung surgery",
+  "caption": "The Holy See Press Office confirmed that Pope Leo XIV's postoperative recovery is progressing normally, after blood tests and a chest X-ray were carried out as scheduled following his surgery on Wednesday morning. Source: Vatican News, Oct 14, 2026.",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Vatican",
+    "#HolySee",
+    "#PapalHealth",
+    "#VaticanNews"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-10-15-0048-leopopexiv-vatican-news-dcc0.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-15-0048-leopopexiv-vatican-news-dcc0.jpg",
+    "hash": "aaffde1369442785",
+    "version": 11,
+    "estilo": "ab79cbbb3887cfa1",
+    "renderizada": "2026-10-15T04:49:12.475Z"
+  },
+  "ilustracion": {
+    "descripcion": "A quiet hospital corridor with soft natural light; a stethoscope and medical chart rest on a table in the upper right third, left and center space left open and calm.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-15-0048-leopopexiv-vatican-news-dcc0.jpg",
+    "hashDescripcion": "be2fb5410406822b",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-15T04:48:52.770Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-15T04:48:52.770Z",
+  "actualizado": "2026-10-15T04:48:52.770Z"
+}
