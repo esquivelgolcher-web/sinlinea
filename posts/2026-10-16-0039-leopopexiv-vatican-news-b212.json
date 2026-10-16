@@ -1,0 +1,46 @@
+{
+  "id": "2026-10-16-0039-leopopexiv-vatican-news-b212",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/church/news/2026-10/bishop-ignatius-ding-zuyao-ordained-in-haimen-china.html",
+    "titulo": "Bishop Ignatius Ding Zuyao ordained in Haimen, China",
+    "publicado": "2026-10-15T11:10:00.000Z"
+  },
+  "categoria": "INTERNACIONAL",
+  "titular": "Bishop ordained in China under Vatican accord",
+  "bajada": "Ignatius Ding Zuyao consecrated in Haimen following Pope Leo XIV's appointment",
+  "caption": "Bishop Ignatius Ding Zuyao was ordained in Haimen, Jiangsu Province, after being appointed by Pope Leo XIV under the Provisional Agreement between the Holy See and China. Source: Vatican News, Oct 15, 2026.",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#VaticanChina",
+    "#CatholicChurch",
+    "#China",
+    "#Haimen"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-10-16-0039-leopopexiv-vatican-news-b212.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-16-0039-leopopexiv-vatican-news-b212.jpg",
+    "hash": "fc00d0f321c7e061",
+    "version": 11,
+    "estilo": "ab79cbbb3887cfa1",
+    "renderizada": "2026-10-16T04:39:38.607Z"
+  },
+  "ilustracion": {
+    "descripcion": "A traditional Chinese cathedral exterior with soft morning light; a bishop in vestments stands at the entrance, shown from behind at mid-distance in the upper right third, left and center open",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-16-0039-leopopexiv-vatican-news-b212.jpg",
+    "hashDescripcion": "8d54af5a3bdec9f8",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-16T04:39:12.139Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-16T04:39:12.139Z",
+  "actualizado": "2026-10-16T04:39:12.139Z"
+}
