@@ -1,0 +1,212 @@
+{
+  "id": "2026-10-16-0631-luiseskivelgolcher-occrp-10e3",
+  "cuenta": "luiseskivelgolcher",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "OCCRP",
+    "url": "https://www.occrp.org/en/news/romanian-institutions-bought-banned-russian-cybersecurity-software",
+    "titulo": "Romanian Institutions Bought Banned Russian Cybersecurity Software",
+    "publicado": "2026-10-16T10:54:00.000Z"
+  },
+  "categoria": "SEGURIDAD",
+  "titular": "Rumanía: 83 entidades compraron Kaspersky vetado",
+  "bajada": "Hospitales, escuelas y una contratista de la OTAN usaron software ruso prohibido desde 2023",
+  "caption": "Rumanía prohibió en 2022 el software ruso por riesgo a la seguridad nacional. En marzo de 2023 el gobierno vetó formalmente productos de Kaspersky, la firma de ciberseguridad fundada en Rusia. Pese a eso, una revisión de registros de contratación pública hecha por OCCRP encontró que 83 instituciones estatales —entre ellas hospitales, municipios, escuelas y un instituto que trabaja con el Ministerio de Defensa y la OTAN— hicieron 131 compras de ese software entre marzo de 2023 y septiembre de 2026. El exministro de Investigación, Sebastian Burduja, atribuyó esto a falta de personal fiscalizador y planteó, como hipótesis propia, que podría existir una 'corriente prorrusa' dentro de instituciones rumanas. Kaspersky niega vínculos indebidos con gobiernos y dice que las restricciones responden al clima geopolítico, no a evidencia técnica. Según OCCRP.",
+  "hashtags": [
+    "#Ciberseguridad",
+    "#Kaspersky",
+    "#Rumania",
+    "#OCCRP",
+    "#ContratosPúblicos"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-10-16-0631-luiseskivelgolcher-occrp-10e3.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-16-0631-luiseskivelgolcher-occrp-10e3.jpg",
+    "hash": "e6fc06e5a3a0bc7b",
+    "version": 11,
+    "estilo": "dc8c8fa3edf501fd",
+    "renderizada": "2026-10-16T11:32:47.946Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada de un edificio ministerial en Bucarest con la bandera de Rumanía ondeando, ilustración editorial sobria; el edificio queda en el tercio superior derecho y la zona izquierda y central despejadas.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-16-0631-luiseskivelgolcher-occrp-10e3.jpg",
+    "hashDescripcion": "74707913e6e451dd",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-16T11:31:57.342Z",
+    "error": null,
+    "procedencia": "generada"
+  },
+  "formato": "carrusel",
+  "fuentes": [
+    {
+      "rol": "principal",
+      "medio": "OCCRP",
+      "autor": null,
+      "url": "https://www.occrp.org/en/news/romanian-institutions-bought-banned-russian-cybersecurity-software",
+      "canonica": "https://www.occrp.org/en/news/romanian-institutions-bought-banned-russian-cybersecurity-software",
+      "idioma": "en",
+      "publicado": "2026-10-16T10:54:00.000Z",
+      "actualizado": null,
+      "fechaHecho": null,
+      "consultado": "2026-10-16T11:31:57.342Z",
+      "alcance": "completo",
+      "textoRecuperado": {
+        "parrafos": 28,
+        "caracteres": 4567,
+        "enviados": 3990
+      },
+      "fuentesPrimarias": [],
+      "licenciaMedios": null
+    }
+  ],
+  "afirmaciones": [
+    {
+      "texto": "83 instituciones públicas rumanas hicieron 131 compras de software de Kaspersky entre marzo de 2023 y septiembre de 2026, pese al veto gubernamental.",
+      "tipo": "hecho",
+      "fuente": "https://www.occrp.org/en/news/romanian-institutions-bought-banned-russian-cybersecurity-software",
+      "contrastada": true
+    },
+    {
+      "texto": "Rumanía prohibió por ley en 2022 el software de ciberseguridad de origen ruso y en marzo de 2023 un decreto vetó formalmente los productos de Kaspersky.",
+      "tipo": "hecho",
+      "fuente": "https://www.occrp.org/en/news/romanian-institutions-bought-banned-russian-cybersecurity-software",
+      "contrastada": true
+    },
+    {
+      "texto": "El Instituto Nacional de Física Láser, Plasma y Radiación, que trabaja con el Ministerio de Defensa, una academia militar y la OTAN, compró licencias de Kaspersky menos de dos meses después del veto.",
+      "tipo": "hecho",
+      "fuente": "https://www.occrp.org/en/news/romanian-institutions-bought-banned-russian-cybersecurity-software",
+      "contrastada": true
+    },
+    {
+      "texto": "El instituto afirmó que el software comprado nunca fue instalado ni usado en sus sistemas.",
+      "tipo": "hecho",
+      "fuente": "https://www.occrp.org/en/news/romanian-institutions-bought-banned-russian-cybersecurity-software",
+      "contrastada": false
+    },
+    {
+      "texto": "El exministro Sebastian Burduja planteó como hipótesis que podría existir una 'corriente prorrusa' dentro de instituciones del estado rumano.",
+      "tipo": "hipotesis",
+      "fuente": "https://www.occrp.org/en/news/romanian-institutions-bought-banned-russian-cybersecurity-software",
+      "contrastada": false
+    },
+    {
+      "texto": "Kaspersky niega tener vínculos indebidos con algún gobierno y sostiene que las restricciones responden al clima geopolítico y no a un análisis técnico.",
+      "tipo": "opinion",
+      "fuente": "https://www.occrp.org/en/news/romanian-institutions-bought-banned-russian-cybersecurity-software",
+      "contrastada": false
+    },
+    {
+      "texto": "Violar el veto es una falta administrativa con multas de entre 50.000 y 200.000 lei (entre 10.500 y 42.000 dólares) bajo la ley rumana.",
+      "tipo": "hecho",
+      "fuente": "https://www.occrp.org/en/news/romanian-institutions-bought-banned-russian-cybersecurity-software",
+      "contrastada": true
+    }
+  ],
+  "angulo": "Contratación pública y seguridad nacional: instituciones del estado rumano, incluida una vinculada a la OTAN, siguieron comprando software ruso después de que el propio gobierno lo prohibiera.",
+  "atribucion": "OCCRP",
+  "puntuacion": {
+    "total": 81,
+    "componentes": {
+      "afinidad": 27,
+      "interes": 18,
+      "evidencia": 16,
+      "actualidad": 15,
+      "visual": 5
+    }
+  },
+  "alertas": [
+    "fuente-unica"
+  ],
+  "carrusel": {
+    "diapositivas": [
+      {
+        "titulo": "83 instituciones rumanas compraron software ruso vetado",
+        "texto": "Pese a estar prohibido desde 2023, hospitales, escuelas y una contratista de la OTAN siguieron usando Kaspersky, según OCCRP."
+      },
+      {
+        "titulo": "Un veto que no se cumplió",
+        "texto": "Rumanía prohibió el software ruso en 2022 por riesgo a la seguridad nacional. En marzo de 2023 vetó formalmente a Kaspersky, firma fundada en Rusia."
+      },
+      {
+        "titulo": "131 compras en tres años y medio",
+        "texto": "Registros de contratación pública muestran 131 compras de productos vetados entre marzo de 2023 y septiembre de 2026, hechas por 83 entidades estatales."
+      },
+      {
+        "titulo": "Hasta un contratista de la OTAN compró el software",
+        "texto": "Un instituto de física que trabaja con el Ministerio de Defensa y la OTAN adquirió licencias de Kaspersky apenas dos meses después del veto. Dice que nunca las instaló."
+      },
+      {
+        "titulo": "¿Falta de control o algo más?",
+        "texto": "El exministro Sebastian Burduja atribuye las compras a falta de personal fiscalizador, pero también plantea, como hipótesis propia, una posible 'corriente prorrusa' en el estado."
+      },
+      {
+        "titulo": "Kaspersky responde y otros países también actúan",
+        "texto": "La empresa niega vínculos con gobiernos y dice que no hay evidencia técnica contra sus productos. Estados Unidos, Alemania, Lituania e Italia también restringieron su uso."
+      },
+      {
+        "titulo": "Multas bajas frente a un riesgo alto",
+        "texto": "Las sanciones van de 10.500 a 42.000 dólares. Según OCCRP, el incumplimiento masivo del veto sigue sin consecuencias serias."
+      }
+    ],
+    "imagenes": [
+      {
+        "numero": 1,
+        "ruta": "public/img/2026-10-16-0631-luiseskivelgolcher-occrp-10e3-01.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-16-0631-luiseskivelgolcher-occrp-10e3-01.jpg",
+        "hash": "c23af7d065e97a3a"
+      },
+      {
+        "numero": 2,
+        "ruta": "public/img/2026-10-16-0631-luiseskivelgolcher-occrp-10e3-02.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-16-0631-luiseskivelgolcher-occrp-10e3-02.jpg",
+        "hash": "8e91bfe5f9efb7eb"
+      },
+      {
+        "numero": 3,
+        "ruta": "public/img/2026-10-16-0631-luiseskivelgolcher-occrp-10e3-03.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-16-0631-luiseskivelgolcher-occrp-10e3-03.jpg",
+        "hash": "9976382830f1fcda"
+      },
+      {
+        "numero": 4,
+        "ruta": "public/img/2026-10-16-0631-luiseskivelgolcher-occrp-10e3-04.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-16-0631-luiseskivelgolcher-occrp-10e3-04.jpg",
+        "hash": "7f42a24afb43afc8"
+      },
+      {
+        "numero": 5,
+        "ruta": "public/img/2026-10-16-0631-luiseskivelgolcher-occrp-10e3-05.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-16-0631-luiseskivelgolcher-occrp-10e3-05.jpg",
+        "hash": "4997dacd8f683e57"
+      },
+      {
+        "numero": 6,
+        "ruta": "public/img/2026-10-16-0631-luiseskivelgolcher-occrp-10e3-06.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-16-0631-luiseskivelgolcher-occrp-10e3-06.jpg",
+        "hash": "df591f37a904e9fd"
+      },
+      {
+        "numero": 7,
+        "ruta": "public/img/2026-10-16-0631-luiseskivelgolcher-occrp-10e3-07.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-16-0631-luiseskivelgolcher-occrp-10e3-07.jpg",
+        "hash": "2de32448132f6ede"
+      }
+    ],
+    "hash": "9c9a4c80188a2a36",
+    "version": 2
+  },
+  "reel": null,
+  "revision": {
+    "estado": "pendiente",
+    "notas": []
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-16T11:31:57.342Z",
+  "actualizado": "2026-10-16T11:31:57.342Z"
+}
