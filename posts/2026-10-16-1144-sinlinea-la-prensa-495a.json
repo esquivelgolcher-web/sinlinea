@@ -1,0 +1,48 @@
+{
+  "id": "2026-10-16-1144-sinlinea-la-prensa-495a",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/politica/diputados-piden-1991-millones-mas-para-el-presupuesto-de-2027-23-millones-irian-a-la-asamblea/",
+    "titulo": "Diputados piden $199.1 millones más para el presupuesto de 2027; $23 millones irían a la Asamblea",
+    "publicado": "2026-10-16T05:04:00.000Z"
+  },
+  "categoria": "POLÍTICA",
+  "titular": "Asamblea pide $23 millones extra para 2027",
+  "bajada": "Comisión de Presupuesto solicita $199.1 millones adicionales, $23 millones serían para la Asamblea.",
+  "caption": "La Comisión de Presupuesto de la Asamblea pidió al MEF sumar $199.1 millones al presupuesto de 2027, de los cuales $23 millones irían al funcionamiento del propio órgano legislativo, solo superado por el monto para el Ministerio de Obras Públicas. El pedido llega mientras se reclama más inversión para salud y para la reconstrucción en Azuero tras el terremoto. ¿Te parece justificado que la Asamblea reciba más fondos para sus planillas?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Asamblea",
+    "#Presupuesto2027",
+    "#Política",
+    "#Economía"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-10-16-1144-sinlinea-la-prensa-495a.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-16-1144-sinlinea-la-prensa-495a.jpg",
+    "hash": "7b9d494f27cb1f19",
+    "version": 11,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-10-16T16:45:07.533Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada de la Asamblea Nacional de Panamá bajo un cielo despejado, con la bandera ondeando; el edificio ocupa el tercio superior derecho y la zona izquierda y central de la imagen queda despejada",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-16-1144-sinlinea-la-prensa-495a.jpg",
+    "hashDescripcion": "b4e2d13d7a641f13",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-16T16:44:20.693Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-16T16:44:20.693Z",
+  "actualizado": "2026-10-16T16:44:20.693Z",
+  "plantilla": "foto"
+}

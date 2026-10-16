@@ -1,0 +1,119 @@
+{
+  "id": "2026-10-16-1144-luiseskivelgolcher-efe-verifica-ea30",
+  "cuenta": "luiseskivelgolcher",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "EFE Verifica",
+    "url": "https://verifica.efe.com/imagen-filtrada-de-netanyahu-pizarra-con-un-plan-para-atacar-espana-ia/",
+    "titulo": "La imagen de Netanyahu junto a una pizarra con un plan para \"atacar\" España es IA",
+    "publicado": "2026-10-16T15:23:31.000Z"
+  },
+  "categoria": "SEGURIDAD",
+  "titular": "Imagen de Netanyahu con plan contra España es IA",
+  "bajada": "EFE Verifica halló marca SynthID y alteraciones digitales en la foto viral",
+  "caption": "Una fotografía que circula en redes muestra al primer ministro israelí, Benjamín Netanyahu, junto a una pizarra con la palabra \"España\", como si Israel preparara un ataque contra el país. Es falso: según una verificación de EFE Verifica publicada el 16 de octubre de 2026, la imagen original, difundida primero en Telegram, no contiene ninguna referencia a España. La pizarra fue alterada digitalmente: palabras como \"tech: day\" o \"media + espías\" sustituyeron el texto original, y formas ilegibles se convirtieron en palabras completas. EFE Verifica usó la herramienta Verify y detectó una marca de agua SynthID, una señal invisible que las herramientas de OpenAI insertan en contenido generado o modificado con inteligencia artificial. El caso muestra cómo estas marcas técnicas permiten rastrear manipulaciones que a simple vista parecen auténticas, aunque su ausencia no garantiza que una imagen sea real. ¿Qué otras herramientas conoces para detectar imágenes manipuladas con IA?",
+  "hashtags": [
+    "#Desinformación",
+    "#IA",
+    "#Verificación",
+    "#Netanyahu",
+    "#SynthID"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-10-16-1144-luiseskivelgolcher-efe-verifica-ea30.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-16-1144-luiseskivelgolcher-efe-verifica-ea30.jpg",
+    "hash": "07088c13f8a97151",
+    "version": 11,
+    "estilo": "dc8c8fa3edf501fd",
+    "renderizada": "2026-10-16T16:45:32.899Z"
+  },
+  "ilustracion": {
+    "descripcion": "Pizarra en blanco con marcador azul sobre un fondo neutro de oficina, en el tercio superior derecho; la zona izquierda y central despejadas, sin texto legible ni logotipos, estilo ilustración editorial.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-16-1144-luiseskivelgolcher-efe-verifica-ea30.jpg",
+    "hashDescripcion": "6802075af5bd6394",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-16T16:44:20.693Z",
+    "error": null,
+    "procedencia": "generada"
+  },
+  "formato": "post",
+  "fuentes": [
+    {
+      "rol": "principal",
+      "medio": "EFE Verifica",
+      "autor": "Andrés F. Suárez Clavijo",
+      "url": "https://verifica.efe.com/imagen-filtrada-de-netanyahu-pizarra-con-un-plan-para-atacar-espana-ia/",
+      "canonica": "https://verifica.efe.com/imagen-filtrada-de-netanyahu-pizarra-con-un-plan-para-atacar-espana-ia/",
+      "idioma": "es",
+      "publicado": "2026-10-16T15:23:31.000Z",
+      "actualizado": "2026-10-16T15:23:35.000Z",
+      "fechaHecho": "2026-10-16",
+      "consultado": "2026-10-16T16:44:20.693Z",
+      "alcance": "completo",
+      "textoRecuperado": {
+        "parrafos": 18,
+        "caracteres": 3701,
+        "enviados": 3735
+      },
+      "fuentesPrimarias": [
+        "https://megalodon.jp/2026-1016-0007-26/https://x.com:443/Bracesco2023/status/2110500294740025666/photo/1",
+        "https://megalodon.jp/2026-1015-2007-14/https://x.com:443/BallyBagayoko/status/2110393733346627744",
+        "https://www.google.com/search?q=%22Netanyahu%22+%22leaks%22+Telegram&rlz=1C1GCEU_esES1217ES1217&oq=%22Netanyahu%22+%22leaks%22+Telegram&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIHCAEQIRigAdIBCTEzNjMwajBqN6gCCLACAfEF4SLebKTe4IjxBeEi3myk3uCI&sourceid=chrome&ie=UTF-8",
+        "https://web.archive.org/save/https://en.royanews.tv/news/74936/Netanyahu-inner-circle-hit-by-data-leaks-ahead-of-October-elections",
+        "https://megalodon.jp/hashbang/218vN",
+        "https://truthscan.com/es"
+      ],
+      "licenciaMedios": null
+    }
+  ],
+  "afirmaciones": [
+    {
+      "texto": "La imagen de Netanyahu junto a una pizarra con la palabra 'España' está manipulada con inteligencia artificial",
+      "tipo": "hecho",
+      "fuente": "https://verifica.efe.com/imagen-filtrada-de-netanyahu-pizarra-con-un-plan-para-atacar-espana-ia/",
+      "contrastada": true
+    },
+    {
+      "texto": "La imagen original filtrada en Telegram no contiene ninguna referencia a España",
+      "tipo": "hecho",
+      "fuente": "https://verifica.efe.com/imagen-filtrada-de-netanyahu-pizarra-con-un-plan-para-atacar-espana-ia/",
+      "contrastada": true
+    },
+    {
+      "texto": "La herramienta Verify detectó una marca de agua SynthID asociada a herramientas de OpenAI en la imagen manipulada",
+      "tipo": "hecho",
+      "fuente": "https://verifica.efe.com/imagen-filtrada-de-netanyahu-pizarra-con-un-plan-para-atacar-espana-ia/",
+      "contrastada": true
+    }
+  ],
+  "angulo": "Cómo una marca de agua invisible de IA permitió detectar una imagen política manipulada",
+  "atribucion": "EFE Verifica, Andrés F. Suárez Clavijo, 16 de octubre de 2026",
+  "puntuacion": {
+    "total": 72,
+    "componentes": {
+      "afinidad": 21,
+      "interes": 15,
+      "evidencia": 16,
+      "actualidad": 15,
+      "visual": 5
+    }
+  },
+  "alertas": [
+    "acusacion-sin-fuente",
+    "fuente-unica"
+  ],
+  "carrusel": null,
+  "reel": null,
+  "revision": {
+    "estado": "pendiente",
+    "notas": []
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-16T16:44:20.693Z",
+  "actualizado": "2026-10-16T16:44:20.693Z"
+}

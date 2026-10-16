@@ -1,0 +1,48 @@
+{
+  "id": "2026-10-16-1144-sinlinea-la-prensa-876f",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/sociedad/css-cierra-parcialmente-el-segundo-piso-y-areas-superiores-de-la-policlinica-de-chitre-tras-el-terremoto/",
+    "titulo": "CSS cierra parcialmente el segundo piso y áreas superiores de la Policlínica de Chitré tras el terremoto",
+    "publicado": "2026-10-16T12:58:21.000Z"
+  },
+  "categoria": "SALUD",
+  "titular": "CSS cierra parte de la Policlínica de Chitré",
+  "bajada": "El segundo piso y áreas superiores permanecen cerrados tras daños del sismo en Herrera.",
+  "caption": "La Caja de Seguro Social cerró parcialmente la Policlínica Roberto Ramírez De Diego en Chitré, Herrera, por afectaciones estructurales que dejó el terremoto. Servicios como Registros Médicos, Fisioterapia, Radiología y Farmacia quedaron suspendidos en los pisos altos, aunque la planta baja fue declarada habitable y la consulta externa seguirá en hospitales de campaña. Para los pacientes de la región, esto significa más esperas y traslados mientras avanzan las reparaciones. ¿Cómo ha afectado el terremoto el acceso a servicios de salud en tu comunidad?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#CSS",
+    "#Terremoto",
+    "#Salud",
+    "#Chitré"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-10-16-1144-sinlinea-la-prensa-876f.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-16-1144-sinlinea-la-prensa-876f.jpg",
+    "hash": "d51eae6a1d07caa4",
+    "version": 2,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-10-16T16:45:07.881Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada de una policlínica pública panameña con cinta de seguridad en la entrada y personal médico con bata en el tercio superior derecho; la zona izquierda y central queda despejada",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-16T16:44:20.693Z",
+  "actualizado": "2026-10-16T16:44:20.693Z",
+  "plantilla": "titular"
+}
