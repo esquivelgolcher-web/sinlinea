@@ -1,0 +1,52 @@
+{
+  "id": "2026-10-17-1041-sinlinea-la-estrella-c538",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/falla-en-planta-de-generacion-provoca-apagon-de-12-minutos-en-panama-y-panama-oeste-JG26577529",
+    "titulo": "Falla en planta de generación provoca apagón de 12 minutos en Panamá y Panamá Oeste",
+    "publicado": "2026-10-17T13:25:00.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "Apagón deja sin luz a 115 mil clientes en Panamá",
+  "bajada": "Una falla en una planta de generación provocó un corte de 12 minutos la noche del viernes.",
+  "caption": "Más de 115,000 clientes de Naturgy se quedaron sin electricidad por una falla externa en el sistema de generación. El corte activó un esquema automático de protección para proteger la red nacional. Este tipo de incidentes muestra qué tan sensible es el suministro eléctrico del país. ¿Te afectó el apagón en tu sector?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Apagón",
+    "#Naturgy",
+    "#Electricidad",
+    "#PanamáOeste"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-10-17-1041-sinlinea-la-estrella-c538.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-17-1041-sinlinea-la-estrella-c538.jpg",
+    "hash": "2b749a8a7f089d64",
+    "version": 2,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-10-17T15:41:38.417Z"
+  },
+  "ilustracion": {
+    "descripcion": "Torres de transmisión eléctrica panameñas al anochecer, con luces urbanas distantes parpadeando; las torres quedan en el tercio superior derecho y la zona izquierda y central despejada.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-17T15:41:03.503Z",
+  "actualizado": "2026-10-17T15:41:03.503Z",
+  "plantilla": "dato",
+  "dato": {
+    "cifra": "115,000",
+    "frase": "clientes de Naturgy quedaron temporalmente sin electricidad"
+  }
+}
