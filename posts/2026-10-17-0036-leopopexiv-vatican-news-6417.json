@@ -1,0 +1,47 @@
+{
+  "id": "2026-10-17-0036-leopopexiv-vatican-news-6417",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-10/pope-leo-xiv-update.html",
+    "titulo": "Pope urges humanitarian ceasefire in Oleshky in call with Russian President",
+    "publicado": "2026-10-16T15:32:46.000Z"
+  },
+  "categoria": "INTERNACIONAL",
+  "titular": "Pope calls Putin, urges Oleshky ceasefire",
+  "bajada": "Leo XIV voices alarm over humanitarian crisis, asks for safe aid access",
+  "caption": "In a phone call with Russian President Vladimir Putin, Pope Leo XIV expressed 'deep concern' about the humanitarian situation in Oleshky, Kherson region, and called for a ceasefire to allow aid deliveries. Source: Vatican News, Oct 16, 2026.",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Vatican",
+    "#Ukraine",
+    "#Oleshky",
+    "#Peace",
+    "#Diplomacy"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-10-17-0036-leopopexiv-vatican-news-6417.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-17-0036-leopopexiv-vatican-news-6417.jpg",
+    "hash": "863590558eacc937",
+    "version": 11,
+    "estilo": "ab79cbbb3887cfa1",
+    "renderizada": "2026-10-17T04:36:37.827Z"
+  },
+  "ilustracion": {
+    "descripcion": "A dove-shaped paper lantern floats above a quiet war-damaged street at dusk, papal insignia subtly visible in the upper right corner, left and center open and calm.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-17-0036-leopopexiv-vatican-news-6417.jpg",
+    "hashDescripcion": "1b000d6d2e332317",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-17T04:36:18.508Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-17T04:36:18.508Z",
+  "actualizado": "2026-10-17T04:36:18.508Z"
+}
