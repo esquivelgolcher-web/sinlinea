@@ -1,0 +1,47 @@
+{
+  "id": "2026-10-17-1540-sinlinea-la-prensa-ae4d",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/sociedad/universidad-de-panama-retomara-clases-presenciales-de-forma-escalonada-desde-el-19-de-octubre/",
+    "titulo": "Universidad de Panamá retomará clases presenciales de forma escalonada desde el 19 de octubre",
+    "publicado": "2026-10-17T20:30:31.000Z"
+  },
+  "categoria": "EDUCACIÓN",
+  "titular": "Universidad de Panamá retoma clases presenciales el lunes",
+  "bajada": "Doce facultades regresan a las aulas de forma escalonada tras inspecciones por el terremoto del 9 de octubre.",
+  "caption": "Después de la emergencia por el sismo, la Universidad de Panamá empieza a normalizar sus actividades, aunque no todas las facultades regresan al mismo tiempo. La rectoría pidió a los profesores tener flexibilidad con los estudiantes que perdieron bienes en sus hogares. ¿Conoces a algún estudiante afectado por el terremoto?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Educación",
+    "#UniversidadDePanamá",
+    "#Terremoto"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-10-17-1540-sinlinea-la-prensa-ae4d.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-17-1540-sinlinea-la-prensa-ae4d.jpg",
+    "hash": "9bb1f6275e47b895",
+    "version": 2,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-10-17T20:41:28.937Z"
+  },
+  "ilustracion": {
+    "descripcion": "Entrada principal de un campus universitario en Panamá con estudiantes caminando hacia las aulas, edificio académico en el tercio superior derecho, zona izquierda y central despejadas.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-17T20:40:53.479Z",
+  "actualizado": "2026-10-17T20:40:53.479Z",
+  "plantilla": "titular"
+}

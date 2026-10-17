@@ -1,0 +1,52 @@
+{
+  "id": "2026-10-17-1540-sinlinea-la-prensa-45e1",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/sociedad/terremoto-en-panama-provoco-al-menos-2351-deslizamientos-de-tierra/",
+    "titulo": "Terremoto en Panamá provocó al menos 2,351 deslizamientos de tierra",
+    "publicado": "2026-10-17T19:23:58.000Z"
+  },
+  "categoria": "SEGURIDAD",
+  "titular": "Terremoto provocó más de 2,351 deslizamientos de tierra",
+  "bajada": "Instituto de Geociencias de la UP detectó los movimientos con imágenes satelitales tras el sismo.",
+  "caption": "Más de una semana después del terremoto, los expertos siguen midiendo su verdadero impacto en el territorio. La cifra de deslizamientos es preliminar y podría subir conforme avancen las revisiones en campo. Muchos de estos movimientos de tierra aún no se han vinculado a carreteras o viviendas afectadas. ¿Has visto grietas o derrumbes en tu comunidad?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Terremoto",
+    "#Veraguas",
+    "#Geociencias",
+    "#Emergencia"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-10-17-1540-sinlinea-la-prensa-45e1.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-17-1540-sinlinea-la-prensa-45e1.jpg",
+    "hash": "5819bc0e4edf3e38",
+    "version": 11,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-10-17T20:41:28.586Z"
+  },
+  "ilustracion": {
+    "descripcion": "Vista aérea de laderas montañosas panameñas con marcas de deslizamientos de tierra recientes, terreno despejado a la izquierda y al centro, detalle de la ladera afectada en el tercio superior derecho.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-17-1540-sinlinea-la-prensa-45e1.jpg",
+    "hashDescripcion": "408d08083b0bd8e6",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-17T20:40:53.479Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-17T20:40:53.479Z",
+  "actualizado": "2026-10-17T20:40:53.479Z",
+  "plantilla": "foto",
+  "dato": {
+    "cifra": "2,351",
+    "frase": "deslizamientos de tierra dejó el terremoto del 9 de octubre, según cifra preliminar"
+  }
+}
