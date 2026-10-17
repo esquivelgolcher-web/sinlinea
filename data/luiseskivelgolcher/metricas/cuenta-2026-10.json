@@ -177,6 +177,17 @@
       "llamadas": 45,
       "completo": false,
       "motivoIncompleto": "presupuesto-agotado"
+    },
+    "2026-10-17T09:36:20.756Z": {
+      "perfil": {
+        "seguidores": 81616,
+        "seguidos": 539,
+        "publicaciones": 79
+      },
+      "permiso": "basico+insights",
+      "llamadas": 45,
+      "completo": false,
+      "motivoIncompleto": "presupuesto-agotado"
     }
   },
   "porDia": {
@@ -567,7 +578,7 @@
     "2026-10-14": {
       "valores": {
         "reach": 3192,
-        "views": 132955,
+        "views": 132957,
         "accounts_engaged": 7496,
         "total_interactions": 15940,
         "likes": 5429,
@@ -586,12 +597,12 @@
         "follows_and_unfollows": "conjunto-vacio",
         "follower_count": "conjunto-vacio"
       },
-      "consultadoEn": "2026-10-16T10:03:20.885Z"
+      "consultadoEn": "2026-10-17T09:36:20.756Z"
     },
     "2026-10-15": {
       "valores": {
-        "reach": 8746,
-        "views": 216220,
+        "reach": 8750,
+        "views": 216378,
         "accounts_engaged": 8842,
         "total_interactions": 17401,
         "likes": 6773,
@@ -610,7 +621,31 @@
         "follows_and_unfollows": "conjunto-vacio",
         "follower_count": "conjunto-vacio"
       },
-      "consultadoEn": "2026-10-16T10:03:20.885Z"
+      "consultadoEn": "2026-10-17T09:36:20.756Z"
+    },
+    "2026-10-16": {
+      "valores": {
+        "reach": 3329,
+        "views": 148165,
+        "accounts_engaged": 6464,
+        "total_interactions": 10172,
+        "likes": 5405,
+        "comments": 673,
+        "shares": 1782,
+        "saves": 500,
+        "reposts": 30,
+        "replies": 0,
+        "profile_links_taps": 0,
+        "follows_and_unfollows": null,
+        "follower_count": null,
+        "profile_views": 67,
+        "website_clicks": 0
+      },
+      "faltantes": {
+        "follows_and_unfollows": "conjunto-vacio",
+        "follower_count": "conjunto-vacio"
+      },
+      "consultadoEn": "2026-10-17T09:36:20.756Z"
     }
   }
 }
