@@ -1,7 +1,7 @@
 {
   "id": "2026-10-18-0041-leopopexiv-vatican-news-da9c",
   "cuenta": "leopopexiv",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/pope/news/2026-10/pope-leo-xiv-greets-ukrainian-girl-cancer-survivor-gemelli.html",
@@ -38,9 +38,26 @@
     "generada": "2026-10-18T04:41:44.029Z",
     "error": null
   },
-  "programado": null,
+  "programado": "2026-10-19T13:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-10-18T04:41:44.029Z",
-  "actualizado": "2026-10-18T04:41:44.029Z"
+  "actualizado": "2026-10-18T07:22:59.912Z",
+  "destinos": {
+    "instagram": {
+      "texto": "As Pope Leo XIV left Rome's Gemelli Hospital, he was greeted by Varvara, a 13-year-old Ukrainian girl he had first met on December 31 while she awaited cancer surgery. She gave him a photograph of their earlier embrace in St. Peter's Square and a stuffed toy like the one she carried while fleeing the war. Source: Vatican News, Oct 17, 2026.\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #Ukraine #GemelliHospital #HopeAndFaith",
+      "aprobado": {
+        "fecha": "2026-10-18T07:22:59.912Z",
+        "hashPieza": "9956bc72ef802fa4",
+        "imagenHash": "d74e5d0c80861702",
+        "imagenSha": "c95f8a251edfca340e58bc21834800338a242a21"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
