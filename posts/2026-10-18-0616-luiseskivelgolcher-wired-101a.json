@@ -1,0 +1,216 @@
+{
+  "id": "2026-10-18-0616-luiseskivelgolcher-wired-101a",
+  "cuenta": "luiseskivelgolcher",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "WIRED",
+    "url": "https://www.wired.com/story/kernel-panic-encryption-is-getting-squeezed-from-all-sides/",
+    "titulo": "Encryption Is Getting Squeezed From All Sides",
+    "publicado": "2026-10-17T12:00:00.000Z"
+  },
+  "categoria": "SEGURIDAD",
+  "titular": "Canadá se suma a la ola contra el cifrado",
+  "bajada": "Signal y Psiphon amenazan con irse si el país exige acceso a datos cifrados",
+  "caption": "Canadá discute el proyecto C-22, que podría obligar a las empresas de mensajería a crear \"capacidades técnicas\" para que las autoridades accedan a datos cifrados. Signal ya dijo que saldría del país si se aprueba, y Psiphon —una VPN usada para evitar censura en Irán— advirtió lo mismo, según reportó WIRED el 17 de octubre de 2026. Apple, Meta, DuckDuckGo y NordVPN también criticaron la medida. El cifrado de extremo a extremo es un método que hace que solo el emisor y el receptor de un mensaje puedan leerlo, ni siquiera la empresa que presta el servicio. Expertos en criptografía insisten desde hace años en que no existe una forma de crear un acceso especial para gobiernos sin abrir una puerta que cualquiera podría explotar. El caso canadiense no es aislado: Reino Unido, Australia, Francia, India, España, Suecia y Suiza han impulsado proyectos similares, según documentos y reportes citados por WIRED. ¿Qué países se perfilan como refugios para la privacidad digital si esta tendencia sigue creciendo?",
+  "hashtags": [
+    "#Cifrado",
+    "#Privacidad",
+    "#Vigilancia",
+    "#Canadá",
+    "#Ciberseguridad"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-10-18-0616-luiseskivelgolcher-wired-101a.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-18-0616-luiseskivelgolcher-wired-101a.jpg",
+    "hash": "0e85f86b91c7c851",
+    "version": 11,
+    "estilo": "dc8c8fa3edf501fd",
+    "renderizada": "2026-10-18T11:17:20.459Z"
+  },
+  "ilustracion": {
+    "descripcion": "Edificio del Parlamento de Canadá en Ottawa al atardecer, con la torre de la Paz en el tercio superior derecho; la zona izquierda y central del encuadre despejada.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-18-0616-luiseskivelgolcher-wired-101a.jpg",
+    "hashDescripcion": "ea70731131534b23",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-18T11:16:42.580Z",
+    "error": null,
+    "procedencia": "generada"
+  },
+  "formato": "carrusel",
+  "fuentes": [
+    {
+      "rol": "principal",
+      "medio": "WIRED",
+      "autor": "Matt Burgess",
+      "url": "https://www.wired.com/story/kernel-panic-encryption-is-getting-squeezed-from-all-sides/",
+      "canonica": "https://www.wired.com/story/kernel-panic-encryption-is-getting-squeezed-from-all-sides/",
+      "idioma": "en",
+      "publicado": "2026-10-17T12:00:00.000Z",
+      "actualizado": "2026-10-17T12:00:00.000Z",
+      "fechaHecho": "2026-10-17",
+      "consultado": "2026-10-18T11:16:42.580Z",
+      "alcance": "completo",
+      "textoRecuperado": {
+        "parrafos": 19,
+        "caracteres": 6592,
+        "enviados": 3941
+      },
+      "fuentesPrimarias": [
+        "https://www.reuters.com/legal/litigation/apple-warns-canadian-bill-could-force-it-weaken-device-encryption-2026-05-07/",
+        "https://www.theglobeandmail.com/politics/article-search-engine-duckduckgo-lawful-access-bill-c22/",
+        "https://www.internetsociety.org/blog/2026/06/solving-crime-without-breaking-encryption/",
+        "https://www.schneier.com/wp-content/uploads/2016/09/paper-keys-under-doormats-CSAIL.pdf",
+        "https://www.bbc.co.uk/news/world-australia-46463029",
+        "https://www.theguardian.com/technology/2026/aug/03/apple-legal-challenge-uk-government-data-access",
+        "https://statewatch.org/news/2025/may/deep-concern-over-eu-s-plan-to-weaken-or-circumvent-encryption/",
+        "https://www.computerworld.com/article/3850597/signal-threatens-to-leave-france-if-encryption-backdoor-required.html",
+        "https://www.internetgovernance.org/2024/10/20/encryption-under-siege-in-india-national-security-the-erosion-of-digital-privacy/",
+        "https://www.techpolicy.press/irelands-new-surveillance-bill-opens-door-to-spyware-abuse/",
+        "https://www.infosecurity-magazine.com/news/signal-exit-sweden-government/",
+        "https://www.techradar.com/vpn/vpn-privacy-security/we-would-be-less-confidential-than-google-proton-threatens-to-quit-switzerland-over-new-surveillance-law",
+        "https://www.parl.ca/documentviewer/en/45-1/bill/C-22/first-reading",
+        "https://judiciary.house.gov/media/in-the-news/house-gop-warns-canada-its-new-cybersecurity-bill-could-pose-privacy-risks",
+        "http://www.aboutads.info"
+      ],
+      "licenciaMedios": null
+    }
+  ],
+  "afirmaciones": [
+    {
+      "texto": "Signal dijo que saldría del mercado canadiense si la legislación exige cambios inaceptables a sus proyectos de código abierto",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/kernel-panic-encryption-is-getting-squeezed-from-all-sides/",
+      "contrastada": true
+    },
+    {
+      "texto": "Psiphon, usada por millones de personas en Irán para evitar cortes de internet, anunció que dejaría Canadá si se aprueba la ley",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/kernel-panic-encryption-is-getting-squeezed-from-all-sides/",
+      "contrastada": true
+    },
+    {
+      "texto": "Apple, Meta, DuckDuckGo y NordVPN criticaron el proyecto C-22 o dijeron que considerarían retirar sus servicios",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/kernel-panic-encryption-is-getting-squeezed-from-all-sides/",
+      "contrastada": true
+    },
+    {
+      "texto": "Ningún backdoor de cifrado puede construirse de forma segura, según criptógrafos e ingenieros de seguridad citados por WIRED",
+      "tipo": "opinion",
+      "fuente": "https://www.schneier.com/wp-content/uploads/2016/09/paper-keys-under-doormats-CSAIL.pdf",
+      "contrastada": false
+    },
+    {
+      "texto": "Legisladores estadounidenses advirtieron a funcionarios canadienses que el proyecto podría forzar a las empresas a introducir vulnerabilidades o debilitar el cifrado",
+      "tipo": "denuncia",
+      "fuente": "https://judiciary.house.gov/media/in-the-news/house-gop-warns-canada-its-new-cybersecurity-bill-could-pose-privacy-risks",
+      "contrastada": true
+    }
+  ],
+  "angulo": "Legislación de vigilancia y su choque con la industria de privacidad digital",
+  "atribucion": "Según WIRED (Matt Burgess), 17 de octubre de 2026",
+  "puntuacion": {
+    "total": 81,
+    "componentes": {
+      "afinidad": 27,
+      "interes": 18,
+      "evidencia": 16,
+      "actualidad": 15,
+      "visual": 5
+    }
+  },
+  "alertas": [
+    "fuente-unica"
+  ],
+  "carrusel": {
+    "diapositivas": [
+      {
+        "titulo": "¿Qué país será el próximo refugio de la privacidad digital?",
+        "texto": "Canadá discute una ley que podría obligar a romper el cifrado de mensajería. Signal y Psiphon ya amenazan con irse."
+      },
+      {
+        "titulo": "El proyecto C-22 y sus exigencias técnicas",
+        "texto": "La ley canadiense pediría a empresas tecnológicas crear \"capacidades técnicas\" para que las autoridades accedan a datos cifrados, incluso fuera de Canadá."
+      },
+      {
+        "titulo": "Por qué no existe un backdoor seguro",
+        "texto": "El cifrado de extremo a extremo impide que nadie, ni la empresa, lea los mensajes. Expertos dicen que cualquier acceso especial puede ser hallado y usado por terceros."
+      },
+      {
+        "titulo": "Quiénes ya amenazan con salir",
+        "texto": "Signal dejaría el mercado canadiense. Psiphon, usada para evitar censura en Irán, haría lo mismo. Apple, Meta, DuckDuckGo y NordVPN también presionan."
+      },
+      {
+        "titulo": "No es solo Canadá",
+        "texto": "Reino Unido, Australia, Francia, India, España, Suecia y Suiza han impulsado proyectos similares para debilitar el cifrado, según reportes citados por WIRED."
+      },
+      {
+        "titulo": "Lo que falta por saber",
+        "texto": "El proyecto aún no es ley. WIRED cita documentos y fuentes de varios países, pero el desenlace en Canadá sigue sin definirse."
+      },
+      {
+        "titulo": "La disyuntiva que viene",
+        "texto": "Si la hostilidad hacia el cifrado sigue creciendo, la pregunta es qué regiones podrán seguir ofreciendo privacidad real. Fuente: WIRED, 17 de octubre de 2026."
+      }
+    ],
+    "imagenes": [
+      {
+        "numero": 1,
+        "ruta": "public/img/2026-10-18-0616-luiseskivelgolcher-wired-101a-01.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-18-0616-luiseskivelgolcher-wired-101a-01.jpg",
+        "hash": "9c3e3426d22c5578"
+      },
+      {
+        "numero": 2,
+        "ruta": "public/img/2026-10-18-0616-luiseskivelgolcher-wired-101a-02.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-18-0616-luiseskivelgolcher-wired-101a-02.jpg",
+        "hash": "25d84839b1214cdf"
+      },
+      {
+        "numero": 3,
+        "ruta": "public/img/2026-10-18-0616-luiseskivelgolcher-wired-101a-03.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-18-0616-luiseskivelgolcher-wired-101a-03.jpg",
+        "hash": "9a1e37d9671315d3"
+      },
+      {
+        "numero": 4,
+        "ruta": "public/img/2026-10-18-0616-luiseskivelgolcher-wired-101a-04.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-18-0616-luiseskivelgolcher-wired-101a-04.jpg",
+        "hash": "988e6e25eb590733"
+      },
+      {
+        "numero": 5,
+        "ruta": "public/img/2026-10-18-0616-luiseskivelgolcher-wired-101a-05.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-18-0616-luiseskivelgolcher-wired-101a-05.jpg",
+        "hash": "b43f3cfd1cead0a3"
+      },
+      {
+        "numero": 6,
+        "ruta": "public/img/2026-10-18-0616-luiseskivelgolcher-wired-101a-06.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-18-0616-luiseskivelgolcher-wired-101a-06.jpg",
+        "hash": "667455afae28d885"
+      },
+      {
+        "numero": 7,
+        "ruta": "public/img/2026-10-18-0616-luiseskivelgolcher-wired-101a-07.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-18-0616-luiseskivelgolcher-wired-101a-07.jpg",
+        "hash": "c83dde3593ae6753"
+      }
+    ],
+    "hash": "9ee544466353cde8",
+    "version": 2
+  },
+  "reel": null,
+  "revision": {
+    "estado": "pendiente",
+    "notas": []
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-18T11:16:42.580Z",
+  "actualizado": "2026-10-18T11:16:42.580Z"
+}
