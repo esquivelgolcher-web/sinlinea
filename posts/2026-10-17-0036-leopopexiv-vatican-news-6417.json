@@ -43,7 +43,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-17T04:36:18.508Z",
-  "actualizado": "2026-10-18T07:22:33.310Z",
+  "actualizado": "2026-10-18T19:35:32.471Z",
   "destinos": {
     "instagram": {
       "texto": "In a phone call with Russian President Vladimir Putin, Pope Leo XIV expressed 'deep concern' about the humanitarian situation in Oleshky, Kherson region, and called for a ceasefire to allow aid deliveries. Source: Vatican News, Oct 16, 2026.\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #Ukraine #Oleshky #Peace #Diplomacy",
@@ -56,7 +56,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-10-18T19:35:32.471Z",
+        "actualizado": "2026-10-18T19:35:32.471Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
