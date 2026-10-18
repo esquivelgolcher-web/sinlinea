@@ -1,7 +1,7 @@
 {
   "id": "2026-10-16-1144-luiseskivelgolcher-efe-verifica-ea30",
   "cuenta": "luiseskivelgolcher",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "EFE Verifica",
     "url": "https://verifica.efe.com/imagen-filtrada-de-netanyahu-pizarra-con-un-plan-para-atacar-espana-ia/",
@@ -115,5 +115,5 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-16T16:44:20.693Z",
-  "actualizado": "2026-10-16T16:44:20.693Z"
+  "actualizado": "2026-10-18T07:22:21.047Z"
 }
