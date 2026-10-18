@@ -1,7 +1,7 @@
 {
   "id": "2026-10-18-0041-leopopexiv-vatican-news-62a7",
   "cuenta": "leopopexiv",
-  "estado": "borrador",
+  "estado": "programado",
   "formato": "frase",
   "frase": {
     "texto": "Holy Father, this is our dream team.",
@@ -36,9 +36,26 @@
     "renderizada": "2026-10-18T04:42:10.186Z"
   },
   "ilustracion": null,
-  "programado": null,
+  "programado": "2026-10-18T09:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-10-18T04:41:44.029Z",
-  "actualizado": "2026-10-18T04:41:44.029Z"
+  "actualizado": "2026-10-18T07:22:25.541Z",
+  "destinos": {
+    "instagram": {
+      "texto": "“Holy Father, this is our dream team.”\n\n— Professor Stefano Margaritora, Entrevista a Vatican News sobre la cirugía del Papa (2026)\n\nVia Vatican News, 17 October 2026\n\n#PopeLeoXIV #Vatican #CatholicChurch\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #CatholicChurch",
+      "aprobado": {
+        "fecha": "2026-10-18T07:22:25.541Z",
+        "hashPieza": "b7ca77614edd3b47",
+        "imagenHash": "8483b41dc6621293",
+        "imagenSha": "27c503775502feb0633f800ec51b3465af34c619"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
