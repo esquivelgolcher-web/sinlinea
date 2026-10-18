@@ -1,7 +1,7 @@
 {
   "id": "2026-10-17-0036-leopopexiv-vatican-news-6417",
   "cuenta": "leopopexiv",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/pope/news/2026-10/pope-leo-xiv-update.html",
@@ -40,7 +40,11 @@
     "error": null
   },
   "programado": "2026-10-18T13:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "18192616912404411",
+    "permalink": "https://www.instagram.com/p/DepcorMGWP9/",
+    "fecha": "2026-10-18T19:35:32.471Z"
+  },
   "error": null,
   "creado": "2026-10-17T04:36:18.508Z",
   "actualizado": "2026-10-18T19:35:32.471Z",
@@ -53,16 +57,15 @@
         "imagenHash": "863590558eacc937",
         "imagenSha": "a1361be22176f8b31aec9a1f8a5b51cb7a86a44f"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-10-18T19:35:32.471Z",
-        "actualizado": "2026-10-18T19:35:32.471Z",
-        "contenedorId": "18109735367081176"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18192616912404411",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/DepcorMGWP9/",
+        "fecha": "2026-10-18T19:35:32.471Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
