@@ -1,7 +1,7 @@
 {
   "id": "2026-10-16-0631-luiseskivelgolcher-occrp-10e3",
   "cuenta": "luiseskivelgolcher",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "OCCRP",
     "url": "https://www.occrp.org/en/news/romanian-institutions-bought-banned-russian-cybersecurity-software",
@@ -204,9 +204,59 @@
     "estado": "pendiente",
     "notas": []
   },
-  "programado": null,
+  "programado": "2026-10-18T12:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-10-16T11:31:57.342Z",
-  "actualizado": "2026-10-16T11:31:57.342Z"
+  "actualizado": "2026-10-18T07:22:13.816Z",
+  "destinos": {
+    "instagram": {
+      "texto": "Rumanía prohibió en 2022 el software ruso por riesgo a la seguridad nacional. En marzo de 2023 el gobierno vetó formalmente productos de Kaspersky, la firma de ciberseguridad fundada en Rusia. Pese a eso, una revisión de registros de contratación pública hecha por OCCRP encontró que 83 instituciones estatales —entre ellas hospitales, municipios, escuelas y un instituto que trabaja con el Ministerio de Defensa y la OTAN— hicieron 131 compras de ese software entre marzo de 2023 y septiembre de 2026. El exministro de Investigación, Sebastian Burduja, atribuyó esto a falta de personal fiscalizador y planteó, como hipótesis propia, que podría existir una 'corriente prorrusa' dentro de instituciones rumanas. Kaspersky niega vínculos indebidos con gobiernos y dice que las restricciones responden al clima geopolítico, no a evidencia técnica. Según OCCRP.\n\nFuente: OCCRP\n\n#Ciberseguridad #Kaspersky #Rumania #OCCRP #ContratosPúblicos",
+      "aprobado": {
+        "fecha": "2026-10-18T07:22:13.816Z",
+        "hashPieza": "b8cafcf25489c4cc",
+        "imagenHash": "e6fc06e5a3a0bc7b",
+        "imagenSha": "b7ddf5687ae764b380dd4e15eb44e85aa9d89a9f",
+        "imagenesSha": [
+          "1261c4294c2d8f07b20ea247e1f9b23fd0410a74",
+          "be10f03a236ed3f1536bfb14d10bcc5b14049025",
+          "4a6b1c257eec9fcc1df36125011e7bab2fd9cbe7",
+          "6a266afe23f08ce4abee903f3c9d7e76d9535970",
+          "158d4c04b6f28ab1e84937658526e7ee63b65390",
+          "18b0f7253a8e5bdd6b6778e6ac481a812b937ed3",
+          "04b33f7fa2f84c1370470bc811599b7f4cfdd57e"
+        ]
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    },
+    "threads": {
+      "texto": "Rumanía: 83 entidades compraron Kaspersky vetado\n\nHospitales, escuelas y una contratista de la OTAN usaron software ruso prohibido desde 2023\n\nSegún OCCRP (16 de octubre de 2026)",
+      "aprobado": {
+        "fecha": "2026-10-18T07:22:13.816Z",
+        "hashPieza": "b8cafcf25489c4cc",
+        "imagenHash": "e6fc06e5a3a0bc7b",
+        "imagenSha": "b7ddf5687ae764b380dd4e15eb44e85aa9d89a9f",
+        "imagenesSha": [
+          "1261c4294c2d8f07b20ea247e1f9b23fd0410a74",
+          "be10f03a236ed3f1536bfb14d10bcc5b14049025",
+          "4a6b1c257eec9fcc1df36125011e7bab2fd9cbe7",
+          "6a266afe23f08ce4abee903f3c9d7e76d9535970",
+          "158d4c04b6f28ab1e84937658526e7ee63b65390",
+          "18b0f7253a8e5bdd6b6778e6ac481a812b937ed3",
+          "04b33f7fa2f84c1370470bc811599b7f4cfdd57e"
+        ]
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
