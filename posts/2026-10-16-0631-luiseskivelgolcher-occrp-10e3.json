@@ -208,7 +208,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-16T11:31:57.342Z",
-  "actualizado": "2026-10-18T07:22:13.816Z",
+  "actualizado": "2026-10-18T17:13:59.274Z",
   "destinos": {
     "instagram": {
       "texto": "Rumanía prohibió en 2022 el software ruso por riesgo a la seguridad nacional. En marzo de 2023 el gobierno vetó formalmente productos de Kaspersky, la firma de ciberseguridad fundada en Rusia. Pese a eso, una revisión de registros de contratación pública hecha por OCCRP encontró que 83 instituciones estatales —entre ellas hospitales, municipios, escuelas y un instituto que trabaja con el Ministerio de Defensa y la OTAN— hicieron 131 compras de ese software entre marzo de 2023 y septiembre de 2026. El exministro de Investigación, Sebastian Burduja, atribuyó esto a falta de personal fiscalizador y planteó, como hipótesis propia, que podría existir una 'corriente prorrusa' dentro de instituciones rumanas. Kaspersky niega vínculos indebidos con gobiernos y dice que las restricciones responden al clima geopolítico, no a evidencia técnica. Según OCCRP.\n\nFuente: OCCRP\n\n#Ciberseguridad #Kaspersky #Rumania #OCCRP #ContratosPúblicos",
@@ -254,7 +254,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-10-18T17:13:59.274Z",
+        "actualizado": "2026-10-18T17:13:59.274Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
