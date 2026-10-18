@@ -1,7 +1,7 @@
 {
   "id": "2026-10-18-0041-leopopexiv-vatican-news-62a7",
   "cuenta": "leopopexiv",
-  "estado": "programado",
+  "estado": "publicado",
   "formato": "frase",
   "frase": {
     "texto": "Holy Father, this is our dream team.",
@@ -37,7 +37,11 @@
   },
   "ilustracion": null,
   "programado": "2026-10-18T09:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "17878210494566906",
+    "permalink": "https://www.instagram.com/p/DepMoPXkdGj/",
+    "fecha": "2026-10-18T17:15:41.019Z"
+  },
   "error": null,
   "creado": "2026-10-18T04:41:44.029Z",
   "actualizado": "2026-10-18T17:15:41.019Z",
@@ -50,16 +54,15 @@
         "imagenHash": "8483b41dc6621293",
         "imagenSha": "27c503775502feb0633f800ec51b3465af34c619"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-10-18T17:15:41.019Z",
-        "actualizado": "2026-10-18T17:15:41.019Z",
-        "contenedorId": "18109712918081176"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "17878210494566906",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/DepMoPXkdGj/",
+        "fecha": "2026-10-18T17:15:41.019Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
