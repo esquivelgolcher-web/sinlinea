@@ -1,7 +1,7 @@
 {
   "id": "2026-10-16-0039-leopopexiv-vatican-news-b212",
   "cuenta": "leopopexiv",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/church/news/2026-10/bishop-ignatius-ding-zuyao-ordained-in-haimen-china.html",
@@ -38,9 +38,26 @@
     "generada": "2026-10-16T04:39:12.139Z",
     "error": null
   },
-  "programado": null,
+  "programado": "2026-10-18T18:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-10-16T04:39:12.139Z",
-  "actualizado": "2026-10-16T04:39:12.139Z"
+  "actualizado": "2026-10-18T07:22:37.318Z",
+  "destinos": {
+    "instagram": {
+      "texto": "Bishop Ignatius Ding Zuyao was ordained in Haimen, Jiangsu Province, after being appointed by Pope Leo XIV under the Provisional Agreement between the Holy See and China. Source: Vatican News, Oct 15, 2026.\n\nFuente: Vatican News\n\n#PopeLeoXIV #VaticanChina #CatholicChurch #China #Haimen",
+      "aprobado": {
+        "fecha": "2026-10-18T07:22:37.318Z",
+        "hashPieza": "2d8e50663e8c7b8c",
+        "imagenHash": "fc00d0f321c7e061",
+        "imagenSha": "711171fce3c5e29840f6c1902e44bae881602b44"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
