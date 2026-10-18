@@ -1,7 +1,7 @@
 {
   "id": "2026-10-17-0036-leopopexiv-vatican-news-6417",
   "cuenta": "leopopexiv",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/pope/news/2026-10/pope-leo-xiv-update.html",
@@ -39,9 +39,26 @@
     "generada": "2026-10-17T04:36:18.508Z",
     "error": null
   },
-  "programado": null,
+  "programado": "2026-10-18T13:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-10-17T04:36:18.508Z",
-  "actualizado": "2026-10-17T04:36:18.508Z"
+  "actualizado": "2026-10-18T07:22:33.310Z",
+  "destinos": {
+    "instagram": {
+      "texto": "In a phone call with Russian President Vladimir Putin, Pope Leo XIV expressed 'deep concern' about the humanitarian situation in Oleshky, Kherson region, and called for a ceasefire to allow aid deliveries. Source: Vatican News, Oct 16, 2026.\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #Ukraine #Oleshky #Peace #Diplomacy",
+      "aprobado": {
+        "fecha": "2026-10-18T07:22:33.310Z",
+        "hashPieza": "eece48b5941973af",
+        "imagenHash": "863590558eacc937",
+        "imagenSha": "a1361be22176f8b31aec9a1f8a5b51cb7a86a44f"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
