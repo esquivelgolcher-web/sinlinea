@@ -1,0 +1,46 @@
+{
+  "id": "2026-10-18-0041-leopopexiv-vatican-news-da9c",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-10/pope-leo-xiv-greets-ukrainian-girl-cancer-survivor-gemelli.html",
+    "titulo": "Pope Leo greets young Ukrainian cancer survivor as he departs hospital",
+    "publicado": "2026-10-17T14:12:00.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "Pope Leo greets Ukrainian girl leaving hospital",
+  "bajada": "Varvara, 13, gave him a photo and a stuffed toy from her wartime journey",
+  "caption": "As Pope Leo XIV left Rome's Gemelli Hospital, he was greeted by Varvara, a 13-year-old Ukrainian girl he had first met on December 31 while she awaited cancer surgery. She gave him a photograph of their earlier embrace in St. Peter's Square and a stuffed toy like the one she carried while fleeing the war. Source: Vatican News, Oct 17, 2026.",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Vatican",
+    "#Ukraine",
+    "#GemelliHospital",
+    "#HopeAndFaith"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-10-18-0041-leopopexiv-vatican-news-da9c.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-18-0041-leopopexiv-vatican-news-da9c.jpg",
+    "hash": "d74e5d0c80861702",
+    "version": 11,
+    "estilo": "ab79cbbb3887cfa1",
+    "renderizada": "2026-10-18T04:42:05.800Z"
+  },
+  "ilustracion": {
+    "descripcion": "Exterior of Gemelli Hospital entrance, soft daylight, a small stuffed toy resting on a stone bench; a papal figure in white departs in the upper right, seen from behind, left and center open and calm.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-18-0041-leopopexiv-vatican-news-da9c.jpg",
+    "hashDescripcion": "d549b8c29fd42844",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-18T04:41:44.029Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-18T04:41:44.029Z",
+  "actualizado": "2026-10-18T04:41:44.029Z"
+}
