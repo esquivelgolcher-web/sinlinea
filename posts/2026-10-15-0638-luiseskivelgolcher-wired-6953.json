@@ -1,7 +1,7 @@
 {
   "id": "2026-10-15-0638-luiseskivelgolcher-wired-6953",
   "cuenta": "luiseskivelgolcher",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "WIRED",
     "url": "https://www.wired.com/story/nightmare-scenario-zero-click-spyware-is-infecting-phones-via-targeted-ads/",
@@ -194,9 +194,59 @@
     "estado": "pendiente",
     "notas": []
   },
-  "programado": null,
+  "programado": "2026-10-18T12:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-10-15T11:38:06.035Z",
-  "actualizado": "2026-10-15T11:38:06.035Z"
+  "actualizado": "2026-10-18T07:22:20.056Z",
+  "destinos": {
+    "instagram": {
+      "texto": "Un anuncio digital puede bastar para infectar un teléfono sin que la persona haga clic en nada. Según una investigación de The Citizen Lab (Universidad de Toronto) publicada el 15 de octubre de 2026 y reportada por WIRED, una firma publicitaria registrada en Israel, Discover-Tech, distribuyó anuncios conectados a infraestructura del fabricante de software espía Candiru para infectar en secreto dispositivos. El llamado \"zero-click\" (ataque de cero clic) es una técnica que no requiere que la víctima toque nada: el software se instala solo. Citizen Lab documentó 45 dispositivos de la cadena Al Jazeera afectados entre 2024 y 2025. Google confirmó que, tras la investigación conjunta con Citizen Lab y la firma Confiant, expulsó a Discover-Tech de su plataforma publicitaria. Discover-Tech e Integrity Partners, vinculada a los activos de Candiru, no respondieron a las solicitudes de comentario de WIRED. Es la primera evidencia técnica pública de este tipo de ataque distribuido por publicidad en línea, según los investigadores. ¿Qué tan preparados estamos para un espionaje que no deja rastro visible?\n\nFuente: WIRED\n\n#Ciberseguridad #Spyware #Privacidad #Vigilancia #Tecnología",
+      "aprobado": {
+        "fecha": "2026-10-18T07:22:20.056Z",
+        "hashPieza": "fd23d1458bb5175f",
+        "imagenHash": "2411f6febc22a1c0",
+        "imagenSha": "7d51a23633225eb8e84c6f78d70f57adbdf82561",
+        "imagenesSha": [
+          "5a64366e7bada7fc0606f6a556fd720288164835",
+          "8f8a2b65fc7fcb6f72dbfcef55ddd311347d8ffb",
+          "c5a6882c03122018d871ed103ec5a52add6e3c12",
+          "97ac925bddf13d8c5e2fcbbfed2248f942c03df0",
+          "32dad3d721076e7d003788711ec14db91a0bf93e",
+          "778c42c2bddac2b14b4249a176d21a3222003d29",
+          "7942f0279c434f3a7d2cc3397b0372fb51444b66"
+        ]
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    },
+    "threads": {
+      "texto": "Espían celulares con solo mostrar un anuncio\n\nCitizen Lab halló anuncios que instalan spyware sin que la víctima haga clic\n\nSegún WIRED (15 de octubre de 2026)",
+      "aprobado": {
+        "fecha": "2026-10-18T07:22:20.056Z",
+        "hashPieza": "fd23d1458bb5175f",
+        "imagenHash": "2411f6febc22a1c0",
+        "imagenSha": "7d51a23633225eb8e84c6f78d70f57adbdf82561",
+        "imagenesSha": [
+          "5a64366e7bada7fc0606f6a556fd720288164835",
+          "8f8a2b65fc7fcb6f72dbfcef55ddd311347d8ffb",
+          "c5a6882c03122018d871ed103ec5a52add6e3c12",
+          "97ac925bddf13d8c5e2fcbbfed2248f942c03df0",
+          "32dad3d721076e7d003788711ec14db91a0bf93e",
+          "778c42c2bddac2b14b4249a176d21a3222003d29",
+          "7942f0279c434f3a7d2cc3397b0372fb51444b66"
+        ]
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
