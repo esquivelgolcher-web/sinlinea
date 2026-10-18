@@ -1,0 +1,52 @@
+{
+  "id": "2026-10-18-1551-sinlinea-la-estrella-de70",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/economia/panama-cobrara-174-millones-por-poliza-parametrica-tras-sismo-de-77-NC26606182",
+    "titulo": "Panamá cobrará $17.4 millones por póliza paramétrica tras sismo de 7.7",
+    "publicado": "2026-10-18T19:47:00.000Z"
+  },
+  "categoria": "ECONOMÍA",
+  "titular": "Panamá recibirá $17.4 millones por seguro tras sismo de 7.7",
+  "bajada": "El pago del CCRIF llegará en 14 días sin deuda pública, gracias a póliza del Fondo de Ahorro",
+  "caption": "Panamá cobrará $17.4 millones por una póliza contratada antes del terremoto de magnitud 7.7 del pasado 9 de octubre. El dinero entrará a las arcas públicas sin necesidad de endeudar al país, gracias a un mecanismo que no exige evaluar daños previamente. ¿Debería el Estado invertir más en este tipo de seguros frente a los sismos?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Terremoto",
+    "#Economía",
+    "#SeguroParamétrico",
+    "#MEF"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-10-18-1551-sinlinea-la-estrella-de70.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-18-1551-sinlinea-la-estrella-de70.jpg",
+    "hash": "36d9008008cc00b6",
+    "version": 11,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-10-18T20:51:47.968Z"
+  },
+  "ilustracion": {
+    "descripcion": "Edificio del Ministerio de Economía y Finanzas de Panamá con documentos y una calculadora sobre un escritorio en el tercio superior derecho, zona izquierda y central despejadas.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-18-1551-sinlinea-la-estrella-de70.jpg",
+    "hashDescripcion": "b755e91af453f268",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-18T20:51:09.707Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-18T20:51:09.707Z",
+  "actualizado": "2026-10-18T20:51:09.707Z",
+  "plantilla": "foto",
+  "dato": {
+    "cifra": "$17.4 millones",
+    "frase": "recibirá el Estado panameño por la póliza paramétrica tras el sismo"
+  }
+}

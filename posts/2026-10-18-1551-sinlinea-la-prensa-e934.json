@@ -1,0 +1,52 @@
+{
+  "id": "2026-10-18-1551-sinlinea-la-prensa-e934",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/judiciales/63-de-472-demandas-de-indemnizacion-han-sido-resueltas-a-favor-de-panamenos-intoxicados-con-dietilenglicol/",
+    "titulo": "63 de 472 demandas de indemnización han sido resueltas a favor de panameños intoxicados con dietilenglicol",
+    "publicado": "2026-10-18T18:01:08.000Z"
+  },
+  "categoria": "SALUD",
+  "titular": "63 de 472 demandas por dietilenglicol tienen fallo favorable",
+  "bajada": "La Corte Suprema falló a favor de 63 afectados por medicinas contaminadas de la CSS, décadas después",
+  "caption": "Hace 20 años, frascos de medicinas de la Caja de Seguro Social contaminados con dietilenglicol causaron cientos de muertes y dejaron secuelas de por vida en miles de panameños. Hoy, solo 63 de 472 demandas han recibido una respuesta favorable de la justicia. ¿Cuánto más deben esperar las víctimas para obtener reparación?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#CSS",
+    "#Dietilenglicol",
+    "#Justicia",
+    "#Salud"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-10-18-1551-sinlinea-la-prensa-e934.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-18-1551-sinlinea-la-prensa-e934.jpg",
+    "hash": "aebbc88bb74455e5",
+    "version": 2,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-10-18T20:51:42.332Z"
+  },
+  "ilustracion": {
+    "descripcion": "Pasillo de un hospital público panameño con estantes de medicamentos en el tercio superior derecho, zona izquierda y central despejadas, iluminación clínica fría.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-18T20:51:09.707Z",
+  "actualizado": "2026-10-18T20:51:09.707Z",
+  "plantilla": "dato",
+  "dato": {
+    "cifra": "63 de 472",
+    "frase": "demandas de indemnización han sido resueltas a favor de los afectados"
+  }
+}
