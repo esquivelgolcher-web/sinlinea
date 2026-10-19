@@ -42,7 +42,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-18T04:41:44.029Z",
-  "actualizado": "2026-10-18T07:22:59.912Z",
+  "actualizado": "2026-10-19T22:15:48.619Z",
   "destinos": {
     "instagram": {
       "texto": "As Pope Leo XIV left Rome's Gemelli Hospital, he was greeted by Varvara, a 13-year-old Ukrainian girl he had first met on December 31 while she awaited cancer surgery. She gave him a photograph of their earlier embrace in St. Peter's Square and a stuffed toy like the one she carried while fleeing the war. Source: Vatican News, Oct 17, 2026.\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #Ukraine #GemelliHospital #HopeAndFaith",
@@ -55,7 +55,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-10-19T22:15:48.619Z",
+        "actualizado": "2026-10-19T22:15:48.619Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
