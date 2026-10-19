@@ -1,0 +1,52 @@
+{
+  "id": "2026-10-19-1537-sinlinea-la-prensa-20c0",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/economia/canal-de-panama-cierra-ano-fiscal-2026-con-mas-transitos-y-un-aumento-de-7-en-la-carga-transportada/",
+    "titulo": "Canal de Panamá cierra año fiscal 2026 con más tránsitos y un aumento de 7% en la carga transportada",
+    "publicado": "2026-10-19T19:54:04.000Z"
+  },
+  "categoria": "ECONOMÍA",
+  "titular": "Canal de Panamá cierra con más tránsitos y carga en 2026",
+  "bajada": "La vía interoceánica registró 13,951 cruces de buques y un alza de 7% en la carga movilizada.",
+  "caption": "El Canal de Panamá tuvo un año fiscal con más barcos pasando y más carga transportada, impulsado por el transporte de gas y combustibles ante las tensiones en Medio Oriente. Esto refleja la importancia de la vía para la economía nacional y el comercio mundial. ¿Cómo crees que esto impacta los ingresos del país?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#CanalDePanamá",
+    "#Economía",
+    "#ACP",
+    "#Comercio"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-10-19-1537-sinlinea-la-prensa-20c0.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-19-1537-sinlinea-la-prensa-20c0.jpg",
+    "hash": "9aaf146e86d5323c",
+    "version": 11,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-10-19T20:38:04.226Z"
+  },
+  "ilustracion": {
+    "descripcion": "Vista general del Canal de Panamá con un buque de carga cruzando las esclusas al atardecer, el buque ubicado en el tercio superior derecho, zona izquierda y central despejada.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-19-1537-sinlinea-la-prensa-20c0.jpg",
+    "hashDescripcion": "3dbff9929553f76c",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-19T20:37:26.300Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-19T20:37:26.300Z",
+  "actualizado": "2026-10-19T20:37:26.300Z",
+  "plantilla": "foto",
+  "dato": {
+    "cifra": "7%",
+    "frase": "aumentó el volumen de carga transportada por el Canal de Panamá en el año fiscal 2026"
+  }
+}

@@ -1,0 +1,193 @@
+{
+  "id": "2026-10-19-1537-luiseskivelgolcher-wired-e2fc",
+  "cuenta": "luiseskivelgolcher",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "WIRED",
+    "url": "https://www.wired.com/story/whatsapp-help-pages-leaked-hidden-instructions-for-a-meta-chatbot/",
+    "titulo": "WhatsApp Help Pages Leaked Hidden Instructions for a Meta Chatbot",
+    "publicado": "2026-10-19T16:00:00.000Z"
+  },
+  "categoria": "SEGURIDAD",
+  "titular": "WhatsApp expuso instrucciones secretas de su chatbot",
+  "bajada": "Un error reveló por meses el código interno que guía a la IA de soporte, según WIRED.",
+  "caption": "Cerca de 80 páginas de ayuda de WhatsApp mostraban, en su código, instrucciones ocultas para el chatbot de soporte de Meta. Así lo encontró la empresa de privacidad Redact, según reportó WIRED el 19 de octubre de 2026. Entre las reglas había bloques titulados \"WHAT NOT TO SAY\" (qué no decir), con órdenes como no recomendar contactar a una autoridad de protección de datos ni citar el Reglamento General de Protección de Datos europeo (GDPR) si un usuario pregunta por sus derechos. Meta confirmó a WIRED que un error (bug) causó la exposición y retiró el texto de todas las páginas tras ser contactada. La compañía asegura que las instrucciones buscaban evitar que el chatbot diera asesoría legal, no ocultar información a los usuarios. El caso muestra la distancia entre lo que las empresas tecnológicas comunican públicamente y las reglas internas que programan en sus asistentes de inteligencia artificial.",
+  "hashtags": [
+    "#WhatsApp",
+    "#Meta",
+    "#Privacidad",
+    "#InteligenciaArtificial",
+    "#Tecnología"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-10-19-1537-luiseskivelgolcher-wired-e2fc.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-19-1537-luiseskivelgolcher-wired-e2fc.jpg",
+    "hash": "c56af5898b0e53f7",
+    "version": 11,
+    "estilo": "dc8c8fa3edf501fd",
+    "renderizada": "2026-10-19T20:38:45.559Z"
+  },
+  "ilustracion": {
+    "descripcion": "Ilustración de una pantalla de celular con burbujas de chat abstractas y líneas de código flotando, sin logotipos ni marcas visibles, ubicada en el tercio superior derecho; el resto del encuadre despejado en tonos oscuros con acento azul.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-19-1537-luiseskivelgolcher-wired-e2fc.jpg",
+    "hashDescripcion": "9643c38d16388487",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-19T20:37:26.300Z",
+    "error": null,
+    "procedencia": "generada"
+  },
+  "formato": "carrusel",
+  "fuentes": [
+    {
+      "rol": "principal",
+      "medio": "WIRED",
+      "autor": "Matt Burgess",
+      "url": "https://www.wired.com/story/whatsapp-help-pages-leaked-hidden-instructions-for-a-meta-chatbot/",
+      "canonica": "https://www.wired.com/story/whatsapp-help-pages-leaked-hidden-instructions-for-a-meta-chatbot/",
+      "idioma": "en",
+      "publicado": "2026-10-19T16:00:00.000Z",
+      "actualizado": "2026-10-19T16:00:00.000Z",
+      "fechaHecho": null,
+      "consultado": "2026-10-19T20:37:26.300Z",
+      "alcance": "completo",
+      "textoRecuperado": {
+        "parrafos": 17,
+        "caracteres": 4415,
+        "enviados": 3947
+      },
+      "fuentesPrimarias": [
+        "https://faq.whatsapp.com/",
+        "https://redact.dev/blog/whatsapp-help-pages-hidden-ai-instructions",
+        "https://faq.whatsapp.com/2138577903196467/?cms_platform=android",
+        "http://www.aboutads.info"
+      ],
+      "licenciaMedios": null
+    }
+  ],
+  "afirmaciones": [
+    {
+      "texto": "Cerca de 80 páginas de ayuda de WhatsApp exponían en su código instrucciones ocultas diseñadas para un chatbot de Meta.",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/whatsapp-help-pages-leaked-hidden-instructions-for-a-meta-chatbot/",
+      "contrastada": true
+    },
+    {
+      "texto": "Las instrucciones incluían secciones tituladas \"WHAT NOT TO SAY\" y la orden de no recomendar contactar a una autoridad de protección de datos.",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/whatsapp-help-pages-leaked-hidden-instructions-for-a-meta-chatbot/",
+      "contrastada": true
+    },
+    {
+      "texto": "Un vocero de WhatsApp dijo que la exposición se debió a un error técnico (bug) ya corregido y que las instrucciones solo buscaban evitar asesoría legal.",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/whatsapp-help-pages-leaked-hidden-instructions-for-a-meta-chatbot/",
+      "contrastada": false
+    }
+  ],
+  "angulo": "Cómo una filtración de código reveló las reglas internas que Meta programó para que su chatbot evite temas legales y de protección de datos.",
+  "atribucion": "Según WIRED (Matt Burgess), con hallazgos de la empresa de privacidad Redact.dev; declaraciones de un vocero de WhatsApp.",
+  "puntuacion": {
+    "total": 82,
+    "componentes": {
+      "afinidad": 27,
+      "interes": 18,
+      "evidencia": 16,
+      "actualidad": 15,
+      "visual": 6
+    }
+  },
+  "alertas": [
+    "fuente-unica"
+  ],
+  "carrusel": {
+    "diapositivas": [
+      {
+        "titulo": "¿Qué le prohíbe Meta decir a su propio chatbot?",
+        "texto": "Páginas de ayuda de WhatsApp exponían, en su código, reglas secretas para el asistente de soporte de Meta."
+      },
+      {
+        "titulo": "El hallazgo",
+        "texto": "La empresa de privacidad Redact encontró cerca de 80 páginas con bloques de texto ocultos dirigidos a un modelo de lenguaje (LLM), no a usuarios."
+      },
+      {
+        "titulo": "Instrucciones bajo el título \"qué no decir\"",
+        "texto": "Entre las reglas: no recomendar contactar a una autoridad de protección de datos ni citar el GDPR si un usuario pregunta por sus derechos."
+      },
+      {
+        "titulo": "También evitaba temas legales",
+        "texto": "Si alguien mencionaba una demanda o un abogado, el chatbot debía no citar ni interpretar los Términos de Servicio de WhatsApp."
+      },
+      {
+        "titulo": "La respuesta de Meta",
+        "texto": "Un vocero dijo a WIRED que fue un error técnico ya corregido y que las reglas buscaban evitar asesoría legal, no esconder información."
+      },
+      {
+        "titulo": "Lo que falta por saber",
+        "texto": "No está claro cuánto tiempo estuvo expuesto el texto ni si chatbots externos pudieron acceder a esas instrucciones."
+      },
+      {
+        "titulo": "La distancia entre el discurso y el código",
+        "texto": "El caso expone la brecha entre lo que las plataformas dicen a sus usuarios y las reglas que programan para su inteligencia artificial. Fuente: WIRED, 19 de octubre de 2026."
+      }
+    ],
+    "imagenes": [
+      {
+        "numero": 1,
+        "ruta": "public/img/2026-10-19-1537-luiseskivelgolcher-wired-e2fc-01.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-19-1537-luiseskivelgolcher-wired-e2fc-01.jpg",
+        "hash": "c091d95b9171fe2d"
+      },
+      {
+        "numero": 2,
+        "ruta": "public/img/2026-10-19-1537-luiseskivelgolcher-wired-e2fc-02.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-19-1537-luiseskivelgolcher-wired-e2fc-02.jpg",
+        "hash": "7f43b5ce5ce10064"
+      },
+      {
+        "numero": 3,
+        "ruta": "public/img/2026-10-19-1537-luiseskivelgolcher-wired-e2fc-03.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-19-1537-luiseskivelgolcher-wired-e2fc-03.jpg",
+        "hash": "dc838823f55d0ce1"
+      },
+      {
+        "numero": 4,
+        "ruta": "public/img/2026-10-19-1537-luiseskivelgolcher-wired-e2fc-04.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-19-1537-luiseskivelgolcher-wired-e2fc-04.jpg",
+        "hash": "c7191b53aea5c26d"
+      },
+      {
+        "numero": 5,
+        "ruta": "public/img/2026-10-19-1537-luiseskivelgolcher-wired-e2fc-05.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-19-1537-luiseskivelgolcher-wired-e2fc-05.jpg",
+        "hash": "e807b0aa91e0a8f4"
+      },
+      {
+        "numero": 6,
+        "ruta": "public/img/2026-10-19-1537-luiseskivelgolcher-wired-e2fc-06.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-19-1537-luiseskivelgolcher-wired-e2fc-06.jpg",
+        "hash": "e51b9cc90c14b553"
+      },
+      {
+        "numero": 7,
+        "ruta": "public/img/2026-10-19-1537-luiseskivelgolcher-wired-e2fc-07.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-19-1537-luiseskivelgolcher-wired-e2fc-07.jpg",
+        "hash": "bbf0691ae78e9ec0"
+      }
+    ],
+    "hash": "743e09f5686ed623",
+    "version": 2
+  },
+  "reel": null,
+  "revision": {
+    "estado": "pendiente",
+    "notas": []
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-19T20:37:26.300Z",
+  "actualizado": "2026-10-19T20:37:26.300Z"
+}
