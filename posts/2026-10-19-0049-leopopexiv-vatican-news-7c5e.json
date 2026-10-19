@@ -1,0 +1,46 @@
+{
+  "id": "2026-10-19-0049-leopopexiv-vatican-news-7c5e",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-10/pope-greets-faithful-at-first-angelus-after-surgery.html",
+    "titulo": "Pope at Angelus: Render unto Caesar means being truthful, free to do good",
+    "publicado": "2026-10-18T10:16:23.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "Pope Leo XIV returns to public view after surgery",
+  "bajada": "At his first Angelus since the operation, he reflected on truth and freedom from fear",
+  "caption": "Pope Leo XIV held his first public event since undergoing surgery last Tuesday, delivering his Sunday Angelus address. Reflecting on Christ's words 'Render to Caesar the things that are Caesar's, and to God the things that are God's,' he said Jesus calls believers 'to be truthful, free from servile fear or hypocrisy, free to do good.' Source: Vatican News, Oct 18, 2026.",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Angelus",
+    "#Vatican",
+    "#CatholicChurch",
+    "#HolySee"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-10-19-0049-leopopexiv-vatican-news-7c5e.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-19-0049-leopopexiv-vatican-news-7c5e.jpg",
+    "hash": "6d4f74d225b176e8",
+    "version": 11,
+    "estilo": "ab79cbbb3887cfa1",
+    "renderizada": "2026-10-19T04:50:17.233Z"
+  },
+  "ilustracion": {
+    "descripcion": "St. Peter's Square seen from a distance at midday, with the papal apartment window visible; a small figure in white appears at the window in the upper right third, left and center open and calm.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-19-0049-leopopexiv-vatican-news-7c5e.jpg",
+    "hashDescripcion": "7a236aeb6022a319",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-19T04:49:52.620Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-19T04:49:52.620Z",
+  "actualizado": "2026-10-19T04:49:52.620Z"
+}
