@@ -1,0 +1,126 @@
+{
+  "id": "2026-10-19-0828-luiseskivelgolcher-efe-verifica-c7f1",
+  "cuenta": "luiseskivelgolcher",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "EFE Verifica",
+    "url": "https://verifica.efe.com/la-imagen-de-los-ancianos-en-ropa-interior-asaltados-por-manifestantes-en-francia-esta-hecha-con-ia/",
+    "titulo": "La imagen de ancianos en ropa interior en las manifestaciones de Francia es de IA",
+    "publicado": "2026-10-19T12:07:31.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "Foto viral de ancianos robados en Francia es IA",
+  "bajada": "EFE Verifica halló una marca de agua de SynthID y fallos visuales que delatan la manipulación.",
+  "caption": "Una imagen que circula en redes sociales muestra a una pareja de ancianos en ropa interior tras un supuesto robo durante las protestas en Francia del 17 de octubre de 2026. Según una verificación de EFE Verifica, la foto fue generada con inteligencia artificial: la herramienta SynthID, que detecta marcas de agua invisibles insertadas por los modelos de Google, confirmó la manipulación. El análisis también halló inconsistencias visuales, como una mano con cuatro dedos y formas duplicadas en una de las figuras. La imagen se difundió sin ubicación precisa y una cuenta con sede en Israel fue la primera en publicarla, según la agencia verificadora. El presidente de Vox, Santiago Abascal, la compartió en X para criticar la política migratoria del gobierno español. Por separado, una periodista de BFMTV mencionó un posible asalto similar a una pareja de 80 años en París, pero sin imágenes que lo respalden ni confirmación policial. El caso muestra cómo el contenido generado con IA se mezcla con hechos reales de las protestas, que dejaron 2.000 detenidos según el Ministerio del Interior francés.",
+  "hashtags": [
+    "#Desinformación",
+    "#InteligenciaArtificial",
+    "#Francia",
+    "#Verificación",
+    "#Protestas"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-10-19-0828-luiseskivelgolcher-efe-verifica-c7f1.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-19-0828-luiseskivelgolcher-efe-verifica-c7f1.jpg",
+    "hash": "0bf50c09fc2329cf",
+    "version": 11,
+    "estilo": "dc8c8fa3edf501fd",
+    "renderizada": "2026-10-19T13:29:51.549Z"
+  },
+  "ilustracion": {
+    "descripcion": "Calle de París al atardecer con manifestantes borrosos y difuminados al fondo; en el tercio superior derecho, un teléfono móvil muestra una pantalla en blanco simulando una publicación viral, dejando el centro y la izquierda despejados.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-19-0828-luiseskivelgolcher-efe-verifica-c7f1.jpg",
+    "hashDescripcion": "4cb7a5f8a8db700e",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-19T13:28:39.903Z",
+    "error": null,
+    "procedencia": "generada"
+  },
+  "formato": "post",
+  "fuentes": [
+    {
+      "rol": "principal",
+      "medio": "EFE Verifica",
+      "autor": "Raúl Martín Lorenzo",
+      "url": "https://verifica.efe.com/la-imagen-de-los-ancianos-en-ropa-interior-asaltados-por-manifestantes-en-francia-esta-hecha-con-ia/",
+      "canonica": "https://verifica.efe.com/la-imagen-de-los-ancianos-en-ropa-interior-asaltados-por-manifestantes-en-francia-esta-hecha-con-ia/",
+      "idioma": "es",
+      "publicado": "2026-10-19T12:07:31.000Z",
+      "actualizado": "2026-10-19T12:24:43.000Z",
+      "fechaHecho": "2026-10-17",
+      "consultado": "2026-10-19T13:28:39.903Z",
+      "alcance": "completo",
+      "textoRecuperado": {
+        "parrafos": 22,
+        "caracteres": 4461,
+        "enviados": 3863
+      },
+      "fuentesPrimarias": [
+        "https://mvau.lt/media/752f267a-d5ff-4043-bca6-521924ad5ef9",
+        "https://mvau.lt/media/1d03a379-a9d2-432b-b74a-5ee3d2af8d99",
+        "https://mvau.lt/media/908069c8-def9-471c-8c35-808e6302f069",
+        "https://mvau.lt/media/cb207af1-6ab0-4f2e-9e4c-775486ddfe50",
+        "https://synthid.com/image-detection",
+        "https://megalodon.jp/2026-1019-1850-03/https://www.instagram.com:443/p/Deo4U8qFHPR/",
+        "https://www.mariefrance.fr/actualite/societe/dominique-rizet-un-couple-de-80-ans-a-ete-agresse-a-paris-ils-se-sont-fait-depouiller-et-ont-fini-quasiment-nus-place-de-la-republique-1308389.html",
+        "https://efe.com/mundo/2026-10-17/protestas-reivindicaciones-variadas-francia"
+      ],
+      "licenciaMedios": null
+    }
+  ],
+  "afirmaciones": [
+    {
+      "texto": "La imagen de la pareja de ancianos en ropa interior en Francia fue generada o manipulada con inteligencia artificial.",
+      "tipo": "hecho",
+      "fuente": "https://verifica.efe.com/la-imagen-de-los-ancianos-en-ropa-interior-asaltados-por-manifestantes-en-francia-esta-hecha-con-ia/",
+      "contrastada": true
+    },
+    {
+      "texto": "La herramienta SynthID detectó una marca de agua digital que confirma que la foto fue fabricada o editada con IA de Google.",
+      "tipo": "hecho",
+      "fuente": "https://synthid.com/image-detection",
+      "contrastada": true
+    },
+    {
+      "texto": "Santiago Abascal compartió la imagen en X para vincularla con un discurso crítico sobre migración y pensiones en España.",
+      "tipo": "hecho",
+      "fuente": "https://verifica.efe.com/la-imagen-de-los-ancianos-en-ropa-interior-asaltados-por-manifestantes-en-francia-esta-hecha-con-ia/",
+      "contrastada": true
+    },
+    {
+      "texto": "Una periodista de BFMTV relató, citando fuentes policiales, que una pareja de unos 80 años fue asaltada y despojada de parte de su ropa en la plaza de la República de París, sin imágenes que lo acrediten.",
+      "tipo": "denuncia",
+      "fuente": "https://www.mariefrance.fr/actualite/societe/dominique-rizet-un-couple-de-80-ans-a-ete-agresse-a-paris-ils-se-sont-fait-depouiller-et-ont-fini-quasiment-nus-place-de-la-republique-1308389.html",
+      "contrastada": false
+    }
+  ],
+  "angulo": "Cómo una imagen generada con inteligencia artificial se viralizó como prueba de un robo durante las protestas en Francia.",
+  "atribucion": "EFE Verifica",
+  "puntuacion": {
+    "total": 79,
+    "componentes": {
+      "afinidad": 24,
+      "interes": 18,
+      "evidencia": 16,
+      "actualidad": 15,
+      "visual": 6
+    }
+  },
+  "alertas": [
+    "fuente-unica"
+  ],
+  "carrusel": null,
+  "reel": null,
+  "revision": {
+    "estado": "pendiente",
+    "notas": []
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-19T13:28:39.903Z",
+  "actualizado": "2026-10-19T13:28:39.903Z"
+}
