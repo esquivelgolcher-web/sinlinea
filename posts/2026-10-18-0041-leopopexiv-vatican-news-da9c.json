@@ -1,7 +1,7 @@
 {
   "id": "2026-10-18-0041-leopopexiv-vatican-news-da9c",
   "cuenta": "leopopexiv",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/pope/news/2026-10/pope-leo-xiv-greets-ukrainian-girl-cancer-survivor-gemelli.html",
@@ -39,7 +39,11 @@
     "error": null
   },
   "programado": "2026-10-19T13:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "18187921957412711",
+    "permalink": "https://www.instagram.com/p/DesTxcwGbNA/",
+    "fecha": "2026-10-19T22:15:48.619Z"
+  },
   "error": null,
   "creado": "2026-10-18T04:41:44.029Z",
   "actualizado": "2026-10-19T22:15:48.619Z",
@@ -52,16 +56,15 @@
         "imagenHash": "d74e5d0c80861702",
         "imagenSha": "c95f8a251edfca340e58bc21834800338a242a21"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-10-19T22:15:48.619Z",
-        "actualizado": "2026-10-19T22:15:48.619Z",
-        "contenedorId": "18109992056081176"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18187921957412711",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/DesTxcwGbNA/",
+        "fecha": "2026-10-19T22:15:48.619Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
