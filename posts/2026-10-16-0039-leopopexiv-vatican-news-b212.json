@@ -42,7 +42,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-16T04:39:12.139Z",
-  "actualizado": "2026-10-18T07:22:37.318Z",
+  "actualizado": "2026-10-19T00:25:23.984Z",
   "destinos": {
     "instagram": {
       "texto": "Bishop Ignatius Ding Zuyao was ordained in Haimen, Jiangsu Province, after being appointed by Pope Leo XIV under the Provisional Agreement between the Holy See and China. Source: Vatican News, Oct 15, 2026.\n\nFuente: Vatican News\n\n#PopeLeoXIV #VaticanChina #CatholicChurch #China #Haimen",
@@ -55,7 +55,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-10-19T00:25:23.984Z",
+        "actualizado": "2026-10-19T00:25:23.984Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
