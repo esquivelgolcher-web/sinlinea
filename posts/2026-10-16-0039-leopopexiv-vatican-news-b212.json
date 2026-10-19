@@ -1,7 +1,7 @@
 {
   "id": "2026-10-16-0039-leopopexiv-vatican-news-b212",
   "cuenta": "leopopexiv",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/church/news/2026-10/bishop-ignatius-ding-zuyao-ordained-in-haimen-china.html",
@@ -39,7 +39,11 @@
     "error": null
   },
   "programado": "2026-10-18T18:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "18123614572714904",
+    "permalink": "https://www.instagram.com/p/Dep9zr8FJdT/",
+    "fecha": "2026-10-19T00:25:23.984Z"
+  },
   "error": null,
   "creado": "2026-10-16T04:39:12.139Z",
   "actualizado": "2026-10-19T00:25:23.984Z",
@@ -52,16 +56,15 @@
         "imagenHash": "fc00d0f321c7e061",
         "imagenSha": "711171fce3c5e29840f6c1902e44bae881602b44"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-10-19T00:25:23.984Z",
-        "actualizado": "2026-10-19T00:25:23.984Z",
-        "contenedorId": "18109769087081176"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18123614572714904",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/Dep9zr8FJdT/",
+        "fecha": "2026-10-19T00:25:23.984Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
