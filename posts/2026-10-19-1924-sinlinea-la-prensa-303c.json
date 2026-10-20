@@ -1,0 +1,48 @@
+{
+  "id": "2026-10-19-1924-sinlinea-la-prensa-303c",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/politica/choque-de-bancadas-frena-el-debate-de-las-reformas-electorales/",
+    "titulo": "Choque de bancadas frena el debate de las reformas electorales",
+    "publicado": "2026-10-20T00:19:33.000Z"
+  },
+  "categoria": "POLÍTICA",
+  "titular": "Pugna en la Asamblea frena debate de reformas electorales",
+  "bajada": "Diputados chocaron por la presencia de magistrados del TE en el debate del proyecto 699.",
+  "caption": "El segundo debate de la reforma al Código Electoral se trancó antes de empezar. Varias bancadas de oposición rechazaron que los magistrados del Tribunal Electoral tomaran la palabra sin espacio para preguntas, mientras el oficialismo y el PRD defendían la cortesía de sala. El choque deja en pausa un proyecto clave de cara a las elecciones de 2029. ¿Cree que la Asamblea debería priorizar este debate ahora mismo?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#AsambleaNacional",
+    "#ReformaElectoral",
+    "#TribunalElectoral",
+    "#Política"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-10-19-1924-sinlinea-la-prensa-303c.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-19-1924-sinlinea-la-prensa-303c.jpg",
+    "hash": "e5c878ddfd449127",
+    "version": 2,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-10-20T00:25:32.865Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada del Palacio Legislativo de la Asamblea Nacional de Panamá bajo un cielo nublado, con el edificio en el tercio superior derecho y la plaza despejada al centro e izquierda.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-20T00:24:58.998Z",
+  "actualizado": "2026-10-20T00:24:58.998Z",
+  "plantilla": "titular"
+}
