@@ -1,0 +1,46 @@
+{
+  "id": "2026-10-20-0439-leopopexiv-vatican-news-6be0",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-10/pope-leo-phone-call-president-zelensky-19-october-2026.html",
+    "titulo": "Pope Leo speaks with President Zelensky, calls for humanitarian aid",
+    "publicado": "2026-10-19T16:18:00.000Z"
+  },
+  "categoria": "INTERNACIONAL",
+  "titular": "Pope Leo calls Zelensky, urges aid to Kherson",
+  "bajada": "Pontiff seeks cooperation for food, medical aid and civilian evacuation in Oleshky",
+  "caption": "In a phone call with Ukrainian President Volodymyr Zelensky, Pope Leo XIV expressed hope for cooperation to let food and medical aid reach civilians in Oleshky, Kherson region, and for their safe evacuation. Source: Vatican News, Oct 19, 2026.",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Ukraine",
+    "#Vatican",
+    "#Peace",
+    "#HumanitarianAid"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-10-20-0439-leopopexiv-vatican-news-6be0.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-20-0439-leopopexiv-vatican-news-6be0.jpg",
+    "hash": "40c8333e225cfc88",
+    "version": 11,
+    "estilo": "ab79cbbb3887cfa1",
+    "renderizada": "2026-10-20T08:39:31.533Z"
+  },
+  "ilustracion": {
+    "descripcion": "A quiet Vatican study with a desk globe and a telephone receiver resting beside papal stationery, warm lamp light, the pope's silhouette shown from behind near a window in the upper right third, left and center space open.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-20-0439-leopopexiv-vatican-news-6be0.jpg",
+    "hashDescripcion": "494e3471cea1db97",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-20T08:39:09.782Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-20T08:39:09.782Z",
+  "actualizado": "2026-10-20T08:39:09.782Z"
+}
