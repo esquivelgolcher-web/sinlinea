@@ -1,0 +1,52 @@
+{
+  "id": "2026-10-20-1856-sinlinea-la-prensa-d3ac",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/sociedad/terremoto-deja-a-3000-estudiantes-sin-aula-esta-es-la-propuesta-para-volver-a-clases/",
+    "titulo": "Terremoto deja a 3,000 estudiantes sin aula; esta es la propuesta para volver a clases",
+    "publicado": "2026-10-20T19:57:16.000Z"
+  },
+  "categoria": "EDUCACIÓN",
+  "titular": "Terremoto deja a 3,000 estudiantes sin aula en el interior",
+  "bajada": "619 escuelas sufrieron daños y 35 quedaron destruidas tras el sismo del 9 de octubre.",
+  "caption": "Mientras el país retoma clases, miles de niños en Herrera, Veraguas, Los Santos y Coclé siguen sin un salón donde estudiar. La propuesta busca garantizar que terminen el año escolar pese a la destrucción de sus escuelas. ¿Qué solución le darías tú a estas familias?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Educación",
+    "#Terremoto",
+    "#Meduca",
+    "#InterioDePanamá"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-10-20-1856-sinlinea-la-prensa-d3ac.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-20-1856-sinlinea-la-prensa-d3ac.jpg",
+    "hash": "229f06da8d764d3c",
+    "version": 11,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-10-20T23:57:36.727Z"
+  },
+  "ilustracion": {
+    "descripcion": "Patio de una escuela rural dañada por el sismo, con grietas visibles en la pared y pupitres vacíos, mientras un grupo de niños con mochilas observa desde el tercio superior derecho; zona izquierda y central despejada.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-20-1856-sinlinea-la-prensa-d3ac.jpg",
+    "hashDescripcion": "e33c1359e9808803",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-20T23:56:40.085Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-20T23:56:40.085Z",
+  "actualizado": "2026-10-20T23:56:40.085Z",
+  "plantilla": "foto",
+  "dato": {
+    "cifra": "3,000",
+    "frase": "estudiantes se quedaron sin aula tras el terremoto del 9 de octubre"
+  }
+}

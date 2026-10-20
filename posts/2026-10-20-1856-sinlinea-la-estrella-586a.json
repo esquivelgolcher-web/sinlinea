@@ -1,0 +1,48 @@
+{
+  "id": "2026-10-20-1856-sinlinea-la-estrella-586a",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/gobierno-coordina-con-cruz-roja-y-onu-un-plan-de-ayuda-monetaria-para-damnificados-LE26668333",
+    "titulo": "Gobierno coordina con Cruz Roja y ONU un plan de ayuda monetaria para damnificados",
+    "publicado": "2026-10-20T19:36:00.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "Gobierno prepara ayuda monetaria para damnificados del sismo",
+  "bajada": "La Cruz Roja y la ONU colaboran con el Ejecutivo en un plan para familias de escasos recursos.",
+  "caption": "Las familias que perdieron su vivienda en Herrera, Los Santos, Coclé y Veraguas podrían recibir apoyo económico directo. El mecanismo aún está en fase de coordinación entre el Gobierno y organismos internacionales. ¿Crees que esta ayuda llegará a tiempo a quienes más la necesitan?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Terremoto",
+    "#AyudaHumanitaria",
+    "#CruzRoja",
+    "#ONU"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-10-20-1856-sinlinea-la-estrella-586a.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-20-1856-sinlinea-la-estrella-586a.jpg",
+    "hash": "8b79d9ed0aedf087",
+    "version": 2,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-10-20T23:57:37.096Z"
+  },
+  "ilustracion": {
+    "descripcion": "Reunión en un salón oficial con una mesa larga y banderas de Panamá, con una funcionaria revisando documentos en el tercio superior derecho; zona izquierda y central despejada.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-20T23:56:40.085Z",
+  "actualizado": "2026-10-20T23:56:40.085Z",
+  "plantilla": "titular"
+}
