@@ -1,0 +1,46 @@
+{
+  "id": "2026-10-21-0057-leopopexiv-vatican-news-7445",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/vatican-city/news/2026-10/permanent-observer-united-nations-holy-see-disarmament-nuclear.html",
+    "titulo": "Holy See: Nuclear weapons are one of gravest threats to humanity",
+    "publicado": "2026-10-20T12:58:00.000Z"
+  },
+  "categoria": "INTERNACIONAL",
+  "titular": "Holy See warns nuclear arms threaten humanity",
+  "bajada": "At the UN, Vatican envoy calls for total elimination of nuclear weapons",
+  "caption": "At the United Nations General Assembly in New York, the Holy See's Permanent Observer warned that nuclear weapons remain one of the gravest threats to humanity, urging their elimination to safeguard peace and international security. Source: Vatican News, Oct 20, 2026.",
+  "hashtags": [
+    "#HolySee",
+    "#UN",
+    "#NuclearWeapons",
+    "#Peace",
+    "#Vatican"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-10-21-0057-leopopexiv-vatican-news-7445.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-21-0057-leopopexiv-vatican-news-7445.jpg",
+    "hash": "1d1b6437531539dd",
+    "version": 11,
+    "estilo": "ab79cbbb3887cfa1",
+    "renderizada": "2026-10-21T04:57:24.806Z"
+  },
+  "ilustracion": {
+    "descripcion": "The United Nations General Assembly hall in New York, with a lectern and flags visible in the upper right third, left and center areas kept open and uncluttered.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-21-0057-leopopexiv-vatican-news-7445.jpg",
+    "hashDescripcion": "05aab0f4e57b922a",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-21T04:57:11.831Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-21T04:57:11.831Z",
+  "actualizado": "2026-10-21T04:57:11.831Z"
+}
