@@ -1,0 +1,52 @@
+{
+  "id": "2026-10-21-1647-sinlinea-la-prensa-0c4e",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/judiciales/legalizan-aprehension-de-22-personas-investigadas-por-fraude-en-nombramientos-del-meduca/",
+    "titulo": "Legalizan aprehensión de 22 personas investigadas por fraude en nombramientos del Meduca",
+    "publicado": "2026-10-21T19:33:40.000Z"
+  },
+  "categoria": "EDUCACIÓN",
+  "titular": "Legalizan aprehensión de 22 por fraude en Meduca",
+  "bajada": "La jueza Jazmín Jaén avaló las capturas por alterar el sistema de recursos humanos educativos.",
+  "caption": "Funcionarios, exfuncionarios y docentes están entre los aprehendidos por presuntamente manipular el sistema que decide quién se queda con una plaza de maestro en Panamá. La jueza también multó a la DIJ por no permitir que madres lactantes amamantaran a sus hijos durante la detención. El caso toca directamente la confianza en cómo se asignan los puestos docentes. ¿Qué opinas de cómo se manejan los concursos de nombramiento en el Meduca?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Meduca",
+    "#Corrupción",
+    "#Educación",
+    "#Justicia"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-10-21-1647-sinlinea-la-prensa-0c4e.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-21-1647-sinlinea-la-prensa-0c4e.jpg",
+    "hash": "631979961ff8fb34",
+    "version": 11,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-10-21T21:48:20.898Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada de un edificio institucional panameño bajo cielo nublado, con una balanza de la justicia estilizada en el tercio superior derecho, zona izquierda y central despejadas, sin personas reconocibles.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-21-1647-sinlinea-la-prensa-0c4e.jpg",
+    "hashDescripcion": "55c7a5af51ec9415",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-21T21:47:38.501Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-21T21:47:38.501Z",
+  "actualizado": "2026-10-21T21:47:38.501Z",
+  "plantilla": "foto",
+  "dato": {
+    "cifra": "22",
+    "frase": "personas fueron aprehendidas por el fraude en nombramientos del Meduca"
+  }
+}

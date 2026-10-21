@@ -1,0 +1,52 @@
+{
+  "id": "2026-10-21-1647-sinlinea-la-prensa-aba6",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/economia/canasta-basica-se-lleva-hasta-el-48-de-la-mediana-salarial-y-cuesta-5476-mas-en-tiendas-de-barrio/",
+    "titulo": "Canasta básica se lleva hasta el 48% de la mediana salarial y cuesta $54.76 más en tiendas de barrio",
+    "publicado": "2026-10-21T19:07:16.000Z"
+  },
+  "categoria": "ECONOMÍA",
+  "titular": "Canasta básica cuesta $54.76 más en tiendas de barrio",
+  "bajada": "Entre enero y septiembre subió poco en supermercados, pero mucho más en minisúper, según Acodeco.",
+  "caption": "La diferencia entre comprar en un supermercado o en el minisúper de la esquina ya supera los $54 al mes. Para muchas familias panameñas, esa brecha significa decidir entre pagar más por cercanía o hacer un viaje extra para ahorrar. El dato lo confirma Acodeco con su monitoreo de precios de 59 alimentos básicos. ¿A ti te ha tocado pagar más caro en la tienda de tu barrio?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#CanastaBásica",
+    "#Economía",
+    "#Acodeco",
+    "#CostoDeVida"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-10-21-1647-sinlinea-la-prensa-aba6.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-21-1647-sinlinea-la-prensa-aba6.jpg",
+    "hash": "01a4dca8ce2f4a46",
+    "version": 2,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-10-21T21:48:14.822Z"
+  },
+  "ilustracion": {
+    "descripcion": "Góndolas de un minisúper de barrio en Panamá con productos básicos como arroz y aceite, carrito de compras vacío en primer plano, los productos en el tercio superior derecho, zona izquierda y central despejadas.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-21T21:47:38.501Z",
+  "actualizado": "2026-10-21T21:47:38.501Z",
+  "plantilla": "dato",
+  "dato": {
+    "cifra": "$54.76",
+    "frase": "más cuesta la canasta básica en minisúper que en supermercados"
+  }
+}
