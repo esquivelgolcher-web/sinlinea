@@ -212,7 +212,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-18T11:16:42.580Z",
-  "actualizado": "2026-10-22T11:18:08.954Z",
+  "actualizado": "2026-10-22T18:08:25.441Z",
   "destinos": {
     "instagram": {
       "texto": "Canadá discute el proyecto C-22, que podría obligar a las empresas de mensajería a crear \"capacidades técnicas\" para que las autoridades accedan a datos cifrados. Signal ya dijo que saldría del país si se aprueba, y Psiphon —una VPN usada para evitar censura en Irán— advirtió lo mismo, según reportó WIRED el 17 de octubre de 2026. Apple, Meta, DuckDuckGo y NordVPN también criticaron la medida. El cifrado de extremo a extremo es un método que hace que solo el emisor y el receptor de un mensaje puedan leerlo, ni siquiera la empresa que presta el servicio. Expertos en criptografía insisten desde hace años en que no existe una forma de crear un acceso especial para gobiernos sin abrir una puerta que cualquiera podría explotar. El caso canadiense no es aislado: Reino Unido, Australia, Francia, India, España, Suecia y Suiza han impulsado proyectos similares, según documentos y reportes citados por WIRED. ¿Qué países se perfilan como refugios para la privacidad digital si esta tendencia sigue creciendo?\n\nFuente: WIRED\n\n#Cifrado #Privacidad #Vigilancia #Canadá #Ciberseguridad",
@@ -258,7 +258,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-10-22T18:08:25.441Z",
+        "actualizado": "2026-10-22T18:08:25.441Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
