@@ -1,7 +1,7 @@
 {
   "id": "2026-10-22-0057-leopopexiv-vatican-news-b54d",
   "cuenta": "leopopexiv",
-  "estado": "borrador",
+  "estado": "programado",
   "formato": "frase",
   "frase": {
     "texto": "Dialogue and encounter allow us to understand other ways of perceiving the world and to appreciate the unique and original qualities inherent in every culture",
@@ -36,9 +36,26 @@
     "renderizada": "2026-10-22T04:58:47.315Z"
   },
   "ilustracion": null,
-  "programado": null,
+  "programado": "2026-10-22T09:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-10-22T04:57:35.992Z",
-  "actualizado": "2026-10-22T04:57:35.992Z"
+  "actualizado": "2026-10-22T11:18:12.472Z",
+  "destinos": {
+    "instagram": {
+      "texto": "“Dialogue and encounter allow us to understand other ways of perceiving the world and to appreciate the unique and original qualities inherent in every culture”\n\n— Pope Leo XIV, Cited in address to the Organization of American States (OAS) (2026)\n\nVia Vatican News, 21 October 2026\n\n#PopeLeoXIV #Vatican #CatholicChurch\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #CatholicChurch",
+      "aprobado": {
+        "fecha": "2026-10-22T11:18:12.472Z",
+        "hashPieza": "3f948c0f43cb9581",
+        "imagenHash": "918e3a195e9dc0d7",
+        "imagenSha": "77c3516b7a07c016140dd97a7dc3391ab8f5b254"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
