@@ -1,7 +1,7 @@
 {
   "id": "2026-10-19-1537-luiseskivelgolcher-wired-e2fc",
   "cuenta": "luiseskivelgolcher",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "WIRED",
     "url": "https://www.wired.com/story/whatsapp-help-pages-leaked-hidden-instructions-for-a-meta-chatbot/",
@@ -185,9 +185,59 @@
     "estado": "pendiente",
     "notas": []
   },
-  "programado": null,
+  "programado": "2026-10-22T08:05:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-10-19T20:37:26.300Z",
-  "actualizado": "2026-10-19T20:37:26.300Z"
+  "actualizado": "2026-10-22T11:17:55.091Z",
+  "destinos": {
+    "instagram": {
+      "texto": "Cerca de 80 páginas de ayuda de WhatsApp mostraban, en su código, instrucciones ocultas para el chatbot de soporte de Meta. Así lo encontró la empresa de privacidad Redact, según reportó WIRED el 19 de octubre de 2026. Entre las reglas había bloques titulados \"WHAT NOT TO SAY\" (qué no decir), con órdenes como no recomendar contactar a una autoridad de protección de datos ni citar el Reglamento General de Protección de Datos europeo (GDPR) si un usuario pregunta por sus derechos. Meta confirmó a WIRED que un error (bug) causó la exposición y retiró el texto de todas las páginas tras ser contactada. La compañía asegura que las instrucciones buscaban evitar que el chatbot diera asesoría legal, no ocultar información a los usuarios. El caso muestra la distancia entre lo que las empresas tecnológicas comunican públicamente y las reglas internas que programan en sus asistentes de inteligencia artificial.\n\nFuente: WIRED\n\n#WhatsApp #Meta #Privacidad #InteligenciaArtificial #Tecnología",
+      "aprobado": {
+        "fecha": "2026-10-22T11:17:55.091Z",
+        "hashPieza": "2dbed3b1ce61163f",
+        "imagenHash": "c56af5898b0e53f7",
+        "imagenSha": "25ded81abb32e852f3b68898a9593b1c3a533256",
+        "imagenesSha": [
+          "cad3c2b79353075a03361b8d79ca72c33d719fc8",
+          "3cbfecbfae4baec490de7a9cf8ad30008e79745f",
+          "aee94a96cb38a1fe15a22d97babe7ab2ebe6baa9",
+          "97d7a45b87be2de1201943d6035b933c49df6f8c",
+          "6d4548a2eefb8796f89b793304a358f3a7304077",
+          "a6121213aef341c29e9a5f436da24537ec779a24",
+          "d05133cbed8a20f05a48d71b138c2767c412c403"
+        ]
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    },
+    "threads": {
+      "texto": "WhatsApp expuso instrucciones secretas de su chatbot\n\nUn error reveló por meses el código interno que guía a la IA de soporte, según WIRED.\n\nSegún WIRED (19 de octubre de 2026)",
+      "aprobado": {
+        "fecha": "2026-10-22T11:17:55.091Z",
+        "hashPieza": "2dbed3b1ce61163f",
+        "imagenHash": "c56af5898b0e53f7",
+        "imagenSha": "25ded81abb32e852f3b68898a9593b1c3a533256",
+        "imagenesSha": [
+          "cad3c2b79353075a03361b8d79ca72c33d719fc8",
+          "3cbfecbfae4baec490de7a9cf8ad30008e79745f",
+          "aee94a96cb38a1fe15a22d97babe7ab2ebe6baa9",
+          "97d7a45b87be2de1201943d6035b933c49df6f8c",
+          "6d4548a2eefb8796f89b793304a358f3a7304077",
+          "a6121213aef341c29e9a5f436da24537ec779a24",
+          "d05133cbed8a20f05a48d71b138c2767c412c403"
+        ]
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
