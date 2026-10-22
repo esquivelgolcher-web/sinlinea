@@ -1,0 +1,45 @@
+{
+  "id": "2026-10-22-0057-leopopexiv-vatican-news-69cb",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-10/pope-leo-xiv-doctors-confirm-no-further-treatment-necessary.html",
+    "titulo": "Pope Leo XIV's doctors confirm 'no further treatment is necessary'",
+    "publicado": "2026-10-21T19:16:00.000Z"
+  },
+  "categoria": "SALUD",
+  "titular": "Doctors: Pope Leo needs no further treatment",
+  "bajada": "Tumor removed Oct. 13 confirmed as localized lung adenocarcinoma",
+  "caption": "Pope Leo XIV's medical team has confirmed that the tumor removed during his October 13 surgery was a localized lung adenocarcinoma, adding that no further treatment is necessary. Source: Vatican News, Oct. 21, 2026.",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Vatican",
+    "#VaticanNews",
+    "#PapalHealth"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-10-22-0057-leopopexiv-vatican-news-69cb.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-22-0057-leopopexiv-vatican-news-69cb.jpg",
+    "hash": "4dd4032caa6b18b2",
+    "version": 11,
+    "estilo": "ab79cbbb3887cfa1",
+    "renderizada": "2026-10-22T04:58:43.561Z"
+  },
+  "ilustracion": {
+    "descripcion": "Exterior of a hospital or Vatican medical wing at dusk, soft lights in windows, calm atmosphere, upper right third shows a doctor's white coat on a chair, left and center space clear.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-22-0057-leopopexiv-vatican-news-69cb.jpg",
+    "hashDescripcion": "ecbafe5e161aeedc",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-22T04:57:35.992Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-22T04:57:35.992Z",
+  "actualizado": "2026-10-22T04:57:35.992Z"
+}

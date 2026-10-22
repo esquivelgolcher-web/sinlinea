@@ -1,0 +1,52 @@
+{
+  "id": "2026-10-21-2357-sinlinea-la-prensa-eef8",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/sociedad/terremoto-en-azuero-la-emergencia-que-enfrentan-las-personas-con-discapacidad/",
+    "titulo": "Terremoto en Azuero: la emergencia que enfrentan las personas con discapacidad",
+    "publicado": "2026-10-22T05:04:00.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "Familia con hijo discapacitado espera ayuda en Tonosí",
+  "bajada": "El sismo del 9 de octubre dejó a 1,194 personas con discapacidad afectadas en Azuero.",
+  "caption": "En Tonosí, una familia cuida a un hermano con parálisis cerebral en un refugio improvisado que no resiste la lluvia. Su historia refleja lo que viven más de mil personas con discapacidad tras el terremoto, muchas veces olvidadas en la respuesta de emergencia. ¿Qué tan preparado está el país para atender a la población más vulnerable en un desastre?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Terremoto",
+    "#Tonosí",
+    "#Discapacidad",
+    "#Azuero"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-10-21-2357-sinlinea-la-prensa-eef8.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-21-2357-sinlinea-la-prensa-eef8.jpg",
+    "hash": "55e23cad8095a593",
+    "version": 11,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-10-22T04:58:20.132Z"
+  },
+  "ilustracion": {
+    "descripcion": "Carpa improvisada de un refugio en una zona rural de Azuero, con una silla de ruedas vacía junto a la entrada, ubicada en el tercio superior derecho; la zona izquierda y central despejadas, cielo nublado de fondo, sin personas visibles.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-21-2357-sinlinea-la-prensa-eef8.jpg",
+    "hashDescripcion": "e9708cb3c4962eb9",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-22T04:57:35.992Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-22T04:57:35.992Z",
+  "actualizado": "2026-10-22T04:57:35.992Z",
+  "plantilla": "foto",
+  "dato": {
+    "cifra": "1,194",
+    "frase": "personas con discapacidad están entre la población afectada por el sismo en Azuero"
+  }
+}

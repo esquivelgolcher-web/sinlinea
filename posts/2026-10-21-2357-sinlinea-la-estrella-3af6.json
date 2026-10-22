@@ -1,0 +1,52 @@
+{
+  "id": "2026-10-21-2357-sinlinea-la-estrella-3af6",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/descuento-en-medicinas-subiria-al-25-que-dicen-las-farmacias-FD26704809",
+    "titulo": "Descuento en medicinas subiría al 25%: ¿qué dicen las farmacias?",
+    "publicado": "2026-10-21T20:27:00.000Z"
+  },
+  "categoria": "SALUD",
+  "titular": "Farmacias cuestionan alza del descuento en medicinas al 25%",
+  "bajada": "El gremio pide claridad sobre compensación a pymes antes de subir el beneficio a jubilados.",
+  "caption": "Un proyecto en la Asamblea busca subir de 20% a 25% el descuento en medicinas para jubilados y personas de la tercera edad. Las farmacias advierten que sin un plan de compensación, la medida podría afectar a los pequeños negocios del sector. ¿Debería el Estado garantizar primero cómo se compensará a las farmacias?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Salud",
+    "#Farmacias",
+    "#Pensionados",
+    "#Medicinas"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-10-21-2357-sinlinea-la-estrella-3af6.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-21-2357-sinlinea-la-estrella-3af6.jpg",
+    "hash": "c93a673f6f249f15",
+    "version": 2,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-10-22T04:58:20.458Z"
+  },
+  "ilustracion": {
+    "descripcion": "Mostrador de una farmacia panameña con estantes de medicamentos al fondo, ubicado en el tercio superior derecho; la zona izquierda y central de la imagen despejadas, sin personas ni textos visibles.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-22T04:57:35.992Z",
+  "actualizado": "2026-10-22T04:57:35.992Z",
+  "plantilla": "dato",
+  "dato": {
+    "cifra": "25%",
+    "frase": "sería el nuevo descuento en medicinas para jubilados y pensionados"
+  }
+}
