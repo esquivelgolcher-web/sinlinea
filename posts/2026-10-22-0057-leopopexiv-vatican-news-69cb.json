@@ -1,7 +1,7 @@
 {
   "id": "2026-10-22-0057-leopopexiv-vatican-news-69cb",
   "cuenta": "leopopexiv",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/pope/news/2026-10/pope-leo-xiv-doctors-confirm-no-further-treatment-necessary.html",
@@ -38,7 +38,11 @@
     "error": null
   },
   "programado": "2026-10-22T09:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "18491335195128447",
+    "permalink": "https://www.instagram.com/p/Dezl-4AleFU/",
+    "fecha": "2026-10-22T18:09:35.743Z"
+  },
   "error": null,
   "creado": "2026-10-22T04:57:35.992Z",
   "actualizado": "2026-10-22T18:09:35.743Z",
@@ -51,16 +55,15 @@
         "imagenHash": "4dd4032caa6b18b2",
         "imagenSha": "55ed0ee80d0ae99327cd3ed87965f4b050d888e1"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-10-22T18:09:35.743Z",
-        "actualizado": "2026-10-22T18:09:35.743Z",
-        "contenedorId": "18110607077081176"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18491335195128447",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/Dezl-4AleFU/",
+        "fecha": "2026-10-22T18:09:35.743Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
