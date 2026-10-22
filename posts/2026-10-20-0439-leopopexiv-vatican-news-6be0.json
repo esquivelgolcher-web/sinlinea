@@ -1,7 +1,7 @@
 {
   "id": "2026-10-20-0439-leopopexiv-vatican-news-6be0",
   "cuenta": "leopopexiv",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/pope/news/2026-10/pope-leo-phone-call-president-zelensky-19-october-2026.html",
@@ -38,9 +38,26 @@
     "generada": "2026-10-20T08:39:09.782Z",
     "error": null
   },
-  "programado": null,
+  "programado": "2026-10-22T18:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-10-20T08:39:09.782Z",
-  "actualizado": "2026-10-20T08:39:09.782Z"
+  "actualizado": "2026-10-22T11:18:24.083Z",
+  "destinos": {
+    "instagram": {
+      "texto": "In a phone call with Ukrainian President Volodymyr Zelensky, Pope Leo XIV expressed hope for cooperation to let food and medical aid reach civilians in Oleshky, Kherson region, and for their safe evacuation. Source: Vatican News, Oct 19, 2026.\n\nFuente: Vatican News\n\n#PopeLeoXIV #Ukraine #Vatican #Peace #HumanitarianAid",
+      "aprobado": {
+        "fecha": "2026-10-22T11:18:24.083Z",
+        "hashPieza": "e6162debdc929919",
+        "imagenHash": "40c8333e225cfc88",
+        "imagenSha": "18de400782221bbc680833aea98fa9666f57ebb6"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
