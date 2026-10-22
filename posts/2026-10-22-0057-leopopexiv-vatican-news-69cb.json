@@ -41,7 +41,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-22T04:57:35.992Z",
-  "actualizado": "2026-10-22T11:18:09.984Z",
+  "actualizado": "2026-10-22T18:09:35.743Z",
   "destinos": {
     "instagram": {
       "texto": "Pope Leo XIV's medical team has confirmed that the tumor removed during his October 13 surgery was a localized lung adenocarcinoma, adding that no further treatment is necessary. Source: Vatican News, Oct. 21, 2026.\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #VaticanNews #PapalHealth",
@@ -54,7 +54,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-10-22T18:09:35.743Z",
+        "actualizado": "2026-10-22T18:09:35.743Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
