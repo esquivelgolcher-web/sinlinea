@@ -1,0 +1,199 @@
+{
+  "id": "2026-10-22-1222-luiseskivelgolcher-wired-04cf",
+  "cuenta": "luiseskivelgolcher",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "WIRED",
+    "url": "https://www.wired.com/story/a-design-flaw-in-share-links-exposes-users-personal-conversations-with-meta-muse/",
+    "titulo": "A Design Flaw in Share Links Exposes Users’ Personal Conversations With Meta’s Muse",
+    "publicado": "2026-10-21T12:35:00.000Z"
+  },
+  "categoria": "SEGURIDAD",
+  "titular": "Falla en Muse expuso chats privados de usuarios",
+  "bajada": "Meta suspendió la función de compartir enlaces tras el hallazgo, según WIRED.",
+  "caption": "Un diseño descuidado en los enlaces para compartir conversaciones con Muse, el asistente de inteligencia artificial de Meta, dejó al descubierto chats que debían ser privados. Investigadores de la firma de seguridad Claroc encontraron 6.800 enlaces de este tipo sin necesidad de vulnerar ningún sistema: bastaba con una búsqueda en registros DNS públicos, un sistema que guarda el historial de qué dominios se visitan. El problema está en cómo se arma la dirección web: el título de la conversación queda visible en el propio enlace, lo que permite ubicarlo. Meta dijo a Ars Technica, medio citado por WIRED, que pausó la función mientras revisa el caso. Zuckerberg había dicho que Muse se construyó \"desde cero pensando en privacidad y seguridad\". Este resumen se basa en una sola investigación periodística, con la respuesta oficial de Meta incluida. ¿Qué tanto confiamos en los enlaces para compartir que usamos a diario?",
+  "hashtags": [
+    "#Privacidad",
+    "#IA",
+    "#Meta",
+    "#Ciberseguridad"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-10-22-1222-luiseskivelgolcher-wired-04cf.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-22-1222-luiseskivelgolcher-wired-04cf.jpg",
+    "hash": "32cf098067ef4d42",
+    "version": 11,
+    "estilo": "dc8c8fa3edf501fd",
+    "renderizada": "2026-10-22T17:23:43.928Z"
+  },
+  "ilustracion": {
+    "descripcion": "Ilustración editorial de una interfaz de chat de inteligencia artificial con un ícono de enlace brillante flotando sobre fondo oscuro degradado, el ícono ubicado en el tercio superior derecho, con la zona izquierda y central despejadas.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-22-1222-luiseskivelgolcher-wired-04cf.jpg",
+    "hashDescripcion": "fdcaea6259124e94",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-22T17:22:50.733Z",
+    "error": null,
+    "procedencia": "generada"
+  },
+  "formato": "carrusel",
+  "fuentes": [
+    {
+      "rol": "principal",
+      "medio": "WIRED",
+      "autor": "Dan Goodin, Ars Technica",
+      "url": "https://www.wired.com/story/a-design-flaw-in-share-links-exposes-users-personal-conversations-with-meta-muse/",
+      "canonica": "https://www.wired.com/story/a-design-flaw-in-share-links-exposes-users-personal-conversations-with-meta-muse/",
+      "idioma": "en",
+      "publicado": "2026-10-21T12:35:00.000Z",
+      "actualizado": "2026-10-21T12:35:00.000Z",
+      "fechaHecho": null,
+      "consultado": "2026-10-22T17:22:50.733Z",
+      "alcance": "completo",
+      "textoRecuperado": {
+        "parrafos": 19,
+        "caracteres": 5419,
+        "enviados": 3628
+      },
+      "fuentesPrimarias": [
+        "https://arstechnica.com/security/2026/09/muse-metas-extraordinarily-privileged-ai-assistant-has-a-serious-0-day/",
+        "https://www.spamhaus.com/resource-center/what-is-passive-dns-a-beginners-guide/",
+        "https://arstechnica.com/security/2026/09/clickfix-attacks-infecting-pcs-and-macs-are-going-viral/",
+        "https://arstechnica.com/security/2026/10/meta-muse-exposes-users-personal-and-business-secrets-when-they-share-conversations/",
+        "http://www.aboutads.info"
+      ],
+      "licenciaMedios": null
+    }
+  ],
+  "afirmaciones": [
+    {
+      "texto": "Investigadores de Claroc identificaron 6.800 enlaces de conversaciones de Muse que podían descubrirse sin tener el enlace original",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/a-design-flaw-in-share-links-exposes-users-personal-conversations-with-meta-muse/",
+      "contrastada": true
+    },
+    {
+      "texto": "Meta confirmó que suspendió la función de compartir enlaces de Muse mientras revisa el hallazgo",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/a-design-flaw-in-share-links-exposes-users-personal-conversations-with-meta-muse/",
+      "contrastada": true
+    },
+    {
+      "texto": "El título de la conversación queda incluido en el subdominio del enlace, lo que permite ubicarlo mediante búsquedas de DNS pasivo, un registro histórico de qué dominios se han resuelto",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/a-design-flaw-in-share-links-exposes-users-personal-conversations-with-meta-muse/",
+      "contrastada": true
+    },
+    {
+      "texto": "Mark Zuckerberg afirmó que Muse fue \"construido desde cero pensando en privacidad y seguridad\"",
+      "tipo": "opinion",
+      "fuente": "https://www.wired.com/story/a-design-flaw-in-share-links-exposes-users-personal-conversations-with-meta-muse/",
+      "contrastada": false
+    }
+  ],
+  "angulo": "Cómo un detalle de diseño en los enlaces de un asistente de IA de Meta permitió hallar conversaciones privadas sin hackear nada.",
+  "atribucion": "Según WIRED (David... Dan Goodin, Ars Technica) y la firma de seguridad Claroc",
+  "puntuacion": {
+    "total": 79,
+    "componentes": {
+      "afinidad": 27,
+      "interes": 18,
+      "evidencia": 16,
+      "actualidad": 12,
+      "visual": 6
+    }
+  },
+  "alertas": [
+    "fuente-unica"
+  ],
+  "carrusel": {
+    "diapositivas": [
+      {
+        "titulo": "Un enlace para compartir, miles de chats expuestos",
+        "texto": "Investigadores hallaron 6.800 conversaciones privadas de Muse, el asistente de IA de Meta, accesibles sin autorización."
+      },
+      {
+        "titulo": "¿Qué pasó?",
+        "texto": "Según WIRED, la firma de seguridad Claroc descubrió que podía listar enlaces de conversaciones de Muse sin que nadie se los compartiera."
+      },
+      {
+        "titulo": "El error estaba en la dirección web",
+        "texto": "El título de cada chat quedaba dentro del enlace, lo que permitía hallarlo con búsquedas de DNS pasivo, un registro histórico de dominios visitados."
+      },
+      {
+        "titulo": "Una consulta, cientos de resultados",
+        "texto": "\"Tomó una sola búsqueda\", escribieron los investigadores de Claroc tras abrir cientos de enlaces con datos personales y laborales."
+      },
+      {
+        "titulo": "¿Quién puede verse afectado?",
+        "texto": "Cualquier persona que haya usado la función de compartir de Muse para enviar un chat a otra persona, aunque fuera un documento sensible."
+      },
+      {
+        "titulo": "La respuesta de Meta",
+        "texto": "Meta dijo a Ars Technica que pausó la función de compartir enlaces mientras revisa el reporte y evalúa cambios en cómo se generan."
+      },
+      {
+        "titulo": "Lo que falta por saber",
+        "texto": "No se sabe cuántas personas vieron esos enlaces antes del hallazgo ni si hubo accesos previos. Fuente: WIRED, con datos de Ars Technica y Claroc."
+      }
+    ],
+    "imagenes": [
+      {
+        "numero": 1,
+        "ruta": "public/img/2026-10-22-1222-luiseskivelgolcher-wired-04cf-01.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-22-1222-luiseskivelgolcher-wired-04cf-01.jpg",
+        "hash": "534a551b3dc417c5"
+      },
+      {
+        "numero": 2,
+        "ruta": "public/img/2026-10-22-1222-luiseskivelgolcher-wired-04cf-02.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-22-1222-luiseskivelgolcher-wired-04cf-02.jpg",
+        "hash": "7c3ddce664c263a8"
+      },
+      {
+        "numero": 3,
+        "ruta": "public/img/2026-10-22-1222-luiseskivelgolcher-wired-04cf-03.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-22-1222-luiseskivelgolcher-wired-04cf-03.jpg",
+        "hash": "6322f300e74bcaae"
+      },
+      {
+        "numero": 4,
+        "ruta": "public/img/2026-10-22-1222-luiseskivelgolcher-wired-04cf-04.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-22-1222-luiseskivelgolcher-wired-04cf-04.jpg",
+        "hash": "ff91123da4277883"
+      },
+      {
+        "numero": 5,
+        "ruta": "public/img/2026-10-22-1222-luiseskivelgolcher-wired-04cf-05.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-22-1222-luiseskivelgolcher-wired-04cf-05.jpg",
+        "hash": "f00865b9bd727eaf"
+      },
+      {
+        "numero": 6,
+        "ruta": "public/img/2026-10-22-1222-luiseskivelgolcher-wired-04cf-06.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-22-1222-luiseskivelgolcher-wired-04cf-06.jpg",
+        "hash": "08f7049f08ebbb15"
+      },
+      {
+        "numero": 7,
+        "ruta": "public/img/2026-10-22-1222-luiseskivelgolcher-wired-04cf-07.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-22-1222-luiseskivelgolcher-wired-04cf-07.jpg",
+        "hash": "3f99b50af393cca0"
+      }
+    ],
+    "hash": "262e7d6ca1eec58e",
+    "version": 2
+  },
+  "reel": null,
+  "revision": {
+    "estado": "pendiente",
+    "notas": []
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-22T17:22:50.733Z",
+  "actualizado": "2026-10-22T17:22:50.733Z"
+}
