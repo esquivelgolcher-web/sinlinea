@@ -1,7 +1,7 @@
 {
   "id": "2026-10-22-0057-leopopexiv-vatican-news-b54d",
   "cuenta": "leopopexiv",
-  "estado": "programado",
+  "estado": "publicado",
   "formato": "frase",
   "frase": {
     "texto": "Dialogue and encounter allow us to understand other ways of perceiving the world and to appreciate the unique and original qualities inherent in every culture",
@@ -37,7 +37,11 @@
   },
   "ilustracion": null,
   "programado": "2026-10-22T09:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "18050315507816220",
+    "permalink": "https://www.instagram.com/p/DezmB1HlRw9/",
+    "fecha": "2026-10-22T18:09:35.743Z"
+  },
   "error": null,
   "creado": "2026-10-22T04:57:35.992Z",
   "actualizado": "2026-10-22T18:09:35.743Z",
@@ -50,16 +54,15 @@
         "imagenHash": "918e3a195e9dc0d7",
         "imagenSha": "77c3516b7a07c016140dd97a7dc3391ab8f5b254"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-10-22T18:09:35.743Z",
-        "actualizado": "2026-10-22T18:09:35.743Z",
-        "contenedorId": "18110607170081176"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18050315507816220",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/DezmB1HlRw9/",
+        "fecha": "2026-10-22T18:09:35.743Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
