@@ -1,7 +1,7 @@
 {
   "id": "2026-10-22-0057-leopopexiv-vatican-news-69cb",
   "cuenta": "leopopexiv",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/pope/news/2026-10/pope-leo-xiv-doctors-confirm-no-further-treatment-necessary.html",
@@ -37,9 +37,26 @@
     "generada": "2026-10-22T04:57:35.992Z",
     "error": null
   },
-  "programado": null,
+  "programado": "2026-10-22T09:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-10-22T04:57:35.992Z",
-  "actualizado": "2026-10-22T04:57:35.992Z"
+  "actualizado": "2026-10-22T11:18:09.984Z",
+  "destinos": {
+    "instagram": {
+      "texto": "Pope Leo XIV's medical team has confirmed that the tumor removed during his October 13 surgery was a localized lung adenocarcinoma, adding that no further treatment is necessary. Source: Vatican News, Oct. 21, 2026.\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #VaticanNews #PapalHealth",
+      "aprobado": {
+        "fecha": "2026-10-22T11:18:09.984Z",
+        "hashPieza": "087c588e8b7d49f8",
+        "imagenHash": "4dd4032caa6b18b2",
+        "imagenSha": "55ed0ee80d0ae99327cd3ed87965f4b050d888e1"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
