@@ -1,7 +1,7 @@
 {
   "id": "2026-10-19-0049-leopopexiv-vatican-news-7c5e",
   "cuenta": "leopopexiv",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/pope/news/2026-10/pope-greets-faithful-at-first-angelus-after-surgery.html",
@@ -39,7 +39,11 @@
     "error": null
   },
   "programado": "2026-10-22T13:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "18057035273802853",
+    "permalink": "https://www.instagram.com/p/DezmF-elaCH/",
+    "fecha": "2026-10-22T18:09:35.743Z"
+  },
   "error": null,
   "creado": "2026-10-19T04:49:52.620Z",
   "actualizado": "2026-10-22T18:09:35.743Z",
@@ -52,16 +56,15 @@
         "imagenHash": "6d4f74d225b176e8",
         "imagenSha": "397945800a3c8cb496681c5baa6fccae81401cbe"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-10-22T18:09:35.743Z",
-        "actualizado": "2026-10-22T18:09:35.743Z",
-        "contenedorId": "18110607281081176"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18057035273802853",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/DezmF-elaCH/",
+        "fecha": "2026-10-22T18:09:35.743Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
