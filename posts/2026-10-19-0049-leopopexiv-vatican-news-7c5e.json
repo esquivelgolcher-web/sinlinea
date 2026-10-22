@@ -1,7 +1,7 @@
 {
   "id": "2026-10-19-0049-leopopexiv-vatican-news-7c5e",
   "cuenta": "leopopexiv",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/pope/news/2026-10/pope-greets-faithful-at-first-angelus-after-surgery.html",
@@ -38,9 +38,26 @@
     "generada": "2026-10-19T04:49:52.620Z",
     "error": null
   },
-  "programado": null,
+  "programado": "2026-10-22T13:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-10-19T04:49:52.620Z",
-  "actualizado": "2026-10-19T04:49:52.620Z"
+  "actualizado": "2026-10-22T11:18:19.249Z",
+  "destinos": {
+    "instagram": {
+      "texto": "Pope Leo XIV held his first public event since undergoing surgery last Tuesday, delivering his Sunday Angelus address. Reflecting on Christ's words 'Render to Caesar the things that are Caesar's, and to God the things that are God's,' he said Jesus calls believers 'to be truthful, free from servile fear or hypocrisy, free to do good.' Source: Vatican News, Oct 18, 2026.\n\nFuente: Vatican News\n\n#PopeLeoXIV #Angelus #Vatican #CatholicChurch #HolySee",
+      "aprobado": {
+        "fecha": "2026-10-22T11:18:19.249Z",
+        "hashPieza": "22a3edb1248fa95b",
+        "imagenHash": "6d4f74d225b176e8",
+        "imagenSha": "397945800a3c8cb496681c5baa6fccae81401cbe"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
