@@ -1,0 +1,113 @@
+{
+  "id": "2026-10-22-0700-luiseskivelgolcher-wired-19e4",
+  "cuenta": "luiseskivelgolcher",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "WIRED",
+    "url": "https://www.wired.com/story/hackers-exploited-the-php-vulnerabilities-days-before-they-were-patched/",
+    "titulo": "Hackers Exploited the PHP Vulnerabilities Days Before They Were Patched",
+    "publicado": "2026-10-22T02:24:17.470Z"
+  },
+  "categoria": "SEGURIDAD",
+  "titular": "Hackers explotaron fallas de PHP antes del parche",
+  "bajada": "AWS detectó ataques contra PHP2Shell cuatro días antes de que se publicara la corrección oficial.",
+  "caption": "El miércoles 22 de octubre de 2026, administradores de sitios web corrieron a parchar dos fallas críticas en PHP, el lenguaje de programación detrás de buena parte de internet. Pero según una investigación de Amazon Web Services (AWS) citada por WIRED, al menos un atacante ya explotaba las vulnerabilidades —conocidas como PHP2Shell— desde el 17 de octubre, cuatro días antes de que se hicieran públicas. AWS detectó el intento en uno de sus \"honeypots\": servidores señuelo diseñados para atraer ataques y estudiarlos. El intento vino de una red de anonimización comercial, dice la empresa. CJ Moses, jefe de seguridad de AWS, advirtió que herramientas de inteligencia artificial están acortando el tiempo entre la publicación de un parche y la creación de un exploit funcional. No está claro cómo el atacante obtuvo información de la falla antes de su divulgación oficial. La información proviene de un solo reporte de AWS, retomado por WIRED. ¿Cómo deberían cambiar los procesos de divulgación de vulnerabilidades ante este escenario?",
+  "hashtags": [
+    "#Ciberseguridad",
+    "#PHP",
+    "#Hackeo",
+    "#Tecnologia"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-10-22-0700-luiseskivelgolcher-wired-19e4.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-22-0700-luiseskivelgolcher-wired-19e4.jpg",
+    "hash": "eb644d6d54730623",
+    "version": 11,
+    "estilo": "dc8c8fa3edf501fd",
+    "renderizada": "2026-10-22T12:01:20.189Z"
+  },
+  "ilustracion": {
+    "descripcion": "Ilustración editorial de una sala de monitoreo de servidores con pantallas que muestran gráficos abstractos de tráfico de red en tonos azules; las pantallas principales quedan en el tercio superior derecho, con la zona izquierda y central despejadas.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-22-0700-luiseskivelgolcher-wired-19e4.jpg",
+    "hashDescripcion": "6c6c752d4cf4bc3b",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-22T12:00:39.127Z",
+    "error": null,
+    "procedencia": "generada"
+  },
+  "formato": "post",
+  "fuentes": [
+    {
+      "rol": "principal",
+      "medio": "WIRED",
+      "autor": "Lily Hay Newman",
+      "url": "https://www.wired.com/story/hackers-exploited-the-php-vulnerabilities-days-before-they-were-patched/",
+      "canonica": "https://www.wired.com/story/hackers-exploited-the-php-vulnerabilities-days-before-they-were-patched/",
+      "idioma": "en",
+      "publicado": "2026-10-22T02:24:17.470Z",
+      "actualizado": "2026-10-22T02:24:17.470Z",
+      "fechaHecho": "2026-10-17",
+      "consultado": "2026-10-22T12:00:39.127Z",
+      "alcance": "completo",
+      "textoRecuperado": {
+        "parrafos": 15,
+        "caracteres": 3858,
+        "enviados": 3886
+      },
+      "fuentesPrimarias": [
+        "https://aws.amazon.com/blogs/security/amazon-threat-intelligence-identifies-php2shell-exploitation-prior-to-public-disclosure-in-madpot/",
+        "http://www.aboutads.info"
+      ],
+      "licenciaMedios": null
+    }
+  ],
+  "afirmaciones": [
+    {
+      "texto": "AWS detectó un intento de explotación de PHP2Shell el 17 de octubre de 2026, cuatro días antes de la divulgación pública del 21 de octubre",
+      "tipo": "hecho",
+      "fuente": "https://aws.amazon.com/blogs/security/amazon-threat-intelligence-identifies-php2shell-exploitation-prior-to-public-disclosure-in-madpot/",
+      "contrastada": false
+    },
+    {
+      "texto": "PHP2Shell ya se explota de forma amplia en internet",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/hackers-exploited-the-php-vulnerabilities-days-before-they-were-patched/",
+      "contrastada": false
+    },
+    {
+      "texto": "No está claro cómo el atacante obtuvo información del exploit antes de la divulgación oficial",
+      "tipo": "hipotesis",
+      "fuente": "https://aws.amazon.com/blogs/security/amazon-threat-intelligence-identifies-php2shell-exploitation-prior-to-public-disclosure-in-madpot/",
+      "contrastada": false
+    }
+  ],
+  "angulo": "Evidencia de explotación activa antes de la divulgación pública de una falla crítica de PHP, según datos de un honeypot de AWS.",
+  "atribucion": "Según investigación de Amazon Web Services (AWS) citada por WIRED (Lily Hay Newman)",
+  "puntuacion": {
+    "total": 79,
+    "componentes": {
+      "afinidad": 27,
+      "interes": 18,
+      "evidencia": 14,
+      "actualidad": 15,
+      "visual": 5
+    }
+  },
+  "alertas": [
+    "fuente-unica"
+  ],
+  "carrusel": null,
+  "reel": null,
+  "revision": {
+    "estado": "pendiente",
+    "notas": []
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-22T12:00:39.127Z",
+  "actualizado": "2026-10-22T12:00:39.127Z"
+}
