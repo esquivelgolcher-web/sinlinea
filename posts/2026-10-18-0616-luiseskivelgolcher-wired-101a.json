@@ -1,7 +1,7 @@
 {
   "id": "2026-10-18-0616-luiseskivelgolcher-wired-101a",
   "cuenta": "luiseskivelgolcher",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "WIRED",
     "url": "https://www.wired.com/story/kernel-panic-encryption-is-getting-squeezed-from-all-sides/",
@@ -208,9 +208,59 @@
     "estado": "pendiente",
     "notas": []
   },
-  "programado": null,
+  "programado": "2026-10-22T12:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-10-18T11:16:42.580Z",
-  "actualizado": "2026-10-18T11:16:42.580Z"
+  "actualizado": "2026-10-22T11:18:08.954Z",
+  "destinos": {
+    "instagram": {
+      "texto": "Canadá discute el proyecto C-22, que podría obligar a las empresas de mensajería a crear \"capacidades técnicas\" para que las autoridades accedan a datos cifrados. Signal ya dijo que saldría del país si se aprueba, y Psiphon —una VPN usada para evitar censura en Irán— advirtió lo mismo, según reportó WIRED el 17 de octubre de 2026. Apple, Meta, DuckDuckGo y NordVPN también criticaron la medida. El cifrado de extremo a extremo es un método que hace que solo el emisor y el receptor de un mensaje puedan leerlo, ni siquiera la empresa que presta el servicio. Expertos en criptografía insisten desde hace años en que no existe una forma de crear un acceso especial para gobiernos sin abrir una puerta que cualquiera podría explotar. El caso canadiense no es aislado: Reino Unido, Australia, Francia, India, España, Suecia y Suiza han impulsado proyectos similares, según documentos y reportes citados por WIRED. ¿Qué países se perfilan como refugios para la privacidad digital si esta tendencia sigue creciendo?\n\nFuente: WIRED\n\n#Cifrado #Privacidad #Vigilancia #Canadá #Ciberseguridad",
+      "aprobado": {
+        "fecha": "2026-10-22T11:18:08.954Z",
+        "hashPieza": "fadb09d75c160769",
+        "imagenHash": "0e85f86b91c7c851",
+        "imagenSha": "2f934749ca8827ccd93407641a814fbc3ace16de",
+        "imagenesSha": [
+          "fa0549f0b569f8e2f3ce73491fbcefd68e22c801",
+          "b5f82726d47c2d3397d644a03b1591e974974559",
+          "69316bfc2de48cb7c55716b5367575264ba6a63d",
+          "39017e3639fb115e2ad63250174d5fa0a1963832",
+          "24d9fe244e4494645d2125d85a5b34c0bc303a37",
+          "a69f3f448025c08f44dc3d8cbdcea478989728e1",
+          "3e471c44e02419233db1b4c0c2fcc58f1c4da760"
+        ]
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    },
+    "threads": {
+      "texto": "Canadá se suma a la ola contra el cifrado\n\nSignal y Psiphon amenazan con irse si el país exige acceso a datos cifrados\n\nSegún WIRED (17 de octubre de 2026)",
+      "aprobado": {
+        "fecha": "2026-10-22T11:18:08.954Z",
+        "hashPieza": "fadb09d75c160769",
+        "imagenHash": "0e85f86b91c7c851",
+        "imagenSha": "2f934749ca8827ccd93407641a814fbc3ace16de",
+        "imagenesSha": [
+          "fa0549f0b569f8e2f3ce73491fbcefd68e22c801",
+          "b5f82726d47c2d3397d644a03b1591e974974559",
+          "69316bfc2de48cb7c55716b5367575264ba6a63d",
+          "39017e3639fb115e2ad63250174d5fa0a1963832",
+          "24d9fe244e4494645d2125d85a5b34c0bc303a37",
+          "a69f3f448025c08f44dc3d8cbdcea478989728e1",
+          "3e471c44e02419233db1b4c0c2fcc58f1c4da760"
+        ]
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
