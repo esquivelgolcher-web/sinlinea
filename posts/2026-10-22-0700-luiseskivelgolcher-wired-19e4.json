@@ -1,7 +1,7 @@
 {
   "id": "2026-10-22-0700-luiseskivelgolcher-wired-19e4",
   "cuenta": "luiseskivelgolcher",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "WIRED",
     "url": "https://www.wired.com/story/hackers-exploited-the-php-vulnerabilities-days-before-they-were-patched/",
@@ -105,9 +105,56 @@
     "estado": "pendiente",
     "notas": []
   },
-  "programado": null,
+  "programado": "2026-10-23T08:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-10-22T12:00:39.127Z",
-  "actualizado": "2026-10-22T12:00:39.127Z"
+  "actualizado": "2026-10-23T08:27:44.589Z",
+  "destinos": {
+    "instagram": {
+      "texto": "El miércoles 22 de octubre de 2026, administradores de sitios web corrieron a parchar dos fallas críticas en PHP, el lenguaje de programación detrás de buena parte de internet. Pero según una investigación de Amazon Web Services (AWS) citada por WIRED, al menos un atacante ya explotaba las vulnerabilidades —conocidas como PHP2Shell— desde el 17 de octubre, cuatro días antes de que se hicieran públicas. AWS detectó el intento en uno de sus \"honeypots\": servidores señuelo diseñados para atraer ataques y estudiarlos. El intento vino de una red de anonimización comercial, dice la empresa. CJ Moses, jefe de seguridad de AWS, advirtió que herramientas de inteligencia artificial están acortando el tiempo entre la publicación de un parche y la creación de un exploit funcional. No está claro cómo el atacante obtuvo información de la falla antes de su divulgación oficial. La información proviene de un solo reporte de AWS, retomado por WIRED. ¿Cómo deberían cambiar los procesos de divulgación de vulnerabilidades ante este escenario?\n\nFuente: WIRED\n\n#Ciberseguridad #PHP #Hackeo #Tecnologia",
+      "aprobado": {
+        "fecha": "2026-10-23T08:27:44.589Z",
+        "hashPieza": "a4c99d31e68694ab",
+        "imagenHash": "eb644d6d54730623",
+        "imagenSha": "d2845f0b8fc069ba4e5367c969fbdc40d3c7bb1e"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    },
+    "facebook": {
+      "texto": "El miércoles 22 de octubre de 2026, administradores de sitios web corrieron a parchar dos fallas críticas en PHP, el lenguaje de programación detrás de buena parte de internet. Pero según una investigación de Amazon Web Services (AWS) citada por WIRED, al menos un atacante ya explotaba las vulnerabilidades —conocidas como PHP2Shell— desde el 17 de octubre, cuatro días antes de que se hicieran públicas. AWS detectó el intento en uno de sus \"honeypots\": servidores señuelo diseñados para atraer ataques y estudiarlos. El intento vino de una red de anonimización comercial, dice la empresa. CJ Moses, jefe de seguridad de AWS, advirtió que herramientas de inteligencia artificial están acortando el tiempo entre la publicación de un parche y la creación de un exploit funcional. No está claro cómo el atacante obtuvo información de la falla antes de su divulgación oficial. La información proviene de un solo reporte de AWS, retomado por WIRED. ¿Cómo deberían cambiar los procesos de divulgación de vulnerabilidades ante este escenario?\n\nFuente: WIRED",
+      "aprobado": {
+        "fecha": "2026-10-23T08:27:44.589Z",
+        "hashPieza": "a4c99d31e68694ab",
+        "imagenHash": "eb644d6d54730623",
+        "imagenSha": "d2845f0b8fc069ba4e5367c969fbdc40d3c7bb1e"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    },
+    "threads": {
+      "texto": "Hackers explotaron fallas de PHP antes del parche\n\nAWS detectó ataques contra PHP2Shell cuatro días antes de que se publicara la corrección oficial.\n\nSegún WIRED (21 de octubre de 2026)",
+      "aprobado": {
+        "fecha": "2026-10-23T08:27:44.589Z",
+        "hashPieza": "a4c99d31e68694ab",
+        "imagenHash": "eb644d6d54730623",
+        "imagenSha": "d2845f0b8fc069ba4e5367c969fbdc40d3c7bb1e"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
