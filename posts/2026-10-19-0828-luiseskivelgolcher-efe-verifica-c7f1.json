@@ -1,7 +1,7 @@
 {
   "id": "2026-10-19-0828-luiseskivelgolcher-efe-verifica-c7f1",
   "cuenta": "luiseskivelgolcher",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "EFE Verifica",
     "url": "https://verifica.efe.com/la-imagen-de-los-ancianos-en-ropa-interior-asaltados-por-manifestantes-en-francia-esta-hecha-con-ia/",
@@ -118,9 +118,56 @@
     "estado": "pendiente",
     "notas": []
   },
-  "programado": null,
+  "programado": "2026-10-23T10:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-10-19T13:28:39.903Z",
-  "actualizado": "2026-10-19T13:28:39.903Z"
+  "actualizado": "2026-10-23T08:28:05.161Z",
+  "destinos": {
+    "instagram": {
+      "texto": "Una imagen que circula en redes sociales muestra a una pareja de ancianos en ropa interior tras un supuesto robo durante las protestas en Francia del 17 de octubre de 2026. Según una verificación de EFE Verifica, la foto fue generada con inteligencia artificial: la herramienta SynthID, que detecta marcas de agua invisibles insertadas por los modelos de Google, confirmó la manipulación. El análisis también halló inconsistencias visuales, como una mano con cuatro dedos y formas duplicadas en una de las figuras. La imagen se difundió sin ubicación precisa y una cuenta con sede en Israel fue la primera en publicarla, según la agencia verificadora. El presidente de Vox, Santiago Abascal, la compartió en X para criticar la política migratoria del gobierno español. Por separado, una periodista de BFMTV mencionó un posible asalto similar a una pareja de 80 años en París, pero sin imágenes que lo respalden ni confirmación policial. El caso muestra cómo el contenido generado con IA se mezcla con hechos reales de las protestas, que dejaron 2.000 detenidos según el Ministerio del Interior francés.\n\nFuente: EFE Verifica\n\n#Desinformación #InteligenciaArtificial #Francia #Verificación #Protestas",
+      "aprobado": {
+        "fecha": "2026-10-23T08:28:05.161Z",
+        "hashPieza": "1ac6cd9f0a8f6f81",
+        "imagenHash": "0bf50c09fc2329cf",
+        "imagenSha": "b70332f0b10409308afeac12890680245c01790a"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    },
+    "facebook": {
+      "texto": "Una imagen que circula en redes sociales muestra a una pareja de ancianos en ropa interior tras un supuesto robo durante las protestas en Francia del 17 de octubre de 2026. Según una verificación de EFE Verifica, la foto fue generada con inteligencia artificial: la herramienta SynthID, que detecta marcas de agua invisibles insertadas por los modelos de Google, confirmó la manipulación. El análisis también halló inconsistencias visuales, como una mano con cuatro dedos y formas duplicadas en una de las figuras. La imagen se difundió sin ubicación precisa y una cuenta con sede en Israel fue la primera en publicarla, según la agencia verificadora. El presidente de Vox, Santiago Abascal, la compartió en X para criticar la política migratoria del gobierno español. Por separado, una periodista de BFMTV mencionó un posible asalto similar a una pareja de 80 años en París, pero sin imágenes que lo respalden ni confirmación policial. El caso muestra cómo el contenido generado con IA se mezcla con hechos reales de las protestas, que dejaron 2.000 detenidos según el Ministerio del Interior francés.\n\nFuente: EFE Verifica",
+      "aprobado": {
+        "fecha": "2026-10-23T08:28:05.161Z",
+        "hashPieza": "1ac6cd9f0a8f6f81",
+        "imagenHash": "0bf50c09fc2329cf",
+        "imagenSha": "b70332f0b10409308afeac12890680245c01790a"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    },
+    "threads": {
+      "texto": "Foto viral de ancianos robados en Francia es IA\n\nEFE Verifica halló una marca de agua de SynthID y fallos visuales que delatan la manipulación.\n\nSegún EFE Verifica (19 de octubre de 2026)",
+      "aprobado": {
+        "fecha": "2026-10-23T08:28:05.161Z",
+        "hashPieza": "1ac6cd9f0a8f6f81",
+        "imagenHash": "0bf50c09fc2329cf",
+        "imagenSha": "b70332f0b10409308afeac12890680245c01790a"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
