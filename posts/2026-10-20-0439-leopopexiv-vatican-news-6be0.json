@@ -1,7 +1,7 @@
 {
   "id": "2026-10-20-0439-leopopexiv-vatican-news-6be0",
   "cuenta": "leopopexiv",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/pope/news/2026-10/pope-leo-phone-call-president-zelensky-19-october-2026.html",
@@ -39,7 +39,11 @@
     "error": null
   },
   "programado": "2026-10-22T18:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "18104742482366116",
+    "permalink": "https://www.instagram.com/p/De0RueIDWqR/",
+    "fecha": "2026-10-23T00:31:50.152Z"
+  },
   "error": null,
   "creado": "2026-10-20T08:39:09.782Z",
   "actualizado": "2026-10-23T00:31:50.152Z",
@@ -52,16 +56,15 @@
         "imagenHash": "40c8333e225cfc88",
         "imagenSha": "18de400782221bbc680833aea98fa9666f57ebb6"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-10-23T00:31:50.152Z",
-        "actualizado": "2026-10-23T00:31:50.152Z",
-        "contenedorId": "18110656325081176"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18104742482366116",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/De0RueIDWqR/",
+        "fecha": "2026-10-23T00:31:50.152Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
