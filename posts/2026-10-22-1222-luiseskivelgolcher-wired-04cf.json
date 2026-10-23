@@ -1,7 +1,7 @@
 {
   "id": "2026-10-22-1222-luiseskivelgolcher-wired-04cf",
   "cuenta": "luiseskivelgolcher",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "WIRED",
     "url": "https://www.wired.com/story/a-design-flaw-in-share-links-exposes-users-personal-conversations-with-meta-muse/",
@@ -191,9 +191,59 @@
     "estado": "pendiente",
     "notas": []
   },
-  "programado": null,
+  "programado": "2026-10-23T12:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-10-22T17:22:50.733Z",
-  "actualizado": "2026-10-22T17:22:50.733Z"
+  "actualizado": "2026-10-23T08:27:37.094Z",
+  "destinos": {
+    "instagram": {
+      "texto": "Un diseño descuidado en los enlaces para compartir conversaciones con Muse, el asistente de inteligencia artificial de Meta, dejó al descubierto chats que debían ser privados. Investigadores de la firma de seguridad Claroc encontraron 6.800 enlaces de este tipo sin necesidad de vulnerar ningún sistema: bastaba con una búsqueda en registros DNS públicos, un sistema que guarda el historial de qué dominios se visitan. El problema está en cómo se arma la dirección web: el título de la conversación queda visible en el propio enlace, lo que permite ubicarlo. Meta dijo a Ars Technica, medio citado por WIRED, que pausó la función mientras revisa el caso. Zuckerberg había dicho que Muse se construyó \"desde cero pensando en privacidad y seguridad\". Este resumen se basa en una sola investigación periodística, con la respuesta oficial de Meta incluida. ¿Qué tanto confiamos en los enlaces para compartir que usamos a diario?\n\nFuente: WIRED\n\n#Privacidad #IA #Meta #Ciberseguridad",
+      "aprobado": {
+        "fecha": "2026-10-23T08:27:37.094Z",
+        "hashPieza": "28a82db7e6f91151",
+        "imagenHash": "32cf098067ef4d42",
+        "imagenSha": "32ab9dcbf2d110cf790f90f1aee5a3d2b8a77ffe",
+        "imagenesSha": [
+          "ba27457951efa76e579ca229644d6205a30d8e59",
+          "37b044d4edbcecf3836f180f2c7961a6a87fd13d",
+          "7cd9cd921ebb3a8f972b835e7579f6ed6cb51fe9",
+          "4d98ea407965fda0ea3d587a690a1dd01dd65362",
+          "6652a3b362b8c8040469a40b67afaf9b739492d7",
+          "4380ea4e587c6c707282dafe4b4bf6ea686a9353",
+          "86fa9dc4c72554c01327dc764a1d7bcb5b66f0b5"
+        ]
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    },
+    "threads": {
+      "texto": "Falla en Muse expuso chats privados de usuarios\n\nMeta suspendió la función de compartir enlaces tras el hallazgo, según WIRED.\n\nSegún WIRED (21 de octubre de 2026)",
+      "aprobado": {
+        "fecha": "2026-10-23T08:27:37.094Z",
+        "hashPieza": "28a82db7e6f91151",
+        "imagenHash": "32cf098067ef4d42",
+        "imagenSha": "32ab9dcbf2d110cf790f90f1aee5a3d2b8a77ffe",
+        "imagenesSha": [
+          "ba27457951efa76e579ca229644d6205a30d8e59",
+          "37b044d4edbcecf3836f180f2c7961a6a87fd13d",
+          "7cd9cd921ebb3a8f972b835e7579f6ed6cb51fe9",
+          "4d98ea407965fda0ea3d587a690a1dd01dd65362",
+          "6652a3b362b8c8040469a40b67afaf9b739492d7",
+          "4380ea4e587c6c707282dafe4b4bf6ea686a9353",
+          "86fa9dc4c72554c01327dc764a1d7bcb5b66f0b5"
+        ]
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
