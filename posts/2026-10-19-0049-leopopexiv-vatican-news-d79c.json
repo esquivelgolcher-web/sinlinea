@@ -40,7 +40,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-19T04:49:52.620Z",
-  "actualizado": "2026-10-22T11:18:21.341Z",
+  "actualizado": "2026-10-23T00:31:50.152Z",
   "destinos": {
     "instagram": {
       "texto": "“Being Christian is not primarily a set of practices or ideas: it is a life in union with Christ, in which we are made participants in the filial relationship that He lives with the Father in the Holy Spirit”\n\n— Pope Leo XIV, Message for the 100th World Mission Sunday (2026)\n\nVia Vatican News, 18 October 2026\n\n#PopeLeoXIV #Vatican #CatholicChurch\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #CatholicChurch",
@@ -53,7 +53,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-10-23T00:31:50.152Z",
+        "actualizado": "2026-10-23T00:31:50.152Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
