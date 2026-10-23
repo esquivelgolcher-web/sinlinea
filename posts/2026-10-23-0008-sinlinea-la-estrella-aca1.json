@@ -1,0 +1,52 @@
+{
+  "id": "2026-10-23-0008-sinlinea-la-estrella-aca1",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/economia/fincas-de-2400-lecheros-sufren-impactos-del-terremoto-pero-garantizan-el-abastecimiento-NA26735769",
+    "titulo": "Fincas de 2,400 lecheros sufren impactos del terremoto pero garantizan el abastecimiento",
+    "publicado": "2026-10-23T05:00:00.000Z"
+  },
+  "categoria": "ECONOMÍA",
+  "titular": "Terremoto golpea a 2,400 productores de leche en Azuero",
+  "bajada": "Ganaderos reportan deslaves y grietas en sus fincas, pero garantizan que la leche sigue llegando.",
+  "caption": "El sismo del 9 de octubre no solo dejó viviendas dañadas: también afectó directamente a las fincas que producen la leche que consumimos a diario. Pese a los daños, los productores aseguran que el abastecimiento está estable. ¿Has notado algún cambio en el precio o la disponibilidad de productos lácteos?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Terremoto",
+    "#Azuero",
+    "#Ganadería",
+    "#Economía"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-10-23-0008-sinlinea-la-estrella-aca1.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-23-0008-sinlinea-la-estrella-aca1.jpg",
+    "hash": "f727fda922a044af",
+    "version": 2,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-10-23T05:08:36.985Z"
+  },
+  "ilustracion": {
+    "descripcion": "Finca ganadera en la zona de Azuero con grietas visibles en el terreno de pastoreo, ganado al fondo; el paisaje rural queda en el tercio superior derecho y el resto despejado.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-23T05:08:00.006Z",
+  "actualizado": "2026-10-23T05:08:00.006Z",
+  "plantilla": "dato",
+  "dato": {
+    "cifra": "2,400",
+    "frase": "productores de leche tienen sus fincas sobre la franja de la falla tectónica afectada"
+  }
+}

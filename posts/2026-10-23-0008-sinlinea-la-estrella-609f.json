@@ -1,0 +1,49 @@
+{
+  "id": "2026-10-23-0008-sinlinea-la-estrella-609f",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/presupuesto-2027-se-estanca-en-la-asamblea-y-crece-la-tension-politica-CA26732606",
+    "titulo": "Presupuesto 2027 se estanca en la Asamblea y crece la tensión política",
+    "publicado": "2026-10-23T03:00:00.000Z"
+  },
+  "categoria": "POLÍTICA",
+  "titular": "Presupuesto 2027 se estanca por pugnas en la Asamblea",
+  "bajada": "Ausencia de diputados del PRD y RM frenó el debate del proyecto que fija el gasto estatal.",
+  "caption": "El presupuesto del próximo año, que define cuánto gastará el Estado en salud, educación y otros servicios, quedó sin discutirse por segundo día consecutivo. Mientras los diputados se reúnen aparte, el país espera que se resuelvan las diferencias antes del 31 de octubre. ¿Qué opinas de estas trabas en la Asamblea?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Asamblea",
+    "#Presupuesto2027",
+    "#Política",
+    "#RM",
+    "#PRD"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-10-23-0008-sinlinea-la-estrella-609f.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-23-0008-sinlinea-la-estrella-609f.jpg",
+    "hash": "9fba512ff157ef1d",
+    "version": 2,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-10-23T05:08:36.687Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada del Palacio Justo Arosemena, sede de la Asamblea Nacional de Panamá, con el edificio en el tercio superior derecho y la zona izquierda y central despejadas.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-23T05:08:00.006Z",
+  "actualizado": "2026-10-23T05:08:00.006Z",
+  "plantilla": "titular"
+}

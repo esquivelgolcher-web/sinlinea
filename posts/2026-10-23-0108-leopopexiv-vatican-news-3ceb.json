@@ -1,0 +1,46 @@
+{
+  "id": "2026-10-23-0108-leopopexiv-vatican-news-3ceb",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-10/pope-leo-xiv-american-jewish-committee.html",
+    "titulo": "Pope to American Jewish Committee: ‘We reject together all forms of hatred’",
+    "publicado": "2026-10-22T08:55:00.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "Pope Leo XIV meets Jewish leaders, rejects hatred",
+  "bajada": "Addressing AJC delegation, pope calls for unity, dignity and religious freedom",
+  "caption": "Pope Leo XIV met with a delegation from the American Jewish Committee, calling for cooperation to promote human dignity, defend religious freedom and reject all forms of religious and ethnic hatred. Source: Vatican News, Oct 22, 2026.",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Vatican",
+    "#InterfaithDialogue",
+    "#AmericanJewishCommittee",
+    "#ReligiousFreedom"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-10-23-0108-leopopexiv-vatican-news-3ceb.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-23-0108-leopopexiv-vatican-news-3ceb.jpg",
+    "hash": "7382f9e6419157dc",
+    "version": 11,
+    "estilo": "ab79cbbb3887cfa1",
+    "renderizada": "2026-10-23T05:09:04.357Z"
+  },
+  "ilustracion": {
+    "descripcion": "A formal Vatican reception hall where a religious leader in white papal attire greets a seated delegation; the figure appears at medium distance, side view, placed in the upper right third, with the left and central areas of the room left open and uncluttered.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-23-0108-leopopexiv-vatican-news-3ceb.jpg",
+    "hashDescripcion": "05a1cee60506bdc0",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-23T05:08:00.006Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-23T05:08:00.006Z",
+  "actualizado": "2026-10-23T05:08:00.006Z"
+}
