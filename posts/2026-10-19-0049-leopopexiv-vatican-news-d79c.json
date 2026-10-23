@@ -1,7 +1,7 @@
 {
   "id": "2026-10-19-0049-leopopexiv-vatican-news-d79c",
   "cuenta": "leopopexiv",
-  "estado": "programado",
+  "estado": "publicado",
   "formato": "frase",
   "frase": {
     "texto": "Being Christian is not primarily a set of practices or ideas: it is a life in union with Christ, in which we are made participants in the filial relationship that He lives with the Father in the Holy Spirit",
@@ -37,7 +37,11 @@
   },
   "ilustracion": null,
   "programado": "2026-10-22T18:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "17895772668426809",
+    "permalink": "https://www.instagram.com/p/De0Rv9cjVOl/",
+    "fecha": "2026-10-23T00:31:50.152Z"
+  },
   "error": null,
   "creado": "2026-10-19T04:49:52.620Z",
   "actualizado": "2026-10-23T00:31:50.152Z",
@@ -50,16 +54,15 @@
         "imagenHash": "d59292d15de7ea03",
         "imagenSha": "930b76acb9ea0dd1c29ac9042bda526aaed499ee"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-10-23T00:31:50.152Z",
-        "actualizado": "2026-10-23T00:31:50.152Z",
-        "contenedorId": "18110656403081176"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "17895772668426809",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/De0Rv9cjVOl/",
+        "fecha": "2026-10-23T00:31:50.152Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
