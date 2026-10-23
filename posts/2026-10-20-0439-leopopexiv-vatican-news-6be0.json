@@ -42,7 +42,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-20T08:39:09.782Z",
-  "actualizado": "2026-10-22T11:18:24.083Z",
+  "actualizado": "2026-10-23T00:31:50.152Z",
   "destinos": {
     "instagram": {
       "texto": "In a phone call with Ukrainian President Volodymyr Zelensky, Pope Leo XIV expressed hope for cooperation to let food and medical aid reach civilians in Oleshky, Kherson region, and for their safe evacuation. Source: Vatican News, Oct 19, 2026.\n\nFuente: Vatican News\n\n#PopeLeoXIV #Ukraine #Vatican #Peace #HumanitarianAid",
@@ -55,7 +55,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-10-23T00:31:50.152Z",
+        "actualizado": "2026-10-23T00:31:50.152Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
