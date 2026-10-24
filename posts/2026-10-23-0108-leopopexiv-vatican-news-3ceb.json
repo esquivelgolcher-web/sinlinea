@@ -1,7 +1,7 @@
 {
   "id": "2026-10-23-0108-leopopexiv-vatican-news-3ceb",
   "cuenta": "leopopexiv",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/pope/news/2026-10/pope-leo-xiv-american-jewish-committee.html",
@@ -38,9 +38,26 @@
     "generada": "2026-10-23T05:08:00.006Z",
     "error": null
   },
-  "programado": null,
+  "programado": "2026-10-24T13:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-10-23T05:08:00.006Z",
-  "actualizado": "2026-10-23T05:08:00.006Z"
+  "actualizado": "2026-10-24T07:34:19.946Z",
+  "destinos": {
+    "instagram": {
+      "texto": "Pope Leo XIV met with a delegation from the American Jewish Committee, calling for cooperation to promote human dignity, defend religious freedom and reject all forms of religious and ethnic hatred. Source: Vatican News, Oct 22, 2026.\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #InterfaithDialogue #AmericanJewishCommittee #ReligiousFreedom",
+      "aprobado": {
+        "fecha": "2026-10-24T07:34:19.946Z",
+        "hashPieza": "eca34a3fe9ecffd9",
+        "imagenHash": "7382f9e6419157dc",
+        "imagenSha": "41d0279d960621b960338efd06edea14ab067131"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
