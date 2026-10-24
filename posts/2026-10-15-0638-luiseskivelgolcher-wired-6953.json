@@ -1,7 +1,7 @@
 {
   "id": "2026-10-15-0638-luiseskivelgolcher-wired-6953",
   "cuenta": "luiseskivelgolcher",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "WIRED",
     "url": "https://www.wired.com/story/nightmare-scenario-zero-click-spyware-is-infecting-phones-via-targeted-ads/",
@@ -195,7 +195,11 @@
     "notas": []
   },
   "programado": "2026-10-18T12:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "18120491084082181",
+    "permalink": "https://www.instagram.com/p/De4HP_5G67J/",
+    "fecha": "2026-10-24T12:10:39.992Z"
+  },
   "error": null,
   "creado": "2026-10-15T11:38:06.035Z",
   "actualizado": "2026-10-24T12:10:39.992Z",
@@ -217,25 +221,15 @@
           "7942f0279c434f3a7d2cc3397b0372fb51444b66"
         ]
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-10-24T12:10:39.992Z",
-        "actualizado": "2026-10-24T12:10:39.992Z",
-        "contenedorId": "18604347289064913",
-        "hijos": [
-          "18604347079064913",
-          "18604347103064913",
-          "18604347121064913",
-          "18604347151064913",
-          "18604347181064913",
-          "18604347229064913",
-          "18604347247064913"
-        ]
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18120491084082181",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/De4HP_5G67J/",
+        "fecha": "2026-10-24T12:10:39.992Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     },
