@@ -1,7 +1,7 @@
 {
   "id": "2026-10-19-1537-luiseskivelgolcher-wired-e2fc",
   "cuenta": "luiseskivelgolcher",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "WIRED",
     "url": "https://www.wired.com/story/whatsapp-help-pages-leaked-hidden-instructions-for-a-meta-chatbot/",
@@ -186,7 +186,11 @@
     "notas": []
   },
   "programado": "2026-10-22T08:05:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "18110369678240002",
+    "permalink": "https://www.instagram.com/p/De4HWDzICfV/",
+    "fecha": "2026-10-24T12:10:39.992Z"
+  },
   "error": null,
   "creado": "2026-10-19T20:37:26.300Z",
   "actualizado": "2026-10-24T12:10:39.992Z",
@@ -208,25 +212,15 @@
           "d05133cbed8a20f05a48d71b138c2767c412c403"
         ]
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-10-24T12:10:39.992Z",
-        "actualizado": "2026-10-24T12:10:39.992Z",
-        "contenedorId": "18604347838064913",
-        "hijos": [
-          "18604347496064913",
-          "18604347514064913",
-          "18604347577064913",
-          "18604347670064913",
-          "18604347712064913",
-          "18604347736064913",
-          "18604347757064913"
-        ]
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18110369678240002",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/De4HWDzICfV/",
+        "fecha": "2026-10-24T12:10:39.992Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     },
