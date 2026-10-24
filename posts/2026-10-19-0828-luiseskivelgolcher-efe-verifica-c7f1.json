@@ -122,7 +122,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-19T13:28:39.903Z",
-  "actualizado": "2026-10-23T15:51:37.920Z",
+  "actualizado": "2026-10-24T12:10:39.992Z",
   "destinos": {
     "instagram": {
       "texto": "Una imagen que circula en redes sociales muestra a una pareja de ancianos en ropa interior tras un supuesto robo durante las protestas en Francia del 17 de octubre de 2026. Según una verificación de EFE Verifica, la foto fue generada con inteligencia artificial: la herramienta SynthID, que detecta marcas de agua invisibles insertadas por los modelos de Google, confirmó la manipulación. El análisis también halló inconsistencias visuales, como una mano con cuatro dedos y formas duplicadas en una de las figuras. La imagen se difundió sin ubicación precisa y una cuenta con sede en Israel fue la primera en publicarla, según la agencia verificadora. El presidente de Vox, Santiago Abascal, la compartió en X para criticar la política migratoria del gobierno español. Por separado, una periodista de BFMTV mencionó un posible asalto similar a una pareja de 80 años en París, pero sin imágenes que lo respalden ni confirmación policial. El caso muestra cómo el contenido generado con IA se mezcla con hechos reales de las protestas, que dejaron 2.000 detenidos según el Ministerio del Interior francés.\n\nFuente: EFE Verifica\n\n#Desinformación #InteligenciaArtificial #Francia #Verificación #Protestas",
@@ -135,7 +135,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-10-24T12:10:39.992Z",
+        "actualizado": "2026-10-24T12:10:39.992Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     },
