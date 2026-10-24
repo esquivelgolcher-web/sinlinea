@@ -202,7 +202,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-13T10:43:29.976Z",
-  "actualizado": "2026-10-14T17:55:33.314Z",
+  "actualizado": "2026-10-24T12:10:39.992Z",
   "destinos": {
     "instagram": {
       "texto": "Una red de súper PACs a favor de la inteligencia artificial, respaldada por inversionistas de Silicon Valley, canalizó millones de dólares hacia cuatro empresas registradas en Nevada que, según documentos revisados por WIRED, no parecen existir más allá de un apartado postal. Lantern Production Consultants recibió cerca de 20 millones de dólares de Think Big, parte de la red Leading the Future, que ha recaudado más de 140 millones para influir en las elecciones legislativas de noviembre en Estados Unidos. El Campaign Legal Center denuncia que estas firmas son 'fachadas' para esconder a quién va el dinero realmente. Leading the Future niega haber violado la ley. La Comisión Federal Electoral no tiene quórum para resolver denuncias desde mayo de 2025, según el reportaje.\n\nFuente: WIRED\n\n#InteligenciaArtificial #DineroOscuro #Elecciones #Transparencia #WIRED",
@@ -224,7 +224,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-10-24T12:10:39.992Z",
+        "actualizado": "2026-10-24T12:10:39.992Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     },
