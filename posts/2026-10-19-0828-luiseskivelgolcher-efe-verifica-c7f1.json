@@ -1,7 +1,7 @@
 {
   "id": "2026-10-19-0828-luiseskivelgolcher-efe-verifica-c7f1",
   "cuenta": "luiseskivelgolcher",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "EFE Verifica",
     "url": "https://verifica.efe.com/la-imagen-de-los-ancianos-en-ropa-interior-asaltados-por-manifestantes-en-francia-esta-hecha-con-ia/",
@@ -119,7 +119,11 @@
     "notas": []
   },
   "programado": "2026-10-23T10:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "17915153802518661",
+    "permalink": "https://www.instagram.com/p/De4HewSINPd/",
+    "fecha": "2026-10-24T12:10:39.992Z"
+  },
   "error": null,
   "creado": "2026-10-19T13:28:39.903Z",
   "actualizado": "2026-10-24T12:10:39.992Z",
@@ -132,16 +136,15 @@
         "imagenHash": "0bf50c09fc2329cf",
         "imagenSha": "b70332f0b10409308afeac12890680245c01790a"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-10-24T12:10:39.992Z",
-        "actualizado": "2026-10-24T12:10:39.992Z",
-        "contenedorId": "18604348576064913"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "17915153802518661",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/De4HewSINPd/",
+        "fecha": "2026-10-24T12:10:39.992Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     },
