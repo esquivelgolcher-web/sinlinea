@@ -1,7 +1,7 @@
 {
   "id": "2026-10-13-0543-luiseskivelgolcher-wired-dfde",
   "cuenta": "luiseskivelgolcher",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "WIRED",
     "url": "https://www.wired.com/story/the-biggest-pro-ai-super-pac-network-has-poured-millions-into-nevada-shell-companies/",
@@ -199,7 +199,11 @@
     "notas": []
   },
   "programado": "2026-10-14T12:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "18048420665826978",
+    "permalink": "https://www.instagram.com/p/De4G4mxm29g/",
+    "fecha": "2026-10-24T12:10:39.992Z"
+  },
   "error": null,
   "creado": "2026-10-13T10:43:29.976Z",
   "actualizado": "2026-10-24T12:10:39.992Z",
@@ -221,25 +225,15 @@
           "f7d8801e3ce6ee2a4442e82b64a2962abd7382ae"
         ]
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-10-24T12:10:39.992Z",
-        "actualizado": "2026-10-24T12:10:39.992Z",
-        "contenedorId": "18604345543064913",
-        "hijos": [
-          "18604345057064913",
-          "18604345081064913",
-          "18604345240064913",
-          "18604345387064913",
-          "18604345441064913",
-          "18604345471064913",
-          "18604345498064913"
-        ]
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18048420665826978",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/De4G4mxm29g/",
+        "fecha": "2026-10-24T12:10:39.992Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     },
