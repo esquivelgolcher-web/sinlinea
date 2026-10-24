@@ -1,0 +1,52 @@
+{
+  "id": "2026-10-24-0236-sinlinea-la-prensa-87bc",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/economia/cepal-eleva-a-45-el-crecimiento-de-panama-para-2026-mientras-america-latina-se-desacelera/",
+    "titulo": "Cepal eleva a 4.5% el crecimiento de Panamá para 2026, mientras América Latina se desacelera",
+    "publicado": "2026-10-24T05:00:00.000Z"
+  },
+  "categoria": "ECONOMÍA",
+  "titular": "Cepal sube a 4.5% el pronóstico de crecimiento de Panamá",
+  "bajada": "El organismo mejoró su estimación frente a América Latina, que se desacelera por riesgos externos.",
+  "caption": "La Cepal proyecta que Panamá crecerá 4.5% en 2026 y mantendrá ese ritmo en 2027, por encima del promedio de América Latina, que apenas llegará a 2%. El dato refleja un país que crece más rápido que la región, aunque eso no siempre se traduce en mejores condiciones para todos los hogares. ¿Sientes ese crecimiento en tu bolsillo?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Economía",
+    "#Cepal",
+    "#Crecimiento",
+    "#AméricaLatina"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-10-24-0236-sinlinea-la-prensa-87bc.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-24-0236-sinlinea-la-prensa-87bc.jpg",
+    "hash": "d47a91f0b870aabe",
+    "version": 2,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-10-24T07:36:49.914Z"
+  },
+  "ilustracion": {
+    "descripcion": "Gráfico de barras ascendente proyectado sobre una pantalla en una oficina moderna, en tercio superior derecho; zona izquierda y central despejada, estilo ilustración editorial.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-24T07:36:22.959Z",
+  "actualizado": "2026-10-24T07:36:22.959Z",
+  "plantilla": "dato",
+  "dato": {
+    "cifra": "4.5%",
+    "frase": "es el nuevo pronóstico de crecimiento de Panamá para 2026 y 2027 según la Cepal"
+  }
+}

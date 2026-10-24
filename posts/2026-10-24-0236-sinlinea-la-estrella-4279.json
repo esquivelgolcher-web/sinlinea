@@ -1,0 +1,48 @@
+{
+  "id": "2026-10-24-0236-sinlinea-la-estrella-4279",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/politica/la-secreta-reunion-en-la-presidencia-de-la-asamblea-que-freno-al-presupuesto-FF26760894",
+    "titulo": "La secreta reunión en la Presidencia de la Asamblea que freno al Presupuesto",
+    "publicado": "2026-10-24T03:00:00.000Z"
+  },
+  "categoria": "POLÍTICA",
+  "titular": "Reunión secreta en la Asamblea frenó el Presupuesto 2027",
+  "bajada": "PRD y RM se reunieron con la presidenta del Legislativo mientras la Comisión esperaba cuórum.",
+  "caption": "El Presupuesto del Estado para 2027, de más de $35 mil millones, sigue sin primer debate. Mientras la Comisión esperaba completar el cuórum, diputados del PRD y RM negociaban en privado el avance de la reforma electoral. Las pugnas políticas siguen atrasando una ley clave para los servicios que recibe la gente. ¿Hasta cuándo seguirá trabado el Presupuesto?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Presupuesto2027",
+    "#AsambleaNacional",
+    "#Política",
+    "#PRD"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-10-24-0236-sinlinea-la-estrella-4279.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-24-0236-sinlinea-la-estrella-4279.jpg",
+    "hash": "21b9fae31902f821",
+    "version": 2,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-10-24T07:36:49.529Z"
+  },
+  "ilustracion": {
+    "descripcion": "Pasillo de la Asamblea Nacional de Panamá con una puerta cerrada y luz encendida, en tercio superior derecho; zona izquierda y central despejada, estilo ilustración editorial.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-24T07:36:22.959Z",
+  "actualizado": "2026-10-24T07:36:22.959Z",
+  "plantilla": "titular"
+}
