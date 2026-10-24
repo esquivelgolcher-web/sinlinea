@@ -42,7 +42,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-24T04:44:23.997Z",
-  "actualizado": "2026-10-24T14:53:56.998Z",
+  "actualizado": "2026-10-24T16:11:39.718Z",
   "destinos": {
     "instagram": {
       "texto": "Major Archbishop Sviatoslav Shevchuk, head of the Ukrainian Greek Catholic Church, met Pope Leo XIV at the Vatican, thanking him for his appeals for peace and the Holy See's humanitarian efforts on behalf of prisoners and children, and for his concern for the people of Oleshky. Source: Vatican News, Oct 23, 2026.\n\nFuente: Vatican News\n\n#PopeLeoXIV #Ukraine #Vatican #Peace #Shevchuk",
@@ -55,7 +55,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-10-24T16:11:39.718Z",
+        "actualizado": "2026-10-24T16:11:39.718Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
