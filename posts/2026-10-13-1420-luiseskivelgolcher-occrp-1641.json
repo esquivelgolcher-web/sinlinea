@@ -191,7 +191,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-13T19:20:41.011Z",
-  "actualizado": "2026-10-15T00:24:32.282Z",
+  "actualizado": "2026-10-24T12:10:39.992Z",
   "destinos": {
     "instagram": {
       "texto": "La noche del 11 al 12 de octubre de 2026, un ciberataque tomó el control remoto de sistemas de refrigeración en cientos de supermercados de Francia, según documentó OCCRP. Los atacantes forzaron ciclos de descongelamiento hasta llevar los congeladores a 50°C, lo que echó a perder alimentos y provocó incendios en varias tiendas, incluidas cadenas como Carrefour, Monoprix y E.Leclerc. La fiscalía de París abrió una investigación criminal a cargo de la Oficina Antidelitos Informáticos. El método coincide con vulnerabilidades que la firma de seguridad industrial Claroty había advertido dos meses antes en controladores Danfoss, expuestos a internet. El grupo Mousquetaires reportó pérdidas millonarias y sospecha de \"interferencia externa\". CERT-FR, el centro francés de ciberseguridad, advirtió que los ataques podrían continuar. ¿Qué tan seguros están los sistemas que mantienen fría tu comida?\n\nFuente: OCCRP\n\n#Ciberseguridad #Hackeo #Francia #OCCRP #Infraestructura",
@@ -212,7 +212,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-10-24T12:10:39.992Z",
+        "actualizado": "2026-10-24T12:10:39.992Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     },
