@@ -1,7 +1,7 @@
 {
   "id": "2026-10-14-0700-luiseskivelgolcher-wired-bb52",
   "cuenta": "luiseskivelgolcher",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "WIRED",
     "url": "https://www.wired.com/story/ai-models-can-be-easily-modified-to-assist-terrorist-and-extremist-activity/",
@@ -121,7 +121,11 @@
     "notas": []
   },
   "programado": "2026-10-15T07:05:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "18125180396485791",
+    "permalink": "https://www.instagram.com/p/De4G_29IN3L/",
+    "fecha": "2026-10-24T12:10:39.992Z"
+  },
   "error": null,
   "creado": "2026-10-14T12:00:54.195Z",
   "actualizado": "2026-10-24T12:10:39.992Z",
@@ -134,16 +138,15 @@
         "imagenHash": "16604e8458c4c2a6",
         "imagenSha": "e2a87cc24e30a2ee73e0d730af8135943c0d513e"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-10-24T12:10:39.992Z",
-        "actualizado": "2026-10-24T12:10:39.992Z",
-        "contenedorId": "18604346026064913"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18125180396485791",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/De4G_29IN3L/",
+        "fecha": "2026-10-24T12:10:39.992Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     },
