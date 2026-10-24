@@ -42,7 +42,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-23T05:08:00.006Z",
-  "actualizado": "2026-10-24T14:53:56.998Z",
+  "actualizado": "2026-10-24T18:56:58.385Z",
   "destinos": {
     "instagram": {
       "texto": "Pope Leo XIV met with a delegation from the American Jewish Committee, calling for cooperation to promote human dignity, defend religious freedom and reject all forms of religious and ethnic hatred. Source: Vatican News, Oct 22, 2026.\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #InterfaithDialogue #AmericanJewishCommittee #ReligiousFreedom",
@@ -55,7 +55,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-10-24T18:56:58.385Z",
+        "actualizado": "2026-10-24T18:56:58.385Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
