@@ -111,7 +111,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-12T21:18:44.024Z",
-  "actualizado": "2026-10-13T17:05:39.263Z",
+  "actualizado": "2026-10-24T12:10:39.992Z",
   "destinos": {
     "instagram": {
       "texto": "Un tribunal autorizó a agentes federales de Estados Unidos usar un simulador de antena de telefonía (un aparato que imita una torre celular para localizar e interceptar señales de teléfonos cercanos) para ubicar a Jerome Richardson, un exestudiante que ayudó a producir la cobertura de Don Lemon sobre una protesta contra ICE en una iglesia de Saint Paul, Minnesota, el 18 de enero de 2026. Según documentos judiciales revisados por WIRED, jueces de Minnesota y Pensilvania firmaron las órdenes el 30 y 31 de enero. Las autoridades también pidieron simuladores contra la periodista Georgia Fort y el entonces candidato al Senado estatal Jamael Lundy, aunque no está claro si los jueces aprobaron esas solicitudes ni si el dispositivo llegó a usarse. Cooper Quintin, de la Electronic Frontier Foundation, calificó el caso como 'un ataque atroz a la Primera Enmienda'. Esta información proviene de una sola fuente hasta ahora: el reportaje de WIRED. ¿Hasta dónde puede llegar la vigilancia estatal para perseguir a quienes cubren una protesta?\n\nFuente: WIRED\n\n#Vigilancia #Periodismo #Privacidad #CiberSeguridad #EstadosUnidos",
@@ -124,7 +124,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-10-24T12:10:39.992Z",
+        "actualizado": "2026-10-24T12:10:39.992Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     },
