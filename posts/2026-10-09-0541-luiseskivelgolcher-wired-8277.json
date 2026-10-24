@@ -206,7 +206,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-09T10:41:00.505Z",
-  "actualizado": "2026-10-12T19:16:07.921Z",
+  "actualizado": "2026-10-24T12:10:39.992Z",
   "destinos": {
     "instagram": {
       "texto": "Documentos obtenidos por la organización legal Democracy Forward, mediante una solicitud de acceso a información pública (FOIA), muestran que el brazo investigativo de ICE exploró usar ELITE —una herramienta con apoyo de Palantir, la empresa de análisis de datos— para cruzar información de registros electorales. ELITE normalmente sirve para ubicar objetivos de deportación, según reportó 404 Media. Un correo interno fechado el 26 de mayo menciona el \"ingreso de datos de registro de votantes procesados\" al sistema. Un vocero de Palantir le dijo a WIRED que esos datos \"nunca se han integrado\" a ELITE. Los documentos también revelan que DHS investigó a más de 150 organizaciones sin fines de lucro buscando evidencia de que ayudaban a inmigrantes sin ciudadanía a registrarse para votar. Toda la evidencia disponible indica que el voto de personas no ciudadanas es extremadamente raro en Estados Unidos. ¿Hasta dónde debería llegar una agencia de inmigración en la vigilancia del proceso electoral?\n\nFuente: WIRED\n\n#Vigilancia #Palantir #ICE #Privacidad #EstadosUnidos",
@@ -228,7 +228,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-10-24T12:10:39.992Z",
+        "actualizado": "2026-10-24T12:10:39.992Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     },
