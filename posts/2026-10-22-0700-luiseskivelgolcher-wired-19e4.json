@@ -1,7 +1,7 @@
 {
   "id": "2026-10-22-0700-luiseskivelgolcher-wired-19e4",
   "cuenta": "luiseskivelgolcher",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "WIRED",
     "url": "https://www.wired.com/story/hackers-exploited-the-php-vulnerabilities-days-before-they-were-patched/",
@@ -106,7 +106,11 @@
     "notas": []
   },
   "programado": "2026-10-23T08:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "18383569468235250",
+    "permalink": "https://www.instagram.com/p/De4HdNDoEGw/",
+    "fecha": "2026-10-24T12:10:39.992Z"
+  },
   "error": null,
   "creado": "2026-10-22T12:00:39.127Z",
   "actualizado": "2026-10-24T12:10:39.992Z",
@@ -119,16 +123,15 @@
         "imagenHash": "eb644d6d54730623",
         "imagenSha": "d2845f0b8fc069ba4e5367c969fbdc40d3c7bb1e"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-10-24T12:10:39.992Z",
-        "actualizado": "2026-10-24T12:10:39.992Z",
-        "contenedorId": "18604348462064913"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18383569468235250",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/De4HdNDoEGw/",
+        "fecha": "2026-10-24T12:10:39.992Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     },
