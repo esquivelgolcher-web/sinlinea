@@ -1,7 +1,7 @@
 {
   "id": "2026-10-13-1420-luiseskivelgolcher-occrp-1641",
   "cuenta": "luiseskivelgolcher",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "OCCRP",
     "url": "https://www.occrp.org/en/news/hackers-turn-french-supermarket-refrigerators-into-furnaces",
@@ -188,7 +188,11 @@
     "notas": []
   },
   "programado": "2026-10-14T19:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "17993745639102561",
+    "permalink": "https://www.instagram.com/p/De4G-GLoNGd/",
+    "fecha": "2026-10-24T12:10:39.992Z"
+  },
   "error": null,
   "creado": "2026-10-13T19:20:41.011Z",
   "actualizado": "2026-10-24T12:10:39.992Z",
@@ -209,24 +213,15 @@
           "ec66b5f0c0c05be6ebbfde4c36fc3de12b315813"
         ]
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-10-24T12:10:39.992Z",
-        "actualizado": "2026-10-24T12:10:39.992Z",
-        "contenedorId": "18604345840064913",
-        "hijos": [
-          "18604345603064913",
-          "18604345660064913",
-          "18604345723064913",
-          "18604345753064913",
-          "18604345783064913",
-          "18604345810064913"
-        ]
+      "estado": "publicado",
+      "publicacion": {
+        "id": "17993745639102561",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/De4G-GLoNGd/",
+        "fecha": "2026-10-24T12:10:39.992Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     },
