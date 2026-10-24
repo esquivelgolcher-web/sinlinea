@@ -57,7 +57,7 @@
       "error": null,
       "intento": {
         "n": 1,
-        "fase": "contenedor",
+        "fase": "enviando",
         "inicio": "2026-10-24T18:56:58.385Z",
         "actualizado": "2026-10-24T18:56:58.385Z",
         "contenedorId": "18111052370081176"
