@@ -1,7 +1,7 @@
 {
   "id": "2026-10-21-0057-leopopexiv-vatican-news-7445",
   "cuenta": "leopopexiv",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/vatican-city/news/2026-10/permanent-observer-united-nations-holy-see-disarmament-nuclear.html",
@@ -39,7 +39,11 @@
     "error": null
   },
   "programado": "2026-10-24T18:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "17913793320499568",
+    "permalink": "https://www.instagram.com/p/De5VZr3DwIU/",
+    "fecha": "2026-10-24T23:39:46.609Z"
+  },
   "error": null,
   "creado": "2026-10-21T04:57:11.831Z",
   "actualizado": "2026-10-24T23:39:46.609Z",
@@ -52,16 +56,15 @@
         "imagenHash": "1d1b6437531539dd",
         "imagenSha": "66f313cc04bfe2dcb171ec3401c59c36e2343efd"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-10-24T23:39:46.609Z",
-        "actualizado": "2026-10-24T23:39:46.609Z",
-        "contenedorId": "18111096077081176"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "17913793320499568",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/De5VZr3DwIU/",
+        "fecha": "2026-10-24T23:39:46.609Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
