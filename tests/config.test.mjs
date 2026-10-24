@@ -188,7 +188,7 @@ test("(M2) la cuenta luiseskivelgolcher carga con sus propios interruptores (act
   const e = c.cuentas.find((x) => x.cuenta === "luiseskivelgolcher");
   assert.deepEqual(e.automatico, { generar: true, publicar: true });
   assert.equal(e.generar.maxBorradoresPendientes, 3, "la generación recurrente sigue acotada por el tope de pendientes");
-  assert.equal(e.marca.usuario, "@luiseskivelgolcher");
+  assert.equal(e.marca.usuario, "@golcherx");
   // Fuentes aprobadas el 2026-09-09: ninguna coincide con las de Sin Línea.
   assert.ok(e.fuentes.length >= 3);
   for (const f of e.fuentes) assert.equal(c.cuentas[0].fuentes.some((s) => s.url === f.url), false, `${f.nombre} no se hereda de Sin Línea`);

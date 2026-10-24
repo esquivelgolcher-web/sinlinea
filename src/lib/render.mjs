@@ -47,7 +47,9 @@ export function iniciales(nombre) {
   return letras || "?";
 }
 
-// Sello de la identidad visual de la cuenta (colores + presencia y forma del logo + rótulo): si cambia, REGENERAR re-dibuja.
+// Sello de la identidad visual de la cuenta (colores + presencia y forma del logo + rótulo + usuario): si cambia, REGENERAR
+// re-dibuja. El usuario va siempre (todas las plantillas lo dibujan en la cabecera): renombrar la cuenta de Instagram
+// redibuja sus borradores y programados en vez de publicarlos con el usuario viejo.
 // `formato`: la plantilla de la frase no dibuja ni la etiqueta de categoría ni el titular sobre ilustración, así que esas
 // dos opciones no entran en su sello (si entraran, cambiarlas obligaría a redibujar frases sin motivo). Las claves solo se
 // añaden cuando la cuenta se aparta del valor por defecto: así las demás cuentas conservan el sello que ya tenían.
@@ -63,7 +65,7 @@ export function estiloVisual(config, logoUrl, { formato = "post" } = {}) {
   return hashTexto(JSON.stringify({
     ...(config.marca?.mostrarLogo === false ? { sinLogo: true } : {}),
     ...(deLaImagen && config.marca?.mostrarCategoria === false ? { categoria: false } : {}),
-    ...(deLaImagen && colorTitular(config) !== (config.marca?.colores?.principal ?? "#FFD400") ? { titular: colorTitular(config) } : {}), principal: c.principal, acento: c.acento, oscuro: c.oscuro, claro: c.claro, logo: Boolean(logoUrl), forma: config.marca?.logoForma || "circulo", tamano: config.marca?.logoTamano || 120, rotulo: config.ilustraciones?.rotulo || "", fecha: config.marca?.mostrarFecha !== false }));
+    ...(deLaImagen && colorTitular(config) !== (config.marca?.colores?.principal ?? "#FFD400") ? { titular: colorTitular(config) } : {}), principal: c.principal, acento: c.acento, oscuro: c.oscuro, claro: c.claro, logo: Boolean(logoUrl), forma: config.marca?.logoForma || "circulo", tamano: config.marca?.logoTamano || 120, rotulo: config.ilustraciones?.rotulo || "", fecha: config.marca?.mostrarFecha !== false, usuario: config.marca?.usuario || "" }));
 }
 
 // Color del titular cuando hay ilustración de fondo: el principal si se lee, si no el acento y, en último caso, el claro.

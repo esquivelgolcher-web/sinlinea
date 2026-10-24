@@ -1,4 +1,4 @@
-# Línea editorial de @luiseskivelgolcher
+# Línea editorial de @golcherx
 
 Cuenta personal con enfoque profesional de Luis Enrique Esquivel Golcher,
 periodista panameño de investigación. Periodismo tecnológico original en

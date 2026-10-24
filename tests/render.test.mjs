@@ -64,7 +64,7 @@ test("(M2) datosDeRender lleva los colores y las iniciales de la marca de la cue
   const d2 = datosDeRender(post, personal, { logoUrl: null });
   assert.equal(d2.colores.acento, "#1F5FBF");
   assert.equal(d2.iniciales, "LEG");
-  assert.equal(d2.usuario, "@luiseskivelgolcher");
+  assert.equal(d2.usuario, "@golcherx");
   assert.equal(iniciales("Sin Línea"), "SL");
   assert.equal(iniciales("  un   nombre muy largo de marca "), "UNM");
   assert.equal(iniciales(""), "?");
@@ -81,6 +81,12 @@ test("(M2) estiloVisual cambia con los colores o con la presencia del logo y es 
 test("(rótulo) estiloVisual cambia si cambia el rótulo, para que REGENERAR vuelva a dibujar", () => {
   const conRotulo = { ...cfg, ilustraciones: { ...cfg.ilustraciones, rotulo: "Ilustración generada con IA" } };
   assert.notEqual(estiloVisual(cfg, null), estiloVisual(conRotulo, null));
+});
+
+test("(usuario) estiloVisual cambia si cambia el usuario de Instagram, también en frases y glosas", () => {
+  const renombrada = { ...cfg, marca: { ...cfg.marca, usuario: "@golcherx" } };
+  assert.notEqual(estiloVisual(cfg, null), estiloVisual(renombrada, null), "renombrar la cuenta obliga a REGENERAR a re-dibujar");
+  assert.notEqual(estiloVisual(cfg, null, { formato: "frase" }), estiloVisual(renombrada, null, { formato: "frase" }));
 });
 
 test("(logo) datosDeRender lleva la forma del logo y estiloVisual cambia con ella", () => {

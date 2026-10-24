@@ -99,10 +99,10 @@ test("(maestro) Probar Instagram deja el estado de conexión en data/<cuenta>/co
   const leer = (id) => JSON.parse(fs.readFileSync(path.join(raiz, "data", id, "conexion.json"), "utf8"));
   const envPersonal = { IG_ACCESSTOKEN_LUISESKIVELGOLCHER: token + "L", IG_USER_ID_LUISESKIVELGOLCHER: "9999" };
 
-  const ok = () => ({ perfil: async () => ({ username: "luiseskivelgolcher", userId: "9999", coincideId: true }), vigencia: async () => ({ vence: null, origen: "desconocida" }) });
+  const ok = () => ({ perfil: async () => ({ username: "golcherx", userId: "9999", coincideId: true }), vigencia: async () => ({ vence: null, origen: "desconocida" }) });
   await ejecutarPruebaInstagram({ configuracion, cuenta: "luiseskivelgolcher", env: envPersonal, igDe: ok, raiz, ahora });
   assert.deepEqual(leer("luiseskivelgolcher"), {
-    estado: "verificada", usuario: "luiseskivelgolcher", comprobado: "2026-09-08T21:00:00.000Z", detalle: null,
+    estado: "verificada", usuario: "golcherx", comprobado: "2026-09-08T21:00:00.000Z", detalle: null,
     secretos: { tokenSecreto: "IG_ACCESSTOKEN_LUISESKIVELGOLCHER", usuarioIdSecreto: "IG_USER_ID_LUISESKIVELGOLCHER", origen: "repositorio" },
   }, "guarda con qué usuario, con qué nombres de secretos y de qué origen se verificó, para invalidar si cambian");
 
@@ -123,7 +123,7 @@ test("(maestro) Probar Instagram deja el estado de conexión en data/<cuenta>/co
   assert.match(leer("luiseskivelgolcher").detalle, /IG_ACCESSTOKEN_LUISESKIVELGOLCHER/);
 
   const soloToken = { IG_ACCESSTOKEN_LUISESKIVELGOLCHER: token + "L" };
-  await ejecutarPruebaInstagram({ configuracion, cuenta: "luiseskivelgolcher", env: soloToken, igDe: () => ({ perfil: async () => ({ username: "luiseskivelgolcher", userId: "17841400000000001", coincideId: undefined }) }), raiz, ahora });
+  await ejecutarPruebaInstagram({ configuracion, cuenta: "luiseskivelgolcher", env: soloToken, igDe: () => ({ perfil: async () => ({ username: "golcherx", userId: "17841400000000001", coincideId: undefined }) }), raiz, ahora });
   assert.equal(leer("luiseskivelgolcher").estado, "credenciales-pendientes");
   assert.match(leer("luiseskivelgolcher").detalle, /17841400000000001/);
   assert.equal(fs.existsSync(path.join(raiz, "data", "sinlinea", "conexion.json")), false, "no toca otras cuentas");

@@ -12,10 +12,10 @@ const token = "IGAAR" + "x".repeat(60);
 const env = { IG_ACCESS_TOKEN: token, IG_USER_ID: "1784", IG_ACCESSTOKEN_LUISESKIVELGOLCHER: token + "L", IG_USER_ID_LUISESKIVELGOLCHER: "9999" };
 
 test("la prueba confirma la identidad cuando el usuario y el id numérico coinciden, sin revelar secretos", async () => {
-  const igDe = (config, secretos) => ({ perfil: async () => ({ username: "luiseskivelgolcher", userId: secretos.usuarioId, coincideId: true }) });
+  const igDe = (config, secretos) => ({ perfil: async () => ({ username: "golcherx", userId: secretos.usuarioId, coincideId: true }) });
   const r = await ejecutarPruebaInstagram({ configuracion, cuenta: "luiseskivelgolcher", env, igDe });
   assert.equal(r.ok, true);
-  assert.match(r.lineas.join("\n"), /@luiseskivelgolcher/);
+  assert.match(r.lineas.join("\n"), /@golcherx/);
   assert.match(r.lineas.join("\n"), /id numérico coincide/i);
   for (const v of Object.values(env)) assert.equal(r.lineas.join("\n").includes(v), false);
 });
@@ -25,8 +25,8 @@ test("la prueba falla si la credencial pertenece a otro usuario o el id numéric
   const r = await ejecutarPruebaInstagram({ configuracion, cuenta: "luiseskivelgolcher", env, igDe: otro });
   assert.equal(r.ok, false);
   assert.match(r.lineas.join("\n"), /@otra\.persona/);
-  assert.match(r.lineas.join("\n"), /se esperaba @luiseskivelgolcher/);
-  const idMal = (config) => ({ perfil: async () => ({ username: "luiseskivelgolcher", userId: "1", coincideId: false }) });
+  assert.match(r.lineas.join("\n"), /se esperaba @golcherx/);
+  const idMal = (config) => ({ perfil: async () => ({ username: "golcherx", userId: "1", coincideId: false }) });
   const r2 = await ejecutarPruebaInstagram({ configuracion, cuenta: "luiseskivelgolcher", env, igDe: idMal });
   assert.equal(r2.ok, false);
   assert.match(r2.lineas.join("\n"), /id numérico no coincide/i);
@@ -49,12 +49,12 @@ test("(vigencia) la prueba escribe data/<cuenta>/token-info.json con la fecha re
   const raiz = raizConCuentas({ cuentas: ["sinlinea", "luiseskivelgolcher"], prefijo: "probar-ig-" });
   const conf = cargarConfiguracion(raiz);
   const ahora = new Date("2026-09-08T15:00:00Z");
-  const igConFecha = () => ({ perfil: async () => ({ username: "luiseskivelgolcher", userId: "9999", coincideId: true }), vigencia: async () => ({ vence: "2026-11-02", origen: "debug_token" }) });
+  const igConFecha = () => ({ perfil: async () => ({ username: "golcherx", userId: "9999", coincideId: true }), vigencia: async () => ({ vence: "2026-11-02", origen: "debug_token" }) });
   const r = await ejecutarPruebaInstagram({ configuracion: conf, cuenta: "luiseskivelgolcher", env, igDe: igConFecha, raiz, ahora });
   assert.equal(r.ok, true);
   assert.deepEqual(JSON.parse(fs.readFileSync(path.join(raiz, "data/luiseskivelgolcher/token-info.json"), "utf8")), { vence: "2026-11-02", comprobado: "2026-09-08", origen: "debug_token" });
   assert.match(r.lineas.join("\n"), /vence el 2026-11-02/);
-  const igSinFecha = () => ({ perfil: async () => ({ username: "luiseskivelgolcher", userId: "9999", coincideId: true }), vigencia: async () => ({ vence: null, origen: "desconocida" }) });
+  const igSinFecha = () => ({ perfil: async () => ({ username: "golcherx", userId: "9999", coincideId: true }), vigencia: async () => ({ vence: null, origen: "desconocida" }) });
   const r2 = await ejecutarPruebaInstagram({ configuracion: conf, cuenta: "luiseskivelgolcher", env, igDe: igSinFecha, raiz, ahora });
   assert.equal(r2.ok, true, "la caducidad desconocida no invalida la identidad");
   assert.deepEqual(JSON.parse(fs.readFileSync(path.join(raiz, "data/luiseskivelgolcher/token-info.json"), "utf8")), { vence: null, comprobado: "2026-09-08", origen: "desconocida" });
@@ -65,7 +65,7 @@ test("(vigencia) la prueba escribe data/<cuenta>/token-info.json con la fecha re
 
 test("(vigencia) si hay token pero falta el secreto del id numérico, la prueba informa el user_id devuelto por la API para guardarlo como secreto", async () => {
   const soloToken = { IG_ACCESSTOKEN_LUISESKIVELGOLCHER: token + "L" };
-  const igDe = () => ({ perfil: async () => ({ username: "luiseskivelgolcher", userId: "17841400000000001", coincideId: undefined }), vigencia: async () => ({ vence: null, origen: "desconocida" }) });
+  const igDe = () => ({ perfil: async () => ({ username: "golcherx", userId: "17841400000000001", coincideId: undefined }), vigencia: async () => ({ vence: null, origen: "desconocida" }) });
   const r = await ejecutarPruebaInstagram({ configuracion, cuenta: "luiseskivelgolcher", env: soloToken, igDe });
   assert.equal(r.ok, false, "sin el id numérico guardado no se da por verificada");
   assert.match(r.lineas.join("\n"), /user_id.*17841400000000001/);
