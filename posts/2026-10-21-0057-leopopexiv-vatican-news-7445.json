@@ -1,7 +1,7 @@
 {
   "id": "2026-10-21-0057-leopopexiv-vatican-news-7445",
   "cuenta": "leopopexiv",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/vatican-city/news/2026-10/permanent-observer-united-nations-holy-see-disarmament-nuclear.html",
@@ -38,9 +38,26 @@
     "generada": "2026-10-21T04:57:11.831Z",
     "error": null
   },
-  "programado": null,
+  "programado": "2026-10-24T18:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-10-21T04:57:11.831Z",
-  "actualizado": "2026-10-21T04:57:11.831Z"
+  "actualizado": "2026-10-24T07:34:24.139Z",
+  "destinos": {
+    "instagram": {
+      "texto": "At the United Nations General Assembly in New York, the Holy See's Permanent Observer warned that nuclear weapons remain one of the gravest threats to humanity, urging their elimination to safeguard peace and international security. Source: Vatican News, Oct 20, 2026.\n\nFuente: Vatican News\n\n#HolySee #UN #NuclearWeapons #Peace #Vatican",
+      "aprobado": {
+        "fecha": "2026-10-24T07:34:24.139Z",
+        "hashPieza": "39cfd8e3d346e8b5",
+        "imagenHash": "1d1b6437531539dd",
+        "imagenSha": "66f313cc04bfe2dcb171ec3401c59c36e2343efd"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
