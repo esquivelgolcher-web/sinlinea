@@ -200,7 +200,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-12T08:23:58.200Z",
-  "actualizado": "2026-10-12T19:16:07.921Z",
+  "actualizado": "2026-10-24T12:10:39.992Z",
   "destinos": {
     "instagram": {
       "texto": "Una empresa australiana llamada Apate construye desde hace dos años un sistema que desvía llamadas de estafadores hacia bots de inteligencia artificial entrenados para sostener la conversación sin caer en el engaño, según reportó WIRED el 10 de octubre de 2026. El fundador, Dali Kaafar, dice que la plataforma —usada por bancos y apoyada por telecomunicadoras— tiene unos 350,000 bots y ha recopilado más de 250,000 datos sobre estafadores, desde URLs falsas hasta cuentas de \"mulas\" de dinero. Las llamadas, según él, pueden durar más de dos horas. Estas cifras provienen de la propia empresa y no hay verificación independiente en el reportaje. Mientras tanto, los fraudes digitales siguen multiplicándose: cada año se inician miles de millones de mensajes y llamadas fraudulentas. ¿Puede la IA frenar una industria criminal que opera a escala industrial?\n\nFuente: WIRED\n\n#Ciberseguridad #IA #FraudeDigital #Privacidad",
@@ -222,7 +222,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-10-24T12:10:39.992Z",
+        "actualizado": "2026-10-24T12:10:39.992Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     },
