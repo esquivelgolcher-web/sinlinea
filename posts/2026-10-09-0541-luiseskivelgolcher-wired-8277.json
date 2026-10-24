@@ -1,7 +1,7 @@
 {
   "id": "2026-10-09-0541-luiseskivelgolcher-wired-8277",
   "cuenta": "luiseskivelgolcher",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "WIRED",
     "url": "https://www.wired.com/story/ice-emails-discuss-using-palantir-supported-tool-to-investigate-voter-fraud/",
@@ -203,7 +203,11 @@
     "notas": []
   },
   "programado": "2026-10-12T07:05:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "18123884233926164",
+    "permalink": "https://www.instagram.com/p/De4GkEloLZt/",
+    "fecha": "2026-10-24T12:10:39.992Z"
+  },
   "error": null,
   "creado": "2026-10-09T10:41:00.505Z",
   "actualizado": "2026-10-24T12:10:39.992Z",
@@ -225,25 +229,15 @@
           "bc80135c8e6d150b52a68e47c62ba50be03a2771"
         ]
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-10-24T12:10:39.992Z",
-        "actualizado": "2026-10-24T12:10:39.992Z",
-        "contenedorId": "18604343347064913",
-        "hijos": [
-          "18604343155064913",
-          "18604343176064913",
-          "18604343206064913",
-          "18604343227064913",
-          "18604343254064913",
-          "18604343278064913",
-          "18604343305064913"
-        ]
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18123884233926164",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/De4GkEloLZt/",
+        "fecha": "2026-10-24T12:10:39.992Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     },
