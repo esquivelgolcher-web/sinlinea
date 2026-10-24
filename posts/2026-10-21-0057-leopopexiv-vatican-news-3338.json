@@ -1,7 +1,7 @@
 {
   "id": "2026-10-21-0057-leopopexiv-vatican-news-3338",
   "cuenta": "leopopexiv",
-  "estado": "borrador",
+  "estado": "programado",
   "formato": "frase",
   "frase": {
     "texto": "Peace is not a balance of power; rather, it is built day by day through dialogue and justice.",
@@ -36,9 +36,26 @@
     "renderizada": "2026-10-21T04:57:27.989Z"
   },
   "ilustracion": null,
-  "programado": null,
+  "programado": "2026-10-24T18:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-10-21T04:57:11.831Z",
-  "actualizado": "2026-10-21T04:57:11.831Z"
+  "actualizado": "2026-10-24T07:34:21.883Z",
+  "destinos": {
+    "instagram": {
+      "texto": "“Peace is not a balance of power; rather, it is built day by day through dialogue and justice.”\n\n— Pope Leo XIV, Cita recogida en discurso del Arzobispo Christophe El Kassis ante la ONU (2026)\n\nVia Vatican News, 20 October 2026\n\n#PopeLeoXIV #Vatican #CatholicChurch\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #CatholicChurch",
+      "aprobado": {
+        "fecha": "2026-10-24T07:34:21.883Z",
+        "hashPieza": "86f20007e6d7ede5",
+        "imagenHash": "521896f226d50fb0",
+        "imagenSha": "6ea53d698c8352bdd66852d020e15ba10e525f82"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
