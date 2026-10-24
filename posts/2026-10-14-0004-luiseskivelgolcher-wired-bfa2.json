@@ -189,7 +189,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-14T05:04:41.526Z",
-  "actualizado": "2026-10-15T15:18:13.175Z",
+  "actualizado": "2026-10-24T12:10:39.992Z",
   "destinos": {
     "instagram": {
       "texto": "Un ingeniero de OpenAI escondió un dispositivo de grabación de audio dentro de papel higiénico, pegado detrás de un televisor en una sala de conferencias reservada para ejecutivos, según una denuncia penal revelada el 13 de octubre de 2026 y reportada por WIRED. El sospechoso, identificado como Abdulrahman Alfozan, habría usado durante semanas un \"agente de productividad\" y un chatbot interno de la empresa para planear la operación y preguntar por reuniones agendadas en esa sala, de acuerdo con el expediente judicial. OpenAI dice no tener indicios de que haya accedido a los pesos del modelo, el código fuente o datos de clientes. El motivo todavía no se conoce: ni los fiscales ni la empresa lo han explicado. Esto es una denuncia judicial, no una condena. ¿Qué tan seguras son las salas donde se decide el futuro de la inteligencia artificial?\n\nFuente: WIRED\n\n#OpenAI #Espionaje #Ciberseguridad #IA",
@@ -210,7 +210,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-10-24T12:10:39.992Z",
+        "actualizado": "2026-10-24T12:10:39.992Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     },
