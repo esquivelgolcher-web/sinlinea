@@ -1,7 +1,7 @@
 {
   "id": "2026-10-09-1324-luiseskivelgolcher-occrp-61b4",
   "cuenta": "luiseskivelgolcher",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "OCCRP",
     "url": "https://www.occrp.org/en/news/lithuanian-minister-condemns-intimidation-campaign-against-investigative-reporters",
@@ -198,7 +198,11 @@
     "notas": []
   },
   "programado": "2026-10-12T12:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "17963513163210823",
+    "permalink": "https://www.instagram.com/p/De4GrauINo7/",
+    "fecha": "2026-10-24T12:10:39.992Z"
+  },
   "error": null,
   "creado": "2026-10-09T18:24:02.159Z",
   "actualizado": "2026-10-24T12:10:39.992Z",
@@ -220,25 +224,15 @@
           "9227159e41561fd4bb4a3b395b22c04e271a7793"
         ]
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-10-24T12:10:39.992Z",
-        "actualizado": "2026-10-24T12:10:39.992Z",
-        "contenedorId": "18604344343064913",
-        "hijos": [
-          "18604344115064913",
-          "18604344151064913",
-          "18604344187064913",
-          "18604344211064913",
-          "18604344244064913",
-          "18604344271064913",
-          "18604344292064913"
-        ]
+      "estado": "publicado",
+      "publicacion": {
+        "id": "17963513163210823",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/De4GrauINo7/",
+        "fecha": "2026-10-24T12:10:39.992Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     },
