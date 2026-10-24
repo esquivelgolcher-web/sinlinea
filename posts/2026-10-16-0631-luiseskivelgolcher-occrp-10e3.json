@@ -1,7 +1,7 @@
 {
   "id": "2026-10-16-0631-luiseskivelgolcher-occrp-10e3",
   "cuenta": "luiseskivelgolcher",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "OCCRP",
     "url": "https://www.occrp.org/en/news/romanian-institutions-bought-banned-russian-cybersecurity-software",
@@ -205,7 +205,11 @@
     "notas": []
   },
   "programado": "2026-10-18T12:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "18642248329048254",
+    "permalink": "https://www.instagram.com/p/De4HKRKID8V/",
+    "fecha": "2026-10-24T12:10:39.992Z"
+  },
   "error": null,
   "creado": "2026-10-16T11:31:57.342Z",
   "actualizado": "2026-10-24T12:10:39.992Z",
@@ -227,25 +231,15 @@
           "04b33f7fa2f84c1370470bc811599b7f4cfdd57e"
         ]
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-10-24T12:10:39.992Z",
-        "actualizado": "2026-10-24T12:10:39.992Z",
-        "contenedorId": "18604346971064913",
-        "hijos": [
-          "18604346692064913",
-          "18604346713064913",
-          "18604346734064913",
-          "18604346755064913",
-          "18604346791064913",
-          "18604346815064913",
-          "18604346923064913"
-        ]
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18642248329048254",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/De4HKRKID8V/",
+        "fecha": "2026-10-24T12:10:39.992Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     },
