@@ -109,7 +109,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-22T12:00:39.127Z",
-  "actualizado": "2026-10-23T15:51:37.920Z",
+  "actualizado": "2026-10-24T12:10:39.992Z",
   "destinos": {
     "instagram": {
       "texto": "El miércoles 22 de octubre de 2026, administradores de sitios web corrieron a parchar dos fallas críticas en PHP, el lenguaje de programación detrás de buena parte de internet. Pero según una investigación de Amazon Web Services (AWS) citada por WIRED, al menos un atacante ya explotaba las vulnerabilidades —conocidas como PHP2Shell— desde el 17 de octubre, cuatro días antes de que se hicieran públicas. AWS detectó el intento en uno de sus \"honeypots\": servidores señuelo diseñados para atraer ataques y estudiarlos. El intento vino de una red de anonimización comercial, dice la empresa. CJ Moses, jefe de seguridad de AWS, advirtió que herramientas de inteligencia artificial están acortando el tiempo entre la publicación de un parche y la creación de un exploit funcional. No está claro cómo el atacante obtuvo información de la falla antes de su divulgación oficial. La información proviene de un solo reporte de AWS, retomado por WIRED. ¿Cómo deberían cambiar los procesos de divulgación de vulnerabilidades ante este escenario?\n\nFuente: WIRED\n\n#Ciberseguridad #PHP #Hackeo #Tecnologia",
@@ -122,7 +122,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-10-24T12:10:39.992Z",
+        "actualizado": "2026-10-24T12:10:39.992Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     },
