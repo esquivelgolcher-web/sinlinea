@@ -1,7 +1,7 @@
 {
   "id": "2026-10-21-0057-leopopexiv-vatican-news-3338",
   "cuenta": "leopopexiv",
-  "estado": "programado",
+  "estado": "publicado",
   "formato": "frase",
   "frase": {
     "texto": "Peace is not a balance of power; rather, it is built day by day through dialogue and justice.",
@@ -37,7 +37,11 @@
   },
   "ilustracion": null,
   "programado": "2026-10-24T18:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "18075370412479266",
+    "permalink": "https://www.instagram.com/p/De5VXCNj5BF/",
+    "fecha": "2026-10-24T23:39:46.609Z"
+  },
   "error": null,
   "creado": "2026-10-21T04:57:11.831Z",
   "actualizado": "2026-10-24T23:39:46.609Z",
@@ -50,16 +54,15 @@
         "imagenHash": "521896f226d50fb0",
         "imagenSha": "6ea53d698c8352bdd66852d020e15ba10e525f82"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-10-24T23:39:46.609Z",
-        "actualizado": "2026-10-24T23:39:46.609Z",
-        "contenedorId": "18111095972081176"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18075370412479266",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/De5VXCNj5BF/",
+        "fecha": "2026-10-24T23:39:46.609Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
