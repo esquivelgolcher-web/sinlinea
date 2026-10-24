@@ -1,7 +1,7 @@
 {
   "id": "2026-10-08-1353-luiseskivelgolcher-wired-809a",
   "cuenta": "luiseskivelgolcher",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "WIRED",
     "url": "https://www.wired.com/story/the-pentagon-hopes-to-speed-up-kill-chain-ai-buys-with-5-minute-videos/",
@@ -121,7 +121,11 @@
     "notas": []
   },
   "programado": "2026-10-12T08:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "18108272105255490",
+    "permalink": "https://www.instagram.com/p/De4Gl7vIPYq/",
+    "fecha": "2026-10-24T12:10:39.992Z"
+  },
   "error": null,
   "creado": "2026-10-08T18:53:27.771Z",
   "actualizado": "2026-10-24T12:10:39.992Z",
@@ -134,16 +138,15 @@
         "imagenHash": "c3a532c39c818cdd",
         "imagenSha": "6e66f544c87c536ccc4f65708112939aa0ca64d4"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-10-24T12:10:39.992Z",
-        "actualizado": "2026-10-24T12:10:39.992Z",
-        "contenedorId": "18604343734064913"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18108272105255490",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/De4Gl7vIPYq/",
+        "fecha": "2026-10-24T12:10:39.992Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     },
