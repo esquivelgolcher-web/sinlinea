@@ -195,7 +195,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-22T17:22:50.733Z",
-  "actualizado": "2026-10-23T19:54:30.808Z",
+  "actualizado": "2026-10-24T12:10:39.992Z",
   "destinos": {
     "instagram": {
       "texto": "Un diseño descuidado en los enlaces para compartir conversaciones con Muse, el asistente de inteligencia artificial de Meta, dejó al descubierto chats que debían ser privados. Investigadores de la firma de seguridad Claroc encontraron 6.800 enlaces de este tipo sin necesidad de vulnerar ningún sistema: bastaba con una búsqueda en registros DNS públicos, un sistema que guarda el historial de qué dominios se visitan. El problema está en cómo se arma la dirección web: el título de la conversación queda visible en el propio enlace, lo que permite ubicarlo. Meta dijo a Ars Technica, medio citado por WIRED, que pausó la función mientras revisa el caso. Zuckerberg había dicho que Muse se construyó \"desde cero pensando en privacidad y seguridad\". Este resumen se basa en una sola investigación periodística, con la respuesta oficial de Meta incluida. ¿Qué tanto confiamos en los enlaces para compartir que usamos a diario?\n\nFuente: WIRED\n\n#Privacidad #IA #Meta #Ciberseguridad",
@@ -217,7 +217,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-10-24T12:10:39.992Z",
+        "actualizado": "2026-10-24T12:10:39.992Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     },
