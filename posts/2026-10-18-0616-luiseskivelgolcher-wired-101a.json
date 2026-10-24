@@ -1,7 +1,7 @@
 {
   "id": "2026-10-18-0616-luiseskivelgolcher-wired-101a",
   "cuenta": "luiseskivelgolcher",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "WIRED",
     "url": "https://www.wired.com/story/kernel-panic-encryption-is-getting-squeezed-from-all-sides/",
@@ -209,7 +209,11 @@
     "notas": []
   },
   "programado": "2026-10-22T12:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "18130073278891835",
+    "permalink": "https://www.instagram.com/p/De4HbZ1IDnC/",
+    "fecha": "2026-10-24T12:10:39.992Z"
+  },
   "error": null,
   "creado": "2026-10-18T11:16:42.580Z",
   "actualizado": "2026-10-24T12:10:39.992Z",
@@ -231,25 +235,15 @@
           "3e471c44e02419233db1b4c0c2fcc58f1c4da760"
         ]
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-10-24T12:10:39.992Z",
-        "actualizado": "2026-10-24T12:10:39.992Z",
-        "contenedorId": "18604348348064913",
-        "hijos": [
-          "18604348003064913",
-          "18604348075064913",
-          "18604348141064913",
-          "18604348159064913",
-          "18604348180064913",
-          "18604348204064913",
-          "18604348249064913"
-        ]
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18130073278891835",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/De4HbZ1IDnC/",
+        "fecha": "2026-10-24T12:10:39.992Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     },
