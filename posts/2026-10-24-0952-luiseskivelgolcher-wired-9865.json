@@ -1,0 +1,213 @@
+{
+  "id": "2026-10-24-0952-luiseskivelgolcher-wired-9865",
+  "cuenta": "luiseskivelgolcher",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "WIRED",
+    "url": "https://www.wired.com/story/kernel-panic-the-php-meltdown-shows-how-ai-makes-bugs-more-exploitable/",
+    "titulo": "The PHP Meltdown Shows How AI Makes Bugs More Exploitable",
+    "publicado": "2026-10-24T12:00:00.000Z"
+  },
+  "categoria": "SEGURIDAD",
+  "titular": "La IA aceleró el hackeo de fallas viejas en PHP",
+  "bajada": "Modelos de IA ayudaron a explotar vulnerabilidades de PHP conocidas desde 2024",
+  "caption": "Esta semana, administradores de sitios web corrieron a parchar fallas críticas en PHP, el lenguaje que corre buena parte de internet. Según WIRED, millones de intentos de explotación llegaron horas después de publicarse las vulnerabilidades, conocidas como PHP2Shell. La Fundación PHP dice que no ha visto ataques exitosos todavía. Lo notable: investigadores de la firma Calif usaron herramientas de inteligencia artificial del programa Patch the Planet de OpenAI, junto a conocimiento experto humano, para convertir fallas identificadas desde 2024 —y consideradas demasiado complejas de explotar— en vulnerabilidades prácticas. OpenAI y Wiz llegaron a hallazgos similares por su cuenta. Microsoft, mientras tanto, publicó 1,453 parches de seguridad solo este mes. El reportaje es de Lily Hay Newman para WIRED, publicado el 24 de octubre de 2026. ¿Qué significa que la IA pueda resucitar fallas que llevaban años dormidas?",
+  "hashtags": [
+    "#Ciberseguridad",
+    "#PHP",
+    "#InteligenciaArtificial",
+    "#WIRED"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-10-24-0952-luiseskivelgolcher-wired-9865.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-24-0952-luiseskivelgolcher-wired-9865.jpg",
+    "hash": "ba83408d90fcad67",
+    "version": 11,
+    "estilo": "dc9dfadf5d648b09",
+    "renderizada": "2026-10-24T14:52:59.037Z"
+  },
+  "ilustracion": {
+    "descripcion": "Ilustración editorial de un servidor de datos iluminado en azul con líneas de código abstractas flotando a su alrededor, sin texto legible; el servidor ocupa el tercio superior derecho y el resto del encuadre queda despejado.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-24-0952-luiseskivelgolcher-wired-9865.jpg",
+    "hashDescripcion": "c32939f07624f3c6",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-24T14:52:12.399Z",
+    "error": null,
+    "procedencia": "generada"
+  },
+  "formato": "carrusel",
+  "fuentes": [
+    {
+      "rol": "principal",
+      "medio": "WIRED",
+      "autor": "Lily Hay Newman",
+      "url": "https://www.wired.com/story/kernel-panic-the-php-meltdown-shows-how-ai-makes-bugs-more-exploitable/",
+      "canonica": "https://www.wired.com/story/kernel-panic-the-php-meltdown-shows-how-ai-makes-bugs-more-exploitable/",
+      "idioma": "en",
+      "publicado": "2026-10-24T12:00:00.000Z",
+      "actualizado": "2026-10-24T12:00:00.000Z",
+      "fechaHecho": null,
+      "consultado": "2026-10-24T14:52:12.399Z",
+      "alcance": "completo",
+      "textoRecuperado": {
+        "parrafos": 16,
+        "caracteres": 4674,
+        "enviados": 3521
+      },
+      "fuentesPrimarias": [
+        "https://www.rapid7.com/blog/post/etr-cve-2026-109618-and-cve-2026-109619-critical-unauthenticated-remote-code-execution-in-php/",
+        "https://cyberplace.social/@GossiTheDog/117489133794519499",
+        "https://calif.io/php2shell/",
+        "https://thephp.foundation/blog/2026/10/21/todays-php-security-release-and-how-were-strengthening-php-security/",
+        "https://msrc.microsoft.com/update-guide/releaseNote/2026-Oct",
+        "https://www.cnbc.com/2026/10/14/anthropic-mythos-bank-of-america-hiring-cost.html",
+        "http://www.aboutads.info"
+      ],
+      "licenciaMedios": null
+    }
+  ],
+  "afirmaciones": [
+    {
+      "texto": "Millones de intentos de explotación golpearon las fallas de PHP horas después de hacerse públicas, según análisis de Cloudflare citado por WIRED",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/kernel-panic-the-php-meltdown-shows-how-ai-makes-bugs-more-exploitable/",
+      "contrastada": false
+    },
+    {
+      "texto": "La Fundación PHP afirma que no ha detectado explotación exitosa de las fallas conocidas como PHP2Shell",
+      "tipo": "hecho",
+      "fuente": "https://thephp.foundation/blog/2026/10/21/todays-php-security-release-and-how-were-strengthening-php-security/",
+      "contrastada": false
+    },
+    {
+      "texto": "Investigadores de Calif identificaron las vulnerabilidades en agosto usando herramientas de IA del programa Patch the Planet de OpenAI junto a expertise humana en PHP",
+      "tipo": "hecho",
+      "fuente": "https://calif.io/php2shell/",
+      "contrastada": true
+    },
+    {
+      "texto": "Microsoft incluyó 1,453 vulnerabilidades de seguridad en sus actualizaciones de este mes",
+      "tipo": "hecho",
+      "fuente": "https://msrc.microsoft.com/update-guide/releaseNote/2026-Oct",
+      "contrastada": false
+    },
+    {
+      "texto": "Bank of America contrató a 1,000 consultores para corregir fallas detectadas por Mythos, el modelo de IA de Anthropic",
+      "tipo": "hecho",
+      "fuente": "https://www.cnbc.com/2026/10/14/anthropic-mythos-bank-of-america-hiring-cost.html",
+      "contrastada": false
+    },
+    {
+      "texto": "'La vulnerabilidad era conocida por el equipo de PHP desde hace años, pero como no podía ser aprovechada por un atacante —al menos, no uno humano— no se corrigió', dijo Sagi Tzadik, investigador de Wiz",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/kernel-panic-the-php-meltdown-shows-how-ai-makes-bugs-more-exploitable/",
+      "contrastada": false
+    }
+  ],
+  "angulo": "Cómo la inteligencia artificial está acelerando el descubrimiento y la explotación de fallas de seguridad que llevaban años sin ser aprovechadas.",
+  "atribucion": "WIRED, Lily Hay Newman, 24 de octubre de 2026",
+  "puntuacion": {
+    "total": 79,
+    "componentes": {
+      "afinidad": 27,
+      "interes": 18,
+      "evidencia": 14,
+      "actualidad": 15,
+      "visual": 5
+    }
+  },
+  "alertas": [
+    "fuente-unica"
+  ],
+  "carrusel": {
+    "diapositivas": [
+      {
+        "titulo": "¿Puede la IA revivir fallas de seguridad de hace años?",
+        "texto": "Un fallo en PHP, conocido desde 2024 pero considerado inofensivo, se convirtió este mes en una amenaza activa gracias a herramientas de inteligencia artificial."
+      },
+      {
+        "titulo": "Qué ocurrió",
+        "texto": "Investigadores publicaron las fallas PHP2Shell. Horas después, según Cloudflare, llegaron millones de intentos de explotación contra sitios que usan este lenguaje."
+      },
+      {
+        "titulo": "Cómo lo lograron",
+        "texto": "La firma Calif usó modelos de IA del programa Patch the Planet de OpenAI junto a expertise humana para explotar fallas que antes parecían imposibles de aprovechar. OpenAI y Wiz llegaron a hallazgos similares de forma independiente."
+      },
+      {
+        "titulo": "A quién afecta",
+        "texto": "PHP corre buena parte de internet: sitios, aplicaciones y servicios de empresas de todos los tamaños, muchas sin equipos listos para parchar a esa velocidad."
+      },
+      {
+        "titulo": "Lo que todavía no se sabe",
+        "texto": "La Fundación PHP dice que no ha visto ataques exitosos. Investigadores advierten que la IA no descubre fallas sola: 'ningún modelo es capaz de destapar todos los errores con simples instrucciones', dijo Ryan Austin, de Calif."
+      },
+      {
+        "titulo": "El contexto más amplio",
+        "texto": "Microsoft publicó 1,453 parches de seguridad solo este mes. Bank of America contrató 1,000 consultores para corregir fallas halladas por el modelo Mythos de Anthropic."
+      },
+      {
+        "titulo": "La fuente",
+        "texto": "Reportaje de Lily Hay Newman para WIRED, publicado el 24 de octubre de 2026, con enlaces a Calif, la Fundación PHP, Microsoft y Cloudflare."
+      }
+    ],
+    "imagenes": [
+      {
+        "numero": 1,
+        "ruta": "public/img/2026-10-24-0952-luiseskivelgolcher-wired-9865-01.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-24-0952-luiseskivelgolcher-wired-9865-01.jpg",
+        "hash": "9996d08b47074845"
+      },
+      {
+        "numero": 2,
+        "ruta": "public/img/2026-10-24-0952-luiseskivelgolcher-wired-9865-02.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-24-0952-luiseskivelgolcher-wired-9865-02.jpg",
+        "hash": "4707611e6c3df890"
+      },
+      {
+        "numero": 3,
+        "ruta": "public/img/2026-10-24-0952-luiseskivelgolcher-wired-9865-03.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-24-0952-luiseskivelgolcher-wired-9865-03.jpg",
+        "hash": "99994b7b000e1b3d"
+      },
+      {
+        "numero": 4,
+        "ruta": "public/img/2026-10-24-0952-luiseskivelgolcher-wired-9865-04.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-24-0952-luiseskivelgolcher-wired-9865-04.jpg",
+        "hash": "7cd25529961e742b"
+      },
+      {
+        "numero": 5,
+        "ruta": "public/img/2026-10-24-0952-luiseskivelgolcher-wired-9865-05.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-24-0952-luiseskivelgolcher-wired-9865-05.jpg",
+        "hash": "875a396d2d78bb7f"
+      },
+      {
+        "numero": 6,
+        "ruta": "public/img/2026-10-24-0952-luiseskivelgolcher-wired-9865-06.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-24-0952-luiseskivelgolcher-wired-9865-06.jpg",
+        "hash": "b3c47c41b0f318d3"
+      },
+      {
+        "numero": 7,
+        "ruta": "public/img/2026-10-24-0952-luiseskivelgolcher-wired-9865-07.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-24-0952-luiseskivelgolcher-wired-9865-07.jpg",
+        "hash": "c4c4e513c770473d"
+      }
+    ],
+    "hash": "9b802190f9fa6a36",
+    "version": 2
+  },
+  "reel": null,
+  "revision": {
+    "estado": "pendiente",
+    "notas": []
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-24T14:52:12.399Z",
+  "actualizado": "2026-10-24T14:52:12.399Z"
+}
