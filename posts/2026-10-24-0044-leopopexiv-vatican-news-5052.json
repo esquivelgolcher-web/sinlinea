@@ -1,7 +1,7 @@
 {
   "id": "2026-10-24-0044-leopopexiv-vatican-news-5052",
   "cuenta": "leopopexiv",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/pope/news/2026-10/shevchuk-brings-ukraine-s-prayers-and-list-of-prisoner-to-pope.html",
@@ -38,9 +38,26 @@
     "generada": "2026-10-24T04:44:23.997Z",
     "error": null
   },
-  "programado": null,
+  "programado": "2026-10-24T09:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-10-24T04:44:23.997Z",
-  "actualizado": "2026-10-24T04:44:23.997Z"
+  "actualizado": "2026-10-24T07:34:10.478Z",
+  "destinos": {
+    "instagram": {
+      "texto": "Major Archbishop Sviatoslav Shevchuk, head of the Ukrainian Greek Catholic Church, met Pope Leo XIV at the Vatican, thanking him for his appeals for peace and the Holy See's humanitarian efforts on behalf of prisoners and children, and for his concern for the people of Oleshky. Source: Vatican News, Oct 23, 2026.\n\nFuente: Vatican News\n\n#PopeLeoXIV #Ukraine #Vatican #Peace #Shevchuk",
+      "aprobado": {
+        "fecha": "2026-10-24T07:34:10.478Z",
+        "hashPieza": "12adb6e3251ad41d",
+        "imagenHash": "334c2176ba1aa018",
+        "imagenSha": "0d1acbe305c4499db7cb7ca993ae57fea2678e63"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
