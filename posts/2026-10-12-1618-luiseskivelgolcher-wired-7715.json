@@ -1,7 +1,7 @@
 {
   "id": "2026-10-12-1618-luiseskivelgolcher-wired-7715",
   "cuenta": "luiseskivelgolcher",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "WIRED",
     "url": "https://www.wired.com/story/feds-got-warrants-to-use-fake-cell-towers-to-hunt-down-don-lemons-producer/",
@@ -108,7 +108,11 @@
     "notas": []
   },
   "programado": "2026-10-13T12:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "18388346749228926",
+    "permalink": "https://www.instagram.com/p/De4GywEoJ8R/",
+    "fecha": "2026-10-24T12:10:39.992Z"
+  },
   "error": null,
   "creado": "2026-10-12T21:18:44.024Z",
   "actualizado": "2026-10-24T12:10:39.992Z",
@@ -121,16 +125,15 @@
         "imagenHash": "82632e3a91fd1960",
         "imagenSha": "5078c3a68f71713d2014cd112040e011c11840bb"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-10-24T12:10:39.992Z",
-        "actualizado": "2026-10-24T12:10:39.992Z",
-        "contenedorId": "18604344988064913"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18388346749228926",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/De4GywEoJ8R/",
+        "fecha": "2026-10-24T12:10:39.992Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     },
