@@ -1,7 +1,7 @@
 {
   "id": "2026-10-12-0323-luiseskivelgolcher-wired-39d2",
   "cuenta": "luiseskivelgolcher",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "WIRED",
     "url": "https://www.wired.com/story/ai-is-getting-really-good-at-messing-with-cybercriminals/",
@@ -197,7 +197,11 @@
     "notas": []
   },
   "programado": "2026-10-12T14:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "18198595615391870",
+    "permalink": "https://www.instagram.com/p/De4GxGSoGEn/",
+    "fecha": "2026-10-24T12:10:39.992Z"
+  },
   "error": null,
   "creado": "2026-10-12T08:23:58.200Z",
   "actualizado": "2026-10-24T12:10:39.992Z",
@@ -219,25 +223,15 @@
           "09b34d9da2d7afee9b40a1616a3addfcfac310b1"
         ]
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-10-24T12:10:39.992Z",
-        "actualizado": "2026-10-24T12:10:39.992Z",
-        "contenedorId": "18604344919064913",
-        "hijos": [
-          "18604344649064913",
-          "18604344670064913",
-          "18604344691064913",
-          "18604344715064913",
-          "18604344751064913",
-          "18604344808064913",
-          "18604344847064913"
-        ]
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18198595615391870",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/De4GxGSoGEn/",
+        "fecha": "2026-10-24T12:10:39.992Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     },
