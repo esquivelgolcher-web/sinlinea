@@ -1,7 +1,7 @@
 {
   "id": "2026-10-14-0004-luiseskivelgolcher-wired-bfa2",
   "cuenta": "luiseskivelgolcher",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "WIRED",
     "url": "https://www.wired.com/story/an-openai-employee-allegedly-used-a-chatbot-to-help-plant-a-recording-device-at-the-office/",
@@ -186,7 +186,11 @@
     "notas": []
   },
   "programado": "2026-10-15T09:05:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "18237793132321595",
+    "permalink": "https://www.instagram.com/p/De4HExdICUT/",
+    "fecha": "2026-10-24T12:10:39.992Z"
+  },
   "error": null,
   "creado": "2026-10-14T05:04:41.526Z",
   "actualizado": "2026-10-24T12:10:39.992Z",
@@ -207,24 +211,15 @@
           "f42a9356746bd44b57d05b2bb75375b8442496d5"
         ]
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-10-24T12:10:39.992Z",
-        "actualizado": "2026-10-24T12:10:39.992Z",
-        "contenedorId": "18604346380064913",
-        "hijos": [
-          "18604346161064913",
-          "18604346197064913",
-          "18604346224064913",
-          "18604346248064913",
-          "18604346278064913",
-          "18604346308064913"
-        ]
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18237793132321595",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/De4HExdICUT/",
+        "fecha": "2026-10-24T12:10:39.992Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     },
