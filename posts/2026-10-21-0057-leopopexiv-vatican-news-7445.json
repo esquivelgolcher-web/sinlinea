@@ -42,7 +42,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-21T04:57:11.831Z",
-  "actualizado": "2026-10-24T14:53:56.998Z",
+  "actualizado": "2026-10-24T23:39:46.609Z",
   "destinos": {
     "instagram": {
       "texto": "At the United Nations General Assembly in New York, the Holy See's Permanent Observer warned that nuclear weapons remain one of the gravest threats to humanity, urging their elimination to safeguard peace and international security. Source: Vatican News, Oct 20, 2026.\n\nFuente: Vatican News\n\n#HolySee #UN #NuclearWeapons #Peace #Vatican",
@@ -55,7 +55,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-10-24T23:39:46.609Z",
+        "actualizado": "2026-10-24T23:39:46.609Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
