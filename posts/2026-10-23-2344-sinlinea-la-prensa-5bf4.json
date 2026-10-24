@@ -1,0 +1,52 @@
+{
+  "id": "2026-10-23-2344-sinlinea-la-prensa-5bf4",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/judiciales/tras-20-anos-la-css-pide-disculpas-por-la-contaminacion-de-medicinas-con-el-toxico-dietilenglicol/",
+    "titulo": "Tras 20 años, la CSS pide disculpas por la contaminación de medicinas con el tóxico dietilenglicol",
+    "publicado": "2026-10-23T23:25:00.000Z"
+  },
+  "categoria": "SALUD",
+  "titular": "CSS pide perdón a víctimas del dietilenglicol tras 20 años",
+  "bajada": "El director Dino Mon reconoció el daño a 1,500 personas afectadas por medicinas contaminadas.",
+  "caption": "Veinte años después, la Caja de Seguro Social admite su responsabilidad en uno de los episodios más dolorosos de la salud pública panameña. Cientos de familias perdieron a un ser querido o quedaron con secuelas de por vida por un tóxico en medicamentos que debían curar. ¿Crees que una disculpa pública es suficiente después de tanto tiempo?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#CSS",
+    "#Dietilenglicol",
+    "#Salud",
+    "#Justicia"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-10-23-2344-sinlinea-la-prensa-5bf4.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-23-2344-sinlinea-la-prensa-5bf4.jpg",
+    "hash": "abd69a246dc46be2",
+    "version": 11,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-10-24T04:45:07.548Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada del edificio central de la Caja de Seguro Social en Ciudad de Panamá al atardecer, con la bandera panameña ondeando; el edificio ubicado en el tercio superior derecho, zona izquierda y central despejadas.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-23-2344-sinlinea-la-prensa-5bf4.jpg",
+    "hashDescripcion": "6b73b8cb90390855",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-24T04:44:23.997Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-24T04:44:23.997Z",
+  "actualizado": "2026-10-24T04:44:23.997Z",
+  "plantilla": "foto",
+  "dato": {
+    "cifra": "800",
+    "frase": "personas fallecieron por el tóxico dietilenglicol en medicinas de la CSS"
+  }
+}

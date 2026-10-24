@@ -1,0 +1,49 @@
+{
+  "id": "2026-10-23-2344-sinlinea-la-prensa-1464",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/sociedad/minsa-detecta-coliformes-fecales-y-totales-en-muestras-de-agua-cerca-de-mina-el-remance/",
+    "titulo": "Mina El Remance: Minsa detecta contaminación bacteriológica en muestras de agua",
+    "publicado": "2026-10-24T00:50:00.000Z"
+  },
+  "categoria": "SALUD",
+  "titular": "Minsa halla bacterias fecales en agua cerca de mina El Remance",
+  "bajada": "Comunidades rurales de Veraguas enfrentan riesgo de contaminación tras el deslizamiento del terremoto.",
+  "caption": "El terremoto no solo dejó casas y escuelas dañadas: también puso en riesgo el agua que toman varias comunidades de Veraguas. El Minsa confirmó la presencia de bacterias que indican contaminación, y ya se trabaja para reforzar el cloro en los acueductos rurales. Mientras tanto, miles de personas dependen de ese mismo sistema para beber y cocinar. ¿Qué tan seguro es el agua en tu comunidad?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Veraguas",
+    "#ElRemance",
+    "#Agua",
+    "#Salud",
+    "#Terremoto"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-10-23-2344-sinlinea-la-prensa-1464.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-23-2344-sinlinea-la-prensa-1464.jpg",
+    "hash": "1e16808f99704141",
+    "version": 2,
+    "estilo": "bd2669fff78536a1",
+    "renderizada": "2026-10-24T04:45:07.913Z"
+  },
+  "ilustracion": {
+    "descripcion": "Tanque de agua rural y tubería en una comunidad campesina de Veraguas, con cerros verdes de fondo; el tanque ubicado en el tercio superior derecho, zona izquierda y central despejadas.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-24T04:44:23.997Z",
+  "actualizado": "2026-10-24T04:44:23.997Z",
+  "plantilla": "titular"
+}

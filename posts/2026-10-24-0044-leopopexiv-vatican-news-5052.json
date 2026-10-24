@@ -1,0 +1,46 @@
+{
+  "id": "2026-10-24-0044-leopopexiv-vatican-news-5052",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-10/shevchuk-brings-ukraine-s-prayers-and-list-of-prisoner-to-pope.html",
+    "titulo": "Shevchuk brings ‘Ukraine’s prayers’ and list of prisoners to Pope Leo",
+    "publicado": "2026-10-23T14:56:00.000Z"
+  },
+  "categoria": "INTERNACIONAL",
+  "titular": "Ukrainian church leader brings prayers to Pope Leo",
+  "bajada": "Major Archbishop Shevchuk thanks Pope for peace appeals and aid to prisoners, children",
+  "caption": "Major Archbishop Sviatoslav Shevchuk, head of the Ukrainian Greek Catholic Church, met Pope Leo XIV at the Vatican, thanking him for his appeals for peace and the Holy See's humanitarian efforts on behalf of prisoners and children, and for his concern for the people of Oleshky. Source: Vatican News, Oct 23, 2026.",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Ukraine",
+    "#Vatican",
+    "#Peace",
+    "#Shevchuk"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-10-24-0044-leopopexiv-vatican-news-5052.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-24-0044-leopopexiv-vatican-news-5052.jpg",
+    "hash": "334c2176ba1aa018",
+    "version": 11,
+    "estilo": "ab79cbbb3887cfa1",
+    "renderizada": "2026-10-24T04:45:42.319Z"
+  },
+  "ilustracion": {
+    "descripcion": "A Vatican reception hall with tall windows; a bishop in Eastern-rite vestments stands in the upper right third, greeting a figure dressed as the Pope; left and center space open and calm.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-24-0044-leopopexiv-vatican-news-5052.jpg",
+    "hashDescripcion": "e46a1793e175867d",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-24T04:44:23.997Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-24T04:44:23.997Z",
+  "actualizado": "2026-10-24T04:44:23.997Z"
+}
