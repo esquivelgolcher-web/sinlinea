@@ -1,7 +1,7 @@
 {
   "id": "2026-10-22-1222-luiseskivelgolcher-wired-04cf",
   "cuenta": "luiseskivelgolcher",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "WIRED",
     "url": "https://www.wired.com/story/a-design-flaw-in-share-links-exposes-users-personal-conversations-with-meta-muse/",
@@ -192,7 +192,11 @@
     "notas": []
   },
   "programado": "2026-10-23T12:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "17938102056125401",
+    "permalink": "https://www.instagram.com/p/De4Hkjrm9Ou/",
+    "fecha": "2026-10-24T12:10:39.992Z"
+  },
   "error": null,
   "creado": "2026-10-22T17:22:50.733Z",
   "actualizado": "2026-10-24T12:10:39.992Z",
@@ -214,25 +218,15 @@
           "86fa9dc4c72554c01327dc764a1d7bcb5b66f0b5"
         ]
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-10-24T12:10:39.992Z",
-        "actualizado": "2026-10-24T12:10:39.992Z",
-        "contenedorId": "18604349029064913",
-        "hijos": [
-          "18604348663064913",
-          "18604348717064913",
-          "18604348774064913",
-          "18604348867064913",
-          "18604348894064913",
-          "18604348930064913",
-          "18604348981064913"
-        ]
+      "estado": "publicado",
+      "publicacion": {
+        "id": "17938102056125401",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/De4Hkjrm9Ou/",
+        "fecha": "2026-10-24T12:10:39.992Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     },
