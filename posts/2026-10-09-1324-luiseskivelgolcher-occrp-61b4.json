@@ -201,7 +201,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-09T18:24:02.159Z",
-  "actualizado": "2026-10-12T19:16:07.921Z",
+  "actualizado": "2026-10-24T12:10:39.992Z",
   "destinos": {
     "instagram": {
       "texto": "Una investigación conjunta de OCCRP y el medio lituano 15min reveló que más de 45 millones de euros recaudados por la firma cripto Bankera entre 2017 y 2018 terminaron en Pacific Private Bank, un banco offshore en Vanuatu comprado por los propios fundadores de Bankera. Tras la publicación, en abril de 2025, los periodistas del caso enfrentaron una campaña de acoso: vigilancia en eventos públicos, recolección de datos personales y decenas de denuncias regulatorias presentadas por personas vinculadas a la empresa. El ministro de Cultura lituano, Lukas Alsys, calificó cualquier intimidación a periodistas como «completamente intolerable». Bankera niega haber orquestado el acoso. En septiembre de 2026, las autoridades lituanas nombraron formalmente como sospechosos a los tres cofundadores de la empresa por presunta disipación ilícita de al menos 49 millones de dólares. Ninguno ha sido condenado. ¿Hasta dónde puede llegar la presión contra el periodismo que investiga fraude financiero digital?\n\nFuente: OCCRP\n\n#Cripto #Periodismo #OCCRP #Lituania #Fraude",
@@ -223,7 +223,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-10-24T12:10:39.992Z",
+        "actualizado": "2026-10-24T12:10:39.992Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     },
