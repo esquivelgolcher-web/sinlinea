@@ -1,7 +1,7 @@
 {
   "id": "2026-10-25-0051-leopopexiv-vatican-news-5c11",
   "cuenta": "leopopexiv",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/pope/news/2026-10/pope-leo-xiv-cancels-october-27-visit-assisi.html",
@@ -38,9 +38,26 @@
     "generada": "2026-10-25T04:51:28.267Z",
     "error": null
   },
-  "programado": null,
+  "programado": "2026-10-25T13:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-10-25T04:51:28.267Z",
-  "actualizado": "2026-10-25T04:51:28.267Z"
+  "actualizado": "2026-10-25T07:05:50.262Z",
+  "destinos": {
+    "instagram": {
+      "texto": "Pope Leo XIV will not travel to Assisi on October 27 as planned, following advice from his doctors. The Vatican confirmed his recovery from recent thoracic surgery is progressing well, but rest was recommended over the trip. Source: Vatican News, Oct. 23, 2026.\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #Assisi #PapalHealth #CatholicChurch",
+      "aprobado": {
+        "fecha": "2026-10-25T07:05:50.262Z",
+        "hashPieza": "97b98b8beec0e021",
+        "imagenHash": "1c91633c1de83686",
+        "imagenSha": "756ed7383c6aef1e3954952fd18f5f46235592d0"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
