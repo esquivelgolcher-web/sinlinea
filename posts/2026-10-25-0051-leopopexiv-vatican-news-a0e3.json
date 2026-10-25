@@ -55,10 +55,10 @@
       "error": null,
       "intento": {
         "n": 1,
-        "fase": "reservado",
+        "fase": "contenedor",
         "inicio": "2026-10-25T20:43:03.776Z",
         "actualizado": "2026-10-25T20:43:03.776Z",
-        "contenedorId": null
+        "contenedorId": "18111330629081176"
       },
       "omitido": null,
       "espera": null
