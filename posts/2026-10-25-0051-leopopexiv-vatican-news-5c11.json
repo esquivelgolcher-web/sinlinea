@@ -1,7 +1,7 @@
 {
   "id": "2026-10-25-0051-leopopexiv-vatican-news-5c11",
   "cuenta": "leopopexiv",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/pope/news/2026-10/pope-leo-xiv-cancels-october-27-visit-assisi.html",
@@ -39,7 +39,11 @@
     "error": null
   },
   "programado": "2026-10-25T13:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "18097350566432196",
+    "permalink": "https://www.instagram.com/p/De7l7niAaYH/",
+    "fecha": "2026-10-25T20:43:03.776Z"
+  },
   "error": null,
   "creado": "2026-10-25T04:51:28.267Z",
   "actualizado": "2026-10-25T20:43:03.776Z",
@@ -52,16 +56,15 @@
         "imagenHash": "1c91633c1de83686",
         "imagenSha": "756ed7383c6aef1e3954952fd18f5f46235592d0"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-10-25T20:43:03.776Z",
-        "actualizado": "2026-10-25T20:43:03.776Z",
-        "contenedorId": "18111330584081176"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18097350566432196",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/De7l7niAaYH/",
+        "fecha": "2026-10-25T20:43:03.776Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
