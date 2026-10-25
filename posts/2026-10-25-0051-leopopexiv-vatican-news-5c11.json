@@ -1,0 +1,46 @@
+{
+  "id": "2026-10-25-0051-leopopexiv-vatican-news-5c11",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-10/pope-leo-xiv-cancels-october-27-visit-assisi.html",
+    "titulo": "Pope Leo will not make Assisi visit to aid recovery after surgery",
+    "publicado": "2026-10-23T07:35:00.000Z"
+  },
+  "categoria": "SALUD",
+  "titular": "Pope Leo cancels Assisi trip on doctors' advice",
+  "bajada": "Oct. 27 visit postponed as recovery from thoracic surgery continues smoothly",
+  "caption": "Pope Leo XIV will not travel to Assisi on October 27 as planned, following advice from his doctors. The Vatican confirmed his recovery from recent thoracic surgery is progressing well, but rest was recommended over the trip. Source: Vatican News, Oct. 23, 2026.",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Vatican",
+    "#Assisi",
+    "#PapalHealth",
+    "#CatholicChurch"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-10-25-0051-leopopexiv-vatican-news-5c11.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-25-0051-leopopexiv-vatican-news-5c11.jpg",
+    "hash": "1c91633c1de83686",
+    "version": 11,
+    "estilo": "b18ca074001a6ad6",
+    "renderizada": "2026-10-25T04:52:28.946Z"
+  },
+  "ilustracion": {
+    "descripcion": "A quiet view of the Basilica of San Francesco in Assisi under soft daylight, empty foreground, with a simple papal travel itinerary icon in the upper right third, left and center open.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-25-0051-leopopexiv-vatican-news-5c11.jpg",
+    "hashDescripcion": "826bad84e9a16046",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-25T04:51:28.267Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-25T04:51:28.267Z",
+  "actualizado": "2026-10-25T04:51:28.267Z"
+}

@@ -1,0 +1,202 @@
+{
+  "id": "2026-10-24-2351-luiseskivelgolcher-occrp-5ec6",
+  "cuenta": "luiseskivelgolcher",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "OCCRP",
+    "url": "https://www.occrp.org/en/news/chinese-scam-boss-murdered-in-sri-lanka-had-multiple-identities",
+    "titulo": "Chinese Scam Boss Murdered in Sri Lanka Had Multiple Identities",
+    "publicado": "2026-10-25T03:30:00.000Z"
+  },
+  "categoria": "INVESTIGACIÓN",
+  "titular": "Jefe de estafas chino usaba tres identidades falsas",
+  "bajada": "Fue secuestrado y asesinado en Sri Lanka; sus pasaportes revelan alias en Camboya y Surinam",
+  "caption": "Chen Guoqing, de 31 años, fue secuestrado el 23 de julio de 2026 en la zona económica especial de Colombo Port City, en Sri Lanka, y asesinado a golpes en una zona rural cercana, según documentos policiales obtenidos por OCCRP y The Sunday Times. Los investigadores encontraron en su cuerpo dos pasaportes con nombres distintos: uno de Camboya, a nombre de Chen Hao, y otro de Surinam, a nombre de Tao Guoqing. Su nombre real no figura en el expediente policial ni en la prensa local. La policía de Sri Lanka ha arrestado a cinco ciudadanos chinos por el crimen y busca a otros tres sospechosos. Según OCCRP, el caso expone cómo operan sin consecuencias los líderes de redes de fraude digital que huyen de los operativos en el sudeste asiático. ¿Qué tan vulnerable es un país a estas redes cuando ni siquiera puede identificar a sus líderes?",
+  "hashtags": [
+    "#CiberFraude",
+    "#OCCRP",
+    "#SriLanka",
+    "#CrimenOrganizado"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-10-24-2351-luiseskivelgolcher-occrp-5ec6.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-24-2351-luiseskivelgolcher-occrp-5ec6.jpg",
+    "hash": "1bea515fc29a120d",
+    "version": 11,
+    "estilo": "dc9dfadf5d648b09",
+    "renderizada": "2026-10-25T04:52:08.515Z"
+  },
+  "ilustracion": {
+    "descripcion": "Vista general del distrito financiero de Colombo Port City al anochecer, con torres de oficinas iluminadas; el área central e izquierda despejadas, sin personas identificables en primer plano.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-24-2351-luiseskivelgolcher-occrp-5ec6.jpg",
+    "hashDescripcion": "74a3b06707d7229d",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-25T04:51:28.267Z",
+    "error": null,
+    "procedencia": "generada"
+  },
+  "formato": "carrusel",
+  "fuentes": [
+    {
+      "rol": "principal",
+      "medio": "OCCRP",
+      "autor": null,
+      "url": "https://www.occrp.org/en/news/chinese-scam-boss-murdered-in-sri-lanka-had-multiple-identities",
+      "canonica": "https://www.occrp.org/en/news/chinese-scam-boss-murdered-in-sri-lanka-had-multiple-identities",
+      "idioma": "en",
+      "publicado": "2026-10-25T03:30:00.000Z",
+      "actualizado": null,
+      "fechaHecho": "2026-07-23",
+      "consultado": "2026-10-25T04:51:28.267Z",
+      "alcance": "completo",
+      "textoRecuperado": {
+        "parrafos": 20,
+        "caracteres": 3449,
+        "enviados": 3487
+      },
+      "fuentesPrimarias": [
+        "https://mekongindependent.com/2026/03/cambodian-citizenships-granted-2000-2024/"
+      ],
+      "licenciaMedios": null
+    }
+  ],
+  "afirmaciones": [
+    {
+      "texto": "Chen Guoqing fue secuestrado el 23 de julio de 2026 en Colombo Port City por más de una decena de hombres armados y asesinado a golpes en una zona rural.",
+      "tipo": "hecho",
+      "fuente": "https://www.occrp.org/en/news/chinese-scam-boss-murdered-in-sri-lanka-had-multiple-identities",
+      "contrastada": true
+    },
+    {
+      "texto": "La policía recuperó dos pasaportes del cuerpo, uno de Camboya a nombre de Chen Hao y otro de Surinam a nombre de Tao Guoqing.",
+      "tipo": "hecho",
+      "fuente": "https://www.occrp.org/en/news/chinese-scam-boss-murdered-in-sri-lanka-had-multiple-identities",
+      "contrastada": true
+    },
+    {
+      "texto": "La policía de Sri Lanka cree que Chen estaba involucrado en actividad criminal internacional de alto nivel y que fue asesinado por una disputa de dinero.",
+      "tipo": "denuncia",
+      "fuente": "https://www.occrp.org/en/news/chinese-scam-boss-murdered-in-sri-lanka-had-multiple-identities",
+      "contrastada": false
+    },
+    {
+      "texto": "Pese a más de mil arrestos este año, Sri Lanka no ha logrado una sola condena por fraude digital transnacional, debido a una ley de delitos informáticos de 2007 que exige denuncia de la víctima.",
+      "tipo": "hecho",
+      "fuente": "https://www.occrp.org/en/news/sri-lanka-records-zero-prosecutions-amid-online-scam-surge",
+      "contrastada": true
+    },
+    {
+      "texto": "El asesinato de Chen muestra la vulnerabilidad de Sri Lanka ante redes de fraude que huyen de los operativos en Camboya y otros países del sudeste asiático.",
+      "tipo": "opinion",
+      "fuente": "https://www.occrp.org/en/news/chinese-scam-boss-murdered-in-sri-lanka-had-multiple-identities",
+      "contrastada": false
+    }
+  ],
+  "angulo": "Cómo un jefe de una red de fraude digital operó con identidades falsas entre países sin ser detenido, pese a su asesinato y a una investigación policial activa.",
+  "atribucion": "OCCRP y The Sunday Times, con base en documentos de la investigación policial de Sri Lanka",
+  "puntuacion": {
+    "total": 79,
+    "componentes": {
+      "afinidad": 24,
+      "interes": 18,
+      "evidencia": 16,
+      "actualidad": 15,
+      "visual": 6
+    }
+  },
+  "alertas": [
+    "fuente-unica",
+    "hecho-antiguo"
+  ],
+  "carrusel": {
+    "diapositivas": [
+      {
+        "titulo": "¿Quién era el hombre con tres nombres?",
+        "texto": "Un jefe de una red de fraude digital murió asesinado en Sri Lanka. Sus documentos revelan una red de identidades falsas entre tres países."
+      },
+      {
+        "titulo": "El secuestro en Colombo Port City",
+        "texto": "El 23 de julio de 2026, más de una decena de hombres armados secuestraron a Chen Guoqing en una zona económica especial de Sri Lanka. Lo asesinaron a golpes y abandonaron su cuerpo."
+      },
+      {
+        "titulo": "Dos pasaportes, dos nombres falsos",
+        "texto": "La policía halló un pasaporte camboyano a nombre de Chen Hao y uno surinamés a nombre de Tao Guoqing. Reporteros de OCCRP confirmaron su identidad real cruzando registros públicos de Camboya."
+      },
+      {
+        "titulo": "Una investigación sin su nombre real",
+        "texto": "El expediente policial de Sri Lanka ni siquiera menciona el nombre verdadero de Chen Guoqing, según documentos revisados por OCCRP y The Sunday Times."
+      },
+      {
+        "titulo": "Un país sin condenas",
+        "texto": "Pese a más de mil arrestos este año, Sri Lanka no ha logrado procesar a nadie por fraude digital transnacional: su ley de 2007 exige que la víctima denuncie, y casi todas viven en el extranjero."
+      },
+      {
+        "titulo": "Lo que falta por saber",
+        "texto": "Tres sospechosos del asesinato siguen prófugos. No se sabe aún quién ordenó el crimen ni cuántas más identidades falsas circulan entre estas redes."
+      },
+      {
+        "titulo": "Las fuentes de esta historia",
+        "texto": "Reportaje de OCCRP y The Sunday Times, basado en documentos policiales y registros públicos de naturalización de Camboya."
+      }
+    ],
+    "imagenes": [
+      {
+        "numero": 1,
+        "ruta": "public/img/2026-10-24-2351-luiseskivelgolcher-occrp-5ec6-01.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-24-2351-luiseskivelgolcher-occrp-5ec6-01.jpg",
+        "hash": "53f3200aae265358"
+      },
+      {
+        "numero": 2,
+        "ruta": "public/img/2026-10-24-2351-luiseskivelgolcher-occrp-5ec6-02.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-24-2351-luiseskivelgolcher-occrp-5ec6-02.jpg",
+        "hash": "462aa4785c7175ba"
+      },
+      {
+        "numero": 3,
+        "ruta": "public/img/2026-10-24-2351-luiseskivelgolcher-occrp-5ec6-03.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-24-2351-luiseskivelgolcher-occrp-5ec6-03.jpg",
+        "hash": "7e644cfd2603a1c3"
+      },
+      {
+        "numero": 4,
+        "ruta": "public/img/2026-10-24-2351-luiseskivelgolcher-occrp-5ec6-04.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-24-2351-luiseskivelgolcher-occrp-5ec6-04.jpg",
+        "hash": "5d39f27019b051ba"
+      },
+      {
+        "numero": 5,
+        "ruta": "public/img/2026-10-24-2351-luiseskivelgolcher-occrp-5ec6-05.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-24-2351-luiseskivelgolcher-occrp-5ec6-05.jpg",
+        "hash": "75adb4d1452575a7"
+      },
+      {
+        "numero": 6,
+        "ruta": "public/img/2026-10-24-2351-luiseskivelgolcher-occrp-5ec6-06.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-24-2351-luiseskivelgolcher-occrp-5ec6-06.jpg",
+        "hash": "8713e40b55061325"
+      },
+      {
+        "numero": 7,
+        "ruta": "public/img/2026-10-24-2351-luiseskivelgolcher-occrp-5ec6-07.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-24-2351-luiseskivelgolcher-occrp-5ec6-07.jpg",
+        "hash": "e62c24e20c834270"
+      }
+    ],
+    "hash": "e444ad37c93afe49",
+    "version": 2
+  },
+  "reel": null,
+  "revision": {
+    "estado": "pendiente",
+    "notas": []
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-25T04:51:28.267Z",
+  "actualizado": "2026-10-25T04:51:28.267Z"
+}
