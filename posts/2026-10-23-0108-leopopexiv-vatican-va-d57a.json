@@ -1,7 +1,7 @@
 {
   "id": "2026-10-23-0108-leopopexiv-vatican-va-d57a",
   "cuenta": "leopopexiv",
-  "estado": "programado",
+  "estado": "publicado",
   "formato": "frase",
   "frase": {
     "texto": "I prefer a Church which is bruised, hurting and dirty because it has been out on the streets, rather than a Church which is unhealthy from being confined and from clinging to its own security.",
@@ -37,7 +37,11 @@
   },
   "ilustracion": null,
   "programado": "2026-10-25T09:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "18123854674890077",
+    "permalink": "https://www.instagram.com/p/De7QSGWnA1j/",
+    "fecha": "2026-10-25T17:33:55.979Z"
+  },
   "error": null,
   "creado": "2026-10-23T05:08:00.006Z",
   "actualizado": "2026-10-25T17:33:55.979Z",
@@ -50,16 +54,15 @@
         "imagenHash": "22a47fd3f111be75",
         "imagenSha": "bf70f03cf57406c9b1829e883ad4477c95661f73"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-10-25T17:33:55.979Z",
-        "actualizado": "2026-10-25T17:33:55.979Z",
-        "contenedorId": "18111297191081176"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18123854674890077",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/De7QSGWnA1j/",
+        "fecha": "2026-10-25T17:33:55.979Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
