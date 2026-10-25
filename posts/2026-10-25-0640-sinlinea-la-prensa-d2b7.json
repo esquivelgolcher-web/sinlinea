@@ -1,0 +1,52 @@
+{
+  "id": "2026-10-25-0640-sinlinea-la-prensa-d2b7",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/sociedad/cuanto-falta-para-volver-a-casa-las-cuentas-de-la-compleja-reconstruccion-en-azuero/",
+    "titulo": "¿Cuánto falta para volver a casa? Las cuentas de la compleja reconstrucción en Azuero",
+    "publicado": "2026-10-25T05:05:00.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "Miviot asigna 1,300 viviendas para reconstrucción en Azuero",
+  "bajada": "Solo 60 han iniciado construcción; la limpieza de escombros sigue en zonas del terremoto.",
+  "caption": "Para las familias de Azuero, volver a casa no se mide en metros cuadrados sino en días de espera. El Miviot ya asignó miles de viviendas a contratistas, pero apenas una fracción ha comenzado a levantarse. Antes de construir, hay que limpiar los escombros que dejó el sismo. ¿Conoces a alguien que todavía espera su casa en Azuero?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Azuero",
+    "#Terremoto",
+    "#Vivienda",
+    "#Miviot"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-10-25-0640-sinlinea-la-prensa-d2b7.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-25-0640-sinlinea-la-prensa-d2b7.jpg",
+    "hash": "410b126e1cd3a450",
+    "version": 11,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-10-25T11:41:31.471Z"
+  },
+  "ilustracion": {
+    "descripcion": "Casa en reconstrucción con andamios y materiales en una comunidad de Azuero, trabajadores levantando una pared, escena en tercio superior derecho, zona izquierda y central despejada.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-25-0640-sinlinea-la-prensa-d2b7.jpg",
+    "hashDescripcion": "82a9c8cd9000ef4f",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-25T11:40:51.089Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-25T11:40:51.089Z",
+  "actualizado": "2026-10-25T11:40:51.089Z",
+  "plantilla": "foto",
+  "dato": {
+    "cifra": "1,300",
+    "frase": "viviendas están en proceso de asignación a contratistas tras el terremoto"
+  }
+}

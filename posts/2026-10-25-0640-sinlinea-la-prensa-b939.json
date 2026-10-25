@@ -1,0 +1,52 @@
+{
+  "id": "2026-10-25-0640-sinlinea-la-prensa-b939",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/sociedad/el-plan-de-tres-fases-con-el-que-meduca-trata-de-sostener-el-ano-escolar-tras-el-terremoto/",
+    "titulo": "El plan de tres fases con el que Meduca trata de sostener el año escolar tras el terremoto",
+    "publicado": "2026-10-25T05:02:00.000Z"
+  },
+  "categoria": "EDUCACIÓN",
+  "titular": "Meduca despliega plan de tres fases tras terremoto en Azuero",
+  "bajada": "227 psicólogos atienden a estudiantes en Herrera, Los Santos, Coclé y Veraguas.",
+  "caption": "El sismo no solo dañó aulas y casas: también dejó huella emocional en niños y adolescentes. El Meduca activó un plan con tres etapas, desde el contacto inmediato hasta el regreso gradual a clases, con psicólogos recorriendo las zonas más golpeadas. ¿Crees que es suficiente el apoyo emocional para los estudiantes afectados?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Azuero",
+    "#Terremoto",
+    "#Educación",
+    "#Meduca"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-10-25-0640-sinlinea-la-prensa-b939.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-25-0640-sinlinea-la-prensa-b939.jpg",
+    "hash": "dd90dd02325f8a64",
+    "version": 2,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-10-25T11:41:31.730Z"
+  },
+  "ilustracion": {
+    "descripcion": "Maestra visitando casa por casa en una comunidad rural de Azuero con cuadernos y materiales escolares, figura en tercio superior derecho, resto del encuadre despejado.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-25T11:40:51.089Z",
+  "actualizado": "2026-10-25T11:40:51.089Z",
+  "plantilla": "dato",
+  "dato": {
+    "cifra": "227",
+    "frase": "psicólogos y trabajadores sociales atienden la salud emocional de los estudiantes"
+  }
+}
