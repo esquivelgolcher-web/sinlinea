@@ -40,7 +40,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-25T04:51:28.267Z",
-  "actualizado": "2026-10-25T07:05:52.833Z",
+  "actualizado": "2026-10-25T20:43:03.776Z",
   "destinos": {
     "instagram": {
       "texto": "“The starting point for every authentic renewal in the Church is one’s own discovery of Jesus’ love”\n\n— Pope Leo XIV, Audience with Jesus Youth International Conference (2026)\n\nVia Vatican News, 24 October 2026\n\n#PopeLeoXIV #Vatican #CatholicChurch\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #CatholicChurch",
@@ -53,7 +53,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-10-25T20:43:03.776Z",
+        "actualizado": "2026-10-25T20:43:03.776Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
