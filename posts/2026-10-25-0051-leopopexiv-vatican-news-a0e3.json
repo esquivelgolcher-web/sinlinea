@@ -1,7 +1,7 @@
 {
   "id": "2026-10-25-0051-leopopexiv-vatican-news-a0e3",
   "cuenta": "leopopexiv",
-  "estado": "programado",
+  "estado": "publicado",
   "formato": "frase",
   "frase": {
     "texto": "The starting point for every authentic renewal in the Church is one’s own discovery of Jesus’ love",
@@ -37,7 +37,11 @@
   },
   "ilustracion": null,
   "programado": "2026-10-25T13:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "18116648815840011",
+    "permalink": "https://www.instagram.com/p/De7l9RlAbss/",
+    "fecha": "2026-10-25T20:43:03.776Z"
+  },
   "error": null,
   "creado": "2026-10-25T04:51:28.267Z",
   "actualizado": "2026-10-25T20:43:03.776Z",
@@ -50,16 +54,15 @@
         "imagenHash": "b28d45c4e9f3798a",
         "imagenSha": "dc829369288c51e9253df13b69928575594718ba"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-10-25T20:43:03.776Z",
-        "actualizado": "2026-10-25T20:43:03.776Z",
-        "contenedorId": "18111330629081176"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18116648815840011",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/De7l9RlAbss/",
+        "fecha": "2026-10-25T20:43:03.776Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
