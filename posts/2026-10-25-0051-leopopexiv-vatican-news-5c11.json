@@ -42,7 +42,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-25T04:51:28.267Z",
-  "actualizado": "2026-10-25T07:05:50.262Z",
+  "actualizado": "2026-10-25T20:43:03.776Z",
   "destinos": {
     "instagram": {
       "texto": "Pope Leo XIV will not travel to Assisi on October 27 as planned, following advice from his doctors. The Vatican confirmed his recovery from recent thoracic surgery is progressing well, but rest was recommended over the trip. Source: Vatican News, Oct. 23, 2026.\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #Assisi #PapalHealth #CatholicChurch",
@@ -55,7 +55,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-10-25T20:43:03.776Z",
+        "actualizado": "2026-10-25T20:43:03.776Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
