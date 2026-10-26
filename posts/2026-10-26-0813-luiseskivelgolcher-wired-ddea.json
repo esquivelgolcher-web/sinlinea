@@ -1,0 +1,192 @@
+{
+  "id": "2026-10-26-0813-luiseskivelgolcher-wired-ddea",
+  "cuenta": "luiseskivelgolcher",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "WIRED",
+    "url": "https://www.wired.com/story/the-tragedy-of-losing-your-wikipedia-page/",
+    "titulo": "The Tragedy of Having a Wikipedia Page—and Then Losing It",
+    "publicado": "2026-10-26T10:00:00.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "Wikipedia decide quién merece una biografía",
+  "bajada": "Editores voluntarios borran perfiles por falta de evidencia verificable, no por fama real.",
+  "caption": "Cada día, decenas o cientos de biografías de personas vivas son marcadas para eliminación en Wikipedia. El motivo no es que la persona sea irrelevante: es que no hay suficiente evidencia verificable sobre ella, según reporta WIRED. La directora de una organización sin fines de lucro en Nevada, Kimberly Small, perdió su página por esa razón, mientras el debate ocurría en público, en la propia plataforma. Una editora con 25 años de experiencia, Britta Gustafson, lo resume así: \"No buscamos qué es verdad, buscamos qué es verificable\". Con más de siete millones de artículos en inglés y pocos voluntarios para revisarlos, Wikipedia prioriza corregir fraudes antiguos antes que confirmar datos menores. ¿Debería una biografía digital depender solo de cuánta evidencia dejó alguien en internet?",
+  "hashtags": [
+    "#Wikipedia",
+    "#Internet",
+    "#Plataformas",
+    "#Tecnología"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-10-26-0813-luiseskivelgolcher-wired-ddea.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-26-0813-luiseskivelgolcher-wired-ddea.jpg",
+    "hash": "7b9fe0b549eea2ab",
+    "version": 11,
+    "estilo": "dc9dfadf5d648b09",
+    "renderizada": "2026-10-26T13:14:28.303Z"
+  },
+  "ilustracion": {
+    "descripcion": "Una enciclopedia abierta sobre un escritorio de madera, con una página mostrando un espacio en blanco en lugar de texto; pantallas difusas de computadora al fondo. El elemento principal, la página vacía, queda en el tercio superior derecho; la zona izquierda y central queda despejada.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-26-0813-luiseskivelgolcher-wired-ddea.jpg",
+    "hashDescripcion": "f4758b9c501ff5da",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-26T13:13:07.760Z",
+    "error": null,
+    "procedencia": "generada"
+  },
+  "formato": "carrusel",
+  "fuentes": [
+    {
+      "rol": "principal",
+      "medio": "WIRED",
+      "autor": "Duncan Fyfe",
+      "url": "https://www.wired.com/story/the-tragedy-of-losing-your-wikipedia-page/",
+      "canonica": "https://www.wired.com/story/the-tragedy-of-losing-your-wikipedia-page/",
+      "idioma": "en",
+      "publicado": "2026-10-26T10:00:00.000Z",
+      "actualizado": "2026-10-26T10:00:00.000Z",
+      "fechaHecho": null,
+      "consultado": "2026-10-26T13:13:07.760Z",
+      "alcance": "completo",
+      "textoRecuperado": {
+        "parrafos": 65,
+        "caracteres": 22850,
+        "enviados": 3976
+      },
+      "fuentesPrimarias": [
+        "https://en.wikipedia.org/wiki/Maneli_Mirkhan",
+        "https://en.wikipedia.org/wiki/Savannah_Burton",
+        "https://en.wikipedia.org/wiki/Martina_Dimoska",
+        "http://www.aboutads.info"
+      ],
+      "licenciaMedios": null
+    }
+  ],
+  "afirmaciones": [
+    {
+      "texto": "Todos los días, decenas o a veces cientos de biografías de personas vivas en Wikipedia se consideran para eliminación por falta de notabilidad",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/the-tragedy-of-losing-your-wikipedia-page/",
+      "contrastada": false
+    },
+    {
+      "texto": "Kimberly Small, directora de una organización sin fines de lucro en Nevada que apoya a sobrevivientes de agresión sexual, perdió recientemente su biografía en Wikipedia por falta de notabilidad",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/the-tragedy-of-losing-your-wikipedia-page/",
+      "contrastada": false
+    },
+    {
+      "texto": "Los editores de Wikipedia no deciden si una persona es notable, solo si existe evidencia confiable que lo sustente, según la editora Britta Gustafson",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/the-tragedy-of-losing-your-wikipedia-page/",
+      "contrastada": false
+    }
+  ],
+  "angulo": "El poder editorial de Wikipedia para decidir qué biografías permanecen públicas y cuáles desaparecen.",
+  "atribucion": "WIRED (Duncan Fyfe)",
+  "puntuacion": {
+    "total": 71,
+    "componentes": {
+      "afinidad": 18,
+      "interes": 18,
+      "evidencia": 14,
+      "actualidad": 15,
+      "visual": 6
+    }
+  },
+  "alertas": [
+    "fuente-unica"
+  ],
+  "carrusel": {
+    "diapositivas": [
+      {
+        "titulo": "¿Quién merece una biografía en Wikipedia?",
+        "texto": "Cada día se debate, en público, si alguien es lo bastante notable para seguir en la enciclopedia."
+      },
+      {
+        "titulo": "Biografías que desaparecen en silencio",
+        "texto": "Según WIRED, decenas o cientos de perfiles de personas vivas se marcan para borrado cada día, desde actores retirados hasta exembajadores."
+      },
+      {
+        "titulo": "No es sobre la verdad, es sobre la evidencia",
+        "texto": "Los editores no verifican si un dato es cierto, sino si hay una fuente confiable que lo respalde, explica la editora Britta Gustafson a WIRED."
+      },
+      {
+        "titulo": "El caso de Kimberly Small",
+        "texto": "La directora de una ONG en Nevada que apoya a sobrevivientes de agresión sexual perdió su página porque el foco debía estar en la organización, no en ella, según editores de Wikipedia."
+      },
+      {
+        "titulo": "Pocas manos para millones de artículos",
+        "texto": "Wikipedia tiene más de 7 millones de artículos en inglés, pero pocos voluntarios para revisarlos: aún se descubren fraudes con décadas de antigüedad."
+      },
+      {
+        "titulo": "Tener una página dice algo, aunque no debería",
+        "texto": "\"Having an article says something. It implies something\", admitió Gustafson a WIRED, aunque insiste en que no es un premio."
+      },
+      {
+        "titulo": "Una decisión editorial con consecuencias reales",
+        "texto": "Para quienes pierden su biografía, la ausencia se siente como un borrado de su lugar público. Fuente: WIRED, 26 de octubre de 2026."
+      }
+    ],
+    "imagenes": [
+      {
+        "numero": 1,
+        "ruta": "public/img/2026-10-26-0813-luiseskivelgolcher-wired-ddea-01.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-26-0813-luiseskivelgolcher-wired-ddea-01.jpg",
+        "hash": "0131ae71d4bdea87"
+      },
+      {
+        "numero": 2,
+        "ruta": "public/img/2026-10-26-0813-luiseskivelgolcher-wired-ddea-02.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-26-0813-luiseskivelgolcher-wired-ddea-02.jpg",
+        "hash": "c80f1cc7ef7bfd65"
+      },
+      {
+        "numero": 3,
+        "ruta": "public/img/2026-10-26-0813-luiseskivelgolcher-wired-ddea-03.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-26-0813-luiseskivelgolcher-wired-ddea-03.jpg",
+        "hash": "159480a3d34bb115"
+      },
+      {
+        "numero": 4,
+        "ruta": "public/img/2026-10-26-0813-luiseskivelgolcher-wired-ddea-04.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-26-0813-luiseskivelgolcher-wired-ddea-04.jpg",
+        "hash": "4aa74a0b01e2e4cd"
+      },
+      {
+        "numero": 5,
+        "ruta": "public/img/2026-10-26-0813-luiseskivelgolcher-wired-ddea-05.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-26-0813-luiseskivelgolcher-wired-ddea-05.jpg",
+        "hash": "711b2371d0b4fd97"
+      },
+      {
+        "numero": 6,
+        "ruta": "public/img/2026-10-26-0813-luiseskivelgolcher-wired-ddea-06.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-26-0813-luiseskivelgolcher-wired-ddea-06.jpg",
+        "hash": "3c92c53b069b327d"
+      },
+      {
+        "numero": 7,
+        "ruta": "public/img/2026-10-26-0813-luiseskivelgolcher-wired-ddea-07.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-26-0813-luiseskivelgolcher-wired-ddea-07.jpg",
+        "hash": "fa2895801997ac42"
+      }
+    ],
+    "hash": "acc1299934568c3f",
+    "version": 2
+  },
+  "reel": null,
+  "revision": {
+    "estado": "pendiente",
+    "notas": []
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-26T13:13:07.760Z",
+  "actualizado": "2026-10-26T13:13:07.760Z"
+}
