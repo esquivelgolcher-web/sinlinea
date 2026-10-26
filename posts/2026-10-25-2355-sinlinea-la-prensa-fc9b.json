@@ -1,0 +1,53 @@
+{
+  "id": "2026-10-25-2355-sinlinea-la-prensa-fc9b",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/mundo/lula-vs-bolsonaro-los-primeros-resultados-muestran-una-ajustada-carrera-por-ganar-las-elecciones-de-brasil/",
+    "titulo": "Lula gana las elecciones de Brasil con una remontada histórica pero Bolsonaro pide la anulación y no reconoce la derrota",
+    "publicado": "2026-10-26T03:08:00.000Z"
+  },
+  "categoria": "INTERNACIONAL",
+  "titular": "Lula gana en Brasil pero Bolsonaro no reconoce la derrota",
+  "bajada": "El líder brasileño venció con 51.7% de los votos; su rival pide la anulación de los comicios.",
+  "caption": "Fue una remontada histórica: nunca antes en Brasil un candidato que quedó segundo en primera vuelta había ganado el balotaje. Lula tendrá un cuarto mandato a los 81 años, mientras Flávio Bolsonaro insiste en impugnar el resultado sin presentar pruebas. El desenlace también frena el avance de la derecha que impulsaba Trump en la región. ¿Qué significa este resultado para América Latina?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Brasil",
+    "#Lula",
+    "#Bolsonaro",
+    "#Elecciones",
+    "#AméricaLatina"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-10-25-2355-sinlinea-la-prensa-fc9b.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-25-2355-sinlinea-la-prensa-fc9b.jpg",
+    "hash": "9b556a268d270a34",
+    "version": 11,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-10-26T04:56:04.936Z"
+  },
+  "ilustracion": {
+    "descripcion": "Vista general de la fachada del Palácio do Planalto en Brasilia al atardecer, con una bandera de Brasil ondeando en el tercio superior derecho y la zona izquierda y central despejadas.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-25-2355-sinlinea-la-prensa-fc9b.jpg",
+    "hashDescripcion": "e25ec5bcf9d1e3c6",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-26T04:55:30.117Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-26T04:55:30.117Z",
+  "actualizado": "2026-10-26T04:55:30.117Z",
+  "plantilla": "foto",
+  "dato": {
+    "cifra": "51,7%",
+    "frase": "de los votos obtuvo Lula frente al 48,2% de Flávio Bolsonaro"
+  }
+}

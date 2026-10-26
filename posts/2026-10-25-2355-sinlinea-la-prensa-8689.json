@@ -1,0 +1,52 @@
+{
+  "id": "2026-10-25-2355-sinlinea-la-prensa-8689",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/politica/planilla-de-la-asamblea-nacional-tiene-8308-funcionarios-segun-la-contraloria/",
+    "titulo": "Planilla de la Asamblea Nacional tiene 8,308 funcionarios, según la Contraloría",
+    "publicado": "2026-10-26T05:05:00.000Z"
+  },
+  "categoria": "POLÍTICA",
+  "titular": "Asamblea Nacional tiene 8,308 funcionarios en planilla",
+  "bajada": "La Contraloría registra la cifra al 21 de octubre; seis de cada diez son eventuales.",
+  "caption": "La planilla del Legislativo le cuesta al país $13.2 millones al mes, más de $158 millones al año. Para comparar: la Senacyt tiene apenas 188 funcionarios y paga $410,016 mensuales, 32 veces menos. Gran parte de los contratos arrancaron justo cuando cambió la junta directiva en julio. ¿Es necesaria una planilla tan grande en la Asamblea?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#AsambleaNacional",
+    "#Contraloría",
+    "#GastoPúblico",
+    "#Transparencia"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-10-25-2355-sinlinea-la-prensa-8689.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-25-2355-sinlinea-la-prensa-8689.jpg",
+    "hash": "db0b1179f124fc23",
+    "version": 2,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-10-26T04:55:59.844Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada del Palacio Justo Arosemena, sede de la Asamblea Nacional de Panamá, bajo un cielo despejado, con el edificio ubicado en el tercio superior derecho y la zona izquierda y central despejadas.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-26T04:55:30.117Z",
+  "actualizado": "2026-10-26T04:55:30.117Z",
+  "plantilla": "dato",
+  "dato": {
+    "cifra": "$13.2 millones",
+    "frase": "cuesta mantener cada mes la planilla de la Asamblea Nacional"
+  }
+}
