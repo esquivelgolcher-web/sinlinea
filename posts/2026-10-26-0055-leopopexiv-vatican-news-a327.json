@@ -1,7 +1,7 @@
 {
   "id": "2026-10-26-0055-leopopexiv-vatican-news-a327",
   "cuenta": "leopopexiv",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/pope/news/2026-10/pope-prays-for-peace-in-yemen-and-in-jordan.html",
@@ -39,9 +39,26 @@
     "generada": "2026-10-26T04:55:30.117Z",
     "error": null
   },
-  "programado": null,
+  "programado": "2026-10-26T18:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-10-26T04:55:30.117Z",
-  "actualizado": "2026-10-26T04:55:30.117Z"
+  "actualizado": "2026-10-26T20:38:58.827Z",
+  "destinos": {
+    "instagram": {
+      "texto": "After the Sunday Angelus, Pope Leo XIV called for an end to hostilities in Yemen, amid a worsening humanitarian crisis, and offered prayers for those killed in a recent attack in Jordan. He also looked ahead to the international gathering in Assisi marking 40 years since the first World Day of Prayer for Peace. Source: Vatican News, Oct 25, 2026.\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #Angelus #Yemen #Peace #Assisi",
+      "aprobado": {
+        "fecha": "2026-10-26T20:38:58.827Z",
+        "hashPieza": "6beb559f49209015",
+        "imagenHash": "9607ee1a5aa78878",
+        "imagenSha": "a4a8197f49365270265cdca0837b1ac28835bf1b"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
