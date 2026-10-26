@@ -1,7 +1,7 @@
 {
   "id": "2026-10-26-0813-luiseskivelgolcher-wired-ddea",
   "cuenta": "luiseskivelgolcher",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "WIRED",
     "url": "https://www.wired.com/story/the-tragedy-of-losing-your-wikipedia-page/",
@@ -184,9 +184,59 @@
     "estado": "pendiente",
     "notas": []
   },
-  "programado": null,
+  "programado": "2026-10-26T18:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-10-26T13:13:07.760Z",
-  "actualizado": "2026-10-26T13:13:07.760Z"
+  "actualizado": "2026-10-26T20:39:13.885Z",
+  "destinos": {
+    "instagram": {
+      "texto": "Cada día, decenas o cientos de biografías de personas vivas son marcadas para eliminación en Wikipedia. El motivo no es que la persona sea irrelevante: es que no hay suficiente evidencia verificable sobre ella, según reporta WIRED. La directora de una organización sin fines de lucro en Nevada, Kimberly Small, perdió su página por esa razón, mientras el debate ocurría en público, en la propia plataforma. Una editora con 25 años de experiencia, Britta Gustafson, lo resume así: \"No buscamos qué es verdad, buscamos qué es verificable\". Con más de siete millones de artículos en inglés y pocos voluntarios para revisarlos, Wikipedia prioriza corregir fraudes antiguos antes que confirmar datos menores. ¿Debería una biografía digital depender solo de cuánta evidencia dejó alguien en internet?\n\nFuente: WIRED\n\n#Wikipedia #Internet #Plataformas #Tecnología",
+      "aprobado": {
+        "fecha": "2026-10-26T20:39:13.885Z",
+        "hashPieza": "36d9ce8ceb6eb712",
+        "imagenHash": "7b9fe0b549eea2ab",
+        "imagenSha": "bc8fd9b82c039c7e20e1c4a2ecfe7c218cdecaa8",
+        "imagenesSha": [
+          "574343d6d11d8c2782de5ccb9607770347e9ba4f",
+          "5986a57e824ed21ca0c082adb32896aac16c32fc",
+          "ad08f015353e2a067f5dada804cc2e66749b64f2",
+          "78c30e10d46a66a5f0e8b20649d872e46836d97e",
+          "5d17cf9c4bb9c92da7c2fdb3729de4de00e95b80",
+          "29328569f4d25aac26f7e421a77aa5a32ce1fe2b",
+          "50ab164ee2d424fb1d70ebac37cfd42aa303a144"
+        ]
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    },
+    "threads": {
+      "texto": "Wikipedia decide quién merece una biografía\n\nEditores voluntarios borran perfiles por falta de evidencia verificable, no por fama real.\n\nSegún WIRED (26 de octubre de 2026)",
+      "aprobado": {
+        "fecha": "2026-10-26T20:39:13.885Z",
+        "hashPieza": "36d9ce8ceb6eb712",
+        "imagenHash": "7b9fe0b549eea2ab",
+        "imagenSha": "bc8fd9b82c039c7e20e1c4a2ecfe7c218cdecaa8",
+        "imagenesSha": [
+          "574343d6d11d8c2782de5ccb9607770347e9ba4f",
+          "5986a57e824ed21ca0c082adb32896aac16c32fc",
+          "ad08f015353e2a067f5dada804cc2e66749b64f2",
+          "78c30e10d46a66a5f0e8b20649d872e46836d97e",
+          "5d17cf9c4bb9c92da7c2fdb3729de4de00e95b80",
+          "29328569f4d25aac26f7e421a77aa5a32ce1fe2b",
+          "50ab164ee2d424fb1d70ebac37cfd42aa303a144"
+        ]
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
