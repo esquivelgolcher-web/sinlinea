@@ -1,7 +1,7 @@
 {
   "id": "2026-10-24-2351-luiseskivelgolcher-occrp-5ec6",
   "cuenta": "luiseskivelgolcher",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "OCCRP",
     "url": "https://www.occrp.org/en/news/chinese-scam-boss-murdered-in-sri-lanka-had-multiple-identities",
@@ -194,9 +194,59 @@
     "estado": "pendiente",
     "notas": []
   },
-  "programado": null,
+  "programado": "2026-10-27T12:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-10-25T04:51:28.267Z",
-  "actualizado": "2026-10-25T04:51:28.267Z"
+  "actualizado": "2026-10-26T20:39:32.943Z",
+  "destinos": {
+    "instagram": {
+      "texto": "Chen Guoqing, de 31 años, fue secuestrado el 23 de julio de 2026 en la zona económica especial de Colombo Port City, en Sri Lanka, y asesinado a golpes en una zona rural cercana, según documentos policiales obtenidos por OCCRP y The Sunday Times. Los investigadores encontraron en su cuerpo dos pasaportes con nombres distintos: uno de Camboya, a nombre de Chen Hao, y otro de Surinam, a nombre de Tao Guoqing. Su nombre real no figura en el expediente policial ni en la prensa local. La policía de Sri Lanka ha arrestado a cinco ciudadanos chinos por el crimen y busca a otros tres sospechosos. Según OCCRP, el caso expone cómo operan sin consecuencias los líderes de redes de fraude digital que huyen de los operativos en el sudeste asiático. ¿Qué tan vulnerable es un país a estas redes cuando ni siquiera puede identificar a sus líderes?\n\nFuente: OCCRP\n\n#CiberFraude #OCCRP #SriLanka #CrimenOrganizado",
+      "aprobado": {
+        "fecha": "2026-10-26T20:39:32.943Z",
+        "hashPieza": "e96868ccbde423aa",
+        "imagenHash": "1bea515fc29a120d",
+        "imagenSha": "a33e670fe7ef75b110a9b09007c3b364139b8ae9",
+        "imagenesSha": [
+          "b70958f16b687e68fe1312e71732a1c4733a264f",
+          "e74ab15ba0f4fe42f6ef23a202859967e822f300",
+          "12fbeb5575faca53642995c59a344c434ed8f47c",
+          "487ae002514b7d0d5066f3f872c26dd2ff727886",
+          "79f1d235f226632d00b1ff711e184c863655495b",
+          "f497b5584c224b3589e51e87a88c88cfe667ad27",
+          "59e98291a4e629149ca4b1dde0e51e01e1982b3b"
+        ]
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    },
+    "threads": {
+      "texto": "Jefe de estafas chino usaba tres identidades falsas\n\nFue secuestrado y asesinado en Sri Lanka; sus pasaportes revelan alias en Camboya y Surinam\n\nSegún OCCRP (24 de octubre de 2026)",
+      "aprobado": {
+        "fecha": "2026-10-26T20:39:32.943Z",
+        "hashPieza": "e96868ccbde423aa",
+        "imagenHash": "1bea515fc29a120d",
+        "imagenSha": "a33e670fe7ef75b110a9b09007c3b364139b8ae9",
+        "imagenesSha": [
+          "b70958f16b687e68fe1312e71732a1c4733a264f",
+          "e74ab15ba0f4fe42f6ef23a202859967e822f300",
+          "12fbeb5575faca53642995c59a344c434ed8f47c",
+          "487ae002514b7d0d5066f3f872c26dd2ff727886",
+          "79f1d235f226632d00b1ff711e184c863655495b",
+          "f497b5584c224b3589e51e87a88c88cfe667ad27",
+          "59e98291a4e629149ca4b1dde0e51e01e1982b3b"
+        ]
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
