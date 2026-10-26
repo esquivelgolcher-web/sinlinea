@@ -1,7 +1,7 @@
 {
   "id": "2026-10-26-0055-leopopexiv-vatican-va-8fe8",
   "cuenta": "leopopexiv",
-  "estado": "borrador",
+  "estado": "programado",
   "formato": "frase",
   "frase": {
     "texto": "Being Christian is not the result of an ethical choice or a lofty idea, but the encounter with an event, a person, which gives life a new horizon and a decisive direction.",
@@ -36,9 +36,26 @@
     "renderizada": "2026-10-26T04:56:37.375Z"
   },
   "ilustracion": null,
-  "programado": null,
+  "programado": "2026-10-26T18:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-10-26T04:55:30.117Z",
-  "actualizado": "2026-10-26T04:55:30.117Z"
+  "actualizado": "2026-10-26T20:39:01.105Z",
+  "destinos": {
+    "instagram": {
+      "texto": "“Being Christian is not the result of an ethical choice or a lofty idea, but the encounter with an event, a person, which gives life a new horizon and a decisive direction.”\n\n— Pope Benedict XVI, Deus caritas est, 1 (2005)\n\n#PopeLeoXIV #Vatican #CatholicChurch\n\nFuente: Vatican.va\n\n#PopeLeoXIV #Vatican #CatholicChurch",
+      "aprobado": {
+        "fecha": "2026-10-26T20:39:01.105Z",
+        "hashPieza": "efda0cd10660b2e7",
+        "imagenHash": "e944fc075c19fe19",
+        "imagenSha": "51cb95f646c58e638ccd1091b495fda89cbd44cf"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
