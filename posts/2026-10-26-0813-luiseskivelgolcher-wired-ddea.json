@@ -188,7 +188,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-26T13:13:07.760Z",
-  "actualizado": "2026-10-26T20:39:13.885Z",
+  "actualizado": "2026-10-27T00:20:22.834Z",
   "destinos": {
     "instagram": {
       "texto": "Cada día, decenas o cientos de biografías de personas vivas son marcadas para eliminación en Wikipedia. El motivo no es que la persona sea irrelevante: es que no hay suficiente evidencia verificable sobre ella, según reporta WIRED. La directora de una organización sin fines de lucro en Nevada, Kimberly Small, perdió su página por esa razón, mientras el debate ocurría en público, en la propia plataforma. Una editora con 25 años de experiencia, Britta Gustafson, lo resume así: \"No buscamos qué es verdad, buscamos qué es verificable\". Con más de siete millones de artículos en inglés y pocos voluntarios para revisarlos, Wikipedia prioriza corregir fraudes antiguos antes que confirmar datos menores. ¿Debería una biografía digital depender solo de cuánta evidencia dejó alguien en internet?\n\nFuente: WIRED\n\n#Wikipedia #Internet #Plataformas #Tecnología",
@@ -210,7 +210,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-10-27T00:20:22.834Z",
+        "actualizado": "2026-10-27T00:20:22.834Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     },
