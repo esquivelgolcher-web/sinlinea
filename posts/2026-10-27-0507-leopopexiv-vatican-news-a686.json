@@ -1,0 +1,46 @@
+{
+  "id": "2026-10-27-0507-leopopexiv-vatican-news-a686",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-10/pope-leo-xiv-statement-confirms-latin-america-visit.html",
+    "titulo": "Pope’s visit confirmed: ‘I look forward to returning to Latin America’",
+    "publicado": "2026-10-26T15:54:00.000Z"
+  },
+  "categoria": "INTERNACIONAL",
+  "titular": "Pope Leo XIV to visit Latin America in November",
+  "bajada": "Trip confirmed to Uruguay, Argentina and Peru, Nov. 6-17",
+  "caption": "The Holy See Press Office has confirmed Pope Leo XIV's upcoming Apostolic Journey to Latin America, with stops in Uruguay, Argentina and Peru scheduled for November 6-17. The Pope said he looks forward to returning to the region. Source: Vatican News, Oct 26, 2026.",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Vatican",
+    "#LatinAmerica",
+    "#ApostolicJourney",
+    "#CatholicChurch"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-10-27-0507-leopopexiv-vatican-news-a686.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-27-0507-leopopexiv-vatican-news-a686.jpg",
+    "hash": "ef94ba0a02e8e1a4",
+    "version": 11,
+    "estilo": "b18ca074001a6ad6",
+    "renderizada": "2026-10-27T09:07:23.935Z"
+  },
+  "ilustracion": {
+    "descripcion": "A map-like composition suggesting South America with small symbolic icons for Uruguay, Argentina and Peru; a papal silhouette in formal vestments stands at the upper right, looking toward the continent, left and center空ace kept open.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-27-0507-leopopexiv-vatican-news-a686.jpg",
+    "hashDescripcion": "60d4380e7d37c490",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-27T09:07:01.781Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-27T09:07:01.781Z",
+  "actualizado": "2026-10-27T09:07:01.781Z"
+}
