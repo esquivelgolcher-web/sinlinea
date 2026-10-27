@@ -1,7 +1,7 @@
 {
   "id": "2026-10-24-2351-luiseskivelgolcher-occrp-5ec6",
   "cuenta": "luiseskivelgolcher",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "OCCRP",
     "url": "https://www.occrp.org/en/news/chinese-scam-boss-murdered-in-sri-lanka-had-multiple-identities",
@@ -250,25 +250,15 @@
           "59e98291a4e629149ca4b1dde0e51e01e1982b3b"
         ]
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-10-27T20:54:11.888Z",
-        "actualizado": "2026-10-27T20:54:11.888Z",
-        "contenedorId": "17995651467100604",
-        "hijos": [
-          "17995651305100604",
-          "17995651326100604",
-          "17995651350100604",
-          "17995651371100604",
-          "17995651392100604",
-          "17995651416100604",
-          "17995651443100604"
-        ]
+      "estado": "publicado",
+      "publicacion": {
+        "id": "17952681189341311",
+        "idPublicacion": null,
+        "permalink": "https://www.threads.com/@luisegolcher/post/DfAw7H9iSS2",
+        "fecha": "2026-10-27T20:54:11.888Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
