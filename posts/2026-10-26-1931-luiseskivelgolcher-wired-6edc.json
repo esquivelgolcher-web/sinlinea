@@ -1,0 +1,213 @@
+{
+  "id": "2026-10-26-1931-luiseskivelgolcher-wired-6edc",
+  "cuenta": "luiseskivelgolcher",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "WIRED",
+    "url": "https://www.wired.com/story/the-us-government-is-hiding-a-secret-court-ruling-about-how-it-spies-on-americans/",
+    "titulo": "The US Government Is Hiding a Secret Court Ruling About How It Spies on Americans",
+    "publicado": "2026-10-26T14:09:00.605Z"
+  },
+  "categoria": "SEGURIDAD",
+  "titular": "EE.UU. oculta fallo judicial sobre espionaje a ciudadanos",
+  "bajada": "Senadores denuncian que la Casa Blanca retiene un fallo clave mientras pide renovar la vigilancia",
+  "caption": "Dos senadores demócratas, Ron Wyden y Adam Schiff, denuncian que el gobierno de Trump retiene de forma ilegal un fallo de una corte secreta sobre cómo espía a ciudadanos estadounidenses, según una carta obtenida por WIRED. El tribunal FISA (Foreign Intelligence Surveillance Court, encargado de autorizar vigilancia de inteligencia) objetó en marzo los filtros usados por analistas para leer comunicaciones de estadounidenses sin las aprobaciones que exige la ley, pero igual aprobó un año más de vigilancia bajo la Sección 702, el programa que permite leer mensajes sin orden judicial. La propia normativa del gobierno exige publicar ese tipo de fallos en un máximo de 180 días; el plazo venció el 13 de septiembre y el fallo sigue sin conocerse, mientras el gobierno presiona al Congreso para renovar el programa antes de fin de año. Los senadores piden explicaciones y nombres de responsables antes del 6 de noviembre. Fuente: WIRED, 26 de octubre de 2026.",
+  "hashtags": [
+    "#Vigilancia",
+    "#Privacidad",
+    "#FISA",
+    "#Congreso",
+    "#EEUU"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-10-26-1931-luiseskivelgolcher-wired-6edc.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-26-1931-luiseskivelgolcher-wired-6edc.jpg",
+    "hash": "faf1e7142370d3be",
+    "version": 11,
+    "estilo": "dc9dfadf5d648b09",
+    "renderizada": "2026-10-27T00:32:09.167Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada del Capitolio de Estados Unidos al atardecer, con una silueta institucional de un edificio de inteligencia en el tercio superior derecho; la zona izquierda y central despejada, sin personas ni texto visible.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-26-1931-luiseskivelgolcher-wired-6edc.jpg",
+    "hashDescripcion": "65ecfb720e370b8c",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-27T00:31:36.082Z",
+    "error": null,
+    "procedencia": "generada"
+  },
+  "formato": "carrusel",
+  "fuentes": [
+    {
+      "rol": "principal",
+      "medio": "WIRED",
+      "autor": "Dell Cameron",
+      "url": "https://www.wired.com/story/the-us-government-is-hiding-a-secret-court-ruling-about-how-it-spies-on-americans/",
+      "canonica": "https://www.wired.com/story/the-us-government-is-hiding-a-secret-court-ruling-about-how-it-spies-on-americans/",
+      "idioma": "en",
+      "publicado": "2026-10-26T14:09:00.605Z",
+      "actualizado": "2026-10-26T14:09:00.605Z",
+      "fechaHecho": "2026-03-01",
+      "consultado": "2026-10-27T00:31:36.082Z",
+      "alcance": "completo",
+      "textoRecuperado": {
+        "parrafos": 24,
+        "caracteres": 7575,
+        "enviados": 3724
+      },
+      "fuentesPrimarias": [
+        "https://www.intelligence.gov/assets/documents/702-documents/702_Post_RISAA-FINAL.pdf",
+        "https://www.documentcloud.org/documents/28833648-2026-10-26-letter-from-senators-wyden-and-schiff-to-dni-clayton-and-ag-blanche/",
+        "https://www.demandprogress.org/api/media/file/FISCDeadline.pdf",
+        "https://www.congress.gov/119/crec/2026/04/30/172/76/CREC-2026-04-30-pt1-PgS2158-2.pdf",
+        "https://www.judiciary.senate.gov/imo/media/doc/98781d53-bdcc-75d8-c507-1b1bca492142/2026-07-15_QFR-Responses_Blanche_687007f1-363d-40d9-b7da-356b52dc448d.pdf",
+        "https://www.intelligence.senate.gov/wp-content/uploads/2026/06/aphq-clayton-071526.pdf",
+        "https://www.intelligence.gov/assets/documents/702-documents/declassified/2025/FISC_Opinion_Cert_ABC_03182025_Redacted.pdf",
+        "https://oig.justice.gov/sites/default/files/reports/26-002_0.pdf",
+        "https://www.nytimes.com/2026/04/09/us/politics/section-702-surveillance-fisa.html",
+        "https://www.intelligence.gov/assets/documents/702-documents/FISA_Section_702_By_The_Numbers-FINAL.pdf",
+        "https://www.intelligence.gov/assets/documents/702-documents/US_Person_Queries_FISA_Section_702-FINAL.pdf",
+        "https://www.intelligence.gov/assets/documents/702-documents/CIA_FISA_Factsheet_FINAL_20260327.pdf",
+        "https://documents.pclob.gov/prod/Documents/OversightReport/315fe19c-07f3-4cc6-986a-ff199ce5b616/Unclassified%20PCLOB%20702%20Report%202026.pdf",
+        "https://www.govinfo.gov/content/pkg/CREC-2026-06-02/pdf/CREC-2026-06-02.pdf",
+        "https://www.govinfo.gov/content/pkg/CREC-2026-03-10/pdf/CREC-2026-03-10.pdf",
+        "https://www.congress.gov/bill/118th-congress/house-bill/2670",
+        "http://www.aboutads.info"
+      ],
+      "licenciaMedios": null
+    }
+  ],
+  "afirmaciones": [
+    {
+      "texto": "La corte FISA objetó en marzo los filtros que permiten a analistas leer comunicaciones de estadounidenses sin las aprobaciones que exige la ley.",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/the-us-government-is-hiding-a-secret-court-ruling-about-how-it-spies-on-americans/",
+      "contrastada": true
+    },
+    {
+      "texto": "El gobierno de Trump retiene de forma ilegal el fallo pese a que su propio plazo de 180 días para declasificarlo venció el 13 de septiembre.",
+      "tipo": "denuncia",
+      "fuente": "https://www.wired.com/story/the-us-government-is-hiding-a-secret-court-ruling-about-how-it-spies-on-americans/",
+      "contrastada": false
+    },
+    {
+      "texto": "El fiscal general Todd Blanche se comprometió por escrito en julio a declasificar el fallo antes del plazo.",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/the-us-government-is-hiding-a-secret-court-ruling-about-how-it-spies-on-americans/",
+      "contrastada": true
+    },
+    {
+      "texto": "23 organizaciones de derechos civiles piden al Congreso no renovar la Sección 702 mientras el gobierno oculte esta información.",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/the-us-government-is-hiding-a-secret-court-ruling-about-how-it-spies-on-americans/",
+      "contrastada": true
+    }
+  ],
+  "angulo": "Denuncia de dos senadores sobre retención ilegal de un fallo judicial secreto que regula la vigilancia masiva de comunicaciones.",
+  "atribucion": "WIRED (Dell Cameron), 26 de octubre de 2026",
+  "puntuacion": {
+    "total": 81,
+    "componentes": {
+      "afinidad": 27,
+      "interes": 18,
+      "evidencia": 16,
+      "actualidad": 15,
+      "visual": 5
+    }
+  },
+  "alertas": [
+    "fuente-unica",
+    "hecho-antiguo"
+  ],
+  "carrusel": {
+    "diapositivas": [
+      {
+        "titulo": "¿Por qué EE.UU. esconde un fallo sobre cómo te espía?",
+        "texto": "Dos senadores acusan al gobierno de Trump de ocultar una decisión judicial secreta sobre vigilancia masiva."
+      },
+      {
+        "titulo": "Un tribunal secreto objetó el método de espionaje",
+        "texto": "En marzo de 2026, la corte FISA cuestionó los filtros que usan analistas para leer mensajes de estadounidenses sin las aprobaciones legales requeridas."
+      },
+      {
+        "titulo": "Aprobó la vigilancia de todos modos",
+        "texto": "Pese a la objeción, el tribunal renovó por un año el programa de la Sección 702, que permite leer comunicaciones sin orden judicial."
+      },
+      {
+        "titulo": "El plazo para hacerlo público ya venció",
+        "texto": "La norma del propio gobierno exige publicar estos fallos en 180 días. El plazo venció el 13 de septiembre y el documento sigue oculto."
+      },
+      {
+        "titulo": "Lo que está en juego para millones de personas",
+        "texto": "El Congreso debate renovar la Sección 702 antes de fin de año sin conocer las fallas que el propio tribunal detectó en el programa."
+      },
+      {
+        "titulo": "Promesas sin cumplir",
+        "texto": "El fiscal general Todd Blanche prometió por escrito declasificar el fallo. El director de inteligencia Jay Clayton no se ha comprometido a nada."
+      },
+      {
+        "titulo": "Lo que exigen los senadores",
+        "texto": "Wyden y Schiff piden explicaciones y nombres de responsables antes del 6 de noviembre. Fuente: WIRED, carta obtenida en exclusiva."
+      }
+    ],
+    "imagenes": [
+      {
+        "numero": 1,
+        "ruta": "public/img/2026-10-26-1931-luiseskivelgolcher-wired-6edc-01.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-26-1931-luiseskivelgolcher-wired-6edc-01.jpg",
+        "hash": "a6546a91a19167ff"
+      },
+      {
+        "numero": 2,
+        "ruta": "public/img/2026-10-26-1931-luiseskivelgolcher-wired-6edc-02.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-26-1931-luiseskivelgolcher-wired-6edc-02.jpg",
+        "hash": "2f3e7ade5adee2f4"
+      },
+      {
+        "numero": 3,
+        "ruta": "public/img/2026-10-26-1931-luiseskivelgolcher-wired-6edc-03.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-26-1931-luiseskivelgolcher-wired-6edc-03.jpg",
+        "hash": "d051a5e7f5196a95"
+      },
+      {
+        "numero": 4,
+        "ruta": "public/img/2026-10-26-1931-luiseskivelgolcher-wired-6edc-04.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-26-1931-luiseskivelgolcher-wired-6edc-04.jpg",
+        "hash": "43951d0e655416ec"
+      },
+      {
+        "numero": 5,
+        "ruta": "public/img/2026-10-26-1931-luiseskivelgolcher-wired-6edc-05.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-26-1931-luiseskivelgolcher-wired-6edc-05.jpg",
+        "hash": "7d1e5065236f44cf"
+      },
+      {
+        "numero": 6,
+        "ruta": "public/img/2026-10-26-1931-luiseskivelgolcher-wired-6edc-06.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-26-1931-luiseskivelgolcher-wired-6edc-06.jpg",
+        "hash": "eff351abe69e2065"
+      },
+      {
+        "numero": 7,
+        "ruta": "public/img/2026-10-26-1931-luiseskivelgolcher-wired-6edc-07.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-26-1931-luiseskivelgolcher-wired-6edc-07.jpg",
+        "hash": "c7828afa855f6218"
+      }
+    ],
+    "hash": "fbf12e720d931bcc",
+    "version": 2
+  },
+  "reel": null,
+  "revision": {
+    "estado": "pendiente",
+    "notas": []
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-27T00:31:36.082Z",
+  "actualizado": "2026-10-27T00:31:36.082Z"
+}
