@@ -1,0 +1,52 @@
+{
+  "id": "2026-10-27-1035-sinlinea-la-estrella-5711",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/economia/quejas-en-acodeco-superan-los-266-millones-a-septiembre-de-2026-OP26839043",
+    "titulo": "Quejas en Acodeco superan los $26.6 millones a septiembre de 2026",
+    "publicado": "2026-10-27T15:20:00.000Z"
+  },
+  "categoria": "ECONOMÍA",
+  "titular": "Quejas ante Acodeco suman $26.6 millones en lo que va de 2026",
+  "bajada": "Entre enero y septiembre se registraron 2,562 reclamos, la mayoría por incumplimiento de garantías.",
+  "caption": "Viviendas, carros y electrodomésticos encabezan las quejas de los consumidores panameños este año. El incumplimiento de garantías fue el motivo más reclamado, con más de mil expedientes. Si compraste algo y sentiste que te incumplieron, no estás solo. ¿Has puesto una queja en Acodeco?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Acodeco",
+    "#Consumidores",
+    "#Economía",
+    "#Vivienda"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-10-27-1035-sinlinea-la-estrella-5711.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-27-1035-sinlinea-la-estrella-5711.jpg",
+    "hash": "de3e4305636d291b",
+    "version": 11,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-10-27T15:36:18.990Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada de una oficina de Acodeco en Panamá con personas haciendo fila afuera, el letrero de la entidad en el tercio superior derecho; zona izquierda y central despejadas.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-27-1035-sinlinea-la-estrella-5711.jpg",
+    "hashDescripcion": "5c49c904df294e36",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-27T15:35:45.400Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-27T15:35:45.400Z",
+  "actualizado": "2026-10-27T15:35:45.400Z",
+  "plantilla": "foto",
+  "dato": {
+    "cifra": "$26.6 millones",
+    "frase": "es el monto total de las quejas de consumidores entre enero y septiembre"
+  }
+}

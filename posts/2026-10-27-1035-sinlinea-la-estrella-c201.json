@@ -1,0 +1,52 @@
+{
+  "id": "2026-10-27-1035-sinlinea-la-estrella-c201",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/sismo-de-magnitud-57-se-registra-al-noreste-de-coiba-reporta-geociencias-NI26841286",
+    "titulo": "Sismo de magnitud 5.7 se registra al noreste de Coiba, reporta Geociencias",
+    "publicado": "2026-10-27T13:32:00.000Z"
+  },
+  "categoria": "ÚLTIMA HORA",
+  "titular": "Sismo de magnitud 5.7 sacude zona cercana a Coiba",
+  "bajada": "El movimiento ocurrió a las 10:26 a.m. a 19 km al noreste de la isla, informó Geociencias.",
+  "caption": "A casi tres semanas del fuerte terremoto que dejó daños en varias provincias, un nuevo sismo de magnitud 5.7 volvió a sentirse cerca de Coiba. El reporte es preliminar y podría cambiar, pero recuerda que la actividad sísmica en la zona sigue activa. ¿Sentiste el movimiento?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Sismo",
+    "#Coiba",
+    "#Geociencias",
+    "#Terremoto"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-10-27-1035-sinlinea-la-estrella-c201.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-27-1035-sinlinea-la-estrella-c201.jpg",
+    "hash": "1f1676bc7b59c7c6",
+    "version": 2,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-10-27T15:36:14.670Z"
+  },
+  "ilustracion": {
+    "descripcion": "Vista general de la isla de Coiba y el mar en calma al amanecer, con el ícono de una onda sísmica en el tercio superior derecho; zona izquierda y central despejadas.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-27T15:35:45.400Z",
+  "actualizado": "2026-10-27T15:35:45.400Z",
+  "plantilla": "dato",
+  "dato": {
+    "cifra": "5.7",
+    "frase": "fue la magnitud del sismo registrado al noreste de Coiba"
+  }
+}

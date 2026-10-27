@@ -1,0 +1,189 @@
+{
+  "id": "2026-10-27-1035-luiseskivelgolcher-wired-b60d",
+  "cuenta": "luiseskivelgolcher",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "WIRED",
+    "url": "https://www.wired.com/story/the-big-interview-podcast-jess-asato/",
+    "titulo": "UK Politician Jess Asato Got Deepfaked. Now She’s Taking xAI to Court",
+    "publicado": "2026-10-27T13:29:41.157Z"
+  },
+  "categoria": "SEGURIDAD",
+  "titular": "Diputada británica demanda a xAI por deepfakes",
+  "bajada": "Jess Asato busca que un tribunal responsabilice a la empresa de Elon Musk por imágenes falsas",
+  "caption": "La diputada laborista británica Jess Asato llevó a xAI, la empresa de inteligencia artificial de Elon Musk, ante los tribunales. Según contó a WIRED, circularon deepfakes —imágenes falsas generadas con inteligencia artificial que simulan ser reales— sexualizadas y degradantes de ella, una incluso simulaba una agresión sexual. Asato denuncia que la plataforma X desestimó repetidamente sus reportes. xAI no respondió a la solicitud de comentarios de WIRED. El caso busca sentar un precedente sobre si las empresas de IA pueden responder legalmente por el daño que causan sus herramientas. Antes de ser víctima, Asato ya trabajaba en el Parlamento por protecciones contra el abuso digital hacia mujeres y niñas. Este resumen se basa en una entrevista de WIRED; no hay, por ahora, otra fuente que lo confirme de forma independiente.",
+  "hashtags": [
+    "#Deepfakes",
+    "#IA",
+    "#Privacidad",
+    "#xAI",
+    "#ReinoUnido"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-10-27-1035-luiseskivelgolcher-wired-b60d.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-27-1035-luiseskivelgolcher-wired-b60d.jpg",
+    "hash": "8493df9da66e806f",
+    "version": 11,
+    "estilo": "dc9dfadf5d648b09",
+    "renderizada": "2026-10-27T15:37:10.689Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada de un tribunal de Londres al atardecer, con columnas clásicas y banderas británicas; el edificio ocupa el tercio superior derecho, mientras la zona izquierda y central queda despejada.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-27-1035-luiseskivelgolcher-wired-b60d.jpg",
+    "hashDescripcion": "0998416168e36eff",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-27T15:35:45.400Z",
+    "error": null,
+    "procedencia": "generada"
+  },
+  "formato": "carrusel",
+  "fuentes": [
+    {
+      "rol": "principal",
+      "medio": "WIRED",
+      "autor": "Rosie Swash",
+      "url": "https://www.wired.com/story/the-big-interview-podcast-jess-asato/",
+      "canonica": "https://www.wired.com/story/the-big-interview-podcast-jess-asato/",
+      "idioma": "en",
+      "publicado": "2026-10-27T13:29:41.157Z",
+      "actualizado": "2026-10-27T13:29:41.157Z",
+      "fechaHecho": null,
+      "consultado": "2026-10-27T15:35:45.400Z",
+      "alcance": "completo",
+      "textoRecuperado": {
+        "parrafos": 107,
+        "caracteres": 27090,
+        "enviados": 3893
+      },
+      "fuentesPrimarias": [
+        "https://podcasts.apple.com/us/podcast/uncanny-valley-wired/id266391367",
+        "https://open.spotify.com/show/11hUjoJv4FxFnw9r0mHIsC",
+        "https://www.google.com/preferences/source?q=wired.com",
+        "http://www.aboutads.info"
+      ],
+      "licenciaMedios": null
+    }
+  ],
+  "afirmaciones": [
+    {
+      "texto": "Jess Asato, diputada laborista británica, presentó una demanda contra xAI por el uso no autorizado de su imagen en deepfakes sexualizados",
+      "tipo": "denuncia",
+      "fuente": "https://www.wired.com/story/the-big-interview-podcast-jess-asato/",
+      "contrastada": false
+    },
+    {
+      "texto": "Circularon imágenes falsas generadas con IA que mostraban a Asato en escenas degradantes, una de ellas simulaba una agresión sexual",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/the-big-interview-podcast-jess-asato/",
+      "contrastada": false
+    },
+    {
+      "texto": "X desestimó repetidamente las denuncias de Asato sobre las imágenes falsas",
+      "tipo": "denuncia",
+      "fuente": "https://www.wired.com/story/the-big-interview-podcast-jess-asato/",
+      "contrastada": false
+    },
+    {
+      "texto": "xAI no respondió a la solicitud de comentarios de WIRED",
+      "tipo": "hecho",
+      "fuente": "https://www.wired.com/story/the-big-interview-podcast-jess-asato/",
+      "contrastada": true
+    }
+  ],
+  "angulo": "Una legisladora que combatía el abuso digital se convirtió en víctima y ahora demanda a la empresa de IA responsable, en un caso que podría definir la responsabilidad legal de estas herramientas.",
+  "atribucion": "Según una entrevista de Rosie Swash publicada en WIRED el 27 de octubre de 2026",
+  "puntuacion": {
+    "total": 80,
+    "componentes": {
+      "afinidad": 27,
+      "interes": 20,
+      "evidencia": 12,
+      "actualidad": 15,
+      "visual": 6
+    }
+  },
+  "alertas": [
+    "fuente-unica"
+  ],
+  "carrusel": {
+    "diapositivas": [
+      {
+        "titulo": "¿Puede una diputada obligar a una IA a rendir cuentas?",
+        "texto": "Jess Asato, parlamentaria laborista en Reino Unido, demanda a xAI tras ser víctima de deepfakes sexualizados generados con su imagen."
+      },
+      {
+        "titulo": "De activista contra el abuso a víctima de deepfakes",
+        "texto": "Asato llevaba años luchando contra el abuso digital hacia mujeres y niñas cuando, en 2025, imágenes falsas de ella empezaron a circular en X."
+      },
+      {
+        "titulo": "X ignoró sus reportes, según la diputada",
+        "texto": "Asato dice haber reportado las imágenes repetidamente a la plataforma, que las desestimó. Una de las imágenes simulaba una agresión sexual."
+      },
+      {
+        "titulo": "Un caso que podría sentar precedente legal",
+        "texto": "La demanda contra xAI busca establecer si las empresas de inteligencia artificial responden legalmente por el daño que causan sus herramientas."
+      },
+      {
+        "titulo": "Lo que falta por saber",
+        "texto": "xAI no respondió a WIRED. Este relato se basa en una sola entrevista; no hay, por ahora, confirmación independiente de todos los detalles."
+      },
+      {
+        "titulo": "El consentimiento frente a la máquina",
+        "texto": "Para Asato, el caso trasciende su propia imagen: pregunta si el consentimiento importa cuando la IA puede fabricar casi cualquier cosa. Fuente: WIRED, 27 de octubre de 2026."
+      }
+    ],
+    "imagenes": [
+      {
+        "numero": 1,
+        "ruta": "public/img/2026-10-27-1035-luiseskivelgolcher-wired-b60d-01.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-27-1035-luiseskivelgolcher-wired-b60d-01.jpg",
+        "hash": "41675f5e887b6498"
+      },
+      {
+        "numero": 2,
+        "ruta": "public/img/2026-10-27-1035-luiseskivelgolcher-wired-b60d-02.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-27-1035-luiseskivelgolcher-wired-b60d-02.jpg",
+        "hash": "d89f4edc1b70e492"
+      },
+      {
+        "numero": 3,
+        "ruta": "public/img/2026-10-27-1035-luiseskivelgolcher-wired-b60d-03.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-27-1035-luiseskivelgolcher-wired-b60d-03.jpg",
+        "hash": "d049b32ac2542154"
+      },
+      {
+        "numero": 4,
+        "ruta": "public/img/2026-10-27-1035-luiseskivelgolcher-wired-b60d-04.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-27-1035-luiseskivelgolcher-wired-b60d-04.jpg",
+        "hash": "62ad488f639699a5"
+      },
+      {
+        "numero": 5,
+        "ruta": "public/img/2026-10-27-1035-luiseskivelgolcher-wired-b60d-05.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-27-1035-luiseskivelgolcher-wired-b60d-05.jpg",
+        "hash": "dd30204bdee9ff05"
+      },
+      {
+        "numero": 6,
+        "ruta": "public/img/2026-10-27-1035-luiseskivelgolcher-wired-b60d-06.jpg",
+        "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-27-1035-luiseskivelgolcher-wired-b60d-06.jpg",
+        "hash": "84f4980a7e9b8dfc"
+      }
+    ],
+    "hash": "c6962a891635f147",
+    "version": 2
+  },
+  "reel": null,
+  "revision": {
+    "estado": "pendiente",
+    "notas": []
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-27T15:35:45.400Z",
+  "actualizado": "2026-10-27T15:35:45.400Z"
+}
