@@ -253,7 +253,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-10-27T20:54:11.888Z",
+        "actualizado": "2026-10-27T20:54:11.888Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
