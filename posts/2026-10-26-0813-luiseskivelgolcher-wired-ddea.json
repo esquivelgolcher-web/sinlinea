@@ -1,7 +1,7 @@
 {
   "id": "2026-10-26-0813-luiseskivelgolcher-wired-ddea",
   "cuenta": "luiseskivelgolcher",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "WIRED",
     "url": "https://www.wired.com/story/the-tragedy-of-losing-your-wikipedia-page/",
@@ -240,25 +240,15 @@
           "50ab164ee2d424fb1d70ebac37cfd42aa303a144"
         ]
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-10-27T00:20:22.834Z",
-        "actualizado": "2026-10-27T00:20:22.834Z",
-        "contenedorId": "17995484463100604",
-        "hijos": [
-          "17995484295100604",
-          "17995484319100604",
-          "17995484343100604",
-          "17995484376100604",
-          "17995484397100604",
-          "17995484418100604",
-          "17995484439100604"
-        ]
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18041556734846526",
+        "idPublicacion": null,
+        "permalink": "https://www.threads.com/@luisegolcher/post/De-jwNGj58S",
+        "fecha": "2026-10-27T00:20:22.834Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
