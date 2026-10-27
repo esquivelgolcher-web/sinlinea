@@ -245,10 +245,19 @@
       "error": null,
       "intento": {
         "n": 1,
-        "fase": "reservado",
+        "fase": "contenedor",
         "inicio": "2026-10-27T00:20:22.834Z",
         "actualizado": "2026-10-27T00:20:22.834Z",
-        "contenedorId": null
+        "contenedorId": null,
+        "hijos": [
+          "17995484295100604",
+          "17995484319100604",
+          "17995484343100604",
+          "17995484376100604",
+          "17995484397100604",
+          "17995484418100604",
+          "17995484439100604"
+        ]
       },
       "omitido": null,
       "espera": null
