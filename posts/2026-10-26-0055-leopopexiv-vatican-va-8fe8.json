@@ -1,7 +1,7 @@
 {
   "id": "2026-10-26-0055-leopopexiv-vatican-va-8fe8",
   "cuenta": "leopopexiv",
-  "estado": "programado",
+  "estado": "publicado",
   "formato": "frase",
   "frase": {
     "texto": "Being Christian is not the result of an ethical choice or a lofty idea, but the encounter with an event, a person, which gives life a new horizon and a decisive direction.",
@@ -37,7 +37,11 @@
   },
   "ilustracion": null,
   "programado": "2026-10-26T18:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "17939406915121193",
+    "permalink": "https://www.instagram.com/p/De-j29hjNFf/",
+    "fecha": "2026-10-27T00:22:31.155Z"
+  },
   "error": null,
   "creado": "2026-10-26T04:55:30.117Z",
   "actualizado": "2026-10-27T00:22:31.155Z",
@@ -50,16 +54,15 @@
         "imagenHash": "e944fc075c19fe19",
         "imagenSha": "51cb95f646c58e638ccd1091b495fda89cbd44cf"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-10-27T00:22:31.155Z",
-        "actualizado": "2026-10-27T00:22:31.155Z",
-        "contenedorId": "18111617741081176"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "17939406915121193",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/De-j29hjNFf/",
+        "fecha": "2026-10-27T00:22:31.155Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
