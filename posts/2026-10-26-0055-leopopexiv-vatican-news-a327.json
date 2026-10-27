@@ -43,7 +43,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-26T04:55:30.117Z",
-  "actualizado": "2026-10-26T20:38:58.827Z",
+  "actualizado": "2026-10-27T00:22:31.155Z",
   "destinos": {
     "instagram": {
       "texto": "After the Sunday Angelus, Pope Leo XIV called for an end to hostilities in Yemen, amid a worsening humanitarian crisis, and offered prayers for those killed in a recent attack in Jordan. He also looked ahead to the international gathering in Assisi marking 40 years since the first World Day of Prayer for Peace. Source: Vatican News, Oct 25, 2026.\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #Angelus #Yemen #Peace #Assisi",
@@ -56,7 +56,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-10-27T00:22:31.155Z",
+        "actualizado": "2026-10-27T00:22:31.155Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
