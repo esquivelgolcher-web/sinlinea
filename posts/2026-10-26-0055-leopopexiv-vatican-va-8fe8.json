@@ -40,7 +40,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-26T04:55:30.117Z",
-  "actualizado": "2026-10-26T20:39:01.105Z",
+  "actualizado": "2026-10-27T00:22:31.155Z",
   "destinos": {
     "instagram": {
       "texto": "“Being Christian is not the result of an ethical choice or a lofty idea, but the encounter with an event, a person, which gives life a new horizon and a decisive direction.”\n\n— Pope Benedict XVI, Deus caritas est, 1 (2005)\n\n#PopeLeoXIV #Vatican #CatholicChurch\n\nFuente: Vatican.va\n\n#PopeLeoXIV #Vatican #CatholicChurch",
@@ -53,7 +53,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-10-27T00:22:31.155Z",
+        "actualizado": "2026-10-27T00:22:31.155Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
