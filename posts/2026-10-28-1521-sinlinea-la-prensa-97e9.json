@@ -1,0 +1,52 @@
+{
+  "id": "2026-10-28-1521-sinlinea-la-prensa-97e9",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/politica/el-gabinete-avala-el-pago-de-241-millones-a-hombres-de-blanco-pese-a-tener-el-contrato-vencido/",
+    "titulo": "El Gabinete avala el pago de $24.1 millones a Hombres de Blanco, pese a tener el contrato vencido",
+    "publicado": "2026-10-28T18:01:46.000Z"
+  },
+  "categoria": "POLÍTICA",
+  "titular": "Gabinete aprueba $24.1 millones para Hombres de Blanco",
+  "bajada": "El contrato de limpieza hospitalaria venció en junio pero fue prorrogado siete meses más.",
+  "caption": "El Consejo de Gabinete dio luz verde a un pago millonario a la empresa Hombres de Blanco por servicios de limpieza en hospitales, pese a que el contrato original ya había vencido. La mayor parte del dinero saldrá del presupuesto del próximo año. ¿Te parece correcto que el Estado extienda contratos vencidos sin licitar de nuevo?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Gabinete",
+    "#Minsa",
+    "#Salud",
+    "#ContratosPúblicos"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-10-28-1521-sinlinea-la-prensa-97e9.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-28-1521-sinlinea-la-prensa-97e9.jpg",
+    "hash": "b03733ec9739cdd6",
+    "version": 11,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-10-28T20:21:55.174Z"
+  },
+  "ilustracion": {
+    "descripcion": "Interior de una sala de reuniones gubernamental en Panamá, con una mesa de juntas y sillas vacías, el elemento principal en el tercio superior derecho, dejando despejada la zona izquierda y central.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-28-1521-sinlinea-la-prensa-97e9.jpg",
+    "hashDescripcion": "35845c5ce3a93f4a",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-28T20:21:16.428Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-28T20:21:16.428Z",
+  "actualizado": "2026-10-28T20:21:16.428Z",
+  "plantilla": "foto",
+  "dato": {
+    "cifra": "$24.1 millones",
+    "frase": "pagará el Estado a Hombres de Blanco por limpieza hospitalaria"
+  }
+}

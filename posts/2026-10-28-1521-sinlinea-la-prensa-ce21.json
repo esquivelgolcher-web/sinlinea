@@ -1,0 +1,52 @@
+{
+  "id": "2026-10-28-1521-sinlinea-la-prensa-ce21",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/mundo/al-menos-68-fallecidos-y-mas-de-60-heridos-en-un-choque-de-dos-trenes-en-espana/",
+    "titulo": "Al menos 68 fallecidos y más de 60 heridos en un choque de dos trenes en España",
+    "publicado": "2026-10-28T20:01:22.000Z"
+  },
+  "categoria": "INTERNACIONAL",
+  "titular": "Choque de trenes en España deja 68 muertos",
+  "bajada": "Dos trenes de alta velocidad colisionaron cerca de Toledo; las autoridades buscan más víctimas.",
+  "caption": "Un choque entre dos trenes de alta velocidad en España dejó decenas de muertos y heridos, entre ellos un panameño que viajaba de turismo. Los equipos de rescate siguen buscando cuerpos entre los vagones destruidos. Historias como esta nos recuerdan lo frágil que puede ser un viaje cotidiano. ¿Conoces a alguien que viaje seguido por tren en el extranjero?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#España",
+    "#Toledo",
+    "#AccidenteFerroviario",
+    "#TrenesAVE"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-10-28-1521-sinlinea-la-prensa-ce21.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-28-1521-sinlinea-la-prensa-ce21.jpg",
+    "hash": "6308884ae024c7e8",
+    "version": 2,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-10-28T20:21:50.247Z"
+  },
+  "ilustracion": {
+    "descripcion": "Vagones de un tren de alta velocidad descarrilados sobre una vía rural al atardecer, con luces de emergencia a lo lejos; el tren dañado ubicado en el tercio superior derecho, dejando despejada la zona izquierda y central.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-28T20:21:16.428Z",
+  "actualizado": "2026-10-28T20:21:16.428Z",
+  "plantilla": "dato",
+  "dato": {
+    "cifra": "68",
+    "frase": "personas murieron en el choque de trenes en España"
+  }
+}
