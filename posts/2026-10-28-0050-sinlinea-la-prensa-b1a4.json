@@ -1,0 +1,52 @@
+{
+  "id": "2026-10-28-0050-sinlinea-la-prensa-b1a4",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/politica/descuentos-para-jubilados-asamblea-aprueba-en-segundo-debate-el-proyecto-746/",
+    "titulo": "Descuentos para jubilados: Asamblea aprueba en segundo debate el proyecto 746",
+    "publicado": "2026-10-28T04:05:00.000Z"
+  },
+  "categoria": "POLÍTICA",
+  "titular": "Asamblea duplica descuento en medicinas para jubilados",
+  "bajada": "El proyecto 746 suma 20% de descuento en pañales y pasó segundo debate con 54 votos.",
+  "caption": "La Asamblea le subió el descuento en medicamentos a los jubilados, de 10% a 20%, y añadió un alivio para quienes compran pañales de adulto. Son beneficios que buscan aliviar el bolsillo de miles de familias panameñas con adultos mayores a su cargo. Los comercios ahora deberán mostrar el precio con y sin descuento, bajo pena de multa.\n\n¿Crees que estos beneficios realmente llegarán a todos los jubilados del país?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#AsambleaNacional",
+    "#AdultoMayor",
+    "#Jubilados",
+    "#Ley746"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-10-28-0050-sinlinea-la-prensa-b1a4.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-28-0050-sinlinea-la-prensa-b1a4.jpg",
+    "hash": "ee489b3b4c51d81d",
+    "version": 11,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-10-28T05:51:43.364Z"
+  },
+  "ilustracion": {
+    "descripcion": "Mostrador de farmacia con cajas de medicamentos y pañales de adulto, un adulto mayor pagando en el tercio superior derecho, zona izquierda y central despejada, ilustración editorial.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-28-0050-sinlinea-la-prensa-b1a4.jpg",
+    "hashDescripcion": "94e959d79268cd91",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-28T05:50:56.061Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-28T05:50:56.061Z",
+  "actualizado": "2026-10-28T05:50:56.061Z",
+  "plantilla": "foto",
+  "dato": {
+    "cifra": "20%",
+    "frase": "es el nuevo descuento en medicinas con receta para jubilados, antes era 10%"
+  }
+}

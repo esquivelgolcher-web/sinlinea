@@ -1,0 +1,48 @@
+{
+  "id": "2026-10-28-0050-sinlinea-la-prensa-7b61",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/judiciales/declaran-culpables-a-constructora-corcione-y-a-una-ingeniera-por-tragedia-en-costa-del-este/",
+    "titulo": "Tragedia en Costa del Este: declaran culpables a constructora y a ingeniera",
+    "publicado": "2026-10-28T02:55:00.000Z"
+  },
+  "categoria": "SEGURIDAD",
+  "titular": "Culpan a constructora por tragedia en Costa del Este",
+  "bajada": "Corcione S.A. y una ingeniera residente fueron halladas culpables de homicidio culposo por el caso PH Breeze.",
+  "caption": "Ocho años después de la tragedia que le costó la vida a tres personas en el PH Breeze, un tribunal determinó que la constructora y la ingeniera residente incumplieron las normas de seguridad en la edificación. El fallo, que puede apelarse, reabre la pregunta sobre cuántos edificios en Panamá cumplen realmente con el reglamento de diseño estructural.\n\n¿Confías en que los edificios donde vives o trabajas cumplen las normas de seguridad?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#CostaDelEste",
+    "#PHBreeze",
+    "#JusticiaPanamá",
+    "#SeguridadEstructural"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-10-28-0050-sinlinea-la-prensa-7b61.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-28-0050-sinlinea-la-prensa-7b61.jpg",
+    "hash": "201a2520b8c0a60e",
+    "version": 2,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-10-28T05:51:43.718Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada de un edificio residencial con estacionamiento elevado al atardecer, el edificio en el tercio superior derecho, zona izquierda y central despejada, ilustración editorial sin personas reconocibles.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-28T05:50:56.061Z",
+  "actualizado": "2026-10-28T05:50:56.061Z",
+  "plantilla": "titular"
+}

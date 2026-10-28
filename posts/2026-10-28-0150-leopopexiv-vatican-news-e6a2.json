@@ -1,0 +1,46 @@
+{
+  "id": "2026-10-28-0150-leopopexiv-vatican-news-e6a2",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-10/pope-sends-videomessage-to-international-meeting-peace-assisi.html",
+    "titulo": "Pope to Assisi Peace Meeting: 'May we be unarmed instruments of God's peace'",
+    "publicado": "2026-10-27T15:00:00.000Z"
+  },
+  "categoria": "INTERNACIONAL",
+  "titular": "Pope Leo urges 'unarmed instruments' of peace",
+  "bajada": "Video message to Assisi Peace Meeting says war can never be waged in God's name",
+  "caption": "In a video message to the International Meeting for Peace in Assisi, Pope Leo XIV called on participants to be \"unarmed instruments of the Lord's peace,\" stressing that \"war can never be waged in the name of God.\" Source: Vatican News, Oct 27, 2026.",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Assisi",
+    "#Peace",
+    "#Vatican",
+    "#InterfaithDialogue"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-10-28-0150-leopopexiv-vatican-news-e6a2.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-28-0150-leopopexiv-vatican-news-e6a2.jpg",
+    "hash": "d0172ea05dc487b2",
+    "version": 11,
+    "estilo": "b18ca074001a6ad6",
+    "renderizada": "2026-10-28T05:52:04.705Z"
+  },
+  "ilustracion": {
+    "descripcion": "A dove rests on an olive branch above the historic Basilica of San Francesco in Assisi at dusk, placed in the upper right third; the left and central areas remain open and calm.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-28-0150-leopopexiv-vatican-news-e6a2.jpg",
+    "hashDescripcion": "d7309f3e61434224",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-28T05:50:56.061Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-28T05:50:56.061Z",
+  "actualizado": "2026-10-28T05:50:56.061Z"
+}
