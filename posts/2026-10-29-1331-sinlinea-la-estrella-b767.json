@@ -1,0 +1,48 @@
+{
+  "id": "2026-10-29-1331-sinlinea-la-estrella-b767",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/economia/16-horas-despues-presupuesto-2027-retoma-el-debate-tras-cuestionamietos-al-ministerio-de-economia-y-finanzas-HM26910124",
+    "titulo": "16 horas después: Presupuesto 2027 retoma el debate tras cuestionamietos al Ministerio de Economía y Finanzas",
+    "publicado": "2026-10-29T16:00:00.000Z"
+  },
+  "categoria": "ECONOMÍA",
+  "titular": "Asamblea retoma debate del Presupuesto 2027 tras maratón",
+  "bajada": "Sesión de más de 16 horas por reclamos de fondos para salud, educación y zonas afectadas por sismo",
+  "caption": "El Ministerio de Economía y Finanzas defiende un presupuesto de $35,111.7 millones que, según el ministro Chapman, incorpora el 94% de las recomendaciones de la Comisión de Presupuesto. La discusión sigue tensa entre el Ejecutivo y la oposición mientras crece la planilla estatal en 5,527 puestos. ¿Debería priorizarse más el gasto social sobre otras partidas?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Presupuesto2027",
+    "#Asamblea",
+    "#Economía",
+    "#MEF"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-10-29-1331-sinlinea-la-estrella-b767.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-29-1331-sinlinea-la-estrella-b767.jpg",
+    "hash": "749fc4a0cb4a9b7a",
+    "version": 2,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-10-29T18:32:06.228Z"
+  },
+  "ilustracion": {
+    "descripcion": "Interior del salón de sesiones de la Asamblea Nacional de Panamá, con bancas vacías y documentos sobre un escritorio en el tercio superior derecho; zona izquierda y central despejada.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-29T18:31:28.161Z",
+  "actualizado": "2026-10-29T18:31:28.161Z",
+  "plantilla": "titular"
+}

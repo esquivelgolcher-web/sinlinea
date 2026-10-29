@@ -1,0 +1,52 @@
+{
+  "id": "2026-10-29-1331-sinlinea-la-prensa-6bb9",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/judiciales/decomisan-698-paquetes-de-droga-en-la-costa-arriba-de-colon/",
+    "titulo": "Decomisan 698 paquetes de droga en la costa arriba de Colón",
+    "publicado": "2026-10-29T18:19:31.000Z"
+  },
+  "categoria": "SEGURIDAD",
+  "titular": "Decomisan 1.21 toneladas de droga en Colón",
+  "bajada": "Policía y Ministerio Público incautaron 698 paquetes en una lancha cerca de Isla Grande.",
+  "caption": "En menos de 8 horas, las autoridades lograron un golpe fuerte al narcotráfico en aguas panameñas. La droga viajaba en 28 sacos dentro de una lancha, parte del operativo Bloqueo Central II. Aunque dos personas iban a bordo, no fueron aprehendidas. ¿Qué pasa con los responsables de este cargamento?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Colón",
+    "#Seguridad",
+    "#Narcotráfico",
+    "#PolicíaNacional"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-10-29-1331-sinlinea-la-prensa-6bb9.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-29-1331-sinlinea-la-prensa-6bb9.jpg",
+    "hash": "50d9b5f3bfdd9791",
+    "version": 11,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-10-29T18:32:04.222Z"
+  },
+  "ilustracion": {
+    "descripcion": "Lancha de la Policía Nacional patrullando aguas cerca de Isla Grande, Colón, al atardecer, con sacos apilados en cubierta en el tercio superior derecho; zona izquierda y central del mar despejada.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-29-1331-sinlinea-la-prensa-6bb9.jpg",
+    "hashDescripcion": "6c3ed57b84046605",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-29T18:31:28.161Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-29T18:31:28.161Z",
+  "actualizado": "2026-10-29T18:31:28.161Z",
+  "plantilla": "foto",
+  "dato": {
+    "cifra": "1.21 toneladas",
+    "frase": "de droga fueron decomisadas en menos de 8 horas durante el operativo"
+  }
+}
