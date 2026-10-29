@@ -1,0 +1,46 @@
+{
+  "id": "2026-10-29-0606-leopopexiv-vatican-news-9d84",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/world/news/2026-10/pope-leo-s-appeals-help-bring-ceasefire-to-southern-ukraine.html",
+    "titulo": "Pope Leo’s appeals help bring humanitarian ceasefire to southern Ukraine",
+    "publicado": "2026-10-28T15:02:00.000Z"
+  },
+  "categoria": "INTERNACIONAL",
+  "titular": "Pope Leo's appeals help spark Ukraine ceasefire",
+  "bajada": "Humanitarian truce in southern Ukraine eases suffering of civilians under occupation",
+  "caption": "A rare humanitarian ceasefire in southern Ukraine is giving hope to civilians living under Russian occupation, following personal appeals by Pope Leo XIV and diplomatic efforts that reportedly included U.S. First Lady Melania Trump. The truce has been expanded to let aid convoys reach more areas, though fighting continues elsewhere in the country. Source: Vatican News, Oct 28, 2026.",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Ukraine",
+    "#Peace",
+    "#Vatican",
+    "#HumanitarianAid"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-10-29-0606-leopopexiv-vatican-news-9d84.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-29-0606-leopopexiv-vatican-news-9d84.jpg",
+    "hash": "686f7621a6f8fe83",
+    "version": 11,
+    "estilo": "b18ca074001a6ad6",
+    "renderizada": "2026-10-29T10:07:00.777Z"
+  },
+  "ilustracion": {
+    "descripcion": "Aid trucks parked at a checkpoint on a quiet road in southern Ukraine at dusk, with a faint dove silhouette in the sky; a small chapel bell tower stands in the upper right third, left and center kept open and empty.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-29-0606-leopopexiv-vatican-news-9d84.jpg",
+    "hashDescripcion": "f6e1031f1f5fd575",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-29T10:06:37.331Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-29T10:06:37.331Z",
+  "actualizado": "2026-10-29T10:06:37.331Z"
+}
