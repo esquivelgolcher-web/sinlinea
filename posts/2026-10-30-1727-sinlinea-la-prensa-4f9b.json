@@ -1,0 +1,52 @@
+{
+  "id": "2026-10-30-1727-sinlinea-la-prensa-4f9b",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/economia/mitradel-893-trabajadores-de-serviestiba-empiezan-a-recibir-el-pago-de-sus-prestaciones-laborales/",
+    "titulo": "Mitradel: 893 trabajadores de Serviestiba empiezan a recibir el pago de sus prestaciones laborales",
+    "publicado": "2026-10-30T21:35:11.000Z"
+  },
+  "categoria": "ECONOMÍA",
+  "titular": "Mitradel paga prestaciones a 893 extrabajadores de Serviestiba",
+  "bajada": "Los pagos iniciaron este viernes y concluirán el lunes 2 de noviembre en Panamá.",
+  "caption": "Casi 900 extrabajadores de Serviestiba empezaron a cobrar sus prestaciones laborales tras el cierre de la empresa que operaba en los puertos de Balboa y Cristóbal. El Mitradel mantiene el secuestro de cuentas hasta pagar a la totalidad de los afectados. ¿Qué debería garantizar el Estado cuando una empresa cierra de golpe?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Mitradel",
+    "#Trabajadores",
+    "#Empleo",
+    "#Serviestiba"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-10-30-1727-sinlinea-la-prensa-4f9b.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-30-1727-sinlinea-la-prensa-4f9b.jpg",
+    "hash": "889cd4ed39c711fb",
+    "version": 2,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-10-30T22:27:36.946Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada de las oficinas del Ministerio de Trabajo y Desarrollo Laboral en Panamá, con una fila de personas esperando en el tercio superior derecho, zona izquierda y central despejadas.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-30T22:27:00.833Z",
+  "actualizado": "2026-10-30T22:27:00.833Z",
+  "plantilla": "dato",
+  "dato": {
+    "cifra": "893",
+    "frase": "trabajadores de Serviestiba comenzaron a recibir el pago de sus prestaciones laborales"
+  }
+}

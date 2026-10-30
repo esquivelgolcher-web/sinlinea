@@ -1,0 +1,48 @@
+{
+  "id": "2026-10-30-1727-sinlinea-la-prensa-605a",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/sociedad/tragedia-puente-colgante-se-desploma-cuando-transportaban-un-difunto-en-penonome-hay-varios-heridos/",
+    "titulo": "Tragedia: puente colgante se desploma cuando transportaban un difunto en Penonomé, hay varios heridos",
+    "publicado": "2026-10-30T19:53:46.000Z"
+  },
+  "categoria": "ÚLTIMA HORA",
+  "titular": "Puente colgante colapsa en Penonomé durante cortejo fúnebre",
+  "bajada": "El accidente dejó varios heridos sobre el río Santa Ana, en Toabré, Penonomé.",
+  "caption": "Un cortejo fúnebre se convirtió en tragedia cuando el puente colgante sobre el río Santa Ana cedió mientras lo cruzaban. Bomberos y Sinaproc trabajan en el rescate de los heridos. La comunidad de Toabré espera un balance oficial de las autoridades. ¿Conoces el estado de los puentes en tu comunidad?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Penonomé",
+    "#Coclé",
+    "#Accidente",
+    "#Emergencia"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-10-30-1727-sinlinea-la-prensa-605a.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-30-1727-sinlinea-la-prensa-605a.jpg",
+    "hash": "a459bb0140772c8b",
+    "version": 11,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-10-30T22:27:36.603Z"
+  },
+  "ilustracion": {
+    "descripcion": "Puente colgante colapsado sobre un río en zona rural panameña, con cables caídos; unidades de rescate ubicadas en el tercio superior derecho, zona izquierda y central despejadas.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-30-1727-sinlinea-la-prensa-605a.jpg",
+    "hashDescripcion": "fddf20aa97de9c94",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-30T22:27:00.833Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-30T22:27:00.833Z",
+  "actualizado": "2026-10-30T22:27:00.833Z",
+  "plantilla": "foto"
+}
