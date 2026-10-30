@@ -1,0 +1,52 @@
+{
+  "id": "2026-10-30-0509-sinlinea-la-estrella-6b30",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/economia/pesimismo-en-el-empleo-hunde-la-confianza-economica-en-panama-GP26926066",
+    "titulo": "Pesimismo en el empleo hunde la confianza económica en Panamá",
+    "publicado": "2026-10-30T05:00:00.000Z"
+  },
+  "categoria": "ECONOMÍA",
+  "titular": "Confianza del consumidor cae a 73 puntos en Panamá",
+  "bajada": "El deterioro de las expectativas laborales arrastró el índice en septiembre, según la CCIAP.",
+  "caption": "El panameño confía cada vez menos en que conseguirá trabajo en los próximos meses. El índice que mide esa confianza bajó de nuevo y las expectativas laborales tuvieron su peor caída en todo el estudio. Casi la mitad de los encuestados ve difícil insertarse en el mercado laboral pronto. ¿Sientes que el empleo está más difícil de conseguir este año?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Economía",
+    "#Empleo",
+    "#Consumo",
+    "#CostoDeVida"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-10-30-0509-sinlinea-la-estrella-6b30.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-30-0509-sinlinea-la-estrella-6b30.jpg",
+    "hash": "5ececdb71b640db5",
+    "version": 2,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-10-30T10:10:01.465Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada de un centro comercial o zona bancaria de la ciudad de Panamá con pocas personas caminando, ambiente gris y sobrio; el edificio queda en el tercio superior derecho, zona izquierda y central despejadas.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-30T10:09:23.637Z",
+  "actualizado": "2026-10-30T10:09:23.637Z",
+  "plantilla": "dato",
+  "dato": {
+    "cifra": "73 puntos",
+    "frase": "fue el nivel del índice de confianza del consumidor panameño en septiembre"
+  }
+}

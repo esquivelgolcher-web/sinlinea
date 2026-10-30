@@ -1,0 +1,48 @@
+{
+  "id": "2026-10-30-0509-sinlinea-la-estrella-11b3",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/la-factura-del-cobre-perdidas-millonarias-de-la-mina-recaerian-sobre-los-panamenos-GP26924301",
+    "titulo": "La factura del cobre: pérdidas millonarias de la mina recaerían sobre los panameños",
+    "publicado": "2026-10-30T03:00:00.000Z"
+  },
+  "categoria": "ECONOMÍA",
+  "titular": "Cierre de Cobre Panamá podría costar $95 mil millones",
+  "bajada": "Estudio advierte que los panameños asumirían los costos ambientales y de salud del cierre de la mina.",
+  "caption": "Un análisis internacional calcula que terminar con la mina de Donoso no cierra la cuenta: los costos ambientales, de salud y de cierre podrían recaer sobre todos los panameños, no solo sobre la empresa. El informe llega justo cuando el Gobierno evalúa un 'cierre ordenado' financiado, según dice, sin fondos estatales. ¿Quién debería pagar realmente la factura del cobre?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#CobrePanamá",
+    "#Minería",
+    "#Donoso",
+    "#Economía"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-10-30-0509-sinlinea-la-estrella-11b3.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-30-0509-sinlinea-la-estrella-11b3.jpg",
+    "hash": "fba4e30eb3996bd8",
+    "version": 2,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-10-30T10:10:01.123Z"
+  },
+  "ilustracion": {
+    "descripcion": "Vista general de una mina a cielo abierto rodeada de selva tropical panameña, con maquinaria pesada detenida; el paisaje minero queda en el tercio superior derecho, zona izquierda y central despejadas.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-30T10:09:23.637Z",
+  "actualizado": "2026-10-30T10:09:23.637Z",
+  "plantilla": "titular"
+}

@@ -1,0 +1,46 @@
+{
+  "id": "2026-10-30-0609-leopopexiv-vatican-news-2da1",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-10/pope-leo-mourns-lives-lost-in-spain-train-crash.html",
+    "titulo": "Pope Leo XIV mourns lives lost in Spain train collision",
+    "publicado": "2026-10-29T10:15:09.000Z"
+  },
+  "categoria": "INTERNACIONAL",
+  "titular": "Pope Leo XIV mourns Spain train disaster victims",
+  "bajada": "Pontiff expresses 'deep sorrow' and prays for the 68 killed in central Spain crash",
+  "caption": "Pope Leo XIV has expressed his 'deep sorrow' after learning of the high-speed train collision in central Spain that killed 68 people and injured many others. In a message, the Pope offered prayers for the eternal repose of the deceased and for comfort for their families. Source: Vatican News, October 29, 2026.",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Vatican",
+    "#Spain",
+    "#PrayersForSpain",
+    "#VaticanNews"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-10-30-0609-leopopexiv-vatican-news-2da1.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-30-0609-leopopexiv-vatican-news-2da1.jpg",
+    "hash": "69ef3eddeb5918ff",
+    "version": 11,
+    "estilo": "b18ca074001a6ad6",
+    "renderizada": "2026-10-30T10:10:20.368Z"
+  },
+  "ilustracion": {
+    "descripcion": "A simple white candle and a small bouquet of flowers placed near railway tracks at dusk, symbolic memorial scene, no people visible, candle and flowers positioned in the upper right third, left and center areas open and calm.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-30-0609-leopopexiv-vatican-news-2da1.jpg",
+    "hashDescripcion": "2534d7b34261ba69",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-30T10:09:23.637Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-30T10:09:23.637Z",
+  "actualizado": "2026-10-30T10:09:23.637Z"
+}
