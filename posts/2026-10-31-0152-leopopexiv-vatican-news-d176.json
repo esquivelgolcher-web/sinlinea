@@ -1,0 +1,46 @@
+{
+  "id": "2026-10-31-0152-leopopexiv-vatican-news-d176",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-10/pope-ai-decisions-affecting-human-life-must-never-be-delegated.html",
+    "titulo": "Pope on AI: Decisions affecting human life must never be delegated",
+    "publicado": "2026-10-30T11:50:00.000Z"
+  },
+  "categoria": "INVESTIGACIÓN",
+  "titular": "Pope Leo: AI must never replace human judgment",
+  "bajada": "At a Vatican meeting on AI, he warns against reducing people to data points",
+  "caption": "Pope Leo XIV told participants at a Vatican meeting dedicated to artificial intelligence that decisions affecting human life must never be delegated to machines, warning that AI risks threatening the common good if the human person is not kept at its center. Source: Vatican News, Oct 30, 2026.",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Vatican",
+    "#ArtificialIntelligence",
+    "#HumanDignity",
+    "#CatholicChurch"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-10-31-0152-leopopexiv-vatican-news-d176.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-31-0152-leopopexiv-vatican-news-d176.jpg",
+    "hash": "421fa53357175471",
+    "version": 11,
+    "estilo": "b18ca074001a6ad6",
+    "renderizada": "2026-10-31T05:53:08.013Z"
+  },
+  "ilustracion": {
+    "descripcion": "A Vatican meeting hall with screens showing abstract digital network patterns; a robed papal figure stands at a podium in the upper right third, left and center space open and calm.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-31-0152-leopopexiv-vatican-news-d176.jpg",
+    "hashDescripcion": "2007f8a46a41e3c6",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-31T05:52:49.615Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-31T05:52:49.615Z",
+  "actualizado": "2026-10-31T05:52:49.615Z"
+}

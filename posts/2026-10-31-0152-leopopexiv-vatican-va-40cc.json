@@ -1,0 +1,44 @@
+{
+  "id": "2026-10-31-0152-leopopexiv-vatican-va-40cc",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "formato": "frase",
+  "frase": {
+    "texto": "Do not be afraid. Open wide the doors for Christ.",
+    "autor": "Saint John Paul II",
+    "fuente": "Homily at the Mass for the inauguration of his pontificate",
+    "anio": 1978,
+    "url": "https://www.vatican.va/content/john-paul-ii/en/homilies/1978/documents/hf_jp-ii_hom_19781022_inizio-pontificato.html",
+    "origen": "banco"
+  },
+  "fuente": {
+    "medio": "Vatican.va",
+    "url": "https://www.vatican.va/content/john-paul-ii/en/homilies/1978/documents/hf_jp-ii_hom_19781022_inizio-pontificato.html",
+    "titulo": "Homily at the Mass for the inauguration of his pontificate",
+    "publicado": "1978-01-01T00:00:00.000Z"
+  },
+  "categoria": "CULTURA",
+  "titular": "Saint John Paul II",
+  "bajada": "Homily at the Mass for the inauguration of his pontificate · 1978",
+  "caption": "“Do not be afraid. Open wide the doors for Christ.”\n\n— Saint John Paul II, Homily at the Mass for the inauguration of his pontificate (1978)\n\n#PopeLeoXIV #Vatican #CatholicChurch",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Vatican",
+    "#CatholicChurch"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-10-31-0152-leopopexiv-vatican-va-40cc.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-31-0152-leopopexiv-vatican-va-40cc.jpg",
+    "hash": "e2138eb77a831a11",
+    "version": 1,
+    "estilo": "a0a82c85f495517b",
+    "renderizada": "2026-10-31T05:53:10.865Z"
+  },
+  "ilustracion": null,
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-31T05:52:49.615Z",
+  "actualizado": "2026-10-31T05:52:49.615Z"
+}
