@@ -1,0 +1,52 @@
+{
+  "id": "2026-10-31-1421-sinlinea-la-prensa-6801",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/sociedad/comer-vender-loteria-o-escuchar-musica-sin-audifonos-lo-que-puede-costarte-una-multa-en-el-metro-de-panama/",
+    "titulo": "Comer, vender lotería y más: lo que puede costarte una multa en el Metro de Panamá",
+    "publicado": "2026-10-31T18:42:42.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "Comer o vender lotería en el Metro puede costar hasta $3,000",
+  "bajada": "El reglamento del Metro de Panamá clasifica las infracciones en leves, moderadas, graves y muy graves.",
+  "caption": "Muchos usuarios del Metro no saben que ciertas costumbres diarias están sancionadas. Comer dentro del sistema, usar patines o vender lotería sin permiso puede salirte caro. Las multas van desde $100 hasta $3,000 según la gravedad de la falta. ¿Sabías que estas reglas existían?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Metro",
+    "#MetroDePanamá",
+    "#TransportePúblico",
+    "#Multas"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-10-31-1421-sinlinea-la-prensa-6801.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-31-1421-sinlinea-la-prensa-6801.jpg",
+    "hash": "1c90c6b8de33134a",
+    "version": 11,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-10-31T19:22:03.249Z"
+  },
+  "ilustracion": {
+    "descripcion": "Interior de un vagón del Metro de Panamá con un cartel de reglamento visible, elemento principal en el tercio superior derecho, pasillo central despejado.",
+    "usar": true,
+    "ruta": "public/ilus/2026-10-31-1421-sinlinea-la-prensa-6801.jpg",
+    "hashDescripcion": "930c51845c41586e",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-10-31T19:21:23.180Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-31T19:21:23.180Z",
+  "actualizado": "2026-10-31T19:21:23.180Z",
+  "plantilla": "foto",
+  "dato": {
+    "cifra": "$3,000",
+    "frase": "es la multa máxima que contempla el reglamento del Metro de Panamá"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "id": "2026-10-31-1421-sinlinea-la-prensa-873d",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/sociedad/sismo-de-magnitud-61-sacude-panama-usuarios-reportaron-que-google-alerto-segundos-antes/",
+    "titulo": "Temblor de magnitud 5.9 sacude Panamá; usuarios reportaron que Google alertó segundos antes",
+    "publicado": "2026-10-31T16:27:57.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "Sismo de 5.9 sacude Panamá; Google alertó antes",
+  "bajada": "El movimiento, sentido en la capital, fue una réplica del terremoto de 7.5 del 9 de octubre en Azuero.",
+  "caption": "Un nuevo temblor volvió a poner en alerta a los panameños este sábado, pero esta vez muchos recibieron un aviso en el celular segundos antes de sentirlo. El Instituto de Geociencias confirmó que la magnitud real fue 5.9 y que se trata de una réplica del fuerte sismo de octubre. ¿Te llegó la alerta de Google a tiempo?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Sismo",
+    "#Tonosí",
+    "#Geociencias",
+    "#AlertaSísmica"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-10-31-1421-sinlinea-la-prensa-873d.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-10-31-1421-sinlinea-la-prensa-873d.jpg",
+    "hash": "3ef099f47faccb2a",
+    "version": 2,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-10-31T19:21:58.572Z"
+  },
+  "ilustracion": {
+    "descripcion": "Vista de un teléfono celular mostrando una notificación de alerta sísmica sobre una mesa, con el paisaje de Azuero desenfocado al fondo, elemento principal en el tercio superior derecho, resto despejado.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-10-31T19:21:23.180Z",
+  "actualizado": "2026-10-31T19:21:23.180Z",
+  "plantilla": "dato",
+  "dato": {
+    "cifra": "5.9",
+    "frase": "fue la magnitud confirmada del sismo sentido en Panamá este sábado"
+  }
+}
