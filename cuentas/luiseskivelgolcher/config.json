@@ -3,7 +3,7 @@
   "idioma": "es-PA",
   "automatico": {
     "generar": true,
-    "publicar": true
+    "publicar": false
   },
   "marca": {
     "nombre": "Luis Esquivel Golcher",

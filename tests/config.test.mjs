@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import path from "node:path";
 import { cargarConfig, validarConfig, cargarGlobal, cargarCuenta, configDeCuenta, cargarConfiguracion, validarCuenta, resumenParaPanel } from "../src/lib/config.mjs";
+import { destinosEncendidos } from "../src/lib/conexiones.mjs";
 import { raizConCuentas } from "./ayuda/cuentas.mjs";
 
 test("config.json del repo es válido", () => {
@@ -181,12 +182,14 @@ test("(M1 fix) resumenParaPanel expone cuentaPrincipal = primera cuenta declarad
   assert.equal(g.cuentas[0], "sinlinea");
 });
 
-test("(M2) la cuenta luiseskivelgolcher carga con sus propios interruptores (activados el 2026-09-09 por el operador), colores propios, fuentes propias (no las de Sin Línea) y con sus secretos", () => {
+test("(M2) la cuenta luiseskivelgolcher carga con sus propios interruptores (activados el 2026-09-09; Instagram apagado el 2026-10-31 por el operador), colores propios, fuentes propias (no las de Sin Línea) y con sus secretos", () => {
   const c = cargarConfiguracion(".");
   assert.deepEqual(c.global.cuentas, ["sinlinea", "luiseskivelgolcher", "leopopexiv", "lawebazone"]);
   assert.deepEqual(c.errores, []);
   const e = c.cuentas.find((x) => x.cuenta === "luiseskivelgolcher");
-  assert.deepEqual(e.automatico, { generar: true, publicar: true });
+  // Desde el 2026-10-31 las noticias automáticas salen solo en Threads y Facebook, no en el Instagram de @golcherx.
+  assert.deepEqual(e.automatico, { generar: true, publicar: false });
+  assert.deepEqual(destinosEncendidos(e), ["facebook", "threads"]);
   assert.equal(e.generar.maxBorradoresPendientes, 3, "la generación recurrente sigue acotada por el tope de pendientes");
   assert.equal(e.marca.usuario, "@golcherx");
   // Fuentes aprobadas el 2026-09-09: ninguna coincide con las de Sin Línea.
@@ -221,7 +224,7 @@ test("(M2) fuentes puede estar vacía solo si la generación automática está a
 test("(M2) resumenParaPanel incluye automatico y colores de cada cuenta", () => {
   const c = cargarConfiguracion(".");
   const r = resumenParaPanel(c.cuentas);
-  assert.deepEqual(r.cuentas[1].automatico, { generar: true, publicar: true });
+  assert.deepEqual(r.cuentas[1].automatico, { generar: true, publicar: false });
   assert.equal(r.cuentas[1].marca.colores.acento, "#1F5FBF");
 });
 
