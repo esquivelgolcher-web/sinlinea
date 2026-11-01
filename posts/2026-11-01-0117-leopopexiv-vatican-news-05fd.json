@@ -1,0 +1,47 @@
+{
+  "id": "2026-11-01-0117-leopopexiv-vatican-news-05fd",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/world/news/2026-10/oleshky-humanitarian-ceasefire-evacuation-pope-leo-us-first-lady.html",
+    "titulo": "Civilians reach Ukraine after Oleshky evacuation backed by Pope and US First Lady",
+    "publicado": "2026-10-31T15:57:00.000Z"
+  },
+  "categoria": "INTERNACIONAL",
+  "titular": "Civilians evacuated from Oleshky reach Ukraine",
+  "bajada": "Humanitarian ceasefire followed diplomacy by Pope Leo XIV and First Lady Melania Trump",
+  "caption": "Hundreds of civilians have been evacuated from the Russian-occupied town of Oleshky under a rare humanitarian ceasefire. Some reached Ukrainian-controlled territory after a journey through Russia and Belarus, while others went to Russian-held areas. The operation followed diplomatic efforts involving Pope Leo XIV and U.S. First Lady Melania Trump. Source: Vatican News, Oct 31, 2026.",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Ukraine",
+    "#Oleshky",
+    "#HumanitarianCeasefire",
+    "#Peace",
+    "#VaticanNews"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-11-01-0117-leopopexiv-vatican-news-05fd.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-01-0117-leopopexiv-vatican-news-05fd.jpg",
+    "hash": "6f8274dd0553e2b7",
+    "version": 11,
+    "estilo": "b18ca074001a6ad6",
+    "renderizada": "2026-11-01T06:17:24.033Z"
+  },
+  "ilustracion": {
+    "descripcion": "A quiet border crossing road at dusk with a line of civilian buses and figures carrying belongings, small Ukrainian flag visible in the upper right third, left and center of the frame left open and empty.",
+    "usar": true,
+    "ruta": "public/ilus/2026-11-01-0117-leopopexiv-vatican-news-05fd.jpg",
+    "hashDescripcion": "3c9999b1c4c05a27",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-11-01T06:17:05.348Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-01T06:17:05.348Z",
+  "actualizado": "2026-11-01T06:17:05.348Z"
+}
