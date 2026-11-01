@@ -1,0 +1,52 @@
+{
+  "id": "2026-11-01-0836-sinlinea-la-prensa-70ac",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/politica/el-ima-triplica-su-presupuesto-en-2026-paso-de-55-a-1689-millones/",
+    "titulo": "El IMA triplica su presupuesto en 2026: pasó de $55 a $168.9 millones",
+    "publicado": "2026-11-01T05:05:00.000Z"
+  },
+  "categoria": "ECONOMÍA",
+  "titular": "Presupuesto del IMA se triplica y llega a $168.9 millones",
+  "bajada": "La entidad pasó de $55 a $168.9 millones en 2026 para comprar arroz y alimentos de las ferias del pueblo.",
+  "caption": "El Instituto de Mercadeo Agropecuario multiplicó por tres su presupuesto este año, en medio de la estrategia del Gobierno para abaratar la canasta básica. Pero en marzo las ferias se suspendieron por falta de fondos, antes de recibir más dinero. ¿Está llegando ese aumento a precios más bajos en tu mercado?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#IMA",
+    "#CanastaBásica",
+    "#Economía",
+    "#Ferias"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-11-01-0836-sinlinea-la-prensa-70ac.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-01-0836-sinlinea-la-prensa-70ac.jpg",
+    "hash": "dd6842886aeaa5a2",
+    "version": 11,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-11-01T13:36:30.774Z"
+  },
+  "ilustracion": {
+    "descripcion": "Puesto de venta de una feria popular del IMA con sacos de arroz y verduras, el logo institucional despejado; el puesto queda en el tercio superior derecho, izquierda y centro despejados.",
+    "usar": true,
+    "ruta": "public/ilus/2026-11-01-0836-sinlinea-la-prensa-70ac.jpg",
+    "hashDescripcion": "5fe6f4e613d83148",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-11-01T13:36:01.450Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-01T13:36:01.450Z",
+  "actualizado": "2026-11-01T13:36:01.450Z",
+  "plantilla": "foto",
+  "dato": {
+    "cifra": "207%",
+    "frase": "aumentó el presupuesto del IMA entre enero y septiembre de este año"
+  }
+}

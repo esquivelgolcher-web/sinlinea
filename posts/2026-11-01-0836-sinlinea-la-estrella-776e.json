@@ -1,0 +1,52 @@
+{
+  "id": "2026-11-01-0836-sinlinea-la-estrella-776e",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/ingresos-del-gobierno-central-958-millones-menos-de-lo-presupuestado-BK26978595",
+    "titulo": "Ingresos del gobierno central: $958 millones menos de lo presupuestado",
+    "publicado": "2026-11-01T03:00:00.000Z"
+  },
+  "categoria": "ECONOMÍA",
+  "titular": "Ingresos del Estado quedan $958 millones por debajo de meta",
+  "bajada": "Recaudación de enero a agosto fue 15% menor a lo presupuestado, según la DGI",
+  "caption": "El Gobierno recaudó menos dinero del que esperaba en los primeros ocho meses del año, una diferencia que podría presionar la inversión pública y obligar a más deuda. El reporte es previo al terremoto que golpeó al país en octubre, lo que añade presión a las finanzas del Estado. ¿Cómo crees que debería ajustar el Gobierno sus gastos ante esta caída?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Economía",
+    "#MEF",
+    "#Presupuesto",
+    "#Impuestos"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-11-01-0836-sinlinea-la-estrella-776e.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-01-0836-sinlinea-la-estrella-776e.jpg",
+    "hash": "2d864bb19bc43e4f",
+    "version": 2,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-11-01T13:36:33.076Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada del Ministerio de Economía y Finanzas de Panamá en un día nublado, con el edificio en el tercio superior derecho y la zona izquierda y central despejadas.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-01T13:36:01.450Z",
+  "actualizado": "2026-11-01T13:36:01.450Z",
+  "plantilla": "dato",
+  "dato": {
+    "cifra": "$958 millones",
+    "frase": "por debajo de lo presupuestado fue la recaudación entre enero y agosto"
+  }
+}
