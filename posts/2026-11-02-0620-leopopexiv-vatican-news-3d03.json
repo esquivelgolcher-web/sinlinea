@@ -1,0 +1,47 @@
+{
+  "id": "2026-11-02-0620-leopopexiv-vatican-news-3d03",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-11/pope-angelus-youth-olympics-georgia-martyrs-week-poor-all-souls.html",
+    "titulo": "Pope: Youth Olympic Games a sign of hope emerging from world of sport",
+    "publicado": "2026-11-01T12:09:00.000Z"
+  },
+  "categoria": "DEPORTES",
+  "titular": "Pope sends message to Youth Olympic Games in Senegal",
+  "bajada": "Leo XIV calls the Games a sign of hope rising from the world of sport",
+  "caption": "Pope Leo XIV sent greetings to young athletes competing in the Youth Olympic Games in Senegal, calling the event a sign of hope emerging from the world of sport. In the same message, he recalled the beatification of the Georgia Martyrs in Savannah, praised the upcoming World Week of the Poor, and asked for prayers for the dead, 'especially for those whom no one remembers.' Source: Vatican News, Nov 1, 2026.",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#YouthOlympicGames",
+    "#Senegal",
+    "#VaticanNews",
+    "#Sport",
+    "#Hope"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-11-02-0620-leopopexiv-vatican-news-3d03.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-02-0620-leopopexiv-vatican-news-3d03.jpg",
+    "hash": "18d5248b4504d499",
+    "version": 11,
+    "estilo": "b18ca074001a6ad6",
+    "renderizada": "2026-11-02T11:20:45.167Z"
+  },
+  "ilustracion": {
+    "descripcion": "A youth athletics stadium in Senegal at dusk, young athletes training in the lower left, an Olympic flag flying in the upper right third, clean open sky, no visible text or logos.",
+    "usar": true,
+    "ruta": "public/ilus/2026-11-02-0620-leopopexiv-vatican-news-3d03.jpg",
+    "hashDescripcion": "f001cf74e66dc48a",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-11-02T11:20:22.865Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-02T11:20:22.865Z",
+  "actualizado": "2026-11-02T11:20:22.865Z"
+}
