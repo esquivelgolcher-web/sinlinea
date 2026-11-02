@@ -1,0 +1,52 @@
+{
+  "id": "2026-11-02-1645-sinlinea-la-prensa-a67c",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/politica/presidente-mulino-sanciona-ley-que-amplia-los-descuentos-para-jubilados/",
+    "titulo": "Presidente Mulino sanciona ley que amplía los descuentos para jubilados",
+    "publicado": "2026-11-02T19:24:39.000Z"
+  },
+  "categoria": "SALUD",
+  "titular": "Mulino amplía descuentos para jubilados y pensionados",
+  "bajada": "Nueva ley sube rebaja en medicamentos al 20% y crea descuentos de hasta 30% en salud y funerarios.",
+  "caption": "La ley moderniza los beneficios para adultos mayores en Panamá, con rebajas más altas en medicamentos, consultas, exámenes y tratamientos de cáncer. También castiga con multas de hasta $5,000 a quienes no cumplan.\n\nPara miles de jubilados, esto significa menos gasto de bolsillo en salud y cuidado personal.\n\n¿Crees que estos descuentos realmente aliviarán el bolsillo de los adultos mayores?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Jubilados",
+    "#AdultosMayores",
+    "#Salud",
+    "#Mulino"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-11-02-1645-sinlinea-la-prensa-a67c.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-02-1645-sinlinea-la-prensa-a67c.jpg",
+    "hash": "39b13511ce888a93",
+    "version": 2,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-11-02T21:45:28.411Z"
+  },
+  "ilustracion": {
+    "descripcion": "Farmacia panameña con mostrador y estantes de medicamentos, un adulto mayor en el tercio superior derecho revisando una receta, zona izquierda y central despejada.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-02T21:45:00.252Z",
+  "actualizado": "2026-11-02T21:45:00.252Z",
+  "plantilla": "dato",
+  "dato": {
+    "cifra": "20%",
+    "frase": "es el nuevo descuento en medicamentos con receta médica para jubilados"
+  }
+}

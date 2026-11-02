@@ -1,0 +1,52 @@
+{
+  "id": "2026-11-02-1645-sinlinea-la-prensa-0e8b",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/politica/mulino-sanciona-ley-de-presupuesto-de-2027-por-35111-millones/",
+    "titulo": "Mulino sanciona ley de presupuesto de 2027 por $35,111 millones",
+    "publicado": "2026-11-02T16:50:40.000Z"
+  },
+  "categoria": "ECONOMÍA",
+  "titular": "Mulino sanciona presupuesto 2027 de $35,111 millones",
+  "bajada": "El 63.4% irá a funcionamiento del Estado y 36.6% a inversión pública, un 12% más que en 2026.",
+  "caption": "El presupuesto define cuánto dinero público habrá para hospitales, escuelas, carreteras y salarios el próximo año. La inversión pública crece, pero el gasto de funcionamiento sigue siendo la mayor parte del gasto total.\n\nEste reparto determina qué proyectos avanzan y cuáles esperan.\n\n¿En qué debería priorizar el Gobierno esa inversión pública en 2027?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Presupuesto2027",
+    "#Economía",
+    "#Mulino",
+    "#GastoPúblico"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-11-02-1645-sinlinea-la-prensa-0e8b.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-02-1645-sinlinea-la-prensa-0e8b.jpg",
+    "hash": "250d49d3a621098d",
+    "version": 11,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-11-02T21:45:32.768Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada del Palacio de las Garzas o edificio de gobierno panameño al mediodía, con una carpeta de documentos oficiales en el tercio superior derecho, zona izquierda y central despejada.",
+    "usar": true,
+    "ruta": "public/ilus/2026-11-02-1645-sinlinea-la-prensa-0e8b.jpg",
+    "hashDescripcion": "b60108597048521b",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-11-02T21:45:00.252Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-02T21:45:00.252Z",
+  "actualizado": "2026-11-02T21:45:00.252Z",
+  "plantilla": "foto",
+  "dato": {
+    "cifra": "$35,111.75M",
+    "frase": "es el monto total del presupuesto general del Estado para 2027"
+  }
+}
