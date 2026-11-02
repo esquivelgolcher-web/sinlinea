@@ -1,0 +1,52 @@
+{
+  "id": "2026-11-01-1949-sinlinea-la-estrella-63d2",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/mulino-espera-que-los-sismos-disminuyan-su-intensidad-en-panama-IF26989607",
+    "titulo": "Mulino espera que los sismos disminuyan su intensidad en Panamá",
+    "publicado": "2026-11-01T16:57:00.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "Mulino espera que réplicas sísmicas pierdan fuerza",
+  "bajada": "El presidente habló tras el sismo de magnitud 6.1 en Tonosí, sin heridos ni fallecidos.",
+  "caption": "El presidente José Raúl Mulino se refirió este domingo al sismo de magnitud 6.1 que sacudió Tonosí, Los Santos, y confirmó que el apoyo del Gobierno a las familias afectadas por los movimientos telúricos continuará. La actividad sísmica se mantiene semanas después del terremoto del 9 de octubre. ¿Sientes que la ayuda estatal ha llegado a las zonas afectadas?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Sismo",
+    "#Tonosí",
+    "#LosSantos",
+    "#Mulino"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-11-01-1949-sinlinea-la-estrella-63d2.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-01-1949-sinlinea-la-estrella-63d2.jpg",
+    "hash": "c79104f8c9be5536",
+    "version": 2,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-11-02T00:49:39.192Z"
+  },
+  "ilustracion": {
+    "descripcion": "El presidente, de espaldas y a media distancia, habla en un evento público en el Parque Omar; al fondo una pantalla con datos sísmicos. Protagonista en el tercio superior derecho, zona izquierda y central despejadas.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-02T00:49:01.616Z",
+  "actualizado": "2026-11-02T00:49:01.616Z",
+  "plantilla": "dato",
+  "dato": {
+    "cifra": "6.1",
+    "frase": "fue la magnitud del sismo registrado en Tonosí el 31 de octubre"
+  }
+}

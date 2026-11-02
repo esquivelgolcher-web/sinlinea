@@ -1,0 +1,52 @@
+{
+  "id": "2026-11-01-1949-sinlinea-la-prensa-9789",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/deportes/panama-conquista-la-primera-copa-de-naciones-de-futsal-2026/",
+    "titulo": "Panamá conquista la primera Copa de Naciones de Futsal 2026",
+    "publicado": "2026-11-01T17:13:27.000Z"
+  },
+  "categoria": "DEPORTES",
+  "titular": "Panamá se corona campeón invicto de futsal",
+  "bajada": "La selección venció 5-1 a Cuba en Nicaragua y ganó el título sin perder un partido.",
+  "caption": "La selección de futsal de Panamá levantó el trofeo de la primera Copa de Naciones 2026 tras vencer 5-1 a Cuba en la final disputada en Managua. El equipo cerró el torneo de forma invicta, con goles de Vásquez, Herrera, Castillo, Sánchez y Milord. Un logro que llena de orgullo al deporte panameño. ¿Viste la final del equipo canalero?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Futsal",
+    "#CopaDeNaciones",
+    "#SeleccionPanama",
+    "#Deportes"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-11-01-1949-sinlinea-la-prensa-9789.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-01-1949-sinlinea-la-prensa-9789.jpg",
+    "hash": "00e9e72b581947e1",
+    "version": 11,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-11-02T00:49:43.802Z"
+  },
+  "ilustracion": {
+    "descripcion": "Cancha de futsal iluminada con jugadores celebrando de espaldas y un trofeo dorado en primer plano; el trofeo y los jugadores ubicados en el tercio superior derecho, zona izquierda y central despejadas.",
+    "usar": true,
+    "ruta": "public/ilus/2026-11-01-1949-sinlinea-la-prensa-9789.jpg",
+    "hashDescripcion": "baead56daa16e8ab",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-11-02T00:49:01.616Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-02T00:49:01.616Z",
+  "actualizado": "2026-11-02T00:49:01.616Z",
+  "plantilla": "foto",
+  "dato": {
+    "cifra": "5-1",
+    "frase": "fue el marcador con el que Panamá venció a Cuba en la final"
+  }
+}
