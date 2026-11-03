@@ -40,7 +40,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-11-03T06:55:25.103Z",
-  "actualizado": "2026-11-03T07:53:09.618Z",
+  "actualizado": "2026-11-03T18:22:51.652Z",
   "destinos": {
     "instagram": {
       "texto": "“might touch the consciences of those who have the power to silence the weapons!”\n\n— Pope Leo XIV, Homily for the Commemoration of All Souls' Day, Campo Verano Cemetery (2026)\n\nVia Vatican News, 2 November 2026\n\n#PopeLeoXIV #Vatican #CatholicChurch\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #CatholicChurch",
@@ -53,7 +53,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-11-03T18:22:51.652Z",
+        "actualizado": "2026-11-03T18:22:51.652Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
