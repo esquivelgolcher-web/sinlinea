@@ -1,7 +1,7 @@
 {
   "id": "2026-10-31-0152-leopopexiv-vatican-news-d176",
   "cuenta": "leopopexiv",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/pope/news/2026-10/pope-ai-decisions-affecting-human-life-must-never-be-delegated.html",
@@ -39,7 +39,11 @@
     "error": null
   },
   "programado": "2026-11-03T13:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "18078769631767285",
+    "permalink": "https://www.instagram.com/p/DfSheycGgOQ/",
+    "fecha": "2026-11-03T18:22:51.652Z"
+  },
   "error": null,
   "creado": "2026-10-31T05:52:49.615Z",
   "actualizado": "2026-11-03T18:22:51.652Z",
@@ -52,16 +56,15 @@
         "imagenHash": "421fa53357175471",
         "imagenSha": "c5999ab47195a252171d1956185ff0030b488c96"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-11-03T18:22:51.652Z",
-        "actualizado": "2026-11-03T18:22:51.652Z",
-        "contenedorId": "18113427422081176"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18078769631767285",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/DfSheycGgOQ/",
+        "fecha": "2026-11-03T18:22:51.652Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
