@@ -1,7 +1,7 @@
 {
   "id": "2026-11-01-0117-leopopexiv-vatican-news-05fd",
   "cuenta": "leopopexiv",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/world/news/2026-10/oleshky-humanitarian-ceasefire-evacuation-pope-leo-us-first-lady.html",
@@ -39,9 +39,26 @@
     "generada": "2026-11-01T06:17:05.348Z",
     "error": null
   },
-  "programado": null,
+  "programado": "2026-11-03T13:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-11-01T06:17:05.348Z",
-  "actualizado": "2026-11-01T06:17:05.348Z"
+  "actualizado": "2026-11-03T07:53:13.581Z",
+  "destinos": {
+    "instagram": {
+      "texto": "Hundreds of civilians have been evacuated from the Russian-occupied town of Oleshky under a rare humanitarian ceasefire. Some reached Ukrainian-controlled territory after a journey through Russia and Belarus, while others went to Russian-held areas. The operation followed diplomatic efforts involving Pope Leo XIV and U.S. First Lady Melania Trump. Source: Vatican News, Oct 31, 2026.\n\nFuente: Vatican News\n\n#PopeLeoXIV #Ukraine #Oleshky #HumanitarianCeasefire #Peace #VaticanNews",
+      "aprobado": {
+        "fecha": "2026-11-03T07:53:13.581Z",
+        "hashPieza": "0d8d474775b73a15",
+        "imagenHash": "6f8274dd0553e2b7",
+        "imagenSha": "e4bad74203f8179ae12045d4e074ea76ca394ed3"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
