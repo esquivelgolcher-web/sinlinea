@@ -1,7 +1,7 @@
 {
   "id": "2026-10-07-0107-lawebazone-tendencias-d-7697",
   "cuenta": "lawebazone",
-  "estado": "borrador",
+  "estado": "descartado",
   "fuente": {
     "medio": "Tendencias de México",
     "url": "https://www.sinembargo.mx/4881997/hoy-no-circula-martes-evita-multas-y-corralon-este-6-de-octubre-en-cdmx-y-edomex/",
@@ -41,5 +41,5 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-07T06:07:37.170Z",
-  "actualizado": "2026-10-24T14:53:56.998Z"
+  "actualizado": "2026-11-03T07:58:30.394Z"
 }
