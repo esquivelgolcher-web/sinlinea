@@ -1,7 +1,7 @@
 {
   "id": "2026-10-27-0507-leopopexiv-vatican-news-a686",
   "cuenta": "leopopexiv",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/pope/news/2026-10/pope-leo-xiv-statement-confirms-latin-america-visit.html",
@@ -38,9 +38,26 @@
     "generada": "2026-10-27T09:07:01.781Z",
     "error": null
   },
-  "programado": null,
+  "programado": "2026-11-04T13:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-10-27T09:07:01.781Z",
-  "actualizado": "2026-10-27T09:07:01.781Z"
+  "actualizado": "2026-11-03T07:53:26.975Z",
+  "destinos": {
+    "instagram": {
+      "texto": "The Holy See Press Office has confirmed Pope Leo XIV's upcoming Apostolic Journey to Latin America, with stops in Uruguay, Argentina and Peru scheduled for November 6-17. The Pope said he looks forward to returning to the region. Source: Vatican News, Oct 26, 2026.\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #LatinAmerica #ApostolicJourney #CatholicChurch",
+      "aprobado": {
+        "fecha": "2026-11-03T07:53:26.975Z",
+        "hashPieza": "6afbd06fab6f6d81",
+        "imagenHash": "ef94ba0a02e8e1a4",
+        "imagenSha": "de90cebdad4ea0b66ed86a96b6203443235cc66c"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
