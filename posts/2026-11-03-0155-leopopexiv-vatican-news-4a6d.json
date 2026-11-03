@@ -1,7 +1,7 @@
 {
   "id": "2026-11-03-0155-leopopexiv-vatican-news-4a6d",
   "cuenta": "leopopexiv",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/pope/news/2026-11/on-all-souls-pope-leo-says-beatitudes-are-the-path-to-full-life.html",
@@ -38,9 +38,26 @@
     "generada": "2026-11-03T06:55:25.103Z",
     "error": null
   },
-  "programado": null,
+  "programado": "2026-11-03T09:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-11-03T06:55:25.103Z",
-  "actualizado": "2026-11-03T06:55:25.103Z"
+  "actualizado": "2026-11-03T07:53:07.491Z",
+  "destinos": {
+    "instagram": {
+      "texto": "On the Commemoration of All the Faithful Departed, Pope Leo XIV celebrated Mass at Rome's Verano Cemetery, praying that mothers' tears might silence weapons and recalling that the bond with the dead is transformed, not broken, through faith in Christ. Source: Vatican News, Nov 2, 2026.\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #AllSoulsDay #Peace #CatholicChurch",
+      "aprobado": {
+        "fecha": "2026-11-03T07:53:07.491Z",
+        "hashPieza": "6b4745c8e1991f3a",
+        "imagenHash": "db6622a93d1d2cab",
+        "imagenSha": "a8e2cca18fef338c31fe3cde0c6a307f63eb835d"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
