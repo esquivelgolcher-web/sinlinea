@@ -42,7 +42,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-30T10:09:23.637Z",
-  "actualizado": "2026-11-03T07:53:18.206Z",
+  "actualizado": "2026-11-03T23:37:02.943Z",
   "destinos": {
     "instagram": {
       "texto": "Pope Leo XIV has expressed his 'deep sorrow' after learning of the high-speed train collision in central Spain that killed 68 people and injured many others. In a message, the Pope offered prayers for the eternal repose of the deceased and for comfort for their families. Source: Vatican News, October 29, 2026.\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #Spain #PrayersForSpain #VaticanNews",
@@ -55,7 +55,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-11-03T23:37:02.943Z",
+        "actualizado": "2026-11-03T23:37:02.943Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
