@@ -1,0 +1,52 @@
+{
+  "id": "2026-11-03-1208-sinlinea-la-estrella-3288",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/ifarhu-desembolsa-mas-de-137-millones-en-2026-y-anuncia-nuevo-pago-de-40-millones-AB27045849",
+    "titulo": "IFARHU desembolsa más de $137 millones en 2026 y anuncia nuevo pago de $40 millones",
+    "publicado": "2026-11-03T13:54:00.000Z"
+  },
+  "categoria": "EDUCACIÓN",
+  "titular": "IFARHU desembolsa más de $137 millones en becas",
+  "bajada": "La entidad alista un nuevo pago de $40 millones para más de 366 mil estudiantes.",
+  "caption": "El IFARHU asegura que mantiene al día sus compromisos con los estudiantes, pese a cuestionamientos por supuestos atrasos. Más de 210 mil beneficiarios han recibido fondos este año, incluido un desembolso extra para zonas afectadas por el terremoto. ¿Conoces a alguien que esté esperando su beca?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Educación",
+    "#IFARHU",
+    "#Becas",
+    "#Estudiantes"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-11-03-1208-sinlinea-la-estrella-3288.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-03-1208-sinlinea-la-estrella-3288.jpg",
+    "hash": "5725b615adfa5cdb",
+    "version": 11,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-11-03T17:09:02.382Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada del edificio del IFARHU en la ciudad de Panamá con estudiantes caminando frente a la entrada; el edificio ubicado en el tercio superior derecho, con la zona izquierda y central despejada.",
+    "usar": true,
+    "ruta": "public/ilus/2026-11-03-1208-sinlinea-la-estrella-3288.jpg",
+    "hashDescripcion": "04b824e597f39dcf",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-11-03T17:08:17.617Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-03T17:08:17.617Z",
+  "actualizado": "2026-11-03T17:08:17.617Z",
+  "plantilla": "foto",
+  "dato": {
+    "cifra": "$137 millones",
+    "frase": "desembolsó el IFARHU en becas y asistencia educativa durante 2026"
+  }
+}
