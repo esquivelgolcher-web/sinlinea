@@ -42,7 +42,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-11-03T06:55:25.103Z",
-  "actualizado": "2026-11-03T07:53:07.491Z",
+  "actualizado": "2026-11-03T18:22:51.652Z",
   "destinos": {
     "instagram": {
       "texto": "On the Commemoration of All the Faithful Departed, Pope Leo XIV celebrated Mass at Rome's Verano Cemetery, praying that mothers' tears might silence weapons and recalling that the bond with the dead is transformed, not broken, through faith in Christ. Source: Vatican News, Nov 2, 2026.\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #AllSoulsDay #Peace #CatholicChurch",
@@ -55,7 +55,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-11-03T18:22:51.652Z",
+        "actualizado": "2026-11-03T18:22:51.652Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
