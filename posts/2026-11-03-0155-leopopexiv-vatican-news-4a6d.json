@@ -1,0 +1,46 @@
+{
+  "id": "2026-11-03-0155-leopopexiv-vatican-news-4a6d",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-11/on-all-souls-pope-leo-says-beatitudes-are-the-path-to-full-life.html",
+    "titulo": "On All Souls’ Day, Pope prays that mothers' tears may silence weapons",
+    "publicado": "2026-11-02T15:30:00.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "Pope Leo XIV prays for peace at Rome cemetery Mass",
+  "bajada": "On All Souls' Day, he asked that mothers' tears may silence weapons worldwide",
+  "caption": "On the Commemoration of All the Faithful Departed, Pope Leo XIV celebrated Mass at Rome's Verano Cemetery, praying that mothers' tears might silence weapons and recalling that the bond with the dead is transformed, not broken, through faith in Christ. Source: Vatican News, Nov 2, 2026.",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Vatican",
+    "#AllSoulsDay",
+    "#Peace",
+    "#CatholicChurch"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-11-03-0155-leopopexiv-vatican-news-4a6d.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-03-0155-leopopexiv-vatican-news-4a6d.jpg",
+    "hash": "db6622a93d1d2cab",
+    "version": 11,
+    "estilo": "b18ca074001a6ad6",
+    "renderizada": "2026-11-03T06:55:40.316Z"
+  },
+  "ilustracion": {
+    "descripcion": "A quiet Roman cemetery at dusk, rows of stone tombs and cypress trees, with a robed pope figure praying at a distance in the upper right third, left and center open and calm.",
+    "usar": true,
+    "ruta": "public/ilus/2026-11-03-0155-leopopexiv-vatican-news-4a6d.jpg",
+    "hashDescripcion": "9035c420a901bd46",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-11-03T06:55:25.103Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-03T06:55:25.103Z",
+  "actualizado": "2026-11-03T06:55:25.103Z"
+}
