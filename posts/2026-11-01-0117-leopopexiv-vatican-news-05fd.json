@@ -43,7 +43,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-11-01T06:17:05.348Z",
-  "actualizado": "2026-11-03T07:53:13.581Z",
+  "actualizado": "2026-11-03T18:22:51.652Z",
   "destinos": {
     "instagram": {
       "texto": "Hundreds of civilians have been evacuated from the Russian-occupied town of Oleshky under a rare humanitarian ceasefire. Some reached Ukrainian-controlled territory after a journey through Russia and Belarus, while others went to Russian-held areas. The operation followed diplomatic efforts involving Pope Leo XIV and U.S. First Lady Melania Trump. Source: Vatican News, Oct 31, 2026.\n\nFuente: Vatican News\n\n#PopeLeoXIV #Ukraine #Oleshky #HumanitarianCeasefire #Peace #VaticanNews",
@@ -56,7 +56,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-11-03T18:22:51.652Z",
+        "actualizado": "2026-11-03T18:22:51.652Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
