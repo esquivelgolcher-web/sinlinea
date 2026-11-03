@@ -1,7 +1,7 @@
 {
   "id": "2026-11-03-0155-leopopexiv-vatican-news-e40c",
   "cuenta": "leopopexiv",
-  "estado": "borrador",
+  "estado": "programado",
   "formato": "frase",
   "frase": {
     "texto": "might touch the consciences of those who have the power to silence the weapons!",
@@ -36,9 +36,26 @@
     "renderizada": "2026-11-03T06:55:43.544Z"
   },
   "ilustracion": null,
-  "programado": null,
+  "programado": "2026-11-03T09:00:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-11-03T06:55:25.103Z",
-  "actualizado": "2026-11-03T06:55:25.103Z"
+  "actualizado": "2026-11-03T07:53:09.618Z",
+  "destinos": {
+    "instagram": {
+      "texto": "“might touch the consciences of those who have the power to silence the weapons!”\n\n— Pope Leo XIV, Homily for the Commemoration of All Souls' Day, Campo Verano Cemetery (2026)\n\nVia Vatican News, 2 November 2026\n\n#PopeLeoXIV #Vatican #CatholicChurch\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #CatholicChurch",
+      "aprobado": {
+        "fecha": "2026-11-03T07:53:09.618Z",
+        "hashPieza": "f0b85ced486dda3b",
+        "imagenHash": "649acbab0115129d",
+        "imagenSha": "8b01b206e5cfabc69690cdc6c46003e5b7c1db7c"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
