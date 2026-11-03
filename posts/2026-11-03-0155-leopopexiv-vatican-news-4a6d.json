@@ -1,7 +1,7 @@
 {
   "id": "2026-11-03-0155-leopopexiv-vatican-news-4a6d",
   "cuenta": "leopopexiv",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/pope/news/2026-11/on-all-souls-pope-leo-says-beatitudes-are-the-path-to-full-life.html",
@@ -39,7 +39,11 @@
     "error": null
   },
   "programado": "2026-11-03T09:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "18103884515354113",
+    "permalink": "https://www.instagram.com/p/DfShGxumvIB/",
+    "fecha": "2026-11-03T18:22:51.652Z"
+  },
   "error": null,
   "creado": "2026-11-03T06:55:25.103Z",
   "actualizado": "2026-11-03T18:22:51.652Z",
@@ -52,16 +56,15 @@
         "imagenHash": "db6622a93d1d2cab",
         "imagenSha": "a8e2cca18fef338c31fe3cde0c6a307f63eb835d"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-11-03T18:22:51.652Z",
-        "actualizado": "2026-11-03T18:22:51.652Z",
-        "contenedorId": "18113426393081176"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18103884515354113",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/DfShGxumvIB/",
+        "fecha": "2026-11-03T18:22:51.652Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
