@@ -1,7 +1,7 @@
 {
   "id": "2026-10-28-0150-leopopexiv-vatican-news-e6a2",
   "cuenta": "leopopexiv",
-  "estado": "borrador",
+  "estado": "programado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/pope/news/2026-10/pope-sends-videomessage-to-international-meeting-peace-assisi.html",
@@ -38,9 +38,26 @@
     "generada": "2026-10-28T05:50:56.061Z",
     "error": null
   },
-  "programado": null,
+  "programado": "2026-11-04T20:20:00-05:00",
   "publicacion": null,
   "error": null,
   "creado": "2026-10-28T05:50:56.061Z",
-  "actualizado": "2026-10-28T05:50:56.061Z"
+  "actualizado": "2026-11-03T07:53:46.723Z",
+  "destinos": {
+    "instagram": {
+      "texto": "In a video message to the International Meeting for Peace in Assisi, Pope Leo XIV called on participants to be \"unarmed instruments of the Lord's peace,\" stressing that \"war can never be waged in the name of God.\" Source: Vatican News, Oct 27, 2026.\n\nFuente: Vatican News\n\n#PopeLeoXIV #Assisi #Peace #Vatican #InterfaithDialogue",
+      "aprobado": {
+        "fecha": "2026-11-03T07:53:46.723Z",
+        "hashPieza": "599611c589e1880f",
+        "imagenHash": "d0172ea05dc487b2",
+        "imagenSha": "09021e8870e50815f2d8742b7adf09515b756783"
+      },
+      "estado": "pendiente",
+      "publicacion": null,
+      "error": null,
+      "intento": null,
+      "omitido": null,
+      "espera": null
+    }
+  }
 }
