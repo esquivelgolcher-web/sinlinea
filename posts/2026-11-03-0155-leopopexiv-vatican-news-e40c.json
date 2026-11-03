@@ -1,7 +1,7 @@
 {
   "id": "2026-11-03-0155-leopopexiv-vatican-news-e40c",
   "cuenta": "leopopexiv",
-  "estado": "programado",
+  "estado": "publicado",
   "formato": "frase",
   "frase": {
     "texto": "might touch the consciences of those who have the power to silence the weapons!",
@@ -37,7 +37,11 @@
   },
   "ilustracion": null,
   "programado": "2026-11-03T09:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "18118990903810698",
+    "permalink": "https://www.instagram.com/p/DfShPNZGgLR/",
+    "fecha": "2026-11-03T18:22:51.652Z"
+  },
   "error": null,
   "creado": "2026-11-03T06:55:25.103Z",
   "actualizado": "2026-11-03T18:22:51.652Z",
@@ -50,16 +54,15 @@
         "imagenHash": "649acbab0115129d",
         "imagenSha": "8b01b206e5cfabc69690cdc6c46003e5b7c1db7c"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-11-03T18:22:51.652Z",
-        "actualizado": "2026-11-03T18:22:51.652Z",
-        "contenedorId": "18113426516081176"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18118990903810698",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/DfShPNZGgLR/",
+        "fecha": "2026-11-03T18:22:51.652Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
