@@ -40,7 +40,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-29T10:06:37.331Z",
-  "actualizado": "2026-11-03T07:53:21.701Z",
+  "actualizado": "2026-11-04T14:18:27.092Z",
   "destinos": {
     "instagram": {
       "texto": "“Who am I to judge?”\n\n— Pope Francis, Press conference on the return flight from Rio de Janeiro (2013)\n\n#PopeLeoXIV #Vatican #CatholicChurch\n\nFuente: Vatican.va\n\n#PopeLeoXIV #Vatican #CatholicChurch",
@@ -53,7 +53,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-11-04T14:18:27.092Z",
+        "actualizado": "2026-11-04T14:18:27.092Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
