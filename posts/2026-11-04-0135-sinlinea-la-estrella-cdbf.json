@@ -1,0 +1,52 @@
+{
+  "id": "2026-11-04-0135-sinlinea-la-estrella-cdbf",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/geociencias-el-reclamo-por-un-sistema-de-alerta-sismica-y-de-profesionales-KA27059311",
+    "titulo": "Geociencias: el reclamo por un sistema de alerta sísmica y de profesionales",
+    "publicado": "2026-11-04T03:00:00.000Z"
+  },
+  "categoria": "SEGURIDAD",
+  "titular": "Piden $3 millones para alerta sísmica temprana",
+  "bajada": "Director de Geociencias pide financiamiento permanente tras el sismo del 9 de octubre",
+  "caption": "Un sistema de alerta temprana podría dar segundos clave para salvar vidas ante un terremoto. El director de Geociencias pide que esta inversión sea política de Estado y no dependa de fondos de emergencia tras cada desastre. Panamá ya sintió el poder de la tierra este año. ¿Debería ser prioridad en el próximo presupuesto?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Terremoto",
+    "#AlertaSísmica",
+    "#Geociencias",
+    "#SeguridadCiudadana"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-11-04-0135-sinlinea-la-estrella-cdbf.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-04-0135-sinlinea-la-estrella-cdbf.jpg",
+    "hash": "fd280f0860594f0a",
+    "version": 11,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-11-04T06:36:29.338Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada del Instituto de Geociencias de la Universidad de Panamá con un sismógrafo visible, el edificio ubicado en el tercio superior derecho, área izquierda y central despejadas",
+    "usar": true,
+    "ruta": "public/ilus/2026-11-04-0135-sinlinea-la-estrella-cdbf.jpg",
+    "hashDescripcion": "d53fc57485bc4636",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-11-04T06:35:54.783Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-04T06:35:54.783Z",
+  "actualizado": "2026-11-04T06:35:54.783Z",
+  "plantilla": "foto",
+  "dato": {
+    "cifra": "$3 millones",
+    "frase": "costaría establecer un sistema nacional de alerta sísmica temprana"
+  }
+}

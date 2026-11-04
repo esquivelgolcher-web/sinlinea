@@ -1,0 +1,46 @@
+{
+  "id": "2026-11-04-0135-leopopexiv-vatican-news-ff57",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-11/vatican-press-office-presents-pope-leo-s-journey-latin-america.html",
+    "titulo": "Vatican presents Pope Leo's Apostolic Journey to Latin America",
+    "publicado": "2026-11-03T14:00:00.000Z"
+  },
+  "categoria": "INTERNACIONAL",
+  "titular": "Vatican briefs press on Pope's Latin America trip",
+  "bajada": "Leo XIV will visit Uruguay, Argentina and Peru, where he once served as missionary and bishop",
+  "caption": "The Holy See Press Office held a briefing on Tuesday, November 3, detailing Pope Leo XIV's upcoming Apostolic Journey to Uruguay, Argentina and Peru — countries closely tied to his years of missionary and episcopal service. Source: Vatican News, Nov 3, 2026.",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Vatican",
+    "#ApostolicJourney",
+    "#LatinAmerica",
+    "#CatholicChurch"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-11-04-0135-leopopexiv-vatican-news-ff57.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-04-0135-leopopexiv-vatican-news-ff57.jpg",
+    "hash": "a67a8ae1a1d9aa1f",
+    "version": 11,
+    "estilo": "b18ca074001a6ad6",
+    "renderizada": "2026-11-04T06:36:45.260Z"
+  },
+  "ilustracion": {
+    "descripcion": "A press briefing room at the Holy See with a large map of South America on a screen; a Vatican spokesperson stands at a podium in the upper right third, left and center space open.",
+    "usar": true,
+    "ruta": "public/ilus/2026-11-04-0135-leopopexiv-vatican-news-ff57.jpg",
+    "hashDescripcion": "4eccea10e09af07e",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-11-04T06:35:54.783Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-04T06:35:54.783Z",
+  "actualizado": "2026-11-04T06:35:54.783Z"
+}

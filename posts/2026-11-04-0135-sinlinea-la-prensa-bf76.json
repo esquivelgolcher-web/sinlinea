@@ -1,0 +1,52 @@
+{
+  "id": "2026-11-04-0135-sinlinea-la-prensa-bf76",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/sociedad/entre-piezas-y-memorias-el-reina-torres-de-arauz-prepara-su-regreso-tras-completar-la-fase-estructural/",
+    "titulo": "Entre piezas y memorias, el Reina Torres de Araúz prepara su regreso tras completar la fase estructural",
+    "publicado": "2026-11-04T05:03:00.000Z"
+  },
+  "categoria": "CULTURA",
+  "titular": "Museo Reina Torres de Araúz reabrirá en marzo de 2027",
+  "bajada": "La ministra de Cultura reportó un avance del 70% en la restauración del edificio, cerrado desde 2013.",
+  "caption": "Más de una década después de su cierre, el museo antropológico más importante del país se prepara para volver a abrir sus puertas. La ministra de Cultura confirmó que ya terminó la parte estructural y que ahora falta preparar las salas para exhibir las colecciones. Una ventana a la historia panameña que estuvo trece años cerrada. ¿Lo visitarías apenas reabra?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Cultura",
+    "#Museo",
+    "#MinisterioDeCultura",
+    "#PatrimonioPanameño"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-11-04-0135-sinlinea-la-prensa-bf76.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-04-0135-sinlinea-la-prensa-bf76.jpg",
+    "hash": "041d6c843d49a206",
+    "version": 2,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-11-04T06:36:29.615Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada del edificio del Museo Antropológico Reina Torres de Araúz con andamios de restauración, el edificio en el tercio superior derecho, área izquierda y central despejadas",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-04T06:35:54.783Z",
+  "actualizado": "2026-11-04T06:35:54.783Z",
+  "plantilla": "dato",
+  "dato": {
+    "cifra": "70%",
+    "frase": "es el avance de los trabajos de restauración del museo"
+  }
+}
