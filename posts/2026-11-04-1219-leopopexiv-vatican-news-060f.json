@@ -1,0 +1,46 @@
+{
+  "id": "2026-11-04-1219-leopopexiv-vatican-news-060f",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-11/pope-leo-receives-bob-dylan-at-the-vatican.html",
+    "titulo": "Pope Leo receives Bob Dylan at the Vatican",
+    "publicado": "2026-11-04T16:38:00.000Z"
+  },
+  "categoria": "CULTURA",
+  "titular": "Pope Leo XIV welcomes Bob Dylan to Vatican",
+  "bajada": "Nobel laureate singer, touring Italy, met the Pontiff at the Apostolic Palace",
+  "caption": "Pope Leo XIV received Bob Dylan, the American singer-songwriter and Nobel laureate in literature, at the Apostolic Palace during his Italian tour. The Pope had previously quoted Dylan's lyrics in the preface to a book on disarmament. Source: Vatican News, Nov 4, 2026.",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#BobDylan",
+    "#Vatican",
+    "#VaticanNews",
+    "#CatholicChurch"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-11-04-1219-leopopexiv-vatican-news-060f.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-04-1219-leopopexiv-vatican-news-060f.jpg",
+    "hash": "afeb45dcdc57097a",
+    "version": 11,
+    "estilo": "b18ca074001a6ad6",
+    "renderizada": "2026-11-04T17:19:55.809Z"
+  },
+  "ilustracion": {
+    "descripcion": "The grand facade of the Apostolic Palace at dusk, a small figure in papal white visible in the upper right, left and center of the frame left open and quiet.",
+    "usar": true,
+    "ruta": "public/ilus/2026-11-04-1219-leopopexiv-vatican-news-060f.jpg",
+    "hashDescripcion": "c629fe1468a66d3e",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-11-04T17:19:39.705Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-04T17:19:39.705Z",
+  "actualizado": "2026-11-04T17:19:39.705Z"
+}
