@@ -1,0 +1,52 @@
+{
+  "id": "2026-11-04-1844-sinlinea-la-prensa-24e2",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/sociedad/meduca-espera-tener-listas-para-marzo-de-2027-la-mayoria-de-las-85-escuelas-afectadas-por-el-terremoto/",
+    "titulo": "Meduca fija en 85 las escuelas que espera reparar para marzo de 2027",
+    "publicado": "2026-11-04T19:12:01.000Z"
+  },
+  "categoria": "EDUCACIÓN",
+  "titular": "Meduca espera reparar 85 escuelas antes de marzo de 2027",
+  "bajada": "El ministro Ventura Vega admitió que el plazo de cuatro meses es un reto por la magnitud de los daños.",
+  "caption": "Tras el terremoto del 9 de octubre, cientos de escuelas quedaron dañadas y 85 deben ser demolidas y reconstruidas antes de que inicie el próximo año escolar. El ministro de Educación reconoció que el reto es enorme porque cada plantel tiene un diseño distinto. Miles de estudiantes dependen de que estas obras avancen a tiempo. ¿Crees que se cumplirá el plazo?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Educación",
+    "#Meduca",
+    "#Terremoto",
+    "#AñoEscolar2027"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-11-04-1844-sinlinea-la-prensa-24e2.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-04-1844-sinlinea-la-prensa-24e2.jpg",
+    "hash": "5e5e27326333cab0",
+    "version": 2,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-11-04T23:45:23.059Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada de una escuela pública panameña con andamios y materiales de construcción en el patio, bajo cielo despejado; la estructura escolar queda en el tercio superior derecho y el resto del encuadre despejado.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-04T23:44:48.442Z",
+  "actualizado": "2026-11-04T23:44:48.442Z",
+  "plantilla": "dato",
+  "dato": {
+    "cifra": "85",
+    "frase": "escuelas espera reparar el Meduca antes de marzo de 2027"
+  }
+}

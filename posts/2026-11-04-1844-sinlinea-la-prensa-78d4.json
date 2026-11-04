@@ -1,0 +1,52 @@
+{
+  "id": "2026-11-04-1844-sinlinea-la-prensa-78d4",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/sociedad/sismo-de-magnitud-39-se-registra-al-noroeste-de-arraijan/",
+    "titulo": "Sismo de magnitud 3.9 en Arraiján se vincula con la falla de Pedro Miguel",
+    "publicado": "2026-11-04T22:52:27.000Z"
+  },
+  "categoria": "SEGURIDAD",
+  "titular": "Sismo de 3.9 en Arraiján se vincula a falla Pedro Miguel",
+  "bajada": "El movimiento de 7 km de profundidad se sintió en Arraiján y zonas de la capital, dijo Geociencias.",
+  "caption": "Un nuevo sismo activó la falla de Pedro Miguel, la misma que corre paralela al Canal y pasa cerca de las esclusas. El director de Geociencias explicó que esta zona mantiene actividad constante y libera energía de forma periódica. Para muchas familias en Panamá Oeste y la capital, cada temblor reaviva la preocupación tras el terremoto de octubre. ¿Sentiste este movimiento?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Arraiján",
+    "#Sismo",
+    "#FallaPedroMiguel",
+    "#PanamáOeste"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-11-04-1844-sinlinea-la-prensa-78d4.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-04-1844-sinlinea-la-prensa-78d4.jpg",
+    "hash": "ec2a9abc92a0959e",
+    "version": 11,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-11-04T23:45:22.715Z"
+  },
+  "ilustracion": {
+    "descripcion": "Vista de las esclusas de Pedro Miguel junto al Canal de Panamá al atardecer, con el agua en calma; el área de las compuertas queda en el tercio superior derecho y el resto despejado.",
+    "usar": true,
+    "ruta": "public/ilus/2026-11-04-1844-sinlinea-la-prensa-78d4.jpg",
+    "hashDescripcion": "7fec4925bddbb31f",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-11-04T23:44:48.442Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-04T23:44:48.442Z",
+  "actualizado": "2026-11-04T23:44:48.442Z",
+  "plantilla": "foto",
+  "dato": {
+    "cifra": "3.9",
+    "frase": "fue la magnitud del sismo registrado cerca de Arraiján"
+  }
+}
