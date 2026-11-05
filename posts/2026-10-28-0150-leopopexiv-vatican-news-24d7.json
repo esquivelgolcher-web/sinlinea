@@ -1,7 +1,7 @@
 {
   "id": "2026-10-28-0150-leopopexiv-vatican-news-24d7",
   "cuenta": "leopopexiv",
-  "estado": "programado",
+  "estado": "publicado",
   "formato": "frase",
   "frase": {
     "texto": "War can never be waged in the name of God. For us believers, 'to fight in the name of religion means attacking religion itself.' There is no such thing as a holy war: only peace is holy.",
@@ -37,7 +37,11 @@
   },
   "ilustracion": null,
   "programado": "2026-11-04T18:00:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "18102147983426917",
+    "permalink": "https://www.instagram.com/p/DfV2JMblEZk/",
+    "fecha": "2026-11-05T01:25:00.990Z"
+  },
   "error": null,
   "creado": "2026-10-28T05:50:56.061Z",
   "actualizado": "2026-11-05T01:25:00.990Z",
@@ -50,16 +54,15 @@
         "imagenHash": "b5c8acebb2a120f5",
         "imagenSha": "dc9c97ea200d5c2acab37adadb6fb193d26b8835"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-11-05T01:25:00.990Z",
-        "actualizado": "2026-11-05T01:25:00.990Z",
-        "contenedorId": "18113672894081176"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18102147983426917",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/DfV2JMblEZk/",
+        "fecha": "2026-11-05T01:25:00.990Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
