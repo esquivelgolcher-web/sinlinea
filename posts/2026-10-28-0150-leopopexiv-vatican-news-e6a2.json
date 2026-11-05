@@ -1,7 +1,7 @@
 {
   "id": "2026-10-28-0150-leopopexiv-vatican-news-e6a2",
   "cuenta": "leopopexiv",
-  "estado": "programado",
+  "estado": "publicado",
   "fuente": {
     "medio": "Vatican News",
     "url": "https://www.vaticannews.va/en/pope/news/2026-10/pope-sends-videomessage-to-international-meeting-peace-assisi.html",
@@ -39,7 +39,11 @@
     "error": null
   },
   "programado": "2026-11-04T20:20:00-05:00",
-  "publicacion": null,
+  "publicacion": {
+    "idMedia": "18129064765855789",
+    "permalink": "https://www.instagram.com/p/DfV2Kp2lAfc/",
+    "fecha": "2026-11-05T01:25:00.990Z"
+  },
   "error": null,
   "creado": "2026-10-28T05:50:56.061Z",
   "actualizado": "2026-11-05T01:25:00.990Z",
@@ -52,16 +56,15 @@
         "imagenHash": "d0172ea05dc487b2",
         "imagenSha": "09021e8870e50815f2d8742b7adf09515b756783"
       },
-      "estado": "pendiente",
-      "publicacion": null,
-      "error": null,
-      "intento": {
-        "n": 1,
-        "fase": "enviando",
-        "inicio": "2026-11-05T01:25:00.990Z",
-        "actualizado": "2026-11-05T01:25:00.990Z",
-        "contenedorId": "18113672924081176"
+      "estado": "publicado",
+      "publicacion": {
+        "id": "18129064765855789",
+        "idPublicacion": null,
+        "permalink": "https://www.instagram.com/p/DfV2Kp2lAfc/",
+        "fecha": "2026-11-05T01:25:00.990Z"
       },
+      "error": null,
+      "intento": null,
       "omitido": null,
       "espera": null
     }
