@@ -40,7 +40,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-28T05:50:56.061Z",
-  "actualizado": "2026-11-03T07:54:16.257Z",
+  "actualizado": "2026-11-05T01:25:00.990Z",
   "destinos": {
     "instagram": {
       "texto": "“War can never be waged in the name of God. For us believers, 'to fight in the name of religion means attacking religion itself.' There is no such thing as a holy war: only peace is holy.”\n\n— Pope Leo XIV, Video message to the International Meeting in the Spirit of Assisi (2026)\n\nVia Vatican News, 27 October 2026\n\n#PopeLeoXIV #Vatican #CatholicChurch\n\nFuente: Vatican News\n\n#PopeLeoXIV #Vatican #CatholicChurch",
@@ -53,7 +53,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-11-05T01:25:00.990Z",
+        "actualizado": "2026-11-05T01:25:00.990Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
