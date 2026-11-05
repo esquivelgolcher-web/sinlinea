@@ -1,0 +1,52 @@
+{
+  "id": "2026-11-05-1227-sinlinea-la-estrella-40ec",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/economia/atp-reporta-alza-de-4-en-reservas-se-recuperara-el-interior-tras-el-sismo-MM27092916",
+    "titulo": "ATP reporta alza de 4 % en reservas: ¿Se recuperará el interior tras el sismo?",
+    "publicado": "2026-11-05T16:57:00.000Z"
+  },
+  "categoria": "ECONOMÍA",
+  "titular": "Turismo en Panamá repunta tras el sismo de octubre",
+  "bajada": "ATP reporta alza de 4% en reservas hoteleras en la capital; el interior avanza más lento.",
+  "caption": "Tras el sismo del 9 de octubre, el sector turístico empezaba a mostrar señales de recuperación en estas fiestas patrias. La ATP destacó un repunte en la ocupación hotelera de la capital, aunque el interior, como las zonas costeras, se reactiva a un ritmo más lento. Este sector es fuente de empleo para miles de familias panameñas. ¿Has notado más movimiento turístico en tu zona?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Turismo",
+    "#Economía",
+    "#Sismo",
+    "#ATP"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-11-05-1227-sinlinea-la-estrella-40ec.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-05-1227-sinlinea-la-estrella-40ec.jpg",
+    "hash": "a8e6de16eadc4c24",
+    "version": 11,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-11-05T17:28:25.851Z"
+  },
+  "ilustracion": {
+    "descripcion": "Vista de un hotel frente al mar en una playa panameña, con una terraza y sombrillas en el tercio superior derecho, zona izquierda y central del encuadre despejadas, luz de atardecer.",
+    "usar": true,
+    "ruta": "public/ilus/2026-11-05-1227-sinlinea-la-estrella-40ec.jpg",
+    "hashDescripcion": "73e71b5b224e1191",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-11-05T17:27:45.794Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-05T17:27:45.794Z",
+  "actualizado": "2026-11-05T17:27:45.794Z",
+  "plantilla": "foto",
+  "dato": {
+    "cifra": "4%",
+    "frase": "fue el aumento en las reservas hoteleras registrado en la ciudad capital"
+  }
+}

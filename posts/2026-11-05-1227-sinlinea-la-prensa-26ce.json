@@ -1,0 +1,52 @@
+{
+  "id": "2026-11-05-1227-sinlinea-la-prensa-26ce",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/economia/moodys-panama-registra-el-menor-crecimiento-del-credito-bancario-entre-paises-de-centroamerica/",
+    "titulo": "Moody’s: Panamá registra el menor crecimiento del crédito bancario entre países de Centroamérica",
+    "publicado": "2026-11-05T05:06:00.000Z"
+  },
+  "categoria": "ECONOMÍA",
+  "titular": "Panamá, el país con menor crecimiento crediticio",
+  "bajada": "Moody's proyecta que la cartera crediticia panameña crecerá 4.4% en 2026, frente al 2.9% de 2025.",
+  "caption": "El crédito bancario es clave para que familias y negocios puedan comprar vivienda, carro o capital de trabajo. Según Moody's, Panamá sigue rezagado frente al resto de Centroamérica en este indicador. Una banca más cautelosa puede significar menos préstamos accesibles para la gente común. ¿Has sentido más difícil acceder a un crédito este año?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Economía",
+    "#Banca",
+    "#Crédito",
+    "#Moody's"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-11-05-1227-sinlinea-la-prensa-26ce.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-05-1227-sinlinea-la-prensa-26ce.jpg",
+    "hash": "1004db7a8933e788",
+    "version": 2,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-11-05T17:28:21.018Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada moderna de un banco en la ciudad de Panamá, con el logotipo genérico de una entidad financiera en el tercio superior derecho, zona izquierda y central despejadas, cielo despejado de fondo.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-05T17:27:45.794Z",
+  "actualizado": "2026-11-05T17:27:45.794Z",
+  "plantilla": "dato",
+  "dato": {
+    "cifra": "4.4%",
+    "frase": "sería el crecimiento proyectado de la cartera crediticia panameña al cierre de 2026"
+  }
+}

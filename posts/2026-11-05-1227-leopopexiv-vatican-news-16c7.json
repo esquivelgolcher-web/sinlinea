@@ -1,0 +1,46 @@
+{
+  "id": "2026-11-05-1227-leopopexiv-vatican-news-16c7",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-11/pope-leo-theme-world-day-sick-2027-caring-for-every-person.html",
+    "titulo": "Pope chooses theme for 2027 World Day of the Sick",
+    "publicado": "2026-11-05T11:40:00.000Z"
+  },
+  "categoria": "SALUD",
+  "titular": "Pope sets theme for 2027 World Day of the Sick",
+  "bajada": "Leo XIV calls on communities to care for the sick, elderly and suffering",
+  "caption": "Pope Leo XIV has announced the theme for the 2027 World Day of the Sick, underscoring the role Christian communities and civil society play in caring for the sick, the elderly and those who suffer. Source: Vatican News, Nov. 5, 2026.",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Vatican",
+    "#WorldDayOfTheSick",
+    "#CatholicChurch",
+    "#HealthCare"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-11-05-1227-leopopexiv-vatican-news-16c7.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-05-1227-leopopexiv-vatican-news-16c7.jpg",
+    "hash": "b696b8a4488cab22",
+    "version": 11,
+    "estilo": "b18ca074001a6ad6",
+    "renderizada": "2026-11-05T17:28:43.306Z"
+  },
+  "ilustracion": {
+    "descripcion": "A quiet hospital chapel corridor with soft natural light, an empty wheelchair near a window; a bishop-like figure blesses patients in the upper right third, left and center space open and calm.",
+    "usar": true,
+    "ruta": "public/ilus/2026-11-05-1227-leopopexiv-vatican-news-16c7.jpg",
+    "hashDescripcion": "af27437307fbed3d",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-11-05T17:27:45.794Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-05T17:27:45.794Z",
+  "actualizado": "2026-11-05T17:27:45.794Z"
+}
