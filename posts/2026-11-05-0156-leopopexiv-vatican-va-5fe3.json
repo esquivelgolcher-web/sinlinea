@@ -1,0 +1,44 @@
+{
+  "id": "2026-11-05-0156-leopopexiv-vatican-va-5fe3",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "formato": "frase",
+  "frase": {
+    "texto": "If you want peace, work for justice.",
+    "autor": "Saint Paul VI",
+    "fuente": "Message for the World Day of Peace",
+    "anio": 1972,
+    "url": "https://www.vatican.va/content/paul-vi/en/messages/peace/documents/hf_p-vi_mes_19711208_v-world-day-for-peace.html",
+    "origen": "banco"
+  },
+  "fuente": {
+    "medio": "Vatican.va",
+    "url": "https://www.vatican.va/content/paul-vi/en/messages/peace/documents/hf_p-vi_mes_19711208_v-world-day-for-peace.html",
+    "titulo": "Message for the World Day of Peace",
+    "publicado": "1972-01-01T00:00:00.000Z"
+  },
+  "categoria": "CULTURA",
+  "titular": "Saint Paul VI",
+  "bajada": "Message for the World Day of Peace · 1972",
+  "caption": "“If you want peace, work for justice.”\n\n— Saint Paul VI, Message for the World Day of Peace (1972)\n\n#PopeLeoXIV #Vatican #CatholicChurch",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Vatican",
+    "#CatholicChurch"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-11-05-0156-leopopexiv-vatican-va-5fe3.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-05-0156-leopopexiv-vatican-va-5fe3.jpg",
+    "hash": "5f805bbede23eff8",
+    "version": 1,
+    "estilo": "a0a82c85f495517b",
+    "renderizada": "2026-11-05T06:56:57.368Z"
+  },
+  "ilustracion": null,
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-05T06:56:48.439Z",
+  "actualizado": "2026-11-05T06:56:48.439Z"
+}
