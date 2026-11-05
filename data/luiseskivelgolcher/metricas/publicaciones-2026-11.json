@@ -59,9 +59,33 @@
             "profile_activity": "metrica-no-soportada",
             "follows": "metrica-no-soportada"
           }
+        },
+        "2026-11-05T13:25:56.327Z": {
+          "acumulados": {
+            "meGusta": 2524,
+            "comentarios": 91,
+            "reach": 49085,
+            "views": 76743,
+            "likes": 2524,
+            "comments": 91,
+            "saved": 72,
+            "shares": 131,
+            "total_interactions": 2907,
+            "ig_reels_avg_watch_time": 32875,
+            "ig_reels_video_view_total_time": 1593951250,
+            "reels_skip_rate": 29.2,
+            "profile_visits": null,
+            "profile_activity": null,
+            "follows": null
+          },
+          "faltantes": {
+            "profile_visits": "metrica-no-soportada",
+            "profile_activity": "metrica-no-soportada",
+            "follows": "metrica-no-soportada"
+          }
         }
       },
-      "ultimaConsulta": "2026-11-04T13:12:24.883Z"
+      "ultimaConsulta": "2026-11-05T13:25:56.327Z"
     },
     "17996785719024529": {
       "fecha": "2026-11-03T12:02:03.000Z",
@@ -120,9 +144,33 @@
             "profile_activity": "metrica-no-soportada",
             "follows": "metrica-no-soportada"
           }
+        },
+        "2026-11-05T13:25:56.327Z": {
+          "acumulados": {
+            "meGusta": 571,
+            "comentarios": 12,
+            "reach": 16400,
+            "views": 22510,
+            "likes": 571,
+            "comments": 12,
+            "saved": 70,
+            "shares": 128,
+            "total_interactions": 805,
+            "ig_reels_avg_watch_time": 34260,
+            "ig_reels_video_view_total_time": 570957371,
+            "reels_skip_rate": 29.5,
+            "profile_visits": null,
+            "profile_activity": null,
+            "follows": null
+          },
+          "faltantes": {
+            "profile_visits": "metrica-no-soportada",
+            "profile_activity": "metrica-no-soportada",
+            "follows": "metrica-no-soportada"
+          }
         }
       },
-      "ultimaConsulta": "2026-11-04T13:12:24.883Z"
+      "ultimaConsulta": "2026-11-05T13:25:56.327Z"
     },
     "18063359378569714": {
       "fecha": "2026-11-03T11:02:53.000Z",
@@ -181,9 +229,33 @@
             "profile_activity": "metrica-no-soportada",
             "follows": "metrica-no-soportada"
           }
+        },
+        "2026-11-05T13:25:56.327Z": {
+          "acumulados": {
+            "meGusta": 415,
+            "comentarios": 25,
+            "reach": 6944,
+            "views": 9718,
+            "likes": 415,
+            "comments": 25,
+            "saved": 80,
+            "shares": 174,
+            "total_interactions": 747,
+            "ig_reels_avg_watch_time": 38017,
+            "ig_reels_video_view_total_time": 271860084,
+            "reels_skip_rate": 38.4,
+            "profile_visits": null,
+            "profile_activity": null,
+            "follows": null
+          },
+          "faltantes": {
+            "profile_visits": "metrica-no-soportada",
+            "profile_activity": "metrica-no-soportada",
+            "follows": "metrica-no-soportada"
+          }
         }
       },
-      "ultimaConsulta": "2026-11-04T13:12:24.883Z"
+      "ultimaConsulta": "2026-11-05T13:25:56.327Z"
     },
     "18137307523731065": {
       "fecha": "2026-11-02T18:25:32.000Z",
@@ -242,9 +314,33 @@
             "profile_activity": "metrica-no-soportada",
             "follows": "metrica-no-soportada"
           }
+        },
+        "2026-11-05T13:25:56.327Z": {
+          "acumulados": {
+            "meGusta": 133,
+            "comentarios": 0,
+            "reach": 3221,
+            "views": 3947,
+            "likes": 133,
+            "comments": 0,
+            "saved": 4,
+            "shares": 0,
+            "total_interactions": 139,
+            "ig_reels_avg_watch_time": 17461,
+            "ig_reels_video_view_total_time": 57169263,
+            "reels_skip_rate": 37.6,
+            "profile_visits": null,
+            "profile_activity": null,
+            "follows": null
+          },
+          "faltantes": {
+            "profile_visits": "metrica-no-soportada",
+            "profile_activity": "metrica-no-soportada",
+            "follows": "metrica-no-soportada"
+          }
         }
       },
-      "ultimaConsulta": "2026-11-04T13:12:24.883Z"
+      "ultimaConsulta": "2026-11-05T13:25:56.327Z"
     },
     "18232370677329042": {
       "fecha": "2026-11-02T16:01:56.000Z",
@@ -289,9 +385,26 @@
             "follows": 0
           },
           "faltantes": {}
+        },
+        "2026-11-05T13:25:56.327Z": {
+          "acumulados": {
+            "meGusta": 37,
+            "comentarios": 2,
+            "reach": 4120,
+            "views": 7408,
+            "likes": 37,
+            "comments": 2,
+            "saved": 3,
+            "shares": 1,
+            "total_interactions": 43,
+            "profile_visits": 5,
+            "profile_activity": 0,
+            "follows": 0
+          },
+          "faltantes": {}
         }
       },
-      "ultimaConsulta": "2026-11-04T13:12:24.883Z"
+      "ultimaConsulta": "2026-11-05T13:25:56.327Z"
     },
     "17912052882482976": {
       "fecha": "2026-11-04T10:56:43.000Z",
@@ -326,9 +439,33 @@
             "profile_activity": "metrica-no-soportada",
             "follows": "metrica-no-soportada"
           }
+        },
+        "2026-11-05T13:25:56.327Z": {
+          "acumulados": {
+            "meGusta": 8905,
+            "comentarios": 88,
+            "reach": 95716,
+            "views": 123721,
+            "likes": 8905,
+            "comments": 88,
+            "saved": 979,
+            "shares": 1498,
+            "total_interactions": 12314,
+            "ig_reels_avg_watch_time": 36457,
+            "ig_reels_video_view_total_time": 3511344142,
+            "reels_skip_rate": 38.7,
+            "profile_visits": null,
+            "profile_activity": null,
+            "follows": null
+          },
+          "faltantes": {
+            "profile_visits": "metrica-no-soportada",
+            "profile_activity": "metrica-no-soportada",
+            "follows": "metrica-no-soportada"
+          }
         }
       },
-      "ultimaConsulta": "2026-11-04T13:12:24.883Z"
+      "ultimaConsulta": "2026-11-05T13:25:56.327Z"
     },
     "18116436662276231": {
       "fecha": "2026-11-03T22:03:46.000Z",
@@ -363,9 +500,107 @@
             "profile_activity": "metrica-no-soportada",
             "follows": "metrica-no-soportada"
           }
+        },
+        "2026-11-05T13:25:56.327Z": {
+          "acumulados": {
+            "meGusta": 31,
+            "comentarios": 0,
+            "reach": 3284,
+            "views": 5017,
+            "likes": 31,
+            "comments": 0,
+            "saved": 8,
+            "shares": 1,
+            "total_interactions": 42,
+            "ig_reels_avg_watch_time": 7295,
+            "ig_reels_video_view_total_time": 24366752,
+            "reels_skip_rate": 42.7,
+            "profile_visits": null,
+            "profile_activity": null,
+            "follows": null
+          },
+          "faltantes": {
+            "profile_visits": "metrica-no-soportada",
+            "profile_activity": "metrica-no-soportada",
+            "follows": "metrica-no-soportada"
+          }
         }
       },
-      "ultimaConsulta": "2026-11-04T13:12:24.883Z"
+      "ultimaConsulta": "2026-11-05T13:25:56.327Z"
+    },
+    "18443829616182774": {
+      "fecha": "2026-11-05T11:33:23.000Z",
+      "permalink": "https://www.instagram.com/reel/DfW7pKYgI5n/",
+      "tipo": "VIDEO",
+      "origen": "instagram",
+      "post": null,
+      "categoria": null,
+      "franja": null,
+      "titulo": "Omar Otálora, empresario colombiano que vive en Panamá, dirige Asocsa: la constructora pan",
+      "consultas": {
+        "2026-11-05T13:25:56.327Z": {
+          "acumulados": {
+            "meGusta": 56,
+            "comentarios": 1,
+            "reach": 1565,
+            "views": 2482,
+            "likes": 56,
+            "comments": 1,
+            "saved": 10,
+            "shares": 21,
+            "total_interactions": 98,
+            "ig_reels_avg_watch_time": 28983,
+            "ig_reels_video_view_total_time": 46606010,
+            "reels_skip_rate": 40,
+            "profile_visits": null,
+            "profile_activity": null,
+            "follows": null
+          },
+          "faltantes": {
+            "profile_visits": "metrica-no-soportada",
+            "profile_activity": "metrica-no-soportada",
+            "follows": "metrica-no-soportada"
+          }
+        }
+      },
+      "ultimaConsulta": "2026-11-05T13:25:56.327Z"
+    },
+    "17964947100227281": {
+      "fecha": "2026-11-04T19:08:41.000Z",
+      "permalink": "https://www.instagram.com/reel/DfVK3eIMS9J/",
+      "tipo": "VIDEO",
+      "origen": "instagram",
+      "post": null,
+      "categoria": null,
+      "franja": null,
+      "titulo": "Colombia perdió Panamá y cobró 25 millones de dólares. Panamá cobró 10. 🇵🇦 En 1914, Esta",
+      "consultas": {
+        "2026-11-05T13:25:56.327Z": {
+          "acumulados": {
+            "meGusta": 273,
+            "comentarios": 18,
+            "reach": 5980,
+            "views": 7828,
+            "likes": 273,
+            "comments": 18,
+            "saved": 58,
+            "shares": 92,
+            "total_interactions": 472,
+            "ig_reels_avg_watch_time": 39688,
+            "ig_reels_video_view_total_time": 239598318,
+            "reels_skip_rate": 38.7,
+            "profile_visits": null,
+            "profile_activity": null,
+            "follows": null
+          },
+          "faltantes": {
+            "profile_visits": "metrica-no-soportada",
+            "profile_activity": "metrica-no-soportada",
+            "follows": "metrica-no-soportada"
+          }
+        }
+      },
+      "ultimaConsulta": "2026-11-05T13:25:56.327Z"
     }
   }
 }
