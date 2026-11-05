@@ -42,7 +42,7 @@
   "publicacion": null,
   "error": null,
   "creado": "2026-10-28T05:50:56.061Z",
-  "actualizado": "2026-11-03T07:53:46.723Z",
+  "actualizado": "2026-11-05T01:25:00.990Z",
   "destinos": {
     "instagram": {
       "texto": "In a video message to the International Meeting for Peace in Assisi, Pope Leo XIV called on participants to be \"unarmed instruments of the Lord's peace,\" stressing that \"war can never be waged in the name of God.\" Source: Vatican News, Oct 27, 2026.\n\nFuente: Vatican News\n\n#PopeLeoXIV #Assisi #Peace #Vatican #InterfaithDialogue",
@@ -55,7 +55,13 @@
       "estado": "pendiente",
       "publicacion": null,
       "error": null,
-      "intento": null,
+      "intento": {
+        "n": 1,
+        "fase": "reservado",
+        "inicio": "2026-11-05T01:25:00.990Z",
+        "actualizado": "2026-11-05T01:25:00.990Z",
+        "contenedorId": null
+      },
       "omitido": null,
       "espera": null
     }
