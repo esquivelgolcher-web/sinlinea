@@ -1,0 +1,44 @@
+{
+  "id": "2026-11-06-0156-leopopexiv-vatican-va-bc31",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "formato": "frase",
+  "frase": {
+    "texto": "It is neither just nor human so to grind men down with excessive labor as to stupefy their minds and wear out their bodies.",
+    "autor": "Pope Leo XIII",
+    "fuente": "Rerum novarum, 42",
+    "anio": 1891,
+    "url": "https://www.vatican.va/content/leo-xiii/en/encyclicals/documents/hf_l-xiii_enc_15051891_rerum-novarum.html",
+    "origen": "banco"
+  },
+  "fuente": {
+    "medio": "Vatican.va",
+    "url": "https://www.vatican.va/content/leo-xiii/en/encyclicals/documents/hf_l-xiii_enc_15051891_rerum-novarum.html",
+    "titulo": "Rerum novarum, 42",
+    "publicado": "1891-01-01T00:00:00.000Z"
+  },
+  "categoria": "CULTURA",
+  "titular": "Pope Leo XIII",
+  "bajada": "Rerum novarum, 42 · 1891",
+  "caption": "“It is neither just nor human so to grind men down with excessive labor as to stupefy their minds and wear out their bodies.”\n\n— Pope Leo XIII, Rerum novarum, 42 (1891)\n\n#PopeLeoXIV #Vatican #CatholicChurch",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Vatican",
+    "#CatholicChurch"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-11-06-0156-leopopexiv-vatican-va-bc31.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-06-0156-leopopexiv-vatican-va-bc31.jpg",
+    "hash": "48927a49a4124c93",
+    "version": 1,
+    "estilo": "a0a82c85f495517b",
+    "renderizada": "2026-11-06T06:57:02.097Z"
+  },
+  "ilustracion": null,
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-06T06:56:08.898Z",
+  "actualizado": "2026-11-06T06:56:08.898Z"
+}

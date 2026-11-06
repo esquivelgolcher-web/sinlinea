@@ -1,0 +1,47 @@
+{
+  "id": "2026-11-06-0156-leopopexiv-vatican-news-4e99",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-11/pope-leo-departs-for-apostolic-journey-to-latin-america.html",
+    "titulo": "Pope Leo departs for Apostolic Journey to Latin America",
+    "publicado": "2026-11-06T06:21:34.000Z"
+  },
+  "categoria": "INTERNACIONAL",
+  "titular": "Pope Leo XIV departs for Latin America trip",
+  "bajada": "12-day journey will take him to Uruguay, Argentina and Peru",
+  "caption": "Pope Leo XIV has departed on his 12-day Apostolic Journey to Latin America, his sixth international trip since becoming pope. The visit will include stops in Uruguay, Argentina and Peru. Source: Vatican News, Nov 6, 2026.",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Vatican",
+    "#LatinAmerica",
+    "#Uruguay",
+    "#Argentina",
+    "#Peru"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-11-06-0156-leopopexiv-vatican-news-4e99.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-06-0156-leopopexiv-vatican-news-4e99.jpg",
+    "hash": "53141603701d7f31",
+    "version": 11,
+    "estilo": "b18ca074001a6ad6",
+    "renderizada": "2026-11-06T06:56:59.329Z"
+  },
+  "ilustracion": {
+    "descripcion": "An airport tarmac at dawn with a plane ready for departure; a figure in white papal attire boards the stairs in the upper right third, left and center clear.",
+    "usar": true,
+    "ruta": "public/ilus/2026-11-06-0156-leopopexiv-vatican-news-4e99.jpg",
+    "hashDescripcion": "dc582cf7136b93c9",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-11-06T06:56:08.898Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-06T06:56:08.898Z",
+  "actualizado": "2026-11-06T06:56:08.898Z"
+}

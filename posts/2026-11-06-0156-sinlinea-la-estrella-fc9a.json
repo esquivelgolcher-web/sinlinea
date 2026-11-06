@@ -1,0 +1,52 @@
+{
+  "id": "2026-11-06-0156-sinlinea-la-estrella-fc9a",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/politica/prd-pretende-comprar-una-residencia-con-subsidio-poseelctoral-CM27090310",
+    "titulo": "PRD pretende comprar una residencia con subsidio poseelctoral",
+    "publicado": "2026-11-06T03:00:00.000Z"
+  },
+  "categoria": "POLÍTICA",
+  "titular": "PRD tramita compra de residencia con fondos poselectorales",
+  "bajada": "El partido busca adquirir una vivienda en Boquete por más de $138 mil para un museo, pero el residencial prohíbe uso político.",
+  "caption": "El Tribunal Electoral pidió aclaraciones al PRD sobre la compra de una propiedad en un residencial exclusivamente habitacional de Boquete, destinada según el partido a una Casa Museo de la Mujer. Balbina Herrera admitió errores en el proceso. El contrato prohíbe expresamente actividades de centros políticos en la zona. ¿Debe un partido usar fondos públicos poselectorales para este tipo de compras?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#PRD",
+    "#TribunalElectoral",
+    "#Boquete",
+    "#Transparencia"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-11-06-0156-sinlinea-la-estrella-fc9a.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-06-0156-sinlinea-la-estrella-fc9a.jpg",
+    "hash": "e47ffb3c4a8995a2",
+    "version": 2,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-11-06T06:56:49.024Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada de una casa residencial moderna en zona montañosa de Boquete, con la vivienda ubicada en el tercio superior derecho y el resto del encuadre despejado.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-06T06:56:08.898Z",
+  "actualizado": "2026-11-06T06:56:08.898Z",
+  "plantilla": "dato",
+  "dato": {
+    "cifra": "$138,633.50",
+    "frase": "es el valor de la vivienda que el PRD busca comprar en Boquete"
+  }
+}

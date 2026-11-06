@@ -1,0 +1,52 @@
+{
+  "id": "2026-11-06-0156-sinlinea-la-prensa-82dd",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/judiciales/dietilenglicol-sala-tercera-de-la-csj-emite-12-nuevas-condenas-contra-la-css/",
+    "titulo": "Dietilenglicol: Sala Tercera de la CSJ emite 12 nuevas condenas contra la CSS",
+    "publicado": "2026-11-06T05:05:00.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "CSS deberá pagar 12 nuevas indemnizaciones por dietilenglicol",
+  "bajada": "La Corte Suprema ordena indemnizar a víctimas y familiares del envenenamiento de 2004-2006",
+  "caption": "Veinte años después, la justicia sigue dictando sentencia sobre uno de los peores escándalos de salud pública en Panamá. Doce nuevos fallos obligan a la CSS a indemnizar a personas afectadas o a sus familiares por el tóxico dietilenglicol en jarabes fabricados por el extinto laboratorio estatal. Uno de los casos incluye disculpas públicas por escrito. ¿Cree que el Estado ha hecho justicia con las víctimas de este caso?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#CSS",
+    "#Justicia",
+    "#DietilenglicolPanamá",
+    "#SaludPública"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-11-06-0156-sinlinea-la-prensa-82dd.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-06-0156-sinlinea-la-prensa-82dd.jpg",
+    "hash": "35aeb18e9e24ddc8",
+    "version": 11,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-11-06T06:56:47.404Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada del Palacio de Justicia de Panamá en un día nublado, con el edificio en el tercio superior derecho y la zona izquierda y central despejadas.",
+    "usar": true,
+    "ruta": "public/ilus/2026-11-06-0156-sinlinea-la-prensa-82dd.jpg",
+    "hashDescripcion": "47cd9d082c7649a2",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-11-06T06:56:08.898Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-06T06:56:08.898Z",
+  "actualizado": "2026-11-06T06:56:08.898Z",
+  "plantilla": "foto",
+  "dato": {
+    "cifra": "$150 mil",
+    "frase": "es la indemnización más alta entre los 12 nuevos fallos por el caso del dietilenglicol"
+  }
+}
