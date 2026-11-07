@@ -107,9 +107,33 @@
             "profile_activity": "metrica-no-soportada",
             "follows": "metrica-no-soportada"
           }
+        },
+        "2026-11-07T11:52:32.159Z": {
+          "acumulados": {
+            "meGusta": 2642,
+            "comentarios": 99,
+            "reach": 51860,
+            "views": 81506,
+            "likes": 2642,
+            "comments": 99,
+            "saved": 75,
+            "shares": 141,
+            "total_interactions": 3051,
+            "ig_reels_avg_watch_time": 32918,
+            "ig_reels_video_view_total_time": 1699437050,
+            "reels_skip_rate": 29.3,
+            "profile_visits": null,
+            "profile_activity": null,
+            "follows": null
+          },
+          "faltantes": {
+            "profile_visits": "metrica-no-soportada",
+            "profile_activity": "metrica-no-soportada",
+            "follows": "metrica-no-soportada"
+          }
         }
       },
-      "ultimaConsulta": "2026-11-06T13:08:49.877Z"
+      "ultimaConsulta": "2026-11-07T11:52:32.159Z"
     },
     "17996785719024529": {
       "fecha": "2026-11-03T12:02:03.000Z",
@@ -216,9 +240,33 @@
             "profile_activity": "metrica-no-soportada",
             "follows": "metrica-no-soportada"
           }
+        },
+        "2026-11-07T11:52:32.159Z": {
+          "acumulados": {
+            "meGusta": 658,
+            "comentarios": 13,
+            "reach": 18544,
+            "views": 25186,
+            "likes": 658,
+            "comments": 13,
+            "saved": 77,
+            "shares": 135,
+            "total_interactions": 909,
+            "ig_reels_avg_watch_time": 35049,
+            "ig_reels_video_view_total_time": 658853536,
+            "reels_skip_rate": 28.8,
+            "profile_visits": null,
+            "profile_activity": null,
+            "follows": null
+          },
+          "faltantes": {
+            "profile_visits": "metrica-no-soportada",
+            "profile_activity": "metrica-no-soportada",
+            "follows": "metrica-no-soportada"
+          }
         }
       },
-      "ultimaConsulta": "2026-11-06T13:08:49.877Z"
+      "ultimaConsulta": "2026-11-07T11:52:32.159Z"
     },
     "18063359378569714": {
       "fecha": "2026-11-03T11:02:53.000Z",
@@ -325,9 +373,33 @@
             "profile_activity": "metrica-no-soportada",
             "follows": "metrica-no-soportada"
           }
+        },
+        "2026-11-07T11:52:32.159Z": {
+          "acumulados": {
+            "meGusta": 461,
+            "comentarios": 26,
+            "reach": 7953,
+            "views": 11087,
+            "likes": 461,
+            "comments": 26,
+            "saved": 85,
+            "shares": 235,
+            "total_interactions": 866,
+            "ig_reels_avg_watch_time": 37343,
+            "ig_reels_video_view_total_time": 307112739,
+            "reels_skip_rate": 38.7,
+            "profile_visits": null,
+            "profile_activity": null,
+            "follows": null
+          },
+          "faltantes": {
+            "profile_visits": "metrica-no-soportada",
+            "profile_activity": "metrica-no-soportada",
+            "follows": "metrica-no-soportada"
+          }
         }
       },
-      "ultimaConsulta": "2026-11-06T13:08:49.877Z"
+      "ultimaConsulta": "2026-11-07T11:52:32.159Z"
     },
     "18137307523731065": {
       "fecha": "2026-11-02T18:25:32.000Z",
@@ -434,9 +506,33 @@
             "profile_activity": "metrica-no-soportada",
             "follows": "metrica-no-soportada"
           }
+        },
+        "2026-11-07T11:52:32.159Z": {
+          "acumulados": {
+            "meGusta": 135,
+            "comentarios": 0,
+            "reach": 3428,
+            "views": 4176,
+            "likes": 135,
+            "comments": 0,
+            "saved": 4,
+            "shares": 0,
+            "total_interactions": 141,
+            "ig_reels_avg_watch_time": 17313,
+            "ig_reels_video_view_total_time": 60008723,
+            "reels_skip_rate": 37.9,
+            "profile_visits": null,
+            "profile_activity": null,
+            "follows": null
+          },
+          "faltantes": {
+            "profile_visits": "metrica-no-soportada",
+            "profile_activity": "metrica-no-soportada",
+            "follows": "metrica-no-soportada"
+          }
         }
       },
-      "ultimaConsulta": "2026-11-06T13:08:49.877Z"
+      "ultimaConsulta": "2026-11-07T11:52:32.159Z"
     },
     "18232370677329042": {
       "fecha": "2026-11-02T16:01:56.000Z",
@@ -515,9 +611,26 @@
             "follows": 0
           },
           "faltantes": {}
+        },
+        "2026-11-07T11:52:32.159Z": {
+          "acumulados": {
+            "meGusta": 47,
+            "comentarios": 2,
+            "reach": 4795,
+            "views": 8617,
+            "likes": 47,
+            "comments": 2,
+            "saved": 4,
+            "shares": 4,
+            "total_interactions": 57,
+            "profile_visits": 7,
+            "profile_activity": 0,
+            "follows": 0
+          },
+          "faltantes": {}
         }
       },
-      "ultimaConsulta": "2026-11-06T13:08:49.877Z"
+      "ultimaConsulta": "2026-11-07T11:52:32.159Z"
     },
     "17912052882482976": {
       "fecha": "2026-11-04T10:56:43.000Z",
@@ -600,9 +713,33 @@
             "profile_activity": "metrica-no-soportada",
             "follows": "metrica-no-soportada"
           }
+        },
+        "2026-11-07T11:52:32.159Z": {
+          "acumulados": {
+            "meGusta": 11641,
+            "comentarios": 101,
+            "reach": 117492,
+            "views": 152162,
+            "likes": 11641,
+            "comments": 101,
+            "saved": 1250,
+            "shares": 1803,
+            "total_interactions": 15823,
+            "ig_reels_avg_watch_time": 35954,
+            "ig_reels_video_view_total_time": 4303909889,
+            "reels_skip_rate": 39.8,
+            "profile_visits": null,
+            "profile_activity": null,
+            "follows": null
+          },
+          "faltantes": {
+            "profile_visits": "metrica-no-soportada",
+            "profile_activity": "metrica-no-soportada",
+            "follows": "metrica-no-soportada"
+          }
         }
       },
-      "ultimaConsulta": "2026-11-06T13:08:49.877Z"
+      "ultimaConsulta": "2026-11-07T11:52:32.159Z"
     },
     "18116436662276231": {
       "fecha": "2026-11-03T22:03:46.000Z",
@@ -685,9 +822,33 @@
             "profile_activity": "metrica-no-soportada",
             "follows": "metrica-no-soportada"
           }
+        },
+        "2026-11-07T11:52:32.159Z": {
+          "acumulados": {
+            "meGusta": 42,
+            "comentarios": 0,
+            "reach": 4349,
+            "views": 6437,
+            "likes": 42,
+            "comments": 0,
+            "saved": 10,
+            "shares": 1,
+            "total_interactions": 57,
+            "ig_reels_avg_watch_time": 7393,
+            "ig_reels_video_view_total_time": 32241592,
+            "reels_skip_rate": 41.9,
+            "profile_visits": null,
+            "profile_activity": null,
+            "follows": null
+          },
+          "faltantes": {
+            "profile_visits": "metrica-no-soportada",
+            "profile_activity": "metrica-no-soportada",
+            "follows": "metrica-no-soportada"
+          }
         }
       },
-      "ultimaConsulta": "2026-11-06T13:08:49.877Z"
+      "ultimaConsulta": "2026-11-07T11:52:32.159Z"
     },
     "18443829616182774": {
       "fecha": "2026-11-05T11:33:23.000Z",
@@ -807,9 +968,33 @@
             "profile_activity": "metrica-no-soportada",
             "follows": "metrica-no-soportada"
           }
+        },
+        "2026-11-07T11:52:32.159Z": {
+          "acumulados": {
+            "meGusta": 534,
+            "comentarios": 44,
+            "reach": 12566,
+            "views": 16068,
+            "likes": 534,
+            "comments": 44,
+            "saved": 104,
+            "shares": 262,
+            "total_interactions": 1005,
+            "ig_reels_avg_watch_time": 39773,
+            "ig_reels_video_view_total_time": 497804930,
+            "reels_skip_rate": 40.5,
+            "profile_visits": null,
+            "profile_activity": null,
+            "follows": null
+          },
+          "faltantes": {
+            "profile_visits": "metrica-no-soportada",
+            "profile_activity": "metrica-no-soportada",
+            "follows": "metrica-no-soportada"
+          }
         }
       },
-      "ultimaConsulta": "2026-11-06T13:08:49.877Z"
+      "ultimaConsulta": "2026-11-07T11:52:32.159Z"
     },
     "18082050674747250": {
       "fecha": "2026-11-06T11:36:03.000Z",
@@ -844,9 +1029,33 @@
             "profile_activity": "metrica-no-soportada",
             "follows": "metrica-no-soportada"
           }
+        },
+        "2026-11-07T11:52:32.159Z": {
+          "acumulados": {
+            "meGusta": 2371,
+            "comentarios": 395,
+            "reach": 46686,
+            "views": 72041,
+            "likes": 2371,
+            "comments": 395,
+            "saved": 440,
+            "shares": 1530,
+            "total_interactions": 5184,
+            "ig_reels_avg_watch_time": 49594,
+            "ig_reels_video_view_total_time": 2436757598,
+            "reels_skip_rate": 30.6,
+            "profile_visits": null,
+            "profile_activity": null,
+            "follows": null
+          },
+          "faltantes": {
+            "profile_visits": "metrica-no-soportada",
+            "profile_activity": "metrica-no-soportada",
+            "follows": "metrica-no-soportada"
+          }
         }
       },
-      "ultimaConsulta": "2026-11-06T13:08:49.877Z"
+      "ultimaConsulta": "2026-11-07T11:52:32.159Z"
     },
     "18117702473115793": {
       "fecha": "2026-11-05T19:21:36.000Z",
@@ -874,9 +1083,63 @@
             "follows": 2
           },
           "faltantes": {}
+        },
+        "2026-11-07T11:52:32.159Z": {
+          "acumulados": {
+            "meGusta": 258,
+            "comentarios": 65,
+            "reach": 14989,
+            "views": 29089,
+            "likes": 258,
+            "comments": 65,
+            "saved": 22,
+            "shares": 10,
+            "total_interactions": 363,
+            "profile_visits": 7,
+            "profile_activity": 0,
+            "follows": 2
+          },
+          "faltantes": {}
         }
       },
-      "ultimaConsulta": "2026-11-06T13:08:49.877Z"
+      "ultimaConsulta": "2026-11-07T11:52:32.159Z"
+    },
+    "17976410739173293": {
+      "fecha": "2026-11-06T19:11:02.000Z",
+      "permalink": "https://www.instagram.com/reel/DfaU0uJk7mg/",
+      "tipo": "VIDEO",
+      "origen": "instagram",
+      "post": null,
+      "categoria": null,
+      "franja": null,
+      "titulo": "B/. 4.37 desde 1992. Sin subsidio, el tanque de 25 libras costaría unos 15 dólares: la dif",
+      "consultas": {
+        "2026-11-07T11:52:32.159Z": {
+          "acumulados": {
+            "meGusta": 363,
+            "comentarios": 59,
+            "reach": 7160,
+            "views": 9816,
+            "likes": 363,
+            "comments": 59,
+            "saved": 34,
+            "shares": 109,
+            "total_interactions": 612,
+            "ig_reels_avg_watch_time": 29942,
+            "ig_reels_video_view_total_time": 217564170,
+            "reels_skip_rate": 43,
+            "profile_visits": null,
+            "profile_activity": null,
+            "follows": null
+          },
+          "faltantes": {
+            "profile_visits": "metrica-no-soportada",
+            "profile_activity": "metrica-no-soportada",
+            "follows": "metrica-no-soportada"
+          }
+        }
+      },
+      "ultimaConsulta": "2026-11-07T11:52:32.159Z"
     }
   }
 }

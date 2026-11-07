@@ -67,6 +67,17 @@
       "llamadas": 46,
       "completo": false,
       "motivoIncompleto": "presupuesto-agotado"
+    },
+    "2026-11-07T11:52:32.159Z": {
+      "perfil": {
+        "seguidores": 85208,
+        "seguidos": 775,
+        "publicaciones": 130
+      },
+      "permiso": "basico+insights",
+      "llamadas": 46,
+      "completo": false,
+      "motivoIncompleto": "presupuesto-agotado"
     }
   },
   "porDia": {
@@ -217,7 +228,7 @@
     "2026-11-04": {
       "valores": {
         "reach": 101879,
-        "views": 153779,
+        "views": 153790,
         "accounts_engaged": 10882,
         "total_interactions": 15674,
         "likes": 9766,
@@ -236,17 +247,17 @@
         "follows_and_unfollows": "conjunto-vacio",
         "follower_count": "conjunto-vacio"
       },
-      "consultadoEn": "2026-11-06T13:08:49.877Z"
+      "consultadoEn": "2026-11-07T11:52:32.159Z"
     },
     "2026-11-05": {
       "valores": {
-        "reach": 45814,
-        "views": 266162,
+        "reach": 45877,
+        "views": 266296,
         "accounts_engaged": 13017,
-        "total_interactions": 26157,
+        "total_interactions": 26164,
         "likes": 9364,
-        "comments": 586,
-        "shares": 6922,
+        "comments": 583,
+        "shares": 6927,
         "saves": 2103,
         "reposts": 260,
         "replies": 0,
@@ -260,7 +271,31 @@
         "follows_and_unfollows": "conjunto-vacio",
         "follower_count": "conjunto-vacio"
       },
-      "consultadoEn": "2026-11-06T13:08:49.877Z"
+      "consultadoEn": "2026-11-07T11:52:32.159Z"
+    },
+    "2026-11-06": {
+      "valores": {
+        "reach": 56861,
+        "views": 144883,
+        "accounts_engaged": 6679,
+        "total_interactions": 13865,
+        "likes": 5333,
+        "comments": 692,
+        "shares": 3176,
+        "saves": 948,
+        "reposts": 540,
+        "replies": 0,
+        "profile_links_taps": 0,
+        "follows_and_unfollows": null,
+        "follower_count": null,
+        "profile_views": 537,
+        "website_clicks": 3
+      },
+      "faltantes": {
+        "follows_and_unfollows": "conjunto-vacio",
+        "follower_count": "conjunto-vacio"
+      },
+      "consultadoEn": "2026-11-07T11:52:32.159Z"
     }
   }
 }
