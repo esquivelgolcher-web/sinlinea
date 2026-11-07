@@ -1,0 +1,52 @@
+{
+  "id": "2026-11-07-0107-sinlinea-la-prensa-932f",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/politica/gira-de-mulino-por-singapur-y-vietnam-funcionarios-recibieron-82100-en-viaticos/",
+    "titulo": "Gira de Mulino por Singapur y Vietnam: funcionarios recibieron $82,100 en viáticos",
+    "publicado": "2026-11-07T05:05:00.000Z"
+  },
+  "categoria": "POLÍTICA",
+  "titular": "Gira de Mulino a Asia costó $82,100 en viáticos",
+  "bajada": "26 funcionarios de la Presidencia recibieron viáticos para la gira a Singapur y Vietnam",
+  "caption": "El informe de transparencia de la Presidencia revela que 26 funcionarios cobraron en conjunto $82,100 en viáticos por acompañar al presidente en su gira por Asia. Y eso que el documento ni siquiera incluye los pasajes aéreos ni el costo del avión en el que se trasladó la comitiva. El gasto real de este viaje oficial podría ser mucho mayor. ¿Qué opinas de que no se transparente el costo total de estas giras?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Mulino",
+    "#GastoPúblico",
+    "#Transparencia",
+    "#Viáticos"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-11-07-0107-sinlinea-la-prensa-932f.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-07-0107-sinlinea-la-prensa-932f.jpg",
+    "hash": "f7a0d603b99ee325",
+    "version": 2,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-11-07T06:08:25.359Z"
+  },
+  "ilustracion": {
+    "descripcion": "Pista de aeropuerto con un avión privado estacionado junto a una alfombra roja protocolaria, bandera de Panamá ondeando; el avión queda en el tercio superior derecho, zona izquierda y central despejadas.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-07T06:07:56.811Z",
+  "actualizado": "2026-11-07T06:07:56.811Z",
+  "plantilla": "dato",
+  "dato": {
+    "cifra": "$82,100",
+    "frase": "recibieron en conjunto 26 funcionarios en viáticos por la gira a Singapur y Vietnam"
+  }
+}

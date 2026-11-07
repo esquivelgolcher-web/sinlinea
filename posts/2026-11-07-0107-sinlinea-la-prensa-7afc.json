@@ -1,0 +1,52 @@
+{
+  "id": "2026-11-07-0107-sinlinea-la-prensa-7afc",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/sociedad/minsa-confirma-99-casos-de-malaria-entre-trabajadores-de-merca-panama/",
+    "titulo": "Minsa confirma 99 casos de malaria entre trabajadores de Merca Panamá",
+    "publicado": "2026-11-06T21:52:25.000Z"
+  },
+  "categoria": "SALUD",
+  "titular": "Minsa confirma 99 casos de malaria en Merca Panamá",
+  "bajada": "La mayoría son carretilleros; 12 pacientes abandonaron el tratamiento y las autoridades buscan localizarlos.",
+  "caption": "Casi un centenar de trabajadores de Merca Panamá, en su mayoría carretilleros, se contagiaron de malaria. El Minsa ya coordina con el municipio y otras instituciones para intervenir las zonas donde se reproduce el mosquito transmisor. Pero 12 personas abandonaron el tratamiento y aún no han sido ubicadas. ¿Conoces a alguien que trabaje en el mercado y haya presentado síntomas?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Salud",
+    "#Malaria",
+    "#MercaPanamá",
+    "#Minsa"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-11-07-0107-sinlinea-la-prensa-7afc.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-07-0107-sinlinea-la-prensa-7afc.jpg",
+    "hash": "f6268b52c7165048",
+    "version": 11,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-11-07T06:08:30.586Z"
+  },
+  "ilustracion": {
+    "descripcion": "Alrededores de un mercado mayorista con carretillas estacionadas y vegetación cercana a canales de agua; el entorno del mercado queda en el tercio superior derecho, zona izquierda y central despejadas.",
+    "usar": true,
+    "ruta": "public/ilus/2026-11-07-0107-sinlinea-la-prensa-7afc.jpg",
+    "hashDescripcion": "43fb11f658352654",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-11-07T06:07:56.811Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-07T06:07:56.811Z",
+  "actualizado": "2026-11-07T06:07:56.811Z",
+  "plantilla": "foto",
+  "dato": {
+    "cifra": "99",
+    "frase": "trabajadores de Merca Panamá fueron confirmados con casos de malaria"
+  }
+}

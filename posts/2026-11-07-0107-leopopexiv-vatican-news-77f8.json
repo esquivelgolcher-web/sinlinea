@@ -1,0 +1,46 @@
+{
+  "id": "2026-11-07-0107-leopopexiv-vatican-news-77f8",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-11/pope-in-uruguay-the-church-offers-jesus-christ.html",
+    "titulo": "Pope in Uruguay: Church offers Jesus Christ and hope proclaimed by Gospel",
+    "publicado": "2026-11-06T21:45:00.000Z"
+  },
+  "categoria": "INTERNACIONAL",
+  "titular": "Pope Leo opens Uruguay trip with speech on democracy",
+  "bajada": "He spoke on the common good, human dignity and care for the most vulnerable",
+  "caption": "Pope Leo XIV began his Apostolic Journey to Uruguay with an address on the common good, reflecting on democracy, duties toward future generations, human dignity and peaceful coexistence. Source: Vatican News, Nov. 6, 2026.",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Uruguay",
+    "#Vatican",
+    "#CommonGood",
+    "#CatholicChurch"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-11-07-0107-leopopexiv-vatican-news-77f8.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-07-0107-leopopexiv-vatican-news-77f8.jpg",
+    "hash": "7ad3a5453bfdd48b",
+    "version": 11,
+    "estilo": "b18ca074001a6ad6",
+    "renderizada": "2026-11-07T06:08:48.598Z"
+  },
+  "ilustracion": {
+    "descripcion": "A podium with a national flag of Uruguay beside official buildings in Montevideo at dusk; a robed papal figure stands at upper right addressing an unseen crowd, left and center open and calm.",
+    "usar": true,
+    "ruta": "public/ilus/2026-11-07-0107-leopopexiv-vatican-news-77f8.jpg",
+    "hashDescripcion": "2d283b0e6cda61ec",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-11-07T06:07:56.811Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-07T06:07:56.811Z",
+  "actualizado": "2026-11-07T06:07:56.811Z"
+}
