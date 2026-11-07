@@ -1,0 +1,52 @@
+{
+  "id": "2026-11-07-1429-sinlinea-la-prensa-0880",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/sociedad/suelos-saturados-y-lluvias-elevan-el-riesgo-de-inundaciones-y-deslizamientos-en-panama/",
+    "titulo": "Suelos saturados y lluvias elevan el riesgo de inundaciones y deslizamientos en Panamá",
+    "publicado": "2026-11-07T14:50:00.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "Lluvias elevan riesgo de inundaciones en seis provincias",
+  "bajada": "Sinaproc extiende alerta mientras el suelo saturado alcanza niveles críticos en varias regiones del país.",
+  "caption": "Las lluvias no dan tregua y el terreno ya no aguanta más agua en zonas como Chiriquí, Veraguas, Herrera, Los Santos y Coclé. Sinaproc mantiene la vigilancia activa ante el riesgo de deslizamientos y crecidas de ríos. Las autoridades piden prevención, sobre todo en las comunidades cercanas a quebradas y laderas. ¿Está tu comunidad en zona de riesgo?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Lluvias",
+    "#Inundaciones",
+    "#ProtecciónCivil",
+    "#Clima"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-11-07-1429-sinlinea-la-prensa-0880.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-07-1429-sinlinea-la-prensa-0880.jpg",
+    "hash": "079f09e1cf87d4ff",
+    "version": 2,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-11-07T19:29:48.598Z"
+  },
+  "ilustracion": {
+    "descripcion": "Calle residencial panameña bajo lluvia intensa con charcos extendiéndose por el pavimento; nubes de tormenta oscuras ubicadas en el tercio superior derecho, zona izquierda y central despejadas.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-07T19:29:03.431Z",
+  "actualizado": "2026-11-07T19:29:03.431Z",
+  "plantilla": "dato",
+  "dato": {
+    "cifra": "85%",
+    "frase": "de saturación alcanza el suelo en sectores de la Cordillera Central y otras provincias"
+  }
+}

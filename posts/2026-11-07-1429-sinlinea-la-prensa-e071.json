@@ -1,0 +1,48 @@
+{
+  "id": "2026-11-07-1429-sinlinea-la-prensa-e071",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/politica/piden-a-la-defensoria-investigar-la-muerte-de-un-recluso-en-colon-que-ingreso-al-hospital-con-desnutricion-severa/",
+    "titulo": "Piden a la Defensoría investigar la muerte de un recluso en Colón que ingresó al hospital con desnutrición severa",
+    "publicado": "2026-11-07T19:00:57.000Z"
+  },
+  "categoria": "SEGURIDAD",
+  "titular": "Piden investigar muerte de recluso en Colón por desnutrición",
+  "bajada": "Organizaciones piden a la Defensoría indagar la muerte de Gabriel Alveo, ingresado con desnutrición severa.",
+  "caption": "Un hombre de 32 años murió horas después de llegar al hospital con desnutrición severa y sangrado intestinal, tras días sin recibir atención adecuada en el penal de Colón. La Alianza Ciudadana Pro Justicia y la Red de Derechos Humanos piden que la Defensoría investigue de oficio lo ocurrido. El Estado es responsable de la salud de quienes están bajo su custodia. ¿Qué pasa con la atención médica en nuestras cárceles?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#DerechosHumanos",
+    "#Colón",
+    "#SistemaPenitenciario",
+    "#Justicia"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-11-07-1429-sinlinea-la-prensa-e071.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-07-1429-sinlinea-la-prensa-e071.jpg",
+    "hash": "b054a0add6422ebf",
+    "version": 11,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-11-07T19:29:48.228Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada del Centro Penitenciario Nueva Esperanza en Colón bajo cielo gris, con una cerca de alambre de púas visible en el tercio superior derecho; zona izquierda y central despejada, sin personas.",
+    "usar": true,
+    "ruta": "public/ilus/2026-11-07-1429-sinlinea-la-prensa-e071.jpg",
+    "hashDescripcion": "8589fd828eec5184",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-11-07T19:29:03.431Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-07T19:29:03.431Z",
+  "actualizado": "2026-11-07T19:29:03.431Z",
+  "plantilla": "foto"
+}
