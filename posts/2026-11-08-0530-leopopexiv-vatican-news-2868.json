@@ -1,0 +1,44 @@
+{
+  "id": "2026-11-08-0530-leopopexiv-vatican-news-2868",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "formato": "frase",
+  "frase": {
+    "texto": "Christ did not call us to mediocrity; He called us to a new and full life like His own.",
+    "autor": "Pope Leo XIV",
+    "fuente": "Prayer vigil in Montevideo, Uruguay",
+    "anio": 2026,
+    "url": "https://www.vaticannews.va/en/pope/news/2026-11/pope-at-uruguay-prayer-vigil-07-november-2026.html",
+    "origen": "texto"
+  },
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-11/pope-at-uruguay-prayer-vigil-07-november-2026.html",
+    "titulo": "Pope in Uruguay: Never settle for mediocrity, find joy and fulfillment in Christ - Vatican News",
+    "publicado": "2026-11-08T00:31:38.787+01:00"
+  },
+  "categoria": "CULTURA",
+  "titular": "Pope Leo XIV",
+  "bajada": "Prayer vigil in Montevideo, Uruguay · 2026",
+  "caption": "“Christ did not call us to mediocrity; He called us to a new and full life like His own.”\n\n— Pope Leo XIV, Prayer vigil in Montevideo, Uruguay (2026)\n\nVia Vatican News, 7 November 2026\n\n#PopeLeoXIV #Vatican #CatholicChurch",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Vatican",
+    "#CatholicChurch"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-11-08-0530-leopopexiv-vatican-news-2868.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-08-0530-leopopexiv-vatican-news-2868.jpg",
+    "hash": "bca7f9eb050d287d",
+    "version": 1,
+    "estilo": "a0a82c85f495517b",
+    "renderizada": "2026-11-08T10:31:42.040Z"
+  },
+  "ilustracion": null,
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-08T10:30:43.851Z",
+  "actualizado": "2026-11-08T10:30:43.851Z"
+}

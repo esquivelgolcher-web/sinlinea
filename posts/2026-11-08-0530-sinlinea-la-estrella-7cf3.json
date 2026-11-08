@@ -1,0 +1,48 @@
+{
+  "id": "2026-11-08-0530-sinlinea-la-estrella-7cf3",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/economia/seguros-contra-terremotos-en-panama-la-proteccion-que-muchos-desconocian-AA27147887",
+    "titulo": "Seguros contra terremotos en Panamá: la protección que muchos desconocían",
+    "publicado": "2026-11-08T05:00:00.000Z"
+  },
+  "categoria": "ECONOMÍA",
+  "titular": "Seguros cubren daños por terremoto en pólizas de incendio",
+  "bajada": "Expertos aclaran que la cobertura sísmica ya viene incluida en muchas pólizas de vivienda.",
+  "caption": "Después del sismo del 9 de octubre, miles de panameños empezaron a revisar sus pólizas sin saber si estaban protegidos. Según el sector asegurador, la cobertura contra terremotos suele venir incluida en los seguros de incendio, sobre todo en propiedades financiadas por bancos. ¿Sabías que tu póliza podría cubrir este tipo de daño?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Seguros",
+    "#Terremoto",
+    "#Azuero",
+    "#Economía"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-11-08-0530-sinlinea-la-estrella-7cf3.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-08-0530-sinlinea-la-estrella-7cf3.jpg",
+    "hash": "627726dfeb161df1",
+    "version": 11,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-11-08T10:31:19.998Z"
+  },
+  "ilustracion": {
+    "descripcion": "Un agente de seguros revisa documentos de póliza sobre un escritorio en una oficina sencilla, con una vivienda agrietada visible a través de la ventana al fondo; el agente queda en el tercio superior derecho, zona izquierda despejada.",
+    "usar": true,
+    "ruta": "public/ilus/2026-11-08-0530-sinlinea-la-estrella-7cf3.jpg",
+    "hashDescripcion": "a925b52c8d8f8246",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-11-08T10:30:43.851Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-08T10:30:43.851Z",
+  "actualizado": "2026-11-08T10:30:43.851Z",
+  "plantilla": "foto"
+}

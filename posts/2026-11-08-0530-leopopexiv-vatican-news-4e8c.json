@@ -1,0 +1,46 @@
+{
+  "id": "2026-11-08-0530-leopopexiv-vatican-news-4e8c",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/church/news/2026-11/pope-leo-xiv-argentina-preview-apostolic-visit.html",
+    "titulo": "Argentina awaits arrival of Pope Leo XIV",
+    "publicado": "2026-11-07T14:24:00.000Z"
+  },
+  "categoria": "INTERNACIONAL",
+  "titular": "Argentina prepares for Pope Leo XIV's visit",
+  "bajada": "Buenos Aires readies a warm welcome as the Pope's Latin America trip continues",
+  "caption": "Anticipation builds in Buenos Aires as Pope Leo XIV's Apostolic Journey moves from Uruguay to Argentina, according to Vatican News correspondent Fr. Paul Samasumo. Source: Vatican News, Nov 7, 2026.",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Argentina",
+    "#BuenosAires",
+    "#Vatican",
+    "#CatholicChurch"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-11-08-0530-leopopexiv-vatican-news-4e8c.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-08-0530-leopopexiv-vatican-news-4e8c.jpg",
+    "hash": "30e4dcf2de557f94",
+    "version": 11,
+    "estilo": "b18ca074001a6ad6",
+    "renderizada": "2026-11-08T10:31:38.037Z"
+  },
+  "ilustracion": {
+    "descripcion": "Wide view of a Buenos Aires plaza with a cathedral facade, decorative banners being hung by volunteers, a small papal flag visible in the upper right third, left and center open and uncluttered.",
+    "usar": true,
+    "ruta": "public/ilus/2026-11-08-0530-leopopexiv-vatican-news-4e8c.jpg",
+    "hashDescripcion": "3cfc47a418f71d4e",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-11-08T10:30:43.851Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-08T10:30:43.851Z",
+  "actualizado": "2026-11-08T10:30:43.851Z"
+}
