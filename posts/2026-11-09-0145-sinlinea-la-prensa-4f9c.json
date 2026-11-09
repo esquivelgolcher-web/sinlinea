@@ -1,0 +1,52 @@
+{
+  "id": "2026-11-09-0145-sinlinea-la-prensa-4f9c",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/politica/uno-de-cada-tres-funcionarios-de-la-asamblea-es-asistente-administrativo-i/",
+    "titulo": "Uno de cada tres funcionarios de la Asamblea es asistente administrativo I",
+    "publicado": "2026-11-09T05:03:00.000Z"
+  },
+  "categoria": "POLÍTICA",
+  "titular": "Un tercio de la planilla de la Asamblea es un solo cargo",
+  "bajada": "2,766 asistentes administrativos I le cuestan $3.9 millones al mes a los panameños.",
+  "caption": "En el Palacio Justo Arosemena, uno de cada tres funcionarios ocupa el mismo puesto: asistente administrativo I. Entre ese cargo y el nivel II suman casi la mitad de toda la planilla, con salarios que van de $600 a $5,000. Mientras unos diputados dicen tener solo cinco colaboradores, la cifra total plantea preguntas sobre cómo se reparte realmente el personal. ¿Está bien distribuido el gasto en planillas de la Asamblea?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#AsambleaNacional",
+    "#PlanillaEstatal",
+    "#GastoPúblico",
+    "#Transparencia"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-11-09-0145-sinlinea-la-prensa-4f9c.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-09-0145-sinlinea-la-prensa-4f9c.jpg",
+    "hash": "4b2183b72e75aa59",
+    "version": 11,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-11-09T06:46:36.022Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada del Palacio Justo Arosemena, sede de la Asamblea Nacional de Panamá, bajo luz de tarde, con el edificio ubicado en el tercio superior derecho y la zona izquierda y central despejadas, estilo ilustración editorial.",
+    "usar": true,
+    "ruta": "public/ilus/2026-11-09-0145-sinlinea-la-prensa-4f9c.jpg",
+    "hashDescripcion": "345e79c796f979a9",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-11-09T06:45:59.497Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-09T06:45:59.497Z",
+  "actualizado": "2026-11-09T06:45:59.497Z",
+  "plantilla": "foto",
+  "dato": {
+    "cifra": "33.3%",
+    "frase": "de los funcionarios de la Asamblea son asistentes administrativos I"
+  }
+}

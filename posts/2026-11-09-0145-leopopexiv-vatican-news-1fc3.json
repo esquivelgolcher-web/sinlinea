@@ -1,0 +1,46 @@
+{
+  "id": "2026-11-09-0145-leopopexiv-vatican-news-1fc3",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-11/pope-leo-mourns-lives-lost-in-terrorist-attack-in-krakow-poland.html",
+    "titulo": "Pope Leo XIV mourns lives lost in shooting in Krakow, Poland",
+    "publicado": "2026-11-08T15:16:08.000Z"
+  },
+  "categoria": "INTERNACIONAL",
+  "titular": "Pope Leo mourns victims of Krakow shooting",
+  "bajada": "Six killed, fifteen injured in Poland's Main Market Square; Pope offers prayers and urges peace",
+  "caption": "Pope Leo XIV expressed deep sorrow following a shooting in Krakow's Main Market Square that left six people dead and fifteen injured. In a message of condolence, he assured victims' families of his prayers and spiritual closeness, and called for renewed efforts to pursue peace and harmony in the face of violence. Source: Vatican News, Nov 8, 2026.",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Krakow",
+    "#Poland",
+    "#Vatican",
+    "#PrayForPeace"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-11-09-0145-leopopexiv-vatican-news-1fc3.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-09-0145-leopopexiv-vatican-news-1fc3.jpg",
+    "hash": "325b7f22ffdb9218",
+    "version": 11,
+    "estilo": "b18ca074001a6ad6",
+    "renderizada": "2026-11-09T06:46:55.469Z"
+  },
+  "ilustracion": {
+    "descripcion": "A quiet candlelight vigil in a European city square at dusk, flowers and candles on the cobblestones, with a church spire visible in the upper right third, left and center open",
+    "usar": true,
+    "ruta": "public/ilus/2026-11-09-0145-leopopexiv-vatican-news-1fc3.jpg",
+    "hashDescripcion": "9d783a9866a0313a",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-11-09T06:45:59.497Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-09T06:45:59.497Z",
+  "actualizado": "2026-11-09T06:45:59.497Z"
+}

@@ -1,0 +1,48 @@
+{
+  "id": "2026-11-09-0145-sinlinea-la-prensa-12d1",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/politica/el-avion-presidencial-vuela-en-secreto/",
+    "titulo": "El avión presidencial vuela en secreto",
+    "publicado": "2026-11-09T05:05:00.000Z"
+  },
+  "categoria": "POLÍTICA",
+  "titular": "Gobierno bloquea el rastreo del avión presidencial",
+  "bajada": "El Legacy 600 HP-1A dejó de ser monitoreable en sitios públicos tras la gira de Mulino a Asia.",
+  "caption": "Por primera vez en 18 años de servicio, la aeronave oficial del Estado panameño no puede ser rastreada por el público. Presidencia solo dijo que está \"en mantenimiento\" en Estados Unidos, sin explicar el bloqueo. El hecho abre dudas sobre el uso de un bien del Estado financiado con millones de dólares en mantenimiento. ¿Por qué ocultar el vuelo de un avión pagado por todos?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#AviónPresidencial",
+    "#Transparencia",
+    "#Mulino",
+    "#Fiscalización"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-11-09-0145-sinlinea-la-prensa-12d1.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-09-0145-sinlinea-la-prensa-12d1.jpg",
+    "hash": "a357894a739fd1e4",
+    "version": 2,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-11-09T06:46:36.346Z"
+  },
+  "ilustracion": {
+    "descripcion": "Avión oficial tipo jet ejecutivo en una pista de aeropuerto al atardecer, con la aeronave ubicada en el tercio superior derecho y la zona izquierda y central despejadas, estilo ilustración editorial.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-09T06:45:59.497Z",
+  "actualizado": "2026-11-09T06:45:59.497Z",
+  "plantilla": "titular"
+}

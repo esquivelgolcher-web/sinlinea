@@ -1,0 +1,44 @@
+{
+  "id": "2026-11-09-0145-leopopexiv-vatican-news-f4d6",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "formato": "frase",
+  "frase": {
+    "texto": "Authority is most authentic when it is exercised as service, when it looks beyond the immediate, and when it uses its power to promote the welfare of all.",
+    "autor": "Pope Leo XIV",
+    "fuente": "Address to authorities, civil society and diplomatic corps, Buenos Aires",
+    "anio": 2026,
+    "url": "https://www.vaticannews.va/en/pope/news/2026-11/pope-leo-xiv-argentina-address-authorities-civil-society-diploma.html",
+    "origen": "texto"
+  },
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-11/pope-leo-xiv-argentina-address-authorities-civil-society-diploma.html",
+    "titulo": "Pope Leo urges Argentina’s leaders to put common good before political interests - Vatican News",
+    "publicado": "2026-11-08T23:58:21.145+01:00"
+  },
+  "categoria": "CULTURA",
+  "titular": "Pope Leo XIV",
+  "bajada": "Address to authorities, civil society and diplomatic corps, Buenos Aires · 2026",
+  "caption": "“Authority is most authentic when it is exercised as service, when it looks beyond the immediate, and when it uses its power to promote the welfare of all.”\n\n— Pope Leo XIV, Address to authorities, civil society and diplomatic corps, Buenos Aires (2026)\n\nVia Vatican News, 8 November 2026\n\n#PopeLeoXIV #Vatican #CatholicChurch",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Vatican",
+    "#CatholicChurch"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-11-09-0145-leopopexiv-vatican-news-f4d6.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-09-0145-leopopexiv-vatican-news-f4d6.jpg",
+    "hash": "ca8da5b460a15ebe",
+    "version": 1,
+    "estilo": "a0a82c85f495517b",
+    "renderizada": "2026-11-09T06:46:58.022Z"
+  },
+  "ilustracion": null,
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-09T06:45:59.497Z",
+  "actualizado": "2026-11-09T06:45:59.497Z"
+}
