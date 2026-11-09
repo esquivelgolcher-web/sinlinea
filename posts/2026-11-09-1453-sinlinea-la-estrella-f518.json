@@ -1,0 +1,52 @@
+{
+  "id": "2026-11-09-1453-sinlinea-la-estrella-f518",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/administrativos-de-la-unachi-protestan-por-el-pago-de-mas-de-10-millones-en-sueldos-adeudados-OH27208622",
+    "titulo": "Administrativos de la UNACHI protestan por el pago de más de $10 millones en sueldos adeudados",
+    "publicado": "2026-11-09T15:05:00.000Z"
+  },
+  "categoria": "EDUCACIÓN",
+  "titular": "UNACHI: protesta por $20 millones en sueldos atrasados",
+  "bajada": "Trabajadores cerraron la Panamericana en Chiriquí; antidisturbios desalojaron y volvieron a protestar",
+  "caption": "Más de 2 mil empleados de la Unachi llevan semanas sin cobrar completo. La deuda, según los manifestantes, supera los $20 millones, aunque solo se han pagado cerca de $4 millones. El rector respalda el reclamo y pide una respuesta urgente del Gobierno. ¿Hasta cuándo tendrán que esperar los trabajadores su salario?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#UNACHI",
+    "#Chiriquí",
+    "#Educación",
+    "#Salarios"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-11-09-1453-sinlinea-la-estrella-f518.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-09-1453-sinlinea-la-estrella-f518.jpg",
+    "hash": "7c43bf1ec7543504",
+    "version": 2,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-11-09T19:53:56.555Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada de la Universidad Autónoma de Chiriquí con un grupo de trabajadores en protesta frente a la entrada principal, en el tercio superior derecho; la zona izquierda y central de la imagen despejada.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-09T19:53:17.561Z",
+  "actualizado": "2026-11-09T19:53:17.561Z",
+  "plantilla": "dato",
+  "dato": {
+    "cifra": "$20 millones",
+    "frase": "es la deuda salarial que denuncian los trabajadores de la Unachi"
+  }
+}

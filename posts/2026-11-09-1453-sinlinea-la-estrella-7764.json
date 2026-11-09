@@ -1,0 +1,52 @@
+{
+  "id": "2026-11-09-1453-sinlinea-la-estrella-7764",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/malaria-en-merca-panama-el-minsa-suma-124-personas-contagiadas-GG27211315",
+    "titulo": "Malaria en Merca Panamá: el Minsa suma 124 personas contagiadas",
+    "publicado": "2026-11-09T15:54:00.000Z"
+  },
+  "categoria": "SALUD",
+  "titular": "Minsa reporta 124 contagios de malaria en Merca Panamá",
+  "bajada": "La cifra subió de 99 a 124 casos en tres días; la mayoría son carretilleros informales.",
+  "caption": "Los casos de malaria en Merca Panamá siguen en aumento y ya suman 124 personas contagiadas. Según el Minsa, 59 completaron el tratamiento, 50 siguen bajo atención y 15 lo abandonaron. El 75% son trabajadores informales difíciles de ubicar por su movilidad constante. ¿Qué medidas crees que faltan para frenar el brote?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Salud",
+    "#MercaPanamá",
+    "#Malaria",
+    "#Minsa"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-11-09-1453-sinlinea-la-estrella-7764.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-09-1453-sinlinea-la-estrella-7764.jpg",
+    "hash": "a3de6a451db1c63b",
+    "version": 11,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-11-09T19:54:02.073Z"
+  },
+  "ilustracion": {
+    "descripcion": "Vista general del área de carga de Merca Panamá al amanecer, con personal de salud revisando a trabajadores en el tercio superior derecho; la zona izquierda y central despejada.",
+    "usar": true,
+    "ruta": "public/ilus/2026-11-09-1453-sinlinea-la-estrella-7764.jpg",
+    "hashDescripcion": "1cc80fd97012b693",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-11-09T19:53:17.561Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-09T19:53:17.561Z",
+  "actualizado": "2026-11-09T19:53:17.561Z",
+  "plantilla": "foto",
+  "dato": {
+    "cifra": "124",
+    "frase": "personas se han contagiado de malaria en Merca Panamá"
+  }
+}
