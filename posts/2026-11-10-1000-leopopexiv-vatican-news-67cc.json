@@ -1,0 +1,46 @@
+{
+  "id": "2026-11-10-1000-leopopexiv-vatican-news-67cc",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-11/pope-leo-xiv-argentina-meeting-religious-leaders-peace.html",
+    "titulo": "Pope in Buenos Aires: Religions must build bridges, not division",
+    "publicado": "2026-11-09T21:14:53.000Z"
+  },
+  "categoria": "INTERNACIONAL",
+  "titular": "Pope Leo calls for interfaith unity in Buenos Aires",
+  "bajada": "He urged religious leaders to build bridges, not division, during Argentina visit",
+  "caption": "Meeting with leaders of Christian communities and other religious traditions in Buenos Aires, Pope Leo XIV called for dialogue, fraternity, and a shared commitment to human dignity and hope. Source: Vatican News, Nov 9, 2026.",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Vatican",
+    "#Argentina",
+    "#InterfaithDialogue",
+    "#BuenosAires"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-11-10-1000-leopopexiv-vatican-news-67cc.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-10-1000-leopopexiv-vatican-news-67cc.jpg",
+    "hash": "c157c33d4863df0b",
+    "version": 11,
+    "estilo": "b18ca074001a6ad6",
+    "renderizada": "2026-11-10T15:01:03.456Z"
+  },
+  "ilustracion": {
+    "descripcion": "Grand cathedral interior in Buenos Aires at dusk, with a pope-like figure in white vestments seen from behind greeting a diverse group of religious leaders, positioned in upper right, left and center space open",
+    "usar": true,
+    "ruta": "public/ilus/2026-11-10-1000-leopopexiv-vatican-news-67cc.jpg",
+    "hashDescripcion": "71c9b248a6bc731a",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-11-10T15:00:00.051Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-10T15:00:00.051Z",
+  "actualizado": "2026-11-10T15:00:00.051Z"
+}

@@ -1,0 +1,52 @@
+{
+  "id": "2026-11-10-1000-sinlinea-la-estrella-4465",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/economia/persisten-las-quejas-por-descuentos-a-jubilados-restaurantes-y-franquicias-de-comida-rapida-concentran-el-40-de-los-motivos-de-denuncia-a-octubre-OE27231593",
+    "titulo": "Persisten las quejas por descuentos a jubilados: restaurantes y franquicias de comida rápida concentran el 40% de los motivos de denuncia a octubre",
+    "publicado": "2026-11-10T05:00:00.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "Restaurantes lideran quejas por descuentos a jubilados",
+  "bajada": "Acodeco registró 2,150 denuncias hasta octubre; comida rápida y restaurantes concentran el 40%.",
+  "caption": "Muchos adultos mayores siguen enfrentando negativas para recibir el descuento que la ley les garantiza en restaurantes y franquicias. La Acodeco confirma que este es el motivo de queja más común este año. ¿Te han negado alguna vez ese derecho?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Jubilados",
+    "#Consumidores",
+    "#Acodeco",
+    "#DerechosDelConsumidor"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-11-10-1000-sinlinea-la-estrella-4465.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-10-1000-sinlinea-la-estrella-4465.jpg",
+    "hash": "465a24159b751803",
+    "version": 2,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-11-10T15:00:41.461Z"
+  },
+  "ilustracion": {
+    "descripcion": "Mostrador de un restaurante de comida rápida con una bandeja y un menú sobre el mostrador, sin personas visibles; el letrero del local queda en el tercio superior derecho, zona izquierda y central despejadas.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-10T15:00:00.051Z",
+  "actualizado": "2026-11-10T15:00:00.051Z",
+  "plantilla": "dato",
+  "dato": {
+    "cifra": "40%",
+    "frase": "de las denuncias corresponden a restaurantes y franquicias de comida rápida"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "id": "2026-11-10-1000-sinlinea-la-estrella-8fdc",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/fondos-para-danos-del-terremoto-de-los-100-millones-solo-se-han-desembolsado-20-millones-DE27236225",
+    "titulo": "Fondos para daños del terremoto: De los $100 millones solo se han desembolsado $20 millones",
+    "publicado": "2026-11-10T12:16:00.000Z"
+  },
+  "categoria": "ECONOMÍA",
+  "titular": "Solo $20 millones de $100M para terremoto se han pagado",
+  "bajada": "Las solicitudes de las instituciones ya rozan los $80 millones, según el MEF.",
+  "caption": "Un mes después del terremoto en Azuero, la mayoría del dinero prometido sigue sin llegar a quienes lo necesitan. El Gobierno reconoce que las solicitudes casi igualan el fondo total, pero los desembolsos avanzan lento. ¿Qué tanto está sintiendo tu comunidad esta demora?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Terremoto",
+    "#Azuero",
+    "#Reconstrucción",
+    "#Economía"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-11-10-1000-sinlinea-la-estrella-8fdc.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-10-1000-sinlinea-la-estrella-8fdc.jpg",
+    "hash": "7d46b0022f07eb34",
+    "version": 11,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-11-10T15:00:41.122Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada del Banco Nacional de Panamá con una carpeta de documentos sobre una mesa en primer plano; el edificio queda en el tercio superior derecho, con la zona izquierda y central despejadas.",
+    "usar": true,
+    "ruta": "public/ilus/2026-11-10-1000-sinlinea-la-estrella-8fdc.jpg",
+    "hashDescripcion": "cc117e642aaa7dce",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-11-10T15:00:00.051Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-10T15:00:00.051Z",
+  "actualizado": "2026-11-10T15:00:00.051Z",
+  "plantilla": "foto",
+  "dato": {
+    "cifra": "$20 millones",
+    "frase": "de los $100 millones para el terremoto se han desembolsado hasta ahora"
+  }
+}
