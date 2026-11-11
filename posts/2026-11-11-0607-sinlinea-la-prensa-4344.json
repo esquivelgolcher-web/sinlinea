@@ -1,0 +1,48 @@
+{
+  "id": "2026-11-11-0607-sinlinea-la-prensa-4344",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/politica/becas-del-ifarhu-padres-de-familia-reclaman-tras-meses-de-espera-y-pagos-pendientes/",
+    "titulo": "Becas del Ifarhu: padres de familia reclaman tras meses de espera y pagos pendientes",
+    "publicado": "2026-11-11T05:00:00.000Z"
+  },
+  "categoria": "EDUCACIÓN",
+  "titular": "Padres denuncian meses de retraso en pagos de becas del Ifarhu",
+  "bajada": "Beneficiarios del PASE-U y becas por concurso siguen esperando desembolsos de 2026 sin un calendario claro.",
+  "caption": "A pocas semanas de terminar el año escolar, miles de familias panameñas todavía esperan el pago de becas que debieron llegar hace meses. El primer desembolso del PASE-U comenzó cuatro meses después del inicio de clases y se prolongó hasta octubre, mientras universitarios, estudiantes distinguidos y personas con discapacidad también enfrentan demoras. La Anpafa reclama transparencia y un cronograma de cumplimiento al Ifarhu. ¿Conoce a alguien afectado por estos retrasos?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Ifarhu",
+    "#Educación",
+    "#Becas",
+    "#PASEU"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-11-11-0607-sinlinea-la-prensa-4344.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-11-0607-sinlinea-la-prensa-4344.jpg",
+    "hash": "7784953fdc0198bd",
+    "version": 11,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-11-11T11:07:52.018Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada de una oficina pública panameña con una fila ordenada de personas esperando afuera, en el tercio superior derecho; zona izquierda y central despejada, sin rostros reconocibles ni texto visible.",
+    "usar": true,
+    "ruta": "public/ilus/2026-11-11-0607-sinlinea-la-prensa-4344.jpg",
+    "hashDescripcion": "fb34dfbbdeffdd79",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-11-11T11:07:15.572Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-11T11:07:15.572Z",
+  "actualizado": "2026-11-11T11:07:15.572Z",
+  "plantilla": "foto"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "2026-11-11-0607-leopopexiv-vatican-news-42b4",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "formato": "frase",
+  "frase": {
+    "texto": "Whoever you are and whatever you may have done, Jesus Christ knows you, Jesus Christ loves you, and wants you to be close to Him.",
+    "autor": "Pope Leo XIV",
+    "fuente": "Prayer vigil with young people in Buenos Aires, Argentina",
+    "anio": 2026,
+    "url": "https://www.vaticannews.va/en/pope/news/2026-11/pope-leo-xiv-prayer-vigil-argentina-young-people.html",
+    "origen": "texto"
+  },
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-11/pope-leo-xiv-prayer-vigil-argentina-young-people.html",
+    "titulo": "Pope to Argentine young people: ‘Who told you it was too late?’ - Vatican News",
+    "publicado": "2026-11-11T02:18:22.897+01:00"
+  },
+  "categoria": "CULTURA",
+  "titular": "Pope Leo XIV",
+  "bajada": "Prayer vigil with young people in Buenos Aires, Argentina · 2026",
+  "caption": "“Whoever you are and whatever you may have done, Jesus Christ knows you, Jesus Christ loves you, and wants you to be close to Him.”\n\n— Pope Leo XIV, Prayer vigil with young people in Buenos Aires, Argentina (2026)\n\nVia Vatican News, 10 November 2026\n\n#PopeLeoXIV #Vatican #CatholicChurch",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Vatican",
+    "#CatholicChurch"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-11-11-0607-leopopexiv-vatican-news-42b4.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-11-0607-leopopexiv-vatican-news-42b4.jpg",
+    "hash": "352b38baa8180438",
+    "version": 1,
+    "estilo": "a0a82c85f495517b",
+    "renderizada": "2026-11-11T11:08:11.205Z"
+  },
+  "ilustracion": null,
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-11T11:07:15.572Z",
+  "actualizado": "2026-11-11T11:07:15.572Z"
+}

@@ -1,0 +1,47 @@
+{
+  "id": "2026-11-11-0607-leopopexiv-vatican-news-092b",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-11/pope-abuse-victims-argentina-church-healing-protection-closeness.html",
+    "titulo": "Pope Leo XIV meets with abuse victims in Argentina",
+    "publicado": "2026-11-09T19:39:00.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "Pope Leo XIV meets abuse survivors in Argentina",
+  "bajada": "Hour-long meeting focused on protection and healing pathways in the Church",
+  "caption": "Pope Leo XIV spent over an hour meeting with five survivors of abuse during his visit to Argentina, expressing his closeness and his desire to strengthen pathways of protection, welcome and accompaniment within the Church. Source: Vatican News, Nov 9, 2026.",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Vatican",
+    "#Argentina",
+    "#AbuseSurvivors",
+    "#CatholicChurch",
+    "#PapalVisit"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-11-11-0607-leopopexiv-vatican-news-092b.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-11-0607-leopopexiv-vatican-news-092b.jpg",
+    "hash": "7b85fb5e39602edc",
+    "version": 11,
+    "estilo": "b18ca074001a6ad6",
+    "renderizada": "2026-11-11T11:08:08.307Z"
+  },
+  "ilustracion": {
+    "descripcion": "A quiet Vatican-style meeting room with simple chairs and soft light, a figure in white papal attire seen from behind at mid-distance in the upper right, left and center clear.",
+    "usar": true,
+    "ruta": "public/ilus/2026-11-11-0607-leopopexiv-vatican-news-092b.jpg",
+    "hashDescripcion": "df986f75d1fe90e3",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-11-11T11:07:15.572Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-11T11:07:15.572Z",
+  "actualizado": "2026-11-11T11:07:15.572Z"
+}

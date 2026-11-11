@@ -1,0 +1,52 @@
+{
+  "id": "2026-11-11-0607-sinlinea-la-prensa-6d7a",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Prensa",
+    "url": "https://www.prensa.com/politica/en-panama-la-iglesia-genera-mas-confianza-que-el-gobierno-y-los-partidos-politicos/",
+    "titulo": "Para los panameños, la Iglesia genera más confianza que el Gobierno y los partidos políticos",
+    "publicado": "2026-11-11T05:00:00.000Z"
+  },
+  "categoria": "POLÍTICA",
+  "titular": "Iglesia supera a Gobierno y partidos en confianza ciudadana",
+  "bajada": "Latinobarómetro 2026 revela que los panameños confían más en la Iglesia que en el presidente o la Asamblea.",
+  "caption": "La encuesta Latinobarómetro 2026 mide la confianza en 14 instituciones de 17 países de la región, y en Panamá la Iglesia se lleva el primer lugar con amplio margen. Mientras tanto, el presidente, el Gobierno y los partidos políticos quedan entre los peores calificados, con apenas 20%, 18% y 11% de confianza respectivamente. El dato refleja un desgaste profundo en las instituciones democráticas del país. ¿Por qué cree que los panameños confían tan poco en sus líderes políticos?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Latinobarómetro",
+    "#Confianza",
+    "#Política",
+    "#Iglesia"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-11-11-0607-sinlinea-la-prensa-6d7a.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-11-0607-sinlinea-la-prensa-6d7a.jpg",
+    "hash": "f5962ea9b06fafeb",
+    "version": 2,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-11-11T11:07:47.007Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada de un templo panameño sencillo al mediodía, con la cúpula y la cruz visibles en el tercio superior derecho; la zona izquierda y central de la imagen despejada, sin personas ni texto.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-11T11:07:15.572Z",
+  "actualizado": "2026-11-11T11:07:15.572Z",
+  "plantilla": "dato",
+  "dato": {
+    "cifra": "72%",
+    "frase": "de los panameños dice tener mucha o algo de confianza en la Iglesia"
+  }
+}
