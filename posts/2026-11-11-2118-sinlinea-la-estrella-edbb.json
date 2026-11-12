@@ -1,0 +1,53 @@
+{
+  "id": "2026-11-11-2118-sinlinea-la-estrella-edbb",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/terremoto-de-75-lleva-al-idaan-a-intervenir-chitre-isla-canas-y-sona-DP27287141",
+    "titulo": "Terremoto de 7.5 lleva al Idaan a intervenir Chitré, Isla Cañas y Soná",
+    "publicado": "2026-11-11T22:32:00.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "Idaan interviene Chitré, Isla Cañas y Soná tras sismo",
+  "bajada": "La institución retirará 26 tanques dañados y repartirá agua en cisternas tras el terremoto de 7.5.",
+  "caption": "Un mes después del terremoto, el agua potable sigue siendo un problema en varias comunidades de Herrera y Los Santos. El Idaan confirmó que debe retirar 26 tanques dañados y que instaló bombas y tuberías de emergencia para mantener el suministro.\n\nMientras tanto, familias en Isla Cañas dependen de tanques temporales y duchas en albergues. ¿Tu comunidad ha recibido apoyo del Idaan tras el sismo?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Terremoto",
+    "#Idaan",
+    "#AguaPotable",
+    "#Chitré",
+    "#LosSantos"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-11-11-2118-sinlinea-la-estrella-edbb.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-11-2118-sinlinea-la-estrella-edbb.jpg",
+    "hash": "56844a02208c012c",
+    "version": 11,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-11-12T02:18:38.477Z"
+  },
+  "ilustracion": {
+    "descripcion": "Tanque de agua metálico con fisuras visibles junto a una planta potabilizadora en Chitré, el tanque dañado ubicado en el tercio superior derecho, con cielo despejado y zona izquierda y central libres.",
+    "usar": true,
+    "ruta": "public/ilus/2026-11-11-2118-sinlinea-la-estrella-edbb.jpg",
+    "hashDescripcion": "13ad165265fd7754",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-11-12T02:18:03.747Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-12T02:18:03.747Z",
+  "actualizado": "2026-11-12T02:18:03.747Z",
+  "plantilla": "foto",
+  "dato": {
+    "cifra": "26 tanques",
+    "frase": "de almacenamiento serán retirados por daño estructural tras el sismo"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "id": "2026-11-11-2118-sinlinea-la-estrella-fa51",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/operacion-escudo-deja-20-personas-capturadas-en-san-miguelito-por-presunto-microtrafico-PP27285569",
+    "titulo": "Operación Escudo deja 20 personas capturadas en San Miguelito por presunto microtráfico",
+    "publicado": "2026-11-11T22:33:00.000Z"
+  },
+  "categoria": "SEGURIDAD",
+  "titular": "Operación Escudo captura a 20 por microtráfico en San Miguelito",
+  "bajada": "El Ministerio Público y la Policía actuaron en los nueve corregimientos del distrito este miércoles.",
+  "caption": "Un nuevo operativo contra el microtráfico se desarrolló en San Miguelito, uno de los distritos con mayor incidencia de venta de drogas a pequeña escala en el país. El procurador Luis Gómez pidió a la ciudadanía seguir denunciando.\n\nEstas acciones buscan recuperar espacios comunitarios afectados por la venta ilícita de drogas. ¿Sientes que estos operativos mejoran la seguridad en tu barrio?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Seguridad",
+    "#SanMiguelito",
+    "#Microtráfico",
+    "#OperaciónEscudo"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-11-11-2118-sinlinea-la-estrella-fa51.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-11-2118-sinlinea-la-estrella-fa51.jpg",
+    "hash": "0c772c34a5ca4a8a",
+    "version": 2,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-11-12T02:18:38.798Z"
+  },
+  "ilustracion": {
+    "descripcion": "Patrulla de la Policía Nacional estacionada en una calle residencial de San Miguelito al atardecer, el vehículo ubicado en el tercio superior derecho, zona izquierda y central despejadas.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-12T02:18:03.747Z",
+  "actualizado": "2026-11-12T02:18:03.747Z",
+  "plantilla": "dato",
+  "dato": {
+    "cifra": "20 personas",
+    "frase": "fueron capturadas en los nueve corregimientos de San Miguelito"
+  }
+}
