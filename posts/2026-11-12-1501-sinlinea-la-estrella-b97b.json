@@ -1,0 +1,52 @@
+{
+  "id": "2026-11-12-1501-sinlinea-la-estrella-b97b",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/economia/el-uso-de-tarjetas-de-credito-se-dispara-en-panama-y-supera-los-916-mil-en-un-ano-CG27301012",
+    "titulo": "El uso de tarjetas de crédito se dispara en Panamá y supera los 916 mil en un año",
+    "publicado": "2026-11-12T19:30:00.000Z"
+  },
+  "categoria": "ECONOMÍA",
+  "titular": "Tarjetas de crédito en Panamá superan las 916 mil",
+  "bajada": "La cartera total ya pasa los $3,083 millones, con alza interanual de 8.1% al cierre de septiembre.",
+  "caption": "Cada vez más panameños usan tarjeta de crédito para llegar a fin de mes. El saldo promedio por plástico ronda los $3,363, mientras la banca sigue aprobando nuevas tarjetas enfocadas en ingresos medios.\n\nEste crecimiento refleja tanto el acceso al crédito como la presión sobre los bolsillos de miles de familias.\n\n¿Usas tarjeta de crédito para gastos del día a día?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Economía",
+    "#TarjetasDeCrédito",
+    "#CostoDeVida",
+    "#Bancos"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-11-12-1501-sinlinea-la-estrella-b97b.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-12-1501-sinlinea-la-estrella-b97b.jpg",
+    "hash": "839bb4be91ff5548",
+    "version": 11,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-11-12T20:02:04.418Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fila de personas frente a un cajero automático en una calle comercial de la Ciudad de Panamá, con bancos al fondo; el cajero y la fila quedan en el tercio superior derecho, zona izquierda y central despejadas.",
+    "usar": true,
+    "ruta": "public/ilus/2026-11-12-1501-sinlinea-la-estrella-b97b.jpg",
+    "hashDescripcion": "decba3db0fd1b449",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-11-12T20:01:30.196Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-12T20:01:30.196Z",
+  "actualizado": "2026-11-12T20:01:30.196Z",
+  "plantilla": "foto",
+  "dato": {
+    "cifra": "916,621",
+    "frase": "tarjetas de crédito activas había en el sistema bancario panameño a septiembre de 2026"
+  }
+}

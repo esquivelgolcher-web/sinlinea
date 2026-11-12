@@ -1,0 +1,48 @@
+{
+  "id": "2026-11-12-1501-sinlinea-la-estrella-65b2",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/receta-electronica-en-panama-como-usar-surem-para-retirar-medicamentos-en-farmacias-afiliadas-EG27301522",
+    "titulo": "Receta electrónica en Panamá: cómo usar SUREM para retirar medicamentos en farmacias afiliadas",
+    "publicado": "2026-11-12T16:39:00.000Z"
+  },
+  "categoria": "SALUD",
+  "titular": "Minsa lanza receta electrónica para retirar medicamentos",
+  "bajada": "El sistema SUREM permitirá usar código QR o cédula en farmacias públicas y privadas afiliadas.",
+  "caption": "Ya no hará falta cargar la receta impresa para buscar tus medicamentos. El nuevo sistema conecta al Minsa, la Caja de Seguro Social y farmacias privadas, para que los pacientes puedan continuar su tratamiento aunque el medicamento no esté en el centro de salud donde los atendieron.\n\nUna medida que busca facilitarle la vida a miles de pacientes en todo el país.\n\n¿Te gustaría que tu farmacia ya tuviera este sistema?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Salud",
+    "#SUREM",
+    "#Minsa",
+    "#Medicamentos"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-11-12-1501-sinlinea-la-estrella-65b2.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-12-1501-sinlinea-la-estrella-65b2.jpg",
+    "hash": "89d10b6194aefbe7",
+    "version": 2,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-11-12T20:02:04.748Z"
+  },
+  "ilustracion": {
+    "descripcion": "Mostrador de una farmacia panameña con un empleado revisando una pantalla digital; el mostrador y la pantalla quedan en el tercio superior derecho, zona izquierda y central despejadas.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-12T20:01:30.196Z",
+  "actualizado": "2026-11-12T20:01:30.196Z",
+  "plantilla": "titular"
+}
