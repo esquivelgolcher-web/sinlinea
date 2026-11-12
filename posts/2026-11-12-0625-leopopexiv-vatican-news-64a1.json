@@ -1,0 +1,46 @@
+{
+  "id": "2026-11-12-0625-leopopexiv-vatican-news-64a1",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-11/pope-distance-does-not-necessarily-diminish-love-homeland-peru.html",
+    "titulo": "Pope in Peru: ‘Distance does not necessarily diminish love for one’s homeland’",
+    "publicado": "2026-11-12T02:15:00.000Z"
+  },
+  "categoria": "INTERNACIONAL",
+  "titular": "Pope Leo urges Peru's leaders to protect peace",
+  "bajada": "In his first Peru address, he spoke of his own roots and everyday peace for citizens",
+  "caption": "In his first public address in Peru, delivered to civil authorities and the diplomatic corps, Pope Leo XIV spoke of his long-held personal ties to the country and urged leaders to safeguard the “everyday peace” of ordinary Peruvians. Source: Vatican News, Nov 12, 2026.",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Peru",
+    "#Vatican",
+    "#Diplomacy",
+    "#Peace"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-11-12-0625-leopopexiv-vatican-news-64a1.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-12-0625-leopopexiv-vatican-news-64a1.jpg",
+    "hash": "960d35ef123f06f9",
+    "version": 11,
+    "estilo": "b18ca074001a6ad6",
+    "renderizada": "2026-11-12T11:26:04.453Z"
+  },
+  "ilustracion": {
+    "descripcion": "A formal government reception hall in Lima with national flags, a lectern in the upper right third, left and center areas left open and uncluttered",
+    "usar": true,
+    "ruta": "public/ilus/2026-11-12-0625-leopopexiv-vatican-news-64a1.jpg",
+    "hashDescripcion": "414028640f89acb6",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-11-12T11:25:48.140Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-12T11:25:48.140Z",
+  "actualizado": "2026-11-12T11:25:48.140Z"
+}
