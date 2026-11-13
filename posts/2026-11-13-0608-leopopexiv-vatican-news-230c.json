@@ -1,0 +1,46 @@
+{
+  "id": "2026-11-13-0608-leopopexiv-vatican-news-230c",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-11/pope-leo-xiv-lima-apostolic-journey-challenges-hopes-society.html",
+    "titulo": "Pope urges Peruvians to build a society based on respect, inclusion, solidarity",
+    "publicado": "2026-11-12T18:00:00.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "Pope urges Peru to build inclusive, caring society",
+  "bajada": "In Lima, he calls for solidarity with families, women and workers",
+  "caption": "Speaking in Lima after hearing testimonies from Peruvian citizens, Pope Leo XIV addressed the challenges facing families, women, workers and a culturally diverse nation, urging greater solidarity and commitment to the common good. Source: Vatican News, Nov 12, 2026.",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Peru",
+    "#Vatican",
+    "#CatholicChurch",
+    "#Solidarity"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-11-13-0608-leopopexiv-vatican-news-230c.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-13-0608-leopopexiv-vatican-news-230c.jpg",
+    "hash": "b6ddca1055f94bce",
+    "version": 11,
+    "estilo": "b18ca074001a6ad6",
+    "renderizada": "2026-11-13T11:09:28.802Z"
+  },
+  "ilustracion": {
+    "descripcion": "A plaza in Lima at dusk with a crowd gathered before a stage; a figure in white papal vestments stands at a podium in the upper right third, left and center open and uncluttered.",
+    "usar": true,
+    "ruta": "public/ilus/2026-11-13-0608-leopopexiv-vatican-news-230c.jpg",
+    "hashDescripcion": "b7dee24ed9361490",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-11-13T11:08:42.849Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-13T11:08:42.849Z",
+  "actualizado": "2026-11-13T11:08:42.849Z"
+}

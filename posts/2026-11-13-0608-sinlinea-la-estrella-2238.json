@@ -1,0 +1,48 @@
+{
+  "id": "2026-11-13-0608-sinlinea-la-estrella-2238",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/politica/mulino-veta-parcialmente-el-proyecto-de-ley-no-700-que-redefine-los-circuitos-electorales-para-2029-BH27313367",
+    "titulo": "Mulino veta parcialmente el proyecto de ley No. 700 que redefine los circuitos electorales para 2029",
+    "publicado": "2026-11-12T22:41:00.000Z"
+  },
+  "categoria": "POLÍTICA",
+  "titular": "Mulino veta parte de ley que reorganiza circuitos electorales",
+  "bajada": "El presidente objetó la agrupación de circuitos en Chiriquí antes de las elecciones de 2029.",
+  "caption": "El mandatario devolvió a la Asamblea el proyecto que define cómo se repartirán los diputados en 2029. Su objeción apunta a Chiriquí, donde la nueva distribución de circuitos no respondería a criterios técnicos sino a decisiones políticas. Esto puede cambiar el peso electoral de varias provincias. ¿Debe la Asamblea ceder ante las objeciones del Ejecutivo?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Elecciones2029",
+    "#AsambleaNacional",
+    "#Mulino",
+    "#CircuitosElectorales"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-11-13-0608-sinlinea-la-estrella-2238.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-13-0608-sinlinea-la-estrella-2238.jpg",
+    "hash": "87ea5fb1330b7c37",
+    "version": 2,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-11-13T11:09:11.115Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada del Palacio de las Garzas en Panamá con la bandera nacional ondeando; en el tercio superior derecho se distingue un mapa estilizado de circuitos electorales, zona izquierda y central despejadas.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-13T11:08:42.849Z",
+  "actualizado": "2026-11-13T11:08:42.849Z",
+  "plantilla": "titular"
+}

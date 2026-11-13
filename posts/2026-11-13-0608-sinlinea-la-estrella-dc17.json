@@ -1,0 +1,52 @@
+{
+  "id": "2026-11-13-0608-sinlinea-la-estrella-dc17",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/revocan-medida-cautelar-y-dictan-detencion-provisional-para-dos-imputados-en-caso-alex-lee-CG27309946",
+    "titulo": "Revocan medida cautelar y dictan detención provisional para dos imputados en caso Alex Lee",
+    "publicado": "2026-11-12T21:08:00.000Z"
+  },
+  "categoria": "SEGURIDAD",
+  "titular": "Dictan detención provisional a dos imputados del caso Barrio Sur",
+  "bajada": "La Fiscalía investiga el traslado de $458 mil de fondos públicos hacia una empresa privada en Colón.",
+  "caption": "Un tribunal revocó el arresto domiciliario de un empresario y una secretaria señalados por blanquear fondos de la Junta Comunal de Barrio Sur. El caso ya suma seis imputados, entre ellos el exalcalde de Colón, Alex Lee. La Fiscalía busca ahora que se declare como causa compleja. ¿Hasta dónde llegará esta investigación?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Colón",
+    "#Corrupción",
+    "#BarrioSur",
+    "#Justicia"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-11-13-0608-sinlinea-la-estrella-dc17.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-13-0608-sinlinea-la-estrella-dc17.jpg",
+    "hash": "bc5d57f4f05b00ca",
+    "version": 2,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-11-13T11:09:11.447Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada de un juzgado panameño con las columnas iluminadas al atardecer; en el tercio superior derecho se ve una balanza de la justicia, zona izquierda y central despejadas.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-13T11:08:42.849Z",
+  "actualizado": "2026-11-13T11:08:42.849Z",
+  "plantilla": "dato",
+  "dato": {
+    "cifra": "$458 mil",
+    "frase": "de los fondos malversados fueron transferidos a una empresa privada en siete meses"
+  }
+}

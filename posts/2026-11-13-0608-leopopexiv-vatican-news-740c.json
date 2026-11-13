@@ -1,0 +1,44 @@
+{
+  "id": "2026-11-13-0608-leopopexiv-vatican-news-740c",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "formato": "frase",
+  "frase": {
+    "texto": "Look to Jesus. He knows your story and continues to invite you to walk with Him.",
+    "autor": "Pope Leo XIV",
+    "fuente": "Prayer vigil with young people at Estadio Nacional, Lima",
+    "anio": 2026,
+    "url": "https://www.vaticannews.va/en/pope/news/2026-11/pope-young-people-prayer-vigil-12-november-2026.html",
+    "origen": "texto"
+  },
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-11/pope-young-people-prayer-vigil-12-november-2026.html",
+    "titulo": "Pope: Jesus 'knows your story and continues to invite you to walk with Him' - Vatican News",
+    "publicado": "2026-11-13T02:17:59.332+01:00"
+  },
+  "categoria": "CULTURA",
+  "titular": "Pope Leo XIV",
+  "bajada": "Prayer vigil with young people at Estadio Nacional, Lima · 2026",
+  "caption": "“Look to Jesus. He knows your story and continues to invite you to walk with Him.”\n\n— Pope Leo XIV, Prayer vigil with young people at Estadio Nacional, Lima (2026)\n\nVia Vatican News, 12 November 2026\n\n#PopeLeoXIV #Vatican #CatholicChurch",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Vatican",
+    "#CatholicChurch"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-11-13-0608-leopopexiv-vatican-news-740c.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-13-0608-leopopexiv-vatican-news-740c.jpg",
+    "hash": "a7d3879087095a0e",
+    "version": 1,
+    "estilo": "a0a82c85f495517b",
+    "renderizada": "2026-11-13T11:09:31.685Z"
+  },
+  "ilustracion": null,
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-13T11:08:42.849Z",
+  "actualizado": "2026-11-13T11:08:42.849Z"
+}
