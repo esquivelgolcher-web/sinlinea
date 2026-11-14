@@ -1,0 +1,48 @@
+{
+  "id": "2026-11-14-1731-sinlinea-la-estrella-1af2",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/esto-atenta-contra-el-pais-y-la-democracia-rolando-rodriguez-habla-tras-el-ataque-a-su-domicilio-MD27351159",
+    "titulo": "‘Esto atenta contra el país y la democracia’: Rolando Rodríguez habla tras el ataque a su domicilio",
+    "publicado": "2026-11-14T15:54:00.000Z"
+  },
+  "categoria": "SEGURIDAD",
+  "titular": "Rodríguez dice que el ataque amenaza a toda la ciudadanía",
+  "bajada": "El periodista de La Prensa habló tras el atentado en su casa y pidió garantizar la seguridad de la prensa.",
+  "caption": "Un ataque contra un periodista no es solo un ataque contra un medio: es una amenaza para cualquiera que quiera hablar con libertad en Panamá. Rolando Rodríguez advirtió que lo ocurrido puede repetirse si no hay respuesta clara de las autoridades. La seguridad de quienes informan también es la seguridad de quienes leen. ¿Qué garantías debe dar el Estado para que esto no vuelva a pasar?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#RolandoRodríguez",
+    "#LibertadDePrensa",
+    "#Periodismo",
+    "#SanMiguelito"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-11-14-1731-sinlinea-la-estrella-1af2.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-14-1731-sinlinea-la-estrella-1af2.jpg",
+    "hash": "00103ef69afe1994",
+    "version": 11,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-11-14T22:32:03.286Z"
+  },
+  "ilustracion": {
+    "descripcion": "Sala de conferencias de un medio de comunicación panameño con un atril y un micrófono vacíos en primer plano, luz tenue; elemento principal en el tercio superior derecho, zona izquierda y central despejadas.",
+    "usar": true,
+    "ruta": "public/ilus/2026-11-14-1731-sinlinea-la-estrella-1af2.jpg",
+    "hashDescripcion": "a8854f4b342743a5",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-11-14T22:31:18.232Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-14T22:31:18.232Z",
+  "actualizado": "2026-11-14T22:31:18.232Z",
+  "plantilla": "foto"
+}
