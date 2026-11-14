@@ -1,0 +1,52 @@
+{
+  "id": "2026-11-14-0536-sinlinea-la-estrella-6dca",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/economia/hipotecas-de-interes-preferencial-en-panama-caen-61-a-septiembre-de-2026-DF27334016",
+    "titulo": "Hipotecas de interés preferencial en Panamá caen 61 % a septiembre de 2026",
+    "publicado": "2026-11-14T05:00:00.000Z"
+  },
+  "categoria": "ECONOMÍA",
+  "titular": "Hipotecas preferenciales caen 61% en tres años en Panamá",
+  "bajada": "Los desembolsos pasaron de $746 millones a $293 millones entre 2023 y 2026, según la banca.",
+  "caption": "Conseguir una casa con tasa preferencial se volvió más difícil. La banca atribuye la caída a deudas del Estado con los bancos, alzas de tasas y los cambios en la ley que regula estos créditos. Para miles de familias que esperan comprar su primera vivienda, esto significa menos opciones y más espera. ¿Has intentado sacar una hipoteca preferencial este año?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Hipotecas",
+    "#Vivienda",
+    "#Economía",
+    "#Bancos"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-11-14-0536-sinlinea-la-estrella-6dca.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-14-0536-sinlinea-la-estrella-6dca.jpg",
+    "hash": "4de06abd822e4e0f",
+    "version": 11,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-11-14T10:36:43.797Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada de un banco panameño con un cartel de 'hipotecas' en la vitrina, calle residencial despejada al frente, edificio bancario ubicado en el tercio superior derecho.",
+    "usar": true,
+    "ruta": "public/ilus/2026-11-14-0536-sinlinea-la-estrella-6dca.jpg",
+    "hashDescripcion": "a31a09ff99e018a5",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-11-14T10:36:13.709Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-14T10:36:13.709Z",
+  "actualizado": "2026-11-14T10:36:13.709Z",
+  "plantilla": "foto",
+  "dato": {
+    "cifra": "61%",
+    "frase": "cayeron los desembolsos de hipotecas con interés preferencial entre 2023 y 2026"
+  }
+}

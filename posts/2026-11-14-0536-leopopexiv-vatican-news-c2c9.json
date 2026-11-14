@@ -1,0 +1,46 @@
+{
+  "id": "2026-11-14-0536-leopopexiv-vatican-news-c2c9",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-11/pope-leo-xiv-homily-mass-chiclayo-peru-evangelization.html",
+    "titulo": "‘Proclaiming Christ is a crucial task,’ Pope Leo tells faithful in Chiclayo, Peru",
+    "publicado": "2026-11-13T16:40:00.000Z"
+  },
+  "categoria": "INTERNACIONAL",
+  "titular": "Pope Leo XIV says Mass for 500,000 in Chiclayo",
+  "bajada": "He told the crowd that evangelization is the Church's deepest vocation",
+  "caption": "Pope Leo XIV presided over Mass for around 500,000 people in Chiclayo, Peru, telling the faithful that all Christians are missionary disciples and that no baptized person can be indifferent to spreading the Gospel. Source: Vatican News, Nov 13, 2026.",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Chiclayo",
+    "#Peru",
+    "#Vatican",
+    "#CatholicChurch"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-11-14-0536-leopopexiv-vatican-news-c2c9.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-14-0536-leopopexiv-vatican-news-c2c9.jpg",
+    "hash": "b0bbe09ad9bc2e5c",
+    "version": 11,
+    "estilo": "b18ca074001a6ad6",
+    "renderizada": "2026-11-14T10:37:02.017Z"
+  },
+  "ilustracion": {
+    "descripcion": "Outdoor Mass altar with a large crowd filling a plaza in Chiclayo at daytime; a bishop figure in white vestments stands at a lectern, upper right third, left and center open and uncluttered.",
+    "usar": true,
+    "ruta": "public/ilus/2026-11-14-0536-leopopexiv-vatican-news-c2c9.jpg",
+    "hashDescripcion": "e9a36d37963b573d",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-11-14T10:36:13.709Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-14T10:36:13.709Z",
+  "actualizado": "2026-11-14T10:36:13.709Z"
+}

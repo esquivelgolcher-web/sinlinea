@@ -1,0 +1,52 @@
+{
+  "id": "2026-11-14-0536-sinlinea-la-estrella-e47e",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/vida-y-cultura/salud/el-42-de-los-hombres-en-riesgo-nunca-se-ha-examinado-por-cancer-de-prostata-segun-un-estudio-JF27338054",
+    "titulo": "El 42% de los hombres en riesgo nunca se ha examinado por cáncer de próstata, según un estudio",
+    "publicado": "2026-11-14T03:00:00.000Z"
+  },
+  "categoria": "SALUD",
+  "titular": "42% de hombres en riesgo nunca se hizo examen de próstata",
+  "bajada": "Un sondeo nacional revela que la falta de síntomas y las demoras en citas frenan la detección temprana.",
+  "caption": "Casi todos los hombres en Panamá han oído hablar del cáncer de próstata, pero muchos no se hacen el examen porque no sienten dolor. Los especialistas advierten que esperar síntomas puede ser tarde. El estudio también señala trabas en el sistema de salud y los costos como obstáculos. ¿Conoces a alguien que haya evitado hacerse este chequeo?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Salud",
+    "#CáncerDePróstata",
+    "#PrevenciónMasculina",
+    "#SaludPública"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-11-14-0536-sinlinea-la-estrella-e47e.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-14-0536-sinlinea-la-estrella-e47e.jpg",
+    "hash": "74435a3639e3d74c",
+    "version": 2,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-11-14T10:36:44.059Z"
+  },
+  "ilustracion": {
+    "descripcion": "Sala de espera de un centro de salud panameño con un afiche informativo sobre salud masculina, espacio despejado a la izquierda, elemento visual en el tercio superior derecho.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-14T10:36:13.709Z",
+  "actualizado": "2026-11-14T10:36:13.709Z",
+  "plantilla": "dato",
+  "dato": {
+    "cifra": "42%",
+    "frase": "de los hombres en riesgo nunca se ha realizado un examen de próstata"
+  }
+}
