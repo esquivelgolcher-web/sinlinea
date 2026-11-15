@@ -1,0 +1,46 @@
+{
+  "id": "2026-11-15-0143-leopopexiv-vatican-news-ad41",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-11/a-look-at-cusco-and-its-devotions-as-pope-leo-travels.html",
+    "titulo": "A look at Cusco and its devotions as Pope Leo travels to the Imperial City",
+    "publicado": "2026-11-14T17:36:00.000Z"
+  },
+  "categoria": "INTERNACIONAL",
+  "titular": "Pope Leo XIV set to visit Cusco, Peru's Inca capital",
+  "bajada": "He'll meet popular devotion groups and pray the Angelus 41 years after John Paul II's visit",
+  "caption": "Pope Leo XIV is traveling to Cusco, Peru's historic Inca capital, where he will meet representatives of popular devotion at Saqsayhuamán before praying the Angelus in the city's main square. The visit echoes John Paul II's trip 41 years ago and highlights the Andean communities that have preserved Catholic processions for centuries. Source: Vatican News, Nov 14, 2026.",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Cusco",
+    "#Peru",
+    "#VaticanNews",
+    "#CatholicChurch"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-11-15-0143-leopopexiv-vatican-news-ad41.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-15-0143-leopopexiv-vatican-news-ad41.jpg",
+    "hash": "21b1e3f82e493192",
+    "version": 11,
+    "estilo": "b18ca074001a6ad6",
+    "renderizada": "2026-11-15T06:43:33.945Z"
+  },
+  "ilustracion": {
+    "descripcion": "Ancient Saqsayhuamán stone fortress overlooking Cusco at dusk, with Andean mountains behind; a robed papal figure stands at upper right in general view, left and center open.",
+    "usar": true,
+    "ruta": "public/ilus/2026-11-15-0143-leopopexiv-vatican-news-ad41.jpg",
+    "hashDescripcion": "6fa0e0f84afe716e",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-11-15T06:43:14.575Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-15T06:43:14.575Z",
+  "actualizado": "2026-11-15T06:43:14.575Z"
+}
