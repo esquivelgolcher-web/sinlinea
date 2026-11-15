@@ -1,0 +1,52 @@
+{
+  "id": "2026-11-15-1125-sinlinea-la-estrella-dab8",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/policia-identifica-al-presunto-conductor-del-taxi-vinculado-al-atentado-contra-rolando-rodriguez-y-ofrece-2000-de-recompensa-HA27365604",
+    "titulo": "Policía identifica al presunto conductor del taxi vinculado al atentado contra Rolando Rodríguez y ofrece $2,000 de recompensa",
+    "publicado": "2026-11-15T10:34:00.000Z"
+  },
+  "categoria": "SEGURIDAD",
+  "titular": "Policía identifica a sospechoso de ataque a periodista",
+  "bajada": "Ofrecen $2,000 por información sobre el taxista vinculado al atentado en Brisas del Golf.",
+  "caption": "Un día después del ataque con explosivos contra la casa del periodista Rolando Rodríguez, la Policía Nacional identificó al presunto conductor del taxi usado en el hecho y pidió ayuda ciudadana para ubicarlo. El caso, investigado por la Fiscalía Superior de San Miguelito, pone a prueba la capacidad del Estado para proteger a quienes ejercen el periodismo. ¿Crees que se esclarecerá este atentado?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Seguridad",
+    "#Periodismo",
+    "#RolandoRodríguez",
+    "#PolicíaNacional"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-11-15-1125-sinlinea-la-estrella-dab8.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-15-1125-sinlinea-la-estrella-dab8.jpg",
+    "hash": "90f2605d890d867b",
+    "version": 2,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-11-15T16:26:23.896Z"
+  },
+  "ilustracion": {
+    "descripcion": "Patrulla de la Policía Nacional de Panamá estacionada de noche frente a una calle residencial con casas iluminadas, luces de alerta encendidas; la patrulla queda en el tercio superior derecho, dejando despejada la zona izquierda y central.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-15T16:25:42.773Z",
+  "actualizado": "2026-11-15T16:25:42.773Z",
+  "plantilla": "dato",
+  "dato": {
+    "cifra": "$2,000",
+    "frase": "ofrece la Policía por información que ayude a ubicar al sospechoso"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "id": "2026-11-15-1125-sinlinea-la-estrella-48c0",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/viviendas-afectadas-por-el-terremoto-cuales-son-las-ayudas-que-ofrecera-el-gobierno-BA27367879",
+    "titulo": "Viviendas afectadas por el terremoto: ¿Cuáles son las ayudas que ofrecerá el Gobierno?",
+    "publicado": "2026-11-15T12:57:00.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "Mulino anuncia tres ayudas para viviendas del terremoto",
+  "bajada": "Gaceta Oficial detalla modalidades de asistencia para familias con casas dañadas por el sismo.",
+  "caption": "El Gobierno definió cómo ayudará a las familias que perdieron su casa o la vieron dañada por el terremoto del 9 de octubre. Podrán optar por una vivienda nueva, una compensación económica o un aporte para reparaciones, según el caso. Para miles de hogares del interior, esta decisión marca el inicio del proceso de reconstrucción. ¿Conoces a alguien afectado que necesite esta información?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Terremoto",
+    "#Vivienda",
+    "#Miviot",
+    "#Reconstrucción"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-11-15-1125-sinlinea-la-estrella-48c0.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-15-1125-sinlinea-la-estrella-48c0.jpg",
+    "hash": "eacaae75f8f39dd7",
+    "version": 11,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-11-15T16:26:23.638Z"
+  },
+  "ilustracion": {
+    "descripcion": "Vivienda rural con daños estructurales visibles y materiales de construcción apilados frente a ella, bajo un cielo nublado; la casa dañada queda en el tercio superior derecho, con la zona izquierda y central despejadas.",
+    "usar": true,
+    "ruta": "public/ilus/2026-11-15-1125-sinlinea-la-estrella-48c0.jpg",
+    "hashDescripcion": "b9860a03a436f14d",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-11-15T16:25:42.773Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-15T16:25:42.773Z",
+  "actualizado": "2026-11-15T16:25:42.773Z",
+  "plantilla": "foto"
+}
