@@ -1,0 +1,46 @@
+{
+  "id": "2026-11-16-0141-leopopexiv-vatican-news-13ac",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-11/pope-leo-in-heart-of-peruvian-amazon-decries-human-rights-abuses.html",
+    "titulo": "Pope Leo in the Peruvian Amazon decries human rights abuses and exploitation",
+    "publicado": "2026-11-15T20:50:00.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "Pope Leo denounces abuses in Peruvian Amazon",
+  "bajada": "In Pucallpa, he decried exploitation of natural resources harming Indigenous communities",
+  "caption": "Meeting with missionaries and Indigenous representatives in Pucallpa, Pope Leo XIV denounced human rights abuses against Amazonian peoples and warned that irresponsible exploitation of natural resources threatens the very existence of local communities. He called for greater support of the Church's work in the region. Source: Vatican News, Nov 15, 2026.",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Amazon",
+    "#Peru",
+    "#IndigenousRights",
+    "#VaticanNews"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-11-16-0141-leopopexiv-vatican-news-13ac.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-16-0141-leopopexiv-vatican-news-13ac.jpg",
+    "hash": "f437956d9c367b2b",
+    "version": 11,
+    "estilo": "b18ca074001a6ad6",
+    "renderizada": "2026-11-16T06:41:33.498Z"
+  },
+  "ilustracion": {
+    "descripcion": "A riverside Amazon village in Pucallpa with wooden houses and dense rainforest; a bishop figure in white cassock greets Indigenous representatives, positioned in the upper right third, left and center open and calm.",
+    "usar": true,
+    "ruta": "public/ilus/2026-11-16-0141-leopopexiv-vatican-news-13ac.jpg",
+    "hashDescripcion": "1b3828e73ee193c5",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-11-16T06:41:12.511Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-16T06:41:12.511Z",
+  "actualizado": "2026-11-16T06:41:12.511Z"
+}

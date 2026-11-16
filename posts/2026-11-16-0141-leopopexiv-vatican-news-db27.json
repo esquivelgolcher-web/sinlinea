@@ -1,0 +1,44 @@
+{
+  "id": "2026-11-16-0141-leopopexiv-vatican-news-db27",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "formato": "frase",
+  "frase": {
+    "texto": "Anything that harms the dignity of life destroys the beauty of the earth.",
+    "autor": "Pope Leo XIV",
+    "fuente": "Homily during Mass in Pucallpa, Peru",
+    "anio": 2026,
+    "url": "https://www.vaticannews.va/en/pope/news/2026-11/pope-mass-pucallpa-environment-amazon-caring-life-creation-peru.html",
+    "origen": "texto"
+  },
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-11/pope-mass-pucallpa-environment-amazon-caring-life-creation-peru.html",
+    "titulo": "Pope: Anything that harms the dignity of life destroys the beauty of earth - Vatican News",
+    "publicado": "2026-11-15T23:56:04.338+01:00"
+  },
+  "categoria": "CULTURA",
+  "titular": "Pope Leo XIV",
+  "bajada": "Homily during Mass in Pucallpa, Peru · 2026",
+  "caption": "“Anything that harms the dignity of life destroys the beauty of the earth.”\n\n— Pope Leo XIV, Homily during Mass in Pucallpa, Peru (2026)\n\nVia Vatican News, 15 November 2026\n\n#PopeLeoXIV #Vatican #CatholicChurch",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Vatican",
+    "#CatholicChurch"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-11-16-0141-leopopexiv-vatican-news-db27.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-16-0141-leopopexiv-vatican-news-db27.jpg",
+    "hash": "6023b25054fff64a",
+    "version": 1,
+    "estilo": "a0a82c85f495517b",
+    "renderizada": "2026-11-16T06:41:36.859Z"
+  },
+  "ilustracion": null,
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-16T06:41:12.511Z",
+  "actualizado": "2026-11-16T06:41:12.511Z"
+}
