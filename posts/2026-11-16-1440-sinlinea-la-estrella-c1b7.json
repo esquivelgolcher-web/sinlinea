@@ -1,0 +1,52 @@
+{
+  "id": "2026-11-16-1440-sinlinea-la-estrella-c1b7",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/informacion-util/cepanim-mef-comienza-a-entregar-a-familiares-de-beneficiarios-fallecidos-BP27396610",
+    "titulo": "Cepanim: MEF comienza a entregar a familiares de beneficiarios fallecidos",
+    "publicado": "2026-11-16T16:27:00.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "MEF entrega Cepanim a viudos de beneficiarios fallecidos",
+  "bajada": "El trámite es con cita previa y cédula vigente; hay 38,500 registros pendientes a nivel nacional.",
+  "caption": "El Ministerio de Economía y Finanzas comenzó a pagar los Cepanim a viudos y viudas de beneficiarios que fallecieron antes de recibir su certificado. La entrega es por citas y requiere cédula vigente, con oficinas regionales en todo el país. ¿Conoces a alguien que esté esperando este pago?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Cepanim",
+    "#MEF",
+    "#Pensiones",
+    "#Economía"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-11-16-1440-sinlinea-la-estrella-c1b7.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-16-1440-sinlinea-la-estrella-c1b7.jpg",
+    "hash": "f64bce0c18dade2e",
+    "version": 2,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-11-16T19:41:27.487Z"
+  },
+  "ilustracion": {
+    "descripcion": "Oficina de atención al público con fila ordenada de personas mayores esperando turno; el mostrador de atención queda en el tercio superior derecho, con la sala despejada a la izquierda y el centro.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-16T19:40:50.886Z",
+  "actualizado": "2026-11-16T19:40:50.886Z",
+  "plantilla": "dato",
+  "dato": {
+    "cifra": "38,500",
+    "frase": "son los registros de personas que deben recibir el certificado Cepanim"
+  }
+}

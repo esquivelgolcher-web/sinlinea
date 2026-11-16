@@ -1,0 +1,48 @@
+{
+  "id": "2026-11-16-1440-sinlinea-la-estrella-7ba0",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/doble-homicidio-en-bugaba-alcalde-solicita-reforzar-las-medidas-de-seguridad-OP27396998",
+    "titulo": "Doble homicidio en Bugaba: Alcalde solicita reforzar las medidas de seguridad",
+    "publicado": "2026-11-16T16:35:00.000Z"
+  },
+  "categoria": "SEGURIDAD",
+  "titular": "Alcalde de Bugaba pide reforzar seguridad tras doble homicidio",
+  "bajada": "Rafael Tito Quintero solicitó a Seguridad más vigilancia en el distrito fronterizo tras el crimen en El Mamey.",
+  "caption": "Dos mujeres estadounidenses fueron asesinadas en una vivienda de El Mamey, Chiriquí. El alcalde de Bugaba pide al Ministerio de Seguridad más presencia de Senafront y la Policía, además de cámaras de vigilancia, por ser un distrito fronterizo y extenso. ¿Qué tan segura sientes tu comunidad fronteriza?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Bugaba",
+    "#Chiriquí",
+    "#Seguridad",
+    "#Senafront"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-11-16-1440-sinlinea-la-estrella-7ba0.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-16-1440-sinlinea-la-estrella-7ba0.jpg",
+    "hash": "08193ef8a7b39226",
+    "version": 11,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-11-16T19:41:24.823Z"
+  },
+  "ilustracion": {
+    "descripcion": "Puesto fronterizo rural en Chiriquí con vegetación al atardecer, una patrulla policial estacionada; el vehículo y la garita quedan en el tercio superior derecho, dejando despejada la zona izquierda y central.",
+    "usar": true,
+    "ruta": "public/ilus/2026-11-16-1440-sinlinea-la-estrella-7ba0.jpg",
+    "hashDescripcion": "56bae2eeccd7337c",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-11-16T19:40:50.886Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-16T19:40:50.886Z",
+  "actualizado": "2026-11-16T19:40:50.886Z",
+  "plantilla": "foto"
+}
