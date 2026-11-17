@@ -1,0 +1,44 @@
+{
+  "id": "2026-11-17-1109-leopopexiv-vatican-news-b058",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "formato": "frase",
+  "frase": {
+    "texto": "It is a matter of justice – social, economic and human",
+    "autor": "Pope Leo XIV",
+    "fuente": "Mensaje a la COP31 (leído por el Cardenal Parolin)",
+    "anio": 2026,
+    "url": "https://www.vaticannews.va/en/vatican-city/news/2026-11/cardinal-pietro-parolin-holy-see-cop31-antalya-turkiye.html",
+    "origen": "texto"
+  },
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/vatican-city/news/2026-11/cardinal-pietro-parolin-holy-see-cop31-antalya-turkiye.html",
+    "titulo": "Cardinal Parolin urges COP31 to keep human dignity at heart of climate action - Vatican News",
+    "publicado": "2026-11-17T14:28:00.118+01:00"
+  },
+  "categoria": "CULTURA",
+  "titular": "Pope Leo XIV",
+  "bajada": "Mensaje a la COP31 (leído por el Cardenal Parolin) · 2026",
+  "caption": "“It is a matter of justice – social, economic and human”\n\n— Pope Leo XIV, Mensaje a la COP31 (leído por el Cardenal Parolin) (2026)\n\nVia Vatican News, 17 November 2026\n\n#PopeLeoXIV #Vatican #CatholicChurch",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Vatican",
+    "#CatholicChurch"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-11-17-1109-leopopexiv-vatican-news-b058.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-17-1109-leopopexiv-vatican-news-b058.jpg",
+    "hash": "72c17118a22b68e6",
+    "version": 1,
+    "estilo": "a0a82c85f495517b",
+    "renderizada": "2026-11-17T16:10:17.985Z"
+  },
+  "ilustracion": null,
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-17T16:09:58.416Z",
+  "actualizado": "2026-11-17T16:09:58.416Z"
+}

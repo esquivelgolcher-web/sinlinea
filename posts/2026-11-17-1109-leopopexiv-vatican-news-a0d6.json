@@ -1,0 +1,46 @@
+{
+  "id": "2026-11-17-1109-leopopexiv-vatican-news-a0d6",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-11/pope-leo-xiv-press-conference-latin-america-journey.html",
+    "titulo": "Pope: Healing is an important part of my ministry, overcoming polarization",
+    "publicado": "2026-11-17T08:50:00.000Z"
+  },
+  "categoria": "INTERNACIONAL",
+  "titular": "Pope Leo: healing is central to my ministry",
+  "bajada": "On the flight home, he urges dialogue after the US midterms and gives a health update",
+  "caption": "Returning from his Latin American journey, Pope Leo XIV spoke with reporters aboard the papal plane. He described healing and overcoming polarization as key parts of his ministry, reflected on how the United States shaped him, commented on his recovery from lung surgery, and reaffirmed his commitment to Church unity, including Pope Francis' decision in Traditionis Custodes. Source: Vatican News, Nov 17, 2026.",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Vatican",
+    "#CatholicChurch",
+    "#PapalFlight",
+    "#ChurchUnity"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-11-17-1109-leopopexiv-vatican-news-a0d6.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-17-1109-leopopexiv-vatican-news-a0d6.jpg",
+    "hash": "38e08758dd1f038a",
+    "version": 11,
+    "estilo": "b18ca074001a6ad6",
+    "renderizada": "2026-11-17T16:10:14.608Z"
+  },
+  "ilustracion": {
+    "descripcion": "Interior of a papal aircraft cabin, a figure in white papal attire seen from behind at a small table talking with journalists, positioned in the upper right third, left and center of frame open and uncluttered.",
+    "usar": true,
+    "ruta": "public/ilus/2026-11-17-1109-leopopexiv-vatican-news-a0d6.jpg",
+    "hashDescripcion": "729e496410a0489a",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-11-17T16:09:58.416Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-17T16:09:58.416Z",
+  "actualizado": "2026-11-17T16:09:58.416Z"
+}
