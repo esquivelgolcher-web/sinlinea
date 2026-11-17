@@ -1,0 +1,48 @@
+{
+  "id": "2026-11-16-2258-sinlinea-la-estrella-4f73",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/presidente-mulino-anuncia-conversaciones-con-cobre-panama-para-un-cierre-ordenado-de-la-mina-EB27404536",
+    "titulo": "Presidente Mulino anuncia conversaciones con Cobre Panamá para un ‘cierre ordenado’ de la mina",
+    "publicado": "2026-11-16T20:48:00.000Z"
+  },
+  "categoria": "ECONOMÍA",
+  "titular": "Gobierno inicia diálogo con Cobre Panamá por cierre ordenado",
+  "bajada": "Mulino anunció conversaciones con Minera Panamá sobre el futuro de la mina de cobre en Donoso.",
+  "caption": "El presidente Mulino confirmó que el Gobierno conversa con Minera Panamá para definir un cierre ordenado de la mina, cerrada desde 2023 tras el fallo de la Corte Suprema. El plan exigiría que la empresa financie el cierre definitivo bajo controles ambientales estrictos. El tema toca directamente el empleo, el ambiente y las finanzas públicas de miles de familias. ¿Qué debería priorizar el Gobierno en este proceso?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#CobrePanamá",
+    "#Minería",
+    "#Donoso",
+    "#Economía"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-11-16-2258-sinlinea-la-estrella-4f73.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-16-2258-sinlinea-la-estrella-4f73.jpg",
+    "hash": "32d42e5b18b2a9e5",
+    "version": 11,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-11-17T03:58:56.972Z"
+  },
+  "ilustracion": {
+    "descripcion": "Vista general de la mina de cobre en Donoso rodeada de selva, con maquinaria y edificios industriales en el tercio superior derecho; la zona izquierda y central de la imagen queda despejada.",
+    "usar": true,
+    "ruta": "public/ilus/2026-11-16-2258-sinlinea-la-estrella-4f73.jpg",
+    "hashDescripcion": "963f221a7673ef1c",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-11-17T03:58:11.657Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-17T03:58:11.657Z",
+  "actualizado": "2026-11-17T03:58:11.657Z",
+  "plantilla": "foto"
+}
