@@ -1,0 +1,52 @@
+{
+  "id": "2026-11-18-1538-sinlinea-la-estrella-b1d0",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/contraloria-denuncia-penalmente-a-panama-ports-y-exdirectivos-de-la-amp-GF27445838",
+    "titulo": "Contraloría denuncia penalmente a Panama Ports y exdirectivos de la AMP",
+    "publicado": "2026-11-18T15:00:00.000Z"
+  },
+  "categoria": "INVESTIGACIÓN",
+  "titular": "Contraloría denuncia a Panama Ports por posibles delitos",
+  "bajada": "La entidad acusa a la empresa y exdirectivos de la AMP tras auditoría al contrato portuario 2014-2023.",
+  "caption": "La Contraloría encontró posibles irregularidades en una década de operaciones del contrato entre el Estado y Panama Ports Company. La denuncia incluye a exdirectivos de la Autoridad Marítima de Panamá que manejaron el contrato por años. Este tipo de hallazgos importa porque toca el uso de bienes públicos y la forma en que se supervisan contratos clave para el país. ¿Debería el Estado revisar con lupa todos sus contratos portuarios?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#PanamaPorts",
+    "#Contraloría",
+    "#Corrupción",
+    "#AMP"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-11-18-1538-sinlinea-la-estrella-b1d0.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-18-1538-sinlinea-la-estrella-b1d0.jpg",
+    "hash": "6e5e38dcfe2fbeda",
+    "version": 2,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-11-18T20:39:07.182Z"
+  },
+  "ilustracion": {
+    "descripcion": "Vista de grúas y contenedores en un puerto panameño al atardecer, con un edificio administrativo portuario en el tercio superior derecho; zona izquierda y central despejadas.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-18T20:38:35.758Z",
+  "actualizado": "2026-11-18T20:38:35.758Z",
+  "plantilla": "dato",
+  "dato": {
+    "cifra": "2014-2023",
+    "frase": "es el período auditado por la Contraloría en el contrato con Panama Ports"
+  }
+}

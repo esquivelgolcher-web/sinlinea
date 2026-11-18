@@ -1,0 +1,48 @@
+{
+  "id": "2026-11-18-1538-sinlinea-la-estrella-4638",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/seguro-social-advierte-sanciones-a-proveedores-y-espera-normalizar-el-suministro-en-diciembre-PE27450285",
+    "titulo": "Seguro Social advierte sanciones a proveedores y espera normalizar el suministro en diciembre",
+    "publicado": "2026-11-18T17:04:00.000Z"
+  },
+  "categoria": "SALUD",
+  "titular": "CSS anuncia sanciones a proveedores por falta de medicinas",
+  "bajada": "La entidad espera normalizar el suministro de unos 60 medicamentos en diciembre, según su director.",
+  "caption": "La Caja de Seguro Social reconoce retrasos de proveedores que afectan la disponibilidad de medicamentos para presión arterial y diabetes, entre otros. La institución promete dar nombres y sanciones la próxima semana. Para miles de asegurados que dependen de estos tratamientos, la falta de medicinas es un problema diario. ¿Has tenido dificultades para conseguir tus medicamentos en la CSS?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#CSS",
+    "#Salud",
+    "#Medicamentos",
+    "#SeguroSocial"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-11-18-1538-sinlinea-la-estrella-4638.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-18-1538-sinlinea-la-estrella-4638.jpg",
+    "hash": "5c6987ac17b278e6",
+    "version": 11,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-11-18T20:39:12.995Z"
+  },
+  "ilustracion": {
+    "descripcion": "Pasillo de una farmacia institucional con estantes parcialmente vacíos y una figura de personal de salud en el tercio superior derecho; zona izquierda y central despejadas.",
+    "usar": true,
+    "ruta": "public/ilus/2026-11-18-1538-sinlinea-la-estrella-4638.jpg",
+    "hashDescripcion": "51bc8cd191e76b47",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-11-18T20:38:35.758Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-18T20:38:35.758Z",
+  "actualizado": "2026-11-18T20:38:35.758Z",
+  "plantilla": "foto"
+}
