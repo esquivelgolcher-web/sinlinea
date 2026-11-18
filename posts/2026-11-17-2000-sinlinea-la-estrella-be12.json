@@ -1,0 +1,52 @@
+{
+  "id": "2026-11-17-2000-sinlinea-la-estrella-be12",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/apagon-afecta-a-mas-de-307-mil-clientes-de-ensa-y-naturgy-en-panama-FA27418739",
+    "titulo": "Apagón afecta a más de 307 mil clientes de Ensa y Naturgy en Panamá",
+    "publicado": "2026-11-17T13:33:00.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "Apagón deja sin luz a más de 307 mil clientes",
+  "bajada": "Falla externa en generación afectó a usuarios de Ensa y Naturgy durante la madrugada del martes.",
+  "caption": "Miles de hogares y negocios en la capital y Panamá Oeste amanecieron sin energía tras un corte que duró varios minutos pero generó incertidumbre entre los usuarios. Las distribuidoras aseguran que el origen fue externo a sus redes, pero el hecho se suma a otra interrupción horas después que dejó a decenas de miles sin servicio. ¿Te afectó este apagón en tu sector?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Apagón",
+    "#Ensa",
+    "#Naturgy",
+    "#Energía"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-11-17-2000-sinlinea-la-estrella-be12.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-17-2000-sinlinea-la-estrella-be12.jpg",
+    "hash": "5f8cf281c51448ab",
+    "version": 11,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-11-18T01:01:42.259Z"
+  },
+  "ilustracion": {
+    "descripcion": "Postes de alta tensión y un tablero eléctrico de una subestación en penumbra al amanecer, con la ciudad de Panamá apenas visible en la zona central izquierda; el panste de distribución eléctrica queda en el tercio superior derecho.",
+    "usar": true,
+    "ruta": "public/ilus/2026-11-17-2000-sinlinea-la-estrella-be12.jpg",
+    "hashDescripcion": "74653d8b4c2f6b61",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-11-18T01:00:59.275Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-18T01:00:59.275Z",
+  "actualizado": "2026-11-18T01:00:59.275Z",
+  "plantilla": "foto",
+  "dato": {
+    "cifra": "307 mil",
+    "frase": "clientes de Ensa y Naturgy quedaron sin electricidad durante la madrugada"
+  }
+}

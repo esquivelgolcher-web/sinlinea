@@ -1,0 +1,52 @@
+{
+  "id": "2026-11-17-2000-sinlinea-la-estrella-27ea",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/economia/moody-s-mantiene-el-grado-de-inversion-de-panama-en-baa3-mef-resalta-disciplina-fiscal-JC27430458",
+    "titulo": "Moody’s mantiene el grado de inversión de Panamá en Baa3; MEF resalta disciplina fiscal",
+    "publicado": "2026-11-17T22:12:00.000Z"
+  },
+  "categoria": "ECONOMÍA",
+  "titular": "Moody's mejora la perspectiva de la deuda de Panamá",
+  "bajada": "La calificadora pasó de negativa a estable y mantuvo el grado de inversión Baa3, según el MEF.",
+  "caption": "La mejora en la perspectiva es una señal de confianza para los mercados y puede traducirse en mejores condiciones para que el país consiga financiamiento. Moody's destacó la disciplina fiscal, la reforma de pensiones y un posible acuerdo sobre Cobre Panamá como factores que reducen el riesgo económico. La calificadora aclaró que sus proyecciones no incluyen la reactivación de la mina. ¿Crees que esta mejora se sentirá en el bolsillo de los panameños?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Economía",
+    "#Moodys",
+    "#DeudaPública",
+    "#MEF"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-11-17-2000-sinlinea-la-estrella-27ea.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-17-2000-sinlinea-la-estrella-27ea.jpg",
+    "hash": "72550b5fed439629",
+    "version": 2,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-11-18T01:01:42.524Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada del Ministerio de Economía y Finanzas de Panamá con un gráfico ascendente ilustrativo flotando a un lado, sin texto ni logotipos; el edificio institucional queda en el tercio superior derecho y el resto despejado.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-18T01:00:59.275Z",
+  "actualizado": "2026-11-18T01:00:59.275Z",
+  "plantilla": "dato",
+  "dato": {
+    "cifra": "Baa3",
+    "frase": "es la calificación de grado de inversión que Moody's mantiene para Panamá"
+  }
+}
