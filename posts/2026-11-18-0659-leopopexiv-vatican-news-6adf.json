@@ -1,0 +1,47 @@
+{
+  "id": "2026-11-18-0659-leopopexiv-vatican-news-6adf",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/vatican-city/news/2026-11/cardinal-michael-czerny-magnifica-humanitas-just-war-ai.html",
+    "titulo": "Cardinal Czerny urges human accountability for AI in warfare",
+    "publicado": "2026-11-18T10:14:00.000Z"
+  },
+  "categoria": "INTERNACIONAL",
+  "titular": "Czerny: AI warfare needs human accountability",
+  "bajada": "Cardinal unveils Pope Leo XIV's text, says 'just war' theory is outdated",
+  "caption": "Presenting Pope Leo XIV's new work Magnifica humanitas in Bulgaria, Cardinal Michael Czerny addressed why the Pope views the 'just war' theory as outdated and who should be held responsible when artificial intelligence is used in combat. Source: Vatican News, Nov 18, 2026.",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Vatican",
+    "#ArtificialIntelligence",
+    "#Peace",
+    "#CardinalCzerny",
+    "#JustWar"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-11-18-0659-leopopexiv-vatican-news-6adf.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-18-0659-leopopexiv-vatican-news-6adf.jpg",
+    "hash": "0157e71ce302e242",
+    "version": 11,
+    "estilo": "b18ca074001a6ad6",
+    "renderizada": "2026-11-18T11:59:19.389Z"
+  },
+  "ilustracion": {
+    "descripcion": "A dim conference hall in Bulgaria with a lectern and a large screen showing abstract digital circuitry; a cardinal in formal attire stands at the podium, upper right third, speaking, left and center space open and uncluttered.",
+    "usar": true,
+    "ruta": "public/ilus/2026-11-18-0659-leopopexiv-vatican-news-6adf.jpg",
+    "hashDescripcion": "41f74ec99990a4f7",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-11-18T11:59:00.546Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-18T11:59:00.546Z",
+  "actualizado": "2026-11-18T11:59:00.546Z"
+}

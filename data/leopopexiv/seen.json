@@ -1,14 +1,5 @@
 {
   "urls": {
-    "https://www.vaticannews.va/en/world/news/2026-10/trump-suspends-russia-sanctions.html": "2026-10-18",
-    "https://www.vaticannews.va/en/pope/news/2026-10/pope-leo-xiv-interview-surgeon-stefano-margaritora.html": "2026-10-18",
-    "https://www.vaticannews.va/en/world/news/2026-10/un-highlights-gaza-farming-risks.html": "2026-10-18",
-    "https://www.vaticannews.va/en/pope/news/2026-10/pope-leo-xiv-discharged-from-hospital-lung-surgery.html": "2026-10-18",
-    "https://www.vaticannews.va/en/pope/news/2026-10/pope-leo-xiv-greets-ukrainian-girl-cancer-survivor-gemelli.html": "2026-10-18",
-    "https://www.vaticannews.va/en/pope/news/2026-10/cardinal-bernardin-an-example-for-the-church-and-the-world.html": "2026-10-18",
-    "https://www.vaticannews.va/en/pope/news/2026-10/pope-leo-xiv-fifth-day-health-update-gemelli-hospital.html": "2026-10-18",
-    "https://www.vaticannews.va/en/church/news/2026-10/gospel-reflection-twenty-ninth-sunday-ordinary-time.html": "2026-10-18",
-    "https://www.vaticannews.va/en/vatican-city/news/2026-10/pope-leo-xiv-entrusted-the-virgin-mary-s-care-ahead-of-the-100th.html": "2026-10-18",
     "https://www.vaticannews.va/en/world/news/2026-10/fighting-intensifies-in-yemen-as-humanitarian-crisis-deepens.html": "2026-10-19",
     "https://www.vaticannews.va/en/world/news/2026-10/violent-protests-rock-france-as-economic-anger-grows.html": "2026-10-19",
     "https://www.vaticannews.va/en/pope/news/2026-10/pope-leo-plenary-indulgence-100th-world-mission-sunday-angelus.html": "2026-10-19",
@@ -268,6 +259,16 @@
     "https://www.vaticannews.va/en/pope/news/2026-11/editorial-menichetti-pope-leo-xiv-latin-america-journey.html": "2026-11-17",
     "https://www.vaticannews.va/en/pope/news/2026-11/pope-leo-xiv-telegrams-return-flight-latin-america.html": "2026-11-17",
     "https://www.vaticannews.va/en/pope/news/2026-11/pope-leo-control-tower-planes-greetings-uruguay-argentina-peru.html": "2026-11-17",
-    "https://www.vaticannews.va/en/vatican-city/news/2026-11/editorial-tornielli-messages-south-america-peru-gospel-pope-leo.html": "2026-11-17"
+    "https://www.vaticannews.va/en/vatican-city/news/2026-11/editorial-tornielli-messages-south-america-peru-gospel-pope-leo.html": "2026-11-17",
+    "https://www.vaticannews.va/en/vatican-city/news/2026-11/cardinal-michael-czerny-magnifica-humanitas-just-war-ai.html": "2026-11-18",
+    "https://www.vaticannews.va/en/pope/news/2026-11/pope-leo-xiv-appeals-general-audience-18-november-2026.html": "2026-11-18",
+    "https://www.vaticannews.va/en/pope/news/2026-11/pope-at-general-audience-recalls-fruits-journey-to-latin-america.html": "2026-11-18",
+    "https://www.vaticannews.va/en/pope/news/2026-11/pope-leo-xiv-catholic-philanthropy-network-fadica.html": "2026-11-18",
+    "https://www.vaticannews.va/en/world/news/2026-11/european-broadcasting-union-news-assembly-cyprus.html": "2026-11-18",
+    "https://www.vaticannews.va/en/world/news/2026-11/ukraine-russia-war-crimea-diplomacy.html": "2026-11-18",
+    "https://www.vaticannews.va/en/pope/news/2026-11/pope-to-peru-words-canno-express-my-gratitude-graces-of-visit.html": "2026-11-18",
+    "https://www.vaticannews.va/en/pope/news/2026-11/pope-leo-at-mass-in-peru-go-and-proclaim-the-true-god.html": "2026-11-18",
+    "https://www.vaticannews.va/en/pope/news/2026-11/pope-leo-xiv-care-home-for-elderly-peru-16-november-2026.html": "2026-11-18",
+    "https://www.vaticannews.va/en/pope/news/2026-11/pope-leo-apostolic-nunciature-lima-christ-good-news-journey-peru.html": "2026-11-18"
   }
 }
