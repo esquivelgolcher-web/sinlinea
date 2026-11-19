@@ -1,0 +1,52 @@
+{
+  "id": "2026-11-19-0649-sinlinea-la-estrella-0522",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/economia/canal-de-panama-no-preve-recuperar-los-36-transitos-diarios-antes-de-mediados-de-2027-ME27455832",
+    "titulo": "Canal de Panamá no prevé recuperar los 36 tránsitos diarios antes de mediados de 2027",
+    "publicado": "2026-11-18T05:00:00.000Z"
+  },
+  "categoria": "ECONOMÍA",
+  "titular": "Canal de Panamá no recuperará los 36 tránsitos hasta 2027",
+  "bajada": "La administradora Ilya Espino de Marotta prevé mantener al menos 32 buques diarios durante la temporada seca",
+  "caption": "La vía interoceánica seguirá operando por debajo de su capacidad habitual durante los primeros meses de 2027 por la temporada seca, aunque con mejores números que en las sequías de 2023 y 2024. La administradora del Canal también advirtió que podría bajar la carga permitida en los buques. El Canal es clave para la economía del país. ¿Qué tanto nos afecta esta limitación?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#CanalDePanamá",
+    "#Economía",
+    "#Comercio",
+    "#TemporadaSeca"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-11-19-0649-sinlinea-la-estrella-0522.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-19-0649-sinlinea-la-estrella-0522.jpg",
+    "hash": "e0887b2fcfbae9bd",
+    "version": 2,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-11-19T11:49:51.018Z"
+  },
+  "ilustracion": {
+    "descripcion": "Vista general de las esclusas del Canal de Panamá con un buque de carga cruzando, el barco ubicado en el tercio superior derecho y el resto del encuadre despejado",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-19T11:49:17.354Z",
+  "actualizado": "2026-11-19T11:49:17.354Z",
+  "plantilla": "dato",
+  "dato": {
+    "cifra": "32 buques",
+    "frase": "diarios es el mínimo que espera mantener el Canal durante la temporada seca"
+  }
+}

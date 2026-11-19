@@ -1,0 +1,52 @@
+{
+  "id": "2026-11-19-0649-sinlinea-la-estrella-2ad1",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/gobierno-y-transportistas-buscan-prohibir-alquiler-de-cupos-de-taxis-MH27465081",
+    "titulo": "Gobierno y transportistas buscan prohibir alquiler de cupos de taxis",
+    "publicado": "2026-11-19T03:00:00.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "Gobierno busca prohibir alquiler de cupos de taxis",
+  "bajada": "El 70% de los cupos de taxis en Panamá están alquilados y no en manos de sus dueños originales",
+  "caption": "La ATTT confirmó que la mayoría de los cupos de taxis no los usan quienes los recibieron gratis, sino que los alquilan por miles de dólares. Ahora se instaló una mesa de trabajo para frenar esta práctica, señalada como una de las causas de la mala calidad del servicio selectivo. Todavía no hay fecha para cambiar las normas. ¿Has notado la diferencia entre taxis con cupo propio y alquilado?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Taxis",
+    "#ATTT",
+    "#TransportePúblico",
+    "#CiudadDePanamá"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-11-19-0649-sinlinea-la-estrella-2ad1.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-19-0649-sinlinea-la-estrella-2ad1.jpg",
+    "hash": "89c8e32a67eb3b8c",
+    "version": 11,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-11-19T11:49:50.665Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fila de taxis amarillos estacionados en una calle de la ciudad de Panamá, con las puertas cerradas; un taxi en el tercio superior derecho, el resto del encuadre despejado",
+    "usar": true,
+    "ruta": "public/ilus/2026-11-19-0649-sinlinea-la-estrella-2ad1.jpg",
+    "hashDescripcion": "58a48534faacaa16",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-11-19T11:49:17.354Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-19T11:49:17.354Z",
+  "actualizado": "2026-11-19T11:49:17.354Z",
+  "plantilla": "foto",
+  "dato": {
+    "cifra": "70%",
+    "frase": "de los cupos de taxis están alquilados y no en manos de quienes los recibieron"
+  }
+}

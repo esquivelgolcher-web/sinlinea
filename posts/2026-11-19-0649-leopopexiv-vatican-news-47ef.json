@@ -1,0 +1,46 @@
+{
+  "id": "2026-11-19-0649-leopopexiv-vatican-news-47ef",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-11/pope-celebrates-mass-on-400th-anniversary-of-st-peter-s-basilica.html",
+    "titulo": "Pope celebrates Mass on 400th anniversary of dedication of St. Peter’s Basilica",
+    "publicado": "2026-11-18T16:55:00.000Z"
+  },
+  "categoria": "CULTURA",
+  "titular": "Pope Marks 400 Years of St. Peter's Basilica",
+  "bajada": "Leo XIV says Christ, not stone, is the Church's true foundation",
+  "caption": "Pope Leo XIV celebrated Mass marking the 400th anniversary of the dedication of St. Peter's Basilica, saying faith—not the building's beauty—is what truly shines through it. Source: Vatican News, Nov 18, 2026.",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#StPetersBasilica",
+    "#Vatican",
+    "#CatholicChurch",
+    "#400Years"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-11-19-0649-leopopexiv-vatican-news-47ef.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-19-0649-leopopexiv-vatican-news-47ef.jpg",
+    "hash": "20b04177e9734fc9",
+    "version": 11,
+    "estilo": "b18ca074001a6ad6",
+    "renderizada": "2026-11-19T11:50:12.722Z"
+  },
+  "ilustracion": {
+    "descripcion": "St. Peter's Basilica facade glowing at dusk with its grand columns, a robed pope figure in the upper right third walking toward the entrance, left and center open and uncluttered",
+    "usar": true,
+    "ruta": "public/ilus/2026-11-19-0649-leopopexiv-vatican-news-47ef.jpg",
+    "hashDescripcion": "665f8bd07ddfeb4a",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-11-19T11:49:17.354Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-19T11:49:17.354Z",
+  "actualizado": "2026-11-19T11:49:17.354Z"
+}
