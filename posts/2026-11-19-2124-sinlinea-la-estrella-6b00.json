@@ -1,0 +1,52 @@
+{
+  "id": "2026-11-19-2124-sinlinea-la-estrella-6b00",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/planilla-de-la-asamblea-registra-8866-personas-y-supera-los-14-millones-FG27478962",
+    "titulo": "Planilla de la Asamblea registra 8,866 personas y supera los $14 millones",
+    "publicado": "2026-11-19T16:43:00.000Z"
+  },
+  "categoria": "POLÍTICA",
+  "titular": "Planilla de la Asamblea supera los $14 millones mensuales",
+  "bajada": "Un análisis de datos de la Contraloría revela 8,866 personas en nómina, la mayoría con contratos eventuales.",
+  "caption": "La planilla del Legislativo asciende a más de 14 millones de dólares, con más de la mitad del personal bajo modalidad eventual. Los asistentes administrativos son el grupo más numeroso. ¿Te parece justificado este gasto en personal de la Asamblea?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Asamblea",
+    "#Transparencia",
+    "#GastoPúblico",
+    "#Política"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-11-19-2124-sinlinea-la-estrella-6b00.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-19-2124-sinlinea-la-estrella-6b00.jpg",
+    "hash": "99e9e49e28f52b98",
+    "version": 11,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-11-20T02:24:58.555Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada del Palacio Justo Arosemena, sede de la Asamblea Nacional de Panamá, de día, con el edificio ubicado en el tercio superior derecho y la zona izquierda despejada",
+    "usar": true,
+    "ruta": "public/ilus/2026-11-19-2124-sinlinea-la-estrella-6b00.jpg",
+    "hashDescripcion": "6ac4718b23f261c5",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-11-20T02:24:24.272Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-20T02:24:24.272Z",
+  "actualizado": "2026-11-20T02:24:24.272Z",
+  "plantilla": "foto",
+  "dato": {
+    "cifra": "$14,131,202",
+    "frase": "es el monto total que registra la planilla de la Asamblea Nacional"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "id": "2026-11-19-2124-sinlinea-la-estrella-88e6",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/condenan-a-ingeniera-a-cinco-anos-de-prision-y-ordenan-indemnizacion-de-428-millones-por-tragedia-en-ph-breeze-LJ27488131",
+    "titulo": "Condenan a ingeniera a cinco años de prisión y ordenan indemnización de $4.28 millones por tragedia en PH Breeze",
+    "publicado": "2026-11-19T21:56:00.000Z"
+  },
+  "categoria": "SEGURIDAD",
+  "titular": "Condenan a ingeniera por tragedia en PH Breeze",
+  "bajada": "Tribunal dicta 5 años de prisión y ordena indemnizar con $4.28 millones a familias de Costa del Este.",
+  "caption": "La justicia dictó sentencia por la caída de un auto desde el cuarto piso de un estacionamiento en 2018, donde murieron tres personas y una joven quedó con una lesión medular permanente. La ingeniera residente fue condenada y la constructora quedó suspendida. ¿Debería haber más controles en la construcción de parqueos en Panamá?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#CostaDelEste",
+    "#Justicia",
+    "#PHBreeze",
+    "#Seguridad"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-11-19-2124-sinlinea-la-estrella-88e6.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-19-2124-sinlinea-la-estrella-88e6.jpg",
+    "hash": "1171a872a8f4e700",
+    "version": 2,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-11-20T02:24:51.870Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada de un edificio de estacionamientos de varios niveles en Costa del Este al atardecer, con cinta de seguridad en la planta baja, edificio ubicado en el tercio superior derecho y zona izquierda despejada",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-20T02:24:24.272Z",
+  "actualizado": "2026-11-20T02:24:24.272Z",
+  "plantilla": "dato",
+  "dato": {
+    "cifra": "$4.28 millones",
+    "frase": "deberán pagarse en indemnizaciones a las víctimas y sus familias"
+  }
+}
