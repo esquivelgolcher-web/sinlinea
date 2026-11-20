@@ -1,0 +1,47 @@
+{
+  "id": "2026-11-20-0653-leopopexiv-vatican-news-6641",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/vatican-city/news/2026-11/holy-see-position-paper-lethal-autonomous-weapons-systems.html",
+    "titulo": "Holy See: ‘No algorithm can make war morally acceptable’",
+    "publicado": "2026-11-20T10:40:00.000Z"
+  },
+  "categoria": "INTERNACIONAL",
+  "titular": "Holy See urges ban on autonomous weapons",
+  "bajada": "At Geneva talks, Vatican says no algorithm can justify war's moral choices",
+  "caption": "At the Seventh Review Conference of the Convention on Certain Conventional Weapons in Geneva, the Holy See submitted a position paper calling for a moratorium on lethal autonomous weapons systems and a legally binding international treaty. The document insists that decisions over life and death in warfare must remain in human hands, not be delegated to machines. Source: Vatican News, Nov 20, 2026.",
+  "hashtags": [
+    "#HolySee",
+    "#AutonomousWeapons",
+    "#Geneva",
+    "#PeaceAndDiplomacy",
+    "#VaticanNews",
+    "#AIEthics"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-11-20-0653-leopopexiv-vatican-news-6641.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-20-0653-leopopexiv-vatican-news-6641.jpg",
+    "hash": "320ecd3a55734704",
+    "version": 11,
+    "estilo": "b18ca074001a6ad6",
+    "renderizada": "2026-11-20T11:54:05.450Z"
+  },
+  "ilustracion": {
+    "descripcion": "A conference hall with national flags and empty delegate seats at dusk; a dove-shaped paper document rests on a podium in the upper right, left and center space open",
+    "usar": true,
+    "ruta": "public/ilus/2026-11-20-0653-leopopexiv-vatican-news-6641.jpg",
+    "hashDescripcion": "749c6fc24402ac4c",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-11-20T11:53:41.918Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-20T11:53:41.918Z",
+  "actualizado": "2026-11-20T11:53:41.918Z"
+}
