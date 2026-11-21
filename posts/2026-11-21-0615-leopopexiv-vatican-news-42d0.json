@@ -1,0 +1,46 @@
+{
+  "id": "2026-11-21-0615-leopopexiv-vatican-news-42d0",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/vatican-city/news/2026-11/lunch-with-the-pope-spreads-beyond-the-vatican.html",
+    "titulo": "Lunch with the Pope spreads beyond the Vatican",
+    "publicado": "2026-11-21T10:44:00.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "Pope Leo XIV to host lunch for 1,300 poor",
+  "bajada": "Marks 10th World Day of the Poor; Rome soup kitchens join in solidarity meals",
+  "caption": "On November 22, Pope Leo XIV will share a meal with 1,300 people in need at the Paul VI Hall, marking the tenth World Day of the Poor. Rome's soup kitchens will serve meals in communion with him, with donations arriving from as far as Spain and Poland. Source: Vatican News, Nov 21, 2026.",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#WorldDayOfThePoor",
+    "#Vatican",
+    "#CatholicChurch",
+    "#Charity"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-11-21-0615-leopopexiv-vatican-news-42d0.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-21-0615-leopopexiv-vatican-news-42d0.jpg",
+    "hash": "48a8003885fe1fb2",
+    "version": 11,
+    "estilo": "b18ca074001a6ad6",
+    "renderizada": "2026-11-21T11:16:19.004Z"
+  },
+  "ilustracion": {
+    "descripcion": "The Paul VI Audience Hall set with long tables for a communal meal, simple plates and chairs arranged for many guests, Pope Leo XIV in white cassock shown at a distance in the upper right third greeting the hall, left and center space open and calm.",
+    "usar": true,
+    "ruta": "public/ilus/2026-11-21-0615-leopopexiv-vatican-news-42d0.jpg",
+    "hashDescripcion": "3eff6f5881e379de",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-11-21T11:15:59.955Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-21T11:15:59.955Z",
+  "actualizado": "2026-11-21T11:15:59.955Z"
+}
