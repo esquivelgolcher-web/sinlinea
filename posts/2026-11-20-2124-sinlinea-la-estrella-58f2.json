@@ -1,0 +1,52 @@
+{
+  "id": "2026-11-20-2124-sinlinea-la-estrella-58f2",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/informacion-util/naviferias-2026-ima-confirma-los-productos-que-incluira-la-bolsa-navidena-de-b-15-MI27498884",
+    "titulo": "Naviferias 2026: IMA confirma los productos que incluirá la bolsa navideña de B/.15",
+    "publicado": "2026-11-20T16:49:00.000Z"
+  },
+  "categoria": "ECONOMÍA",
+  "titular": "Naviferias 2026 iniciarán con bolsa navideña de B/.15",
+  "bajada": "El IMA venderá víveres navideños desde el 1 de diciembre en 163 comunidades del país.",
+  "caption": "Cada diciembre miles de familias panameñas esperan esta feria para completar la mesa navideña a bajo costo. Este año la bolsa incluye 500 mil jamones picnic nacionales y llegará hasta zonas insulares. El IMA calcula un ahorro importante frente a los precios de mercado. ¿Piensas aprovechar las Naviferias este año?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Naviferias",
+    "#IMA",
+    "#Navidad",
+    "#Economía"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-11-20-2124-sinlinea-la-estrella-58f2.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-20-2124-sinlinea-la-estrella-58f2.jpg",
+    "hash": "0d7e7ed8b111fc46",
+    "version": 2,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-11-21T02:25:09.600Z"
+  },
+  "ilustracion": {
+    "descripcion": "Puesto de venta del IMA en una feria popular con bolsas de víveres navideños apiladas y banderines de colores; las bolsas aparecen en el tercio superior derecho, con la zona izquierda y central despejada, estilo ilustración editorial.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-21T02:24:26.202Z",
+  "actualizado": "2026-11-21T02:24:26.202Z",
+  "plantilla": "dato",
+  "dato": {
+    "cifra": "B/.15",
+    "frase": "cuesta la bolsa navideña del IMA, con un ahorro estimado de B/.36.69 por hogar"
+  }
+}

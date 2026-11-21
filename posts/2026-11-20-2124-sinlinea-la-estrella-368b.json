@@ -1,0 +1,48 @@
+{
+  "id": "2026-11-20-2124-sinlinea-la-estrella-368b",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/economia/hay-que-incorporar-procesos-de-dialogo-amplios-e-incluyentes-alianza-minera-de-america-latina-sobre-las-negociaciones-de-cobre-panama-y-el-gobierno-PI27496090",
+    "titulo": "Hay que incorporar procesos de diálogo amplios e incluyentes: Alianza Minera de América Latina sobre las negociaciones de Cobre Panamá y el Gobierno",
+    "publicado": "2026-11-20T16:31:00.000Z"
+  },
+  "categoria": "ECONOMÍA",
+  "titular": "ALMA pide diálogo inclusivo en negociación de Cobre Panamá",
+  "bajada": "Expertos internacionales instan a escuchar comunidades antes de las conversaciones del 23 de noviembre.",
+  "caption": "A días de que el Gobierno se siente con Minera Panamá, una alianza internacional del sector minero recomienda un proceso de diálogo abierto con las comunidades afectadas. El futuro de la mina sigue sin decisión y marcará el rumbo económico y social de la región. ¿Debe el Gobierno priorizar la consulta ciudadana antes de cualquier acuerdo?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#CobrePanamá",
+    "#Minería",
+    "#Economía",
+    "#Gobierno"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-11-20-2124-sinlinea-la-estrella-368b.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-20-2124-sinlinea-la-estrella-368b.jpg",
+    "hash": "1da96c9d5cf67003",
+    "version": 11,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-11-21T02:25:09.381Z"
+  },
+  "ilustracion": {
+    "descripcion": "Entrada de la mina Cobre Panamá en Donoso, con maquinaria industrial en reposo bajo un cielo nublado; la estructura minera aparece en el tercio superior derecho, dejando despejada la zona izquierda y central, estilo ilustración editorial.",
+    "usar": true,
+    "ruta": "public/ilus/2026-11-20-2124-sinlinea-la-estrella-368b.jpg",
+    "hashDescripcion": "21ec68fac4931c58",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-11-21T02:24:26.202Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-21T02:24:26.202Z",
+  "actualizado": "2026-11-21T02:24:26.202Z",
+  "plantilla": "foto"
+}
