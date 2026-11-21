@@ -1,0 +1,49 @@
+{
+  "id": "2026-11-21-1423-sinlinea-la-estrella-36ef",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/entre-escombros-y-aulas-temporales-los-ninos-que-intentan-volver-a-la-normalidad-tras-el-terremoto-MA27505797",
+    "titulo": "Entre escombros y aulas temporales: los niños que intentan volver a la normalidad tras el terremoto",
+    "publicado": "2026-11-21T03:00:00.000Z"
+  },
+  "categoria": "EDUCACIÓN",
+  "titular": "Niños de Las Tablas y Macaracas vuelven a clases",
+  "bajada": "Unicef instaló espacios de aprendizaje tras el terremoto del 9 de octubre, con apoyo de la Unión Europea.",
+  "caption": "A 43 días del terremoto, muchas escuelas del interior siguen dañadas y los niños reciben clases en espacios temporales. Unicef combina educación, apoyo psicológico y acceso a agua potable para que la niñez no pierda el año escolar. La reconstrucción avanza, pero la emergencia continúa. ¿Qué más hace falta para estas comunidades?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Educación",
+    "#Terremoto",
+    "#LasTablas",
+    "#Macaracas",
+    "#Unicef"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-11-21-1423-sinlinea-la-estrella-36ef.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-21-1423-sinlinea-la-estrella-36ef.jpg",
+    "hash": "d188877203713eb8",
+    "version": 2,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-11-21T19:24:21.689Z"
+  },
+  "ilustracion": {
+    "descripcion": "Patio escolar improvisado con carpas blancas como aulas temporales en una zona rural panameña, estructura escolar dañada al fondo, carpas en el tercio superior derecho y la zona izquierda y central despejada.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-21T19:23:48.761Z",
+  "actualizado": "2026-11-21T19:23:48.761Z",
+  "plantilla": "titular"
+}

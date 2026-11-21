@@ -1,0 +1,52 @@
+{
+  "id": "2026-11-21-1423-sinlinea-la-estrella-b307",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/economia/pobreza-monetaria-en-panama-baja-a-139-por-debajo-del-promedio-regional-IB27510998",
+    "titulo": "Pobreza monetaria en Panamá baja a 13.9 %, por debajo del promedio regional",
+    "publicado": "2026-11-21T05:00:00.000Z"
+  },
+  "categoria": "ECONOMÍA",
+  "titular": "Pobreza en Panamá baja a 13.9%, bajo el promedio regional",
+  "bajada": "La Cepal destaca que Panamá redujo 2.3 puntos la pobreza monetaria en 2025, por debajo del 24.4% regional.",
+  "caption": "La Cepal confirma una mejora en los ingresos de los hogares panameños, aunque persisten brechas en zonas rurales, indígenas y entre mujeres y niños. El dato ubica a Panamá entre los países con menor pobreza de la región, lejos de Guatemala y Honduras. ¿Sientes que esta mejora se refleja en tu bolsillo?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Economía",
+    "#Pobreza",
+    "#Cepal",
+    "#CostoDeVida"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-11-21-1423-sinlinea-la-estrella-b307.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-21-1423-sinlinea-la-estrella-b307.jpg",
+    "hash": "2f1a4fe7863d7965",
+    "version": 11,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-11-21T19:24:18.824Z"
+  },
+  "ilustracion": {
+    "descripcion": "Vista general de un mercado popular panameño con vendedores y compradores, ambiente cotidiano y vida comercial, con un puesto de frutas en el tercio superior derecho y la zona izquierda y central despejada.",
+    "usar": true,
+    "ruta": "public/ilus/2026-11-21-1423-sinlinea-la-estrella-b307.jpg",
+    "hashDescripcion": "20a9f71fad64647d",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-11-21T19:23:48.761Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-21T19:23:48.761Z",
+  "actualizado": "2026-11-21T19:23:48.761Z",
+  "plantilla": "foto",
+  "dato": {
+    "cifra": "13.9%",
+    "frase": "de la población vivía en pobreza monetaria en Panamá durante 2025"
+  }
+}
