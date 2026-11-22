@@ -1,0 +1,47 @@
+{
+  "id": "2026-11-22-1447-leopopexiv-vatican-news-6db9",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-11/pope-appeals-drought-war-peace-conflict-young-people-poor-wyd.html",
+    "titulo": "Pope Leo prays for victims of conflicts and calls for reconciliation and peace",
+    "publicado": "2026-11-22T11:43:00.000Z"
+  },
+  "categoria": "INTERNACIONAL",
+  "titular": "Pope Leo prays for peace at Sunday Angelus",
+  "bajada": "He recalled conflict victims, drought in Papua New Guinea, and 2027 World Youth Day in Seoul",
+  "caption": "After the Angelus in St. Peter's Square, Pope Leo XIV prayed for victims of ongoing conflicts and called for reconciliation and peace. He expressed closeness to Papua New Guinea and other nations affected by drought, greeted cloistered religious communities, and looked ahead to the 2027 World Youth Day in Seoul. He also mentioned the lunch he was to share with people in need. Source: Vatican News, Nov 22, 2026.",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Angelus",
+    "#Vatican",
+    "#PrayForPeace",
+    "#WorldYouthDay2027",
+    "#PapuaNewGuinea"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-11-22-1447-leopopexiv-vatican-news-6db9.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-22-1447-leopopexiv-vatican-news-6db9.jpg",
+    "hash": "2a5af4631a5592dd",
+    "version": 11,
+    "estilo": "b18ca074001a6ad6",
+    "renderizada": "2026-11-22T19:47:25.378Z"
+  },
+  "ilustracion": {
+    "descripcion": "General view of St. Peter's Square at midday, with the Pope appearing at a distant window above the colonnade in the upper right third, left and center open and uncluttered",
+    "usar": true,
+    "ruta": "public/ilus/2026-11-22-1447-leopopexiv-vatican-news-6db9.jpg",
+    "hashDescripcion": "813f7d0814d0c40e",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-11-22T19:47:02.551Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-22T19:47:02.551Z",
+  "actualizado": "2026-11-22T19:47:02.551Z"
+}

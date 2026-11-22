@@ -1,0 +1,44 @@
+{
+  "id": "2026-11-22-1447-leopopexiv-vatican-news-9db0",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "formato": "frase",
+  "frase": {
+    "texto": "Christ’s victory is not a worldly victory, but the victory of a humble King who identifies Himself with the least among us.",
+    "autor": "Pope Leo XIV",
+    "fuente": "Angelus",
+    "anio": 2026,
+    "url": "https://www.vaticannews.va/en/pope/news/2026-11/pope-appeals-drought-war-peace-conflict-young-people-poor-wyd.html",
+    "origen": "texto"
+  },
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-11/pope-appeals-drought-war-peace-conflict-young-people-poor-wyd.html",
+    "titulo": "Pope Leo prays for victims of conflicts and calls for reconciliation and peace - Vatican News",
+    "publicado": "2026-11-22T13:12:40.398+01:00"
+  },
+  "categoria": "CULTURA",
+  "titular": "Pope Leo XIV",
+  "bajada": "Angelus · 2026",
+  "caption": "“Christ’s victory is not a worldly victory, but the victory of a humble King who identifies Himself with the least among us.”\n\n— Pope Leo XIV, Angelus (2026)\n\nVia Vatican News, 22 November 2026\n\n#PopeLeoXIV #Vatican #CatholicChurch",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Vatican",
+    "#CatholicChurch"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-11-22-1447-leopopexiv-vatican-news-9db0.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-22-1447-leopopexiv-vatican-news-9db0.jpg",
+    "hash": "4ba0fa08cbc5bfba",
+    "version": 1,
+    "estilo": "a0a82c85f495517b",
+    "renderizada": "2026-11-22T19:47:28.513Z"
+  },
+  "ilustracion": null,
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-22T19:47:02.551Z",
+  "actualizado": "2026-11-22T19:47:02.551Z"
+}
