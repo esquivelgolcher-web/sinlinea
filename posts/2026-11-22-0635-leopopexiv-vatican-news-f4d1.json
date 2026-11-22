@@ -1,0 +1,47 @@
+{
+  "id": "2026-11-22-0635-leopopexiv-vatican-news-f4d1",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-11/pope-leo-meets-participants-in-the-international-space-forum.html",
+    "titulo": "Pope Leo XIV: 'If technology is not applied ethically, risks for humanity are enormous'",
+    "publicado": "2026-11-21T12:35:00.000Z"
+  },
+  "categoria": "INVESTIGACIÓN",
+  "titular": "Pope warns of risks from ungoverned technology",
+  "bajada": "Address to Space Forum 2026 stresses ethical limits on emerging tech",
+  "caption": "Speaking to the International Space Forum 2026, Pope Leo XIV thanked participants for promoting the common good, but warned that without ethical governance, 'the risks for humanity are enormous.' Source: Vatican News, Nov 21, 2026.",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Vatican",
+    "#Technology",
+    "#Ethics",
+    "#ArtificialIntelligence",
+    "#SpaceForum"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-11-22-0635-leopopexiv-vatican-news-f4d1.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-22-0635-leopopexiv-vatican-news-f4d1.jpg",
+    "hash": "1ba16fce6bc4c7cc",
+    "version": 11,
+    "estilo": "b18ca074001a6ad6",
+    "renderizada": "2026-11-22T11:36:13.458Z"
+  },
+  "ilustracion": {
+    "descripcion": "A softly lit conference hall with a large screen showing abstract digital and space imagery; a robed papal figure stands at a podium in the upper right third, left and center space open and uncluttered.",
+    "usar": true,
+    "ruta": "public/ilus/2026-11-22-0635-leopopexiv-vatican-news-f4d1.jpg",
+    "hashDescripcion": "3916f3445d93d766",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-11-22T11:35:29.964Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-22T11:35:29.964Z",
+  "actualizado": "2026-11-22T11:35:29.964Z"
+}

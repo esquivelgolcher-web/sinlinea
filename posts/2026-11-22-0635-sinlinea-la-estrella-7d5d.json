@@ -1,0 +1,52 @@
+{
+  "id": "2026-11-22-0635-sinlinea-la-estrella-7d5d",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/se-reanuda-licitacion-de-limpieza-de-nueve-hospitales-por-80-millones-MC27526390",
+    "titulo": "Se reanuda licitación de limpieza de nueve hospitales por $80 millones",
+    "publicado": "2026-11-22T03:00:00.000Z"
+  },
+  "categoria": "SALUD",
+  "titular": "Reactivan licitación de limpieza en hospitales",
+  "bajada": "El proceso, suspendido seis meses por reclamos, recibirá propuestas desde el 1 de diciembre.",
+  "caption": "Después de impugnaciones y modificaciones al pliego, el Minsa destrabó la licitación para el aseo de nueve hospitales públicos. El retraso afectó la contratación de un servicio esencial para la atención de pacientes. ¿Crees que estos procesos deberían ser más ágiles?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Salud",
+    "#Hospitales",
+    "#Minsa",
+    "#ContrataciónPública"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-11-22-0635-sinlinea-la-estrella-7d5d.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-22-0635-sinlinea-la-estrella-7d5d.jpg",
+    "hash": "5517deeefe5ebc98",
+    "version": 2,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-11-22T11:35:53.785Z"
+  },
+  "ilustracion": {
+    "descripcion": "Pasillo limpio de un hospital público panameño con personal de aseo al fondo en el tercio superior derecho, carritos de limpieza visibles, zona izquierda y central despejadas.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-22T11:35:29.964Z",
+  "actualizado": "2026-11-22T11:35:29.964Z",
+  "plantilla": "dato",
+  "dato": {
+    "cifra": "$80 millones",
+    "frase": "es el monto de la licitación para limpieza de nueve hospitales públicos"
+  }
+}

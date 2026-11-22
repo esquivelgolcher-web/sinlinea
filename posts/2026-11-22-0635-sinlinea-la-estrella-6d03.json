@@ -1,0 +1,48 @@
+{
+  "id": "2026-11-22-0635-sinlinea-la-estrella-6d03",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/economia/anati-acelera-la-titulacion-de-tierras-para-damnificados-en-zonas-con-derechos-posesorios-KB27519425",
+    "titulo": "ANATI acelera la titulación de tierras para damnificados en zonas con derechos posesorios",
+    "publicado": "2026-11-22T05:00:00.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "ANATI agiliza títulos de tierra para damnificados del sismo",
+  "bajada": "La entidad coordina con el Miviot para identificar predios con derechos posesorios afectados por el terremoto.",
+  "caption": "Muchas familias del interior perdieron sus casas tras el sismo del 9 de octubre y nunca tuvieron título de propiedad formal. Ahora ANATI promete un trámite expedito para regularizar esos terrenos. Para quienes llevan semanas esperando respuesta, esto puede ser clave para reconstruir. ¿Conoces a alguien afectado que necesite este trámite?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Terremoto",
+    "#ANATI",
+    "#Vivienda",
+    "#Miviot"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-11-22-0635-sinlinea-la-estrella-6d03.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-22-0635-sinlinea-la-estrella-6d03.jpg",
+    "hash": "a5972797f0b041d9",
+    "version": 2,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-11-22T11:35:51.659Z"
+  },
+  "ilustracion": {
+    "descripcion": "Oficina de trámites con mapas catastrales y carpetas sobre un escritorio, al fondo una vivienda rural dañada visible por una ventana, en el tercio superior derecho; zona izquierda y central despejadas.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-22T11:35:29.964Z",
+  "actualizado": "2026-11-22T11:35:29.964Z",
+  "plantilla": "titular"
+}
