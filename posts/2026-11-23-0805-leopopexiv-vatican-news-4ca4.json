@@ -1,0 +1,45 @@
+{
+  "id": "2026-11-23-0805-leopopexiv-vatican-news-4ca4",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-11/pope-leo-xiv-swiss-guards-foundation-23-november-2026.html",
+    "titulo": "Pope Leo thanks Foundation behind new Swiss Guard Barracks",
+    "publicado": "2026-11-23T10:41:51.000Z"
+  },
+  "categoria": "CULTURA",
+  "titular": "Pope Leo thanks donors for new Swiss Guard barracks",
+  "bajada": "He praised the foundation funding the imminent reconstruction of the historic guard quarters",
+  "caption": "Pope Leo XIV expressed gratitude to the Foundation for the Renovation of the Barracks of the Pontifical Swiss Guard, which has enabled the start of long-awaited construction work. He noted that while the guardsmen may never know the names of their benefactors, their generosity will not go unnoticed. Source: Vatican News, Nov 23, 2026.",
+  "hashtags": [
+    "#PopeLeo",
+    "#Vatican",
+    "#SwissGuard",
+    "#VaticanNews"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-11-23-0805-leopopexiv-vatican-news-4ca4.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-23-0805-leopopexiv-vatican-news-4ca4.jpg",
+    "hash": "6870dae4a60ebd86",
+    "version": 11,
+    "estilo": "b18ca074001a6ad6",
+    "renderizada": "2026-11-23T13:06:06.713Z"
+  },
+  "ilustracion": {
+    "descripcion": "Stone courtyard near the Vatican with scaffolding around a historic barracks building under renovation, construction materials visible, a Swiss Guard figure in traditional uniform standing in the upper right third, left and center open and clear.",
+    "usar": true,
+    "ruta": "public/ilus/2026-11-23-0805-leopopexiv-vatican-news-4ca4.jpg",
+    "hashDescripcion": "a00263c3c974e20d",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-11-23T13:05:10.430Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-23T13:05:10.430Z",
+  "actualizado": "2026-11-23T13:05:10.430Z"
+}

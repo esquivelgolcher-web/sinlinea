@@ -1,0 +1,52 @@
+{
+  "id": "2026-11-23-0805-sinlinea-la-estrella-3858",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/escuelas-sin-reconstruir-y-44-mil-alumnos-con-bajo-rendimiento-el-desafio-educativo-tras-el-terremoto-JE27546384",
+    "titulo": "Escuelas sin reconstruir y 44 mil alumnos con bajo rendimiento: el desafío educativo tras el terremoto",
+    "publicado": "2026-11-23T03:00:00.000Z"
+  },
+  "categoria": "EDUCACIÓN",
+  "titular": "44 mil alumnos con bajo rendimiento tras el sismo",
+  "bajada": "Escuelas dañadas en Veraguas, Coclé, Herrera y Los Santos siguen sin reconstruir antes de fin de clases.",
+  "caption": "A más de un mes del terremoto de magnitud 7.5, miles de estudiantes siguen dando clases en guías o espacios temporales. Los docentes no saben si podrán volver a sus escuelas el próximo año ni en qué condiciones. El reloj corre: el año lectivo termina el 11 de diciembre y las respuestas no llegan. ¿Qué tanto puede afectar esto el aprendizaje de los niños del interior?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Educación",
+    "#Terremoto",
+    "#LosSantos",
+    "#Veraguas"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-11-23-0805-sinlinea-la-estrella-3858.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-23-0805-sinlinea-la-estrella-3858.jpg",
+    "hash": "a5fab8d4f2c9726e",
+    "version": 11,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-11-23T13:05:52.483Z"
+  },
+  "ilustracion": {
+    "descripcion": "Aula escolar temporal con pupitres vacíos y pizarra improvisada en una escuela rural panameña, estructura agrietada visible al fondo en el tercio superior derecho, izquierda y centro despejados.",
+    "usar": true,
+    "ruta": "public/ilus/2026-11-23-0805-sinlinea-la-estrella-3858.jpg",
+    "hashDescripcion": "302b1b2e98568b00",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-11-23T13:05:10.430Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-23T13:05:10.430Z",
+  "actualizado": "2026-11-23T13:05:10.430Z",
+  "plantilla": "foto",
+  "dato": {
+    "cifra": "44,491",
+    "frase": "estudiantes presentan calificaciones deficientes en el segundo trimestre"
+  }
+}

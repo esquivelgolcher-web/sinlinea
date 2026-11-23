@@ -1,0 +1,52 @@
+{
+  "id": "2026-11-23-0805-sinlinea-la-estrella-ac25",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/economia/baja-del-desempleo-oculta-caida-del-empleo-pleno-y-frena-el-consumo-JA27508427",
+    "titulo": "Baja del desempleo oculta caída del empleo pleno y frena el consumo",
+    "publicado": "2026-11-23T05:00:00.000Z"
+  },
+  "categoria": "ECONOMÍA",
+  "titular": "Empleo pleno cae pese a que el desempleo baja en Panamá",
+  "bajada": "El empleo pleno llegó a 945,600 y el subempleo invisible subió a 413,000 en agosto de 2026.",
+  "caption": "El desempleo bajó de 10.4% a 8.5%, pero eso no significa que haya más empleos estables. Según la Cámara de Comercio, el crecimiento económico se concentra en el comercio exterior y la Zona Libre de Colón, mientras el consumo local y las ventas al detalle apenas avanzan. Menos empleo pleno significa menos dinero circulando en los bolsillos de la gente. ¿Sientes que te alcanza más o menos que el año pasado?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Empleo",
+    "#Economía",
+    "#CostoDeVida",
+    "#Consumo"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-11-23-0805-sinlinea-la-estrella-ac25.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-23-0805-sinlinea-la-estrella-ac25.jpg",
+    "hash": "aad3a206340748c4",
+    "version": 2,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-11-23T13:05:52.746Z"
+  },
+  "ilustracion": {
+    "descripcion": "Oficina de atención al público con trabajadores en fila frente a un mostrador de empleo, gráfico económico de fondo en el tercio superior derecho, izquierda y centro despejados.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-23T13:05:10.430Z",
+  "actualizado": "2026-11-23T13:05:10.430Z",
+  "plantilla": "dato",
+  "dato": {
+    "cifra": "945,600",
+    "frase": "personas tenían empleo pleno en Panamá en agosto de 2026"
+  }
+}
