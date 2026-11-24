@@ -1,0 +1,46 @@
+{
+  "id": "2026-11-24-0852-leopopexiv-vatican-news-f203",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-11/pope-leo-s-set-to-preside-at-liturgies-throughout-christmas.html",
+    "titulo": "Pope Leo set to preside at liturgies throughout the Christmas season",
+    "publicado": "2026-11-24T11:17:00.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "Pope Leo's Christmas liturgical schedule released",
+  "bajada": "Vatican office outlines the celebrations Pope Leo XIV will preside over this Christmas season",
+  "caption": "The Vatican's Office for the Liturgical Celebrations of the Supreme Pontiff has published Pope Leo XIV's schedule of celebrations for the Christmas season. The calendar sets out the liturgies the Pope will preside over in the coming weeks. Source: Vatican News, Nov 24, 2026.",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Vatican",
+    "#Christmas",
+    "#CatholicChurch",
+    "#HolySee"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-11-24-0852-leopopexiv-vatican-news-f203.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-24-0852-leopopexiv-vatican-news-f203.jpg",
+    "hash": "d176d595519a457f",
+    "version": 11,
+    "estilo": "b18ca074001a6ad6",
+    "renderizada": "2026-11-24T13:53:30.938Z"
+  },
+  "ilustracion": {
+    "descripcion": "The façade of St. Peter's Basilica decorated for Christmas at dusk, with warm lights; the pope figure, seen from behind in white vestments, stands in the upper right third greeting a small crowd, left and center kept open and uncluttered.",
+    "usar": true,
+    "ruta": "public/ilus/2026-11-24-0852-leopopexiv-vatican-news-f203.jpg",
+    "hashDescripcion": "53f166f3137315b9",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-11-24T13:52:36.558Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-24T13:52:36.558Z",
+  "actualizado": "2026-11-24T13:52:36.558Z"
+}

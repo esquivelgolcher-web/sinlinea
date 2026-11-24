@@ -1,0 +1,52 @@
+{
+  "id": "2026-11-24-0852-sinlinea-la-estrella-f334",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/la-corrupcion-se-afianza-como-el-principal-problema-de-panama-HG27564883",
+    "titulo": "La corrupción se afianza como el principal problema de Panamá",
+    "publicado": "2026-11-24T03:00:00.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "Corrupción se consolida como el mayor problema del país",
+  "bajada": "El 41,4% de los consultados la señala como el principal problema, por encima del empleo y el costo de vida.",
+  "caption": "Según la encuesta de Vea Panamá, la corrupción le sacó ventaja a la falta de empleo y el alto costo de la vida como la mayor preocupación ciudadana. Casi la mitad de los entrevistados también la ve como el principal obstáculo para que el país avance. El empleo estable sigue siendo la meta más buscada para mejorar la calidad de vida. ¿Coincides con que la corrupción es el problema número uno de Panamá?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Corrupción",
+    "#Encuesta",
+    "#Sociedad",
+    "#VeaPanamá"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-11-24-0852-sinlinea-la-estrella-f334.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-24-0852-sinlinea-la-estrella-f334.jpg",
+    "hash": "5df566a9ba75bbef",
+    "version": 2,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-11-24T13:53:08.811Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada de un edificio de gobierno panameño en un día nublado, con el edificio ubicado en el tercio superior derecho y el resto del encuadre despejado.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-24T13:52:36.558Z",
+  "actualizado": "2026-11-24T13:52:36.558Z",
+  "plantilla": "dato",
+  "dato": {
+    "cifra": "41,4%",
+    "frase": "de los consultados señaló la corrupción como el principal problema de Panamá"
+  }
+}

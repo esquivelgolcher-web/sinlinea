@@ -1,0 +1,52 @@
+{
+  "id": "2026-11-24-0852-sinlinea-la-estrella-6c6a",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/capturan-a-11-sospechosos-de-pandillerismo-en-san-miguelito-bajo-la-operacion-acero-GH27575388",
+    "titulo": "Capturan a 11 sospechosos de pandillerismo en San Miguelito bajo la Operación Acero",
+    "publicado": "2026-11-24T10:26:00.000Z"
+  },
+  "categoria": "SEGURIDAD",
+  "titular": "Capturan a 11 presuntos pandilleros en San Miguelito",
+  "bajada": "Allanamientos en Belisario Porras y Arnulfo Arias dejan detenido al presunto cabecilla.",
+  "caption": "La Operación Acero golpeó a una estructura criminal que, según las investigaciones, controlaba territorio en San Miguelito desde 2025. Se le vincula con homicidios, extorsión y desalojos forzados en la zona. Entre lo decomisado hay armas de fuego y sustancias ilícitas. ¿Sientes que estos operativos realmente mejoran la seguridad en tu comunidad?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#SanMiguelito",
+    "#Seguridad",
+    "#OperaciónAcero",
+    "#PolicíaNacional"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-11-24-0852-sinlinea-la-estrella-6c6a.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-24-0852-sinlinea-la-estrella-6c6a.jpg",
+    "hash": "602af7b1c218c45b",
+    "version": 11,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-11-24T13:53:08.490Z"
+  },
+  "ilustracion": {
+    "descripcion": "Calle residencial de un barrio de San Miguelito con patrullas policiales estacionadas, en el tercio superior derecho, dejando el centro e izquierda despejados.",
+    "usar": true,
+    "ruta": "public/ilus/2026-11-24-0852-sinlinea-la-estrella-6c6a.jpg",
+    "hashDescripcion": "87fbc3f14b9157df",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-11-24T13:52:36.558Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-24T13:52:36.558Z",
+  "actualizado": "2026-11-24T13:52:36.558Z",
+  "plantilla": "foto",
+  "dato": {
+    "cifra": "11",
+    "frase": "personas fueron capturadas por presunto pandillerismo en San Miguelito"
+  }
+}
