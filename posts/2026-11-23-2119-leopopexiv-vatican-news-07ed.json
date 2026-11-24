@@ -1,0 +1,46 @@
+{
+  "id": "2026-11-23-2119-leopopexiv-vatican-news-07ed",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/vatican-city/news/2026-11/united-on-two-wheels-on-bike-there-is-no-difference-youre-one.html",
+    "titulo": "United on two wheels: ‘On a bike, there is no difference. We're equal'",
+    "publicado": "2026-11-23T16:32:00.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "Cycling champions join Pope Leo in bike donation",
+  "bajada": "Vatican event gives bicycles to vulnerable youth, says sport erases social barriers",
+  "caption": "Former and current cycling champions gathered at the Vatican to meet Pope Leo XIV and take part in a ceremony donating bicycles to young people in vulnerable situations. Organizers said the event reflects how cycling can break down social barriers. Source: Vatican News, Nov 23, 2026.",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#Vatican",
+    "#Cycling",
+    "#Charity",
+    "#Youth"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-11-23-2119-leopopexiv-vatican-news-07ed.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-23-2119-leopopexiv-vatican-news-07ed.jpg",
+    "hash": "8a2021a9b588bf5f",
+    "version": 11,
+    "estilo": "b18ca074001a6ad6",
+    "renderizada": "2026-11-24T02:20:26.921Z"
+  },
+  "ilustracion": {
+    "descripcion": "A row of donated bicycles lined up in a sunlit Vatican courtyard, with a figure resembling a pope greeting cyclists in the upper right, left and center open",
+    "usar": true,
+    "ruta": "public/ilus/2026-11-23-2119-leopopexiv-vatican-news-07ed.jpg",
+    "hashDescripcion": "72caefb9f0216297",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-11-24T02:19:41.195Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-24T02:19:41.195Z",
+  "actualizado": "2026-11-24T02:19:41.195Z"
+}

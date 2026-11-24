@@ -1,0 +1,52 @@
+{
+  "id": "2026-11-23-2119-sinlinea-la-estrella-3258",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/es-seguro-comprar-en-merca-panama-confirma-el-minsa-tras-disminucion-de-casos-de-malaria-IG27569302",
+    "titulo": "’Es seguro comprar en Merca Panamá’, confirma el Minsa tras disminución de casos de malaria",
+    "publicado": "2026-11-23T20:54:00.000Z"
+  },
+  "categoria": "SALUD",
+  "titular": "Minsa dice que es seguro comprar en Merca Panamá",
+  "bajada": "El ministro de Salud confirmó control de 217 casos de malaria cerca del centro de abastecimiento.",
+  "caption": "Tras la detección de casos de malaria en zonas cercanas a Merca Panamá, el Minsa salió a despejar dudas entre los consumidores: la enfermedad se transmite por mosquito, no por los alimentos. Más del 75% de los pacientes ya recibió tratamiento y no se han detectado nuevos casos positivos. ¿Confías en las medidas sanitarias del principal centro de abasto del país?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Malaria",
+    "#MercaPanamá",
+    "#Salud",
+    "#Minsa"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-11-23-2119-sinlinea-la-estrella-3258.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-23-2119-sinlinea-la-estrella-3258.jpg",
+    "hash": "225ca0a499e733aa",
+    "version": 2,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-11-24T02:20:12.969Z"
+  },
+  "ilustracion": {
+    "descripcion": "Entrada principal de un mercado de abastos panameño con puestos de frutas y verduras, un inspector sanitario con chaleco en el tercio superior derecho; zona izquierda y central despejada.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-24T02:19:41.195Z",
+  "actualizado": "2026-11-24T02:19:41.195Z",
+  "plantilla": "dato",
+  "dato": {
+    "cifra": "217 casos",
+    "frase": "de malaria se han identificado en zonas cercanas a Merca Panamá"
+  }
+}

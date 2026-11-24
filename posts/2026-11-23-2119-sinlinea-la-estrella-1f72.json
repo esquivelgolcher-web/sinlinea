@@ -1,0 +1,48 @@
+{
+  "id": "2026-11-23-2119-sinlinea-la-estrella-1f72",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/nina-de-8-anos-muere-por-meningitis-bacteriana-en-san-miguelito-minsa-investiga-el-caso-EG27561665",
+    "titulo": "Niña de 8 años muere por meningitis bacteriana en San Miguelito; Minsa investiga el caso",
+    "publicado": "2026-11-23T17:12:00.000Z"
+  },
+  "categoria": "SALUD",
+  "titular": "Niña de 8 años muere por meningitis en San Miguelito",
+  "bajada": "El Minsa investiga el caso en Samaria y ya vacunó a los contactos cercanos de la menor.",
+  "caption": "Una niña de 8 años perdió la vida por meningitis bacteriana en San Miguelito, un hecho que encendió las alarmas en la comunidad. Las autoridades ya vacunaron a quienes convivían con ella y piden no automedicarse ante síntomas de fiebre. El sector también enfrenta más de mil casos de dengue este año. ¿Qué medidas debería reforzar el Minsa en la zona?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#SanMiguelito",
+    "#Salud",
+    "#Meningitis",
+    "#Minsa"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-11-23-2119-sinlinea-la-estrella-1f72.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-23-2119-sinlinea-la-estrella-1f72.jpg",
+    "hash": "b18fe882a08bea94",
+    "version": 11,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-11-24T02:20:12.686Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada de un centro de salud comunitario en San Miguelito con personal sanitario en labores de inspección, en el tercio superior derecho; zona izquierda y central despejada.",
+    "usar": true,
+    "ruta": "public/ilus/2026-11-23-2119-sinlinea-la-estrella-1f72.jpg",
+    "hashDescripcion": "83302f2e8b57737c",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-11-24T02:19:41.195Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-24T02:19:41.195Z",
+  "actualizado": "2026-11-24T02:19:41.195Z",
+  "plantilla": "foto"
+}
