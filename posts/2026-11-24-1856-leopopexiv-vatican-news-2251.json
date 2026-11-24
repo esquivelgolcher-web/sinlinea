@@ -1,0 +1,46 @@
+{
+  "id": "2026-11-24-1856-leopopexiv-vatican-news-2251",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/world/news/2026-11/for-children-in-ukraine-war-has-become-a-part-of-everyday-life.html",
+    "titulo": "For children in Ukraine, war has become a part of everyday life.",
+    "publicado": "2026-11-24T15:16:00.000Z"
+  },
+  "categoria": "INTERNACIONAL",
+  "titular": "War reshapes daily life for Ukraine's children",
+  "bajada": "Tree of Life Foundation offers support nearly five years into the conflict",
+  "caption": "Nearly five years into Russia's full-scale invasion, the “Tree of Life” Foundation continues to support children across Ukraine. Marking International Children's Day (Nov 20), the group points to Article 31 of the UN Convention on the Rights of the Child, which guarantees children's right to rest, play and participate in cultural life—even amid war. Source: Vatican News, Nov 24, 2026.",
+  "hashtags": [
+    "#Ukraine",
+    "#ChildrensRights",
+    "#War",
+    "#HumanitarianAid",
+    "#PeaceAndCare"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-11-24-1856-leopopexiv-vatican-news-2251.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-24-1856-leopopexiv-vatican-news-2251.jpg",
+    "hash": "8552eded800d228f",
+    "version": 11,
+    "estilo": "b18ca074001a6ad6",
+    "renderizada": "2026-11-24T23:56:23.577Z"
+  },
+  "ilustracion": {
+    "descripcion": "A quiet Ukrainian schoolyard with an empty swing set and scattered toys beneath a gray winter sky, placed in the upper right third, left and center space calm and open.",
+    "usar": true,
+    "ruta": "public/ilus/2026-11-24-1856-leopopexiv-vatican-news-2251.jpg",
+    "hashDescripcion": "dd12af7156475b4f",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-11-24T23:56:07.703Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-24T23:56:07.703Z",
+  "actualizado": "2026-11-24T23:56:07.703Z"
+}
