@@ -1,0 +1,53 @@
+{
+  "id": "2026-11-25-1422-sinlinea-la-estrella-c9ce",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/mas-de-800-millones-circularon-por-credicorp-en-la-trama-de-sobornos-de-odebrecht-que-salpica-a-martinelli-y-varela-BC27610023",
+    "titulo": "Más de $800 millones circularon por Credicorp en la trama de sobornos de Odebrecht que salpica a Martinelli y Varela",
+    "publicado": "2026-11-25T16:11:00.000Z"
+  },
+  "categoria": "INVESTIGACIÓN",
+  "titular": "Credicorp movió $800 millones de sobornos de Odebrecht",
+  "bajada": "Investigación de Concolón vincula al banco con fondos hacia Martinelli y Varela.",
+  "caption": "Una nueva investigación revela cómo el banco Credicorp fue la vía principal para mover el dinero sucio de Odebrecht hacia círculos políticos panameños. El hallazgo reabre preguntas sobre cómo operó la corrupción en el sistema financiero del país. ¿Qué tan a fondo creés que debe llegar esta investigación?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Odebrecht",
+    "#Corrupción",
+    "#Credicorp",
+    "#Martinelli",
+    "#Varela"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-11-25-1422-sinlinea-la-estrella-c9ce.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-25-1422-sinlinea-la-estrella-c9ce.jpg",
+    "hash": "99d171dfe2230e49",
+    "version": 11,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-11-25T19:23:42.671Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada de un edificio bancario en el área financiera de la Ciudad de Panamá, con rascacielos de fondo; el edificio queda en el tercio superior derecho, zona izquierda y central despejadas.",
+    "usar": true,
+    "ruta": "public/ilus/2026-11-25-1422-sinlinea-la-estrella-c9ce.jpg",
+    "hashDescripcion": "3440b99723a1960d",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-11-25T19:22:51.684Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-25T19:22:51.684Z",
+  "actualizado": "2026-11-25T19:22:51.684Z",
+  "plantilla": "foto",
+  "dato": {
+    "cifra": "$800 millones",
+    "frase": "del dinero ilícito de Odebrecht circuló por el banco Credicorp entre 2008 y 2015"
+  }
+}

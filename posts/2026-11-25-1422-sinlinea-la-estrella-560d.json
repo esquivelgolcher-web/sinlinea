@@ -1,0 +1,51 @@
+{
+  "id": "2026-11-25-1422-sinlinea-la-estrella-560d",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/css-identifica-19-empresas-que-incumplieron-contratos-por-casi-10-millones-de-medicamentos-PD27605138",
+    "titulo": "CSS identifica 19 empresas que incumplieron contratos por casi 10 millones de medicamentos",
+    "publicado": "2026-11-25T13:11:00.000Z"
+  },
+  "categoria": "SALUD",
+  "titular": "CSS: 19 empresas incumplieron casi 10 millones de medicinas",
+  "bajada": "Dino Mon detalla faltantes de medicamentos para diabetes y otras condiciones crónicas.",
+  "caption": "La Caja de Seguro Social denunció que 19 empresas no entregaron casi 10 millones de unidades de medicamentos, varios de ellos para tratar la diabetes. El incumplimiento afecta directamente el acceso a tratamientos de miles de pacientes. ¿Has tenido problemas para conseguir tus medicinas en la CSS?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#CSS",
+    "#Salud",
+    "#Medicamentos"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-11-25-1422-sinlinea-la-estrella-560d.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-25-1422-sinlinea-la-estrella-560d.jpg",
+    "hash": "3d163e1a71918e28",
+    "version": 2,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-11-25T19:23:43.026Z"
+  },
+  "ilustracion": {
+    "descripcion": "Interior de una farmacia de un hospital público panameño con estantes parcialmente vacíos; una caja de medicamentos queda en el tercio superior derecho, zona izquierda y central despejadas.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-25T19:22:51.684Z",
+  "actualizado": "2026-11-25T19:22:51.684Z",
+  "plantilla": "dato",
+  "dato": {
+    "cifra": "9,972,522",
+    "frase": "unidades de medicamentos no fueron entregadas por las empresas proveedoras"
+  }
+}

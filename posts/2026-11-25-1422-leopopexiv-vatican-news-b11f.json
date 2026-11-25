@@ -1,0 +1,46 @@
+{
+  "id": "2026-11-25-1422-leopopexiv-vatican-news-b11f",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-11/pope-break-the-ideological-economic-chains-that-enslave-us-war.html",
+    "titulo": "Pope: We must break 'ideological, economic chains that enslave' us to war",
+    "publicado": "2026-11-25T09:12:00.000Z"
+  },
+  "categoria": "INTERNACIONAL",
+  "titular": "Pope Leo decries 'chains' that enslave us to war",
+  "bajada": "At General Audience, he rejects resignation to violence and calls for ending arms race",
+  "caption": "At this week's General Audience, Pope Leo XIV urged the faithful to break the \"ideological, economic chains that enslave\" humanity to war, saying conflicts today appear \"increasingly inhuman and devastating.\" He stressed there is \"no room for resignation, as if violence were inevitable,\" renewing his call to end the global arms race. — Source: Vatican News, Nov 25, 2026",
+  "hashtags": [
+    "#PopeLeoXIV",
+    "#GeneralAudience",
+    "#Peace",
+    "#Vatican",
+    "#CatholicChurch"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-11-25-1422-leopopexiv-vatican-news-b11f.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-25-1422-leopopexiv-vatican-news-b11f.jpg",
+    "hash": "0cf339f1a43bf497",
+    "version": 11,
+    "estilo": "b18ca074001a6ad6",
+    "renderizada": "2026-11-25T19:24:02.466Z"
+  },
+  "ilustracion": {
+    "descripcion": "St. Peter's Square during a general audience, the pope at a small distance on the stage in the upper right third, crowd and open plaza filling the left and center, soft morning light.",
+    "usar": true,
+    "ruta": "public/ilus/2026-11-25-1422-leopopexiv-vatican-news-b11f.jpg",
+    "hashDescripcion": "f33ece465725fc30",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-11-25T19:22:51.684Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-25T19:22:51.684Z",
+  "actualizado": "2026-11-25T19:22:51.684Z"
+}
