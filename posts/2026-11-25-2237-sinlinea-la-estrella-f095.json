@@ -1,0 +1,52 @@
+{
+  "id": "2026-11-25-2237-sinlinea-la-estrella-f095",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/economia/danos-del-terremoto-en-azuero-podrian-generar-costos-de-reconstruccion-de-hasta-500-millones-mef-JC27613965",
+    "titulo": "Daños del terremoto en Azuero podrían generar costos de reconstrucción de hasta $500 millones: MEF",
+    "publicado": "2026-11-25T20:02:00.000Z"
+  },
+  "categoria": "ECONOMÍA",
+  "titular": "Reconstrucción de Azuero podría costar hasta $500 millones",
+  "bajada": "MEF estima entre $100 y $500 millones por daños del terremoto del 9 de octubre, según viceministro Fernández",
+  "caption": "El sismo que golpeó Azuero en octubre dejó una factura que el Estado todavía está calculando. El viceministro de Economía reconoce que el país cuenta con seguros y préstamos contingentes para enfrentar el gasto, pero la cifra final definirá cuánto dinero público se destinará a reconstruir una de las regiones productivas del país. ¿Qué tan preparado crees que está Panamá para este tipo de emergencias?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Azuero",
+    "#Terremoto",
+    "#Economía",
+    "#MEF"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-11-25-2237-sinlinea-la-estrella-f095.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-25-2237-sinlinea-la-estrella-f095.jpg",
+    "hash": "db1fb9bba543077d",
+    "version": 11,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-11-26T03:38:06.394Z"
+  },
+  "ilustracion": {
+    "descripcion": "Calle de un pueblo de Azuero con viviendas dañadas por un sismo, grúa de construcción en el tercio superior derecho, zona izquierda y central despejadas.",
+    "usar": true,
+    "ruta": "public/ilus/2026-11-25-2237-sinlinea-la-estrella-f095.jpg",
+    "hashDescripcion": "e6d8c2a954b0c8af",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-11-26T03:37:24.025Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-26T03:37:24.025Z",
+  "actualizado": "2026-11-26T03:37:24.025Z",
+  "plantilla": "foto",
+  "dato": {
+    "cifra": "$500 millones",
+    "frase": "podría costar la reconstrucción de Azuero tras el terremoto de octubre"
+  }
+}
