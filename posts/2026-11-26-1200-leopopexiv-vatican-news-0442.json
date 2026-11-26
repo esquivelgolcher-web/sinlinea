@@ -1,0 +1,47 @@
+{
+  "id": "2026-11-26-1200-leopopexiv-vatican-news-0442",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-11/pope-leo-make-first-advent-pastoral-visit-central-roman-parish.html",
+    "titulo": "Pope Leo to make first Advent parish pastoral visit in central Rome",
+    "publicado": "2026-11-26T14:49:00.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "Pope Leo to visit Rome parish for first Advent stop",
+  "bajada": "First of five Advent pastoral visits, set for Sant'Andrea delle Fratte on Nov. 27",
+  "caption": "Pope Leo XIV will make his first Advent parish pastoral visit on Friday, November 27, to Sant'Andrea delle Fratte in central Rome. It is the first of five parish visits planned for the Advent season. Source: Vatican News, Nov. 26, 2026.",
+  "hashtags": [
+    "#PopeLeo",
+    "#Vatican",
+    "#Advent",
+    "#Rome",
+    "#CatholicChurch",
+    "#Parish"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-11-26-1200-leopopexiv-vatican-news-0442.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-26-1200-leopopexiv-vatican-news-0442.jpg",
+    "hash": "dbfcc731f4e7af7b",
+    "version": 11,
+    "estilo": "b18ca074001a6ad6",
+    "renderizada": "2026-11-26T17:01:15.573Z"
+  },
+  "ilustracion": {
+    "descripcion": "Baroque facade of a historic Rome church at dusk, warm stone tones, a solitary cleric figure in white approaching the entrance in the upper right third, left and center of the frame left open and uncluttered",
+    "usar": true,
+    "ruta": "public/ilus/2026-11-26-1200-leopopexiv-vatican-news-0442.jpg",
+    "hashDescripcion": "883db4abad3a5d8d",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-11-26T17:00:14.361Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-26T17:00:14.361Z",
+  "actualizado": "2026-11-26T17:00:14.361Z"
+}

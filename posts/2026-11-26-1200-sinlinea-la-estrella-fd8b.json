@@ -1,0 +1,48 @@
+{
+  "id": "2026-11-26-1200-sinlinea-la-estrella-fd8b",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/mef-evalua-limitar-subsidio-del-gas-a-hogares-en-pobreza-DA27637334",
+    "titulo": "MEF evalúa limitar subsidio del gas a hogares en pobreza",
+    "publicado": "2026-11-26T14:23:00.000Z"
+  },
+  "categoria": "ECONOMÍA",
+  "titular": "MEF evalúa limitar subsidio del gas a hogares pobres",
+  "bajada": "El viceministro de Finanzas plantea un estudio de vulnerabilidad social, sin fecha ni umbral definidos aún.",
+  "caption": "El Ministerio de Economía y Finanzas analiza concentrar el subsidio al tanque de gas de 25 libras solo en los hogares que viven en pobreza. El viceministro Fausto Fernández de León aclaró que todavía no hay un salario límite definido ni fecha para aplicar cambios. La medida tocaría directo el bolsillo de miles de familias que hoy reciben el beneficio. ¿Cree que el subsidio debería limitarse o mantenerse para todos?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#SubsidioDelGas",
+    "#MEF",
+    "#CostoDeVida",
+    "#Economía"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-11-26-1200-sinlinea-la-estrella-fd8b.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-26-1200-sinlinea-la-estrella-fd8b.jpg",
+    "hash": "7cf29865c0cc21eb",
+    "version": 2,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-11-26T17:00:52.801Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fila de tanques de gas de 25 libras apilados en un depósito de distribución panameño; los tanques quedan en el tercio superior derecho, con la zona izquierda y central despejada.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-26T17:00:14.361Z",
+  "actualizado": "2026-11-26T17:00:14.361Z",
+  "plantilla": "titular"
+}
