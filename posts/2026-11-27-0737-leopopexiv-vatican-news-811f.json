@@ -1,0 +1,46 @@
+{
+  "id": "2026-11-27-0737-leopopexiv-vatican-news-811f",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-11/pope-leo-xiv-telegram-condolences-egypt-tanker-explosion.html",
+    "titulo": "Pope Leo XIV prays for victims of Cairo fuel lorry explosion",
+    "publicado": "2026-11-27T11:04:00.000Z"
+  },
+  "categoria": "INTERNACIONAL",
+  "titular": "Pope Leo prays for victims of Cairo blast",
+  "bajada": "He entrusted those who died in the fuel lorry explosion to God's mercy",
+  "caption": "Pope Leo XIV has sent his condolences to the families of those killed in a fuel tanker explosion in Cairo, Egypt, entrusting the victims to God's mercy. The Pope expressed spiritual closeness to all affected by the tragedy. Source: Vatican News, Nov 27, 2026.",
+  "hashtags": [
+    "#PopeLeo",
+    "#Vatican",
+    "#Cairo",
+    "#Egypt",
+    "#Prayer"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-11-27-0737-leopopexiv-vatican-news-811f.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-27-0737-leopopexiv-vatican-news-811f.jpg",
+    "hash": "988a171a60ff5bc8",
+    "version": 11,
+    "estilo": "b18ca074001a6ad6",
+    "renderizada": "2026-11-27T12:37:17.747Z"
+  },
+  "ilustracion": {
+    "descripcion": "A quiet candlelight vigil scene with an empty street in Cairo at dusk, smoke faintly rising in the background; a small cross or rosary rests in the upper right third, left and center areas open and calm.",
+    "usar": true,
+    "ruta": "public/ilus/2026-11-27-0737-leopopexiv-vatican-news-811f.jpg",
+    "hashDescripcion": "5617e0b52b5c69cb",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-11-27T12:37:02.867Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-27T12:37:02.867Z",
+  "actualizado": "2026-11-27T12:37:02.867Z"
+}
