@@ -1,0 +1,52 @@
+{
+  "id": "2026-11-27-1830-sinlinea-la-estrella-f3bc",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/minsa-pagara-en-diciembre-turnos-extras-adeudados-al-personal-de-salud-CF27661506",
+    "titulo": "Minsa pagará en diciembre turnos extras adeudados al personal de salud",
+    "publicado": "2026-11-27T15:09:00.000Z"
+  },
+  "categoria": "SALUD",
+  "titular": "Minsa pagará en diciembre turnos extras adeudados",
+  "bajada": "El pago cubre agosto, septiembre y octubre tras gestionar más de $23 millones con el MEF.",
+  "caption": "Miles de trabajadores de salud llevan meses esperando el pago de sus turnos extras. El Minsa confirmó que en diciembre saldará la deuda de agosto, septiembre y octubre, gracias a una gestión con el Ministerio de Economía y Finanzas. Los turnos de noviembre y diciembre se pagarán a inicios de 2027. ¿Llegará este alivio a tiempo para el personal sanitario?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Salud",
+    "#Minsa",
+    "#TrabajadoresDeSalud",
+    "#Presupuesto"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-11-27-1830-sinlinea-la-estrella-f3bc.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-27-1830-sinlinea-la-estrella-f3bc.jpg",
+    "hash": "b88178dc64737c96",
+    "version": 11,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-11-27T23:31:06.004Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada de un hospital público panameño al atardecer, con personal de salud con bata caminando hacia la entrada; el personal queda en el tercio superior derecho y el resto del encuadre despejado.",
+    "usar": true,
+    "ruta": "public/ilus/2026-11-27-1830-sinlinea-la-estrella-f3bc.jpg",
+    "hashDescripcion": "1260d33d5ae6adb7",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-11-27T23:30:23.440Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-27T23:30:23.440Z",
+  "actualizado": "2026-11-27T23:30:23.440Z",
+  "plantilla": "foto",
+  "dato": {
+    "cifra": "$23 millones",
+    "frase": "se gestionaron para pagar los turnos extras atrasados del personal de salud"
+  }
+}

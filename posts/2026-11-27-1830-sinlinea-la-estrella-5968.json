@@ -1,0 +1,52 @@
+{
+  "id": "2026-11-27-1830-sinlinea-la-estrella-5968",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/economia/boicot-a-la-cebolla-en-panama-choca-con-precios-reales-del-campo-AF27669845",
+    "titulo": "Boicot a la cebolla en Panamá choca con precios reales del campo",
+    "publicado": "2026-11-27T21:50:00.000Z"
+  },
+  "categoria": "ECONOMÍA",
+  "titular": "Cebolla se vende hasta $2 pese a boicot de consumidores",
+  "bajada": "Campaña pide pagar máximo $0.60 por libra, pero el precio real llega a $2.00 en los mercados.",
+  "caption": "La bronca por el precio de la cebolla pone en aprietos a comerciantes y compradores por igual. Mientras los consumidores exigen pagar menos, los números del campo y de Merca Panamá muestran que el producto sale más caro de lo que pide el boicot. Los restaurantes de barrio ya sienten el golpe en sus márgenes antes de diciembre. ¿Hasta dónde puede subir la cebolla sin que nadie la pare?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Cebolla",
+    "#CostoDeVida",
+    "#Economía",
+    "#MercaPanamá"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-11-27-1830-sinlinea-la-estrella-5968.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-27-1830-sinlinea-la-estrella-5968.jpg",
+    "hash": "aacd786da7f595db",
+    "version": 2,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-11-27T23:31:00.260Z"
+  },
+  "ilustracion": {
+    "descripcion": "Puesto de venta de cebollas en un mercado popular de Panamá, con sacos y bultos apilados; el producto principal queda en el tercio superior derecho y el resto del encuadre despejado.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-27T23:30:23.440Z",
+  "actualizado": "2026-11-27T23:30:23.440Z",
+  "plantilla": "dato",
+  "dato": {
+    "cifra": "$2.00",
+    "frase": "puede llegar a costar la libra de cebolla al detal en el mercado"
+  }
+}
