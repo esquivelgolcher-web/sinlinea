@@ -1,0 +1,46 @@
+{
+  "id": "2026-11-28-0258-leopopexiv-vatican-news-c044",
+  "cuenta": "leopopexiv",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "Vatican News",
+    "url": "https://www.vaticannews.va/en/pope/news/2026-11/pope-leo-theme-lent-message-2027-fragility-magnifica-humanitas.html",
+    "titulo": "Pope chooses theme for Lent Message 2027: 'Let us embrace fragility'",
+    "publicado": "2026-11-27T11:07:00.000Z"
+  },
+  "categoria": "SOCIEDAD",
+  "titular": "Pope Leo picks 2027 Lent theme: 'Embrace fragility'",
+  "bajada": "Message draws on his encyclical, challenging the idea of a limitless, self-made humanity",
+  "caption": "Pope Leo XIV has announced the theme for his 2027 Lent Message: 'Let us embrace fragility.' The theme draws from his encyclical Magnifica humanitas and offers, in the Pope's words, 'an alternative to the illusion of a humanity that wants to recreate itself without limits.' Source: Vatican News, Nov 27, 2026.",
+  "hashtags": [
+    "#PopeLeo",
+    "#Lent2027",
+    "#Vatican",
+    "#CatholicChurch",
+    "#Faith"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-11-28-0258-leopopexiv-vatican-news-c044.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-28-0258-leopopexiv-vatican-news-c044.jpg",
+    "hash": "17aeef89ed85273f",
+    "version": 11,
+    "estilo": "b18ca074001a6ad6",
+    "renderizada": "2026-11-28T07:58:44.705Z"
+  },
+  "ilustracion": {
+    "descripcion": "A quiet Vatican study with an open book and a lit candle on a wooden desk, warm light; a bishop's writing desk silhouette sits in the upper right third, left and center space open and calm.",
+    "usar": true,
+    "ruta": "public/ilus/2026-11-28-0258-leopopexiv-vatican-news-c044.jpg",
+    "hashDescripcion": "3c41fa20a416d47a",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-11-28T07:58:03.502Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-28T07:58:03.502Z",
+  "actualizado": "2026-11-28T07:58:03.502Z"
+}

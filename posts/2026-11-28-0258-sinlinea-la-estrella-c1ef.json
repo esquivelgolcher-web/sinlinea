@@ -1,0 +1,52 @@
+{
+  "id": "2026-11-28-0258-sinlinea-la-estrella-c1ef",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/politica/vamos-supera-las-50-mil-firmas-para-la-formacion-de-su-partido-politico-AE27674136",
+    "titulo": "Vamos supera las 50 mil firmas para la formación de su partido político",
+    "publicado": "2026-11-28T03:00:00.000Z"
+  },
+  "categoria": "POLÍTICA",
+  "titular": "Partido Vamos supera firmas mínimas exigidas por el TE",
+  "bajada": "El Tribunal Electoral validó 50,093 firmas, por encima de las 45,503 requeridas para formar el partido.",
+  "caption": "El movimiento Vamos avanza en su camino para convertirse en partido político oficial. El Tribunal Electoral ya validó más firmas de las necesarias, pero el proceso no termina ahí: ahora se abre un período de objeciones antes de la constitución final.\n\nEsto importa porque suma una nueva opción política a la oferta electoral del país, en medio del descontento ciudadano con los partidos tradicionales.\n\n¿Crees que un nuevo partido puede cambiar algo en la política panameña?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Vamos",
+    "#TribunalElectoral",
+    "#Política",
+    "#Elecciones"
+  ],
+  "variante": "amarillo",
+  "imagen": {
+    "ruta": "public/img/2026-11-28-0258-sinlinea-la-estrella-c1ef.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-28-0258-sinlinea-la-estrella-c1ef.jpg",
+    "hash": "6a90b1f882f774ee",
+    "version": 2,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-11-28T07:58:23.148Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada del Tribunal Electoral de Panamá durante el día, con banderas panameñas ondeando; el edificio queda en el tercio superior derecho y la zona izquierda y central despejada",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-28T07:58:03.502Z",
+  "actualizado": "2026-11-28T07:58:03.502Z",
+  "plantilla": "dato",
+  "dato": {
+    "cifra": "50,093",
+    "frase": "firmas fueron validadas por el Tribunal Electoral para formar el partido"
+  }
+}

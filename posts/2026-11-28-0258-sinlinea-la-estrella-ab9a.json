@@ -1,0 +1,48 @@
+{
+  "id": "2026-11-28-0258-sinlinea-la-estrella-ab9a",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/politica/cinco-proyectos-aprobados-en-el-cierre-del-pleno-esperan-sancion-GE27674376",
+    "titulo": "Cinco proyectos aprobados en el cierre del pleno esperan sanción",
+    "publicado": "2026-11-28T03:00:00.000Z"
+  },
+  "categoria": "POLÍTICA",
+  "titular": "Asamblea envía cinco proyectos de ley al Ejecutivo",
+  "bajada": "Las iniciativas tocan emergencias, comedores escolares, uniformes y residencia para deportistas.",
+  "caption": "Antes de cerrar octubre, los diputados aprobaron en tercer debate cinco proyectos que ahora esperan la firma del presidente. Entre ellos destaca uno que obliga a los comedores escolares y la entrega de uniformes en escuelas oficiales.\n\nSi el Ejecutivo los sanciona, estas leyes podrían afectar directamente la vida de miles de estudiantes y la respuesta del Estado ante emergencias como terremotos.\n\n¿Cuál de estos proyectos te parece más urgente para Panamá?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#AsambleaNacional",
+    "#Educación",
+    "#LeyesPanamá",
+    "#Política"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-11-28-0258-sinlinea-la-estrella-ab9a.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-28-0258-sinlinea-la-estrella-ab9a.jpg",
+    "hash": "33e1ba15e1a4a687",
+    "version": 11,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-11-28T07:58:27.910Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada del Palacio Justo Arosemena, sede de la Asamblea Nacional de Panamá, con cielo despejado; el edificio queda en el tercio superior derecho y la zona izquierda y central despejada",
+    "usar": true,
+    "ruta": "public/ilus/2026-11-28-0258-sinlinea-la-estrella-ab9a.jpg",
+    "hashDescripcion": "793ac371f62533af",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-11-28T07:58:03.502Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-28T07:58:03.502Z",
+  "actualizado": "2026-11-28T07:58:03.502Z",
+  "plantilla": "foto"
+}
