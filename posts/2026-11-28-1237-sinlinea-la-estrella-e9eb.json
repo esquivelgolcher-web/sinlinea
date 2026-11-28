@@ -1,0 +1,52 @@
+{
+  "id": "2026-11-28-1237-sinlinea-la-estrella-e9eb",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/caso-conusi-aprehenden-siete-fincas-y-un-vehiculo-valorados-en-500-mil-FE27679837",
+    "titulo": "Caso Conusi: aprehenden siete fincas y un vehículo valorados en $500 mil",
+    "publicado": "2026-11-27T23:22:00.000Z"
+  },
+  "categoria": "INVESTIGACIÓN",
+  "titular": "Fiscalía aprehende fincas de Conusi por $500 mil",
+  "bajada": "La Anticorrupción asegura siete fincas y un vehículo del sindicato por presunto peculado y blanqueo.",
+  "caption": "La Fiscalía Anticorrupción avanza en el caso contra la Confederación Nacional de Unidad Sindical Independiente por el presunto desvío de fondos del seguro educativo. Se investiga a cuatro personas, incluidos exfuncionarios del Mitradel. La Contraloría calcula un perjuicio al Estado superior a los $760 mil. ¿Qué opinas de este tipo de casos de corrupción sindical?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#Corrupción",
+    "#Conusi",
+    "#Mitradel",
+    "#Justicia"
+  ],
+  "variante": "rojo",
+  "imagen": {
+    "ruta": "public/img/2026-11-28-1237-sinlinea-la-estrella-e9eb.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-28-1237-sinlinea-la-estrella-e9eb.jpg",
+    "hash": "07780f94a183ba22",
+    "version": 11,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-11-28T17:37:47.504Z"
+  },
+  "ilustracion": {
+    "descripcion": "Fachada de un edificio de tribunales o fiscalía en Panamá, con una balanza de la justicia en el tercio superior derecho; zona izquierda y central despejada.",
+    "usar": true,
+    "ruta": "public/ilus/2026-11-28-1237-sinlinea-la-estrella-e9eb.jpg",
+    "hashDescripcion": "5cca40c14253febf",
+    "proveedor": "gemini",
+    "modelo": "gemini-3.1-flash-lite-image",
+    "generada": "2026-11-28T17:37:17.861Z",
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-28T17:37:17.861Z",
+  "actualizado": "2026-11-28T17:37:17.861Z",
+  "plantilla": "foto",
+  "dato": {
+    "cifra": "$500 mil",
+    "frase": "es el valor de las fincas y el vehículo aprehendidos por la Fiscalía"
+  }
+}

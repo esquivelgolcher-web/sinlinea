@@ -1,0 +1,48 @@
+{
+  "id": "2026-11-28-1237-sinlinea-la-estrella-ca0a",
+  "cuenta": "sinlinea",
+  "estado": "borrador",
+  "fuente": {
+    "medio": "La Estrella de Panamá",
+    "url": "https://www.laestrella.com.pa/panama/nacional/mulino-sobre-cobre-panama-no-estoy-aqui-para-tomar-las-decisiones-faciles-sino-las-decisiones-correctas-IL27687069",
+    "titulo": "Mulino sobre Cobre Panamá: ‘No estoy aquí para tomar las decisiones fáciles, sino las decisiones correctas’",
+    "publicado": "2026-11-28T14:55:00.000Z"
+  },
+  "categoria": "POLÍTICA",
+  "titular": "Mulino defiende consultas sobre futuro de mina en Donoso",
+  "bajada": "El presidente dice que tomará la decisión correcta sobre Cobre Panamá, no la más fácil.",
+  "caption": "José Raúl Mulino respaldó el proceso de consultas públicas sobre el futuro de la mina de cobre en Colón, en medio de cuestionamientos sobre la independencia de la empresa contratada como garante del diálogo. El mandatario insiste en que espera propuestas sensatas de distintos sectores. ¿Confías en que estas consultas sean realmente independientes?",
+  "hashtags": [
+    "#Panamá",
+    "#SinLínea",
+    "#CobrePanamá",
+    "#Minería",
+    "#Mulino",
+    "#Donoso"
+  ],
+  "variante": "negro",
+  "imagen": {
+    "ruta": "public/img/2026-11-28-1237-sinlinea-la-estrella-ca0a.jpg",
+    "url": "https://esquivelgolcher-web.github.io/sinlinea/img/2026-11-28-1237-sinlinea-la-estrella-ca0a.jpg",
+    "hash": "f0e8434458554e42",
+    "version": 2,
+    "estilo": "314475f960e9108f",
+    "renderizada": "2026-11-28T17:37:47.747Z"
+  },
+  "ilustracion": {
+    "descripcion": "Vista de cerros verdes y una carretera que lleva hacia una zona industrial minera en Colón, con una bandera de Panamá ondeando en el tercio superior derecho; izquierda y centro despejados.",
+    "usar": false,
+    "ruta": null,
+    "hashDescripcion": null,
+    "proveedor": null,
+    "modelo": null,
+    "generada": null,
+    "error": null
+  },
+  "programado": null,
+  "publicacion": null,
+  "error": null,
+  "creado": "2026-11-28T17:37:17.861Z",
+  "actualizado": "2026-11-28T17:37:17.861Z",
+  "plantilla": "titular"
+}
